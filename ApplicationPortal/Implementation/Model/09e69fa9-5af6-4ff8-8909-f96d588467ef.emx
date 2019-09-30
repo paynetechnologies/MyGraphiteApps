@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="User" EntityId="09e69fa9-5af6-4ff8-8909-f96d588467ef" MergedFrom="2d9dfd58-7449-4197-a8fd-e98457e2f51c" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4" BasedOn="5fbe7890-3b3d-471a-9eae-2d3b9a0f5881">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Language" PropertyId="b1179f21-4c7c-4642-be9f-627c8763dbe0" IsOptional="true" IsOverride="true" DataType="b71a74a6-a7ff-4243-b6bd-765097cb2cb6">
+    <Mapping From="7a35c7c1-9ba2-43da-a393-08be54430af5" To="b71a74a6-a7ff-4243-b6bd-765097cb2cb6" />
+    <ReplacementMapping From="7a35c7c1-9ba2-43da-a393-08be54430af5" To="b71a74a6-a7ff-4243-b6bd-765097cb2cb6" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Theme" PropertyId="8177b128-b0ec-4ba3-9242-9459705a4762" IsOptional="true" IsOverride="true" DataType="7e2a69c1-471a-4de9-aee8-d094656e71b6">
+    <Mapping From="36a6d28b-8d8a-4937-bb42-bc0a3a45bfdd" To="7e2a69c1-471a-4de9-aee8-d094656e71b6" />
+    <ReplacementMapping From="36a6d28b-8d8a-4937-bb42-bc0a3a45bfdd" To="7e2a69c1-471a-4de9-aee8-d094656e71b6" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Active" PropertyId="fd6bcb91-962d-4c2e-9cf3-a9a86be44239" IsOptional="true" IsOverride="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c">
+    <Mapping From="0e977471-ddab-4761-a910-61b22a47b8ea" To="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+    <ReplacementMapping From="0e977471-ddab-4761-a910-61b22a47b8ea" To="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Person" PropertyId="51fa999c-2950-4abe-8d01-06f08a150c7e" IsOptional="true" IsOverride="true" DataType="be83ce04-3d44-4b6f-9d4d-951b176f4197">
+    <Mapping From="07c78d9c-ffea-4fda-b368-ba120f0584ed" To="be83ce04-3d44-4b6f-9d4d-951b176f4197" />
+    <ReplacementMapping From="07c78d9c-ffea-4fda-b368-ba120f0584ed" To="be83ce04-3d44-4b6f-9d4d-951b176f4197" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="SecurityGroup" PropertyId="20c64d13-e2c6-4ef7-a2a4-d02e24ed7ce3" IsOptional="true" IsOverride="true" DataType="eba31d22-b88b-4d3d-ae05-5bae7c17dd90">
+    <Mapping From="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" To="eba31d22-b88b-4d3d-ae05-5bae7c17dd90" />
+    <ReplacementMapping From="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" To="eba31d22-b88b-4d3d-ae05-5bae7c17dd90" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Password" PropertyId="2eec5b7e-7e11-43b5-8d8a-3c60e075b43e" IsOptional="true" DataType="919223ac-22c6-4540-be89-e85d1be5f0ad" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

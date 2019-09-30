@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="ViewDetail" EntityId="890b0bb1-5387-4d50-a09b-e2398a83ccd8" MergedFrom="83dfc660-5d65-4969-9850-25db372a93b9" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewHeaderDetails" PropertyId="1ce481c7-9cbd-4eaf-9e4c-775a6c7f61d0" IsOptional="true" IsOverride="true" DataType="$[List,59af5e79-5715-4749-98e5-9905ba455019]">
+    <ReplacementMapping From="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" To="$[List,59af5e79-5715-4749-98e5-9905ba455019]" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewRegionDetails" PropertyId="26fcdf98-c0ab-4825-8446-67a4fd33b2f1" IsOptional="true" IsOverride="true" DataType="$[List,59af5e79-5715-4749-98e5-9905ba455019]">
+    <ReplacementMapping From="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" To="$[List,59af5e79-5715-4749-98e5-9905ba455019]" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewContentDetails" PropertyId="e60e1e70-4c8b-4255-9153-fc1c82af73f1" IsOptional="true" IsOverride="true" DataType="$[List,59af5e79-5715-4749-98e5-9905ba455019]">
+    <ReplacementMapping From="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" To="$[List,59af5e79-5715-4749-98e5-9905ba455019]" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewFooterDetails" PropertyId="6fba8f83-39a4-49a6-91cf-3bf28a5da7e5" IsOptional="true" IsOverride="true" DataType="$[List,59af5e79-5715-4749-98e5-9905ba455019]">
+    <ReplacementMapping From="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" To="$[List,59af5e79-5715-4749-98e5-9905ba455019]" />
+  </Property>
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

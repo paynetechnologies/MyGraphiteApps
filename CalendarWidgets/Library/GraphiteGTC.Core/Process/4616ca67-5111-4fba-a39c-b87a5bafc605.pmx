@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ProcessEvent" OwnerId="1e4d829f-cddd-4713-8a0d-7af7303d7480" ProcessId="4616ca67-5111-4fba-a39c-b87a5bafc605" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Process an event">
+  <Variables>
+    <Variable Name="ExistingEventDetail" DataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" VariableType="Input" VariableId="a7455ab6-9ce1-4a5a-ad02-f3b3711b1ec8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Input" VariableId="f2474ea8-5335-42ba-bffc-6c98ebfeddfc" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="4ad672b4-35d8-4120-b124-2657f3bb2b77" Bounds="822.5,55,170,55" />
+        <CustomIlNode Description="OnProcessEvent" ID="6b8d3cc6-59ec-45f7-9994-544835b45e22" Bounds="632.5,155,550,55" ZOrder="1" Text="Custom IL">
+          <ReferencedModelDefinitions />
+          <IL><![CDATA[
+var ExistingEventRegistration = Event.ConvertToEventRegistration( Inputs.ExistingEventDetail )
+Event.ExecuteScheduled( Inputs.CurrentUser, ExistingEventRegistration )
+]]></IL>
+        </CustomIlNode>
+        <EndNode ID="d18bd6b2-63af-4ff8-94a9-3cc12428568f" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="bbdebb83-90d8-43f0-95e6-550cd6076543" From="4ad672b4-35d8-4120-b124-2657f3bb2b77" FromIndex="0" To="6b8d3cc6-59ec-45f7-9994-544835b45e22" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="91b06005-e7d0-42ff-981b-b244002396dd" From="6b8d3cc6-59ec-45f7-9994-544835b45e22" FromIndex="2" To="d18bd6b2-63af-4ff8-94a9-3cc12428568f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

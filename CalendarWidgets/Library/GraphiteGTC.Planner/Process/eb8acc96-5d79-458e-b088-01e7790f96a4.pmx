@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AddEvent" OwnerId="7e543221-7a31-43b9-94f6-438c52cdbaf9" ProcessId="eb8acc96-5d79-458e-b088-01e7790f96a4" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Add a calendar event">
+  <Variables>
+    <Variable Name="DayPlanner" DataType="7e543221-7a31-43b9-94f6-438c52cdbaf9" VariableType="Input" VariableId="b06d9838-2d3f-45c8-a517-1c812150b716" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EventAppointment" DataType="3c22c636-a81f-43b6-a099-2d303469555c" VariableType="Input" VariableId="90192e74-f9ae-4330-971f-105ec5c40e09" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="DayPlannerEvent" DataType="312a5150-0b7b-4272-8a0d-7e3a0268c397" VariableType="Output" VariableId="93bc16bb-67e1-4dc4-8c74-4d127e7b48ea" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EventView" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="092c5b99-6ca2-4b02-9b8a-4f9c686fd3b8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EventParameters" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" VariableType="Input" VariableId="43f6d016-0a64-4a4b-9f98-47e1328c9819" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="bc116b4a-bf32-4292-abf8-639762599d9b" Bounds="822.5,65,170,55" />
+        <CreateNode Variable="DayPlannerEvent" DataType="312a5150-0b7b-4272-8a0d-7e3a0268c397" Description="Create a DayPlanner Event" ID="df9bb63f-da40-4e5d-9099-5d817afeb18f" Bounds="632.5,165,550,55">
+          <Properties>
+            <Property Name="AllDay">EventAppointment.AllDayEvent.Description</Property>
+            <Property Name="EndTime">EventAppointment.EndTime</Property>
+            <Property Name="Id">EventAppointment</Property>
+            <Property Name="StartTime">EventAppointment.StartTime</Property>
+            <Property Name="Subject">EventAppointment.Subject</Property>
+          </Properties>
+        </CreateNode>
+        <DecisionNode LeftExpression="EventView" Operator="IsNotMissing" ID="1d995c51-bee6-4fc9-ac00-18fc396441a8" Bounds="652.5,265,510,125" />
+        <DecisionNode LeftExpression="DayPlanner.Events" Operator="IsMissing" Description="Events missing?" ID="018530ed-a524-469e-9509-61e3bbfc580b" Bounds="652.5,535,510,125" />
+        <CreateNode Variable="DayPlannerEvent.EventModal" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" Description="Set Event Modal Navigation" ID="90f86fc7-2f4a-4055-8fc5-6b672b712437" Bounds="232.5,435,550,55">
+          <Properties>
+            <Property Name="UiParameters">EventParameters</Property>
+            <Property Name="View">EventView</Property>
+          </Properties>
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="DayPlannerEvent" SourceList="DayPlanner.Events" Description="Add new Event to DayPlanner" ID="557901dc-470d-49f5-b0fc-9448b1d1fe64" Bounds="632.5,805,550,55" Text="List Management" />
+        <CreateNode Variable="DayPlanner.Events" DataType="$[List,312a5150-0b7b-4272-8a0d-7e3a0268c397]" Description="Intialize Events" ID="c28db35c-0c30-4405-9f95-649a18a0bb92" Bounds="232.5,705,550,55">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="216a06ba-c3d2-4a85-b3ba-30b19512ff99" Bounds="822.5,905,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="4ac656a0-be33-4871-a835-987c8ae2478e" From="bc116b4a-bf32-4292-abf8-639762599d9b" FromIndex="0" To="df9bb63f-da40-4e5d-9099-5d817afeb18f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,120" />
+          <Segment EndPoint="907.5,165" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="8cb0516b-7571-4edd-bda6-74ecb983edc2" From="018530ed-a524-469e-9509-61e3bbfc580b" FromIndex="3" To="c28db35c-0c30-4405-9f95-649a18a0bb92" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,597.5" />
+          <Segment EndPoint="507.5,597.5" />
+          <Segment EndPoint="507.5,705" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="0ed21cd1-c27a-47ad-894a-d3e4611189ff" From="018530ed-a524-469e-9509-61e3bbfc580b" FromIndex="2" To="557901dc-470d-49f5-b0fc-9448b1d1fe64" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,660" />
+          <Segment EndPoint="907.5,805" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="5a37b018-a75d-4de0-9fa9-456b2a85aa38" From="557901dc-470d-49f5-b0fc-9448b1d1fe64" FromIndex="2" To="216a06ba-c3d2-4a85-b3ba-30b19512ff99" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,860" />
+          <Segment EndPoint="907.5,905" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="2ae02cbb-9f6b-4bb9-b3f9-f762556c4ad4" From="c28db35c-0c30-4405-9f95-649a18a0bb92" FromIndex="2" To="557901dc-470d-49f5-b0fc-9448b1d1fe64" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,760" />
+          <Segment EndPoint="507.5,832.5" />
+          <Segment EndPoint="632.5,832.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e05c6c81-d86c-4eb2-a7d5-369081e696ae" From="df9bb63f-da40-4e5d-9099-5d817afeb18f" FromIndex="2" To="1d995c51-bee6-4fc9-ac00-18fc396441a8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,220" />
+          <Segment EndPoint="907.5,265" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="15bc0cb4-7fa7-4062-a9d3-604721e87f50" From="1d995c51-bee6-4fc9-ac00-18fc396441a8" FromIndex="3" To="90f86fc7-2f4a-4055-8fc5-6b672b712437" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,327.5" />
+          <Segment EndPoint="507.5,327.5" />
+          <Segment EndPoint="507.5,435" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="5a33c21b-9b34-4600-a7c9-f008543061c5" From="1d995c51-bee6-4fc9-ac00-18fc396441a8" FromIndex="2" To="018530ed-a524-469e-9509-61e3bbfc580b" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,390" />
+          <Segment EndPoint="907.5,535" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="16ea6e4f-8e55-4503-854a-7888c61e5a18" From="90f86fc7-2f4a-4055-8fc5-6b672b712437" FromIndex="1" To="018530ed-a524-469e-9509-61e3bbfc580b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="782.5,462.5" />
+          <Segment EndPoint="907.5,462.5" />
+          <Segment EndPoint="907.5,535" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

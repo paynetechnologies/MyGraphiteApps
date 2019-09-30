@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FileUpload" ViewElementId="61820194-6a90-45d6-998a-3fee786a81a5" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>File Upload element facilitates uploading different file types either by browsing for or dragging files on it.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UploadTip" PropertyId="SimpleEntityDefinitionProperty_UploadTip" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnUpload" PropertyId="SimpleEntityDefinitionProperty_OnUpload" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SaveDirectory" PropertyId="SimpleEntityDefinitionProperty_SaveDirectory" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AppendGuid" PropertyId="SimpleEntityDefinitionProperty_AppendGuid" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SelectMultipleFiles" PropertyId="SimpleEntityDefinitionProperty_SelectMultipleFiles" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MaximumParallelUploads" PropertyId="SimpleEntityDefinitionProperty_MaximumParallelUploads" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SaveToDisk" PropertyId="f03da771-03d9-4f99-8463-75f1ae88c7e8" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FormToSerialize" PropertyId="95d9941f-2a12-412d-a528-b0275fddec5a" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnAdd" PropertyId="7d813514-d53f-41d3-902b-d60c92b377b0" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnRemove" PropertyId="3405d351-77aa-4288-8bc5-da7f3f8679af" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="FileUpload" />
+    <Property PropertyName="AppendGuid" DefaultValue="No" />
+    <Property PropertyName="SelectMultipleFiles" DefaultValue="Yes" />
+    <Property PropertyName="MaximumParallelUploads" DefaultValue="10" />
+    <Property PropertyName="SaveToDisk" DefaultValue="No" />
+    <Property PropertyName="SaveDirectory" DefaultValue="Deprecated" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">FileUpload.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.FileUpload.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="UploadTip" EditorType="TranslationKeyChooser" Label="Tip" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Tooltip]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnUpload" EditorType="ViewUploadBehaviorChooser" Label="OnUpload" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Upload Button is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="MediaFiles" ParameterDataType="$[List,30d687ee-3dfb-4dae-95ff-5429488506da]" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="SaveDirectory" EditorType="Hidden" Label="Upload Folder" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Deprecated" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="AppendGuid" EditorType="Hidden" Label="Append Identifier?" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SelectMultipleFiles" EditorType="YesNoToggle" Label="Select multiple files?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Allow multiple file to be uploaded?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="MaximumParallelUploads" EditorType="IntegerTextBox" Label="Maximum Parallel Uploads" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Maximum parallel uploads]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="10" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SaveToDisk" EditorType="Hidden" Label="Save to Disk?" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Form to Submit when Upload Button is clicked]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="OnAdd" EditorType="ViewBehaviorChooser" Label="OnAdd" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run whena file added for upload]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FileName" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FileType" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FileSize" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnRemove" EditorType="ViewBehaviorChooser" Label="OnRemove" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when a file is removed from the upload list]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FileName" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FileType" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FileSize" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="UploadTip" PropertyPath="UploadTip" Value="{TranslationKey}" />
+      <Map FieldName="OnUpload" PropertyPath="OnUpload.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnUpload" PropertyPath="OnUpload.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="SelectMultipleFiles" PropertyPath="SelectMultipleFiles" Value="{Text}" />
+      <Map FieldName="MaximumParallelUploads" PropertyPath="MaximumParallelUploads" Value="{Text}" />
+      <Map FieldName="FormToSerialize" PropertyPath="FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="OnAdd" PropertyPath="OnAdd.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnAdd" PropertyPath="OnAdd.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnRemove" PropertyPath="OnRemove.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnRemove" PropertyPath="OnRemove.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Upload</Key>
+    <Key>RemoveFile</Key>
+    <Key>CancelUpload</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHnSURBVEhLtZa/S1VhHIevkeUmNQgNFbjoYktmOAa1mIIE5e5w1UkIWvwHGkSoLbeWhpoCwYggt4R+gi1ukgpBTjqphfo854ec83rOubfyPvDwvt/3nvf9nHt+t9Xr9VoF5/EWjuIgXsVO3MYfuIyvcQn3sJAzSRtyFk1fwzc4gdfQALG1dtzf1/EhnsMTFIX04Becx0sONEEXzuEn7HUgSxhyAz+ge/kvOM/5N6MqIRviHrzDi1FVzrekLeMCvsXjf5SGtONLTI95GS+wP2mrcJ1X6LrHIdPY6BC9x3E8SFrrKvrQdaOQDnxkUcF3vIf7URW31o5X4bodhgyjV0cZmziE3htZrB339zJcd8SQu1FZTKOFynYgy5Ah1+P+CZo9JOGhDOk35Ercz3GIzZzclPSicF7IZUOKLtsZbHSZhri980I6DdmJ+zkeo3uVtYhwG+eF7BiyEfdbxqYhPtRayUdDFuN+y1g0ZAF/ReXps4ULhuzirCMtwHV3DZGnuBJ3Tw1v0id20pDfOIZVj4fwctUyXOcBum7upbWKt/F/z4/z76DrRWRD5DP6Cv4aVX+Pb80BzN0WYYj45eE7egp/OtAEbjeJBviplKMoRP7gM+zG+/gcPZHpI8jW2nF/dzu/bpwXUKsdAS1hbpDU9oRRAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVEhLtZa7TsMwGEbbiksnujGhdoQdEGKEsTAwwMQOzIiBd+A1eAAG6IYYkUBFAp4AtUJCCFQ6tQvlfEkd5eLYUVGPdJTYsf/fSRw75dFoVHIwj1u4h5vYwBr+4Bve4xXe4RDtKInFGTzCdyzCB57iHGbiZSpwGZ9xEtRvBRMxEwVcxy/8D9+4gVHceAKNoIc+nsZHF4oT3ZFJMItFHtElVsZHHy+ouFGSM/Rxi+bF6qiyD8UNklRRs8OFRlVDMyipsupdKG5VjfeDYj4dXMJ4AqPqdd3FQYVPZSf8Yqzoo2tiNyhlUb2uq10eTY0m75aHuI3p0dtUO7W38aoGtmn7i4eYDuZS7dUvTU8XbZxjOkgR1S+DFkg9z4Xw8Tkpj49xmJ9e+nrxnfB8anSV5DE8nxoPStIKz6dGS++kyok2oMWgKp9J3skn1nUnA7xQzRRQ3IGZekVW4fhUNbrIrMKy6H5SBOt+YlxD34rsQ/21w0Zx4wmMdWzjJGjXbGAiZqIQU38rJ1j0b0XtjlH9MvF8/12a3ruo7WAV9d+lJaiPmvZtvMFr1Cy1UCr9AfBy0C6Vln58AAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

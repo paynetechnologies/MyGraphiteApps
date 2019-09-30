@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLeaveCreditTab" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="3195ebfb-17c5-4dce-81ff-31be2a9f37bd" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="c781193f-980b-492b-bbd1-5925cdbd3236" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="c3d690d6-2bef-44a7-8a55-f1b19e0bb00b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FormChanged" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="9064360d-b6f1-4083-ae30-f4d6c0583cda" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="3727860d-089e-44c9-bec0-f640346e95fb" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="8304dc73-aa4a-467e-8f94-41c85f8e1f0a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AgreementField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="072a289c-5b9a-4d95-83cf-f1d7f5e17014" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="DateOfBirthField" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="5c76015e-1205-4474-b6d9-8528b898b177" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="DisclosureField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="431a4870-faba-475a-8b9e-a9177831302e" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="SsnField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="6bb65342-ecc7-43f3-8810-8e4e7c3a814f" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="556a638c-5d13-4de0-bafa-b51d26e79d85" Bounds="650.6,285,170,55" ZOrder="3" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="d0d51cec-1437-4df2-af85-da69976e9230" Bounds="460.6,385,550,55" ZOrder="3" Text="Create">
+          <Properties />
+        </CreateNode>
+        <DecisionNode LeftExpression="FormChanged" RightExpression="&quot;Yes&quot;" Operator="IsEqualTo" ID="7398c5ca-7368-44a5-96b3-9b65f5e20930" Bounds="480.6,485,510,125" ZOrder="3" Text="" />
+        <CreateFromNode Variable="HomeLoanDataInContext" FromExpression="ApplicationInContext.ApplicationData" CreateAsTypeId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" Description="Convert Application Data to Home Loan Data" ID="9b881d2f-89d5-4394-bb6f-54641929ad5f" Bounds="460.6,655,550,55" ZOrder="5" Text="Create From" />
+        <ExecuteProcessNode EntityDefinition="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessProperty="a67c8010-f082-410b-b8d2-e0399f05c34c" ExecuteProcessType="EntityStatic" VariableId="PersonalDataUpdateDateOfBirthResult" SuppressValidations="false" ID="11fafa61-e51e-471e-84cc-68744aed2fae" Bounds="460.6,755,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="DateOfBirth" Value="DateOfBirthField" />
+            <InputVariable Name="PersonalData" Value="HomeLoanDataInContext.PersonalData" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PersonalData" Value="HomeLoanDataInContext.PersonalData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessProperty="777869b9-fb96-4e8e-b041-784877d11673" ExecuteProcessType="EntityStatic" VariableId="PersonalDataUpdateSSNResult" SuppressValidations="false" ID="b3dbe95c-689e-430a-adb9-8d82257572f9" Bounds="460.6,855,550,55" ZOrder="4" Text="">
+          <InputVariables>
+            <InputVariable Name="PersonalData" Value="HomeLoanDataInContext.PersonalData" />
+            <InputVariable Name="SSN" Value="SsnField" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PersonalData" Value="HomeLoanDataInContext.PersonalData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <DecisionNode LeftExpression="AgreementField" RightExpression="YesNoQuestion:Yes.Description" Operator="IsEqualTo" ID="9d8dbf28-44ae-49d4-b29d-20a8c2169574" Bounds="480.6,955,510,125" />
+        <ExecuteProcessNode EntityDefinition="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" ProcessProperty="5454f4b3-c2c2-482f-b997-e1b3409c691e" ExecuteProcessType="EntityStatic" VariableId="ApplicationUpdateAgreementResult" SuppressValidations="false" ID="a2d4c729-7e15-4b4c-aabd-2104fd732ed2" Bounds="860.6,1125,550,55" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="Application" Value="ApplicationInContext" />
+            <InputVariable Name="DisclosureAgreement" Value="YesNoQuestion:No" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Application" Value="ApplicationInContext" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" ProcessProperty="5454f4b3-c2c2-482f-b997-e1b3409c691e" ExecuteProcessType="EntityStatic" VariableId="ApplicationUpdateAgreementResult" SuppressValidations="false" ID="4a3929f3-4266-4376-bdc2-64229a133763" Bounds="60,1125,550,55" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="Application" Value="ApplicationInContext" />
+            <InputVariable Name="DisclosureAgreement" Value="YesNoQuestion:Yes" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Application" Value="ApplicationInContext" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Merge" ListItem="ApplicationInContext" SourceList="ApplicantInContext.Applications" ID="30b2f8df-3654-4b4f-b100-5e9b361f37c5" Bounds="460.6,1225,550,55" ZOrder="4" Text="" />
+        <SaveNode Description="Save Applicant and Application" ID="7139df8d-4cd3-46ed-b0b0-c14e687e29f0" Bounds="460.6,1325,550,55" ZOrder="4" Text="">
+          <Entity>ApplicantInContext</Entity>
+          <Entity>ApplicationInContext</Entity>
+        </SaveNode>
+        <ExecuteProcessNode ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="163bf9bd-223e-41bb-9bc9-b6a9f1e2887e" ExecuteProcessType="View" VariableId="HomeLoanUpdatePageParametersResult" SuppressValidations="false" ID="9d739845-e5aa-49eb-8bba-cadfc478d4e0" Bounds="460.6,1425,550,55" ZOrder="4" Text="">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="ApplicantInContext" />
+            <InputVariable Name="ApplicationInContext" Value="ApplicationInContext" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PageInstructions" Value="PageInstructions" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="18420eae-674b-4f58-85e2-e67dd37189b1" Bounds="650.6,1525,170,55" ZOrder="4" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="bfaf4cb9-48db-4a4e-8d46-e6031dd482e2" From="7139df8d-4cd3-46ed-b0b0-c14e687e29f0" FromIndex="2" To="9d739845-e5aa-49eb-8bba-cadfc478d4e0" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="735.6,1380" />
+          <Segment EndPoint="735.6,1425" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d6190ba6-e003-4529-af6d-c7b2757136e0" From="556a638c-5d13-4de0-bafa-b51d26e79d85" FromIndex="0" To="d0d51cec-1437-4df2-af85-da69976e9230" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="735.6,340" />
+          <Segment EndPoint="735.6,385" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7086286b-9ed0-4d85-8df7-20f650221e15" From="9d739845-e5aa-49eb-8bba-cadfc478d4e0" FromIndex="2" To="18420eae-674b-4f58-85e2-e67dd37189b1" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="735.6,1480" />
+          <Segment EndPoint="735.6,1525" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3e73a709-2368-4842-9bca-9bad975d3373" From="30b2f8df-3654-4b4f-b100-5e9b361f37c5" FromIndex="2" To="7139df8d-4cd3-46ed-b0b0-c14e687e29f0" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="735.6,1280" />
+          <Segment EndPoint="735.6,1325" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5fa69491-56b5-4bc1-8088-802870b74947" From="d0d51cec-1437-4df2-af85-da69976e9230" FromIndex="2" To="7398c5ca-7368-44a5-96b3-9b65f5e20930" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="735.6,440" />
+          <Segment EndPoint="735.6,485" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="8f17aaa3-1b60-4d20-a818-f2e164ffa0a1" From="7398c5ca-7368-44a5-96b3-9b65f5e20930" FromIndex="2" To="9b881d2f-89d5-4394-bb6f-54641929ad5f" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="735.6,610" />
+          <Segment EndPoint="735.6,655" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="92427b86-bdfb-40a4-918a-fd0b7f2e67d9" From="9b881d2f-89d5-4394-bb6f-54641929ad5f" FromIndex="2" To="11fafa61-e51e-471e-84cc-68744aed2fae" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="735.6,710" />
+          <Segment EndPoint="735.6,755" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="490330fb-253c-491c-a03b-cdd5f9fb980a" From="11fafa61-e51e-471e-84cc-68744aed2fae" FromIndex="2" To="b3dbe95c-689e-430a-adb9-8d82257572f9" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="735.6,810" />
+          <Segment EndPoint="735.6,855" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f95ee754-c8ce-47ff-b6d5-1d7b5176efc7" From="b3dbe95c-689e-430a-adb9-8d82257572f9" FromIndex="2" To="9d8dbf28-44ae-49d4-b29d-20a8c2169574" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="735.6,910" />
+          <Segment EndPoint="735.6,955" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="abc5b31a-345e-4975-9c45-54fed7c48044" From="9d8dbf28-44ae-49d4-b29d-20a8c2169574" FromIndex="3" To="4a3929f3-4266-4376-bdc2-64229a133763" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="480.6,1017.5" />
+          <Segment EndPoint="335,1017.5" />
+          <Segment EndPoint="335,1125" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="d65e458b-6396-4c0f-b165-0e6e4ee7cdd9" From="9d8dbf28-44ae-49d4-b29d-20a8c2169574" FromIndex="1" To="a2d4c729-7e15-4b4c-aabd-2104fd732ed2" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="990.6,1017.5" />
+          <Segment EndPoint="1135.6,1017.5" />
+          <Segment EndPoint="1135.6,1125" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="0acf4d83-f76c-44f6-8fa5-276a6f174321" From="4a3929f3-4266-4376-bdc2-64229a133763" FromIndex="2" To="30b2f8df-3654-4b4f-b100-5e9b361f37c5" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="335,1180" />
+          <Segment EndPoint="335,1252.5" />
+          <Segment EndPoint="460.6,1252.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ca7bb41a-f8a9-4572-b56f-2e4539a1c549" From="a2d4c729-7e15-4b4c-aabd-2104fd732ed2" FromIndex="2" To="30b2f8df-3654-4b4f-b100-5e9b361f37c5" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1135.6,1180" />
+          <Segment EndPoint="1135.6,1252.5" />
+          <Segment EndPoint="1010.6,1252.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

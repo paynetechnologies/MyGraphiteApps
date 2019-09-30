@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetAuthenticationDetail" OwnerId="aa51660f-8834-4f41-98df-bf062f7d4e11" ProcessId="b338295c-baba-499b-8e35-061fb43823ad" ProcessType="Normal" Classification="DataTransfer" IsRemovable="true" Description="Get authentication detail about a user">
+  <Variables>
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="983dbc9d-42dc-42b9-9b34-0dca4c4e5b5b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="1bbc374e-2474-4e74-b9b6-3e2664abddb0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AuthenticationDetail" DataType="aa51660f-8834-4f41-98df-bf062f7d4e11" VariableType="Output" VariableId="739fdb4b-bc06-492c-98ee-79bd71f389fc" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="f3654000-8d05-46f2-9d99-b5a37ce9e515" Bounds="822.5,55,170,55" />
+        <RunWebServiceNode ServiceProcessId="fdcaabef-2986-4bfd-ab51-94a827c540ac" VariableId="GetAuthenticationDetailResult" ID="8a96f8ae-19f1-4333-9e51-aa08f4446747" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="GetDetailResult" Value="AuthenticationDetail" />
+          </OutputVariables>
+        </RunWebServiceNode>
+        <EndNode ID="c354855e-d08a-46de-be0a-b96383d32418" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="3c005080-d862-42b4-b9b0-75e47416447a" From="f3654000-8d05-46f2-9d99-b5a37ce9e515" FromIndex="0" To="8a96f8ae-19f1-4333-9e51-aa08f4446747" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="683e00a3-bc57-405c-a429-3093e7b922d6" From="8a96f8ae-19f1-4333-9e51-aa08f4446747" FromIndex="2" To="c354855e-d08a-46de-be0a-b96383d32418" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

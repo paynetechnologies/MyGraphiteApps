@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="InsuranceData" EntityId="9e724afd-bac4-4e54-9136-dbbebf2834c9" TargetChangeSetId="b3726a15-8529-44ed-9a8d-786d8cb752e1" BasedOn="8d594c19-40b0-4805-8903-3b5365b0bd68">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PersonalData" PropertyId="c484c16a-3de3-4ae9-aba9-abbb94a7a6a6" IsOptional="true" IsOverride="true" DataType="d80d797f-d363-471f-bae5-53a4b87f2c4c">
+    <Mapping From="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" To="d80d797f-d363-471f-bae5-53a4b87f2c4c" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="BodilyInjuryLimit" PropertyId="4efa904a-5803-43d5-bcfe-47006e7eaea5" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="CollisionDeductible" PropertyId="111c9b5a-38b1-405c-be7e-842354be428a" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ComprehensiveLimit" PropertyId="63dab01e-7bcc-4918-802a-1d378f4d44c9" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="FinanceModel" PropertyId="1510eda6-078b-4191-b69f-09893455287f" IsOptional="true" DataType="95222e34-5530-4e06-8531-a63209d80a34" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="MilesPerYear" PropertyId="76e1d0d5-ff58-4259-9b96-eded2fa2cd12" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PrimaryUse" PropertyId="09704e55-8c9f-48ee-8907-0b0a5b566cd1" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PropertyDamageLimit" PropertyId="7d67dc5c-792f-42dc-993c-af8fff165d14" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="RideShare" PropertyId="eae30be2-77cd-4bbd-9ade-195e7ea595c8" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="VehicleBodyStyle" PropertyId="39bdbb4c-857d-48ae-8908-86763f52bb74" IsOptional="true" DataType="7b319dda-aa59-45ad-9cb2-64c5dfdffb8f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="VehicleMake" PropertyId="7767fe80-d6aa-4f3e-8938-31f19334b892" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="VehicleModel" PropertyId="e4dad7dd-0b0a-4409-b09b-8741d5487f8e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="VehicleYear" PropertyId="9333f77f-9e80-49d5-b607-2a51771c1f2d" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

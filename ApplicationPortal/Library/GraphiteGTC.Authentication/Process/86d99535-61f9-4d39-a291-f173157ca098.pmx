@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ChangePassword" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="86d99535-61f9-4d39-a291-f173157ca098" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Change password">
+  <Variables>
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="020fd201-73a3-402f-9263-73d10ad82837" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a8091523-58bd-46b0-8829-96503c064890" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="OldPassword" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="05145d2d-8b85-4774-ac6f-19ca74f65883" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="NewPassword" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="4a5d041d-7ffa-4000-84bb-8e5649211db3" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PasswordChanged" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="0b430174-6352-4bdc-a88a-217a06a95432" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Message" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="3306df6a-66bc-47d3-bd58-b058d0696379" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="84c3c8c8-9a12-452f-bc10-afcf2148467f" Bounds="822.5,70,170,55" Text="Start" />
+        <RunWebServiceNode ServiceProcessId="4b409081-2386-4342-b471-c9536490d337" VariableId="ChangePasswordResult" ID="308800db-c682-44a2-8638-ce24d304321a" Bounds="632.5,170,550,55" Text="Run Web Service">
+          <InputVariables>
+            <InputVariable Name="NewPassword" Value="NewPassword" />
+            <InputVariable Name="OldPassword" Value="OldPassword" />
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode Description="" ID="397a1b0f-9b93-4134-adde-293c02bd4541" Bounds="632.5,270,550,55" Text="Assign">
+          <Assignment Name="Message" Value="ChangePasswordResult.Outputs.ChangePasswordResult.Message" />
+          <Assignment Name="PasswordChanged" Value="ChangePasswordResult.Outputs.ChangePasswordResult.Success" />
+        </AssignNode>
+        <EndNode ID="f87bd20c-d55f-407b-a113-b498558b4de7" Bounds="822.5,370,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="0f6e0047-dda9-4028-b1d3-15f8de002c16" From="84c3c8c8-9a12-452f-bc10-afcf2148467f" FromIndex="0" To="308800db-c682-44a2-8638-ce24d304321a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,125" />
+          <Segment EndPoint="907.5,170" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="1cc04bcd-b2bc-4af1-9c90-6e4bc337e3b2" From="308800db-c682-44a2-8638-ce24d304321a" FromIndex="2" To="397a1b0f-9b93-4134-adde-293c02bd4541" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,225" />
+          <Segment EndPoint="907.5,270" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6dfdf57a-cd4f-4897-b9fc-3af7ba24e901" From="397a1b0f-9b93-4134-adde-293c02bd4541" FromIndex="2" To="f87bd20c-d55f-407b-a113-b498558b4de7" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,325" />
+          <Segment EndPoint="907.5,370" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

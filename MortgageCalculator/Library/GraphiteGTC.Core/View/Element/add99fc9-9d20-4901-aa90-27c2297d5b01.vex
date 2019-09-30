@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TilePanel" ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tile Panel contains a set of Tiles.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tiles" PropertyId="SimpleEntityDefinitionProperty_Tiles" IsOptional="true" DataType="$[List,e2d3129b-4646-42e6-a5f6-4968748df0b9]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tooltip" PropertyId="SimpleEntityDefinitionProperty_Tooltip" IsOptional="true" DataType="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TilePanelType" PropertyId="8f6c3a78-367c-45d6-9e82-15acac2d7ced" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="TilePanel" />
+    <Property PropertyName="TilePanelType" DefaultValue="Default" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">TilePanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="TooltipName" EditorType="TextBox" Label="Name" Grouping="Tooltip" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Name of the tooltip]]></Description>
+      </Field>
+      <Field FieldName="TooltipTextString" EditorType="TranslationKeyChooser" Label="Text" Grouping="Tooltip" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Tooltip text]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="TilePanelType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Type of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Default, Coverflow, Panes, Shutters, Stack]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="CoverFlow" Value="CoverFlow" />
+          <FieldOption DisplayName="Panes" Value="Panes" />
+          <FieldOption DisplayName="Shutters" Value="Shutters" />
+          <FieldOption DisplayName="Stack" Value="Stack" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="TooltipName" PropertyPath="Tooltip.Name" Value="{Text}" />
+      <Map FieldName="TooltipTextString" PropertyPath="Tooltip.TextString" Value="{TranslationKey}" />
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="TilePanelType" PropertyPath="TilePanelType" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVEhL7ZMxCsAwDAOdPtb//0FLIRaiiGaxPYQcHB00CDdouPtthVzzO4pEQRnfgvd3/RmojAXtF6RzCpbsV6DWyAYqY0H7BWqVbKAyFuz3yOmcgiXtBWqVbKAyFrRdoNaYoNkD92A4YRIGhCoAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABESURBVEhLY/wPBAw0BDALGCFcqoP/TFAGzQC6DwgFF8nqaO6DUQsIglELCILRnIwLjOZk4sGoBQQBzS0YPjmZRoCBAQA0bCUOwkXwFwAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

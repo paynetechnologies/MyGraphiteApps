@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="AccordionForm" ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" BasedOn="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Accordion Form is a form that contains one or more fieldsets but allows the showing of one fielset at a time.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AccordionFieldSets" PropertyId="SimpleEntityDefinitionProperty_AccordionFieldSets" IsOptional="true" DataType="$[List,70b7b6d1-2da2-4870-bd23-eb4a0b4111e5]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsAccordionFirst" PropertyId="SimpleEntityDefinitionProperty_IsAccordionFirst" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="AccordionForm" />
+    <Property PropertyName="IsAccordionFirst" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">AccordionForm.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="IsAccordionFirst" EditorType="YesNoToggle" Label="Place at begining?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Place at the top of the Added View Elements]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsAccordionFirst" PropertyPath="IsAccordionFirst" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAARCAYAAADHeGwwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVDhPY0xLS/vPQEPABKVpBkYtIAjoYgEjLTHIAlAypRkejWSCYNQCgmDUAgKAgQEA2icaU6co9c0AAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAARCAYAAADHeGwwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAxSURBVDhPY/wPBAw0BExQmmZg1AKCgOYWgFIRlEkbMJpMCYJRCwiCUQsIAhpbwMAAAIzFCxVx9xegAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildContactDetails" OwnerId="913e4155-0c81-4a39-8f43-113764623287" ProcessId="d8914e77-99de-4c4f-9fc9-ab9c4d090dbf" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="Contacts" DataType="$[List,c10d5592-8fd9-4693-b832-5c171e0bdb3c]" VariableType="Input" VariableId="fa61ed26-ac04-4c0f-8b2e-6302bd41b9a0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ContactDetails" DataType="$[List,$[c8e166a7-71da-484a-9ab9-50e4b7cbb0b2,913e4155-0c81-4a39-8f43-113764623287]]" VariableType="Output" VariableId="c2f18663-0626-4f14-b0e4-4a187d4fabc7" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="5d26d9bc-aad6-4dcf-a971-e2a4ed77d95e" Bounds="630.6,55,170,55" />
+        <CreateNode Variable="ContactDetails" DataType="$[List,$[c8e166a7-71da-484a-9ab9-50e4b7cbb0b2,913e4155-0c81-4a39-8f43-113764623287]]" ID="3fc3c1ca-61f6-4bb1-9f73-e15741c0e3ad" Bounds="440.6,155,550,55">
+          <Properties />
+        </CreateNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="Contacts" IterationVar="ContactToDisplay" ID="75c39fe4-dd2c-4ef4-8c0f-b538dcf5729e" Bounds="365.6,255,700,305" />
+        <ExecuteProcessNode ViewDefinition="913e4155-0c81-4a39-8f43-113764623287" ProcessProperty="1529dfd8-8e81-4d8a-9b52-cd27d0fa0011" ExecuteProcessType="View" VariableId="HomeBuildContactDetailResult" SuppressValidations="false" Parent="75c39fe4-dd2c-4ef4-8c0f-b538dcf5729e" ID="8b434920-8fe9-457b-88a1-1237b7e3a614" Bounds="75,75,550,55" ZOrder="10">
+          <InputVariables>
+            <InputVariable Name="ContactToDisplay" Value="ContactToDisplay" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Add" ListItem="HomeBuildContactDetailResult.Outputs.NewContactDetail" SourceList="ContactDetails" Parent="75c39fe4-dd2c-4ef4-8c0f-b538dcf5729e" ID="ca85ed98-7b5d-445a-80dc-48a3a0315f30" Bounds="75,175,550,55" ZOrder="10" />
+        <EndNode ID="23ae4e1d-372e-431a-addc-7ec0da9c1b8a" Bounds="630.6,605,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="8d704da3-5f88-4b19-929e-ef013f9d2432" From="5d26d9bc-aad6-4dcf-a971-e2a4ed77d95e" FromIndex="0" To="3fc3c1ca-61f6-4bb1-9f73-e15741c0e3ad" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8044b118-8187-47da-9f77-fa2d768a2135" From="3fc3c1ca-61f6-4bb1-9f73-e15741c0e3ad" FromIndex="2" To="75c39fe4-dd2c-4ef4-8c0f-b538dcf5729e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="24701899-6683-47c1-a16b-547b842970af" From="8b434920-8fe9-457b-88a1-1237b7e3a614" FromIndex="2" To="ca85ed98-7b5d-445a-80dc-48a3a0315f30" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,385" />
+          <Segment EndPoint="715.6,430" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="edbd9048-2dd9-4b0f-983e-3399e69f551b" From="75c39fe4-dd2c-4ef4-8c0f-b538dcf5729e" FromIndex="2" To="23ae4e1d-372e-431a-addc-7ec0da9c1b8a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,560" />
+          <Segment EndPoint="715.6,605" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

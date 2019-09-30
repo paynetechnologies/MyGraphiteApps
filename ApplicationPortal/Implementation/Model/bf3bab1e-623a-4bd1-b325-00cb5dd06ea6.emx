@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="ViewAuthorizationLevel" EntityId="bf3bab1e-623a-4bd1-b325-00cb5dd06ea6" EntityType="Enumeration" MergedFrom="c79af0be-c629-4695-a159-bd481d5dbae1" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <DataEntries KeyProperty="Description" />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

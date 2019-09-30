@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ChangeMobilePhoneConfirmCode" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="f4697ace-da27-4229-9f92-b5d452fb492e" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Confirm a code during a mobile phone number change">
+  <Variables>
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="9a1931b7-b2c9-4bf9-88f9-05cf3f4e1675" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="6b84510a-7eaa-4331-adf6-3c1d7edd22a3" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="TwoFactorAuthenticationCode" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="320ea70d-26c7-4599-ad7e-4ac9879a91b1" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Message" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="e04f6e41-7aac-4df8-a7c1-5a4365de8f90" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CodeConfirmed" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="d98abac7-fede-4755-a92c-7835b3622a43" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="8c7fabcd-95e7-4616-9314-ec4205b8a663" Bounds="822.5,55,170,55" />
+        <RunWebServiceNode ServiceProcessId="f1545025-bf76-48d4-b6e3-f8ac783422d2" VariableId="ChangeMobilePhoneConfirmCodeResult" ID="265e95aa-a491-4a1d-88fc-db4b677543f6" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Code" Value="TwoFactorAuthenticationCode" />
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode ID="1b494f6c-a465-45b9-89b4-e3d7d0e9b7af" Bounds="632.5,255,550,55">
+          <Assignment Name="Message" Value="ChangeMobilePhoneConfirmCodeResult.Outputs.ChangeMobilePhoneConfirmCodeResult.Message" />
+          <Assignment Name="CodeConfirmed" Value="ChangeMobilePhoneConfirmCodeResult.Outputs.ChangeMobilePhoneConfirmCodeResult.Success" />
+        </AssignNode>
+        <EndNode ID="18756c0d-a4cc-438f-b7da-eee5d516ef3e" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="2582469b-ffe7-4398-b96c-bfbb4c5475e7" From="8c7fabcd-95e7-4616-9314-ec4205b8a663" FromIndex="0" To="265e95aa-a491-4a1d-88fc-db4b677543f6" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5cc72a18-2452-4bdb-952f-0e91efa0dadd" From="265e95aa-a491-4a1d-88fc-db4b677543f6" FromIndex="2" To="1b494f6c-a465-45b9-89b4-e3d7d0e9b7af" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="29797524-fdf9-4be3-a986-848e51f2cffc" From="1b494f6c-a465-45b9-89b4-e3d7d0e9b7af" FromIndex="2" To="18756c0d-a4cc-438f-b7da-eee5d516ef3e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="GiftData" EntityId="f873ae42-9c64-425b-b3e4-5f75f1660923" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Amount" PropertyId="8a3d0f5f-88e5-494f-a0ff-ab88dbf1b90d" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Source" PropertyId="503daff0-6143-4e7b-bada-f6264cd24974" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

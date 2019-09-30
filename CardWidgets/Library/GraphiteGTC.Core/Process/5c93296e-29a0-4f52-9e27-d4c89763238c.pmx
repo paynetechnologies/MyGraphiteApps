@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildImageSource" OwnerId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" ProcessId="5c93296e-29a0-4f52-9e27-d4c89763238c" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Converts base64 content RFC2397 image data">
+  <Variables>
+    <Variable Name="Base64Content" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="bd2b72cf-a361-4467-be04-b4fc1ea1634b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MediaType" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="1844eac1-1409-4223-97e1-8f0a29409a50" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ImageSource" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="c7ad24c9-fd73-47fe-b98f-8dad57443bbc" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="156ab8d9-a3b6-46c2-8fdf-0c94ac49bafa" Bounds="822.5,55,170,55" />
+        <AssignNode Description="Source = data:[&lt;media type&gt;][;base64],&lt;data&gt; (RFC 2397)" ID="6bb3b7fd-0fc8-4681-91e5-82e7d43cbc32" Bounds="632.5,155,550,55" ZOrder="1" Text="">
+          <Assignment Name="ImageSource" Value="Text.Concatenate( &quot;data:&quot;, MediaType, &quot;;base64,&quot;, Base64Content )" />
+        </AssignNode>
+        <EndNode ID="7fcb6be4-b841-44ae-8aaa-8bac033c53c4" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="163d9326-e389-4e89-a775-3d80a0d8467d" From="156ab8d9-a3b6-46c2-8fdf-0c94ac49bafa" FromIndex="0" To="6bb3b7fd-0fc8-4681-91e5-82e7d43cbc32" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="1cb4525b-0eb6-4184-b622-47bd86842c2c" From="6bb3b7fd-0fc8-4681-91e5-82e7d43cbc32" FromIndex="2" To="7fcb6be4-b841-44ae-8aaa-8bac033c53c4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="SampleModal" GroupName="" ViewId="b556d485-9aa8-45f4-b925-fbb623d1fcde" IsDefaultView="false" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="true" ModalSize="Auto">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="10ba6a53-d910-4da1-86af-2265ff22d196" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="SampleModalHeading" />
+                </Field>
+                <Field FieldName="Sizing">
+                  <PropertyValue Property="Text" Value="2" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="SampleModal" />
+                </Field>
+                <Field FieldName="FontColor">
+                  <PropertyValue Property="Text" Value="DodgerBlue" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="22" />
+                </Field>
+                <Field FieldName="FontWeight">
+                  <PropertyValue Property="Text" Value="Bold" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="fcefdaa9-fea7-408d-9728-21e1ba6a7604" ID="1bf85ed0-4ba9-496b-8c77-54c1f4cfe605" Bounds="90,160,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="fcefdaa9-fea7-408d-9728-21e1ba6a7604" Bounds="50,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ModalButtonPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" ID="c2beface-a5c7-4caf-96a7-681c8685ae53" Bounds="130,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ModalCloseButton" />
+                </Field>
+                <Field FieldName="ButtonStyle">
+                  <PropertyValue Property="Text" Value="Basic" />
+                </Field>
+                <Field FieldName="ButtonType">
+                  <PropertyValue Property="Text" Value="Passive" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="Close" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="4ac6899c-e249-403a-a916-5d15fe9df7be" From="fcefdaa9-fea7-408d-9728-21e1ba6a7604" FromIndex="0" To="1bf85ed0-4ba9-496b-8c77-54c1f4cfe605" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,140" />
+              <Segment EndPoint="70,177.5" />
+              <Segment EndPoint="90,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="977890ee-ae3e-4ea1-9a3a-32a66d16e6e0" From="1bf85ed0-4ba9-496b-8c77-54c1f4cfe605" FromIndex="0" To="c2beface-a5c7-4caf-96a7-681c8685ae53" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,195" />
+              <Segment EndPoint="110,232.5" />
+              <Segment EndPoint="130,232.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Action Widgets</Tag>
+  </Tags>
+</ViewDefinition>

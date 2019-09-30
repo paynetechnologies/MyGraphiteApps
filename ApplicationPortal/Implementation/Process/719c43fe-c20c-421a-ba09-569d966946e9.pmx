@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateAssets" OwnerId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" ProcessId="719c43fe-c20c-421a-ba09-569d966946e9" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="HomeLoanData" DataType="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" VariableType="InputOutput" VariableId="c3241c69-dd02-4c70-b861-f29226493a70" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset1Amount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="3154e6ee-7f09-44bf-a940-c3b138577403" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset1Type" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" VariableType="Input" VariableId="4bc90373-b549-4665-9d24-430817fc83dc" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset2Amount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="39b08a1b-4c7f-485f-893f-f30243bd8e3c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset2Type" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" VariableType="Input" VariableId="40137f38-4061-43f5-82da-8e61c50e3351" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset3Amount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="af310cc4-6049-4416-ac8f-204cf57c112c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset3Type" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" VariableType="Input" VariableId="1a955705-4782-4009-8905-0759f38c8a9d" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="a2fd9465-6177-452d-84d8-e2a981a3b5ba" Bounds="630.6,165,170,55" ZOrder="1" Text="" />
+        <DecisionNode LeftExpression="HomeLoanData.Assets" Operator="IsMissing" ID="2b8e2449-d84d-4070-8c6f-ce46e1a57faf" Bounds="460.6,265,510,125" ZOrder="1" Text="" />
+        <ExecuteProcessNode EntityDefinition="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessProperty="3d81ac79-0d3c-4f1a-bb95-cc3f20a6b93c" ExecuteProcessType="EntityStatic" VariableId="AssetFindByEntryOrder1Result" SuppressValidations="false" ID="637edfd4-6ee9-4e00-900e-c1b2a8e74f9d" Bounds="440.6,535,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Assets" Value="HomeLoanData.Assets" />
+            <InputVariable Name="EntryOrder" Value="1" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <CreateNode Variable="HomeLoanData.Assets" DataType="$[List,6ecd59f3-7d0a-47d2-8f8c-41e1214799a0]" ID="a9edfb42-173a-4f6d-8928-9227e10746f8" Bounds="40,435,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <DecisionNode LeftExpression="Asset1Type" Operator="IsNotMissing" ID="6025d967-2464-4c54-8a6e-0b7b55509b3f" Bounds="460,635,510,125" ZOrder="1" Text="" />
+        <DecisionNode LeftExpression="AssetFindByEntryOrder1Result.Outputs.Asset" Operator="IsNotMissing" ID="0f02188d-4fb6-4a05-852a-21378fd1e339" Bounds="860.6,805,510,125" ZOrder="2" Text="" />
+        <ExecuteProcessNode EntityDefinition="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessProperty="511fb284-d472-4691-bbe7-12957539f405" ExecuteProcessType="EntityStatic" VariableId="AssetUpdateAsset1Result" SuppressValidations="false" Description="" ID="04303139-fd35-430f-ab47-fa6b861230a2" Bounds="40,805,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Amount" Value="Asset1Amount" />
+            <InputVariable Name="Asset" Value="AssetFindByEntryOrder1Result.Outputs.Asset" />
+            <InputVariable Name="EntryOrder" Value="1" />
+            <InputVariable Name="Type" Value="Asset1Type" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Remove" ListItem="AssetFindByEntryOrder1Result.Outputs.Asset" SourceList="HomeLoanData.Assets" ID="7f3587ad-7d63-4ea1-be35-48d51361eda9" Bounds="840.6,975,550,55" ZOrder="1" Text="" />
+        <ExecuteProcessNode EntityDefinition="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessProperty="3d81ac79-0d3c-4f1a-bb95-cc3f20a6b93c" ExecuteProcessType="EntityStatic" VariableId="AssetFindByEntryOrder2Result" SuppressValidations="false" ID="70177e9e-851d-42aa-92a6-216902e14ca2" Bounds="440.6,1075,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="Assets" Value="HomeLoanData.Assets" />
+            <InputVariable Name="EntryOrder" Value="2" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Merge" ListItem="AssetUpdateAsset1Result.Outputs.Asset" SourceList="HomeLoanData.Assets" Description="AssetUpdateAsset1Result.Outputs.Asset" ID="565e4961-cd56-4f37-b61d-da1e685bbedd" Bounds="40.6,905,550,55" ZOrder="1" Text="" />
+        <DecisionNode LeftExpression="Asset2Type" Operator="IsNotMissing" ID="7c145c13-5f8e-47f7-ac63-388db1db064b" Bounds="460.6,1175,510,125" ZOrder="2" Text="" />
+        <DecisionNode LeftExpression="AssetFindByEntryOrder2Result.Outputs.Asset" Operator="IsNotMissing" ID="58bb8473-15ed-4bc0-b080-14d2c6684546" Bounds="860.6,1345,510,125" ZOrder="1" Text="" />
+        <ExecuteProcessNode EntityDefinition="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessProperty="511fb284-d472-4691-bbe7-12957539f405" ExecuteProcessType="EntityStatic" VariableId="AssetUpdateAsset2Result" SuppressValidations="false" ID="ea937eb7-5083-431c-9518-3492b8acdcbd" Bounds="40,1345,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="Amount" Value="Asset2Amount" />
+            <InputVariable Name="Asset" Value="AssetFindByEntryOrder2Result.Outputs.Asset" />
+            <InputVariable Name="EntryOrder" Value="2" />
+            <InputVariable Name="Type" Value="Asset2Type" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Remove" ListItem="AssetFindByEntryOrder2Result.Outputs.Asset" SourceList="HomeLoanData.Assets" ID="5e296215-507d-4766-8b7d-8673f0c1abdf" Bounds="840.6,1515,550,55" ZOrder="2" Text="" />
+        <ExecuteProcessNode EntityDefinition="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessProperty="3d81ac79-0d3c-4f1a-bb95-cc3f20a6b93c" ExecuteProcessType="EntityStatic" VariableId="AssetFindByEntryOrder3Result" SuppressValidations="false" ID="41b9057b-ae73-4506-864c-a05572f85af0" Bounds="440.6,1615,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="Assets" Value="HomeLoanData.Assets" />
+            <InputVariable Name="EntryOrder" Value="3" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Merge" ListItem="AssetUpdateAsset2Result.Outputs.Asset" SourceList="HomeLoanData.Assets" Description="" ID="a65ef13e-8a9d-43f6-bd1d-9739ae9357cc" Bounds="40.6,1445,550,55" ZOrder="2" Text="" />
+        <DecisionNode LeftExpression="Asset3Type" Operator="IsNotMissing" ID="60dff0c4-35b2-4071-a64a-51cf6c435a6d" Bounds="460.6,1715,510,125" ZOrder="3" Text="" />
+        <DecisionNode LeftExpression="AssetFindByEntryOrder3Result.Outputs.Asset" Operator="IsNotMissing" ID="b94b1dc3-b153-4b54-be1e-3e1370c1b591" Bounds="860.6,1885,510,125" ZOrder="2" Text="" />
+        <ExecuteProcessNode EntityDefinition="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessProperty="511fb284-d472-4691-bbe7-12957539f405" ExecuteProcessType="EntityStatic" VariableId="AssetUpdateAsset3Result" SuppressValidations="false" ID="83d639ba-160e-4a7c-a29f-ed739ad16f75" Bounds="40.6,1885,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="Amount" Value="Asset3Amount" />
+            <InputVariable Name="Asset" Value="AssetFindByEntryOrder3Result.Outputs.Asset" />
+            <InputVariable Name="EntryOrder" Value="3" />
+            <InputVariable Name="Type" Value="Asset3Type" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Remove" ListItem="AssetFindByEntryOrder3Result.Outputs.Asset" SourceList="HomeLoanData.Assets" ID="293e66ed-5bf1-457e-ae28-5cbfbaf9a69f" Bounds="840.6,2055,550,55" ZOrder="3" Text="" />
+        <EndNode ID="a9afffc3-1e90-4e8c-880f-67e58ff4b248" Bounds="630.6,2155,170,55" ZOrder="1" Text="" />
+        <ListManagementNode ListActionType="Merge" ListItem="AssetUpdateAsset3Result.Outputs.Asset" SourceList="HomeLoanData.Assets" Description="" ID="f0c215a9-b858-480c-a844-e389c9e5d1a1" Bounds="40.6,1985,550,55" ZOrder="3" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="d58adec7-0b7e-4a97-a3c7-dbefe0497312" From="ea937eb7-5083-431c-9518-3492b8acdcbd" FromIndex="2" To="a65ef13e-8a9d-43f6-bd1d-9739ae9357cc" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="315,1400" />
+          <Segment EndPoint="315,1422.5" />
+          <Segment EndPoint="315.6,1422.5" Movable="true" />
+          <Segment EndPoint="315.6,1445" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f15853ce-8dfa-4c23-89b4-08886cddf30e" From="70177e9e-851d-42aa-92a6-216902e14ca2" FromIndex="2" To="7c145c13-5f8e-47f7-ac63-388db1db064b" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,1130" />
+          <Segment EndPoint="715.6,1175" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="c79d3706-6d4a-4365-ba67-726516a0c4c9" From="7c145c13-5f8e-47f7-ac63-388db1db064b" FromIndex="3" To="ea937eb7-5083-431c-9518-3492b8acdcbd" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="460.6,1237.5" />
+          <Segment EndPoint="315,1237.5" />
+          <Segment EndPoint="315,1345" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="d2575947-f40c-49bc-b4f7-8f0279a6653c" From="83d639ba-160e-4a7c-a29f-ed739ad16f75" FromIndex="2" To="f0c215a9-b858-480c-a844-e389c9e5d1a1" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="315.6,1940" />
+          <Segment EndPoint="315.6,1985" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="0b4a650c-2b85-4685-8412-4a9b7c0c124a" From="60dff0c4-35b2-4071-a64a-51cf6c435a6d" FromIndex="1" To="b94b1dc3-b153-4b54-be1e-3e1370c1b591" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="970.6,1777.5" />
+          <Segment EndPoint="1115.6,1777.5" />
+          <Segment EndPoint="1115.6,1885" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="a3e0c687-b0b5-4282-a67a-9aa25ad89030" From="41b9057b-ae73-4506-864c-a05572f85af0" FromIndex="2" To="60dff0c4-35b2-4071-a64a-51cf6c435a6d" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,1670" />
+          <Segment EndPoint="715.6,1715" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="67ea580f-8755-499d-8f85-b1858e43cfd8" From="60dff0c4-35b2-4071-a64a-51cf6c435a6d" FromIndex="3" To="83d639ba-160e-4a7c-a29f-ed739ad16f75" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="460.6,1777.5" />
+          <Segment EndPoint="315.6,1777.5" />
+          <Segment EndPoint="315.6,1885" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="57b94bec-1198-4afe-85a1-15233748746d" From="a2fd9465-6177-452d-84d8-e2a981a3b5ba" FromIndex="0" To="2b8e2449-d84d-4070-8c6f-ce46e1a57faf" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,220" />
+          <Segment EndPoint="715.6,265" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="bd9c5f5b-f3ab-4f3d-a69f-149822a4ff7b" From="2b8e2449-d84d-4070-8c6f-ce46e1a57faf" FromIndex="3" To="a9edfb42-173a-4f6d-8928-9227e10746f8" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="460.6,327.5" />
+          <Segment EndPoint="315,327.5" />
+          <Segment EndPoint="315,435" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="0c50334b-8f35-4374-bffc-0ab61d92de11" From="04303139-fd35-430f-ab47-fa6b861230a2" FromIndex="2" To="565e4961-cd56-4f37-b61d-da1e685bbedd" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="315,860" />
+          <Segment EndPoint="315,882.5" />
+          <Segment EndPoint="315.6,882.5" Movable="true" />
+          <Segment EndPoint="315.6,905" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="9f3f0a65-520e-4e7b-a9a6-acd1670b67e6" From="6025d967-2464-4c54-8a6e-0b7b55509b3f" FromIndex="1" To="0f02188d-4fb6-4a05-852a-21378fd1e339" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="970,697.5" />
+          <Segment EndPoint="1115.6,697.5" />
+          <Segment EndPoint="1115.6,805" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="b49ef532-1936-4618-b99e-1642bbad65f7" From="a9edfb42-173a-4f6d-8928-9227e10746f8" FromIndex="1" To="637edfd4-6ee9-4e00-900e-c1b2a8e74f9d" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="590,462.5" />
+          <Segment EndPoint="715.6,462.5" />
+          <Segment EndPoint="715.6,535" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="58f9cdb6-e523-4743-9d40-2d3580e988ef" From="2b8e2449-d84d-4070-8c6f-ce46e1a57faf" FromIndex="2" To="637edfd4-6ee9-4e00-900e-c1b2a8e74f9d" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="715.6,390" />
+          <Segment EndPoint="715.6,535" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="8f682185-b8a3-4093-8725-b9bcfefd71a3" From="637edfd4-6ee9-4e00-900e-c1b2a8e74f9d" FromIndex="2" To="6025d967-2464-4c54-8a6e-0b7b55509b3f" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,590" />
+          <Segment EndPoint="715.6,612.5" />
+          <Segment EndPoint="715,612.5" Movable="true" />
+          <Segment EndPoint="715,635" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="412ebf5a-1783-4301-b628-4461319d7177" From="6025d967-2464-4c54-8a6e-0b7b55509b3f" FromIndex="3" To="04303139-fd35-430f-ab47-fa6b861230a2" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="460,697.5" />
+          <Segment EndPoint="315,697.5" />
+          <Segment EndPoint="315,805" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="98662cd6-2e45-4969-8a54-c8aad4d4e97b" From="565e4961-cd56-4f37-b61d-da1e685bbedd" FromIndex="1" To="70177e9e-851d-42aa-92a6-216902e14ca2" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="590.6,932.5" />
+          <Segment EndPoint="715.6,932.5" />
+          <Segment EndPoint="715.6,1075" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="520ffede-8fa4-4709-a379-faee931f28ed" From="a65ef13e-8a9d-43f6-bd1d-9739ae9357cc" FromIndex="1" To="41b9057b-ae73-4506-864c-a05572f85af0" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="590.6,1472.5" />
+          <Segment EndPoint="715.6,1472.5" />
+          <Segment EndPoint="715.6,1615" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="281edf1d-ba77-4dbb-8aad-89df35edcaed" From="f0c215a9-b858-480c-a844-e389c9e5d1a1" FromIndex="2" To="a9afffc3-1e90-4e8c-880f-67e58ff4b248" ToIndex="3" LineType="ElbowArrow">
+          <Segment EndPoint="315.6,2040" />
+          <Segment EndPoint="315.6,2182.5" />
+          <Segment EndPoint="630.6,2182.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="cfbaaf50-4940-4a89-8236-e08660eeeb8a" From="293e66ed-5bf1-457e-ae28-5cbfbaf9a69f" FromIndex="2" To="a9afffc3-1e90-4e8c-880f-67e58ff4b248" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="1115.6,2110" />
+          <Segment EndPoint="1115.6,2182.5" />
+          <Segment EndPoint="800.6,2182.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="5b3e4ba4-f115-4906-b718-33b745f38b46" From="7c145c13-5f8e-47f7-ac63-388db1db064b" FromIndex="1" To="58bb8473-15ed-4bc0-b080-14d2c6684546" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="970.6,1237.5" />
+          <Segment EndPoint="1115.6,1237.5" />
+          <Segment EndPoint="1115.6,1345" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="fa5b81de-d510-4eba-81e4-cde616fde9fb" From="58bb8473-15ed-4bc0-b080-14d2c6684546" FromIndex="2" To="5e296215-507d-4766-8b7d-8673f0c1abdf" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="1115.6,1470" />
+          <Segment EndPoint="1115.6,1515" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="c02e6263-4ced-48a5-9f69-e28ca43fd844" From="58bb8473-15ed-4bc0-b080-14d2c6684546" FromIndex="3" To="41b9057b-ae73-4506-864c-a05572f85af0" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="860.6,1407.5" />
+          <Segment EndPoint="715.6,1407.5" />
+          <Segment EndPoint="715.6,1615" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="202e2127-52c2-46e8-996a-1a10d203a590" From="5e296215-507d-4766-8b7d-8673f0c1abdf" FromIndex="3" To="41b9057b-ae73-4506-864c-a05572f85af0" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="840.6,1542.5" />
+          <Segment EndPoint="715.6,1542.5" />
+          <Segment EndPoint="715.6,1615" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="4e5cf508-af2d-4d47-a66f-edf8046d4d1e" From="0f02188d-4fb6-4a05-852a-21378fd1e339" FromIndex="2" To="7f3587ad-7d63-4ea1-be35-48d51361eda9" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="1115.6,930" />
+          <Segment EndPoint="1115.6,975" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="69889cc5-7b15-4747-9b79-cca26f5a4220" From="7f3587ad-7d63-4ea1-be35-48d51361eda9" FromIndex="3" To="70177e9e-851d-42aa-92a6-216902e14ca2" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="840.6,1002.5" />
+          <Segment EndPoint="715.6,1002.5" />
+          <Segment EndPoint="715.6,1075" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="4dace946-d569-46d8-b831-cd0980dd5c82" From="0f02188d-4fb6-4a05-852a-21378fd1e339" FromIndex="3" To="70177e9e-851d-42aa-92a6-216902e14ca2" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="860.6,867.5" />
+          <Segment EndPoint="715.6,867.5" />
+          <Segment EndPoint="715.6,1075" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="ca156870-5e07-471f-83e3-fe2e2fc9a376" From="b94b1dc3-b153-4b54-be1e-3e1370c1b591" FromIndex="2" To="293e66ed-5bf1-457e-ae28-5cbfbaf9a69f" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="1115.6,2010" />
+          <Segment EndPoint="1115.6,2055" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="12bf22b0-a53a-4f25-a9f9-417ba242e5f4" From="b94b1dc3-b153-4b54-be1e-3e1370c1b591" FromIndex="3" To="a9afffc3-1e90-4e8c-880f-67e58ff4b248" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="860.6,1947.5" />
+          <Segment EndPoint="715.6,1947.5" />
+          <Segment EndPoint="715.6,2155" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

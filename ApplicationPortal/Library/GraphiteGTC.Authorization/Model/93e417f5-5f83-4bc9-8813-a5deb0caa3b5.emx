@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="BaseElementDetail" EntityId="93e417f5-5f83-4bc9-8813-a5deb0caa3b5" NamespaceExtension="Common">
+  <Description>A system entity that is used to persist View Element detail for the authorization framework</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="6aeebe30-e98b-4d8f-80fe-7dfdb2cd63eb" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewBehaviorDetails" PropertyId="3cc7fc2c-0d43-4972-85b9-811ea6ed7881" IsOptional="true" DataType="$[List,eae41d9c-aa91-42d5-ba92-f39456b2c5cb]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PropertyId" PropertyId="9dccdcf7-081e-4430-a15a-3571cac67eff" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Type" PropertyId="35f47b37-f079-421e-bf26-aefaf7cf0dc5" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewPropertyId" PropertyId="5a89025f-ddb0-4263-98aa-71f8f9acce80" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

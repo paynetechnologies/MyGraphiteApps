@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ApplicationStatus" EntityId="4b00238b-ba3b-4d86-a73b-c56a976427aa" EntityType="Enumeration" TargetChangeSetId="b3726a15-8529-44ed-9a8d-786d8cb752e1">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="76d654dc-1e46-40eb-9ac1-a171163d38f9" IsOptional="false" DataType="2a4fb4ec-1b34-4bd6-aecc-227a9b469ca4" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="1992f4b8-db8e-4cb2-b191-a6f25efeb0b2" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <DataEntries KeyProperty="Description">
+    <DataEntry DataEntryId="bf937203-487d-4572-80c6-1bbc49141e91">
+      <DataValue Property="Description">Approved</DataValue>
+      <DataValue Property="Display">Approved</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="f33bd97a-0e9f-40f7-a428-d450df8f47ae">
+      <DataValue Property="Description">Closed</DataValue>
+      <DataValue Property="Display">Closed</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="602a4d4a-2282-431c-bb9b-cc016fa5bf35">
+      <DataValue Property="Description">Completed</DataValue>
+      <DataValue Property="Display">Completed</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="bbf036bc-6e2f-429f-b790-14415a322ca8">
+      <DataValue Property="Description">Declined</DataValue>
+      <DataValue Property="Display">Declined</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="a4166639-2732-4710-9c82-b2498cd4d9ad">
+      <DataValue Property="Description">New</DataValue>
+      <DataValue Property="Display">New</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="1e7e93ee-ae10-4435-ae49-ae7de5dbd967">
+      <DataValue Property="Description">OnHold</DataValue>
+      <DataValue Property="Display">OnHold</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="fabcf7e5-d244-44c2-abef-22bbf0c9f7dd">
+      <DataValue Property="Description">Pending</DataValue>
+      <DataValue Property="Display">Pending</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="5c927837-923f-4c85-a5bc-438d00d389a9">
+      <DataValue Property="Description">Reviewed</DataValue>
+      <DataValue Property="Display">Reviewed</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="64992744-beef-4c53-806d-d8a832d08630">
+      <DataValue Property="Description">InProgress</DataValue>
+      <DataValue Property="Display">In Progress</DataValue>
+    </DataEntry>
+  </DataEntries>
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="EventDisplayPanel" ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" BasedOn="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Event Display Panel is a special display panel that contains Event Display Details.  This is an advanced feature.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanEdit" PropertyId="113f3059-f536-4a5b-a132-1d637a362a9c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanDelete" PropertyId="f4226c2d-4ab3-440f-bee4-99a05b9f2b16" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanProcess" PropertyId="f7d851b0-7f81-409c-9da9-ed3d46667cf1" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanUndo" PropertyId="6b7d8c49-16f1-42cd-be85-b6f49f393f01" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanRecycle" PropertyId="44fadea4-a0f5-4914-a680-d05a374ab3bf" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanViewResults" PropertyId="e76d0705-7f88-4949-8d33-e7f4dd9c01d3" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="EventDisplayPanel" />
+    <Property PropertyName="CanEdit" DefaultValue="No" />
+    <Property PropertyName="CanDelete" DefaultValue="No" />
+    <Property PropertyName="CanProcess" DefaultValue="No" />
+    <Property PropertyName="CanUndo" DefaultValue="No" />
+    <Property PropertyName="CanRecycle" DefaultValue="No" />
+    <Property PropertyName="CanViewResults" DefaultValue="No" />
+    <Property PropertyName="StackDisplayDetails" DefaultValue="Yes" />
+    <Property PropertyName="IsSerializable" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">EventDisplayPanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="CanEdit" EditorType="YesNoToggle" Label="Can Edit?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Edit icon on events?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanDelete" EditorType="YesNoToggle" Label="Can Delete?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Delete icon on events?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanRecycle" EditorType="YesNoToggle" Label="Can Recycle?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Recycle icon on events?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanProcess" EditorType="YesNoToggle" Label="Can Process?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Process icon on events?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanUndo" EditorType="YesNoToggle" Label="Can Undo?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Reverse icon on events?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanViewResults" EditorType="YesNoToggle" Label="Can View Results?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show View Details icon on events?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="StackDisplayDetails" EditorType="Hidden" Label="StackDisplayDetails" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsSerializable" EditorType="Hidden" Label="IsSerializable" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="CanEdit" PropertyPath="CanEdit" Value="{Text}" />
+      <Map FieldName="CanDelete" PropertyPath="CanDelete" Value="{Text}" />
+      <Map FieldName="CanRecycle" PropertyPath="CanRecycle" Value="{Text}" />
+      <Map FieldName="CanProcess" PropertyPath="CanProcess" Value="{Text}" />
+      <Map FieldName="CanUndo" PropertyPath="CanUndo" Value="{Text}" />
+      <Map FieldName="CanViewResults" PropertyPath="CanViewResults" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Event</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACISURBVEhL3ZKBCsAgCERrH9v//8HWRQ4naos5gh4cNUV0nbmUkgRnP0Hu5wiz5qhCkqTB85o07jwaSDAB6S1mjWzAJyONcGuoAZ8gUq1Bu/xE1jwIBQ0eb1ax3nM2DtQtCmVPD/ia8b+bjYM1HlhbYcU91ngQyRoP+EbwnBX32NADuYIfv1O6AED6QVaD/vkuAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB5SURBVEhL3ZKBDoAgCESx//9n2jVojkSjsDbf5hQVEY7CzGSoN4rMI1wfBLCHPbtF12eTuQYXdNzF9bEZpKMBIr+NwCjRrMdBaWmQSqtEVhM9i+6Do0RTWVODTOZrgAxkefKkW1w+6aJLCon8o0Eq62mAYHXAlzbRDvPsOQKjt0dbAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

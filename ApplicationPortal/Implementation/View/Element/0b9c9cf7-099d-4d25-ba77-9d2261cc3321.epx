@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementPackDefinition ElementPackId="0b9c9cf7-099d-4d25-ba77-9d2261cc3321" LastKnownName="AuthorizationPanelPack" MergedFrom="37885c1a-a24e-4c5a-88b1-dc78e790cc10">
+  <Properties />
+  <ViewDiagram>
+    <Diagram>
+      <Nodes>
+        <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="331b5c47-1ac4-4a64-987d-8c4e9e588726" Bounds="50,435,290,35" Text="Form">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="SecurityForm" />
+            </Field>
+            <Field FieldName="FieldSetsPerLine">
+              <PropertyValue Property="Text" Value="2" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="1aef5af2-15b2-4c49-a8a0-c3a327d97ba8" ID="c3853147-9578-4b12-a63a-741c61312eee" Bounds="130,270,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="1aef5af2-15b2-4c49-a8a0-c3a327d97ba8" Bounds="90,215,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="SecurityGroupFieldSet" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" ID="c4c18c01-2f5d-44fd-9321-a56ce21b5fcf" Bounds="170,325,290,35" Text="SelectField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="SecurityGroupField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="SecurityGroup" />
+            </Field>
+            <Field FieldName="OnChange">
+              <PropertyValue Property="ProcessId" Value="d4358333-f2af-4817-b0a1-a48a5bdeda8d" />
+            </Field>
+            <Field FieldName="FormToSerialize">
+              <PropertyValue Property="SelectedElementName" Value="SecurityForm" />
+            </Field>
+            <Field FieldName="OptionDetail">
+              <PropertyValue Property="EntityId" Value="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="58d6ed30-4052-48b2-a8a2-aa70ae454ade" Bounds="90,435,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AllowFieldSet" />
+            </Field>
+            <Field FieldName="FieldSetType">
+              <PropertyValue Property="Text" Value="Long" />
+            </Field>
+            <Field FieldName="IsDisplayed">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="58d6ed30-4052-48b2-a8a2-aa70ae454ade" ID="c309bc2d-44c5-4698-bc0b-3c3883b829be" Bounds="130,600,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="12b46e47-b944-4e2e-b1e5-e407fcf2b6b4" Bounds="90,270,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="ViewDetailFieldSet" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="12b46e47-b944-4e2e-b1e5-e407fcf2b6b4" ID="6eccb4ca-72d6-4ae0-b1ea-2d55d63017d1" Bounds="130,325,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" ID="706b69c6-9dec-4c88-b8e2-a9ea73d446aa" Bounds="170,380,290,35" Text="SelectField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="ViewDetailField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="View" />
+            </Field>
+            <Field FieldName="OnChange">
+              <PropertyValue Property="ProcessId" Value="da963721-7817-4bda-bbc9-6f62150e41bf" />
+            </Field>
+            <Field FieldName="FormToSerialize">
+              <PropertyValue Property="SelectedElementName" Value="SecurityForm" />
+            </Field>
+            <Field FieldName="OptionDetail">
+              <PropertyValue Property="EntityId" Value="83dfc660-5d65-4969-9850-25db372a93b9" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="b28c5d75-d947-4ba6-99fa-ab6508e3d9ef" Bounds="50,215,290,35" Text="Form">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="NewSecurityGroupForm" />
+            </Field>
+            <Field FieldName="FieldSetsPerLine">
+              <PropertyValue Property="Text" Value="2" />
+            </Field>
+            <Field FieldName="IsDisplayed">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="db31e44c-8698-4de0-9556-33adbcc66bdd" ID="45d03375-a3f1-45b8-8c69-da6b1a300360" Bounds="130,215,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="db31e44c-8698-4de0-9556-33adbcc66bdd" Bounds="90,270,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="NewSecurityGroupFieldSet" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" ID="f3e6c2bd-5436-49fa-966c-ecf613931270" Bounds="170,270,290,35" Text="TextField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="NewSecurityGroupField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="NewSecurityGroup" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="2de8b51f-3b49-4300-a7fc-f284c0a5fdac" ID="c5e7bc41-2c18-4a7c-b164-508476c0c266" Bounds="130,325,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="2de8b51f-3b49-4300-a7fc-f284c0a5fdac" Bounds="90,380,290,35" Text="ButtonPanel">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="NewSecurityGroupButtonPanel" />
+            </Field>
+            <Field FieldName="Side">
+              <PropertyValue Property="Text" Value="Right" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="1e068214-d3eb-4985-bf8d-ce17f8f34bee" Bounds="170,435,290,35" Text="Button">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AddButton" />
+            </Field>
+            <Field FieldName="Title">
+              <PropertyValue Property="TranslationKey" Value="Add" />
+            </Field>
+            <Field FieldName="OnClick">
+              <PropertyValue Property="ProcessId" Value="bd0b0eb1-2896-42dd-b1ee-5f6b16530f48" />
+            </Field>
+            <Field FieldName="OnClickFormToSerialize">
+              <PropertyValue Property="SelectedElementName" Value="NewSecurityGroupForm" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="260bdc25-635b-4cab-8a4c-f76bd55a42ef" Bounds="170,380,290,35" Text="Button">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="CancelButton" />
+            </Field>
+            <Field FieldName="ButtonType">
+              <PropertyValue Property="Text" Value="Passive" />
+            </Field>
+            <Field FieldName="Title">
+              <PropertyValue Property="TranslationKey" Value="Cancel" />
+            </Field>
+            <Field FieldName="OnClick">
+              <PropertyValue Property="ProcessId" Value="b6a8fe92-267c-4839-9fac-8d1107ceeb78" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="55753a72-7086-49ed-8a4d-772e13e215af" ID="9ba3c95c-5bdd-42c3-82c1-e2c198a2f032" Bounds="90,105,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="55753a72-7086-49ed-8a4d-772e13e215af" Bounds="50,50,290,35" Text="ButtonPanel">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AddSecurityGroupButtonPanel" />
+            </Field>
+            <Field FieldName="Side">
+              <PropertyValue Property="Text" Value="Right" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="a7277286-e3ee-4484-acb1-d88afe75e998" Bounds="130,160,290,35" Text="Button">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AddSecurityGroupButton" />
+            </Field>
+            <Field FieldName="ButtonType">
+              <PropertyValue Property="Text" Value="Passive" />
+            </Field>
+            <Field FieldName="Size">
+              <PropertyValue Property="Text" Value="small" />
+            </Field>
+            <Field FieldName="Title">
+              <PropertyValue Property="TranslationKey" Value="AddSecurityGroup" />
+            </Field>
+            <Field FieldName="OnClick">
+              <PropertyValue Property="ProcessId" Value="7f6411c6-453f-480f-a628-8a9b3c6566e4" />
+            </Field>
+            <Field FieldName="IconSymbol">
+              <PropertyValue Property="Text" Value="fa-plus" />
+              <PropertyValue Property="IconName" Value="Plus" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="94124bb9-68ac-4c97-82d2-26bf5ceb2ba4" ID="81365ee5-df40-48e3-834e-e1864d4c8a1e" Bounds="50,490,290,35" Text="ViewSecurityPanel">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="SecurityPanel" />
+            </Field>
+            <Field FieldName="OnClickHeaderDetails">
+              <PropertyValue Property="ProcessId" Value="1c4f1580-4256-4761-bac9-f7cdb0030683" />
+            </Field>
+            <Field FieldName="OnClickDetails">
+              <PropertyValue Property="ProcessId" Value="daa84619-677b-457b-bf2d-f42d120634c8" />
+            </Field>
+            <Field FieldName="OnClickContentDetails">
+              <PropertyValue Property="ProcessId" Value="167da096-c236-432c-9ee2-b40b99a23a12" />
+            </Field>
+            <Field FieldName="OnClickFooterDetails">
+              <PropertyValue Property="ProcessId" Value="7aa08b97-6977-43c4-be72-2e90aa9e788a" />
+            </Field>
+            <Field FieldName="OnClickRegionDetails">
+              <PropertyValue Property="ProcessId" Value="adb444ec-3b0e-41bb-8c2f-ae584109e910" />
+            </Field>
+            <Field FieldName="OnClickSaveAllowedDetails">
+              <PropertyValue Property="ProcessId" Value="5b8e4606-4d6b-4bab-b8e7-4c65d2038535" />
+            </Field>
+            <Field FieldName="OnClickSaveDeniedDetails">
+              <PropertyValue Property="ProcessId" Value="223d306e-32d6-4178-9c79-365e9a106725" />
+            </Field>
+            <Field FieldName="OnClickSaveAllDetails">
+              <PropertyValue Property="ProcessId" Value="bd8583ae-78b2-475f-b932-fa0806fec85b" />
+            </Field>
+            <Field FieldName="OnClickSaveAllContentDetails">
+              <PropertyValue Property="ProcessId" Value="69086c56-b18d-463f-89fd-6205e0678852" />
+            </Field>
+            <Field FieldName="OnClickSaveAllHeaderDetails">
+              <PropertyValue Property="ProcessId" Value="6124e80d-e640-46f7-a14e-0d45ebdd16ab" />
+            </Field>
+            <Field FieldName="OnClickSaveAllRegionDetails">
+              <PropertyValue Property="ProcessId" Value="71c62337-3235-4cee-b22e-c1cd6242865c" />
+            </Field>
+            <Field FieldName="OnClickSaveAllFooterDetails">
+              <PropertyValue Property="ProcessId" Value="c27c10fd-8336-429b-9ab5-1fd4d643f38b" />
+            </Field>
+            <Field FieldName="Title">
+              <PropertyValue Property="TranslationKey" Value="ViewAuthorizationDetails" />
+            </Field>
+            <Field FieldName="OnClickSaveAllViews">
+              <PropertyValue Property="ProcessId" Value="fd537d16-61ed-4ae3-b698-80e85d7fa40b" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="809010d8-2588-4334-b99b-2f585b98a4f8" Bounds="90,325,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="CopyFromFieldSet" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="809010d8-2588-4334-b99b-2f585b98a4f8" ID="5c5242c1-5c22-414c-8846-08cea6796f30" Bounds="130,380,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" ID="aa7af09e-ac55-4fdd-80b2-a04cb3825bf9" Bounds="170,435,290,35" Text="SelectField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="CopyFromSecurityGroupField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="CopyFrom" />
+            </Field>
+            <Field FieldName="OptionDetail">
+              <PropertyValue Property="EntityId" Value="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="bc318f1c-9406-45b7-bc7b-055ef9743ee5" ID="c39bd31f-4139-4dc5-90f6-4cadb4be5652" Bounds="170,655,290,35" Text="SwitchField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AllowField" />
+            </Field>
+            <Field FieldName="OnChange">
+              <PropertyValue Property="ProcessId" Value="7c112047-e907-4e5a-ae00-467e1e9a6b20" />
+            </Field>
+            <Field FieldName="FormToSerialize">
+              <PropertyValue Property="SelectedElementName" Value="SecurityForm" />
+            </Field>
+            <Field FieldName="OffText">
+              <PropertyValue Property="TranslationKey" Value="Deny" />
+            </Field>
+            <Field FieldName="OnText">
+              <PropertyValue Property="TranslationKey" Value="Allow" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+      </Nodes>
+      <Connections>
+        <ViewDiagramNodeConnection ID="25308bb2-4fbf-4bc6-a946-c5f1dc24b4d7" From="1aef5af2-15b2-4c49-a8a0-c3a327d97ba8" FromIndex="0" To="c3853147-9578-4b12-a63a-741c61312eee" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,250" />
+          <Segment EndPoint="110,287.5" />
+          <Segment EndPoint="130,287.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="346b4b0f-126c-4b62-bc8d-a164a54bcc33" From="331b5c47-1ac4-4a64-987d-8c4e9e588726" FromIndex="0" To="1aef5af2-15b2-4c49-a8a0-c3a327d97ba8" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,470" />
+          <Segment EndPoint="70,490" />
+          <Segment EndPoint="30,490" Movable="true" />
+          <Segment EndPoint="30,232.5" Movable="true" />
+          <Segment EndPoint="90,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="50df3ca1-e070-4b81-af96-e0aeff5435a6" From="c3853147-9578-4b12-a63a-741c61312eee" FromIndex="0" To="c4c18c01-2f5d-44fd-9321-a56ce21b5fcf" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,305" />
+          <Segment EndPoint="150,342.5" />
+          <Segment EndPoint="170,342.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="ffb0ca17-c43b-4cf0-8db2-f2ba4f124a77" From="331b5c47-1ac4-4a64-987d-8c4e9e588726" FromIndex="0" To="58d6ed30-4052-48b2-a8a2-aa70ae454ade" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,470" />
+          <Segment EndPoint="70,490" />
+          <Segment EndPoint="30,490" Movable="true" />
+          <Segment EndPoint="30,452.5" Movable="true" />
+          <Segment EndPoint="90,452.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="c3ad1a50-d61b-4b63-aebb-81abd35b341b" From="58d6ed30-4052-48b2-a8a2-aa70ae454ade" FromIndex="0" To="c309bc2d-44c5-4698-bc0b-3c3883b829be" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,470" />
+          <Segment EndPoint="110,617.5" />
+          <Segment EndPoint="130,617.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="b2cfc9b8-fcf7-4c2b-851f-610a762689c4" From="331b5c47-1ac4-4a64-987d-8c4e9e588726" FromIndex="0" To="12b46e47-b944-4e2e-b1e5-e407fcf2b6b4" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,470" />
+          <Segment EndPoint="70,490" />
+          <Segment EndPoint="30,490" Movable="true" />
+          <Segment EndPoint="30,287.5" Movable="true" />
+          <Segment EndPoint="90,287.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="1eb1348d-1dfe-46d5-8b0f-d2c044e55d99" From="12b46e47-b944-4e2e-b1e5-e407fcf2b6b4" FromIndex="0" To="6eccb4ca-72d6-4ae0-b1ea-2d55d63017d1" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,305" />
+          <Segment EndPoint="110,342.5" />
+          <Segment EndPoint="130,342.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="f7c63fd1-7650-4a4e-b902-2eef60fd5510" From="6eccb4ca-72d6-4ae0-b1ea-2d55d63017d1" FromIndex="0" To="706b69c6-9dec-4c88-b8e2-a9ea73d446aa" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,360" />
+          <Segment EndPoint="150,397.5" />
+          <Segment EndPoint="170,397.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="b0757d41-8fe4-42c9-a712-77f423b06613" From="db31e44c-8698-4de0-9556-33adbcc66bdd" FromIndex="0" To="45d03375-a3f1-45b8-8c69-da6b1a300360" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,305" />
+          <Segment EndPoint="110,325" />
+          <Segment EndPoint="70,325" Movable="true" />
+          <Segment EndPoint="70,232.5" Movable="true" />
+          <Segment EndPoint="130,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="5c960c1d-0f11-4245-a4f6-376605972b63" From="b28c5d75-d947-4ba6-99fa-ab6508e3d9ef" FromIndex="0" To="db31e44c-8698-4de0-9556-33adbcc66bdd" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,250" />
+          <Segment EndPoint="70,287.5" />
+          <Segment EndPoint="90,287.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="54adc370-93db-4d04-bff9-82764d4b334e" From="45d03375-a3f1-45b8-8c69-da6b1a300360" FromIndex="0" To="f3e6c2bd-5436-49fa-966c-ecf613931270" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,250" />
+          <Segment EndPoint="150,287.5" />
+          <Segment EndPoint="170,287.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="1659889b-3373-4854-a570-d40e0d05da8a" From="2de8b51f-3b49-4300-a7fc-f284c0a5fdac" FromIndex="0" To="c5e7bc41-2c18-4a7c-b164-508476c0c266" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,415" />
+          <Segment EndPoint="110,435" />
+          <Segment EndPoint="70,435" Movable="true" />
+          <Segment EndPoint="70,342.5" Movable="true" />
+          <Segment EndPoint="130,342.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="41f81ea0-1a6b-4033-9ded-023a713d22b1" From="b28c5d75-d947-4ba6-99fa-ab6508e3d9ef" FromIndex="0" To="2de8b51f-3b49-4300-a7fc-f284c0a5fdac" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,250" />
+          <Segment EndPoint="70,397.5" />
+          <Segment EndPoint="90,397.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="48d0f4c1-a769-498f-a2ec-b0720054e31e" From="c5e7bc41-2c18-4a7c-b164-508476c0c266" FromIndex="0" To="1e068214-d3eb-4985-bf8d-ce17f8f34bee" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,360" />
+          <Segment EndPoint="150,452.5" />
+          <Segment EndPoint="170,452.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="b8d04776-16f5-4146-aed7-51a1719edc98" From="c5e7bc41-2c18-4a7c-b164-508476c0c266" FromIndex="0" To="260bdc25-635b-4cab-8a4c-f76bd55a42ef" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,360" />
+          <Segment EndPoint="150,397.5" />
+          <Segment EndPoint="170,397.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="dd454be8-b027-41bb-8587-8470c70cab98" From="55753a72-7086-49ed-8a4d-772e13e215af" FromIndex="0" To="9ba3c95c-5bdd-42c3-82c1-e2c198a2f032" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,122.5" />
+          <Segment EndPoint="90,122.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="dbc7a9f5-2494-4c90-8a29-07b9cdba5f86" From="9ba3c95c-5bdd-42c3-82c1-e2c198a2f032" FromIndex="0" To="a7277286-e3ee-4484-acb1-d88afe75e998" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,140" />
+          <Segment EndPoint="110,177.5" />
+          <Segment EndPoint="130,177.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="860a06b9-76e7-4471-9b08-763114599a30" From="b28c5d75-d947-4ba6-99fa-ab6508e3d9ef" FromIndex="0" To="809010d8-2588-4334-b99b-2f585b98a4f8" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,250" />
+          <Segment EndPoint="70,342.5" />
+          <Segment EndPoint="90,342.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="0f1ac8f3-87a8-4299-a573-24c523acee61" From="809010d8-2588-4334-b99b-2f585b98a4f8" FromIndex="0" To="5c5242c1-5c22-414c-8846-08cea6796f30" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,360" />
+          <Segment EndPoint="110,397.5" />
+          <Segment EndPoint="130,397.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="7e85ecad-cea2-472c-bc0d-e465f2355bff" From="5c5242c1-5c22-414c-8846-08cea6796f30" FromIndex="0" To="aa7af09e-ac55-4fdd-80b2-a04cb3825bf9" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,415" />
+          <Segment EndPoint="150,452.5" />
+          <Segment EndPoint="170,452.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="3b765fc0-d011-4dc8-bf3d-d24751ab9399" From="c309bc2d-44c5-4698-bc0b-3c3883b829be" FromIndex="0" To="c39bd31f-4139-4dc5-90f6-4cadb4be5652" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,635" />
+          <Segment EndPoint="150,672.5" />
+          <Segment EndPoint="170,672.5" />
+        </ViewDiagramNodeConnection>
+      </Connections>
+    </Diagram>
+  </ViewDiagram>
+  <Tags>
+    <Tag Type="Default">Element Pack</Tag>
+    <Tag Type="Group">Screens</Tag>
+  </Tags>
+</ViewElementPackDefinition>

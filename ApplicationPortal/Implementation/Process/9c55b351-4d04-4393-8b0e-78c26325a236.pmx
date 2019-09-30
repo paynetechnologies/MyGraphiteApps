@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Update" OwnerId="459dd3cc-bf39-40ea-a18e-7fe3a38bdae3" ProcessId="9c55b351-4d04-4393-8b0e-78c26325a236" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="BorrowDownPayment" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="00546e18-53d7-4d65-ba02-81044c791668" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="DeclaredBankruptcy" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="af5c8242-df2a-4238-b159-dbc984af414e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="GovernmentData" DataType="459dd3cc-bf39-40ea-a18e-7fe3a38bdae3" VariableType="InputOutput" VariableId="4e012109-f1d2-4d4e-bb08-e724e9b3321d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="HomeForeclosure" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="88f9ea91-dcb6-4907-910a-c37db83678d4" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="OtherOwnership" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="87e0fc3a-3cd5-468c-9f87-562c713d3cb4" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PrimaryResidence" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="7cc67c52-533f-4a6a-ad48-04c400ce543f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="UnpaidJudgements" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="86987697-0a7e-45c1-bcb3-3e0eadb2cffd" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="a0086614-e6be-4dfb-955f-11e73fb48757" Bounds="630.6,55,170,55" />
+        <DecisionNode LeftExpression="GovernmentData" Operator="IsMissing" ID="4ca71516-a6ed-4d83-8e99-0f274c1892e8" Bounds="460.6,155,510,125" />
+        <AssignNode ID="34ce6f88-1287-4a5d-97b2-654876203e88" Bounds="440.6,425,550,55" Text="Assign">
+          <Assignment Name="GovernmentData.BorrowDownPayment" Value="BorrowDownPayment" />
+          <Assignment Name="GovernmentData.DeclaredBankruptcy" Value="DeclaredBankruptcy" />
+          <Assignment Name="GovernmentData.HomeForeclosure" Value="HomeForeclosure" />
+          <Assignment Name="GovernmentData.OtherOwnership" Value="OtherOwnership" />
+          <Assignment Name="GovernmentData.PrimaryResidence" Value="PrimaryResidence" />
+          <Assignment Name="GovernmentData.UnpaidJudgements" Value="UnpaidJudgements" />
+        </AssignNode>
+        <CreateNode Variable="GovernmentData" DataType="459dd3cc-bf39-40ea-a18e-7fe3a38bdae3" ID="54ac09f6-88f0-4b3a-a5a0-3ee793ac454c" Bounds="40,325,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="ea9397b5-31d1-4c7f-9691-586e0d2cff90" Bounds="630.6,525,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="0a551a41-c967-4b7e-8d5b-0bed75159118" From="a0086614-e6be-4dfb-955f-11e73fb48757" FromIndex="0" To="4ca71516-a6ed-4d83-8e99-0f274c1892e8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="a2ecc894-daeb-4dc6-aae5-cc7a6bf206d2" From="4ca71516-a6ed-4d83-8e99-0f274c1892e8" FromIndex="3" To="54ac09f6-88f0-4b3a-a5a0-3ee793ac454c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460.6,217.5" />
+          <Segment EndPoint="315,217.5" />
+          <Segment EndPoint="315,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="0c717c9f-3217-460a-bdae-def05668fb16" From="54ac09f6-88f0-4b3a-a5a0-3ee793ac454c" FromIndex="1" To="34ce6f88-1287-4a5d-97b2-654876203e88" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="590,352.5" />
+          <Segment EndPoint="715.6,352.5" />
+          <Segment EndPoint="715.6,425" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="b0dd6b19-9ca5-4105-9205-12dd23b337fb" From="4ca71516-a6ed-4d83-8e99-0f274c1892e8" FromIndex="2" To="34ce6f88-1287-4a5d-97b2-654876203e88" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="715.6,280" />
+          <Segment EndPoint="715.6,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="7c835afe-007f-4299-8390-9e50fd5cc0bd" From="34ce6f88-1287-4a5d-97b2-654876203e88" FromIndex="2" To="ea9397b5-31d1-4c7f-9691-586e0d2cff90" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,480" />
+          <Segment EndPoint="715.6,525" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

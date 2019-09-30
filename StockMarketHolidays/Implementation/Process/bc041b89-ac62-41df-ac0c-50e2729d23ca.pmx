@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildHolidayTable" OwnerId="b7a478a9-a682-453e-be51-3cd0bd4190f7" ProcessId="bc041b89-ac62-41df-ac0c-50e2729d23ca" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="MarketHolidays" DataType="$[List,81e7f7e8-69c4-46df-8cbe-7e58bda6a1dd]" VariableType="Input" VariableId="a03df862-9251-4b33-be4a-286444d7fe35" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="InputOutput" VariableId="72036304-a54c-4c5f-9078-06828ee82c6a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="5a8650f3-429e-4f47-94c6-ea50d5d96777" Bounds="630.6,55,170,55" />
+        <CreateNode Variable="HolidayRows" DataType="$[List,$[ff6cde89-fc1e-4c36-a95b-a1c45a0c5977,b7a478a9-a682-453e-be51-3cd0bd4190f7]]" ID="8a76f539-2032-498a-b322-bfac54f56705" Bounds="440.6,155,550,55">
+          <Properties />
+        </CreateNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="MarketHolidays" IterationVar="HolidayToDisplay" Description="Repeat foreach MarketHoliday (HolidayToDisplay) in MarketHolidays..." ID="7dbfb2b6-5dac-4371-9d7e-5854303594d4" Bounds="365.6,255,700,405" />
+        <CreateNode Variable="NewHolidayRow" DataType="$[ff6cde89-fc1e-4c36-a95b-a1c45a0c5977,b7a478a9-a682-453e-be51-3cd0bd4190f7]" Parent="7dbfb2b6-5dac-4371-9d7e-5854303594d4" ID="de15543c-6511-4a3d-9200-ba0dc4f3797d" Bounds="75,75,550,55" ZOrder="10">
+          <Properties />
+        </CreateNode>
+        <AssignNode Description="Assign Holiday Date and Name" Parent="7dbfb2b6-5dac-4371-9d7e-5854303594d4" ID="1a00f984-f245-49bc-bdc8-bb7846f54f39" Bounds="75,175,550,55" ZOrder="10">
+          <Assignment Name="NewHolidayRow.HolidayRowCells.DateCell.DateText.TextString" Value="HolidayToDisplay.MarketDate" />
+          <Assignment Name="NewHolidayRow.HolidayRowCells.HolidayCell.HolidayText.TextString" Value="HolidayToDisplay.Name" />
+        </AssignNode>
+        <ListManagementNode ListActionType="Add" ListItem="NewHolidayRow" SourceList="HolidayRows" Parent="7dbfb2b6-5dac-4371-9d7e-5854303594d4" ID="1dfba23c-fd75-46c3-a060-e2ae865734dd" Bounds="75,275,550,55" ZOrder="10" />
+        <PageInstructionNode Action="Replace" Instruction="Content" Context="Current" ContainerElementId="b43e70e0-a377-4c11-8e3d-249319e7d20d" ViewElementsExpression="HolidayRows" PageInstructionViewElementId="9c2a999a-fa50-4a60-8b68-957e6d7c2ee5" ID="9a477fde-919f-4b21-a24d-27c09ac3f414" Bounds="440.6,705,550,55" ZOrder="10" />
+        <EndNode ID="d296c6c4-570a-4aa2-a5f9-68720e367eea" Bounds="630.6,805,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="95426928-6664-48f0-b2af-6f6f6745e3b5" From="de15543c-6511-4a3d-9200-ba0dc4f3797d" FromIndex="2" To="1a00f984-f245-49bc-bdc8-bb7846f54f39" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,385" />
+          <Segment EndPoint="715.6,430" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4fef8ca6-6594-474e-8470-663095de54a9" From="1a00f984-f245-49bc-bdc8-bb7846f54f39" FromIndex="2" To="1dfba23c-fd75-46c3-a060-e2ae865734dd" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,485" />
+          <Segment EndPoint="715.6,530" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b430b0d8-4583-4793-a62a-bd8f074150d2" From="7dbfb2b6-5dac-4371-9d7e-5854303594d4" FromIndex="2" To="9a477fde-919f-4b21-a24d-27c09ac3f414" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,660" />
+          <Segment EndPoint="715.6,705" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="597bd025-c254-4449-87cd-ee2050c20a6f" From="9a477fde-919f-4b21-a24d-27c09ac3f414" FromIndex="2" To="d296c6c4-570a-4aa2-a5f9-68720e367eea" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,760" />
+          <Segment EndPoint="715.6,805" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6294b3ec-175b-4e85-b939-f2eb270b7527" From="8a76f539-2032-498a-b322-bfac54f56705" FromIndex="2" To="7dbfb2b6-5dac-4371-9d7e-5854303594d4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0dca0994-7ee3-4ed4-ac10-76fbf51bf1af" From="5a8650f3-429e-4f47-94c6-ea50d5d96777" FromIndex="0" To="8a76f539-2032-498a-b322-bfac54f56705" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

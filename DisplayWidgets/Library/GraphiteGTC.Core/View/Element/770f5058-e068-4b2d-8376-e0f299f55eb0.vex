@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ElementPack" ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Element pack is a way to create a collection of view elements that can be reused in multiple Views.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ElementPack" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Common.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Cache.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Events.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">ElementPack.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags />
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAYAAACUef2IAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEHSURBVDhP7dQxTgJBGMXxhcJOKqJUygWwMibcQCwokZjYLtyAeAKOANQUqC2FHAIqegOhUSipsBD+D74QE3Yzs4kFBS/55VtmNi9LdrKpMAyDiKxt+iZlc5+0zX/PqXifoyr+RQ9lXODgRChJiz9xhyf0sUBkkhSrtIgRrtHCFCubbWh9G99i/f1HzHGPMeq4wpnNGrSufe/iVwyRxxvOERWtvyPvW9y1+YLM7jI2Km/EFetN/zWAUrLpykOSl6dc2nQlp2J9yVyyUL5tuvLl+8S3Nj9sujLwLX622cRydxkb7Td9i6vQU09QQVy51rU/8S3WfTrL+jbohBTQwQw/NvX7BuwHwQbuhDR4eFchJwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAYAAACUef2IAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADgSURBVDhP7ZQ9DoJAEIXBwhMYOiN3kENYeT30AMYj6GG0kEpL7TDR9b1lISvO/mgsLPySL7PMhhcIs6RKqURAbHpITe0YmPp1/sEdPxV8h2s4hxl8mQgNx03QxR5OoXTPk2ITSjA0g9yfwBIeYG3qArKvM+ww2z43WEDuzeAFSrDP/ejgFWQ/h2c2PDA87we29tFPAZf6Kkzp+le4qOC4WXqp3g2u4bBZerlyjpkccgTJydQQx9gDUpi6MTXEVvpQEvZUuEatpZuKGD6a41h20D55PGkV5Mlj5TXfCPsqeQDSB5fEAicyggAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

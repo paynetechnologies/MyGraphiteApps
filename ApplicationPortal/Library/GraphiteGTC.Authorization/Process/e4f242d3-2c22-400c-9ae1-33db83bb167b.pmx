@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="LoadByDescription" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="e4f242d3-2c22-400c-9ae1-33db83bb167b" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Loads a Security Group by Description">
+  <Variables>
+    <Variable Name="SecurityGroupDescription" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="f128d34a-65f9-469f-a97e-ee6a95012a6d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Output" VariableId="2cedf7da-0ea2-4a06-ad39-32f04c0b56f8" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="ad3edb72-f0a3-4b13-b149-98e4ebee2c3d" Bounds="886.5,55,170,55" />
+        <DataLookupNode Source="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableId="SecurityGroup" ResultType="Single" Description="" ID="1a4dfbab-05df-499e-a70b-bdbf415306e2" Bounds="696.5,155,550,55" ZOrder="1" Text="Data Lookup">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Description" RightExpression="SecurityGroupDescription" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <EndNode ID="52b32c70-c921-4574-9dc0-aec08439bb28" Bounds="886.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="820edce4-3b5b-400b-aa69-6c674132965a" From="ad3edb72-f0a3-4b13-b149-98e4ebee2c3d" FromIndex="0" To="1a4dfbab-05df-499e-a70b-bdbf415306e2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="971.5,110" />
+          <Segment EndPoint="971.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0c351522-d86d-4a51-b874-3dd4065fca4c" From="1a4dfbab-05df-499e-a70b-bdbf415306e2" FromIndex="2" To="52b32c70-c921-4574-9dc0-aec08439bb28" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="971.5,210" />
+          <Segment EndPoint="971.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

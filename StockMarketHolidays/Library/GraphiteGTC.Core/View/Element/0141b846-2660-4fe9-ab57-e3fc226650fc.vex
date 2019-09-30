@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SelectField" ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" BasedOn="f755a6c5-48c1-465c-9615-4deb3a49b8de" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" ParameterDataTypeFromRelatedEntity="true">
+  <Description>Select Field is for drop down lists.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OptionDetail" PropertyId="SimpleEntityDefinitionProperty_OptionDetail" IsOptional="false" DataType="403b0e0b-e486-44e6-a3fb-0f1dc295918e" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SelectField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SelectField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Selectbox.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OptionDetail" EditorType="DataSource" Label="Options" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Enumeration or Entity for the Select Item]]></Description>
+      </Field>
+      <Field FieldName="IsFirstBlank" EditorType="YesNoToggle" Label="First item empty?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Do not auto-select first item?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TranslateContent" EditorType="YesNoToggle" Label="Translate Options?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Translate Options?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Source" Value="{Source}" />
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Display" Value="{DisplayPropertyId}" />
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Value" Value="{ValuePropertyId}" />
+      <Map FieldName="IsFirstBlank" PropertyPath="OptionDetail.IsFirstBlank" Value="{Text}" />
+      <Map FieldName="TranslateContent" PropertyPath="TranslateContent" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAALCAYAAABlNU3NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVDhPY0xLS/vPQEPABKVpBpAtYKQyBgO6+oAc0ADEoDhExiAxOKCGBY0QJhiA2FS1AARglmAYDgLUigOQwRiGgwBdIxk9sijFYEBjHzAwAAD7/SBH8AhbOwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAALCAYAAABlNU3NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPY/wPBAw0BExQmmYA2QeMUJpaAGwuzX1AqQUNQAxyKTIGiSEAKIigAMQmBzcAMQyA2DBxMKBWHMBcjex6sLlDP5KHekZjYAAAv4lrqrk/sS8AAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

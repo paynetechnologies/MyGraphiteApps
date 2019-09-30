@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Table" ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Table is a way of displaying data in rows and columns.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Columns" PropertyId="SimpleEntityDefinitionProperty_Columns" IsOptional="true" DataType="$[List,be849f2e-e77d-44b4-919f-aea8eae2fd05]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Rows" PropertyId="SimpleEntityDefinitionProperty_Rows" IsOptional="true" DataType="$[List,f6f00d51-dc4a-4432-be90-fe576de0174e]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanFocus" PropertyId="SimpleEntityDefinitionProperty_CanFocus" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OrderedColumn" PropertyId="SimpleEntityDefinitionProperty_OrderedColumn" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SortOrder" PropertyId="SimpleEntityDefinitionProperty_SortOrder" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Alignment" PropertyId="SimpleEntityDefinitionProperty_Alignment" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FormToSerialize" PropertyId="6a8cd523-ac2a-4c70-933d-45c7f4160529" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnScroll" PropertyId="8b1e0092-881b-4c33-adc7-fac65f4c5fe1" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanHideColumns" PropertyId="5ad88aae-c2ab-47e9-abf7-74caf8df8605" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Borders" PropertyId="7b14dfbc-3331-4e5d-bb79-3d42a5d9bdad" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Stripes" PropertyId="6e2b73c6-fbb3-44e6-8ff1-319b593fa598" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Hover" PropertyId="97e01d7b-d966-4680-aa85-50ae051e3b8f" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EqualColumnWidth" PropertyId="0d88b793-79c9-4163-84bf-c79f2fa3d408" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PaddingSize" PropertyId="6372d092-47a3-4b0c-a118-6fbc07926872" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Table" />
+    <Property PropertyName="CanFocus" DefaultValue="Yes" />
+    <Property PropertyName="SortOrder" DefaultValue="Ascending" />
+    <Property PropertyName="Alignment" DefaultValue="Left" />
+    <Property PropertyName="CanHideColumns" DefaultValue="Yes" />
+    <Property PropertyName="Borders" DefaultValue="No" />
+    <Property PropertyName="Stripes" DefaultValue="No" />
+    <Property PropertyName="Hover" DefaultValue="No" />
+    <Property PropertyName="EqualColumnWidth" DefaultValue="No" />
+    <Property PropertyName="PaddingSize" DefaultValue="Default" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Table.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Table.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Table]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="CanFocus" EditorType="YesNoToggle" Label="Can Focus?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing allowed?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OrderedColumn" EditorType="ViewElementChooser" Label="Ordered Column" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Column to order by]]></Description>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Column" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="SortOrder" EditorType="SelectBox" Label="Sort Order" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Sort Oder]]></Description>
+        <DescriptionOptions><![CDATA[Ascending, Descending]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Ascending" Value="Ascending" />
+          <FieldOption DisplayName="Descending" Value="Descending" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Ascending" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Alignment" EditorType="SelectBox" Label="Alignment" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Alignment of the content in that Table]]></Description>
+        <DescriptionOptions><![CDATA[Center, Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+          <FieldOption DisplayName="Center" Value="Center" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Left" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit" Grouping="Paging" AffectsRender="false" IsLocalizable="false" SerializedFieldContainerProvider="true">
+        <Description><![CDATA[Form to submit for Paging]]></Description>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="OnScroll" EditorType="ViewBehaviorChooser" Label="OnScroll" Grouping="Paging" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the table is scrolled]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="PageNumber" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="CanHideColumns" EditorType="YesNoToggle" Label="Can Hide Columns?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Show/Hide Columns icon?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Borders" EditorType="YesNoToggle" Label="Has Borders?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show a Border?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Stripes" EditorType="YesNoToggle" Label="Has Stripes?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Row Stripes?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Hover" EditorType="YesNoToggle" Label="Can Hover?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Alter background of a Row?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="EqualColumnWidth" EditorType="YesNoToggle" Label="Equal Column Width?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Make width of all Columns the same?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="PaddingSize" EditorType="SelectBox" Label="Padding Size" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Padding around a Cell]]></Description>
+        <DescriptionOptions><![CDATA[Default, Extra Large, Extra Small, Large, Small]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Extra Small" Value="XSmall" />
+          <FieldOption DisplayName="Small" Value="Small" />
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="Large" Value="Large" />
+          <FieldOption DisplayName="Extra Large" Value="XLarge" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="CanFocus" PropertyPath="CanFocus" Value="{Text}" />
+      <Map FieldName="OrderedColumn" PropertyPath="OrderedColumn" Value="{Text}" />
+      <Map FieldName="SortOrder" PropertyPath="SortOrder" Value="{Text}" />
+      <Map FieldName="Alignment" PropertyPath="Alignment" Value="{Text}" />
+      <Map FieldName="FormToSerialize" PropertyPath="FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="OnScroll" PropertyPath="OnScroll.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnScroll" PropertyPath="OnScroll.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="CanHideColumns" PropertyPath="CanHideColumns" Value="{Text}" />
+      <Map FieldName="Borders" PropertyPath="Borders" Value="{Text}" />
+      <Map FieldName="Stripes" PropertyPath="Stripes" Value="{Text}" />
+      <Map FieldName="Hover" PropertyPath="Hover" Value="{Text}" />
+      <Map FieldName="EqualColumnWidth" PropertyPath="EqualColumnWidth" Value="{Text}" />
+      <Map FieldName="PaddingSize" PropertyPath="PaddingSize" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Focus</Key>
+    <Key>Display</Key>
+    <Key>DisplayAll</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABWSURBVEhL7ZJBCgAgCAStx/r/HxRJQodNTwqFA4OHPYisjZkHBdL3DONc0C4qKLMUUi8I4a8F612RCsoshdQL0KstFZRZClWypVAlu1TJLlWyy+slE031k0ph7atnfQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVEhLY/wPBAw0BExQmmYA2QeMUBodEJLHBcD6aO6DUQsIgtFkig8Mk2Q6Gsn4wGgkEwdGI5kgGI1kAoCBAQD4LywEfhDT0AAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

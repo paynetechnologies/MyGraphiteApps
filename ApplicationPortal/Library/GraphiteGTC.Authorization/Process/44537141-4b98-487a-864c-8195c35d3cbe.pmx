@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Create" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="44537141-4b98-487a-864c-8195c35d3cbe" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Create a new Security Group">
+  <Variables>
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Output" VariableId="59141018-3209-4e85-a008-dc3823c482c5" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Description" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="f3078720-acdb-47cf-b42c-016c44c85990" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="5489d77e-326b-4b81-87d6-aeec2f62b88e" Bounds="886.5,55,170,55" />
+        <CreateNode Variable="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ID="34eb781e-f4b8-45e4-9220-0d935d0b10c1" Bounds="696.5,155,550,55">
+          <Properties>
+            <Property Name="Description">Description</Property>
+          </Properties>
+        </CreateNode>
+        <EndNode ID="ecdd231d-38eb-47b5-a566-b0143a01d909" Bounds="886.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="fd6c1302-4562-47a4-aa13-379930b9b336" From="5489d77e-326b-4b81-87d6-aeec2f62b88e" FromIndex="0" To="34eb781e-f4b8-45e4-9220-0d935d0b10c1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="971.5,110" />
+          <Segment EndPoint="971.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f29b5326-292b-45c2-b047-0c0504ea3ba4" From="34eb781e-f4b8-45e4-9220-0d935d0b10c1" FromIndex="2" To="ecdd231d-38eb-47b5-a566-b0143a01d909" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="971.5,210" />
+          <Segment EndPoint="971.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceReference Id="1ec2bb0d-5fa9-495b-b0bb-6c44bda637b5" Name="TestWS" ReferenceType="Rest" ServiceAddress="www.weather.com">
+  <Tags>
+    <Tag Type="Group">Card Widgets</Tag>
+  </Tags>
+</ServiceReference>

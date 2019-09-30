@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="2e9d085f-a67b-4c09-b6b5-0d502333436f" Name="ConfirmTwoFactorAuthenticationCode" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Confirm a two-factor code">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="ConfirmTwoFactorAuthenticationCode" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/ConfirmTwoFactorAuthenticationCodeResponse" Action="http://graphitegtc/membershipservice/IAuthentication/ConfirmTwoFactorAuthenticationCode">
+        <Inputs>
+          <Input Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Tenant" ContractType="string" />
+          <Input Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Username" ContractType="string" />
+          <Input Name="Code" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Code" ContractType="string" />
+        </Inputs>
+        <Outputs>
+          <Output Name="ConfirmTwoFactorAuthenticationCodeResult" DataType="9602f7ae-367b-4ea3-a7f8-21a204f0db53" ContractName="ConfirmTwoFactorAuthenticationCodeResult" ContractType="TwoFactorAuthenticationStatus" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

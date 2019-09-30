@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Video" ViewElementId="c1589ece-b815-418a-814b-99b6a57ae374" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Video element is used for playing Video.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Subtitle" PropertyId="SimpleEntityDefinitionProperty_Subtitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AdditionalInformation" PropertyId="SimpleEntityDefinitionProperty_AdditionalInformation" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Source" PropertyId="SimpleEntityDefinitionProperty_Source" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="VideoType" PropertyId="SimpleEntityDefinitionProperty_VideoType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsMobileAware" PropertyId="SimpleEntityDefinitionProperty_IsMobileAware" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AutoPlay" PropertyId="5453f1ae-bb76-4934-963c-a15f9ca37e50" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Base64Type" PropertyId="81120444-44b8-4db5-a965-8b97261b7a0d" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Video" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Video.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">StyleHelper.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Subtitle" EditorType="TranslationKeyChooser" Label="Subtitle" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Sub title]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="AdditionalInformation" EditorType="TranslationKeyChooser" Label="Additional Information" AffectsRender="true" IsLocalizable="true" />
+      <Field FieldName="Source" EditorType="ResourceChooser" Label="Source" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Video from resources]]></Description>
+      </Field>
+      <Field FieldName="VideoType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Video Type]]></Description>
+        <DescriptionOptions><![CDATA[Default, HD, Mobile, Tablet]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Mobile" Value="Mobile." />
+          <FieldOption DisplayName="Tablet" Value="Tablet." />
+          <FieldOption DisplayName="HD" Value="HD." />
+          <FieldOption DisplayName="Default" Value="Default" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsMobileAware" EditorType="YesNoToggle" Label="Mobile aware?" AffectsRender="true" IsLocalizable="false" />
+      <Field FieldName="DimensionHeight" EditorType="DecimalTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Video]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="DecimalTextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Wdith of the video]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the height and width]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="AutoPlay" EditorType="YesNoToggle" Label="Auto Play?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Play video on load?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="Subtitle" PropertyPath="Subtitle" Value="{TranslationKey}" />
+      <Map FieldName="AdditionalInformation" PropertyPath="AdditionalInformation" Value="{TranslationKey}" />
+      <Map FieldName="Source" PropertyPath="Source" Value="{SelectedResourceName}" />
+      <Map FieldName="VideoType" PropertyPath="VideoType" Value="{Text}" />
+      <Map FieldName="IsMobileAware" PropertyPath="IsMobileAware" Value="{Text}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="AutoPlay" PropertyPath="AutoPlay" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADWSURBVEhLvZRNCsIwEIVb1x7HC7j35xbZ61ahCrr2LrrXA+htxLW+l05KDGknlKYffMxAQl6HREtjzLfIyERqNvyAcmAto06QhdSAJbzDt8h+AVVSAk7wCudwKrK/Qa51ogXwK3d1azlKdXCN07WiBWylOg4wDNlIjaIFzKT6hCGxPQ2plxzi//qbNx9DC3hJ9akgp3A8pUbRAi5SHeHhJNzzhxbAp3iuW0t4ONe4p5WUO9jDNXzAj8h+BbnWif933XlZPbDn9n1FyYwawJGG1JJ5gqL4AfMYM4g5U+kRAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVEhL7ZVbCoMwEEVj16duqX50XS6q7X9773QSLkOsoA1Y8MAhQ5y8jXYvkBpy8bIZuoLOy19h/TZfwWEGGOAMHy7jHq7DM3AY17zBJfis1oYaJQAxgfZQmbxUBlhra5QAxAQ6Q4V1cRDmxHbUKAGICfQOlVyvgzBH22SNrW+R3v7v98cHInEGtLZF109Y2LVFPEAldk52HTJt+ppmR8iteLqMl2aeNc6P3Sr//kdL6Q30iq4vEueemQAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

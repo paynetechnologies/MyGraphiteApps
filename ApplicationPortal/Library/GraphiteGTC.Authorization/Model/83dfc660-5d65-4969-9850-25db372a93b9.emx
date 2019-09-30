@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ViewDetail" EntityId="83dfc660-5d65-4969-9850-25db372a93b9" NamespaceExtension="Common">
+  <Description>A system entity that is used to persist View detail for the authorization framework</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="93276806-822d-459f-9111-d0834e736e7a" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewHeaderDetails" PropertyId="1ce481c7-9cbd-4eaf-9e4c-775a6c7f61d0" IsOptional="true" DataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PropertyId" PropertyId="4ddd6199-d684-478a-8d5f-0d16472940d5" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewRegionDetails" PropertyId="26fcdf98-c0ab-4825-8446-67a4fd33b2f1" IsOptional="true" DataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewContentDetails" PropertyId="e60e1e70-4c8b-4255-9153-fc1c82af73f1" IsOptional="true" DataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewFooterDetails" PropertyId="6fba8f83-39a4-49a6-91cf-3bf28a5da7e5" IsOptional="true" DataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

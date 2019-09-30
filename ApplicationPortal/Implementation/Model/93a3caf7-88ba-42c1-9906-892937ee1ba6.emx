@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="AccountType" EntityId="93a3caf7-88ba-42c1-9906-892937ee1ba6" EntityType="Enumeration" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="cec621f8-a00a-4840-aeee-c6dacf2aa2ce" IsOptional="false" DataType="2a4fb4ec-1b34-4bd6-aecc-227a9b469ca4" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="3c974d2e-6f58-46d3-b13e-a232007846a8" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <DataEntries KeyProperty="Description">
+    <DataEntry DataEntryId="beddcabf-da91-4ec7-828a-7108c505f558">
+      <DataValue Property="Description">AutoInsurance</DataValue>
+      <DataValue Property="Display">Auto Insurance</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="e2560158-a887-4944-a2a4-49a47d8d47b3">
+      <DataValue Property="Description">AutoLoan</DataValue>
+      <DataValue Property="Display">Auto Loan</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="bf3d6ccd-5d66-47c2-8639-9a65de525731">
+      <DataValue Property="Description">BusinessCreditLine</DataValue>
+      <DataValue Property="Display">Business Credit Line</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="17fe17f3-d0fd-41d2-8cfe-d83a8dc51b26">
+      <DataValue Property="Description">BusinessLoan</DataValue>
+      <DataValue Property="Display">Business Loan</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="b74d7977-239c-4559-8bfc-b9def88d0f5d">
+      <DataValue Property="Description">Checking</DataValue>
+      <DataValue Property="Display">Checking</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="928b17f3-2a04-47d6-b476-4ea087064a78">
+      <DataValue Property="Description">HomeLoan</DataValue>
+      <DataValue Property="Display">Home Loan</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="fa9904b5-2536-4841-b85c-f87cd4062a0c">
+      <DataValue Property="Description">Investment</DataValue>
+      <DataValue Property="Display">Investment</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="a3347c36-ec52-4432-9805-561b3645519d">
+      <DataValue Property="Description">LifeInsurance</DataValue>
+      <DataValue Property="Display">Life Insurance</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="bc88a2cc-e238-4f77-97c5-f120c9e3816b">
+      <DataValue Property="Description">Saving</DataValue>
+      <DataValue Property="Display">Saving</DataValue>
+    </DataEntry>
+  </DataEntries>
+  <Tags>
+    <Tag Type="Group">Members</Tag>
+  </Tags>
+</EntityDefinition>

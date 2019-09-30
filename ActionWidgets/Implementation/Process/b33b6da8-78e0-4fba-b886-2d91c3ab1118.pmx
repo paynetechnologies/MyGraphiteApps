@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="279466b9-2125-4a5e-a58c-044528db431a" ProcessId="b33b6da8-78e0-4fba-b886-2d91c3ab1118" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="279466b9-2125-4a5e-a58c-044528db431a" VariableType="Output" Classification="Pinned, Locked" VariableId="cd221822-1174-4532-835e-300dc2f5040a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="651619f7-fe0f-41c7-afec-dbf6eb7a6da8" VariableType="Input" Classification="Pinned, Locked" VariableId="f2112bc0-d71a-4d3d-9137-c00a0f41b9fa" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="bdc8826b-ad4a-4c17-abeb-0f9ba3a5a84d" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="279466b9-2125-4a5e-a58c-044528db431a" Description="Create the ActionButtonWidget view" ID="954591d1-e262-445c-8e15-9dbc4bdaa9d9" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="62f6d740-7cc6-4fcd-8185-a5c631369ff7" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="f4f579dd-05e2-4e60-83c2-f61320c8c00e" From="bdc8826b-ad4a-4c17-abeb-0f9ba3a5a84d" FromIndex="0" To="954591d1-e262-445c-8e15-9dbc4bdaa9d9" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="9720c2ab-add4-4d64-af08-8397408df503" From="954591d1-e262-445c-8e15-9dbc4bdaa9d9" FromIndex="2" To="62f6d740-7cc6-4fcd-8185-a5c631369ff7" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

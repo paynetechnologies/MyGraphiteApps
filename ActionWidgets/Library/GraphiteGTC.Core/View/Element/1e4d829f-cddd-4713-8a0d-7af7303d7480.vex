@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="EventDisplayDetail" ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" BasedOn="8859156a-dcff-4bea-be76-eda3c1ba7661" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Event Display Detail is a special Display Detail to be used in conjunction with Event Display Panel to display events. This is an advanced feature.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UiEventDetail" PropertyId="1a7c9193-b932-46ec-bcc3-700c467fbf15" IsOptional="true" DataType="300d1bfb-cfdf-427e-bb48-e4b40bb2f5d8" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EditModalNavigation" PropertyId="711dd4ea-ecb1-4a21-9ed6-74b8f51b27d1" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ResultModalNavigation" PropertyId="5db06c64-ec6c-4e8e-a896-a9eef017204c" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnDelete" PropertyId="8a7591a7-4fbe-4933-ba95-35568558554a" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnProcess" PropertyId="cf1543b5-8012-4837-833c-01f8cd6e8fb1" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnRecycle" PropertyId="b412fb0e-a257-4930-89b4-0d2b3fa66c79" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnUndo" PropertyId="4e9e3868-a06c-4f3d-8368-b31cf9f76e84" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnComplete" PropertyId="80920cc6-5dad-4082-8595-d7267bcb16ec" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnShowValidations" PropertyId="b16b9ecf-b908-4277-bcee-a63d3ffcce99" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnSaveValidations" PropertyId="3efc4035-f79a-4cf9-809f-8040a5d2e20e" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="EventDisplayDetail" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">EventDisplayDetail.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="ImageSource" EditorType="Hidden" Label="ImageSource" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="IsExpandable" EditorType="Hidden" Label="IsExpandable" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="DisplayDetailType" EditorType="Hidden" Label="DisplayDetailType" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="OnDelete" EditorType="ViewBehaviorChooser" Label="OnDelete" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when event is Deleted]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnProcess" EditorType="ViewBehaviorChooser" Label="OnProcess" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when event is Processed]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnRecycle" EditorType="ViewBehaviorChooser" Label="OnRecycle" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when event is Recycled]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnUndo" EditorType="ViewBehaviorChooser" Label="OnUndo" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when event is Reversed]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnComplete" EditorType="ViewBehaviorChooser" Label="OnComplete" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when event Completes]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnShowValidations" EditorType="ViewBehaviorChooser" Label="OnShowValidations" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior for Showing Validations]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnSaveValidations" EditorType="ViewBehaviorChooser" Label="OnSaveValidations" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior for Saving Validations]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="OverriddenValidations" ParameterDataType="$[List,d52661f3-a152-455c-9fe6-bbd8898b24be]" />
+        </BehaviorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnDelete" PropertyPath="OnDelete.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnDelete" PropertyPath="OnDelete.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnProcess" PropertyPath="OnProcess.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnProcess" PropertyPath="OnProcess.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnRecycle" PropertyPath="OnRecycle.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnRecycle" PropertyPath="OnRecycle.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnUndo" PropertyPath="OnUndo.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnUndo" PropertyPath="OnUndo.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnComplete" PropertyPath="OnComplete.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnComplete" PropertyPath="OnComplete.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnShowValidations" PropertyPath="OnShowValidations.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnShowValidations" PropertyPath="OnShowValidations.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnSaveValidations" PropertyPath="OnSaveValidations.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnSaveValidations" PropertyPath="OnSaveValidations.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Validations</Key>
+    <Key>Complete</Key>
+    <Key>Pending</Key>
+    <Key>Details</Key>
+    <Key>DateProcessed</Key>
+    <Key>AddedBy</Key>
+    <Key>ExecutedBy</Key>
+    <Key>ScheduledBy</Key>
+    <Key>Delete</Key>
+    <Key>Undo</Key>
+    <Key>Recycle</Key>
+    <Key>Edit</Key>
+    <Key>Process</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Event</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB/SURBVEhL7ZJLCsAwCEST3jH3P0qLIREZJsS2uij0weBCmfhJba0V4ByxjriC1h0jhiGG8tIUYnNWiOZYhzLCblyB1qGh7UK0YlmXssNQrOHcyVN10kfGZXulfOsoIaQbsu/gkYKG7IIeKf9R3oOG7IIeKakdsu9wR53gDku5AApLQx+l4VpmAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVEhL7ZKLCgAQDEXH///zNI3EPGIrxSkpjZ12OUSEinTgeO8h1nne1SDDUpG6lZ0bfaZbJxlSAa0ZYl1teIz6DE1DWZnbiPiOueFuQPnu/aE8+G1+yufcn7KpoQrKhgABUv4wCXfxOGYAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

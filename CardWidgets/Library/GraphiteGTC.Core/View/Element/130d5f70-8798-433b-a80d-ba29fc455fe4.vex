@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ExpandableDisplay" ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Expandable Display is a special way of displaying elements that allows for certain parts to be always shown, and certain parts to be hidden within an expandable area.  This is used in conjunction with Expandable Panel.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="VisibleElement" PropertyId="SimpleEntityDefinitionProperty_VisibleElement" IsOptional="true" DataType="38107afd-fd3d-4472-b463-d8d0d5588a55" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="SimpleEntityDefinitionProperty_Id" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsOpen" PropertyId="50b62429-6a30-436f-95a6-2c2985ddd114" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ExpandableDisplay" />
+    <Property PropertyName="IsOpen" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ExpandableDisplay.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Display]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="VisibleElement" EditorType="PropertyNodeCreator" Label="Visible Element" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View Element for the Visible part of the Display]]></Description>
+      </Field>
+      <Field FieldName="IsOpen" EditorType="YesNoToggle" Label="Is Open?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Open the Display on Initial Load]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="VisibleElement" PropertyPath="VisibleElement" />
+      <Map FieldName="IsOpen" PropertyPath="IsOpen" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAALCAYAAACK9ybzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB5SURBVDhPY0xLS/vPQGPABKVpCnBZwoiEKQYD6hOqAmRL+oEYxEcPIhAfJN4H5pEBkC0pBOLlQMwO5iEAiA8SLwLzyADowRUOxDuAWADMg9DbgRgkTjZAtwQEHID4MBBbQGlHIKYIYLMEBHSA+DiUphjgsoSKgIEBAPK4C0dEtNfoAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAALCAYAAACK9ybzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVDhPY/wPBAw0BkxQmqYAlyWMSJhiMKA+oSpAtqQfiEF89CAC8UHifWAeOQCUupDACiBmB2KQOAyD+CBxsgG6JSCwH4gFgBgkB6L3ATFFAJslIHAZiC2gNMVguGRGBgYARPIp+Ff5XekAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

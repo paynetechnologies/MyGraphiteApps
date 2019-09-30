@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Compatibilities>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="1a077847-5170-4182-86c4-182217bc0324">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="72b643eb-598c-42f1-9c43-c6e0bcbe1656">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" PropertyId="SimpleEntityDefinitionProperty_Buttons">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" PropertyId="d4cde0f3-40c9-4630-b64c-2eb46e86c15a">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="da7d8b9b-fb7b-4df7-a6c3-89970e5c006d" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="f1ebb0e8-3139-4d19-9917-2be9c64a9eac" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0ff81d-0fc8-4a55-83f8-0b95fc80efa2" Allowed="true" />
+    <CompatibleElement ViewElementId="a367aaba-df27-477d-8df0-b2e8438553ff" Allowed="true" />
+    <CompatibleElement ViewElementId="61820194-6a90-45d6-998a-3fee786a81a5" Allowed="true" />
+    <CompatibleElement ViewElementId="58302130-432f-4423-91ef-34bf1647c794" Allowed="true" />
+    <CompatibleElement ViewElementId="37321b9c-0b04-4ad1-8bef-81e83952596d" Allowed="true" />
+    <CompatibleElement ViewElementId="c1589ece-b815-418a-814b-99b6a57ae374" Allowed="true" />
+  </Container>
+  <Container ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="f1ebb0e8-3139-4d19-9917-2be9c64a9eac" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0ff81d-0fc8-4a55-83f8-0b95fc80efa2" Allowed="true" />
+    <CompatibleElement ViewElementId="a367aaba-df27-477d-8df0-b2e8438553ff" Allowed="true" />
+    <CompatibleElement ViewElementId="61820194-6a90-45d6-998a-3fee786a81a5" Allowed="true" />
+    <CompatibleElement ViewElementId="58302130-432f-4423-91ef-34bf1647c794" Allowed="true" />
+    <CompatibleElement ViewElementId="37321b9c-0b04-4ad1-8bef-81e83952596d" Allowed="true" />
+    <CompatibleElement ViewElementId="c1589ece-b815-418a-814b-99b6a57ae374" Allowed="true" />
+  </Container>
+  <Container ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="f1ebb0e8-3139-4d19-9917-2be9c64a9eac" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0ff81d-0fc8-4a55-83f8-0b95fc80efa2" Allowed="true" />
+    <CompatibleElement ViewElementId="a367aaba-df27-477d-8df0-b2e8438553ff" Allowed="true" />
+    <CompatibleElement ViewElementId="61820194-6a90-45d6-998a-3fee786a81a5" Allowed="true" />
+    <CompatibleElement ViewElementId="58302130-432f-4423-91ef-34bf1647c794" Allowed="true" />
+    <CompatibleElement ViewElementId="37321b9c-0b04-4ad1-8bef-81e83952596d" Allowed="true" />
+    <CompatibleElement ViewElementId="c1589ece-b815-418a-814b-99b6a57ae374" Allowed="true" />
+  </Container>
+  <Container ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="ac855314-78a9-4918-8881-b513fe786061" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="58302130-432f-4423-91ef-34bf1647c794" PropertyId="SimpleEntityDefinitionProperty_Images">
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+  </Container>
+  <Container ViewElementId="37321b9c-0b04-4ad1-8bef-81e83952596d" PropertyId="SimpleEntityDefinitionProperty_Images">
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+  </Container>
+  <Container ViewElementId="b07a8384-c579-4679-9401-226b2af0eb1b" PropertyId="SimpleEntityDefinitionProperty_Link">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="95afea19-37f0-487b-ac59-c4e5789cf1b7" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="1f72c3aa-381a-4e97-9125-0beeda475ce0" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="f1ebb0e8-3139-4d19-9917-2be9c64a9eac" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0ff81d-0fc8-4a55-83f8-0b95fc80efa2" Allowed="true" />
+    <CompatibleElement ViewElementId="a367aaba-df27-477d-8df0-b2e8438553ff" Allowed="true" />
+    <CompatibleElement ViewElementId="61820194-6a90-45d6-998a-3fee786a81a5" Allowed="true" />
+    <CompatibleElement ViewElementId="58302130-432f-4423-91ef-34bf1647c794" Allowed="true" />
+    <CompatibleElement ViewElementId="37321b9c-0b04-4ad1-8bef-81e83952596d" Allowed="true" />
+    <CompatibleElement ViewElementId="c1589ece-b815-418a-814b-99b6a57ae374" Allowed="true" />
+  </Container>
+  <Container ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" Allowed="true" />
+  </Container>
+</Compatibilities>

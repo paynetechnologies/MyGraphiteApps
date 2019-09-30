@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Iframe" ViewElementId="6bc26bee-fdd3-4148-a17f-847b2f95bf03" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Url" PropertyId="d39a3d94-4816-45a9-9e75-e67bbe236089" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Prefix" PropertyId="46604ebd-37a1-4de9-a7ce-3abe0395d74b" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="85a84b12-4ed3-4d21-bf81-15546b8284b9" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FillScreen" PropertyId="90cf2e94-3c41-4221-bfce-1143663d5102" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Iframe" />
+    <Property PropertyName="Prefix" DefaultValue="http://" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Iframe.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">StyleHelper.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Url" EditorType="TextBox" Label="Url" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[A valid URL]]></Description>
+      </Field>
+      <Field FieldName="Prefix" EditorType="TextBox" Label="Url Prefix" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[URL Prefix]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="http://" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="TextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the iframe]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="TextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the iframe]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Height and Width]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FillScreen" EditorType="YesNoToggle" Label="Fill Screen?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[IFrame will fill the Screen]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Url" PropertyPath="Url" Value="{Text}" />
+      <Map FieldName="Prefix" PropertyPath="Prefix" Value="{Text}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="FillScreen" PropertyPath="FillScreen" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD/SURBVDhP3ZSxDgFBFEVnFSKi0fMJCnr+wA+oZRKVQqNCVBqFSiFaJY1e+ACFD1DpNaJd945ZdhjWbqzCSU7GvLz3brJZ60gpXREjCX06MXkLiA0vgI8pDv/oEYVFwtn153uiBKRgB+7VLYBXAUnYhnN1M2nANByqmxALyF7OPGELKMMtrMIeCz4ykMu4/MgC6EL2coazBraAKTxANu9Y8NHU50ifhD0VyBnOGtgC6jAPN7DAgiYLW3AATyxo2LOGOchZA1sAFxfhEvZZ0HD5GY7V7Q572FuCnDXwPnbqTxEAX8sVnKjbZ7iv3iIbNRhmuSJMQCR+FvD4FfySQlwAxT5RRGdBwocAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADnSURBVDhP7ZQtDsJAEIXbkpAKDAeBG8Bx8DgSEhS3wCPB4jBwAzAIFKaGK5T3OjPJpKI/GzZB8JJvt/s600lnu01LKIkoK5DK8usqM72Ipn+LWhVaYAH2ctmskAI52IBntWoT94DbUGMIVuDgPGMJ3mCs6yNgLHPqsTLobMzADVzBVD1jBAqwdh5jGMsc5vp4GXQ2HuAEMucZfDALsJD3B4A5zPW+DDobc3AHFzBRj7AlbA1b5OMZw1i+AXP9PRl09tgesL/mbcEL5M4jjXvQ56DxszyDXbXqpl4FQvS7J7mzIv9Nk+QDnFesIORDJ00AAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Paragraph" ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Paragraph is used to display a multi-line paragraph of plain text.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextString" PropertyId="SimpleEntityDefinitionProperty_TextString" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Paragraph" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Paragraph.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="TextString" EditorType="TranslationKeyChooser" Label="Text" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Content of the Paragraph]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="TextString" PropertyPath="TextString" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAOCAYAAAA1+Nx+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADpSURBVDhPtdM/C0FRHMbxQzLIIItBGSVkt5m8AIuBkuL6E4M3pEx4MYwWs8XAYEPx/bnn1KEr3VOe+vQ71y3PPc4V8TxPWUnggBR2KOMB50T1NGlBvlxSRN1fuuezYKLnUs+Zns6xC2qo4IgBTpAdFOAcu2Ckpzz9Rc8IxnCOKcii4S/VQs+5nl2YcwkdUzBEzF+qLeTN2byulEqi5y/DRwri6L+uvmcK8wChIgVNZHBFHmlLCXfkcIPsLBQpMIe4wh5ni/zZ1nCOFFQhb0tHPghIG3LfiTnkv0UKAn+7H0yC7r358w6UegIhhEFqcr3q2gAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAPCAYAAAD+pA/bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADqSURBVDhPvdQxCsIwFMbxKCIoDiLOXQSHOugRnDyDg5vgJnglHTyDR3DTpRcQBAfBzUHF+H9tIqEKklb94MdLSm360tqC1lr9MkVTbWo4QVaNUECupBcYoZ4MVYhBMswR2SJHBMnC1BXS53hxJ31IDqjiiDtCuOd5cbdoauoSZ1PlGcyQPWalAFdIupBjvXim9RlNPO/Kh+1gglIyVFvIW7SJZ0pVME6G/pH/QZm6RzM+8j47tHCLZx6RDoaQi1/QRsPRgVw0wBXSmR86WEMyx8sewr6ymfL3T8XXIx1kacF+oz7+9scdKPUAcRNqF2pZX/QAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="CurrencyDefinition" EntityId="d06b0a46-fd1f-4a0b-9fa3-a8851d624697" EntityType="Enumeration" MergedFrom="271de6e0-2108-4db2-93b0-7452395f67c8" TargetChangeSetId="2e534a1d-fdbf-4815-8d5c-1ab5f872b6b9">
+  <Description />
+  <DataEntries KeyProperty="Code" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

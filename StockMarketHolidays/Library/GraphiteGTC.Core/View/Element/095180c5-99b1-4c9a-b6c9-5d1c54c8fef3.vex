@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SearchTool" ViewElementId="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" BasedOn="d09429b4-07f7-48c4-9f4b-176a118b1af5" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Search Tool is used for search capability. It is recommended to be used with AppBar.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AdvancedNavigation" PropertyId="SimpleEntityDefinitionProperty_AdvancedNavigation" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsAdvancedDisplayed" PropertyId="SimpleEntityDefinitionProperty_IsAdvancedDisplayed" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SubmitWithEnterKey" PropertyId="466cc0ce-acae-43a5-b0b5-36bbcc5ac587" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SearchTool" />
+    <Property PropertyName="IsLocked" DefaultValue="No" />
+    <Property PropertyName="IsRequired" DefaultValue="No" />
+    <Property PropertyName="IsSerializable" DefaultValue="Yes" />
+    <Property PropertyName="IsAdvancedDisplayed" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SearchTool.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">TextField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">MaskField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Button.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Textbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Hyperlink.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Link.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="FocusIndex" EditorType="Hidden" Label="Focus Index" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="LabelTextString" EditorType="Hidden" Label="Label" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="LabelTooltip" EditorType="Hidden" Label="Tooltip" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="IsLocked" EditorType="Hidden" Label="Locked?" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsRequired" EditorType="Hidden" Label="Required?" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsSerializable" EditorType="Hidden" Label="Serialize?" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IconSymbol" EditorType="Hidden" Label="Icon" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="Value" EditorType="Hidden" Label="Value" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="AdvancedNavigationView" EditorType="ViewChooser" Label="Advanced Search View" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View to Navigate to when the Advanced icon is clicked]]></Description>
+      </Field>
+      <Field FieldName="IsAdvancedDisplayed" EditorType="YesNoToggle" Label="Display Advanced?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Displat the Advanced Icon?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="Hidden" Label="Form to Submit" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="SubmitWithEnterKey" EditorType="YesNoToggle" Label="Submit with Enter Key?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Submit the Search Text on pressing the Enter key?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsLocked" PropertyPath="IsLocked" Value="{Text}" />
+      <Map FieldName="IsRequired" PropertyPath="IsRequired" Value="{Text}" />
+      <Map FieldName="IsSerializable" PropertyPath="IsSerializable" Value="{Text}" />
+      <Map FieldName="Value" PropertyPath="Value" Value="{Text}" />
+      <Map FieldName="AdvancedNavigationView" PropertyPath="AdvancedNavigation.View" Value="{Url}" />
+      <Map FieldName="IsAdvancedDisplayed" PropertyPath="IsAdvancedDisplayed" Value="{Text}" />
+      <Map FieldName="SubmitWithEnterKey" PropertyPath="SubmitWithEnterKey" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Toolbar</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH4SURBVEhLtZXNSxVRGIePSRJoLcPShVigYIRCLvoDXAlifgSFqxZ3JagtgkTcCEW0KBC3baP86CpuxH9BEJWgIKSFcaHa6EY0xH7PmffIvXbudMfsgYf3nJn3vO/cuTNnqnK5nKuAGtlr3pXX5aHckevyg1y0YyVcsJjGPflRvpMPZJOkYZ1stWPvJTl9soS0BtXyhVyQNznwF8iZl6xhrSetwTP5JBl6fspxeVteMtvlpORcgDWs9ZRrMCCLi3NlXOFzuSUPzA05JW9IcgKspUa0Aff3VTL0sHBQ7vpZnD1JTnGT17Im1oDExmTofshH8tjP0iGH3O9+5lyDvB9rwKMYmJZcXaWQy5UHemMNOi3CksUsLFuEO7EG9Rbhk8UsfLYI12IN/ngbM8JDckKsQcEi8KZmpdkiFGINNi1Cj8UsdFuEtViDvEUYlleSYUWQO5oMPflYg1nJLglX5RtZ5WfpkEMua+CbnC33Jz9Ohp5+yW552c/icI4LIzcwJg9iDaDFYoB9ZVs+lbfkRVkrO+SE5Fxx8ZeShi72wWEBG9hZmZEj8ojJ6V9wuviKfCi/+Fk65LCP8WD44lDcIFacr9lb2SaHJLvlV/nLZMwxzpEzJ0sIt6hc8X0/+wf4BV3yvxQHGqzK8IE51+IQ/gOee+7VuRZ3zrnfRW9jjPcQ6ncAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHoSURBVEhLrZU9L0NRGMdPiZdE1GbA1EgYRAgGH8AkkYpaiNEm8TIQIhaJBAOJWE0m9VJiwVcgEquXiXRgstCmUv//c86Vq57qLf0lvzznac95ntx77rk3lMlkTAAqYdTZCxtgGj7Ca3gEj91v3wjSYBCuwWbJ8nMH5+ChZI4yFzXK4SrkgkLFCeccQK7hWuG3Bitw1g6FF7gA22G1swMuQf7nwTVca+EtUozBrM99WAe1uTQMOce/hjXUPeCG3sMmyexlD8OsZPkJwTgcksyYJxjRGozCXTs0z5D39lWywoThLayXzJgxbQ/4KHpswaDFCedu2qEQ1Rr0uEhOXCyGUxdJt3aL3mGVHcqTkrLDwHAPvTVp7Qp+nMYiYYMvtAZJF0mri8UQcZEktQY3LpIBF4uh30VyqTVIuEgmIB+9oHDulB0KCa0BDwvfkoTP8w7kISoE53CudwZ40OL5NnnGDgWezD1YK5kO//OfYjINU1oD0uKiRww+wHnYBitgDeyEi5D/+YuvQzZU30VcsGyHf2IbTsIPJrlXkFv8DI5AfkwKwTl8KfLBkOLEfwVacX7N3iAPDxcz74KNkHAjryA/mbwleT+ZvxX/F2zQh3huU6FkxQn34AJuSFbi4sS/B+OQH5qSFTfGmE9HCcJ2rvuBdgAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceReference Id="7ba0d3e1-300a-44ab-9f07-5506f2ef00ba" Name="StockMarketAPI" ReferenceType="Rest" ServiceAddress="https://graphitegtc.com/rest/api-docs/swagger.json">
+  <Tags>
+    <Tag Type="Group">Holidays</Tag>
+  </Tags>
+</ServiceReference>

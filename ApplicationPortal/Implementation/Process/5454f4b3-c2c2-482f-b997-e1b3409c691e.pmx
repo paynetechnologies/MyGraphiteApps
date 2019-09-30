@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateAgreement" OwnerId="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" ProcessId="5454f4b3-c2c2-482f-b997-e1b3409c691e" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="Application" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="InputOutput" VariableId="abf30cf2-5897-49e1-a9d1-80f0a130efa8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="DisclosureAgreement" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="0d690e89-402a-47f1-8263-a59e2413a258" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="f359b484-d62e-464c-9b36-1ad4823bf176" Bounds="630.6,55,170,55" />
+        <AssignNode ID="7c9233aa-73a5-40f1-97a0-e501e0561f46" Bounds="440.6,155,550,55">
+          <Assignment Name="Application.DisclosureAgreement" Value="DisclosureAgreement" />
+        </AssignNode>
+        <EndNode ID="b8015694-69f4-4e31-a350-cb25eab6ad87" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="518fcdbd-51fb-4c21-886c-48d897e00b0b" From="f359b484-d62e-464c-9b36-1ad4823bf176" FromIndex="0" To="7c9233aa-73a5-40f1-97a0-e501e0561f46" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6a3c2aca-5d4d-4698-84cd-0bb8e07b5e78" From="7c9233aa-73a5-40f1-97a0-e501e0561f46" FromIndex="2" To="b8015694-69f4-4e31-a350-cb25eab6ad87" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

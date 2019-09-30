@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TabHeader" ViewElementId="cffde676-fb2a-4fe8-a796-b19910ecb681" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TabButtons" PropertyId="SimpleEntityDefinitionProperty_TabButtons" IsOptional="true" DataType="$[List,e6157524-f02c-437d-985d-d21965aaa8ce]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnChange" PropertyId="SimpleEntityDefinitionProperty_OnChange" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnReset" PropertyId="SimpleEntityDefinitionProperty_OnReset" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnSave" PropertyId="SimpleEntityDefinitionProperty_OnSave" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnSubmit" PropertyId="SimpleEntityDefinitionProperty_OnSubmit" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TabTransition" PropertyId="SimpleEntityDefinitionProperty_TabTransition" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TabType" PropertyId="SimpleEntityDefinitionProperty_TabType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsFooterEnabled" PropertyId="SimpleEntityDefinitionProperty_IsFooterEnabled" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TabButtonStyle" PropertyId="68ab6065-995d-48b2-bcb0-85cc8345f029" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TabButtonAlignment" PropertyId="366cfe21-854a-42c6-bb9a-d8da3b49e89a" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="TabHeader" />
+    <Property PropertyName="TabButtonAlignment" DefaultValue="Left" />
+    <Property PropertyName="TabButtonStyle" DefaultValue="Basic" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">TabHeader.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">EventButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OnChange" EditorType="ViewBehaviorChooser" Label="OnChange" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when moving from one tab to another]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FromTab" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ToTab" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormParameters" ParameterDataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormChanged" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnReset" EditorType="ViewBehaviorChooser" Label="OnReset" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when reset is triggered]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ResetTab" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnSave" EditorType="ViewBehaviorChooser" Label="OnSave" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when save is triggered]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SaveTab" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormParameters" ParameterDataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormChanged" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnSubmit" EditorType="ViewBehaviorChooser" Label="OnSubmit" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when submit is triggered]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormChanged" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormParameters" ParameterDataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SubmitTab" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="TabTransition" EditorType="SelectBox" Label="Transition" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Tab Transition style]]></Description>
+        <DescriptionOptions><![CDATA[Default, Fade, Slide]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="Fade" Value="Fade" />
+          <FieldOption DisplayName="Slide" Value="Slide" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TabType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tab Button type]]></Description>
+        <DescriptionOptions><![CDATA[Badge, Default]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="Badge" Value="Badge" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsFooterEnabled" EditorType="YesNoToggle" Label="Display Footer?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Tab Footer?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="TabButtonStyle" EditorType="SelectBox" Label="Style" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tab Button styling]]></Description>
+        <DescriptionOptions><![CDATA[Basic. Boxed, Toggle]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Basic" Value="Basic" />
+          <FieldOption DisplayName="Boxed" Value="Boxed" />
+          <FieldOption DisplayName="Toggle" Value="Toggle" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Basic" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TabButtonAlignment" EditorType="SelectBox" Label="Alignment" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Alignment of the Buttons in Header]]></Description>
+        <DescriptionOptions><![CDATA[Center, Left, Justify, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Center" Value="Center" />
+          <FieldOption DisplayName="Right" Value="Right" />
+          <FieldOption DisplayName="Justify" Value="Justify" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Left" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnChange" PropertyPath="OnChange.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnChange" PropertyPath="OnChange.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnReset" PropertyPath="OnReset.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnReset" PropertyPath="OnReset.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnSave" PropertyPath="OnSave.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnSave" PropertyPath="OnSave.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnSubmit" PropertyPath="OnSubmit.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnSubmit" PropertyPath="OnSubmit.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="TabTransition" PropertyPath="TabTransition" Value="{Text}" />
+      <Map FieldName="TabType" PropertyPath="TabType" Value="{Text}" />
+      <Map FieldName="IsFooterEnabled" PropertyPath="IsFooterEnabled" Value="{Text}" />
+      <Map FieldName="TabButtonStyle" PropertyPath="TabButtonStyle" Value="{Text}" />
+      <Map FieldName="TabButtonAlignment" PropertyPath="TabButtonAlignment" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>ChangeTabs</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Tab</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABFSURBVEhLY0xLS/vPQEPABKVpBkYtIAjoYgEjLTHIAlAypRmGBRFW26mAR1MRYTBqAUEwagFBMGoBQUA3C7AWtZRjBgYARUYwX9ebQBEAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABCSURBVEhLY/zz5/9/BhoCJihNMzBqAUEwagFBAMoHUCZtAM0zGswCRgiX6uD/aCoiCEYtIAhGLSAIhr4FNC7sGBgAiukT+bBPOEMAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

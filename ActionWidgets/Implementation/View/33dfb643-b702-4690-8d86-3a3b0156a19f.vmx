@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="MenuLinkSlidePanel" GroupName="Action" NamespaceExtension="Action" ViewId="33dfb643-b702-4690-8d86-3a3b0156a19f" IsDefaultView="false" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementPackDiagramNode Description="" ElementPackId="03a089dc-6a4e-487b-a90e-14d42305ddea" Name="GuideHeader" ID="b19989f8-b09c-4b86-ba7b-7b841f65ded8" Bounds="50,50,290,35" Text="" />
+          </Nodes>
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" ID="cdf1c620-b87d-4269-8f72-4c9045da3efe" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="SampleSlidePanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="937ebd4b-da12-474e-af5b-0d79ae7305aa" PropertyName="MenuLink" OwnerNode="cdf1c620-b87d-4269-8f72-4c9045da3efe" ID="7986029f-0570-4d8a-926c-261968b7ba76" Bounds="75,-80,290,35" Text="MenuLink">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="SampleMenuLink" />
+                </Field>
+                <Field FieldName="MenuLinkType">
+                  <PropertyValue Property="Text" Value="BarsToRightArrow" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="8644714b-dd42-4acf-b9db-82b95a753f62" Bounds="50,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CurrentThemeArea" />
+                </Field>
+                <Field FieldName="DimensionScale">
+                  <PropertyValue Property="Text" Value="%" />
+                </Field>
+                <Field FieldName="DimensionWidth">
+                  <PropertyValue Property="Text" Value="40" />
+                </Field>
+                <Field FieldName="MarginTop">
+                  <PropertyValue Property="Text" Value="10" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="3c1fca74-4179-4cee-ae9e-251a89476ac0" Bounds="90,160,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CurrentThemeForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="24d8e035-d96a-4d4c-bc24-ab7afb9e2d66" ID="ab706d26-aa0a-442a-9400-ea4cd8dbc596" Bounds="170,270,290,35" Text="Field">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="24d8e035-d96a-4d4c-bc24-ab7afb9e2d66" Bounds="130,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FieldSet1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" ID="35b414fe-3f72-494b-9192-9c944750c341" Bounds="210,325,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CurrentThemeField" />
+                </Field>
+                <Field FieldName="FocusIndex">
+                  <PropertyValue Property="Text" Value="1" />
+                </Field>
+                <Field FieldName="FormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CurrentThemeForm" />
+                </Field>
+                <Field FieldName="LabelTextString">
+                  <PropertyValue Property="TranslationKey" Value="Skin" />
+                </Field>
+                <Field FieldName="OnChange">
+                  <PropertyValue Property="ProcessId" Value="d9d99719-3239-4697-ac60-725d54ada71c" />
+                </Field>
+                <Field FieldName="OptionDetail">
+                  <PropertyValue Property="EntityId" Value="bea60ba4-281c-4f0c-91d6-2261d026b1e4" />
+                  <PropertyValue Property="DisplayPropertyId" Value="Description" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="1faa291f-f223-42ac-a528-0e9c517d02e1" From="cdf1c620-b87d-4269-8f72-4c9045da3efe" FromIndex="0" To="7986029f-0570-4d8a-926c-261968b7ba76" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,105" />
+              <Segment EndPoint="30,105" Movable="true" />
+              <Segment EndPoint="30,-62.5" Movable="true" />
+              <Segment EndPoint="75,-62.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="a2f37c73-ccb9-4fdc-b6b8-f8739e95dac2" From="8644714b-dd42-4acf-b9db-82b95a753f62" FromIndex="0" To="3c1fca74-4179-4cee-ae9e-251a89476ac0" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,140" />
+              <Segment EndPoint="70,177.5" />
+              <Segment EndPoint="90,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="616f60b2-8cff-42b0-b586-72123215b224" From="24d8e035-d96a-4d4c-bc24-ab7afb9e2d66" FromIndex="0" To="ab706d26-aa0a-442a-9400-ea4cd8dbc596" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,250" />
+              <Segment EndPoint="150,287.5" />
+              <Segment EndPoint="170,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="871314cd-80b5-4449-9af0-9739a0771463" From="3c1fca74-4179-4cee-ae9e-251a89476ac0" FromIndex="0" To="24d8e035-d96a-4d4c-bc24-ab7afb9e2d66" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,195" />
+              <Segment EndPoint="110,232.5" />
+              <Segment EndPoint="130,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="53080699-dc0b-425f-8fb1-860433200e46" From="ab706d26-aa0a-442a-9400-ea4cd8dbc596" FromIndex="0" To="35b414fe-3f72-494b-9192-9c944750c341" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,305" />
+              <Segment EndPoint="190,342.5" />
+              <Segment EndPoint="210,342.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Action Widgets</Tag>
+  </Tags>
+</ViewDefinition>

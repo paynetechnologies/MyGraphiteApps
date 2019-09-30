@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetViewElementAuthorizaton" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="fee95cf5-f6e4-4d8a-a19a-f1b064e8a973" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Retrieves a View Element authorization from a Security Group">
+  <Variables>
+    <Variable Name="ViewElementAuthorization" DataType="ba6205ab-a4bc-4600-9f5e-c2caf1ac98ba" VariableType="Output" VariableId="7b9e3925-a46e-4e8b-9452-ed20ce32e58a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Input" VariableId="903f1b0c-8f53-442c-9d1a-9c08b9c94f3d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElementDetail" DataType="af341bc6-22a0-41e8-a41e-967afb8dd879" VariableType="Input" VariableId="b5d33f36-397a-44de-b24f-03e9a31b8a67" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="dc94683c-0bfb-44a1-8a05-66af1febf1fc" Bounds="822.5,55,170,55" />
+        <CustomIlNode Description="Lookup Allowed ViewElementAuthorization" ID="e96a22b5-4490-4b1c-9011-3a9da16f2ac4" Bounds="632.5,155,550,55" ZOrder="2" Text="Custom IL">
+          <ReferencedModelDefinitions>
+            <ReferencedModelDefinition ModelID="ba6205ab-a4bc-4600-9f5e-c2caf1ac98ba" />
+            <ReferencedModelDefinition ModelID="af341bc6-22a0-41e8-a41e-967afb8dd879" />
+            <ReferencedModelDefinition ModelID="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+            <ReferencedModelDefinition ModelID="c79af0be-c629-4695-a159-bd481d5dbae1" />
+          </ReferencedModelDefinitions>
+          <IL><![CDATA[
+Outputs.ViewElementAuthorization = ComplexQuery.Lookup {
+    DataGroup IsEqualTo "ViewElementAuthorization"
+    AuthorizationLevel.Id IsEqualTo ViewAuthorizationLevel.Allow.Id
+    ExistQuery.LookupArray {
+        DataGroup IsEqualTo "ViewElementDetail"
+        $$Inner$$.Id IsEqualTo $$Outer$$.ViewElementDetail.Id
+        $$Inner$$.PropertyId TextIsEqualTo Inputs.ViewElementDetail.PropertyId
+        $$Inner$$.ViewPropertyId TextIsEqualTo Inputs.ViewElementDetail.ViewPropertyId
+    }
+    ExistQuery.LookupArray {
+        DataGroup IsEqualTo "SecurityGroup.ViewElementAuthorizations"
+        $$Inner$$.Id IsEqualTo $$Outer$$.Id
+        $$Inner$$.SecurityGroup.Id IsEqualTo Inputs.SecurityGroup.Id
+    }
+}]]></IL>
+        </CustomIlNode>
+        <EndNode ID="f109cc1e-89a3-47fe-82fd-277be77d9c6d" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="da6043aa-729e-4912-8a9c-f5a7b522a5ce" From="dc94683c-0bfb-44a1-8a05-66af1febf1fc" FromIndex="0" To="e96a22b5-4490-4b1c-9011-3a9da16f2ac4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="abc5daea-e79f-4cc4-b2c0-6a2a9eaf1dc6" From="e96a22b5-4490-4b1c-9011-3a9da16f2ac4" FromIndex="2" To="f109cc1e-89a3-47fe-82fd-277be77d9c6d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

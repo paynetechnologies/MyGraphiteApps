@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="fc249c96-d08d-4163-9d91-c474f26d2038" Name="RegisterUser" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Register a new user within a tenant">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="Register" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/RegisterResponse" Action="http://graphitegtc/membershipservice/IAuthentication/Register">
+        <Inputs>
+          <Input Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Tenant" ContractType="string" />
+          <Input Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Username" ContractType="string" />
+          <Input Name="Password" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Password" ContractType="string" />
+          <Input Name="PhoneNumber" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="phoneNumber" ContractType="string" />
+          <Input Name="RequiresPasswordReset" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" ContractName="RequiresPasswordReset" ContractType="bool" />
+        </Inputs>
+        <Outputs>
+          <Output Name="RegisterResult" DataType="0d872c6d-b29d-43b7-9f9f-5b9a7618b65b" ContractName="RegisterResult" ContractType="AuthenticationStatus" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

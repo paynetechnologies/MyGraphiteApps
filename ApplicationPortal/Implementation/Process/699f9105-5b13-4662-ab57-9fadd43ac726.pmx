@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateResidenceData" OwnerId="0daf89a6-8ef2-4448-ba4c-4f4ae6dbd6c3" ProcessId="699f9105-5b13-4662-ab57-9fadd43ac726" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="PersonalHomeLoanData" DataType="0daf89a6-8ef2-4448-ba4c-4f4ae6dbd6c3" VariableType="InputOutput" VariableId="6721b516-dc70-4574-a81c-40e6966547b9" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PrimaryResidenceStart" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="25696d7e-c9a8-4db1-a66d-864fe98e0ab5" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="26425e53-2614-4a16-b749-cb3bbea88cad" Bounds="630.6,55,170,55" />
+        <AssignNode ID="607050c8-8f60-49ff-9d6c-910a03623669" Bounds="440.6,155,550,55">
+          <Assignment Name="PersonalHomeLoanData.PrimaryResidenceStart" Value="PrimaryResidenceStart" />
+        </AssignNode>
+        <EndNode ID="1cab4c78-6b97-4065-81a9-c924b2ca2523" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="d27541a5-77f8-4cc7-be91-2f9720b458a5" From="26425e53-2614-4a16-b749-cb3bbea88cad" FromIndex="0" To="607050c8-8f60-49ff-9d6c-910a03623669" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="149b6a2c-52c5-4c31-9ea7-06796cf1edb3" From="607050c8-8f60-49ff-9d6c-910a03623669" FromIndex="2" To="1cab4c78-6b97-4065-81a9-c924b2ca2523" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

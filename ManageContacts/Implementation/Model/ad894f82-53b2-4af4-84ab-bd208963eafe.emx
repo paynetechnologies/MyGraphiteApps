@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Address" EntityId="ad894f82-53b2-4af4-84ab-bd208963eafe" MergedFrom="bb37e1ad-970a-4c47-9d4d-c68b843ebbe0" TargetChangeSetId="c254ece3-94b7-4e69-bdef-335435d0a4c2">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Postal Address</Tag>
+  </Tags>
+</EntityDefinition>

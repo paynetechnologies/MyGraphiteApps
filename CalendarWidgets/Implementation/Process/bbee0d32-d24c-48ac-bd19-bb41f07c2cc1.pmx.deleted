@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ValidateAppointment" OwnerId="9c7962f0-39bc-4706-8ce6-fbfeab7c7307" ProcessId="bbee0d32-d24c-48ac-bd19-bb41f07c2cc1" ProcessType="Normal" Classification="ViewElementPack" IsRemovable="true">
+  <Variables />
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="c48501be-ccad-46d1-bef3-8d9ff3d878a1" Bounds="640.6,165,170,55" ZOrder="1" Text="" />
+        <ValidationNode Description="Required Fields" ID="19bdfabf-ea56-4dae-8c36-b672da356e94" Bounds="450.6,265,550,55" ZOrder="1" Text="">
+          <Validations>
+            <Validation Name="SubjectRequired" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:SubjectRequired]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="Subject" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="StartTimeRequired" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:StartTimeRequired]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="StartTime" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="EndTimeRequired" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:EndTimeRequired]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="EndTime" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <ValidationNode Description="Start Time &lt; End Time Validation" ID="66379526-8f06-4ffb-9bd9-fe3bc6f1aaff" Bounds="450.6,365,550,55" ZOrder="1" Text="">
+          <Validations>
+            <Validation Name="StartTimeEndTimeComparison" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:StartTimeMustBeBeforeEndTime]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="StartTime" RightExpression="EndTime" Operator="IsGreaterThan" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <EndNode ID="df22e676-a365-4961-b6fc-50c7bcfdc9cc" Bounds="640.6,465,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="7c29f839-f458-4f0e-bd7e-03db9966f2be" From="c48501be-ccad-46d1-bef3-8d9ff3d878a1" FromIndex="0" To="19bdfabf-ea56-4dae-8c36-b672da356e94" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,220" />
+          <Segment EndPoint="725.6,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ef827e01-69ab-4115-bdc6-700c9c67641c" From="19bdfabf-ea56-4dae-8c36-b672da356e94" FromIndex="2" To="66379526-8f06-4ffb-9bd9-fe3bc6f1aaff" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,320" />
+          <Segment EndPoint="725.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a000b8d4-f5b3-45a8-b58e-c340c099334f" From="66379526-8f06-4ffb-9bd9-fe3bc6f1aaff" FromIndex="2" To="df22e676-a365-4961-b6fc-50c7bcfdc9cc" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,420" />
+          <Segment EndPoint="725.6,465" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

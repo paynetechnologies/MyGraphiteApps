@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Authenticate" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="ad506ce8-eaeb-47eb-8e90-e453e2f07d0e" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Authenticate a user">
+  <Variables>
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="4d01faf3-6dd5-4ae3-84de-f2db57e706d0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Password" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="0a406918-ba1d-4139-b76e-10228aa27472" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="User" DataType="2d9dfd58-7449-4197-a8fd-e98457e2f51c" VariableType="Output" VariableId="836f17a8-fd4e-44a1-8861-9753d3571204" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="d4589481-5da4-4b97-905b-7ef466b77dcc" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="RequiresPasswordReset" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="7d6be198-1374-4bbd-99fb-27be6016d9ab" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PasswordExpiresInDays" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Output" VariableId="78223766-870c-48c6-a5ae-e1414517407e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="RequiresTwoFactorAuthenticationCode" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="2578f2e1-9b9b-4ce8-9f05-67ae5270ea62" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="TwoFactorToken" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="23cd3ea0-61ed-4794-8592-b9ef95a570e3" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="6ef12309-1d3a-4705-ae92-f89e605ee3e9" Bounds="822.5,120,170,55" Text="Start" />
+        <RunWebServiceNode ServiceProcessId="e3273979-48d5-40e1-906a-edc44487df20" VariableId="AuthenticateResult" ID="4ad59468-4076-4fc2-8c68-16a6dec55833" Bounds="632.5,220,550,55" Text="Run Web Service">
+          <InputVariables>
+            <InputVariable Name="Password" Value="Password" />
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="TwoFactorToken" Value="TwoFactorToken" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode Description="Set Values" ID="f4502d2c-cabb-4328-82d1-921307b5c67c" Bounds="632.5,320,550,55" Text="Assign">
+          <Assignment Name="PasswordExpiresInDays" Value="AuthenticateResult.Outputs.LoginResult.PasswordExpiresInDays" />
+          <Assignment Name="RequiresPasswordReset" Value="AuthenticateResult.Outputs.LoginResult.RequiresPasswordReset" />
+          <Assignment Name="RequiresTwoFactorAuthenticationCode" Value="AuthenticateResult.Outputs.LoginResult.RequiresTwoFactorAuthenticationCode" />
+        </AssignNode>
+        <DecisionNode LeftExpression="AuthenticateResult.Outputs.LoginResult.Success" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" Description="Authenticated?" ID="1c14c0ea-5235-48c2-b86e-4182cce5a5bb" Bounds="652.5,420,510,125" />
+        <EndNode ID="ad68ddd1-0cee-48bd-9fcc-86e1233266f9" Bounds="822.5,690,170,55" Text="End" />
+        <DataLookupNode Source="2d9dfd58-7449-4197-a8fd-e98457e2f51c" VariableId="User" ResultType="Single" ID="e96b4514-ffce-4d8d-a7d4-f5c4808a9881" Bounds="232.5,590,550,55" Text="Data Lookup">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Username" RightExpression="Username" Operator="IsEqualTo" />
+            <CriteriaExpression LeftExpression="Active" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+      </Nodes>
+      <Connections>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="3be6eca7-3c62-4c33-9a32-8ee85500cda4" From="1c14c0ea-5235-48c2-b86e-4182cce5a5bb" FromIndex="2" To="ad68ddd1-0cee-48bd-9fcc-86e1233266f9" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,545" />
+          <Segment EndPoint="907.5,690" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="249567df-a243-49af-a4fd-0002c44a56f0" From="6ef12309-1d3a-4705-ae92-f89e605ee3e9" FromIndex="0" To="4ad59468-4076-4fc2-8c68-16a6dec55833" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,175" />
+          <Segment EndPoint="907.5,220" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9efb88b6-0b87-43ae-a258-fb8890d8295b" From="f4502d2c-cabb-4328-82d1-921307b5c67c" FromIndex="2" To="1c14c0ea-5235-48c2-b86e-4182cce5a5bb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,375" />
+          <Segment EndPoint="907.5,420" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="a41dcaf1-1a81-4904-9f89-bc8608c2b88c" From="1c14c0ea-5235-48c2-b86e-4182cce5a5bb" FromIndex="3" To="e96b4514-ffce-4d8d-a7d4-f5c4808a9881" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,482.5" />
+          <Segment EndPoint="507.5,482.5" />
+          <Segment EndPoint="507.5,590" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="fd07db41-5fc7-4db5-a733-ec0104225652" From="e96b4514-ffce-4d8d-a7d4-f5c4808a9881" FromIndex="2" To="ad68ddd1-0cee-48bd-9fcc-86e1233266f9" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,645" />
+          <Segment EndPoint="507.5,717.5" />
+          <Segment EndPoint="822.5,717.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="759e2550-8b1d-43cc-8ca3-56dc60430656" From="4ad59468-4076-4fc2-8c68-16a6dec55833" FromIndex="2" To="f4502d2c-cabb-4328-82d1-921307b5c67c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,275" />
+          <Segment EndPoint="907.5,320" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

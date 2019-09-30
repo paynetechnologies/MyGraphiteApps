@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="140cecb5-73ec-4214-9d8a-a9a2ab6cbdc7" Name="ReactivateUser" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Reactivate a user">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="Reopen" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/ReopenResponse" Action="http://graphitegtc/membershipservice/IAuthentication/Reopen">
+        <Inputs>
+          <Input Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Tenant" ContractType="string" />
+          <Input Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Username" ContractType="string" />
+        </Inputs>
+        <Outputs>
+          <Output Name="ReopenResult" DataType="0d872c6d-b29d-43b7-9f9f-5b9a7618b65b" ContractName="ReopenResult" ContractType="AuthenticationStatus" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

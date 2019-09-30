@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="0298064f-9e85-4987-91d1-79fefedacfdd" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" VariableType="Output" Classification="Pinned, Locked" VariableId="b65fb1a4-5e38-4533-9def-e2648e882d35" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="a6e13934-4db2-48cf-a7ff-b8f19e1f49eb" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="2b2c57f4-e841-486d-ad40-d5b691fddf8e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="14539226-a466-4770-b6a9-2c518b45f04e" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="6883d108-51dc-44dc-991d-504225bb3a39" Bounds="822.6,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" Description="Create the HomeLoan view" ID="99307b7f-4a02-4eea-a9e3-856bbf2862a9" Bounds="632.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <DecisionNode LeftExpression="CurrentUser" Operator="IsMissing" ID="de156962-8278-4a2e-af6a-21498e799c0f" Bounds="652.6,255,510,125" />
+        <EndNode ID="9cdee194-cd2f-491a-9c15-daa11a42e124" Bounds="822.6,525,170,55" />
+        <ExecuteProcessNode EntityDefinition="09e69fa9-5af6-4ff8-8909-f96d588467ef" ProcessProperty="b2f4cf71-857f-4691-b1d3-856bdc36c33d" ExecuteProcessType="EntityStatic" VariableId="UserFindByUsernameResult" SuppressValidations="false" ID="4082dafd-35f2-4a64-b7e4-55843e1eaab8" Bounds="232.6,425,550,55" Text="Run Behavior" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="583edbb3-0e85-4389-895e-71e2783b539c" From="6883d108-51dc-44dc-991d-504225bb3a39" FromIndex="0" To="99307b7f-4a02-4eea-a9e3-856bbf2862a9" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.6,110" />
+          <Segment EndPoint="907.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="50435e2e-e850-4b79-9a4d-fbff34715344" From="99307b7f-4a02-4eea-a9e3-856bbf2862a9" FromIndex="2" To="de156962-8278-4a2e-af6a-21498e799c0f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.6,210" />
+          <Segment EndPoint="907.6,255" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="16e8ea86-66b6-458f-9169-99baaf5650e6" From="de156962-8278-4a2e-af6a-21498e799c0f" FromIndex="3" To="4082dafd-35f2-4a64-b7e4-55843e1eaab8" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.6,317.5" />
+          <Segment EndPoint="507.6,317.5" />
+          <Segment EndPoint="507.6,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="df30ee46-1fe0-49e1-8348-e05ebca2cae1" From="4082dafd-35f2-4a64-b7e4-55843e1eaab8" FromIndex="2" To="9cdee194-cd2f-491a-9c15-daa11a42e124" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.6,480" />
+          <Segment EndPoint="507.6,502.5" />
+          <Segment EndPoint="907.6,502.5" Movable="true" />
+          <Segment EndPoint="907.6,525" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="4d1f7b9c-0c6d-402d-8db7-2b7ad6017755" From="de156962-8278-4a2e-af6a-21498e799c0f" FromIndex="2" To="9cdee194-cd2f-491a-9c15-daa11a42e124" ToIndex="1" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.6,380" />
+          <Segment EndPoint="907.6,452.5" />
+          <Segment EndPoint="1012.6,452.5" Movable="true" />
+          <Segment EndPoint="1012.6,552.5" Movable="true" />
+          <Segment EndPoint="992.6,552.5" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

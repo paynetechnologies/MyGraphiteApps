@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildAccountPanel" OwnerId="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" ProcessId="6eb9a894-351f-4980-8c06-4a57c539a710" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="MemberInContext" DataType="57159bd2-a2fb-4f72-aa3a-fd4759507d1e" VariableType="Input" VariableId="5a631941-58d8-40a8-b31f-dcf9e676157a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" VariableType="InputOutput" VariableId="c9b7f737-dec5-473c-ab51-c2719bdbb4e7" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="51e089f2-497d-4ac9-aa5e-0b010ce19490" Bounds="630.6,165,170,55" ZOrder="1" Text="" />
+        <ListLookupNode Source="MemberInContext.Accounts" VariableId="ActiveAccounts" ResultType="Array" ID="2b80bebf-e773-4488-bc56-01b45bc8b970" Bounds="440.6,265,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Active" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Number" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </ListLookupNode>
+        <ExecuteProcessNode ViewDefinition="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" ProcessProperty="c0e55ac6-77d9-40c8-8572-7946dd8310ce" ExecuteProcessType="View" VariableId="HomeBuildAccountCardsResult" SuppressValidations="false" ID="4aea30ff-5d69-447c-82b6-a5cdc9230ba5" Bounds="440.6,365,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Accounts" Value="ActiveAccounts" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="AddRange" ListItem="HomeBuildAccountCardsResult.Outputs.AccountCards" SourceList="AccountPanel.Cards" ID="31be9c62-f141-4f1c-ab99-a3c981b33371" Bounds="440.6,465,550,55" ZOrder="1" Text="" />
+        <EndNode ID="8f631f59-d052-4f7b-b1b2-db120d80ba88" Bounds="630.6,565,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="d4d2ae43-63b0-4209-9438-54b610878889" From="4aea30ff-5d69-447c-82b6-a5cdc9230ba5" FromIndex="2" To="31be9c62-f141-4f1c-ab99-a3c981b33371" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="113fa8d9-1eda-4612-9ee2-79bba726a823" From="31be9c62-f141-4f1c-ab99-a3c981b33371" FromIndex="2" To="8f631f59-d052-4f7b-b1b2-db120d80ba88" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,520" />
+          <Segment EndPoint="715.6,565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="55b8e6dd-eb45-4dff-803d-56697f823d95" From="51e089f2-497d-4ac9-aa5e-0b010ce19490" FromIndex="0" To="2b80bebf-e773-4488-bc56-01b45bc8b970" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,220" />
+          <Segment EndPoint="715.6,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="19f67a26-5d7e-43a7-9458-29da73bf7902" From="2b80bebf-e773-4488-bc56-01b45bc8b970" FromIndex="2" To="4aea30ff-5d69-447c-82b6-a5cdc9230ba5" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,320" />
+          <Segment EndPoint="715.6,365" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

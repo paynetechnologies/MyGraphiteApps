@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Update" OwnerId="f873ae42-9c64-425b-b3e4-5f75f1660923" ProcessId="e284e127-eadb-46f1-acb5-0c1e1e1179b6" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="Amount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="af17ad90-576f-460d-bbb8-790f8f243adc" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="GiftData" DataType="f873ae42-9c64-425b-b3e4-5f75f1660923" VariableType="InputOutput" VariableId="31ab3ab1-fec2-409e-af2c-1afbfd96456b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Source" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="930bd4cc-da12-4dec-803b-9f8841e148ff" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="75a7f8c6-2974-4801-a3e1-397358ab2f09" Bounds="630.6,55,170,55" />
+        <DecisionNode LeftExpression="GiftData" Operator="IsNotMissing" ID="f61112dd-6c62-4839-8e8f-5f9e8af4f7ed" Bounds="460,155,510,125" />
+        <CreateNode Variable="GiftData" DataType="f873ae42-9c64-425b-b3e4-5f75f1660923" ID="51945f19-ce5c-451d-90a5-ab65e45b9883" Bounds="841.2,325,550,55" Text="Create">
+          <Properties>
+            <Property Name="Amount">Amount</Property>
+            <Property Name="Source">Source</Property>
+          </Properties>
+        </CreateNode>
+        <AssignNode ID="1579a8a9-1893-4ee0-8985-bd6280b233a9" Bounds="41.2,325,550,55" Text="Assign">
+          <Assignment Name="GiftData.Amount" Value="Amount" />
+          <Assignment Name="GiftData.Source" Value="Source" />
+        </AssignNode>
+        <EndNode ID="34474dfd-ccca-479f-bfa2-7afaf92c0b0e" Bounds="631.2,425,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="b828c461-73dd-43a9-916c-543d0b37d4ca" From="75a7f8c6-2974-4801-a3e1-397358ab2f09" FromIndex="0" To="f61112dd-6c62-4839-8e8f-5f9e8af4f7ed" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,132.5" />
+          <Segment EndPoint="715,132.5" Movable="true" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8dd09454-c8f5-4090-b50e-cbcf38724692" From="51945f19-ce5c-451d-90a5-ab65e45b9883" FromIndex="2" To="34474dfd-ccca-479f-bfa2-7afaf92c0b0e" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1116.2,380" />
+          <Segment EndPoint="1116.2,452.5" />
+          <Segment EndPoint="801.2,452.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="eb721278-064a-49b5-8102-336a111223b6" From="f61112dd-6c62-4839-8e8f-5f9e8af4f7ed" FromIndex="3" To="1579a8a9-1893-4ee0-8985-bd6280b233a9" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460,217.5" />
+          <Segment EndPoint="316.2,217.5" />
+          <Segment EndPoint="316.2,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="356fed24-3a4f-480a-a5cc-e57206f7848c" From="f61112dd-6c62-4839-8e8f-5f9e8af4f7ed" FromIndex="1" To="51945f19-ce5c-451d-90a5-ab65e45b9883" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="970,217.5" />
+          <Segment EndPoint="1116.2,217.5" />
+          <Segment EndPoint="1116.2,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="029eb2a6-115d-48e3-85d7-3764e4eb15f5" From="1579a8a9-1893-4ee0-8985-bd6280b233a9" FromIndex="2" To="34474dfd-ccca-479f-bfa2-7afaf92c0b0e" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="316.2,380" />
+          <Segment EndPoint="316.2,452.5" />
+          <Segment EndPoint="631.2,452.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

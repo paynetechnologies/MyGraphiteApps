@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="PersonalData" EntityId="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="DateOfBirth" PropertyId="6ea823bd-c127-4ffa-8ecd-85103a045687" IsOptional="true" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="LicenseImages" PropertyId="11fa1c8d-ecf3-43ba-9a51-ce9b3eee4089" IsOptional="true" DataType="$[List,c8ac5346-7774-4e57-af2c-5ff715d1277d]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="SSN" PropertyId="ba4a6739-8aff-456f-8904-f3a23df99303" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="USCitizen" PropertyId="ef27ae43-e689-4625-a591-32c78160d6ea" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

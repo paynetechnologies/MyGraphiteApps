@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AddViewElementAuthorizations" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="82832dee-fc12-4f7e-bd2c-6d43d2e6a8f1" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Add a list of View Element authorizations to a Security Group">
+  <Variables>
+    <Variable Name="AddChildElementAuthorizations" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Input" VariableId="792491b1-dd3d-4b32-bbc7-38e37b7b1a94" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="InputOutput" VariableId="a06d91a1-45a9-4569-bf5c-0433cf8d54c0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElementDetails" DataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" VariableType="Input" VariableId="a3953f77-ad5b-4ee7-a791-db98e70675ce" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="88d8e754-807e-4f5c-885a-e74a4ab0606f" Bounds="822.5,55,170,55" />
+        <RepeatNode LoopType="ForEach" EnumerationSource="ViewElementDetails" IterationVar="ViewElementDetail" ID="f04a5116-37d3-470a-bf4e-ac9588f8b678" Bounds="557.5,155,700,205" />
+        <ExecuteProcessNode EntityDefinition="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessProperty="c19d62c7-5f28-46a5-a251-5b612dbd201e" ExecuteProcessType="EntityStatic" VariableId="SecurityGroupAddViewElementAuthorizationResult" SuppressValidations="false" Parent="f04a5116-37d3-470a-bf4e-ac9588f8b678" ID="03ee7a00-14dc-4d58-b97f-7bd9c271f41a" Bounds="75,75,550,55" ZOrder="10">
+          <InputVariables>
+            <InputVariable Name="AddChildElementAuthorizations" Value="AddChildElementAuthorizations" />
+            <InputVariable Name="SecurityGroup" Value="SecurityGroup" />
+            <InputVariable Name="ViewElementDetail" Value="ViewElementDetail" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="SecurityGroup" Value="SecurityGroup" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="992f97b0-7507-47d8-bc85-b05b3baaf305" Bounds="822.5,405,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="b9bbf276-0aa3-4f5a-a6f5-e0a07f90df2b" From="88d8e754-807e-4f5c-885a-e74a4ab0606f" FromIndex="0" To="f04a5116-37d3-470a-bf4e-ac9588f8b678" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5e79a074-f082-4512-bd5f-0cfb3f3ed986" From="f04a5116-37d3-470a-bf4e-ac9588f8b678" FromIndex="2" To="992f97b0-7507-47d8-bc85-b05b3baaf305" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,360" />
+          <Segment EndPoint="907.5,405" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

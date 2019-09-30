@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetGeoLocation" OwnerId="77be9b43-bd6b-4ed9-9d70-9dbaaa6c8a7f" ProcessId="ebdd9885-4cf1-443b-912b-b1dbdf5f78cd" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Get geographical location">
+  <Variables>
+    <Variable Name="MediaFile" DataType="30d687ee-3dfb-4dae-95ff-5429488506da" VariableType="Input" VariableId="97720e31-891e-46df-b0a5-37e043e56dc5" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="GeoLocation" DataType="77be9b43-bd6b-4ed9-9d70-9dbaaa6c8a7f" VariableType="Output" VariableId="2511dd9a-e015-4cf4-ad8d-c566882058f0" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="d2c368d1-9a8a-45e5-bd93-eec1ed07b59c" Bounds="822.5,55,170,55" />
+        <RunExternalProcessNode ExternalProcessId="b477dff4-9c61-434d-8951-2400755a8cbb" VariableId="DetermineLocationResult" Description="Find Location from Image File Content" ID="b81913af-1857-4db1-ba1c-188ad379f6c6" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Base64Image" Value="MediaFile.Content.Base64Content" />
+          </InputVariables>
+        </RunExternalProcessNode>
+        <AssignNode Description="Set GeoLocation" ID="d0cb49c4-fd1f-4154-a3c7-6496a673565b" Bounds="632.5,255,550,55">
+          <Assignment Name="GeoLocation" Value="DetermineLocationResult" />
+        </AssignNode>
+        <EndNode ID="6c2dd1cd-be6f-4aa0-b4a3-12bf7721b847" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="59caa820-a75d-46f3-923d-220fc787ef5d" From="d2c368d1-9a8a-45e5-bd93-eec1ed07b59c" FromIndex="0" To="b81913af-1857-4db1-ba1c-188ad379f6c6" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="69864c14-3e2d-43ad-b192-5b61845ddf73" From="b81913af-1857-4db1-ba1c-188ad379f6c6" FromIndex="2" To="d0cb49c4-fd1f-4154-a3c7-6496a673565b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="62154735-870d-4cb4-9332-4115021d106d" From="d0cb49c4-fd1f-4154-a3c7-6496a673565b" FromIndex="2" To="6c2dd1cd-be6f-4aa0-b4a3-12bf7721b847" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

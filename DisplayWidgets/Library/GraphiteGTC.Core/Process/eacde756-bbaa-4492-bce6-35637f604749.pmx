@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UndoEvent" OwnerId="1e4d829f-cddd-4713-8a0d-7af7303d7480" ProcessId="eacde756-bbaa-4492-bce6-35637f604749" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Reverse an event">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Input" VariableId="52a046f3-c1a1-4fe9-9c4c-7870fc8a4534" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ExistingEventDetail" DataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" VariableType="Input" VariableId="d8c0d80c-62a4-4cf5-af5d-e501aa29bc04" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="de276186-fb16-416f-a08a-c49157ee0ad1" Bounds="822.5,55,170,55" />
+        <CustomIlNode Description="OnUndoEvent" ID="fdda5a28-8314-4755-a992-8754463db345" Bounds="632.5,155,550,55" ZOrder="1" Text="Custom IL">
+          <ReferencedModelDefinitions />
+          <IL><![CDATA[
+var ExistingEventRegistration = Event.ConvertToEventRegistration( Inputs.ExistingEventDetail )
+Event.Reverse( ExistingEventRegistration )
+]]></IL>
+        </CustomIlNode>
+        <EndNode ID="61a6e4e7-f572-4145-bd86-a31c61dd00ea" Bounds="822.5,255,170,55" ZOrder="1" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="f4754f71-3735-499b-85e4-38540782cf37" From="fdda5a28-8314-4755-a992-8754463db345" FromIndex="2" To="61a6e4e7-f572-4145-bd86-a31c61dd00ea" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="edb07b9c-a405-4675-8355-8880bd69a8e1" From="de276186-fb16-416f-a08a-c49157ee0ad1" FromIndex="0" To="fdda5a28-8314-4755-a992-8754463db345" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

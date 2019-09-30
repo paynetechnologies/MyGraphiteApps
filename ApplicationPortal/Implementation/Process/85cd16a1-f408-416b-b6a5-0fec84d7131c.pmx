@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLicenseUpload" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="85cd16a1-f408-416b-b6a5-0fec84d7131c" ProcessType="Normal" Classification="View, EventHandler, Upload" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="97f4abc5-0d44-4fdb-8482-62c3fd8d8ffe" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="1c664f00-c707-4d5e-8212-c87f210f27a7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MediaFiles" DataType="$[List,30d687ee-3dfb-4dae-95ff-5429488506da]" VariableType="Input" VariableId="0cc609d1-1095-48da-837e-f60450f2ede7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="127dba03-bfb3-4ed5-bbb0-75686f789388" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="6ac098b2-9bcb-45bc-95ac-efbc62edb24f" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="253c66e2-91e6-478e-b81d-fac2da7b15de" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="e1fdf4d9-5f96-4381-bfa3-b6245a226382" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode EntityDefinition="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessProperty="ad952aa4-a7df-4e31-a9c4-1b0228ba2743" ExecuteProcessType="EntityStatic" VariableId="PersonalDataUpdateLicenseImagesResult" SuppressValidations="false" ID="5bd783df-f917-45c0-88ee-cf02ec5b7513" Bounds="440.6,255,550,55">
+          <InputVariables>
+            <InputVariable Name="LicenseImages" Value="MediaFiles" />
+            <InputVariable Name="PersonalData" Value="ApplicationInContext.ApplicationData.PersonalData" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PersonalData" Value="ApplicationInContext.ApplicationData.PersonalData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <SaveNode ID="eacb7b4d-fbd8-4a74-b047-17f3bfed2c97" Bounds="440.6,355,550,55">
+          <Entity>ApplicationInContext</Entity>
+        </SaveNode>
+        <ExecuteProcessNode ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="163bf9bd-223e-41bb-9bc9-b6a9f1e2887e" ExecuteProcessType="View" VariableId="HomeLoanUpdatePageParametersResult" SuppressValidations="false" ID="55bf6c3f-de19-4f58-a03c-e4349be9a4c1" Bounds="440.6,455,550,55">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="ApplicantInContext" />
+            <InputVariable Name="ApplicationInContext" Value="ApplicationInContext" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PageInstructions" Value="PageInstructions" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="4ab5e776-b475-44fb-ab3d-e1d86e5d95dd" Bounds="630.6,555,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="6ba90bcf-f6b9-480e-aad0-a7ca79d0af91" From="253c66e2-91e6-478e-b81d-fac2da7b15de" FromIndex="0" To="e1fdf4d9-5f96-4381-bfa3-b6245a226382" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="480264c7-9437-4d5d-9766-f2657cc21c08" From="e1fdf4d9-5f96-4381-bfa3-b6245a226382" FromIndex="2" To="5bd783df-f917-45c0-88ee-cf02ec5b7513" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e50573a5-1f3b-40b0-8673-7751920ec907" From="5bd783df-f917-45c0-88ee-cf02ec5b7513" FromIndex="2" To="eacb7b4d-fbd8-4a74-b047-17f3bfed2c97" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c2b309f1-3a39-48fa-908e-c41e4a2dfa5e" From="eacb7b4d-fbd8-4a74-b047-17f3bfed2c97" FromIndex="2" To="55bf6c3f-de19-4f58-a03c-e4349be9a4c1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7c1de00e-f068-4df0-8238-c557e5296a03" From="55bf6c3f-de19-4f58-a03c-e4349be9a4c1" FromIndex="2" To="4ab5e776-b475-44fb-ab3d-e1d86e5d95dd" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,555" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

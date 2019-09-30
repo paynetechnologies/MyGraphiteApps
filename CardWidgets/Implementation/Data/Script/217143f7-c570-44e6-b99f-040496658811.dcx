@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataChangeDefinition DataChangeId="217143f7-c570-44e6-b99f-040496658811" Version="1" Created="637006946961845330">
+  <Script Type="Schema"><![CDATA[USE [master]
+
+
+IF EXISTS (SELECT * FROM sys.databases WHERE name = N'MyCardWidgetsDb') BEGIN
+   ALTER DATABASE [MyCardWidgetsDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+   DROP DATABASE [MyCardWidgetsDb]
+END
+
+
+GO
+
+
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'MyCardWidgetsDb') BEGIN
+   CREATE DATABASE [MyCardWidgetsDb]
+END
+
+
+GO
+
+
+ALTER DATABASE [MyCardWidgetsDb] SET ALLOW_SNAPSHOT_ISOLATION ON
+ALTER DATABASE [MyCardWidgetsDb] SET READ_COMMITTED_SNAPSHOT ON
+
+GO
+
+
+USE [MyCardWidgetsDb]
+
+
+IF schema_id('GraphiteGTCCore') IS NULL
+    EXECUTE('CREATE SCHEMA [GraphiteGTCCore]')
+CREATE TABLE [GraphiteGTCCore].[Comparison] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Comparison] PRIMARY KEY ([Id])
+)
+CREATE TABLE [dbo].[EventRegistration] (
+    [EventRegistrationId] [int] NOT NULL IDENTITY,
+    [InputsXml] [nvarchar](max),
+    [TimeStamp] rowversion,
+    [EventInformationXml] [nvarchar](max),
+    [EventProcessId] [int],
+    [EffectiveDate] [datetime] NOT NULL,
+    [AddedByUserId] [int],
+    [AddedTime] [datetime],
+    [ModifiedByUserId] [int],
+    [ModifiedTime] [datetime],
+    [ExecutedByUserId] [int],
+    [ExecutedDate] [datetime],
+    [ExecutionStartTime] [datetime],
+    [ExecutionEndTime] [datetime],
+    [IsComplete] [bit] NOT NULL,
+    [ScheduledByEventRegistrationId] [int],
+    [ReversedEventRegistrationId] [int],
+    [ResetToPendingEventRegistrationId] [int],
+    [DeletedByEventRegistrationId] [int],
+    CONSTRAINT [PK_dbo.EventRegistration] PRIMARY KEY ([EventRegistrationId])
+)
+IF schema_id('CardWidgets') IS NULL
+    EXECUTE('CREATE SCHEMA [CardWidgets]')
+CREATE TABLE [CardWidgets].[User] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Username] [nvarchar](max) NOT NULL,
+    [LanguageId] [int],
+    [ThemeId] [int],
+    [ActiveId] [int],
+    [PersonId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.User] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[YesNoQuestion] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.YesNoQuestion] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[Language] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Code] [nvarchar](max) NOT NULL,
+    [Name] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Language] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[Person] (
+    [Id] [int] NOT NULL IDENTITY,
+    [FirstName] [nvarchar](max),
+    [LastName] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Person] PRIMARY KEY ([Id])
+)
+CREATE TABLE [CardWidgets].[Theme] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.Theme] PRIMARY KEY ([Id])
+)
+CREATE TABLE [dbo].[EventProcess] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max) NOT NULL,
+    [DisplayName] [nvarchar](max),
+    [Tags] [nvarchar](max),
+    [ExecutionPriority] [int],
+    [InputView] [nvarchar](max),
+    [ResultView] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](max),
+    CONSTRAINT [PK_dbo.EventProcess] PRIMARY KEY ([Id])
+)
+CREATE TABLE [dbo].[ValidationResult] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [Description] [nvarchar](max),
+    [IsErrorId] [int],
+    [SeverityLevel] [nvarchar](max),
+    [Message] [nvarchar](max),
+    [Category] [nvarchar](max),
+    [Fix] [nvarchar](max),
+    [TestXML] [nvarchar](max),
+    [IsSuppressedId] [int],
+    [IsOverriddenId] [int],
+    [IsOverridableId] [int],
+    [OverriddenByUserId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    CONSTRAINT [PK_dbo.ValidationResult] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[ComparisonHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.ComparisonHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[CurrencyDefinition] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Symbol] [nvarchar](max),
+    [MinorUnits] [int] NOT NULL,
+    [Code] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.CurrencyDefinition] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[CurrencyDefinitionHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Symbol] [nvarchar](max),
+    [MinorUnits] [int] NOT NULL,
+    [Code] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.CurrencyDefinitionHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [dbo].[EventProcessHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Name] [nvarchar](max),
+    [DisplayName] [nvarchar](max),
+    [Tags] [nvarchar](max),
+    [ExecutionPriority] [int],
+    [InputView] [nvarchar](max),
+    [ResultView] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max),
+    [TimeStamp] [varbinary](max),
+    [ObjectId] [nvarchar](max),
+    CONSTRAINT [PK_dbo.EventProcessHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[LanguageHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Code] [nvarchar](max),
+    [Name] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.LanguageHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [CardWidgets].[PageChoice] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [Display] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.PageChoice] PRIMARY KEY ([Id])
+)
+CREATE TABLE [CardWidgets].[PageChoiceHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [Display] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.PageChoiceHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[PersonHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [FirstName] [nvarchar](max),
+    [LastName] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.PersonHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [CardWidgets].[PropertyChangeDetail] (
+    [Id] [int] NOT NULL IDENTITY,
+    [ExecutionEndTime] [datetime] NOT NULL,
+    [OriginalVersion] [int] NOT NULL,
+    [NewVersion] [int] NOT NULL,
+    [OriginalValue] [nvarchar](max) NOT NULL,
+    [NewValue] [nvarchar](max) NOT NULL,
+    [ExecutedByUserId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.PropertyChangeDetail] PRIMARY KEY ([Id])
+)
+CREATE TABLE [CardWidgets].[PropertyChangeDetailHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [ExecutedByUserId] [int],
+    [ExecutionEndTime] [datetime] NOT NULL,
+    [OriginalVersion] [int] NOT NULL,
+    [NewVersion] [int] NOT NULL,
+    [OriginalValue] [nvarchar](max),
+    [NewValue] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.PropertyChangeDetailHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [dbo].[SequenceData] (
+    [TableName] [nvarchar](128) NOT NULL,
+    [SequenceValue] [int] NOT NULL,
+    CONSTRAINT [PK_dbo.SequenceData] PRIMARY KEY ([TableName])
+)
+CREATE TABLE [GraphiteGTCCore].[Spinner] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Spinner] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[SpinnerHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.SpinnerHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [CardWidgets].[ThemeHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.ThemeHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [CardWidgets].[UserHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [LanguageId] [int],
+    [ThemeId] [int],
+    [Username] [nvarchar](max),
+    [ActiveId] [int],
+    [PersonId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_CardWidgets.UserHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[YesNoQuestionHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.YesNoQuestionHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Comparison]([EventRegistrationId])
+CREATE INDEX [IX_EventProcessId] ON [dbo].[EventRegistration]([EventProcessId])
+CREATE INDEX [IX_AddedByUserId] ON [dbo].[EventRegistration]([AddedByUserId])
+CREATE INDEX [IX_ModifiedByUserId] ON [dbo].[EventRegistration]([ModifiedByUserId])
+CREATE INDEX [IX_ExecutedByUserId] ON [dbo].[EventRegistration]([ExecutedByUserId])
+CREATE INDEX [IX_ScheduledByEventRegistrationId] ON [dbo].[EventRegistration]([ScheduledByEventRegistrationId])
+CREATE INDEX [IX_ReversedEventRegistrationId] ON [dbo].[EventRegistration]([ReversedEventRegistrationId])
+CREATE INDEX [IX_ResetToPendingEventRegistrationId] ON [dbo].[EventRegistration]([ResetToPendingEventRegistrationId])
+CREATE INDEX [IX_LanguageId] ON [CardWidgets].[User]([LanguageId])
+CREATE INDEX [IX_ThemeId] ON [CardWidgets].[User]([ThemeId])
+CREATE INDEX [IX_ActiveId] ON [CardWidgets].[User]([ActiveId])
+CREATE INDEX [IX_PersonId] ON [CardWidgets].[User]([PersonId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[User]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[YesNoQuestion]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Language]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Person]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[Theme]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [dbo].[EventProcess]([EventRegistrationId])
+CREATE INDEX [IX_IsErrorId] ON [dbo].[ValidationResult]([IsErrorId])
+CREATE INDEX [IX_IsSuppressedId] ON [dbo].[ValidationResult]([IsSuppressedId])
+CREATE INDEX [IX_IsOverriddenId] ON [dbo].[ValidationResult]([IsOverriddenId])
+CREATE INDEX [IX_IsOverridableId] ON [dbo].[ValidationResult]([IsOverridableId])
+CREATE INDEX [IX_OverriddenByUserId] ON [dbo].[ValidationResult]([OverriddenByUserId])
+CREATE INDEX [IX_EventRegistrationId] ON [dbo].[ValidationResult]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[ComparisonHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[CurrencyDefinition]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[CurrencyDefinitionHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [dbo].[EventProcessHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[LanguageHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[PageChoice]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[PageChoiceHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[PersonHistory]([EventRegistrationId])
+CREATE INDEX [IX_ExecutedByUserId] ON [CardWidgets].[PropertyChangeDetail]([ExecutedByUserId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[PropertyChangeDetail]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[PropertyChangeDetailHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Spinner]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[SpinnerHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[ThemeHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CardWidgets].[UserHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[YesNoQuestionHistory]([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[Comparison] ADD CONSTRAINT [FK_GraphiteGTCCore.Comparison_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_CardWidgets.User_AddedByUserId] FOREIGN KEY ([AddedByUserId]) REFERENCES [CardWidgets].[User] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventProcess_EventProcessId] FOREIGN KEY ([EventProcessId]) REFERENCES [dbo].[EventProcess] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_CardWidgets.User_ExecutedByUserId] FOREIGN KEY ([ExecutedByUserId]) REFERENCES [CardWidgets].[User] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_CardWidgets.User_ModifiedByUserId] FOREIGN KEY ([ModifiedByUserId]) REFERENCES [CardWidgets].[User] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventRegistration_ResetToPendingEventRegistrationId] FOREIGN KEY ([ResetToPendingEventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventRegistration_ReversedEventRegistrationId] FOREIGN KEY ([ReversedEventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventRegistration_ScheduledByEventRegistrationId] FOREIGN KEY ([ScheduledByEventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[User] ADD CONSTRAINT [FK_CardWidgets.User_GraphiteGTCCore.YesNoQuestion_ActiveId] FOREIGN KEY ([ActiveId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [CardWidgets].[User] ADD CONSTRAINT [FK_CardWidgets.User_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[User] ADD CONSTRAINT [FK_CardWidgets.User_GraphiteGTCCore.Language_LanguageId] FOREIGN KEY ([LanguageId]) REFERENCES [GraphiteGTCCore].[Language] ([Id])
+ALTER TABLE [CardWidgets].[User] ADD CONSTRAINT [FK_CardWidgets.User_GraphiteGTCCore.Person_PersonId] FOREIGN KEY ([PersonId]) REFERENCES [GraphiteGTCCore].[Person] ([Id])
+ALTER TABLE [CardWidgets].[User] ADD CONSTRAINT [FK_CardWidgets.User_CardWidgets.Theme_ThemeId] FOREIGN KEY ([ThemeId]) REFERENCES [CardWidgets].[Theme] ([Id])
+ALTER TABLE [GraphiteGTCCore].[YesNoQuestion] ADD CONSTRAINT [FK_GraphiteGTCCore.YesNoQuestion_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[Language] ADD CONSTRAINT [FK_GraphiteGTCCore.Language_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[Person] ADD CONSTRAINT [FK_GraphiteGTCCore.Person_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[Theme] ADD CONSTRAINT [FK_CardWidgets.Theme_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventProcess] ADD CONSTRAINT [FK_dbo.EventProcess_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsErrorId] FOREIGN KEY ([IsErrorId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsOverridableId] FOREIGN KEY ([IsOverridableId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsOverriddenId] FOREIGN KEY ([IsOverriddenId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsSuppressedId] FOREIGN KEY ([IsSuppressedId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_CardWidgets.User_OverriddenByUserId] FOREIGN KEY ([OverriddenByUserId]) REFERENCES [CardWidgets].[User] ([Id])
+ALTER TABLE [GraphiteGTCCore].[ComparisonHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.ComparisonHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[CurrencyDefinition] ADD CONSTRAINT [FK_GraphiteGTCCore.CurrencyDefinition_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[CurrencyDefinitionHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.CurrencyDefinitionHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventProcessHistory] ADD CONSTRAINT [FK_dbo.EventProcessHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[LanguageHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.LanguageHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[PageChoice] ADD CONSTRAINT [FK_CardWidgets.PageChoice_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[PageChoiceHistory] ADD CONSTRAINT [FK_CardWidgets.PageChoiceHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[PersonHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.PersonHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[PropertyChangeDetail] ADD CONSTRAINT [FK_CardWidgets.PropertyChangeDetail_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[PropertyChangeDetail] ADD CONSTRAINT [FK_CardWidgets.PropertyChangeDetail_CardWidgets.User_ExecutedByUserId] FOREIGN KEY ([ExecutedByUserId]) REFERENCES [CardWidgets].[User] ([Id])
+ALTER TABLE [CardWidgets].[PropertyChangeDetailHistory] ADD CONSTRAINT [FK_CardWidgets.PropertyChangeDetailHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[Spinner] ADD CONSTRAINT [FK_GraphiteGTCCore.Spinner_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[SpinnerHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.SpinnerHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[ThemeHistory] ADD CONSTRAINT [FK_CardWidgets.ThemeHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CardWidgets].[UserHistory] ADD CONSTRAINT [FK_CardWidgets.UserHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[YesNoQuestionHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.YesNoQuestionHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+
+-- Create Index IX_ObjectId for table [CardWidgets].[EventProcess]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CardWidgets].[EventProcess]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CardWidgets].[EventProcess]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CardWidgets].[EventProcess] ([ObjectId])
+-- Create Index IX_ObjectId for table [CardWidgets].[PageChoice]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CardWidgets].[PageChoice]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CardWidgets].[PageChoice]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CardWidgets].[PageChoice] ([ObjectId])
+-- Create Index IX_ObjectId for table [CardWidgets].[PropertyChangeDetail]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CardWidgets].[PropertyChangeDetail]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CardWidgets].[PropertyChangeDetail]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CardWidgets].[PropertyChangeDetail] ([ObjectId])
+-- Create Index IX_ObjectId for table [CardWidgets].[Theme]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CardWidgets].[Theme]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CardWidgets].[Theme]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CardWidgets].[Theme] ([ObjectId])
+-- Create Index IX_ObjectId for table [CardWidgets].[User]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CardWidgets].[User]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CardWidgets].[User]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CardWidgets].[User] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Comparison]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Comparison]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Comparison]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Comparison] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[CurrencyDefinition]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[CurrencyDefinition]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[CurrencyDefinition]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[CurrencyDefinition] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Language]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Language]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Language]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Language] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Person]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Person]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Person]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Person] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Spinner]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Spinner]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Spinner]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Spinner] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[YesNoQuestion]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[YesNoQuestion]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[YesNoQuestion]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[YesNoQuestion] ([ObjectId])
+
+-- Create DeploymentHistory table.
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[__@DeploymentHistory]')) BEGIN
+   CREATE TABLE [dbo].[__@DeploymentHistory] (
+      [Id] [int] IDENTITY(1,1) NOT NULL,
+      [DataChangeId] [nvarchar](40) NOT NULL,
+      [Version] [int] NOT NULL,
+      [ProjectName] [nvarchar](max) NOT NULL,
+      [EntityIl] [varbinary](max) NOT NULL,
+      [HasSecurity] [bit] NOT NULL,
+      [ProvidedQualifiedNames] [nvarchar](max) NOT NULL,
+      [TargetDatabase] [nvarchar](max) NULL,
+      [DeploymentDate] [datetime] NOT NULL
+    CONSTRAINT [PK_dbo.__@DeploymentHistory] PRIMARY KEY CLUSTERED
+    (
+       [Id] ASC,
+       [Version] ASC
+    )
+   ) ON [PRIMARY]
+END
+
+GO
+
+
+CREATE TABLE [dbo].[__MigrationHistory] (
+    [MigrationId] [nvarchar](150) NOT NULL,
+    [ContextKey] [nvarchar](300) NOT NULL,
+    [Model] [varbinary](max) NOT NULL,
+    [ProductVersion] [nvarchar](32) NOT NULL,
+    CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY ([MigrationId], [ContextKey])
+)
+INSERT [dbo].[__MigrationHistory]([MigrationId], [ContextKey], [Model], [ProductVersion])
+VALUES (N'201908061724546_AutomaticMigration', N'CardWidgets.Migrations.Configuration',  0x1F8B0800000000000400ED5DDB72DCC8917DDF88FD878E7EDA758CD914673C9615A41D1A5223332C4A5C511ECF3E39C0EE22051B8DEE01D01A3136F6CBF6613F697F610BF7425D330BB742133111233650999595792AEB82AACCFFFB9FFF3DFFD3D76DB0F842A2D8DF8517CB1727A7CB0509D7BB8D1F3E5E2C0FC9C36F5F2EFFF4C77FFD97F3379BEDD7C54F65B96FD37294328C2F969F9364FF6AB58AD79FC9D68B4FB6FE3ADAC5BB87E464BDDBAEBCCD6E75767AFA87D58B172B42592C29AFC5E2FCE3214CFC2DC97ED09F97BB704DF6C9C10B6E761B12C4C573FAE62EE3BA78EF6D49BCF7D6E46279E9459BBFF99B4792C4271FC97E17FBC92E7A5A2E5E07BE47A5B923C1C372E185E12EF1122AEBABBFC6E42E8976E1E3DD9E3EF0824F4F7B42CB3D78414C8A36BCAA8B439B737A963667551396ACD68738D96D910C5F7C5BE867C5935B697959E92FD3ED761F90AF69B33335520D1EA288DA98EA8CAFEDD56510A5059B5ACE6C7252527DB3B8797ABDDFC7274C91DFDE46BB7F9075F24D8590D393ECBF6F169787203944E422248724F2826F16B787FBC05FFF853C7DDAFD938417E121085879A9C494D99E44C95321EE47EFD72BB2F6B75EB05CE4C2553F6F23FA5781DC97CBC5DDDA0BE8EBB3E5E23DE5EADDA73F0A3BAFB4555C6F4AD6D761F2AD89FE7CC5E854AFEA928F9DCA79EAC1558FD38B485F16FFC90B0E046E3D90B2DF500F923CB1B0A6E5BCC88FD34EA3D6F2DBC8DB7FF613F2F6D3E5C9E52E22F47FDBED2E2C415EF1E85FD7F45DE301A3BE8FE481B100A7E3154F88B71AA3983BEA3DC95B1292C84BC8E6D64B121285290F92E9D764E12B12AF237F9FBBAABC52EA6DE9E0B15CDC785FDF91F031F97CB1A47F2E173FFA5FC9A67C5208F2D7D0A7630D254AA214204878BDF94285FC481EFD98EA3C15A12D5E3FD131E92EF1B6FB92CD0F7EE8A5834B3A40159DF02693376B0CAC8D6665A7A83B2444343527DE87FB147D7523259AFEEEB41345BFF7BEF88F99CC26952F171F4990FD157FF6F7F9F8CB74A3BF4B087E8C76DB8FBBA0D165C5727FBFDB1DA275EA357680C29FBC88F650DE75D43E42EB39243262DCB440EE88EF90760FAC33B1E863DD7997EB90F68BF8E76DD0816F9974CFCFAC701D3EECA26DC66F08956475D2676B12C782D10DA40F0F14EAFE1772455B5B8DFBF4EF54CD68AFFC7AB3219B1F9EE8443E42CA9151E675F232E809A9A9FD07DFB2D692D8A6E2375FC93A058455C525B15CEB105A0A2DDA0BA2C45E74CAE14D68D5F4EB389FE9D5B2FFB0A38EDF0BD18049178D9B43906AD1ECBEF4AC3E92746D4C36EDF9C424F9B4BB2561BAB26ECBED8AA46AB2699E7260673A9974481787DC06453DA66B0B0A83BABEB46C5437CE4E0A97A56E4551409C45C4423BD4452BD91A2DD1942F5B0E6E4BC313006DC213E9CCD22C0BB00C4780354ED3A7021BC413E91AD42C0B681047806D90A14F035B68E4A26BB28118A0031307BC52140E13AC0E25BD5E110A32900A54B4D8C6EB061E60FBF52C742AD05102B4A025B75684CCC78EA907A9D7C6AB11AA879FBCC0DF642F683FA3CB3C79EBF952FA45B3B9B4D04A0089AC65E00574EE9B316BE694C29165B2EB5B6CA9AA42AF9E4F0FB7BFF6CE0B1F0FDE2341CE4E3F7D265B2CCDEB6CB98824BAA51041CF9DE74DC3C1370D73E34A5D5F36F12ADFD73E8E792C0C5DEC3BAB05827154CE6AD0FA607909B9A8ED47D3B21FAA85AD4B7032962FE4A2556FB112E53D4F2D4FF99E93267F2C97A57887952473366A418AD79C1CD953B918F9AB56DBC9FF49E2F7BBFF3890D8B495ACFF16D560338F95F3E7A87964B1F4E78D9EA477EC86A282CF30956FE5486AAF6EEB434A0EB3FB00B98F4BAAB4E1FDC6FB5126F7B3B772D45B559332ADA35297127C94A6682BF7544EF26C9D534E3FBB26906BFAD18FE2A4234F615AF50F54D1EC811CF540C5524CEB7F546504EFA32CD8CAF714EB3ACC966346327B9B791D35FB054BBF90EF8D68DD82A288E01554E5DA9FE3AB3EFFA38FF01594B38B00B98871562D577EBC0FBCA741E6279FBCC7B8FF4950796AEA36F27751A677C4C78CEC80E44F3EF9B57739F30F87835435FBFFAE14DBD2DFEB8F34C10F4BC94F1FA88BB7FEAAD3FBE12F5C83E276C31AFFF51E37B4F1D4F3F036E4F036E434DB74BCF64D14EDB0478AEFD2B351545DEFE8BFFD1F39BFA1DD27DBEFEEB99E4B0A89C7ECD668CF155106FD4F53489CFC7CF36E0000DD1DF6FB889A886C9028BA8E3F501845FE86763E5BD2B49F2369EB4AED8ED3B79E87B41C7F3B3F17C60F5B88A364D096156E06D69EAAB0A6154519B3EC6541BCC40CC2A0723748B4D23325216D608B5BB784221ED9908C02D20E5A10D18CB434BE15B59F81B682A5D0B6A22E086905531ADB0ADEF7C05A2252695AC31736B748A068352FAD2F64FE99FA8B6C386D7FEFBA60E5EC2C555AAC90A78F19AD7E88AA2A6EC364C85968E76BFB0F7B520E8543EF4529B7152055639BD9DD1EC16077BF8BAE0CBD02AE2CAEB909AEA669E7D98A4DA12BF2E0877EBB637C222F677D9B5B2BF0BBA7EDFD6E8035A71FEE224A91C4ED1CD1386787E6BD5247BF9589DDDEE00701E545470821EAD813B69FEBA9583AEB178F70CEF73C9DEB3C377DE6735395EBC1FA66C45C1541DBD9E107808FD69F81983DF2E01E79980F4EF3F189F9F8C498C3588FA3D6111CB2008D462002ED09859E46A0F29E41EB1502C7681E85861B850699684FF376C13C9B776C36CFB909D87D29B8C73453B4BB3D45595F7EDEF9699598697A4DE7AC5F746B1F79D4BB0CC5847B7ADE6EDE07EEC649D5DDD5709F4A534EBC53A52BDC9157B2DA4310C89DF5514738771BF23BFE64FDDA3C8B736C1627B80CA89F84CFE420341DDC846FBDEE6DB0993DE7709E73BE5C3F3BCEE9394ED65B402EEB231CA6A17C3B675934F6F2335D60932B92787E809C654A3838EB2EDD5A0C9B83F463FB4BE43FD2DE1874F30D8CFCDA099F4A2836EFD480019D6833C6A9B95DFA88790FC1D13D0489BF33387C1085E8F76164E8FBB9E65406F29A95D90C00C5818D33E7346835B0D9EDA2A819393BCC1DE1AAA0835C3CF340DBE977C3EEC6D579F1F4CC174F6A178B1F59110B2B1475ABD1E88EFC72A013AC34059B871B7E584A47C69B4F2914F27D13EC50C2902A41F9E2EC651F5DAF5464C369C1320C438DBCF7C3509F7B43BFE5583070C4CCAEAF9EE7B078F3F24C1C4B8A3EA41F3794858431425DB2DD7890B36DFD91A2C9C759C77184EB91F99EF63C03EEDC6B8126BDA6B22A1FD6D3D4360B1E6AB5B3C252CEAE6B765DB3EB9AA2EB627B31201C31DC6D198AB7725AE91EA295CF62086797359CCB1A30F96187191EF5154D38CBE2EC841D73C28C5B32E74A84BB607DE9EEF2F2B55E07CBB8CDFE799E52CEDE6C8ADE4CD69B119902E1FE0D48867174AFE378B7F6333A99A79334A3A9BA37E16681CC7E985B53501CB52C7569FE9E3A312AE7C5F2378299E0755539CCEBBA24F668D6F742A88F7A3B12A59BFB5E70490D4EE9FC30115DA31FAEFDBD17E044E3D8487DACD47308BE795549C0BFB9227B12A65F277016EA50B44A026E903069F67CC5E0520F573609B40A2ED28CD03534F2034270F4C9924843517D7A72D211D02452402CD712431255426AAD170FE38104EECA4C19BA5B42C7297FA597680C37A5D7FEB4BC93261FA70A2290E49C354CEA34BF701002727A8E0044B3546380D16C8D690132EB5C1568B46EAA6A7A577EAF622841990AC71D8F97BC08438D98BC2E21F5B29B88A360E55695CA53656515810C41B7450260388694DC47745A2699C67059262B4CD0611560D17A97A2D95D39AB829D045B72E476ECA89AD50FE5A69A3A84D45A6FF08F820E55565195698D29466B33175982E1B031A5251DC13D19441AC33B192C3041E7940345EB4CF24677E59A726E12584921DBB1636A543E945F6AE80F5269F52575145888E87EBDD95457D154B6D552C9C063F4223A24E96B93804B06D5EEB005126700B8818C00DAF1AAC9C6C5E1AD3207AB161A4A3225126FCBE4D94810AA6B1A71E4844936C6000AB3CEB4C6517D9B624BA4C658A84ADD19BC361BB88ABDA307B8C61854F40ACF18DD730A560E8DE5DCCD72F800ABBA63DEDB88AEB8A03EE2A02E976894715D6E0D102E85BBDD8E20F366B7F11F7C0B64360907402657A103C8944B340A32E5D68088D2A47408991F494C924FBB5B5AB31F3E22A7A2184E0360D72481CD34A04F6403E51D6D2E6B635E88B006564EF58E2F248AC9A65DBF50F018A447A8EA76AF2F182475A517188C09C3BF828943C8BF5B7F269B43908E586DC0AF633300FEB5D5BBD60520C2BAD10B20568548AAE3335A5F10F2ABC3F16F2695619EA7C2401E50E3887B7570E9C6C035DC5AD3DAB313DA751DBF89A29D7AD9A922E81DAC653DE39DD5358934C032D3A47D900839894B90FB40E738117D781FA83FC1EAC906801F5B9B53209408360E1425F680019221741096B45E0B5452AAE1409956E6222619B9468524630C1422299D4B80BC3BECF71189E9721003C89A6A0040329539054851AE7100291A0306C89ACE1D40D69DC4F0ADC248D93B30850A07FF580116690C5CAAEC019185A71D0D9F6958412FF271A7DD75443254D6E53178D4D632E2A21B22D718CB6D8855A6B5D0AE5BA4BE5B6E460FE096B90CAA55A80B1BC49AAFA88F0A5CA378E3E2D768B189C1B8880A7B451EFCD0CFDA81C03180580A64810E856448AD63421921DF285846586DEA60B6F0CD701E3068DBF86A840C4E01DD4DDF8DB7E8B460CF9EC8C4031E446D3AB36B017258BD8E1C367712D828CB4D0BD2E52D6B3C9C8D94BA780D163036D7E740F40627E10BB6D4B4A0AB4D0FAF42112C573C73DBB92A8FBAAB0F49323FC67D7D805C6320146295A98213EF595179BA6550B5F0AE983CDFA302D7490F8BB0D8C4606C4894AC8413346B321F57C206BAC08CCBA3C5477113B2300B4D0CAE921C7118D482C8A5E09550A2300CAB794C28A3241C05D128EB1D03B061373101B4C3417AE42B9908A12000E905B153BF98296B95C50C02C3058A5F9BD9054A0EC71CB49B330F1BCB4ECB5DABD31AAA6006C8715843AA4A5D0A87B13933E20890350A35063C8D96982414F10E189EB84E00A6859B0567BD1B0FA64E3A53A895A6055A4396321588A029CBB89071167005663B1B2BE6A193508559675A40D5677252A10798D6A9B928B240292C21D44851F79DC428C832D38228303D8F0A43D85C3D8A2B0B16E845A6FB193BD98D9378C659CF6560BFC9F237511ABA5CA4139E529AECE9D57DFA9C7C4D2429E9688F2EB2D2C5453E2C1E6F29873B928867E15F9C7D4781F2A64A1C2539C82E80B7C94C0244819DA48C816BB62F74F6F27B9970F9F69981413313D2EF7EFFF25B0927EEC691816515E1FFECFBD397126E75820303A32206F7EFBE3FFD5EC2A60C3E6E609207CC3DFBEE3B59C38A30C110D3558112E556AB5E1B78891772047E6211034F0EA7957FD5C0B52A63622D9E5BFDFEE51F7E2FE32D395F6CC75C23BFFAA027C2846AFED25218B4AB590BA79D4CD8AF8F41FCFE7752F833A75150BCD4324A4E0DC07BA8866DF36BAE89A56C23FCBB97A732C6D2CF1296FC35F2EB768F0DB5DD915F0E14B1E4CA4B3C09EBE66B13AF6237EAECC5D9998C57B9138860A36E34BF7D03F6B26A96CD0536746053F36BAC84D0C39C9AAF7CB2CA55C04C4D54B5484673864A5699692EAE9E136BA6E1952AE483BD305F83D7504EB7991ACC339855537300ADB2790D251A54A63D14D6BF7CE243466E661EA551882CDD214ABDB6AD07410992DA4F6C0E083808F58C06134D823989B2A0E9E81A0D0424A4631AC9CD83358A03A4A11BA28FD5137305B8E4D9D2440C08F9D2ECA0246449832AD74201CA0C5F125DC0B281353F1D9BF281314D6B2C7B343A3266011B0233E52A4C811859BA2AD1D05CC22A3BB47069AA600AB568B62AD1924405A09C4CE2C704184CD885AD4637A65C4C4380A458662B3022C91A245AB79937C80E21CD6C4120555AB45854359BF246A2043D81BA4D5A3A99AA8CF645B097685169095B25AAF3B5A8B408CCF022B6D39CE385D7A362C307C37AA02EA89722C62B33B6D666DCA33AE341F5D9302477FA12D4C77527360DFD507160B3C39EAE389BD967676FD4CFA56F00295497F2C1D05C45D2870E15AAC8F23098424D5907401A46A52E3028049ABCA0431B40B3150CEE3ED441EF816601C5CC376AC71435BF535398C2E40F6E046DFC75901DE011DC0DDA01C570EFD01AA0A0ED3D1B0410045C62046CE8F0862210C1C399C69BBECE61AB184BBF658C6A8856A5F1ACF50DE5235A77A6413E8475DFFBAF8648CB30F52963339BDA2A8BCEDCA12A65E198C753681A2318A54F21A830B0BD6C58E1EEB5C9C6111E41994C7C5B98325501714DCD9584C4ED50999218B8832B5388CD0A51A83EA0ABBED9CA90AE9D295619C3B5A7A588369EA8449DF0F8A38D76822290324D148E766974088A3BDAF3F00D897CA9D526F0B4A7A2E1E6C39E6ADD2ABEA0A36B1A4AD390E08C3255A3833A36358009EBC82A5B75404BA76D4C30C7C1D58D03B86DF44183427080379C63439962F40E20390487DF81B7B10288DEB4810C513AACA2818F2DA0548D0CD5263D6C8052B1FC9423E048C3E8FAD58606937DDC0787126B7E8C870413639ACA9FEFD47DE78744101B4C8B289CA2435F291A8EC2AAE2B82B48C3E3C3D5106549791CC54AC1C0D04CAC7225277E8D6754C6D72A2C18904CB91661849A1AC005126255AD3C09AD53382E7AD0287A377E2D4587B801A8C0F8CDB443750FFAF514176305A86D2B6F6215A605600190A3B18ACDD233FCD5B13F246600060A69B4DA1C2A846961F3FE804697E60021C3E80D85625C700B597B515895DEA230EB7474481AC229A80E31DAA81518828169B0E41689E964E3E80AD55FFB579C79B451272C52806C90812813161FA0675D02EFA79BAED1D8681779B75DFB2902A26FE48DF68E147FBECA195577A7AB77E7ABF414C0D62B1E9CAF689135D927072FB8D96D4810972F6EBC3D75658F714D593C59DCEDBD75BAA5F5DBBBE5E2EB3608E38BE5E724D9BF5AADE28C757CB2F5D7D12EDE3D2427EBDD76E56D76ABB3D3D33FAC5EBC586D731EAB75E36C217FD3BBAA896A8B2ED9B8B7E936F286FCE8477192DEA7BBF7626AA8CBCD5628963FA86F8A37B557A9BAAC4D7E195C346D798DACA44BFF2E68BD68F3377F432D199F7C24FB5DECA7E6666F8F73DC6AADFE481BBAA506CFDA4CA4BBEC223125BF5B7B811795B3222646E1E52E386C4375CC4235F51589D791BFCF21C7B269BC80F31380CC8B272D00E7FFC9DF92BBC4DBEE9B5C99C7705E1FEEFF41D6092F60FD54E474BEE22CC80366252086EBC53C10413085F83C34508D4C017805F0180B28D7E1FE90C43F6F03AE77D48FC7015DD6ACEBF061176DB35609124A0B20F917FBE0529532EF105C1F1E487645923A61C2316DBE82F3646E1EF08272AF903C53BB48F8E58FE1BC9AC77B7911C5B778CEA2A0CD3708FB08A1611B2632068E35739618BEF106CB319DC6245E94883A90BDB7E04EA7651ADED55B844789D3E13920BC1ED8E7706EBAF399BCFD4C65E1B52ACFE8F2556A0B62EAD31ECF166B3516C74C6D529B40F4AB2FE9CC34A0DE60EC60F897EDB702467C39593F73D3B4AED0E3BB70FD14CEA9FC70C9CBC33E474C07D23D0A9E55F510315865C3A630F6554FE19CF22F323CA7FAE93C7F2FF88CD37125071B3BE8C1CD005EF8AE6CA09FD79BCF16AFCD380C1D4055156302805235693F004DB79B9AF4F9133887F7C290F51E395CCDA0EE01D46CC0880E202D0F820100B48AB01F38673BA7222299C79859948C55FD74067809D05100CE04BCE800DFD2001E00782BE8E6D9C4B3C525BBEBD8D9C6B5821F74CF5A49DE0F4EDB4F09AEFC781F784F22A3C60B0412BDC7980361F6C462A3ED36F27711D5AE62A7AD7E8DDCBCFFC927BF4A36EFF3C7A82DA8432061C63E9F3D44C1671C0F21DC7EEBC04B9878023C859985B3DEA2E371B1B89F2D34AB7E8CD8F84E7796A98ADFD17FB94F5FDC2BC40715EACBB318878D6F29E543C4E2CF4BC86376CAA3B100AC9E62E6DD5FF919F757941F2071F2F3CD3BCE0B940F3196ABEFDC8AE66BBEC370ADAF9C8A5C9BEF2CB8A657D7956CCB97083FC85D8F153CA2E4FDF023C248BE5771B1B3030F2C06A6C7BB60008F7E7CF04F74952E78CFEAE1F1AE503ED01F9E282DF3789ECBE4AF55FD497177B78B0E256663B0E8510026FD74A9BBA7EDFD8E1FF18B6788A1DE0F77D15FA9E4DCF2857D3EE46EEFBC2018AE1375393829B38E74D1A5263A58CD3D741E3247DE20ECB08B03D822B70B27DAADE7DDC779F711C67F7665FCFB3627273AF4657CA631BC1F337270DB873D87631973EFE3DF638F7834E3AF74D0EF98847CF82EA7239EC6F7F06278978EF92EF59C19EDDF7738D8882923DB607FA203CE73ED4AF320C4BFB73F67D8659F6CE45BB5E88F7A7AB7FBE2F33CC438F744FE3DB62716720BC19FBAE88F12DE36DD12C4A69FDED9DF4DC90F91FFE8875E20EDFFC24BC4128EFC2A65C93EB790D20B0E442163FE0A27A1C8AE7E8AB54E2F377AE7C9F870BEA6CB2980A48A1613020C37B7A7077D5F7E9F5DA4A32E729E80B9ED14EFC82F0712AED3C8205E171E50C70FE0F2F4E4EA6F55F70111570CCC63CCD9D75C024907E05EB963432626622736CCF9D9984F45398DBDD479DAD5333A3B9C6A35037BDA6375A213AAA9417F1EA8F9F7D657473BEC446C2857DB8BA473079A3BD0143A901096B783FEC344EFB50CD434D1DEE366B4A6EEA2513DC7B84FB387E1DFB78E21D5A1AB9105AE6E1B516AA2CE671EBA8FB2630941D2F92255EDC593EA771524BD0850DE889C9EB53E8D839EB53A2E82A5F311CBF322CB0555D1177F93462BBF7B8A13B23D490B9CDCFD125C063E6D6F5DE0C60BFD07DA8D3EEDFE49C28BE5D9E98BB3E5E275E07B711E1ABF88C5FE6A7DA07D6CEB85E12E2902E70382B3BFF8360DCE4E36DB154F8E0FF19E7289E34DE39B25E380AAC39BF2B0E6E77F214FBC914B187D240F0B951F385FF184E7125F920A70B1F453BD668EEA2D09D33E4136B75E92D0513B2D453251978BF787204837F42E960F5E100BA339CFBEE10BF27AC22F5EB4FEEC45FFB6F5BEFE3B9AA1D409300DE02DF5EA3ADC90AF17CBFFCAE85F2DAE7F16F30C5C6FBE597C88289A5E2D4E17FF8D1689E9F5B920097D10E70F14FA4CED9C7E6A61EB4A22713B93AFAAF60A4D5D2E1737DED777247C4C3E5F2CBF3B353481F50F5A381AA296C3500970DB66989ACCDE356E99E8E706D442CC362042A441D13B68021F11DDA2CB55D4AADE0692A319443D176343FF4EB2EF8A483373E1D3718D6A10B7691313745DDD1E082331D43AAE453C7D9B463503B4B76B97F8651A093F8EBE15001BC1DCBB6897DF08E0DE11C7EA4B7B3B7E6CC8F69CD3BD9FA0BB99292C3BCE9A7A6E6D6CAB8DE58E1352C3AA9D84C6B8EF58390D0CDB48AB0F17CF08AA630B9EAD8811D7273B6DAE37CBBA9833B3DB813874D4946D6050ED21E22A2FC85A8DACD5562172682FE8DAD45D6F2EE2EA2EE95A0D52F32A69B85592263CFC641DD0BC6E9F3222E5A1E0270BC6FC027317287CDFD9983AE379403CDF4A22C14F16CDCC65AC0EF665EAFB585D6DF2CCA01E06D492F8EF93C5F43C5D983212D581DE270BC8EE06FA46E0A62EBE0564F19BBA70D662E426E08E8AE273471E63A903C9D8904DF3A8D4932F00A812EC00F4F1DB8FDB09C0F631E1C31B6C57BD0A078FC37145D86673880B1EDF417BAA00F21DF0AA63C877C02C8B25DF85D32EE3C97762FC6630792C0258EA3630E0C3CF63E560A93B91A38C576F29484EDE461259787B9C30228749EFE282071043F479DB11445A4C7154113DDA200793AA5A7B165D0F23A3E343D285EAD3945D4CBE857916E576EF875EF464C70F3C996AD5190C81E3273B9F2A235C77316360425CDB77A8EE36861DEC4A0EAC317ADA6F0086819F478D09F7BA79FC9AECF8650CE43E77CC8EB717E62DC6798BD1DE13599D40573B22573625B571D86717D4ED507CCC9F90E7315D1D617DB26BD1CEBF385711A68FB3131CEF6AD210407D1E297AD97B3CF2EE328F19DA48E873A7F2E6A37C739FB2E853459DEA30E6939D9161AE1EC20CC207F76DB155C304F5B5E7C245F2ED02C47534DF4EBE62B8744FD63D0774C47360895B99076ECB8E62B9473ABB3DF86E13D4EB4DD4D1CC331D5D0C71980F52860D37BB178654E37D5F9CBDC47F8B6DC61E87F629B8D26491BB273B239C6F854C794EA18BCC3D4F237AD9547310DFF350A60BB03DF783B91F3C9F7EA08C943D7783C6898556EB4959B01C1C0770F020EB083A3816B7B24038B343380287600E633D7B8679803CDAFEF03A8E776B3F6BB4AC43882AE6FAC69B70B3F8B80B64F62CC54C63589F48DEDE1C82C4DF07FE9A8A75B17C21B4BE66DD8C4EC5B2E5DE3459FE466049FB2189D29D002FB8DC85A928BE1879FC36F2C3B5BFF70265C3380A694707457A3F5F5595F16FAEC89E84E9AE8554071D4A5055C4392493AECE570C76F490CA12A6E4A3B0123E96363E3D39D121278BA7C832CB1FF48213BC855A42420C16A9A8479D6D6438F33BE1488684831B6E038C1177BC45B904710332551C3A9663FDF088A1238FC0E73C7C326FA3881E686956870619945186F21DBA5C5D83D83C5F9EBBE13072591AFCCA4747EC2C6E25E10DDB553D94AB90496E634E879C04C21843B9887A036D144BE7394F9DF00F79CC44965DF1E488BD83244E64BB9A87720EB2009768533AE419E08618CA312893730E6264016E6C461CA5DD41163358BDA587E9080F6033B584839D1BE2521B8D8790DB3C92801B034823D4A9C0B57A71C4C3893AD86B3B014687131FBAB6A5D127E182D0C61CC515F1B9E31C19AD9A87C0E7016B6C940867F21DC149332BDE8C93917122263974042786546A7D4D77B090CAD3228F3558B931FF11F4019104907BCF19242A920FCE189C3C0635192A1D419F2E3FE70CC08903D094CA75140CF2F90BDCD86B10B22AB09CC597470C377D7E8976428C01AF220DC3C0E7B15CC0D3E0E7B4ACA0C3E4D77005304C92821936CEC286CB44E1187868BD33765CC74E914DC515E8D4D96266E8380B9D66422037A0C3A7B2E975DFD305B00CB5EB698511596AA251705267FA71639155CBD3E0C93E3EE28515D3CC692DA9848451AEA1A9BCCD280755F5F659604B7AB3D37D880959661CC198981EAA0132C9EB6346992159D60461E6964753E65AD283EE597838581E2AE721C89EAF710A7C12C194E7AF9E03E064ED9D16D4B8A42C6EC08CCF1423BB96F61CE0A5CD98E33CB4EA3C0E6EA08A4999D2B8C0C43C3E622CA912C64C08464EF928314B891C54CFC14F1932B6B80F3136318623F06AE4EA102F5C3E0B58A9F395B80F2949007747902591AC0930698163C699ACC1C700B7E1EE43B804AAA1BEFBD8C3C68D8B1132F9DD1A03D5021AB1F52CC6474DBBA7E5BE8AD0E46EC0AE8CD9CF32AC9E1D319CA4B90AA6021DA71C1717695F02A4E7E09E74F9069C87151B22DE0D503582D60B61369E03A0D461FB9D87131369DD0D34B1A1DFF9B9FF73C09232F4BDF35092C5E8760353D2E8E1CAE3A7CF0165E678EA8EC1ED4D16179BD2D0B5041DBBABC35D1B92A5C64D737FDD7BB178E321A5BA238970186CB9785345DA969CE44B2F9F6DBD8BE5DBC8DB7FF613F2F6D3E5E52E4ABFCFE4B1BBD9B202EC9A754A902B542D29534AB0B9DF55B54A8A192ACF774C84FAF2C76515975EB4F99BBF7924495C5595973070E74E6D0BD570EF4D4AE58A1B2AAFC3800AF5D6AF4C55D6250DB595D10485BACA17A69ACA72867A8AD0644235C5739DC98A221038569168E448AC5E2B41589530D4269EA8166A148BC86A154B196A961CA1D4F4F8AA0CBCE35724264124C7EC444924858CA24868D0B26894A32E8B970CAA2CE9391D2D4805A15458858A209CE350BA17B03E040293B361BEFC8B0E8779A973076C39707DEA464BCAC06A0737BAF9F950E168C13AE78A9B2A977E0510659016D3EA414A61218D4631BAD258D9A00A6B245D15656ABE9675CD6609536DE52EA75851F9C68487AA20AC2AB5BAF902C08AA18A6D6E9AC8E70120EB364B02E689EA4A1B6F4DB3466895F235977E0E0956BA9C8A9388596A28C4922C5F170C954C44D38AD7B4E6ADD40498EEAB17B90D3EFA79F5AAA906808AD84431127528F3C87421AEE40331432A5DB5583610647A48D294DE2CDE57F335A93D242A802602E94D0DFC423063A15CD859A2A1E6A700812AE583ADA083585A999141D24A58F686DEACDC5C80670C144B6A4B0B97DC14F69547EBB7117010CBAA42E94B9A078ABADF9B5D1B1B1E19BD7C1FC3D2AA05338551A581D6F1C20D625141AD8D20E89216EA095A36A04B3CD82A431DEF5BA50D6084F0DEC02EDB7CABD9A836D5BA564F8CD78F10F3B96DA35CC04FA36F70671241FD49778E719A5DAAD13C2E1C314825BA10C647A01253E45D908E50E17BFBF5456CE93C52E5082A558590052A131481F6E8D5A88D850AD2243C9AEA91291310D453A2406C28D0DE94A6FAC696B1327E37EB405D65904A8892A4012D3BDF187240256C1846986294811B8F583D69A041947684C884C7A81C26941E4C39AAD87BC7A71C21581C4441FA08732DA7A543AB441B174DA20D781CB5DE4628F1D855C6447388AA8D5AD4470FB5DA019E581C4049DCC7304E57AAAF59162A83C4AD92E90C1DEFAA3FA5290FD7E45A331F91E9426D38C4D986711A50895204820FF5B4DBAF4229134638FCE69E4C8190C348F61FEB506A4306D7E9FDD39D4C5DA64353165FBB74715F645FBCC07162FAFBEA259C04CB3F2CA9CF76B5510B0A43E8F0270328498623F34934DBEFA63875614279F4FC1555AA26ED79390B15C1E24CC8346511A1A23F85690E06E67A831CF0EB4A7DC66F14E8700B2D173F2EA907D71DED630C0C8A356957459CDBC4AB567DE55DA246E0FDF8DE54C61D0CCD38A84E7A5AAB02052CDCB5EFBE1523838FE140AAE559139492309798FB3D79225390F6E4ACDD391494761077727B538EE44070352274A71AE09551D399DBB195A53BCA2C6EB0E2D577BECA7955D71FAB77E7ABFC2474F180FEA4ACE984F766B721419C3D3D5F7D3C50EA2DC97F5D91D87FAC599C539E2159A775D64CCB32D7E1C3AE1C6C3889CA22E5EBC2A0377430DA7889F73A4AFC076F5D2E77FDF071B9F8C90B0EA9E2B7F764731D7E3824FB43429B4CB6F7414319E9ED515DFDE72B41E6F30FFBF457DC45138A2D5BF221FCE1E0079B4AEE1FBD20E6965B2A16E9B5D4B7843ECF6D9942883C3E559CDEEF4220A3427DD56DDA4F64BB0F28B3F84378E7A5A7AFF1B2D10EFC8E3C7AEB27FAFC8BBF49C7491513B3219A6A3FBFF2BDC7C8DBC6058F9A9EFEA418DE6CBFFEF1FF013BF9F16CC5890200 , N'6.1.3-40302')
+
+GO
+
+
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Comparison') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration for comparison', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Comparison'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration for comparison', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Comparison'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.CurrencyDefinition') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing currency types used in a project', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'CurrencyDefinition'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing currency types used in a project', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'CurrencyDefinition'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Language') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the languages used in a project', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Language'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the languages used in a project', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Language'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Person') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An entity providing basic properties of an individual', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Person'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An entity providing basic properties of an individual', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Person'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'CardWidgets.PropertyChangeDetail') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'A system entity that can used to get a value of a property before and after an Event', @level0type=N'SCHEMA', @level0name=N'CardWidgets', @level1type=N'TABLE', @level1name=N'PropertyChangeDetail'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A system entity that can used to get a value of a property before and after an Event', @level0type=N'SCHEMA',@level0name=N'CardWidgets', @level1type=N'TABLE', @level1name=N'PropertyChangeDetail'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Spinner') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the spin wheel choices', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Spinner'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the spin wheel choices', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Spinner'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'CardWidgets.Theme') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the themes available in a project', @level0type=N'SCHEMA', @level0name=N'CardWidgets', @level1type=N'TABLE', @level1name=N'Theme'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the themes available in a project', @level0type=N'SCHEMA',@level0name=N'CardWidgets', @level1type=N'TABLE', @level1name=N'Theme'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'CardWidgets.User') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An entity that provides some basic properties to persist Users in a application', @level0type=N'SCHEMA', @level0name=N'CardWidgets', @level1type=N'TABLE', @level1name=N'User'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An entity that provides some basic properties to persist Users in a application', @level0type=N'SCHEMA',@level0name=N'CardWidgets', @level1type=N'TABLE', @level1name=N'User'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.YesNoQuestion') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration that provides support for a boolean like functionality', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'YesNoQuestion'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration that provides support for a boolean like functionality', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'YesNoQuestion'
+]]></Script>
+</DataChangeDefinition>

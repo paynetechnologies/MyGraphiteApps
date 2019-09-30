@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Slide" ViewElementId="a5f71c78-d4e1-4b8d-90c3-3d63f4fbd9f6" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Slide contains a grouping of elements and is used in conjunction with Slide Panel.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Slide" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Slide.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVDhPY0xLS/vPQEPABKUZaYThFtAMjFpAEIxaQBCMWkAQjFpAEAwfC0CVDg0wAwMA/eUYVTmTBhIAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVDhPY/wPBAw0BDALGCFcqoP/TFAGzcCoBQTBqAUEwagFBMGoBQTB0LeAxhUOAwMAyy4NFitjbjYAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

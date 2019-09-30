@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetPunctuatedLine" OwnerId="bb37e1ad-970a-4c47-9d4d-c68b843ebbe0" ProcessId="1b5d367a-64ed-4014-b088-86b8fe17f51e" ProcessType="Normal" Classification="Entity" IsRemovable="true" SignatureProvider="true">
+  <Variables>
+    <Variable Name="Address" DataType="bb37e1ad-970a-4c47-9d4d-c68b843ebbe0" VariableType="Input" VariableId="1978a0bc-3fcf-4f2a-a1f3-06e743933e45" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AddressLine" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="1d31b562-908c-4a8c-8179-336e2bfc7ef0" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="3d59d6be-01a1-4174-b890-296d24237342" Bounds="15,15,170,55" Text="Start" />
+        <EndNode ID="537c8bdd-bddf-4b61-b407-0318ea3e6689" Bounds="15,180,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="d7ec3221-8c1d-407a-becc-a4cef113dd30" From="3d59d6be-01a1-4174-b890-296d24237342" FromIndex="0" To="537c8bdd-bddf-4b61-b407-0318ea3e6689" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="100,70" />
+          <Segment EndPoint="100,180" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

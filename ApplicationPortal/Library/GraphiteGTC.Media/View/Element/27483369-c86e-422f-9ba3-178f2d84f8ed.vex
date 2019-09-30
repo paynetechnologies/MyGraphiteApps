@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DownloadInstruction" ViewElementId="27483369-c86e-422f-9ba3-178f2d84f8ed" BasedOn="cd79934a-0312-42e4-a1bc-e1a9cb077d7f" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Files" PropertyId="bf6cd950-d87c-42eb-ae32-061b18d4c567" IsOptional="true" DataType="$[List,5cca6411-f198-40ed-be05-d44f13d31132]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DownloadInstruction" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">ViewElements</Tag>
+  </Tags>
+</ViewElementDefinition>

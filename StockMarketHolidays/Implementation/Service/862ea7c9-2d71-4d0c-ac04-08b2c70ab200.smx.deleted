@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="862ea7c9-2d71-4d0c-ac04-08b2c70ab200" Name="GetMarketHolidays" ServiceReferenceId="34b1709a-7ce4-4499-914d-0b04b03434ff" Description="Get US Holidays">
+  <WebService>
+    <Configuration ServiceName="MarketHolidayService" ServiceNamespace="http://graphitegtc/marketholiday" ConfigurationName="MarketHolidaySoap" DefaultAddress="https://graphitegtc.com/soap/MarketHoliday.svc" SoapVersion="SOAP11">
+      <Action Method="GetMarketHolidaysByYear" ReplyAction="http://graphitegtc/marketholiday/IMarketHolidayService/GetMarketHolidaysByYearResponse" Action="http://graphitegtc/marketholiday/IMarketHolidayService/GetMarketHolidaysByYear" Style="Document" Use="Literal">
+        <Inputs>
+          <Input Name="MarketYear" ContractName="MarketYear" ContractType="int" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" ParameterId="b946683c-a9a5-499b-ae90-5d6d10d2efd4" />
+        </Inputs>
+        <Outputs>
+          <Output Name="GetMarketHolidaysByYearResult" ContractName="GetMarketHolidaysByYearResult" ContractType="MarketHoliday" DataType="$[List,5b52097a-dce7-4374-aaf0-0e434eb5cac2]" ParameterId="b40137df-d6af-4d07-bcd9-922bee95060f" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

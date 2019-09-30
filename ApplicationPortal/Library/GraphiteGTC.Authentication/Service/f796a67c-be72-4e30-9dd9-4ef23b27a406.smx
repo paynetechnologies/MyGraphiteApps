@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="f796a67c-be72-4e30-9dd9-4ef23b27a406" Name="DeactivateUser" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Deactive a user">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="Close" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/CloseResponse" Action="http://graphitegtc/membershipservice/IAuthentication/Close">
+        <Inputs>
+          <Input Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Tenant" ContractType="string" />
+          <Input Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Username" ContractType="string" />
+        </Inputs>
+        <Outputs>
+          <Output Name="CloseResult" DataType="0d872c6d-b29d-43b7-9f9f-5b9a7618b65b" ContractName="CloseResult" ContractType="AuthenticationStatus" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

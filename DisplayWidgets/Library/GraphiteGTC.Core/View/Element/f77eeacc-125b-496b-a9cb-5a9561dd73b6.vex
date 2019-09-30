@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="NavigateInstruction" ViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" BasedOn="cd79934a-0312-42e4-a1bc-e1a9cb077d7f" IsSystem="true" IsBuiltIn="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UiParameters" IsOptional="true" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Language" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Theme" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="NavigateInstruction" />
+  </DefaultValues>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">ViewElements</Tag>
+  </Tags>
+</ViewElementDefinition>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ChangeLog ChangeLogType="Publish" ChangeLogId="PublishChangeLog">
+  <PublishedEntities>
+    <PublishedEntity EntityId="100b3d78-7d96-4a2b-b36b-c4ab1b935b68" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+    <PublishedEntity EntityId="1ea2bbda-2756-4ca8-bcc3-e77886a15b3f" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+    <PublishedEntity EntityId="3f23d8d9-12ca-4236-86b7-cdfc777b5e07" ActualChangeSetId="83f85fcb-97f2-4573-a84c-5996e49067fc" />
+    <PublishedEntity EntityId="5789f824-4465-4cad-b2aa-fe39411c4427" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+    <PublishedEntity EntityId="7b2f7c91-028a-44e0-a8a7-8968f65ff876" ActualChangeSetId="50db3e0f-2cbe-4275-9b8b-df5f6c46683f" />
+    <PublishedEntity EntityId="90503b9b-ae82-4b44-a5df-7aa8c180e3c5" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+    <PublishedEntity EntityId="c40f7145-cfcd-43c0-99c7-7c4b0e37f088" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+    <PublishedEntity EntityId="c64ce594-bcc0-4665-aa87-d9c8ca174159" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+    <PublishedEntity EntityId="933f5737-1269-44fd-b9b1-3d7263f88564" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+    <PublishedEntity EntityId="ce11d52d-ebce-4f94-91a9-e99237a74181" ActualChangeSetId="16e9cefe-6bbc-412a-9d77-e3b95bef66f6" />
+  </PublishedEntities>
+</ChangeLog>

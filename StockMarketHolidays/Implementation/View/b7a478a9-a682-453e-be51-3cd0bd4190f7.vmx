@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="ShowMarketHolidays" GroupName="" ViewId="b7a478a9-a682-453e-be51-3cd0bd4190f7" IsDefaultView="true" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="2e903ab6-c5d8-4c50-bfa6-5d5e01005a8e" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="LogoDisplayArea" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" ID="7617028f-d226-4e16-ba11-e3275b393067" Bounds="90,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="GraphiteGTCGuideLogo" />
+                </Field>
+                <Field FieldName="Source">
+                  <PropertyValue Property="SelectedResourceName" Value="$[0619d4de-f4b8-4b8e-9a1e-e38d8f84ca63,washington,Image,GraphiteGTCGuide]" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="373fcfbe-6f6b-492c-ae45-745d1dd6d4f9" Bounds="50,160,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="YearFormArea" />
+                </Field>
+                <Field FieldName="DimensionWidth">
+                  <PropertyValue Property="Text" Value="400" />
+                </Field>
+                <Field FieldName="PaddingLeft">
+                  <PropertyValue Property="Text" Value="20" />
+                </Field>
+                <Field FieldName="PaddingTop">
+                  <PropertyValue Property="Text" Value="20" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="4dc2a809-3d86-4393-9b9a-8f79b607a819" Bounds="90,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="YearForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="ec50e967-4f18-494e-b560-583993ba58e0" ID="8241bfa8-6798-4989-89e0-f6086e3b0e49" Bounds="170,270,290,35" Text="Field">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="ec50e967-4f18-494e-b560-583993ba58e0" Bounds="130,270,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FieldSet1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="3701c3d3-cc9b-4160-a98a-f2aeae21e269" ID="9678c810-9b24-47a3-83dc-78f39d97e405" Bounds="210,325,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="YearField" />
+                </Field>
+                <Field FieldName="FocusIndex">
+                  <PropertyValue Property="Text" Value="1" />
+                </Field>
+                <Field FieldName="LabelTextString">
+                  <PropertyValue Property="TranslationKey" Value="Year" />
+                </Field>
+                <Field FieldName="Mask">
+                  <PropertyValue Property="Text" Value="Numeric([#{2005-2020}])" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="8562c0a0-a55a-44e6-9184-e9a514082f97" ID="5f1bc68a-7254-4e9f-8a65-ca9bbb67b2a3" Bounds="170,380,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="8562c0a0-a55a-44e6-9184-e9a514082f97" Bounds="130,325,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="GoButtonPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="e3d4634f-b2da-431a-b8e5-b3da5a041ed3" Bounds="210,435,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="GoButton" />
+                </Field>
+                <Field FieldName="FocusIndex">
+                  <PropertyValue Property="Text" Value="2" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="YearForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="f904ab67-9013-4d08-9b47-03704d13c61f" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="Go" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="d3a7e687-33d6-452f-8439-871b436b599f" From="2e903ab6-c5d8-4c50-bfa6-5d5e01005a8e" FromIndex="0" To="7617028f-d226-4e16-ba11-e3275b393067" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,122.5" />
+              <Segment EndPoint="90,122.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="b94a7410-05eb-4246-9c78-5e70240a72dd" From="373fcfbe-6f6b-492c-ae45-745d1dd6d4f9" FromIndex="0" To="4dc2a809-3d86-4393-9b9a-8f79b607a819" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,195" />
+              <Segment EndPoint="70,232.5" />
+              <Segment EndPoint="90,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="76fc358a-f9d1-4686-9dc0-57433f5ac1cd" From="ec50e967-4f18-494e-b560-583993ba58e0" FromIndex="0" To="8241bfa8-6798-4989-89e0-f6086e3b0e49" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,305" />
+              <Segment EndPoint="150,325" />
+              <Segment EndPoint="110,325" Movable="true" />
+              <Segment EndPoint="110,287.5" Movable="true" />
+              <Segment EndPoint="170,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="2d71f989-0a57-4ed2-95bb-5d6e0e100d65" From="4dc2a809-3d86-4393-9b9a-8f79b607a819" FromIndex="0" To="ec50e967-4f18-494e-b560-583993ba58e0" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,250" />
+              <Segment EndPoint="110,287.5" />
+              <Segment EndPoint="130,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="866e1bda-187c-46fe-b554-3109127ccb01" From="8241bfa8-6798-4989-89e0-f6086e3b0e49" FromIndex="0" To="9678c810-9b24-47a3-83dc-78f39d97e405" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,305" />
+              <Segment EndPoint="190,342.5" />
+              <Segment EndPoint="210,342.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="cfdbe1fe-ffa3-4ea7-aa01-077b0588092d" From="8562c0a0-a55a-44e6-9184-e9a514082f97" FromIndex="0" To="5f1bc68a-7254-4e9f-8a65-ca9bbb67b2a3" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,360" />
+              <Segment EndPoint="150,397.5" />
+              <Segment EndPoint="170,397.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="9d0a9e36-6a74-432a-91ab-bedf2beb884c" From="4dc2a809-3d86-4393-9b9a-8f79b607a819" FromIndex="0" To="8562c0a0-a55a-44e6-9184-e9a514082f97" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,250" />
+              <Segment EndPoint="110,342.5" />
+              <Segment EndPoint="130,342.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="abb0fb04-cbb2-47bf-ae61-0d78eb4f35cc" From="5f1bc68a-7254-4e9f-8a65-ca9bbb67b2a3" FromIndex="0" To="e3d4634f-b2da-431a-b8e5-b3da5a041ed3" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,415" />
+              <Segment EndPoint="190,452.5" />
+              <Segment EndPoint="210,452.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="603d8ee2-c9c5-4d70-b4f9-c46440a8f4b0" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="TableArea" />
+                </Field>
+                <Field FieldName="DimensionWidth">
+                  <PropertyValue Property="Text" Value="400" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" PropertyName="Columns" OwnerNode="b43e70e0-a377-4c11-8e3d-249319e7d20d" ID="da2e1bd4-7b29-4682-8a10-8576ec44dce4" Bounds="130,160,290,35" Text="Column">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" IsElementList="true" PropertyName="Rows" OwnerNode="b43e70e0-a377-4c11-8e3d-249319e7d20d" ID="471c2b73-6e6e-414b-ae45-69f47eafd3c4" Bounds="130,325,290,35" Text="Row">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" ID="b43e70e0-a377-4c11-8e3d-249319e7d20d" Bounds="90,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="HolidayTable" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" ID="51952e4f-3110-4c73-b76b-11f5aad12579" Bounds="170,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DateColumn" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="Date" />
+                </Field>
+                <Field FieldName="Priority">
+                  <PropertyValue Property="Text" Value="High" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" ID="e74da5ac-af56-4e8f-ab82-78dab358acbd" Bounds="170,270,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="HolidayColumn" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="Holiday" />
+                </Field>
+                <Field FieldName="Priority">
+                  <PropertyValue Property="Text" Value="High" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" CustomName="HolidayRowCells" PropertyName="Cells" OwnerNode="ff6cde89-fc1e-4c36-a95b-a1c45a0c5977" ID="a8be9215-e9ff-4009-91ce-048e3d4861e6" Bounds="210,435,290,35" Text="Cell">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" ID="ff6cde89-fc1e-4c36-a95b-a1c45a0c5977" Bounds="170,380,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="HolidayRow" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="26d2407e-b076-47dc-bc32-de9ea9ac2f77" Bounds="250,490,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DateCell" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Left" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" PropertyName="CellElement" OwnerNode="26d2407e-b076-47dc-bc32-de9ea9ac2f77" ID="a7b72b4a-0a7d-4a08-b3fa-369be3a881c5" Bounds="290,545,290,35" Text="HtmlText">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DateText" />
+                </Field>
+                <Field FieldName="Mask">
+                  <PropertyValue Property="Text" Value="Date(MM/DD/YYYY)" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="eb61a59a-10ed-4966-b48d-313da0246c96" Bounds="250,600,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="HolidayCell" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Right" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" PropertyName="CellElement" OwnerNode="eb61a59a-10ed-4966-b48d-313da0246c96" ID="013932cc-1892-407a-a838-99bd8208ab54" Bounds="290,655,290,35" Text="HtmlText">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="HolidayText" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="30334c26-8263-43a0-8ed1-e5e3b4f2b91e" From="b43e70e0-a377-4c11-8e3d-249319e7d20d" FromIndex="0" To="da2e1bd4-7b29-4682-8a10-8576ec44dce4" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,177.5" />
+              <Segment EndPoint="130,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="bb6f93ed-f436-4a3a-82bf-759d4c026dd2" From="b43e70e0-a377-4c11-8e3d-249319e7d20d" FromIndex="0" To="471c2b73-6e6e-414b-ae45-69f47eafd3c4" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,342.5" />
+              <Segment EndPoint="130,342.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="29dcafd8-5bed-4b60-8510-aa4deca84e95" From="603d8ee2-c9c5-4d70-b4f9-c46440a8f4b0" FromIndex="0" To="b43e70e0-a377-4c11-8e3d-249319e7d20d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,122.5" />
+              <Segment EndPoint="90,122.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="f1845a39-b390-43b3-9061-a9fcf0e60137" From="da2e1bd4-7b29-4682-8a10-8576ec44dce4" FromIndex="0" To="51952e4f-3110-4c73-b76b-11f5aad12579" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,232.5" />
+              <Segment EndPoint="170,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="8e0ea526-2ab6-460f-ac6e-184916a45e63" From="da2e1bd4-7b29-4682-8a10-8576ec44dce4" FromIndex="0" To="e74da5ac-af56-4e8f-ab82-78dab358acbd" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,287.5" />
+              <Segment EndPoint="170,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="4f546e4f-e5e6-49cd-9921-4730895813c7" From="ff6cde89-fc1e-4c36-a95b-a1c45a0c5977" FromIndex="0" To="a8be9215-e9ff-4009-91ce-048e3d4861e6" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,415" />
+              <Segment EndPoint="190,452.5" />
+              <Segment EndPoint="210,452.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="6017e1d8-c658-443d-8b4b-c9b286b1b119" From="471c2b73-6e6e-414b-ae45-69f47eafd3c4" FromIndex="0" To="ff6cde89-fc1e-4c36-a95b-a1c45a0c5977" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,360" />
+              <Segment EndPoint="150,397.5" />
+              <Segment EndPoint="170,397.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="2536b8e8-3c11-4bc8-b90d-2a06c5ec18ec" From="a8be9215-e9ff-4009-91ce-048e3d4861e6" FromIndex="0" To="26d2407e-b076-47dc-bc32-de9ea9ac2f77" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,470" />
+              <Segment EndPoint="230,507.5" />
+              <Segment EndPoint="250,507.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="11c7007a-36bf-4fe0-8481-b37741c43c4f" From="26d2407e-b076-47dc-bc32-de9ea9ac2f77" FromIndex="0" To="a7b72b4a-0a7d-4a08-b3fa-369be3a881c5" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,525" />
+              <Segment EndPoint="270,562.5" />
+              <Segment EndPoint="290,562.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="b2c1597b-2bef-49f1-9c24-70468b39653d" From="a8be9215-e9ff-4009-91ce-048e3d4861e6" FromIndex="0" To="eb61a59a-10ed-4966-b48d-313da0246c96" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,470" />
+              <Segment EndPoint="230,617.5" />
+              <Segment EndPoint="250,617.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="d4a12615-71e9-4dcf-9dfa-ce01a6dd5e9a" From="eb61a59a-10ed-4966-b48d-313da0246c96" FromIndex="0" To="013932cc-1892-407a-a838-99bd8208ab54" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,635" />
+              <Segment EndPoint="270,672.5" />
+              <Segment EndPoint="290,672.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Holidays</Tag>
+  </Tags>
+</ViewDefinition>

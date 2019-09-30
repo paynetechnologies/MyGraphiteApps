@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Breadcrumb" ViewElementId="2d15e230-91b8-408c-89a4-2ab51ff9f000" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Breadcrumb navigation provides links back to previous pages the user navigated through, and also shows the user's current location in a web application.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="HomeCrumb" PropertyId="SimpleEntityDefinitionProperty_HomeCrumb" IsOptional="true" DataType="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Breadcrumb" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Breadcrumb.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Breadcrumb.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">BackButtonDetect.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">HtmlText.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="HomeCrumbTitle" EditorType="Hidden" Label="Home Title" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="HomeCrumbIconSymbol" EditorType="Hidden" Label="Home Icon" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="fa fa-home" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HomeCrumbNavigationView" EditorType="ViewChooser" Label="Home View" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View to navigate to when Home icon is clicked]]></Description>
+      </Field>
+      <Field FieldName="HomeCrumbName" EditorType="Hidden" Label="Home Name" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="HomeCrumbLinkName" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Breadcrumb]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="HomeCrumbTitle" PropertyPath="HomeCrumb.Title" Value="{Text}" />
+      <Map FieldName="HomeCrumbIconSymbol" PropertyPath="HomeCrumb.Icon.Symbol" Value="{Text}" />
+      <Map FieldName="HomeCrumbNavigationView" PropertyPath="HomeCrumb.Navigation.View" Value="{Url}" />
+      <Map FieldName="HomeCrumbName" PropertyPath="HomeCrumb.Name" Value="{Text}" />
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Toolbar</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVEhLrZRJSgRBEEWzbY/ggKLgHXorTih6AsFx4aKvoC5ERUG9hIiigidQBEHwAOIBBAcUhxs4/hdpF5VN16IDHzw6I39B0FkZVapWq0HMyj65SVGHN8tokTy4J9fksMzjzRJoMinLfx7KTlnDmyXQZEE+WBVClzyQ7IM3S2DzXU7LTzbEmFyOS3eWUK5UKvzeyw85SiEG5aW8k94sI//3duRpXNo5H8kOq/yZkW/yI+flk1UhdMt9WZLezKh/UW9ySn5ZFcK4XIpLd5a9kzycJw+PWBXCkLyQnL8ra3jlxJY8j0s752PZZpUjK2ryLefks1Uh9MjduGw+K2ryrxQ1YZ8JZpLhUTLh0HRW1ITJZYKBl8nNYcKh6axRkwG5HpfGiryKS19W36RdciO4GXAmt+PSnSVNmFAmlYkFJphJZqK9mZFvsign4tLOky/sq1X+zKg16ZcbcWmsSr6m4M0yaMK08uVsZUMwsUwueLMEmjCtvVbFSWVimVzwZgk0OZGcJc7IF1nDmyXwFb7R7628ltySPN4sRwi/ckyz0Ak2GxcAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADiSURBVEhLvdZdCsIwEATg2jP4cxlRvIcHUfRUvigeR9FLKMSZkilJFB82bBa+0HbSFk3Stgsh0BaOcbtkzUZs2PEdbXgwYc0ybE6gesIC1MGaZdhM4QaqK/RQk2W0sYQXqA5Qm43SnR2o+D+voTYbpDsTOIPqAXOoyQbjRjQDdlJdgBepyb5uQivgz1btoSpThxIHUMUTOcDmTGGJU5FTUnUHTllTll64xMXFRabi4jNlfdeicKdfmvxd7gPvPoXdFyMPuj9W3B+QHCDXR/2/l481y7Bp8vpt8iFBPMHpkyh0H0uDnXZ3b7oLAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

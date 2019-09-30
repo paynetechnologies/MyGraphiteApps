@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="EventButton" ViewElementId="3323ae7c-e3c1-4ecc-9c7c-a43db731438a" BasedOn="b4878119-2641-4f3b-bba1-ec96aed3f170" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Event Button is a special type of button to be used in conjunction with events.  This is an advanced feature.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="GroupName" PropertyId="SimpleEntityDefinitionProperty_GroupName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="EventButton" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">EventButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="GroupName" EditorType="TextBox" Label="Group" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Uniquely identify a set of Event Buttons]]></Description>
+      </Field>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <DescriptionOptions><![CDATA[View Behavior to run when the Event Button is clicked]]></DescriptionOptions>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="OverriddenValidations" ParameterDataType="$[List,d52661f3-a152-455c-9fe6-bbd8898b24be]" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ExistingEventDetail" ParameterDataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" />
+        </BehaviorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="GroupName" PropertyPath="GroupName" Value="{Text}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Event</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADDSURBVEhLzZJBDgIhDEXBja6MXoDDcRKOajiAGxcutSUDMaVDC6LhJT8EmvLbgvXev8wfOGzrz1nGyBJRpHiBGkmJw3HN6PCztD6MFE/sGe0l53MpXqHpqBoDQYonJKPP6rlKpXhB09EUWkZ5JL1iWaKjqWiM6ENLexY0Euf7BeVuG0JIJ5kYIy5Y4Rn0wE0HJ9ATZJ1z6SDTGt3I+x23tWLGG6kYqXoIjRH9KHSvYomOLqBrpzCHpWV0A907hTkMxrwBU6s1wbGpZMoAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVEhL3ZTbDsIgDIbBLNGrPYNvCrzpnsALvfBSyywRZtcWlpHFL2nKqRz+drMvwHTghH53uh3EShdCsNiccc4Va6X5nOKgZeBW8oNF6eJi7qbSfGJAX5ACW6WjlBFfFIM4SaX5BJkjjRQc1D7dypvMUUQjB8WaGv/3Z6j+jqT+GkNrLjTke1vvPTa/4A1HWPj4jOiAuAu4J3V5TrqW/J3R/7A5R1qOU3VR71zzZV9LtxdxVXcFu88DekawqbbqJrBbpcUYAmPePBGFAHMoM8sAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

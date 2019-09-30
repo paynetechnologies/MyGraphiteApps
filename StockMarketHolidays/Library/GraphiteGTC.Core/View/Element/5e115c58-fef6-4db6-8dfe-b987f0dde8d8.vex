@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="MenuBar" ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Menu Bar is a way to format a group of links or buttons instead of utilizing Button Panel. MenuBar has more formatting capabilties including vertical and horizontal orientation.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Orientation" PropertyId="1a9db2ba-ccdb-4cf0-a505-01b28ba89a17" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Alignment" PropertyId="f31f8273-c758-40f4-b622-161cda07d61e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Styled" PropertyId="9aa79b9c-f2e5-4d47-82f7-df5aeb748e9e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="BackgroundColor" PropertyId="dc68f033-a7f2-4d94-9625-13983616139a" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="MenuBar" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">MenuBar.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Orientation" EditorType="SelectBox" Label="Orientation" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Orientation of the MenuBar]]></Description>
+        <DescriptionOptions><![CDATA[Horizontal, Vertical]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Horizontal" Value="Horizontal" />
+          <FieldOption DisplayName="Vertical" Value="Vertical" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Horizontal" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Alignment" EditorType="SelectBox" Label="Alignment" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Alignment of the MenuBar elements]]></Description>
+        <DescriptionOptions><![CDATA[Center, Justify, Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+          <FieldOption DisplayName="Center" Value="Center" />
+          <FieldOption DisplayName="Justify" Value="Justify" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Left" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Styled" EditorType="YesNoToggle" Label="Styled" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Style a border around MenuBar?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="BackgroundColor" EditorType="ColorChooser" Label="Background Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Color]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Orientation" PropertyPath="Orientation" Value="{Text}" />
+      <Map FieldName="Alignment" PropertyPath="Alignment" Value="{Text}" />
+      <Map FieldName="Styled" PropertyPath="Styled" Value="{Text}" />
+      <Map FieldName="BackgroundColor" PropertyPath="BackgroundColor" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABsAAAAWCAYAAAAxSueLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKESURBVEhLrdVZqE1RHMfxfWW6SHITUmYeuOWBIuVBUmR48SC8USdTLpGUeSqKDN0o4dFNPIl4EU+GeDKUDBlKZEoiY67vd++ztG7nbM61/erT2Wd17/7vtfZ/rVNXKpWS/5CjeIld+OhAtXQofxbJRCzEetzFPNShIkWL+f8HEG4+ECdwBRMciFO0mDMal10mTbiQXaaFLGjh/g6YIsV6Ykd2mZzDQUzHLDyEs3VJ78Mlri9SbBP64jtWIdzrLEZjDd6jB3yoi/9arBuWZpfpjB7AJTsGl+0b9sKlDWm2WGvExN9jT9EH5jPuwXbfhsmYC9+hyzYMXbEF5ipaap3ZV8zB6/RbVnwSZuMT9iHkOh5hNYbgJ1agtdZiy3Azu0wGwae2yA14KoyB+YGVGIB1DpDjSP/XYnZNYOLvge/CLMYT+OS9y7Yj5BDuYDdsjA/YiDTtaRA7z5uYy3iHzWhwgLzFVvgAUx0gzs73mqY9xWxf95Zn31o0InSkcQY+gAZjKA7jdywWd5wJ16fSb1k8Jew042H7HPvR0QFyC0cwFi6f3foYbZI3szewKYzvzPPPv/UG7p/hGI8Qm6I73NB2Y3iINskrtgSvssv0yPFkN+6bL/A4Ggk77SQuwROlH9xjXVARi8VdZ/w8nV2mWV7+NM7Q/dMZL7AI8zEC7iXTDLdFRfJmFmcKNsAb9MIe+LvlgWvctG7qTnA1PFGqppZivuydGIUW2Dy+szM4D2c0A8bT3b1VNRYL3ScTf/eGtrB5BpfM93fNATINLq3xlPAd5uZvM3OpPBHcvPUOEAtZcAF8b8YH84R3SXNTyzJaxC68jZkOEG/uT4od6RI7I3+Z/5Ak+QXfhJR99+OzMQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABsAAAAWCAYAAAAxSueLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIwSURBVEhLrdY9jA5BHMfxO0ScE4XEWyTivdIREd31dJq7QkOjuUap0CgUGrXTIRKdSDRap5CIK1REouBOSERc5HLC+n7H89/8n3n24nnwSz6bZ2Zndm9nZ2ZvvGmasf+QOSzhGpat6Iw3+0en8BPmLaZRHqI2UDGidXiGOk9xEn3t+wp/4QIis3j0+2eJT3sXu1Ha151HsRVLMA8R9afxCpGvuIyJ3HlU12FWcQQOaZzbiEv4jMh87jyKzfgG402tu4dbaIcN5xCZsSKnLuc407bDNs6251iEwzmFiMN2EJvwxgoyj/Fhb7aC4/B8mMQJrMcLRB7D874n8wOlb33xuhw5j7jJPkyk8kVEvuMo9sAnNDdR2kaHYcWF32FbzycrerkB290upab5gl0o/fOF/mQn7GzuwDovHvGm8Qd8sIL4x7XXaH8MweEwDo/D5HA5bJF8YYd5fyoXHnJy+T6ioS/YF2188dY5ESILcKIcwxZEvz4ecqL8ETtg2Wn+BMap7JQ+hJgAxqnvEnApvMQGtDcJHnKifBbRaMaKXlykUe/idRG7mC3HjuIycVlEu9ZARQcXZMTtx23I7SjOu00dhtuWiR1lQGdlxZfte1pGxI32DKKNG7FxFjqcuX+rs3INe+EnIz6Uxk+Kn5aIn5yuvoWHnLr8AAeQO/lR9ONYx49o3vkHeMipy8bd/QryFuUMdeK8h/Fp/fcgznfykFOXc17DD2O+gGvqKuZS3RqasV9pxG6sfcYUYAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

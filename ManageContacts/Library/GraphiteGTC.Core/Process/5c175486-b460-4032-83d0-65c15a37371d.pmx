@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetUserPicture" OwnerId="af37d61e-f6e8-45eb-a1b6-ba605a331200" ProcessId="5c175486-b460-4032-83d0-65c15a37371d" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Resizes and sets the user image and thumbnail">
+  <Variables>
+    <Variable Name="AppBar" DataType="af37d61e-f6e8-45eb-a1b6-ba605a331200" VariableType="InputOutput" VariableId="bfe385dd-14f3-4e9d-ab5d-2045d3e948e8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Base64Content" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="9d47966b-a21b-425e-9016-9f468d792140" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MediaType" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="3b83874e-88c1-4ce6-9507-2ad45811e81a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="42620ade-0321-41ad-aa44-862d5429085e" Bounds="822.5,55,170,55" />
+        <RunExternalProcessNode ExternalProcessId="2c915a42-92a4-406b-a977-ba6dd8d9d5db" VariableId="UserPictureImageContent" Description="Resize ImageData to UserPicture Image" ID="ae64af6d-e2e3-4b72-a62b-80e0d93921c0" Bounds="632.5,155,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Base64Image" Value="Base64Content" />
+            <InputVariable Name="ImageHeight" Value="65" />
+            <InputVariable Name="ImageWidth" Value="65" />
+          </InputVariables>
+        </RunExternalProcessNode>
+        <RunExternalProcessNode ExternalProcessId="2c915a42-92a4-406b-a977-ba6dd8d9d5db" VariableId="UserPictureThumbnailImageContent" Description="Resize ImageData to UserPictureThumbnail Image" ID="d1f3a4a8-eb20-49cc-9dfc-17a04eeb095e" Bounds="632.5,255,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="Base64Image" Value="Base64Content" />
+            <InputVariable Name="ImageHeight" Value="35" />
+            <InputVariable Name="ImageWidth" Value="35" />
+          </InputVariables>
+        </RunExternalProcessNode>
+        <DecisionNode LeftExpression="AppBar.UserPicture" Operator="IsMissing" Description="User Picture not set?" ID="ef103b30-4d96-4354-ac83-4fa544ba15dd" Bounds="652.5,355,510,125" ZOrder="1" Text="" />
+        <ExecuteProcessNode ElementDefinition="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" ProcessProperty="af80aaed-ce67-43de-bb90-0af25756e68d" ExecuteProcessType="Element" VariableId="UserPictureSetImageResult" SuppressValidations="false" Description="Set User Picture Image" ID="416331a3-d4c6-4df7-9a54-83e9f106f2a0" Bounds="632.5,725,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Image" Value="AppBar.UserPicture" />
+            <InputVariable Name="Base64Content" Value="UserPictureImageContent" />
+            <InputVariable Name="MediaType" Value="MediaType" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Image" Value="AppBar.UserPicture" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <CreateNode Variable="UserPictureDimension" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" Description="Create User Picture Dimension" ID="b9470cfc-4238-4228-8aa9-da7a200f29ed" Bounds="232.5,525,550,55">
+          <Properties>
+            <Property Name="Height">"65"</Property>
+            <Property Name="Scale">"px"</Property>
+            <Property Name="Width">"65"</Property>
+          </Properties>
+        </CreateNode>
+        <DecisionNode LeftExpression="AppBar.UserPictureThumbnail" Operator="IsMissing" Description="User Picture Thumbnail not set?" ID="1f469187-d04e-4c73-ba27-b376d48a6040" Bounds="652.5,825,510,125" ZOrder="2" Text="" />
+        <CreateNode Variable="AppBar.UserPicture" DataType="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Description="Initialize User Picture" ID="4e5c4602-4aa9-463c-a34b-8e0a996747e4" Bounds="232.5,625,550,55" ZOrder="1" Text="">
+          <Properties>
+            <Property Name="Dimension">UserPictureDimension</Property>
+            <Property Name="IsDisplayed">"Yes"</Property>
+            <Property Name="IsResponsive">"Yes"</Property>
+            <Property Name="Name">Text.Concatenate( AppBar.Name, "UserPicture" )</Property>
+            <Property Name="Title">TranslationKeys:Blank</Property>
+            <Property Name="Type">"Image"</Property>
+          </Properties>
+        </CreateNode>
+        <ExecuteProcessNode ElementDefinition="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" ProcessProperty="af80aaed-ce67-43de-bb90-0af25756e68d" ExecuteProcessType="Element" VariableId="UserPictureThumbnailSetImageResult" SuppressValidations="false" Description="Set User Picture Thumbnail Image" ID="9761ba24-ac10-4cc6-9d8c-bffd686acd6b" Bounds="632.5,1195,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="Image" Value="AppBar.UserPictureThumbnail" />
+            <InputVariable Name="Base64Content" Value="UserPictureThumbnailImageContent" />
+            <InputVariable Name="MediaType" Value="MediaType" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Image" Value="AppBar.UserPictureThumbnail" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <CreateNode Variable="UserPictureThumbnailDimension" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" Description="Create User Picture Thumbnail Dimension" ID="23c85beb-4e58-4db2-84e9-4611292b8a08" Bounds="232.5,995,550,55" ZOrder="1" Text="">
+          <Properties>
+            <Property Name="Height">"35"</Property>
+            <Property Name="Scale">"px"</Property>
+            <Property Name="Width">"35"</Property>
+          </Properties>
+        </CreateNode>
+        <EndNode ID="07478f2a-5a06-4934-ae4d-5fd90d51c9f4" Bounds="822.5,1295,170,55" />
+        <CreateNode Variable="AppBar.UserPictureThumbnail" DataType="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Description="Initialize User Picture Thumbnail" ID="373d2672-6a2a-4111-a7dd-61aec0893c67" Bounds="232.5,1095,550,55" ZOrder="2" Text="">
+          <Properties>
+            <Property Name="Dimension">UserPictureThumbnailDimension</Property>
+            <Property Name="IsDisplayed">"Yes"</Property>
+            <Property Name="IsResponsive">"Yes"</Property>
+            <Property Name="Name">Text.Concatenate( AppBar.Name, "UserPictureThumbnail" )</Property>
+            <Property Name="Title">TranslationKeys:Blank</Property>
+            <Property Name="Type">"Image"</Property>
+          </Properties>
+        </CreateNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="7d7b6e20-507a-44f7-8b25-c4922cd3e86b" From="42620ade-0321-41ad-aa44-862d5429085e" FromIndex="0" To="ae64af6d-e2e3-4b72-a62b-80e0d93921c0" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6ac6b6c2-ffae-419f-8da6-43099507d436" From="ae64af6d-e2e3-4b72-a62b-80e0d93921c0" FromIndex="2" To="d1f3a4a8-eb20-49cc-9dfc-17a04eeb095e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="941b37be-5d99-4c33-9b12-50dde8adef05" From="d1f3a4a8-eb20-49cc-9dfc-17a04eeb095e" FromIndex="2" To="ef103b30-4d96-4354-ac83-4fa544ba15dd" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="81b954fa-ad34-4538-a3b8-79d7eb08c577" From="4e5c4602-4aa9-463c-a34b-8e0a996747e4" FromIndex="2" To="416331a3-d4c6-4df7-9a54-83e9f106f2a0" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,680" />
+          <Segment EndPoint="507.5,752.5" />
+          <Segment EndPoint="632.5,752.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="e10f3b5a-8581-46cf-a047-35ff98991273" From="ef103b30-4d96-4354-ac83-4fa544ba15dd" FromIndex="2" To="416331a3-d4c6-4df7-9a54-83e9f106f2a0" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,480" />
+          <Segment EndPoint="907.5,725" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="fefe3adf-31ea-42fb-883d-2b4d5b4937e2" From="ef103b30-4d96-4354-ac83-4fa544ba15dd" FromIndex="3" To="b9470cfc-4238-4228-8aa9-da7a200f29ed" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,417.5" />
+          <Segment EndPoint="507.5,417.5" />
+          <Segment EndPoint="507.5,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="9f06e000-691e-4d76-92a0-be6ad9148262" From="b9470cfc-4238-4228-8aa9-da7a200f29ed" FromIndex="2" To="4e5c4602-4aa9-463c-a34b-8e0a996747e4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,580" />
+          <Segment EndPoint="507.5,625" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c8db8d99-6963-4c05-8855-c9815764c755" From="373d2672-6a2a-4111-a7dd-61aec0893c67" FromIndex="2" To="9761ba24-ac10-4cc6-9d8c-bffd686acd6b" ToIndex="3" LineType="ElbowArrow">
+          <Segment EndPoint="507.5,1150" />
+          <Segment EndPoint="507.5,1222.5" />
+          <Segment EndPoint="632.5,1222.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="a578030c-1382-4e7d-b6f5-b359ad90b5b6" From="1f469187-d04e-4c73-ba27-b376d48a6040" FromIndex="2" To="9761ba24-ac10-4cc6-9d8c-bffd686acd6b" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="907.5,950" />
+          <Segment EndPoint="907.5,1195" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="29474026-a27a-42c1-bf5c-98b798a5296c" From="1f469187-d04e-4c73-ba27-b376d48a6040" FromIndex="3" To="23c85beb-4e58-4db2-84e9-4611292b8a08" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="652.5,887.5" />
+          <Segment EndPoint="507.5,887.5" />
+          <Segment EndPoint="507.5,995" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="a14c56ca-6326-4da1-ab54-37c8ebbba584" From="23c85beb-4e58-4db2-84e9-4611292b8a08" FromIndex="2" To="373d2672-6a2a-4111-a7dd-61aec0893c67" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="507.5,1050" />
+          <Segment EndPoint="507.5,1095" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="15f7d082-50a0-4add-ac88-4c465433c632" From="416331a3-d4c6-4df7-9a54-83e9f106f2a0" FromIndex="2" To="1f469187-d04e-4c73-ba27-b376d48a6040" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,780" />
+          <Segment EndPoint="907.5,825" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="458af262-4472-46e8-90c2-daff5d3210ae" From="9761ba24-ac10-4cc6-9d8c-bffd686acd6b" FromIndex="2" To="07478f2a-5a06-4934-ae4d-5fd90d51c9f4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,1250" />
+          <Segment EndPoint="907.5,1295" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

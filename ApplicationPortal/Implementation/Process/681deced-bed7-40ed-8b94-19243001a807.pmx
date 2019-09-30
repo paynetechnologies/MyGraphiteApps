@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateCitizenship" OwnerId="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessId="681deced-bed7-40ed-8b94-19243001a807" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="PersonalData" DataType="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" VariableType="InputOutput" VariableId="b1cec20b-2273-48cf-94f9-50f9c12ed96a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="USCitizen" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="fe60d894-e430-4387-8024-8b658ad83b4b" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="6848f1c5-6921-43c1-9681-28178b59f25d" Bounds="640.6,165,170,55" ZOrder="1" Text="" />
+        <AssignNode ID="cc511c6b-284c-4d63-9fb1-b6ddbe72e54b" Bounds="450,265,550,55" ZOrder="1" Text="">
+          <Assignment Name="PersonalData.USCitizen" Value="USCitizen" />
+        </AssignNode>
+        <EndNode ID="6a1ec37a-7297-4906-9cc7-adfa9e084a5d" Bounds="640.6,365,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="bd6da8bc-2078-46ef-b9d7-308dff578545" From="6848f1c5-6921-43c1-9681-28178b59f25d" FromIndex="0" To="cc511c6b-284c-4d63-9fb1-b6ddbe72e54b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="725.6,220" />
+          <Segment EndPoint="725.6,242.5" />
+          <Segment EndPoint="725,242.5" Movable="true" />
+          <Segment EndPoint="725,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9ca384ad-6034-4209-baa1-4f9abce42d1b" From="cc511c6b-284c-4d63-9fb1-b6ddbe72e54b" FromIndex="2" To="6a1ec37a-7297-4906-9cc7-adfa9e084a5d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="725,320" />
+          <Segment EndPoint="725,342.5" />
+          <Segment EndPoint="725.6,342.5" Movable="true" />
+          <Segment EndPoint="725.6,365" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

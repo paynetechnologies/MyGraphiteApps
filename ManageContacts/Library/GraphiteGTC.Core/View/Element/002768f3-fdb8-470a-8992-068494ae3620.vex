@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DragDropPanel" ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" BasedOn="dd76c11b-4c10-4ad3-818c-99e82fbba716" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Drag and Drop Panel holds Drag Drop Items which can be moved around the screen.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SelectedItems" PropertyId="SimpleEntityDefinitionProperty_SelectedItems" IsOptional="true" DataType="$[List,7057516a-8a9f-4bf5-90d2-d37cdc103e9b]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SelectedTitle" PropertyId="SimpleEntityDefinitionProperty_SelectedTitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsOneWay" PropertyId="SimpleEntityDefinitionProperty_IsOneWay" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsInline" PropertyId="SimpleEntityDefinitionProperty_IsInline" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnRemove" PropertyId="SimpleEntityDefinitionProperty_OnRemove" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="RemoveOnDrop" PropertyId="SimpleEntityDefinitionProperty_RemoveOnDrop" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DragDropPanel" />
+    <Property PropertyName="IsOneWay" DefaultValue="Yes" />
+    <Property PropertyName="IsInline" DefaultValue="No" />
+    <Property PropertyName="RemoveOnDrop" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DragDropPanel.js</Script>
+      <Script Component="false" Group="dragula">dragula.min</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="SelectedTitle" EditorType="TranslationKeyChooser" Label="Title for Selected Items" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title for the selected items Panel]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IsOneWay" EditorType="YesNoToggle" Label="Drag one way?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Allow dragging from one panel only?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsInline" EditorType="YesNoToggle" Label="Inline?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Arrange Panels side-by-sde?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OnRemove" EditorType="ViewBehaviorChooser" Label="OnRemove" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when an item is removed from a panel]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterNameProvider="SimpleEntityDefinitionProperty_VariableName" DataTypeProvider="SimpleEntityDefinitionProperty_Entity" IsList="false" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="RemoveOnDrop" EditorType="YesNoToggle" Label="Remove when dropped?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Remove an item from source panel when dropped?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="SelectedTitle" PropertyPath="SelectedTitle" Value="{TranslationKey}" />
+      <Map FieldName="IsOneWay" PropertyPath="IsOneWay" Value="{Text}" />
+      <Map FieldName="IsInline" PropertyPath="IsInline" Value="{Text}" />
+      <Map FieldName="OnRemove" PropertyPath="OnRemove.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnRemove" PropertyPath="OnRemove.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="RemoveOnDrop" PropertyPath="RemoveOnDrop" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">DragDrop</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAKCAYAAACuaZ5oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACLSURBVDhPY0xLS/vPQBpghNLoYCoQ5wPxHzAPCpigNDVAFhBvA2JBMA8KqGkBCLgC8QkgVgXzgIASC0BBi4xhQA2ITwKxC4hDbR/AACiYtgNxFq0sgAFGWlnwHoi9gHgqJRaAkisyhoHbQGwBxLtBHGr7YA8QmwPxLTAPCKhpwXQg9gRiUPBAAQMDAFynFEfM3aVdAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAKCAYAAACuaZ5oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVDhPtZPhDUAwEIVbsYAlrGAB/tnFNAwjFrACO5hAUu+JSjUVTuNLvpM26cn1pcrI4ZmQLUy9PcUi5dLAkfQwg+e+RsFvROjj62P7TLCGMxcJy0fY0NWSwxGWXMRM8HRuhU3MBG/QNhwJbqh3LLCCv4TMcBkyw44KOcQAC7g33+EEQuwV+XbQe2hGbSJydVA2KpsIAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

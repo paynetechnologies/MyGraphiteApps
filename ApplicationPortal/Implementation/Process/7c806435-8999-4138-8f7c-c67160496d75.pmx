@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateGift" OwnerId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" ProcessId="7c806435-8999-4138-8f7c-c67160496d75" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="GiftAmount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="35cabb4f-1e84-468f-ba11-0d9306eefc3d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="GiftSource" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="217a6c8c-02e4-46f8-afb8-b429059c35ab" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="HomeLoanData" DataType="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" VariableType="InputOutput" VariableId="c3107a71-967b-4b58-a1b6-610e0b6d2f12" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="e7ca761c-566a-43f2-a43a-ea8344009e45" Bounds="630.6,55,170,55" />
+        <ExecuteProcessNode EntityDefinition="f873ae42-9c64-425b-b3e4-5f75f1660923" ProcessProperty="e284e127-eadb-46f1-acb5-0c1e1e1179b6" ExecuteProcessType="EntityStatic" VariableId="GiftDataUpdateResult" SuppressValidations="false" ID="ecdae6dd-dc4e-4049-897e-ae44672743cb" Bounds="440.6,155,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Amount" Value="GiftAmount" />
+            <InputVariable Name="GiftData" Value="HomeLoanData.GiftData" />
+            <InputVariable Name="Source" Value="GiftSource" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="GiftData" Value="HomeLoanData.GiftData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="71d870cb-1cff-4167-8cbb-92e5d7e2798b" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="3c5fe05f-1b4b-4abc-94a0-6c5c1e172d22" From="e7ca761c-566a-43f2-a43a-ea8344009e45" FromIndex="0" To="ecdae6dd-dc4e-4049-897e-ae44672743cb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="1380407f-a53f-4e69-ba7a-58ed1eb09054" From="ecdae6dd-dc4e-4049-897e-ae44672743cb" FromIndex="2" To="71d870cb-1cff-4167-8cbb-92e5d7e2798b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

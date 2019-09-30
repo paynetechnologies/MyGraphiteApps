@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Timeline" ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Timeline is an advanced view element utilized in conjunction with Events and Event Display Details. This element allows the user to see behaviors flagged as events and when they have occured in time.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnChange" PropertyId="SimpleEntityDefinitionProperty_OnChange" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Transition" PropertyId="SimpleEntityDefinitionProperty_Transition" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="InitialView" PropertyId="SimpleEntityDefinitionProperty_InitialView" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="InitialDate" PropertyId="SimpleEntityDefinitionProperty_InitialDate" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClick" PropertyId="SimpleEntityDefinitionProperty_OnClick" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FormToSerialize" PropertyId="SimpleEntityDefinitionProperty_FormToSerialize" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FilterSelectField1" PropertyId="SimpleEntityDefinitionProperty_FilterSelectField1" IsOptional="true" DataType="64138c35-5b58-4a55-850e-f1e990a10f73" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FilterSelectField2" PropertyId="SimpleEntityDefinitionProperty_FilterSelectField2" IsOptional="true" DataType="64138c35-5b58-4a55-850e-f1e990a10f73" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FilterSelectField3" PropertyId="SimpleEntityDefinitionProperty_FilterSelectField3" IsOptional="true" DataType="64138c35-5b58-4a55-850e-f1e990a10f73" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Timeline" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Selectbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Timeline.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">SelectField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.MobileMenu.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OnChange" EditorType="ViewBehaviorChooser" Label="OnChange" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when any of the filter fields are changed]]></Description>
+      </Field>
+      <Field FieldName="Transition" EditorType="SelectBox" Label="Transition" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Transition style]]></Description>
+        <DescriptionOptions><![CDATA[Slide]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Slide" Value="Slide" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Slide" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="InitialView" EditorType="SelectBox" Label="Initial Display Interval" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Range]]></Description>
+        <DescriptionOptions><![CDATA[Day, Month, Year]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Day" Value="Day" />
+          <FieldOption DisplayName="Month" Value="Month" />
+          <FieldOption DisplayName="Year" Value="Year" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when a date is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FromDate" ParameterDataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ToDate" ParameterDataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Form to Submit (optional)]]></Description>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="FilterSelectField1" EditorType="PropertyNodeCreator" Label="Filter Select 1" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Filter Field 1]]></Description>
+        <DescriptionOptions><![CDATA[A Select Field]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FilterSelectField2" EditorType="PropertyNodeCreator" Label="Filter Select 2" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Filter Field 2]]></Description>
+        <DescriptionOptions><![CDATA[A Select Field]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FilterSelectField3" EditorType="PropertyNodeCreator" Label="Filter Select 3" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Filter Field 3]]></Description>
+        <DescriptionOptions><![CDATA[A Select Field]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnChange" PropertyPath="OnChange.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnChange" PropertyPath="OnChange.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="InitialView" PropertyPath="InitialView" Value="{Text}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="FormToSerialize" PropertyPath="FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="FilterSelectField1" PropertyPath="FilterSelectField1" />
+      <Map FieldName="FilterSelectField2" PropertyPath="FilterSelectField2" />
+      <Map FieldName="FilterSelectField3" PropertyPath="FilterSelectField3" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Showing</Key>
+    <Key>View</Key>
+    <Key>Today</Key>
+    <Key>CurrentYear</Key>
+    <Key>Filters</Key>
+    <Key>CurrentMonth</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAARCAYAAADDjbwNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABlSURBVDhPY0xLS/vPQAfABKVpDkYtIhuMWkQ2GLWIbEBXixgJ4EYgJgRAarDphWNifNQAxPgsA8mB1OAFxAYdLsuIsgQESIkjdMuItgQEmI2NjaFMosABIAaF+UEgJtoSBgYGBgCAzQwH6YkB2AAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAARCAYAAADDjbwNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABeSURBVDhP7ZVLCsAgDAWjJ7cn1zwQ2sqzpgFdZWAQ/DDgQlNV5AC5j9uJkJsIuYmQm6OhtPBSV2APO3uLN9VgUWdgjZ15SScnspgpAunkh8+YOQLxH+kV/qIMowGRBvhRAT9eRvVpAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

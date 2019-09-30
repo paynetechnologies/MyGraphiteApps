@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="6d7c05ad-81c2-4541-a187-af7cf67225b2" ProcessId="0ea4cf71-84dc-48c0-9769-44793f42016f" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="6d7c05ad-81c2-4541-a187-af7cf67225b2" VariableType="Output" Classification="Pinned, Locked" VariableId="391a9851-cc7a-4d4e-bf84-b45a8a0e121f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="933f5737-1269-44fd-b9b1-3d7263f88564" VariableType="Input" Classification="Pinned, Locked" VariableId="f22f30db-e89f-42de-acd9-8991b46026f9" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AppointmentInContext" DataType="3f23d8d9-12ca-4236-86b7-cdfc777b5e07" VariableType="Input" VariableId="da5e07fc-aaa6-4cb8-b430-1ae3dfd74cc0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EndDateTime" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="3bf837a0-00ca-4e00-82f9-168f76212b21" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="StartDateTime" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="310f6879-c8f3-4da0-ae91-2e3ee6571c60" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="bf1446db-04e1-4152-808e-510a38e7bf34" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="6d7c05ad-81c2-4541-a187-af7cf67225b2" Description="Create the AppointmentModal view" ID="b6f164f8-cae2-4028-b387-c36887ca3c46" Bounds="440,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode ElementDefinition="3392209c-261a-4cd1-8e69-e9e784397d7c" ProcessProperty="917b8bef-0bbe-459e-89ee-86d2a9f51833" ExecuteProcessType="Element" VariableId="AppointmentElementPackBuildResult" SuppressValidations="false" ID="6150fba5-f82b-45df-a459-20790f61ecc6" Bounds="440,255,550,55">
+          <InputVariables>
+            <InputVariable Name="AppointmentElementPack" Value="AppointmentElementPack" />
+            <InputVariable Name="AppointmentInContext" Value="AppointmentInContext" />
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="EndDateTime" Value="EndDateTime" />
+            <InputVariable Name="StartDateTime" Value="StartDateTime" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="AppointmentElementPack" Value="AppointmentElementPack" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="9254e322-5e29-4bbd-bfba-89c52e35bb8a" Bounds="630.6,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="04678939-fb22-4ad3-8321-976f7abf70cf" From="bf1446db-04e1-4152-808e-510a38e7bf34" FromIndex="0" To="b6f164f8-cae2-4028-b387-c36887ca3c46" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,132.5" />
+          <Segment EndPoint="715,132.5" Movable="true" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="18e15a46-fa50-4f72-a94b-f2027d6c96ae" From="b6f164f8-cae2-4028-b387-c36887ca3c46" FromIndex="2" To="6150fba5-f82b-45df-a459-20790f61ecc6" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="399646c4-0bca-4ff4-953f-c4a8e1170161" From="6150fba5-f82b-45df-a459-20790f61ecc6" FromIndex="2" To="9254e322-5e29-4bbd-bfba-89c52e35bb8a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,310" />
+          <Segment EndPoint="715,332.5" />
+          <Segment EndPoint="715.6,332.5" Movable="true" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

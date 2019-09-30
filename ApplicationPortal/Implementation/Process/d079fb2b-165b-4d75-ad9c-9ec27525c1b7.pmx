@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildApplicationPanel" OwnerId="8535d60f-9d1b-4dde-a002-4ae203377ea5" ProcessId="d079fb2b-165b-4d75-ad9c-9ec27525c1b7" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="419acaf7-4d2f-415e-ba06-ed90abcd63b5" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="8535d60f-9d1b-4dde-a002-4ae203377ea5" VariableType="InputOutput" VariableId="12dad44c-ddca-466b-8a01-fa440003a162" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="2ff40f5a-a5c1-4c13-9c16-f9f1f39c758d" Bounds="630.6,55,170,55" />
+        <EndNode ID="b114b48d-0dab-40e3-a517-3b7f332cc912" Bounds="630.6,155,170,55" />
+        <ListLookupNode Source="ApplicantInContext.Applications" VariableId="PendingApplications" ResultType="Array" ID="6d48bd70-00a3-4a76-ab5f-00dc0890668c" Bounds="440.6,255,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Status" RightExpression="ApplicationStatus:Pending" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="StartDate" SortOrderType="Descending" SortPriority="0" />
+          </Sort>
+        </ListLookupNode>
+        <ExecuteProcessNode ViewDefinition="8535d60f-9d1b-4dde-a002-4ae203377ea5" ProcessProperty="0fea71bf-3912-4914-9d23-2889464f8d95" ExecuteProcessType="View" VariableId="ContinueModalBuildApplicationDetailsResult" SuppressValidations="false" ID="03d791a9-0a81-4703-a210-811326a90a97" Bounds="440.6,355,550,55">
+          <InputVariables>
+            <InputVariable Name="Applications" Value="PendingApplications" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="AddRange" ListItem="ContinueModalBuildApplicationDetailsResult.Outputs.ApplicationDetails" SourceList="ApplicationPanel.DisplayDetails" ID="3e5b2ffd-a5b5-4d80-8e24-a419509bfd82" Bounds="440.6,455,550,55" />
+        <EndNode ID="5dab5620-44d7-4f86-b444-189b91289d68" Bounds="630.6,555,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="415f5a40-4569-4262-8bbc-fe10786485c5" From="6d48bd70-00a3-4a76-ab5f-00dc0890668c" FromIndex="2" To="03d791a9-0a81-4703-a210-811326a90a97" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b554abf3-1847-4951-90c3-d1360b0d6edc" From="03d791a9-0a81-4703-a210-811326a90a97" FromIndex="2" To="3e5b2ffd-a5b5-4d80-8e24-a419509bfd82" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="02127742-fe64-402b-a463-b2d013b0cd32" From="3e5b2ffd-a5b5-4d80-8e24-a419509bfd82" FromIndex="2" To="5dab5620-44d7-4f86-b444-189b91289d68" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f42684aa-c9f1-499a-b8b4-3e38f826528f" From="2ff40f5a-a5c1-4c13-9c16-f9f1f39c758d" FromIndex="0" To="b114b48d-0dab-40e3-a517-3b7f332cc912" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

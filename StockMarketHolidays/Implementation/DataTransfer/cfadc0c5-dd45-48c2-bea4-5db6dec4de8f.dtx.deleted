@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataTransferDefinition Name="MarketHoliday" DataTransferId="cfadc0c5-dd45-48c2-bea4-5db6dec4de8f" OriginatorId="34b1709a-7ce4-4499-914d-0b04b03434ff" OriginatorModelType="ServiceReference">
+  <Properties>
+    <Property Type="DataTransferEntityDefinitionProperty" PropertyName="Name" PropertyId="4212d508-9259-40ce-b795-9978e5125d1e" DataType="62ff6d43-a027-42b1-af68-9508897115fa" IsOptional="false" ContractName="Name" ContractType="string" />
+    <Property Type="DataTransferEntityDefinitionProperty" PropertyName="MarketDate" PropertyId="143c84dc-fae8-428f-8ad4-e8c3a9ab774f" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" IsOptional="false" ContractName="MarketDate" ContractType="dateTime" />
+    <Property Type="DataTransferEntityDefinitionProperty" PropertyName="DayOfWeek" PropertyId="edfa69f7-278e-47f2-a8e9-23f91eb7c18e" DataType="62ff6d43-a027-42b1-af68-9508897115fa" IsOptional="false" ContractName="DayOfWeek" ContractType="string" />
+  </Properties>
+  <ContractName>MarketHoliday</ContractName>
+  <Tags>
+    <Tag Type="Group">Holidays</Tag>
+  </Tags>
+</DataTransferDefinition>

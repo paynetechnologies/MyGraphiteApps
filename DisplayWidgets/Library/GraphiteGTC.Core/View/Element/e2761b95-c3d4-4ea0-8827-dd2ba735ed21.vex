@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Tab" ViewElementId="e2761b95-c3d4-4ea0-8827-dd2ba735ed21" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tabs are used in conjunction with TabHeader and TabGroup</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnEnter" PropertyId="05a8e00f-758b-4395-b580-9c329ee31daf" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnLeave" PropertyId="e42a311d-97e9-4838-9223-554e8dc4fe49" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnSave" PropertyId="998c1e44-188b-4d02-94ea-3029e94fba6f" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnReset" PropertyId="711f1045-cf67-4b06-ac17-e1056e91e05f" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnSubmit" PropertyId="f3d6d669-a9f4-43ae-9315-9032723176c5" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Tab" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Tab.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OnEnter" EditorType="ViewBehaviorChooser" Label="OnEnter" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when entering a Tab]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FromTab" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnLeave" EditorType="ViewBehaviorChooser" Label="OnLeave" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when leaving a tab]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormChanged" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnSave" EditorType="ViewBehaviorChooser" Label="OnSave" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Save button is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormChanged" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnReset" EditorType="ViewBehaviorChooser" Label="OnReset" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Reset button is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormChanged" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnSubmit" EditorType="ViewBehaviorChooser" Label="OnSubmit" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Submit button is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FormChanged" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnEnter" PropertyPath="OnEnter.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnEnter" PropertyPath="OnEnter.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnLeave" PropertyPath="OnLeave.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnLeave" PropertyPath="OnLeave.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnSave" PropertyPath="OnSave.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnSave" PropertyPath="OnSave.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnReset" PropertyPath="OnReset.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnReset" PropertyPath="OnReset.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnSubmit" PropertyPath="OnSubmit.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnSubmit" PropertyPath="OnSubmit.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Tab</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA7SURBVEhLY0xLS/vPQEPABKVpBkYtIAjoYgEjLTHIAlAypRkejWSCYNQCgmDUAoJg1AKCYNQCAoCBAQDGRxpfXsXu9gAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVEhL7dIpEgAwDMNAt///c4+ZcCEzLUmYiNd5UrTn1hhA9cBf0bwdzhQZQAaQAWQAlQPJBc/kCyEG+fu0AAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

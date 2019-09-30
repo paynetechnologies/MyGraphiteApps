@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TextField" ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" BasedOn="6c4194eb-b4de-4bdd-9ac8-1992477afd34" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Text Field is used for editing text values.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="TextField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">TextField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Textbox.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAPCAYAAAD+pA/bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEZSURBVDhPtZO9SsRAFEbvuhYKi5WNjZUI+gJiq62CKFiJNhL8WZfdZxELO1EbO59C8AGsbOxEn0HU8+VOJDphMrB44DAfk02+3GTTKYrCMrnAE482wHOPaSbC2sYM7nssUUHWubkFB9jDF3zDBdzEVnIKOnjs0W7xxqOdhTWJCr4arLOOSx7tGq882houe/whulbOBP2wPuAzPuEjarIhJqkX6ITKinnc8GjvqL+cfNUG7OGsx5LoGm0T6Nl3PdoWXgaVxTQeeWwmVTCFhx6T6NuY9BiTKtjFavwdrI8v9XjEHG57jEkVnIZVL/be4y/uUMfEKKwRqYIV1J0u4qc2/vCBOqbfrGqjibaXPDb1gugjGdOSf57A7Bt8bTw4T477IwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAPCAYAAAD+pA/bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEUSURBVDhPtZI9SgNBFIAniUUKsbJJY6UEzDVsLASJYBWwtsgN0ucEaWz1AOk8gZhcIUgIhCCCvU3I5ntvdsgwO9lZiPng25l58/tm1mRZVtUROvoYG1OwJp8KnOEKT7VlzBe2caOtEup5meIJZfEF/uAl3mGSKhvU8NlWzRu+2qrp52U5XFEM/x5vJJBzhR1bzTZ4jf7YAtEg+JPGEoAPdLGJBOAF/bEF5JHdK8tVhFzgHBs4xncUbvEe/1DG/GKIXVe3sfgncQ4xxQBjc5WyDJq4xHNt7ecbJYu1tnboumV/0SO6xR9QDuDbQ6GFXVuNoHlYwhSnKMywjmH/CUqf8Ilhv5J65ENIXtG/4GdwFI6cgTFbLHXEpBO/PEMAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

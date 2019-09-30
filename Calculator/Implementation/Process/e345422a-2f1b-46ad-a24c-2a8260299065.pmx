@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="f2cdae65-467d-4ed4-b2ff-7cbf8103fe97" ProcessId="e345422a-2f1b-46ad-a24c-2a8260299065" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="f2cdae65-467d-4ed4-b2ff-7cbf8103fe97" VariableType="Output" Classification="Pinned, Locked" VariableId="9484bfdd-dfcd-4b1c-94b1-f2a98ff9b6cd" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="bc20a96b-09b7-431f-b732-4154039ddcc1" VariableType="Input" Classification="Pinned, Locked" VariableId="8870236e-20a5-44cc-993c-1a643b93ac4a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="8442759d-890c-4e3f-85f5-139e3fdebf91" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="f2cdae65-467d-4ed4-b2ff-7cbf8103fe97" Description="Create the InterestPage view" ID="a42cbdff-5c01-4e34-8a6e-212429ce9eb0" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="d334f1fa-2f33-4d95-ac80-cc97c66d0b21" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="8a6d229d-575a-4f62-ae3b-de1e1f90faec" From="8442759d-890c-4e3f-85f5-139e3fdebf91" FromIndex="0" To="a42cbdff-5c01-4e34-8a6e-212429ce9eb0" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="9dba4bfc-e9a9-4e82-a8f2-c055863122de" From="a42cbdff-5c01-4e34-8a6e-212429ce9eb0" FromIndex="2" To="d334f1fa-2f33-4d95-ac80-cc97c66d0b21" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

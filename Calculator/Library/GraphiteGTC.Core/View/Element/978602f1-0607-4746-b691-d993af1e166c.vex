@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ChoiceDetail" ViewElementId="978602f1-0607-4746-b691-d993af1e166c" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="7af5d93c-ca8f-4be0-a655-e022725938f1" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Source" PropertyId="96db098c-e41c-4a2d-a7e4-c427980d79da" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Choices" PropertyId="4e93507b-6fd7-4d0e-84b8-edac96bc101e" IsOptional="true" DataType="$[List,eea148b2-0a25-4110-93aa-816305e2c1d9]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Value" PropertyId="f2998915-f1fb-4a47-9d7d-1e82c93ae98c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

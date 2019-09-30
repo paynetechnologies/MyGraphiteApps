@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="PageUrlButton" ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" BasedOn="b4878119-2641-4f3b-bba1-ec96aed3f170" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Page URL Button is a special type of button that copies the actual URL of the page when you click it, therefore allowing the URL to be utilized in a behavior.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="PageUrlButton" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">PageUrlButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Page Url Button is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="PageUrl" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAYAAADkgu3FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHuSURBVEhL7dS7a9VgAIbxVCfBwUlFQSjYxbocRHBwUKRjESl1KBTs8YJXRGzp/yDF0oLSi2LBQaiFluKmoDgJgg4iCuqieNtcxKm2z3OST9I0yckp6OQLP5L0JN/bfPmStnq9vhz9g2xItn89/4tCltCHu42jCllPkSX9uIcB3EHTtFpkiYNbYjw+hVuNo5K0UvQbp+F0teEmTsK/n8EkClO1yHfNwZymUHIO07DM3z2+gdxUKXKQs7iNUOLxV/xCuuwSxrEmzYq8+CKmkC75iIM4ilDms/L8y7iOVSkr8qIrcHDTg1ByGN/xCKHMf8YycxXX4t04ZUWePBbvNvIGb2HJbrzHARSVDeN5vFtcNIRROF3eSSdeJ1tLFrAd89iMD/gBz98HM4L98W5c5I9ZnuTWaZvDLDy3C5ZsgndwAlvxBDvgEj8PM4g/YxbdUSgJz6QblngHoeQY3uExdsESl7jPdk3yitIln+Az6UC25CEeoGmJySvypbPkCw7B1TWDbIlfhF4cR2mJySt6CS/agnb8hIN/S7ZO1yuEBXIfpSUmr8iXz8+Nd7CII3gGV1t4JnuwF5VTtBj8GmfLtiE8+Am4EiunqMhky54ilLiEm05XOmVFJl22E+sqMRtrtVqyW5gX+Jy4gJZLoiiKVgAYJHz+6i6MJwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAYAAADkgu3FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF+SURBVEhL7ZO/LgRRGEfXKnkJWp1KT3gAREgUYikoROIlJBQSQSLReBs9auLPE1BZnDOZK3dn78zObELll5xM7jfzzcnc+83IF2n9Qdr59dfzLwrpwhpcZ6s6cRga5gNWwd5RuIKBaSpSsg72BdpwCZVpIurCBtjjb3EGm9H6AkpTV/QJ8UvPwRTrp5BMHZEv24ai5AXeoCg7gb4MEvmSHShKHmAS5iDIOuBzcgw9qRLZvAeheQlMkIyB9TLZIfzEQln2ITTJFNyDknl4hRnwXpnsBrK4SOUAvOd2LYIS146ykncwysZhAp4tELfXZ4+yVR4LZcRncgtKFiBIvLr2C91O44jb1/e+vkJO6uCHlkiqGEseoUziF95ZIJUSSRX94417rsTp8ixMLPFZz24ZKiWSKm6B0+MUzeY1p0tZ2C7PLAxILZJFcESLMr8sPpMVKPaVkizmFGWxxDMcuF0xyWJELHsC01giyWKBIDNDSSRrqpEOTMMu1GroTav1Db65X95/gT0wAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

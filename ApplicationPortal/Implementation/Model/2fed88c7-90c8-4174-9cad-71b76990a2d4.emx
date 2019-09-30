@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="VehicleModel" EntityId="2fed88c7-90c8-4174-9cad-71b76990a2d4" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Name" PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+  <DataEntries>
+    <DataEntry DataEntryId="50d3f9ba-8f67-495b-a132-c6733d5fca95">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">CRV</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="a7748e46-a218-4fe6-8c6a-8f747d1e1ead">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">Pilot</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="80edfbcc-84e0-4788-bf1a-b38bf5775685">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">F150</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="d14c8d69-e27c-4cc6-98b0-8d94e81b0e0a">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">Focus</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="097132f7-2848-436f-b6f9-15031b587a4a">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">Mustang</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="d7e0b860-cc9a-4b29-97ef-b0effd056366">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">325xi</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="8e845649-6684-4f31-adce-e37ad02372f1">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">C300</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="e33bc803-ec06-49f3-8364-839a8f176fba">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">G55</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="9db73f45-a252-4f82-885b-b399839f6c33">
+      <DataValue PropertyId="915aa65a-cc94-4c73-9330-8b36b2626eec">SL65</DataValue>
+    </DataEntry>
+  </DataEntries>
+</EntityDefinition>

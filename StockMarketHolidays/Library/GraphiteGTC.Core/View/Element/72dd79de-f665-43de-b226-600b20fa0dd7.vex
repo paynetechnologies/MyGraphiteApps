@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Card" ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Card is an element used to display information on both the front and flip-side.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="SimpleEntityDefinitionProperty_Id" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="SimpleEntityDefinitionProperty_Description" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClick" PropertyId="SimpleEntityDefinitionProperty_OnClick" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Badge" PropertyId="SimpleEntityDefinitionProperty_Badge" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ImageSource" PropertyId="SimpleEntityDefinitionProperty_ImageSource" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FlipElement" PropertyId="SimpleEntityDefinitionProperty_FlipElement" IsOptional="true" DataType="38107afd-fd3d-4472-b463-d8d0d5588a55" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextAlignment" PropertyId="bd9f5d98-87cf-47a1-9932-df968c43e96e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ImagePosition" PropertyId="3a58c02e-c6f9-4246-8a96-4edc0ad2126a" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FrontElement" PropertyId="13ad3a9c-bb8e-47ae-971f-2a5d8b3c1eea" IsOptional="true" DataType="38107afd-fd3d-4472-b463-d8d0d5588a55" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Card" />
+    <Property PropertyName="TextAlignment" DefaultValue="Left" />
+    <Property PropertyName="ImagePosition" DefaultValue="Top" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Card.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Card]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Description" EditorType="TranslationKeyChooser" Label="Description" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Description of the Card]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run on click of the Card]]></Description>
+      </Field>
+      <Field FieldName="ImageSource" EditorType="ResourceChooser" Label="Image Source" Grouping="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[An Image from resources]]></Description>
+        <DescriptionOptions><![CDATA[Any image in the resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FlipElement" EditorType="PropertyNodeCreator" Label="Element on Flip" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View Element on the other side]]></Description>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="TextAlignment" EditorType="SelectBox" Label="Text Alignment" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Alignment of the text on the Card]]></Description>
+        <DescriptionOptions><![CDATA[Center, Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Center" Value="Center" />
+          <FieldOption DisplayName="Right" Value="Right" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Left" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ImagePosition" EditorType="SelectBox" Label="Image Position" Grouping="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Image position on the Card]]></Description>
+        <DescriptionOptions><![CDATA[Bottom, Left, Right, Top]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Top" Value="Top" />
+          <FieldOption DisplayName="Right" Value="Right" />
+          <FieldOption DisplayName="Bottom" Value="Bottom" />
+          <FieldOption DisplayName="Left" Value="Left" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Top" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FrontElement" EditorType="PropertyNodeCreator" Label="Element on Front" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View Element on the front]]></Description>
+      </Field>
+      <Field FieldName="OnClickFormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit" AffectsRender="false" IsLocalizable="false" SerializedFieldContainerProvider="true">
+        <Description><![CDATA[Form to submit to the OnClick Behavior]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="Description" PropertyPath="Description" Value="{TranslationKey}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="ImageSource" PropertyPath="ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="FlipElement" PropertyPath="FlipElement" />
+      <Map FieldName="TextAlignment" PropertyPath="TextAlignment" Value="{Text}" />
+      <Map FieldName="ImagePosition" PropertyPath="ImagePosition" Value="{Text}" />
+      <Map FieldName="FrontElement" PropertyPath="FrontElement" />
+      <Map FieldName="OnClickFormToSerialize" PropertyPath="OnClick.FormToSerialize" Value="{SelectedElementName}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAANCAYAAACzbK7QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVDhPY0xLS/vPQEPABKVpBuhqASOFGCtAtgAUF5RgrGBQBxFRgJIgIgoM6iCCYbyAkiCCYbyArkFEA8DAAACV1yxLbKhjFwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAANCAYAAACzbK7QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVDhPY/wPBAw0BExQmmaA5hYgBxEjlCYXYA3qoR8HlAQRUT4f2UEEA3hDYOgHEY0tYGAAAKBIHvhhKoAUAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

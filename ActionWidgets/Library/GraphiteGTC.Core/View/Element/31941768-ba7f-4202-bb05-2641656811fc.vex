@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FooterSlidePanel" ViewElementId="31941768-ba7f-4202-bb05-2641656811fc" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Footer Slide Panel is a navigation element used in the footer.  Once the number of slides exceeds the width of the page, you can slide the panel back and forth to see the hidden slides.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MaxHeight" PropertyId="SimpleEntityDefinitionProperty_MaxHeight" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="FooterSlidePanel" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">FooterSlidePanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="MaxHeight" EditorType="IntegerTextBox" Label="Maximum Height" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum height of the Panel]]></Description>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="MaxHeight" PropertyPath="MaxHeight" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVDhPY0xLS2MgAOyB+ACEiRU4AjE+eQYmKI0PNEBpRhx0PZTGCUCW/CeAHYAYBEBsbDRIHqYWK4b5BOQqWmGigotiMGoJSYCulmBNetTBDAwAtcEutRNxUsIAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABJSURBVDhPY/j//z8hbA/E+IADEGPTB8dYBdHwfiAGARAbGw2Sh6nFihmBBNAq2gKYJYwQLk3AfyYog6Zg1BKSAF0soUMSZmAAAMIpr17HVMCVAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

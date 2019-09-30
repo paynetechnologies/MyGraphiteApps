@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdatePreviousJob" OwnerId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" ProcessId="9f153549-d64b-4e01-a5f1-7dc08a53f512" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="AnnualIncome" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="55c1d034-6084-4f01-bce7-c794b0465ba4" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EmployerName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="3b8bfda3-9eaa-4936-b939-c09e4fdac09c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EmployerPhone" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="d2f59c2a-029b-4725-8e38-d5eb4cacb25d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="HomeLoanData" DataType="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" VariableType="InputOutput" VariableId="f322fd11-590d-40d2-9351-b5820c479b5a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="JobTitle" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="1ff9bb28-b318-430e-ac80-ae1a726d66d3" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="StartDate" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="ab0b729d-1c63-4898-adde-fbe40a4dd735" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="EndDate" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="1880260f-632d-4b2c-8d6c-4395751146cc" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="1e6c53bf-4707-4b33-94c4-4e85b95c8603" Bounds="630.6,170,170,55" ZOrder="2" Text="" />
+        <ExecuteProcessNode EntityDefinition="0d114b1c-9b2e-4823-91a0-2bad45ad9fd9" ProcessProperty="e1a00ee7-0638-4fa8-a7e2-efcbdc7e99a5" ExecuteProcessType="EntityStatic" VariableId="EmploymentUpdateResult" SuppressValidations="false" ID="598aa908-1d65-446d-8fc1-4320c65b2711" Bounds="440.6,270,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="AnnualIncome" Value="AnnualIncome" />
+            <InputVariable Name="EmployerName" Value="EmployerName" />
+            <InputVariable Name="EmployerPhone" Value="EmployerPhone" />
+            <InputVariable Name="Employment" Value="HomeLoanData.PreviousJob" />
+            <InputVariable Name="EndDate" Value="EndDate" />
+            <InputVariable Name="JobTitle" Value="JobTitle" />
+            <InputVariable Name="StartDate" Value="StartDate" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Employment" Value="HomeLoanData.CurrentJob" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="1d20b51d-ef30-4c23-83d9-48f659dec6f5" Bounds="630.6,370,170,55" ZOrder="2" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="08f04e41-16a5-4bea-9b7f-3e362802114b" From="1e6c53bf-4707-4b33-94c4-4e85b95c8603" FromIndex="0" To="598aa908-1d65-446d-8fc1-4320c65b2711" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,225" />
+          <Segment EndPoint="715.6,270" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ccd2f324-888e-4a99-b26b-8031a16fff5f" From="598aa908-1d65-446d-8fc1-4320c65b2711" FromIndex="2" To="1d20b51d-ef30-4c23-83d9-48f659dec6f5" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,325" />
+          <Segment EndPoint="715.6,370" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

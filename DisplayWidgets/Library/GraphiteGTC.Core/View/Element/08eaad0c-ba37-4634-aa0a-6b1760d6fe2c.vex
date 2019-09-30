@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ImageLink" ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" BasedOn="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Image Link is a hyperlink that utilizes an image as the body of the link.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ImageSource" PropertyId="SimpleEntityDefinitionProperty_ImageSource" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ImageLink" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ImageLink.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="DimensionHeight" EditorType="IntegerTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Image]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="IntegerTextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Image]]></Description>
+      </Field>
+      <Field FieldName="ImageSource" EditorType="ResourceChooser" Label="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Image]]></Description>
+      </Field>
+      <Field FieldName="IsPill" EditorType="Hidden" Label="Pill?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsDisabled" EditorType="Hidden" Label="Disabled?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsWide" EditorType="Hidden" Label="Wide?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FullWidth" EditorType="Hidden" Label="Full Width?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonStyle" EditorType="Hidden" Label="Style" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value=" Clear" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonType" EditorType="Hidden" Label="Type" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Active" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Size" EditorType="Hidden" Label="Size" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IconSymbol" EditorType="Hidden" Label="Icon" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="ImageSource" PropertyPath="ImageSource" Value="{SelectedResourceName}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEqSURBVEhL7ZKxSsRAFEVntREFS2HFQksXtNcPWBFrLSxUUPIFK1ooCpaWIlaWCoq1P+I3uOxf6LkzkzgTVphsNmvjgUNuhsBlXl4ry7IvMwGm/LNxwqJWQ1r+5EZ12ca+VzlinEWP2PYqRzQ1uuLf5IxS1MV9FyNOcICfeKyDkKpF03iLD7isg4B31NiWfI6oWnSI6ziPT6jiJKoUzeGNi5ZNvHAx4gB3XPyhSlEPF10suMQNFy2rqLHe4YwOclKLNPtTFyM0umfUKGfxzT9X8AwLUos0Mo1uGFoK3eIeOzrwnKMKLcOKrvAFF+ybMWt45OKvaN3L32h0GqGlXKSSa9zDD9xFrXPydpUoliIsyktydKNX3LJvNQmLwpKxk7oMtfkvGpkJFRnzDWBnIF+1jurNAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEgSURBVEhL7dSxSsNQFMbxVBdpoXs76VihdbYPIBRnF4daqGvH0qVQoa/hqpOr4FPoG4QuVesulBJo/yfnRm4asWnIzeQHP3JyueT0noSWgmC99grIgbk6j32ikrnmnfD5hZ0oz0YdvBtSx5Ln6KRBTUvvA3Ut3Y4u8aOzNLrAtZax3OITc/Rlwc6+ozvEK45xhhl2JdPobtBCFQ+QxqmyT6MKplqGaWOsZSxdXGppRUZnSP2XCaK9kQDniPY08A0fR2Yt3Jv2RPLZDrWMRUb3CBllGU/meoIRfpL2Y7hH4kuyIs1W6IV3miVO4cvNb40mkA0DfKGJN6R+8Vaeoe8rmiG238MCV3ix1jKzT3RnOIndyGlc/dcl8t8ocwpq5HkbUoD5bwm1YfsAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

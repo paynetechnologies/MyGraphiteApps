@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="681fdc94-308e-49d1-b336-acf381343e30" Name="GetPeriodOfDay" ExternalReferenceId="99da9824-7291-4077-8579-65fcc4482feb">
+  <ExternalNamespace>Portal.Utility</ExternalNamespace>
+  <ExternalClassName>DateUtility</ExternalClassName>
+  <ExternalMethodName>GetPeriodOfDay</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Outputs>
+</ExternalProcessDefinition>

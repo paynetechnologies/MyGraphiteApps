@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetupAssetsAndIncomeTab" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="21e1af68-7bab-409a-a71b-933cb109f5f6" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="1e2f10e9-b4c5-447a-b628-cd9c81d779cd" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="8d48ec01-7e42-477c-acde-ce35afb7f26b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" VariableType="InputOutput" VariableId="9ae13a06-12f2-40a4-ad19-f3f648469314" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="82009e63-a78e-46e3-bb7a-00804d91239a" Bounds="640,160,170,55" ZOrder="1" Text="" />
+        <CreateFromNode Variable="HomeLoanDataInContext" FromExpression="ApplicationInContext.ApplicationData" CreateAsTypeId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" Description="Convert Application Data to Home Loan Data" ID="4d11418a-c9a7-424d-849e-90dbdf1f71a5" Bounds="450,260,550,55" ZOrder="3" Text="Create From" />
+        <ExecuteProcessNode EntityDefinition="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" ProcessProperty="52345f1e-6070-47c9-b06d-3b47c64a92ad" ExecuteProcessType="EntityStatic" VariableId="HomeLoanDataCalculateTotalAssetsResult" SuppressValidations="false" ID="c433298d-f875-401c-b0a1-962e868f0881" Bounds="450,360,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="HomeLoanData" Value="HomeLoanDataInContext" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <AssignNode ID="f3622dff-38fd-4ffd-95c6-f3ae9a887456" Bounds="450,460,550,55" ZOrder="1" Text="">
+          <Assignment Name="AssetsAndIncomeTotalItem.Value" Value="HomeLoanDataCalculateTotalAssetsResult.Outputs.TotalAssets" />
+        </AssignNode>
+        <ListLookupNode Source="HomeLoanDataInContext.Assets" VariableId="Asset1" ResultType="Single" ID="d48e30d7-7983-450c-8d75-97fb4ad552dc" Bounds="450,560,550,55" ZOrder="1" Text="">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="EntryOrder" RightExpression="1" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </ListLookupNode>
+        <DecisionNode LeftExpression="Asset1" Operator="IsNotMissing" ID="c27427cf-ab3a-4caa-9ed9-20c334e89ac5" Bounds="470,660,510,125" ZOrder="1" Text="" />
+        <ListLookupNode Source="HomeLoanDataInContext.Assets" VariableId="Asset2" ResultType="Single" ID="6edf8073-a9a6-46f0-9d1d-bb77ffaa9d1b" Bounds="450,930,550,55" ZOrder="2" Text="">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="EntryOrder" RightExpression="2" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </ListLookupNode>
+        <AssignNode ID="d175ea06-e9d1-40f2-94c5-053927fca073" Bounds="50,830,550,55" ZOrder="1" Text="">
+          <Assignment Name="AssetType1Field.Value" Value="Asset1.Type" />
+          <Assignment Name="AssetAmount1Field.Value" Value="Asset1.Amount" />
+        </AssignNode>
+        <DecisionNode LeftExpression="Asset2" Operator="IsNotMissing" ID="ad52ad13-5549-4863-8d51-b332c24b3a62" Bounds="470,1030,510,125" ZOrder="2" Text="" />
+        <ListLookupNode Source="HomeLoanDataInContext.Assets" VariableId="Asset3" ResultType="Single" ID="723ebd8e-afcf-4adf-8dde-8e8037df1b68" Bounds="450,1300,550,55" ZOrder="3" Text="">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="EntryOrder" RightExpression="3" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </ListLookupNode>
+        <AssignNode ID="b0412504-3685-4ec2-89ab-4341c0c94a8d" Bounds="50,1200,550,55" ZOrder="2" Text="">
+          <Assignment Name="AssetType2Field.Value" Value="Asset2.Type" />
+          <Assignment Name="AssetAmount2Field.Value" Value="Asset2.Amount" />
+        </AssignNode>
+        <DecisionNode LeftExpression="Asset3" Operator="IsNotMissing" ID="c1279460-699e-4289-85e7-19e6c72f5847" Bounds="470,1400,510,125" ZOrder="3" Text="" />
+        <DecisionNode LeftExpression="HomeLoanDataInContext.GiftData" Operator="IsNotMissing" ID="cdfa8de9-18b4-42cc-aeaf-d08e13d5f3d2" Bounds="470,1670,510,125" ZOrder="1" Text="" />
+        <AssignNode ID="71da7385-db2f-4244-8af3-a9f268a0ddc2" Bounds="50,1570,550,55" ZOrder="3" Text="">
+          <Assignment Name="AssetType3Field.Value" Value="Asset3.Type" />
+          <Assignment Name="AssetAmount3Field.Value" Value="Asset3.Amount" />
+        </AssignNode>
+        <EndNode ID="6f3cdf0f-a7d6-43d2-a47f-bc31a32ded68" Bounds="640,1940,170,55" ZOrder="1" Text="End" />
+        <AssignNode ID="388c4e6e-4e4d-4397-b0c9-666c73364e58" Bounds="50,1840,550,55" ZOrder="4" Text="">
+          <Assignment Name="GiftAmountField.Value" Value="HomeLoanDataInContext.GiftData.Amount" />
+          <Assignment Name="GiftFromField.Value" Value="HomeLoanDataInContext.GiftData.Source" />
+        </AssignNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="1dea4fc5-5bb6-47ae-912b-2870fb1ba876" From="723ebd8e-afcf-4adf-8dde-8e8037df1b68" FromIndex="2" To="c1279460-699e-4289-85e7-19e6c72f5847" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,1355" />
+          <Segment EndPoint="725,1400" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="c02dc989-2ba0-4030-a52b-ffd3bf4bb3ec" From="c1279460-699e-4289-85e7-19e6c72f5847" FromIndex="3" To="71da7385-db2f-4244-8af3-a9f268a0ddc2" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="470,1462.5" />
+          <Segment EndPoint="325,1462.5" />
+          <Segment EndPoint="325,1570" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="26cb0c73-65cf-4950-8be5-f012375aced5" From="82009e63-a78e-46e3-bb7a-00804d91239a" FromIndex="0" To="4d11418a-c9a7-424d-849e-90dbdf1f71a5" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,215" />
+          <Segment EndPoint="725,260" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8eafe8b1-aa96-4370-a672-ebd4828d250b" From="d48e30d7-7983-450c-8d75-97fb4ad552dc" FromIndex="2" To="c27427cf-ab3a-4caa-9ed9-20c334e89ac5" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,615" />
+          <Segment EndPoint="725,660" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="23eb23da-d1d2-4f4a-b072-fcb86f4cf961" From="c27427cf-ab3a-4caa-9ed9-20c334e89ac5" FromIndex="3" To="d175ea06-e9d1-40f2-94c5-053927fca073" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="470,722.5" />
+          <Segment EndPoint="325,722.5" />
+          <Segment EndPoint="325,830" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="fb45d8d3-abc2-44d4-aad1-8eea17384216" From="d175ea06-e9d1-40f2-94c5-053927fca073" FromIndex="1" To="6edf8073-a9a6-46f0-9d1d-bb77ffaa9d1b" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="600,857.5" />
+          <Segment EndPoint="725,857.5" />
+          <Segment EndPoint="725,930" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="ae9d354d-d5cd-461c-92a8-2dd4205648cd" From="c27427cf-ab3a-4caa-9ed9-20c334e89ac5" FromIndex="2" To="6edf8073-a9a6-46f0-9d1d-bb77ffaa9d1b" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="725,785" />
+          <Segment EndPoint="725,930" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="7754195a-5f52-4e2f-820d-2012394e2f44" From="6edf8073-a9a6-46f0-9d1d-bb77ffaa9d1b" FromIndex="2" To="ad52ad13-5549-4863-8d51-b332c24b3a62" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,985" />
+          <Segment EndPoint="725,1030" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="37030355-2fe3-48f5-8faa-527e3e4e2577" From="ad52ad13-5549-4863-8d51-b332c24b3a62" FromIndex="3" To="b0412504-3685-4ec2-89ab-4341c0c94a8d" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="470,1092.5" />
+          <Segment EndPoint="325,1092.5" />
+          <Segment EndPoint="325,1200" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="c69b495d-66eb-40bf-8f55-e039f3c0c952" From="b0412504-3685-4ec2-89ab-4341c0c94a8d" FromIndex="1" To="723ebd8e-afcf-4adf-8dde-8e8037df1b68" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="600,1227.5" />
+          <Segment EndPoint="725,1227.5" />
+          <Segment EndPoint="725,1300" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="6da7832e-6deb-4542-9f0c-42c969cf3ea5" From="ad52ad13-5549-4863-8d51-b332c24b3a62" FromIndex="2" To="723ebd8e-afcf-4adf-8dde-8e8037df1b68" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="725,1155" />
+          <Segment EndPoint="725,1300" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="096525a2-ef1c-4c05-bcc3-44a13f0b5979" From="71da7385-db2f-4244-8af3-a9f268a0ddc2" FromIndex="1" To="cdfa8de9-18b4-42cc-aeaf-d08e13d5f3d2" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="600,1597.5" />
+          <Segment EndPoint="725,1597.5" />
+          <Segment EndPoint="725,1670" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="2bf2e8ba-ef7d-4a47-af49-05473320b22c" From="c1279460-699e-4289-85e7-19e6c72f5847" FromIndex="2" To="cdfa8de9-18b4-42cc-aeaf-d08e13d5f3d2" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="725,1525" />
+          <Segment EndPoint="725,1670" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="5773b93e-fb84-4282-9cf0-53f0f9765c2d" From="cdfa8de9-18b4-42cc-aeaf-d08e13d5f3d2" FromIndex="3" To="388c4e6e-4e4d-4397-b0c9-666c73364e58" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="470,1732.5" />
+          <Segment EndPoint="325,1732.5" />
+          <Segment EndPoint="325,1840" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="ff7125d6-5e03-4c13-8e06-548d7b91c342" From="388c4e6e-4e4d-4397-b0c9-666c73364e58" FromIndex="1" To="6f3cdf0f-a7d6-43d2-a47f-bc31a32ded68" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="600,1867.5" />
+          <Segment EndPoint="725,1867.5" />
+          <Segment EndPoint="725,1940" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="3b249698-17d7-4f20-9d53-e8677f84eb45" From="cdfa8de9-18b4-42cc-aeaf-d08e13d5f3d2" FromIndex="2" To="6f3cdf0f-a7d6-43d2-a47f-bc31a32ded68" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="725,1795" />
+          <Segment EndPoint="725,1940" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="e80fb717-728b-44f2-9ab7-90cc17c28677" From="f3622dff-38fd-4ffd-95c6-f3ae9a887456" FromIndex="2" To="d48e30d7-7983-450c-8d75-97fb4ad552dc" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,515" />
+          <Segment EndPoint="725,560" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="10d3e3b8-c1bd-46fb-b661-c8d4799d417b" From="4d11418a-c9a7-424d-849e-90dbdf1f71a5" FromIndex="2" To="c433298d-f875-401c-b0a1-962e868f0881" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,315" />
+          <Segment EndPoint="725,360" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d2625c31-e3c4-40e5-98a5-f6edb7ee2b09" From="c433298d-f875-401c-b0a1-962e868f0881" FromIndex="2" To="f3622dff-38fd-4ffd-95c6-f3ae9a887456" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,415" />
+          <Segment EndPoint="725,460" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

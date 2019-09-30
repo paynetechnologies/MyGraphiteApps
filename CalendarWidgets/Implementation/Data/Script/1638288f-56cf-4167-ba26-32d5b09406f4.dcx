@@ -1,0 +1,1383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataChangeDefinition DataChangeId="1638288f-56cf-4167-ba26-32d5b09406f4" Version="1" Created="637024911305986037">
+  <Script Type="Schema"><![CDATA[USE [master]
+
+
+IF EXISTS (SELECT * FROM sys.databases WHERE name = N'MyCalendarWidgetsDb') BEGIN
+   ALTER DATABASE [MyCalendarWidgetsDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+   DROP DATABASE [MyCalendarWidgetsDb]
+END
+
+
+GO
+
+
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'MyCalendarWidgetsDb') BEGIN
+   CREATE DATABASE [MyCalendarWidgetsDb]
+END
+
+
+GO
+
+
+ALTER DATABASE [MyCalendarWidgetsDb] SET ALLOW_SNAPSHOT_ISOLATION ON
+ALTER DATABASE [MyCalendarWidgetsDb] SET READ_COMMITTED_SNAPSHOT ON
+
+GO
+
+
+USE [MyCalendarWidgetsDb]
+
+
+IF schema_id('GraphiteGTCPlanner') IS NULL
+    EXECUTE('CREATE SCHEMA [GraphiteGTCPlanner]')
+CREATE TABLE [GraphiteGTCPlanner].[Appointment] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Subject] [nvarchar](max) NOT NULL,
+    [Location] [nvarchar](max),
+    [StartTime] [datetime] NOT NULL,
+    [EndTime] [datetime] NOT NULL,
+    [Note] [nvarchar](max),
+    [AllDayEventId] [int] NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCPlanner.Appointment] PRIMARY KEY ([Id])
+)
+IF schema_id('GraphiteGTCCore') IS NULL
+    EXECUTE('CREATE SCHEMA [GraphiteGTCCore]')
+CREATE TABLE [GraphiteGTCCore].[YesNoQuestion] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.YesNoQuestion] PRIMARY KEY ([Id])
+)
+CREATE TABLE [dbo].[EventRegistration] (
+    [EventRegistrationId] [int] NOT NULL IDENTITY,
+    [InputsXml] [nvarchar](max),
+    [TimeStamp] rowversion,
+    [EventInformationXml] [nvarchar](max),
+    [EventProcessId] [int],
+    [EffectiveDate] [datetime] NOT NULL,
+    [AddedByUserId] [int],
+    [AddedTime] [datetime],
+    [ModifiedByUserId] [int],
+    [ModifiedTime] [datetime],
+    [ExecutedByUserId] [int],
+    [ExecutedDate] [datetime],
+    [ExecutionStartTime] [datetime],
+    [ExecutionEndTime] [datetime],
+    [IsComplete] [bit] NOT NULL,
+    [ScheduledByEventRegistrationId] [int],
+    [ReversedEventRegistrationId] [int],
+    [ResetToPendingEventRegistrationId] [int],
+    [DeletedByEventRegistrationId] [int],
+    CONSTRAINT [PK_dbo.EventRegistration] PRIMARY KEY ([EventRegistrationId])
+)
+IF schema_id('CalendarWidgets') IS NULL
+    EXECUTE('CREATE SCHEMA [CalendarWidgets]')
+CREATE TABLE [CalendarWidgets].[User] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Username] [nvarchar](max) NOT NULL,
+    [LanguageId] [int],
+    [ThemeId] [int],
+    [ActiveId] [int],
+    [PersonId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_CalendarWidgets.User] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[Language] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Code] [nvarchar](max) NOT NULL,
+    [Name] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Language] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[Person] (
+    [Id] [int] NOT NULL IDENTITY,
+    [FirstName] [nvarchar](max),
+    [LastName] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Person] PRIMARY KEY ([Id])
+)
+CREATE TABLE [CalendarWidgets].[Theme] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_CalendarWidgets.Theme] PRIMARY KEY ([Id])
+)
+CREATE TABLE [dbo].[EventProcess] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max) NOT NULL,
+    [DisplayName] [nvarchar](max),
+    [Tags] [nvarchar](max),
+    [ExecutionPriority] [int],
+    [InputView] [nvarchar](max),
+    [ResultView] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](max),
+    CONSTRAINT [PK_dbo.EventProcess] PRIMARY KEY ([Id])
+)
+CREATE TABLE [dbo].[ValidationResult] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [Description] [nvarchar](max),
+    [IsErrorId] [int],
+    [SeverityLevel] [nvarchar](max),
+    [Message] [nvarchar](max),
+    [Category] [nvarchar](max),
+    [Fix] [nvarchar](max),
+    [TestXML] [nvarchar](max),
+    [IsSuppressedId] [int],
+    [IsOverriddenId] [int],
+    [IsOverridableId] [int],
+    [OverriddenByUserId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    CONSTRAINT [PK_dbo.ValidationResult] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCPlanner].[AppointmentHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Subject] [nvarchar](max),
+    [Location] [nvarchar](max),
+    [StartTime] [datetime] NOT NULL,
+    [EndTime] [datetime] NOT NULL,
+    [Note] [nvarchar](max),
+    [AllDayEventId] [int] NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCPlanner.AppointmentHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[Comparison] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Comparison] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[ComparisonHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.ComparisonHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[CurrencyDefinition] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Symbol] [nvarchar](max),
+    [MinorUnits] [int] NOT NULL,
+    [Code] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.CurrencyDefinition] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[CurrencyDefinitionHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Symbol] [nvarchar](max),
+    [MinorUnits] [int] NOT NULL,
+    [Code] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.CurrencyDefinitionHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [dbo].[EventProcessHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Name] [nvarchar](max),
+    [DisplayName] [nvarchar](max),
+    [Tags] [nvarchar](max),
+    [ExecutionPriority] [int],
+    [InputView] [nvarchar](max),
+    [ResultView] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max),
+    [TimeStamp] [varbinary](max),
+    [ObjectId] [nvarchar](max),
+    CONSTRAINT [PK_dbo.EventProcessHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[LanguageHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Code] [nvarchar](max),
+    [Name] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.LanguageHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[PersonHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [FirstName] [nvarchar](max),
+    [LastName] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.PersonHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [CalendarWidgets].[PropertyChangeDetail] (
+    [Id] [int] NOT NULL IDENTITY,
+    [ExecutionEndTime] [datetime] NOT NULL,
+    [OriginalVersion] [int] NOT NULL,
+    [NewVersion] [int] NOT NULL,
+    [OriginalValue] [nvarchar](max) NOT NULL,
+    [NewValue] [nvarchar](max) NOT NULL,
+    [ExecutedByUserId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_CalendarWidgets.PropertyChangeDetail] PRIMARY KEY ([Id])
+)
+CREATE TABLE [CalendarWidgets].[PropertyChangeDetailHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [ExecutedByUserId] [int],
+    [ExecutionEndTime] [datetime] NOT NULL,
+    [OriginalVersion] [int] NOT NULL,
+    [NewVersion] [int] NOT NULL,
+    [OriginalValue] [nvarchar](max),
+    [NewValue] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_CalendarWidgets.PropertyChangeDetailHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [dbo].[SequenceData] (
+    [TableName] [nvarchar](128) NOT NULL,
+    [SequenceValue] [int] NOT NULL,
+    CONSTRAINT [PK_dbo.SequenceData] PRIMARY KEY ([TableName])
+)
+CREATE TABLE [GraphiteGTCCore].[Spinner] (
+    [Id] [int] NOT NULL IDENTITY,
+    [Description] [nvarchar](max) NOT NULL,
+    [EventRegistrationId] [int] NOT NULL,
+    [TimeStamp] rowversion,
+    [ObjectId] [nvarchar](40) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.Spinner] PRIMARY KEY ([Id])
+)
+CREATE TABLE [GraphiteGTCCore].[SpinnerHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.SpinnerHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [CalendarWidgets].[ThemeHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_CalendarWidgets.ThemeHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [CalendarWidgets].[UserHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [LanguageId] [int],
+    [ThemeId] [int],
+    [Username] [nvarchar](max),
+    [ActiveId] [int],
+    [PersonId] [int],
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_CalendarWidgets.UserHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE TABLE [GraphiteGTCCore].[YesNoQuestionHistory] (
+    [Id] [int] NOT NULL,
+    [Version] [int] NOT NULL,
+    [Description] [nvarchar](max),
+    [EventRegistrationId] [int] NOT NULL,
+    [Operation] [nvarchar](max) NOT NULL,
+    [TimeStamp] [varbinary](max) NOT NULL,
+    [ObjectId] [nvarchar](max) NOT NULL,
+    CONSTRAINT [PK_GraphiteGTCCore.YesNoQuestionHistory] PRIMARY KEY ([Id], [Version])
+)
+CREATE INDEX [IX_AllDayEventId] ON [GraphiteGTCPlanner].[Appointment]([AllDayEventId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCPlanner].[Appointment]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[YesNoQuestion]([EventRegistrationId])
+CREATE INDEX [IX_EventProcessId] ON [dbo].[EventRegistration]([EventProcessId])
+CREATE INDEX [IX_AddedByUserId] ON [dbo].[EventRegistration]([AddedByUserId])
+CREATE INDEX [IX_ModifiedByUserId] ON [dbo].[EventRegistration]([ModifiedByUserId])
+CREATE INDEX [IX_ExecutedByUserId] ON [dbo].[EventRegistration]([ExecutedByUserId])
+CREATE INDEX [IX_ScheduledByEventRegistrationId] ON [dbo].[EventRegistration]([ScheduledByEventRegistrationId])
+CREATE INDEX [IX_ReversedEventRegistrationId] ON [dbo].[EventRegistration]([ReversedEventRegistrationId])
+CREATE INDEX [IX_ResetToPendingEventRegistrationId] ON [dbo].[EventRegistration]([ResetToPendingEventRegistrationId])
+CREATE INDEX [IX_LanguageId] ON [CalendarWidgets].[User]([LanguageId])
+CREATE INDEX [IX_ThemeId] ON [CalendarWidgets].[User]([ThemeId])
+CREATE INDEX [IX_ActiveId] ON [CalendarWidgets].[User]([ActiveId])
+CREATE INDEX [IX_PersonId] ON [CalendarWidgets].[User]([PersonId])
+CREATE INDEX [IX_EventRegistrationId] ON [CalendarWidgets].[User]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Language]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Person]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CalendarWidgets].[Theme]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [dbo].[EventProcess]([EventRegistrationId])
+CREATE INDEX [IX_IsErrorId] ON [dbo].[ValidationResult]([IsErrorId])
+CREATE INDEX [IX_IsSuppressedId] ON [dbo].[ValidationResult]([IsSuppressedId])
+CREATE INDEX [IX_IsOverriddenId] ON [dbo].[ValidationResult]([IsOverriddenId])
+CREATE INDEX [IX_IsOverridableId] ON [dbo].[ValidationResult]([IsOverridableId])
+CREATE INDEX [IX_OverriddenByUserId] ON [dbo].[ValidationResult]([OverriddenByUserId])
+CREATE INDEX [IX_EventRegistrationId] ON [dbo].[ValidationResult]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCPlanner].[AppointmentHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Comparison]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[ComparisonHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[CurrencyDefinition]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[CurrencyDefinitionHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [dbo].[EventProcessHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[LanguageHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[PersonHistory]([EventRegistrationId])
+CREATE INDEX [IX_ExecutedByUserId] ON [CalendarWidgets].[PropertyChangeDetail]([ExecutedByUserId])
+CREATE INDEX [IX_EventRegistrationId] ON [CalendarWidgets].[PropertyChangeDetail]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CalendarWidgets].[PropertyChangeDetailHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[Spinner]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[SpinnerHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CalendarWidgets].[ThemeHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [CalendarWidgets].[UserHistory]([EventRegistrationId])
+CREATE INDEX [IX_EventRegistrationId] ON [GraphiteGTCCore].[YesNoQuestionHistory]([EventRegistrationId])
+ALTER TABLE [GraphiteGTCPlanner].[Appointment] ADD CONSTRAINT [FK_GraphiteGTCPlanner.Appointment_GraphiteGTCCore.YesNoQuestion_AllDayEventId] FOREIGN KEY ([AllDayEventId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [GraphiteGTCPlanner].[Appointment] ADD CONSTRAINT [FK_GraphiteGTCPlanner.Appointment_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[YesNoQuestion] ADD CONSTRAINT [FK_GraphiteGTCCore.YesNoQuestion_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_CalendarWidgets.User_AddedByUserId] FOREIGN KEY ([AddedByUserId]) REFERENCES [CalendarWidgets].[User] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventProcess_EventProcessId] FOREIGN KEY ([EventProcessId]) REFERENCES [dbo].[EventProcess] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_CalendarWidgets.User_ExecutedByUserId] FOREIGN KEY ([ExecutedByUserId]) REFERENCES [CalendarWidgets].[User] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_CalendarWidgets.User_ModifiedByUserId] FOREIGN KEY ([ModifiedByUserId]) REFERENCES [CalendarWidgets].[User] ([Id])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventRegistration_ResetToPendingEventRegistrationId] FOREIGN KEY ([ResetToPendingEventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventRegistration_ReversedEventRegistrationId] FOREIGN KEY ([ReversedEventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventRegistration] ADD CONSTRAINT [FK_dbo.EventRegistration_dbo.EventRegistration_ScheduledByEventRegistrationId] FOREIGN KEY ([ScheduledByEventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CalendarWidgets].[User] ADD CONSTRAINT [FK_CalendarWidgets.User_GraphiteGTCCore.YesNoQuestion_ActiveId] FOREIGN KEY ([ActiveId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [CalendarWidgets].[User] ADD CONSTRAINT [FK_CalendarWidgets.User_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CalendarWidgets].[User] ADD CONSTRAINT [FK_CalendarWidgets.User_GraphiteGTCCore.Language_LanguageId] FOREIGN KEY ([LanguageId]) REFERENCES [GraphiteGTCCore].[Language] ([Id])
+ALTER TABLE [CalendarWidgets].[User] ADD CONSTRAINT [FK_CalendarWidgets.User_GraphiteGTCCore.Person_PersonId] FOREIGN KEY ([PersonId]) REFERENCES [GraphiteGTCCore].[Person] ([Id])
+ALTER TABLE [CalendarWidgets].[User] ADD CONSTRAINT [FK_CalendarWidgets.User_CalendarWidgets.Theme_ThemeId] FOREIGN KEY ([ThemeId]) REFERENCES [CalendarWidgets].[Theme] ([Id])
+ALTER TABLE [GraphiteGTCCore].[Language] ADD CONSTRAINT [FK_GraphiteGTCCore.Language_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[Person] ADD CONSTRAINT [FK_GraphiteGTCCore.Person_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CalendarWidgets].[Theme] ADD CONSTRAINT [FK_CalendarWidgets.Theme_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventProcess] ADD CONSTRAINT [FK_dbo.EventProcess_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsErrorId] FOREIGN KEY ([IsErrorId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsOverridableId] FOREIGN KEY ([IsOverridableId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsOverriddenId] FOREIGN KEY ([IsOverriddenId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_GraphiteGTCCore.YesNoQuestion_IsSuppressedId] FOREIGN KEY ([IsSuppressedId]) REFERENCES [GraphiteGTCCore].[YesNoQuestion] ([Id])
+ALTER TABLE [dbo].[ValidationResult] ADD CONSTRAINT [FK_dbo.ValidationResult_CalendarWidgets.User_OverriddenByUserId] FOREIGN KEY ([OverriddenByUserId]) REFERENCES [CalendarWidgets].[User] ([Id])
+ALTER TABLE [GraphiteGTCPlanner].[AppointmentHistory] ADD CONSTRAINT [FK_GraphiteGTCPlanner.AppointmentHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[Comparison] ADD CONSTRAINT [FK_GraphiteGTCCore.Comparison_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[ComparisonHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.ComparisonHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[CurrencyDefinition] ADD CONSTRAINT [FK_GraphiteGTCCore.CurrencyDefinition_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[CurrencyDefinitionHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.CurrencyDefinitionHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [dbo].[EventProcessHistory] ADD CONSTRAINT [FK_dbo.EventProcessHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[LanguageHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.LanguageHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[PersonHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.PersonHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CalendarWidgets].[PropertyChangeDetail] ADD CONSTRAINT [FK_CalendarWidgets.PropertyChangeDetail_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CalendarWidgets].[PropertyChangeDetail] ADD CONSTRAINT [FK_CalendarWidgets.PropertyChangeDetail_CalendarWidgets.User_ExecutedByUserId] FOREIGN KEY ([ExecutedByUserId]) REFERENCES [CalendarWidgets].[User] ([Id])
+ALTER TABLE [CalendarWidgets].[PropertyChangeDetailHistory] ADD CONSTRAINT [FK_CalendarWidgets.PropertyChangeDetailHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[Spinner] ADD CONSTRAINT [FK_GraphiteGTCCore.Spinner_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[SpinnerHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.SpinnerHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CalendarWidgets].[ThemeHistory] ADD CONSTRAINT [FK_CalendarWidgets.ThemeHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [CalendarWidgets].[UserHistory] ADD CONSTRAINT [FK_CalendarWidgets.UserHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+ALTER TABLE [GraphiteGTCCore].[YesNoQuestionHistory] ADD CONSTRAINT [FK_GraphiteGTCCore.YesNoQuestionHistory_dbo.EventRegistration_EventRegistrationId] FOREIGN KEY ([EventRegistrationId]) REFERENCES [dbo].[EventRegistration] ([EventRegistrationId])
+
+-- Create Index IX_ObjectId for table [CalendarWidgets].[EventProcess]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CalendarWidgets].[EventProcess]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CalendarWidgets].[EventProcess]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CalendarWidgets].[EventProcess] ([ObjectId])
+-- Create Index IX_ObjectId for table [CalendarWidgets].[PropertyChangeDetail]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CalendarWidgets].[PropertyChangeDetail]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CalendarWidgets].[PropertyChangeDetail]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CalendarWidgets].[PropertyChangeDetail] ([ObjectId])
+-- Create Index IX_ObjectId for table [CalendarWidgets].[Theme]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CalendarWidgets].[Theme]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CalendarWidgets].[Theme]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CalendarWidgets].[Theme] ([ObjectId])
+-- Create Index IX_ObjectId for table [CalendarWidgets].[User]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[CalendarWidgets].[User]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[CalendarWidgets].[User]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [CalendarWidgets].[User] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Comparison]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Comparison]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Comparison]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Comparison] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[CurrencyDefinition]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[CurrencyDefinition]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[CurrencyDefinition]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[CurrencyDefinition] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Language]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Language]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Language]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Language] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Person]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Person]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Person]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Person] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[Spinner]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[Spinner]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[Spinner]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[Spinner] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCCore].[YesNoQuestion]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCCore].[YesNoQuestion]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCCore].[YesNoQuestion]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCCore].[YesNoQuestion] ([ObjectId])
+-- Create Index IX_ObjectId for table [GraphiteGTCPlanner].[Appointment]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[GraphiteGTCPlanner].[Appointment]') AND name = N'IX_ObjectId')
+      AND EXISTS (SELECT * FROM sys.columns WHERE name = N'ObjectId' and object_id = OBJECT_ID(N'[GraphiteGTCPlanner].[Appointment]'))
+   CREATE UNIQUE NONCLUSTERED INDEX IX_ObjectId ON [GraphiteGTCPlanner].[Appointment] ([ObjectId])
+
+-- Create DeploymentHistory table.
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[__@DeploymentHistory]')) BEGIN
+   CREATE TABLE [dbo].[__@DeploymentHistory] (
+      [Id] [int] IDENTITY(1,1) NOT NULL,
+      [DataChangeId] [nvarchar](40) NOT NULL,
+      [Version] [int] NOT NULL,
+      [ProjectName] [nvarchar](max) NOT NULL,
+      [EntityIl] [varbinary](max) NOT NULL,
+      [HasSecurity] [bit] NOT NULL,
+      [ProvidedQualifiedNames] [nvarchar](max) NOT NULL,
+      [TargetDatabase] [nvarchar](max) NULL,
+      [DeploymentDate] [datetime] NOT NULL
+    CONSTRAINT [PK_dbo.__@DeploymentHistory] PRIMARY KEY CLUSTERED
+    (
+       [Id] ASC,
+       [Version] ASC
+    )
+   ) ON [PRIMARY]
+END
+
+GO
+
+
+CREATE TABLE [dbo].[__MigrationHistory] (
+    [MigrationId] [nvarchar](150) NOT NULL,
+    [ContextKey] [nvarchar](300) NOT NULL,
+    [Model] [varbinary](max) NOT NULL,
+    [ProductVersion] [nvarchar](32) NOT NULL,
+    CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY ([MigrationId], [ContextKey])
+)
+INSERT [dbo].[__MigrationHistory]([MigrationId], [ContextKey], [Model], [ProductVersion])
+VALUES (N'201908271225252_AutomaticMigration', N'CalendarWidgets.Migrations.Configuration',  0x1F8B0800000000000400ED5DDB72DC38927DDF88FD878A7ADADDE85149EA9E1E8F439A09B7A4F63AC6B23596DAD3F3D44155413267586435C9724BB1B15FB60FFB49FB0B0BDE714702BC8125861FAC228144227170702190F97FFFF3BF677F7EDA068BAF284EFC283C5F9E1C1D2F17285C471B3F7C3C5FEED387DFBD5AFEF94FFFFA2F67579BEDD3E27395EEDB2C1DCE1926E7CB2F69BA7BBD5A25EB2F68EB25475B7F1D4749F4901EADA3EDCADB44ABD3E3E33FAE4E4E56088B5862598BC5D9A77D98FA5B94FFC03F2FA2708D76E9DE0BAEA30D0A92F2397E739B4B5D7CF0B628D9796B74BEBCF002146EBCF86FFEE611A5C9D127B48B123F8DE2E7E5E24DE07B58A35B143C2C175E1846A997627D5FFF94A0DB348EC2C7DB1D7EE00577CF3B84D33D784182CA7ABC6E9243AB747C9A5569D564AC44ADF7491A6D0D059E7C5BDA68C566B7B2F4B2B6616EDFED2E404F59B57353622BEEE318B733B6195BDAEB8B20CE12F296CEDBE6A8CAF9CDE2FAF9CD6E971C31C97E771347FF40EBF49B1A2DC747F9BF6F1617FB20DDC7E83C44FB34F6826F1637FBFBC05FFF053DDF45FF44E179B80F02526FAC3916B64371FA5CAAFDC9FBED12ADFDAD172C178592F5CF9B18FF55A2F8D57271BBC66A9D2F4F978B0F58AA779FFD28DB7BA52CE2DDA612FD2E4CBFD5E53F5B11B6559BBC92636F7A56C2284D60661F3E7F95FCB317EC11BC154146BFC2AC923E1336C7D689FC30DDA2305599FB6DECEDBEF8297A7B77717413E014283EC2456CA3B0B43C216718A3E377D403C28E9FD003D1148CB1576C46F3E6230C748B6915BD45D81C5E8A36375E9AA238CC64A0DCD0BAA6BEDDDF6716A90AC4148C4795E5E2DA7B7A8FC2C7F4CBF912FFB95CFCE83FA14DF5A454E2A7D0C78310CE94C6194A0C31F63E5A97CCD9BA644D0D532F4EEFF0485603191BAAF86DA8F255B8E944CE872845BD57FB4D105C7ACF575F310CDAD2412EE4137AF413DC35B2366B2B30B31A6E96EDAE12F3831F7AD9E4209B6494C4799DD7343703CC3AFA3E9131D23E457C8F64D4FB987789A6928236FAEEB8933EF1C1FBEA3FE63ACB5B6FB9F884823C4DF2C5DF15332792EC7EA1D2FE1847DB4F5140F32A99E497DB681FAF33FC45EA74775E8C3913AE328712ADE2821C62F5B984CA4AF0A94555395B352391727CFA3B4A3E447FDDA3A4D01036425D6000D2C31325661EA0C003D4254AD6B1BFEB68A89899CF75E683D108D59BD444A249CA51892E7D2B3211686ABAC2E044384426C2FE62CA2E169DAE3BBA7917E28E92FCBC0D7A9FA0394E05C5CC317C88E26D2E6F0893E465E2676B94245CA36BB23E3C60A8FB5F51362B6F3D437FB3D9A0CD0FCF3F252836D423CF295E25A833E2A6F61F7CCB52ABCC36055F3DA1750608AB82ABCC62AB43F262682956684009D29599A6B327C52645A3FB0F111E03BCD01830D91EE8661F6456D4D3975AD427946DF5A24D7B39094AEFA21B3C24E0DEDA56DA25CACC64533DF91AA7E964C2319E1F7AA91CCD08AF4CC88DEFEAD456AB9E92B2E4B52813F0B38984AB873C69AD1B551345FAAAE6E0BA504C006C133693AA59E8B48096613298360ECDA9C00AB1995415A2D3022AC46430AD90A64F036BA895A2AAB22633C0063A09E646911026D81CD2FC6A4348B2814C20CB6B5A79D5C003ACBF5A84CA04AA9C002B28B35B1B42C4B163DA41C8DAE66684DAE1B317F89BFC05EE67789927AE3D9B4ABD84D6A7E66A09C822AA1978215D70B3E9DA39CBE5D072D9F5BDB7CC5CA1D7CCAB07FC3AE4858F7BEF1119CE52EFBEA0AD699E37F9B2D130D30D8688F11C7ADE4D1CFE3B4ADEB8420ACC2760D5FB86EB88C7DC1046BEEBE7F3485E82928BC529C4AAB61F55AB7E2857B649C1E858BD10AB56BF35D5A8E879727DAAF78C36C563B12EE53B534D72B2912B52BE66F4C89F8AD5285EB5DA5E6E1AC3F6335525611E25C1A3E40536DCF023E48751C6E5790873F48358CDA7CAC1439E8AA32445D2561455F1B32D4115F9677A02D3D38F7E9CA41DB1856ED23E5041330B39CA42E54C4AC941B2341C034913B6E29F725A66BA7390679B59673EB633F3430B7E2896384A7A9024E1D84196AEFDF19CFA6B9ED5C99C32F74C1560AA18672573E927BBC07B1E64BE72E73D26FD4F8AAAC31037B11FC5B9DD0DF626F3734F9F7DF45BEF7A16DF0306296A1E07BA326C4BDE579F54809F81107F5494276FBD49DBFB990EB30A25ED8637F6A39CF910C74A9887B9A187B921A7DDBAD37357711C999E18BCCD8E3E6073BDC7FFF77FA2F41A77A37C3FBCE7722E30241EF3FBCD3D178405F43F5D4149FAF3F5FB010074BBDFED62DC44686388A277C9470CA3D8DFE0CE679B35EBE786799B42ED4ECBB69E8FB41C873B3FF6C10E5F062745A0352B6906569F3AB1A216651ABDEE5542738D098441F5A6B228B5275242EA4026B7AE0946BC6145F21C907AE08406D5C8529BD7A2E119682DC81CCA5A340921B520529BD682E51E584DF85C8ADAB089F535E272B49A9F12B738FF1313463E9E76E311A014E7F4745598ACD4A78FA9AD7AACAA0B6E23A43BEF02B33301899C17EF4CE0E30EC55D357E57DB4190A24DABD9DDDE4ECF934C9E76C137FDA5E95517FEE5995A0D46D9A69B17FBAD0E2B34329C1E79DCDA28993F1DBAB565ECC6A7C3A62BA9D944958E631165E28ED8C37026AB229179163BCA2C76C84DD5797A74E8D323AE3B43F90C3E3982E469C76EE5C075891EFCD02F54B6A6374E96D3FCE6D65CE9F6797B1F0DF019C50FA318E74893766434CE51F9794EE7EA9C8EEBFA1A2E04A4E7C91092A963366C3FE79389749A1B0F70EEF73209769EA3BEF039AA8C7E4CF9D960CE6A90B7B333BE009ED61FF59D997914661EE63CD57C4A783E253CE670D6E3E87500678941A3122883F2206E4F235175C5B6F56A8111348F44C38E44834CBA0719829CA6C27966DF017B325401731700674D7D8E0E9C07B4E64B4ACCCC96C3B2E5EC8F60A6CDC9D126C51810FF0670CAD4A56F479865652FBE6062469728F5FCC07CB74324C569DA74EB239DDE4DB969BF89FD47DC2B836EF651D06F9DC8A9952283C60DE80F0B57639C92DB39D09FBF4DBAF96D52C4791AE207E5E0F91F96CDF82AB3DE99BBB864A93F77407260E5F45EDD5B0D70D6BBFA0A614E0F7707B84AE8202AC93CE076BAFFD4DDF83A2FA65EF8624A4EB3E623ACC142CB2877AB51E916FDBAC713AD2C1895673E0C91B91D1A77EE324814FB29A6430A91550ACE93D3577D74C1CA981479C1C286431B7BE767774FEDB7234B010E35B5EB2BEAF98AD0BC64E3C795B21FA9C71069226EBC90A76C373614625B7FC4A0E5384D1E07B83E99EF04CD33E2CE990B3409D6A595F1584F53DDDC0FABF58E0B997BA6B099C2660A9B2A85913D19E0E1194E5F9AE4ADC82BDB5BB4E62E22F34C5DC352D780E1E13A8C81A72E68C271E86632768C8C096AD247938353B13A752B26FE3B4A3E447FDDA3A493EB9322693347CFD3CB99D1A6CA68A21EADA636580E8EE380D94CC8EE4D92446B3FCF474C2AAAD8A3B499AEC2CD421188B468A58AE271436186F277989370B1E7CBFFE0AC2E1657076B6EC451D566E51E1F1D9D70A2314FA138DBAEF7820BDC54D8307E98F2A4E6876B7FE705722D982C70C25CD5C2D937976887191EEB263725A4D46646C6975D17C150B3CE2A672B020D0090F0105736B002DF2DA123EF0284644187A48BE91246528D206D2B1C31DA424C6AFD0E351A00788A5892328840024B363069C2D4C241088847390210F55A8D01467D6B4C0B9074A069254DF151A75BF21E17A81A80E38EC74B5685A1464CD6969072C99D9951B072230B41296B65590611826ECAE0B5700C49A58F485A3A9DC6A02C5D2B4C90B04AB028D9E586094BDF92AC6EE848F65AE4764C5474F143D1146D4348A9CDAEE928E89045C19435AD362466D3CC65745B386C74613447A0278D4A63B093A60526484E055094645254BA2B6A2AA4096025846CC7C444153E142F51F683145A7F9E1A05163CBADF6C36F53D2059DB2A7389C0A365111592D4A509C025826A77D802A93300DC408D00DAF16AB28D8BC31B69AC502534A4D9A448BCA9823D1B82505ED28823274CB331065058EB4C6B1C55D729B1446A620A55219DC14BB3812BDF3B7A806B62828A5EE19918F79C529443633973AD173EC0CA2EF8F636A24B6E078F38A88B351A655C17B7060897DC855A4790791D6DFC07DF029974C60190C914E80032C51A8D824C716B4054A1733A84CC4F2841E95D74834BF6C347C3A9A889A401B0ABD3C0661AD027B281FA8E3697B5695E88B21A514EF58EAF284ED0A65DBF90C818A447C8CA76AF2F683475A517681A13867F891087907FBBFE8236FB201BB1DA805F256600FC2B8B77AD0B409475A317405A15A2A94ACE687D818BFF0DC7BF3EAB08F36C2E13C8034A1C71AF0EAEDD18B886B7D6B4F6ECB87ABD4BAEE238922F3B65197A076B55CE786775752A0DB0CCD4591FA44291C525C87DC4739C183FBC0FE49F60D5D906801F599A53201428360E1405ED01032491D14158E2722D5089730D07CAAC30173149E8352A2489C6304224CEE712206FF7BB5D8C12BC1C340164936B004012853905485EAF7100C937060C904D3E7700D97412CDB70A6DCEDE81C91538F8C70AB04A63E052D61E105DD8BCA3E19322178395B8269F089B4A1E53015357D6880B70A06A63ACBE812D34ADA5F79BDD2EC299B758DA2F6F82E0D22BF6B5A43095A417C193486A024E5909A603794780D4A833004F6A4C0ED180C8E604D2E0B4A8CCD513EA9C2244906263D021A865264B86726706000401FC1A08015B7B58B1C2ADDE2DC2B8F0D5EA37328AB5AD362D30678E84BDD837BB76A9CA24026F93DE04B4CA5246042B44AF31400A6995A982D39C680179D550B5A05948994E00D749923568B189C1B8F4037F891EFCD0375CF143320B81CCE5334232A4D431A16CA0DF28583668B5A983D9829BE13260D0B6E16A031D9C02BA9BDC6DDEA2D382FD157135C81CF0A0DCBACB6316208795EBC8AD4727816DD472D382B43E9CBC0C5606B1E579874B16308647A61FD18D9893F005B7D4B4A07BA309E92D0392269FDC6D94056875658DEE44CA49C0025B68627015442F34412D28BB10BC829C461886953C26948D341C05D146AD7708C0865D5707E41D0ED223DF5B37500A02905E103BF5DBEBA25A59CC204CA440F16B33BB30D2C331827673E661D3B2D3A26B79904D19CC0011371B48D5C174E130D6C7E91C01B25AA5C680A7B6252609457302868750E4806941B3E0F88BE3C1D4493285B6D2B440AB899327031134681EE357D302AEC0787B6339867512AAB0D6991650D531C464E8010614A3174516288585221B293489931805B5CCB4200A0C0A25C390698428C971700BF41A06991AFB76849378366B3D97817D95470DC379F072114F782A6DF2A797F7D973F4940A8221E21E5DC6434CCA286C2CDE3209B728159C8BFFEEFBE357CBC5551DAF4C74A69D832F2D8EBEA5F2FB3FBCFA562090B938A111294037275190462335DF6CFAEEF4DB1381B4624F4E23A00E84722AB65A13074623A80C55F0FBEF8FBF1788A962346884147EC5BF7F752A52A5F4A60EB173ED4F566CE2FAB546167F6F9193C727D1C864915A53AC0AB075228D70E28CEBC9E977225090678DCD84C915151C0AD589E6CF7F7DFFEA8F7F10C9169CD3B313AED05F7E60CA006C72F9C25426FD522E9A3B3500EFA572A1CC375D9D48D176F8AB9357A722C9C2AF13B605286AA0DA45D614778B7EDD6334A04B2FF504A2E9D73A59E5AED4E9C9A9C81CF58EA0811879A5D96D1C30D7CA45D20B6DE858249747AD888CC760B95CF1A495298098A2304A97E14A17440A42616134536EC5C6C633ADAB430DD2DC944B2CA49A1D1342445312A6822BBA86D0DA0B661D124368D61F7C75E42B0E3BF3C8D711843CFD2CCADC508AB891026341A34C521504C499242AC9CCDB1486034497ECD978748C4319B8C44110790C706110EDA0C4053F841AD7C200D2C07D025BC082FCD11F3B7561FE88AA51D374858DB4C1FD86C04CB56A90204614858E6F68260E9D1D5A98E87330835A545B163F4D600250A8357EFB1B06137221A6B08D2EC4DA1020299785128C088281F1AD4B8703B343081D040C644A8B1AF3A6262359098CA0CE20AF93329FC854DAF635102FB0A2B4256C8D280FC324B3223070135F4F7DE826D68E920D0A13D1037541B51689B931136B6B263D9A3319D49E544332E705417D5C75C650D30F25470C3BECE992D3847D7676AA7C262A0BC8A0AA482E9AEA4A62B974685049F096C10CAA0B2602B2B05144128D41A031493A6C03681092C1E9431ECB02D82CA050185AEBE8826174DA14BAE81783378232AC02A81DE0811934D6018566E8B03540B1187A6E10806F7F4123984604A00C61101380A8BCEE6B92691163D9B7723D0FB1AAD04DBDBAA2ACA3FACE2CC87AA6EF7BFF55E3401D663EA9CB755D5D454ED73B34A5C8CBFA7806CD5C7F1BD993F3150EAC2FE92DBC7B6B92EEC1473026E1B61A664C999F6B5D75059EAE3B34A6C0B5F5E0C6E45C2E430CAAF6D3ACAEB6D45373678695BA66EE6929A273132CB0A8916761F9C136D870AE07925109038DE6326FB6026B821CDF5275D4B9BE25EAC69FE952D84EE7F0B6EFEEAD76CCAA319D090C61BE5CBB30A30B00949F7C559B147862565677FD8959858125E70FCCCB1AC8DC4A1F970233C37D6252550679C524AACA9D65539813E40B7330331A81D6D889A3A4E24690951DED0399787CC0421C068A4C6DEC6890B68089AB41D2D8B2C38E2A6B9B38181CDCDC6600B7F588A7318819E03567428D9A62F40E407EAB326A0B5846D8473223FB0B3282BFC68D6E6EBD2730C519301B33C31D881135179F18061C0C1BDDBE3A7755D2535236B685FAB822EA2C3A34AD3D3A35BE55615E9544C6B5F0C7445BC0CC2313696AF9617295C5CDFC308D6278ED577C636741001368BFE57769EF413FEB9BB9AB019ADB8A4FAC3CDE409A00C435567E6E7AEE00723F2A8276003A5DA16AAD77BB42D490BE83A1B0A5DED9CA30763382B199A310517D8DC02ABC89A2B7E9E890D4B8A6901DAFB5312BD09D055161C14D1CDD99DBD10DAA76A120398D6B634E98D705D128033126CCD742CFB604DEF5D77DCDB0B1AEA19F00E52E3AC4DE86DE013A32FCD9AA1054DF43AFDF9DADB2F3295BAF7C70B6C249D66897EEBDE03ADAA020A95E5C7B3B4C658F4993B37CB2B8DD79EB6C9BE077B7CBC5D3360893F3E59734DDBD5EAD925C7472B4F5D77194440FE9D13ADAAEBC4DB43A3D3EFEE3EAE464B52D64ACD6D4A957F6D67C5D12B6165EAF316FB3ADB90DFAD18F9334BB9378EF25B8A12E365B2E59F1A0B9754F5BAF3675559AE4623DDFB6D55DBC2A63F677B973E40528DC78F1DFFC0D6ECEE4E813DA45899FB539751B9F11D9D8F6475CDD2C455E7324DE72E773E3FCB76B2FF0E26A7244B87DBC8882FD3694BB8194E7BEDDDFFF03AD535A44FD102EE77DB42EE14B0A6A9E1A68947A717AE767971F289D9AC77059B887F292EA8770391FA29411523C814B60A22C92A234011815B563B983952C4C00979F59099B7DBBA3A5128FE1B23EE68862156C9EF292CE564C7761BBE88AEBA30C71B27D1FC40C82CFA81D7103ED58C39C1D34F9FBE1874B94AC637FC7776DEAC58CD90A73A360163235B282AC563000B600196381E55DB8DBA7C9CFDB80E921CDE37180578C05E143146FF35A711A0A1318CA2F3F43084D4ABC3390FAF080F27BFE78BEC60EB9F42B8361B3B93EC70D9BF42B4399FCB480780C9745DF516155E4DF9A4BE615A5DF18B40FE7919B6A22ADBF6EBD6441C3536F4C25662B1EF16C50F4DE42BA787EC8BD356094243B501020D60EE47383A9B0E29201DB7EBAB4F052A5174DD82295094DCA53DE31E24BD5263799DE646D02B1AF3AA5335381E66344475300D1071AC0A82FCED6CF1C352B2BF4D86EDC3C3558C596DF8E597DC8E70653826C4B9315553F3418B0F2A1931BFFEAA77049C5375C5652F3749EC79772C6E9BCB483968E3AB0CC010DA013CBB3F6D391B31D3F3A7FF1C460A386A3810F86143003BB076093DE643A82B5D84B0E00D4B28CFD403ADFC0E651493C36199D44A29AA733C82B908E0272C2234E4718177AF901405C926FDE217CB1D82477753ADD1C94C884EE0B4AB3F783D5F6D3834B3FD905DE332F887A618046EF316180983FB1D8CCB889FD28C6D695EC6634AF0D37483FFBE837C10669F1D86899BF0F04C2C8E7334B9472C66109EE9A6C474CA1930B600BBD086719A3E3F1B174E6C055AB796CB0C198EDE06113BFC7FF339F189857061BD798CF7387A8D49E75F5D06031E8A5E8313F78432D08EBA72673F02776F6FD64C40528497FBE7ECF3041F5D0A4E59A0BFA7CF3D1EF4CA436F7D379A9F43B0BA9999F0BA9D8EAA501173277E9395614BC1F7E5418897F65576E3BA26141E40573228608E9878A3FE3853B47A2F5C3F9C85389F0F9C8538B69DF47FC43D0A8C4E3790A59BC9650187BBDBD23EA22E2BB9853962AF3BC27324395F616D03962EDC75A800CB787DAA9F58399FED9F7A67D4AE214A2AB4EC587CDB2E8550021FD74ABDBE7ED7DC4AEB3CB67060B6C3F8CE29FB0E6CCC621F97CC86FAEF3E0345C47EA7A90928688EBA25B4D74D09A7BE93C748EFC89AEE36E0E106DF8C16EA25DBB83DDFCF9FBDF8BF8FE37D319FBBECD59C68EF98C0D0F6BCE655A096EF3D84B382839F740F6BDFDA1CB8EFBDF0D1549D9BCF769F2BBDDF75EE689CEB937B2EF4D7B63A937EF92ACAB4E2928C0A66F82C4F4D345FBBB97F731F61FFDD00B8424C0BD341846D16F4291E4730B2DBD608F243A16AFCC34E4C5354F4D5BA797FBA3F30EE28084D3F56440504E8BA9818934B7270A7DDFB79E79D2519E9CA7626E33E32DFA758FC275E68CC2EB8A05553201B4A7CE2EDF3CBC0F10BF7E201E9B1C052E34107402E6953BED4878EDECAC1D0B99364D28CBD9CF2835B5A3152F936976BC5FD96E816A3FD3D209707B723535F8CF8336FBDEFA766DC71D89743C6C7BD776EE4473279A4227E29C4877D487087FD396BE8226DA83DC7418D49D43A497E87A686619F67D6B17BA1DD38DC8DD7A5B87BA1325A079083FC8CEC5B9F66793D4A5974FEADFB56BFFD2AD3EE5EF3FAF7DE6BD3FAF7552BAF867FDEC1749960B6CA2AFFE26F3B17FFB9CA4687B942538BAFD35B8087C94454EAE125C7BA1FF80BBD15DF44F149E2F4F8F4F4E978B3781EF254540873282C0EBF51EF7B1AD1786515A867B00841438F9360B298036DB159BDD3C304126254936D4074D8284AA414FE686FFEC2FE8996DE50A479FD0C3424604672B36E399804C320DCE977E66D89CA9DEA230EB146873E3A5291EBAB35428D775B9F8B00F826C97EF7CF9E0050937A4B3E2EBDBAD4519E1572F5E7FF1E27FDB7A4FFF6E2CACB9E1AA9196C6FC7621A75973C7B590B6C1354EF3DF866AD55F3B5ACA29AEB9765035E6922BD1BC2C905FBF0B37E8E97CF95F79CED78B773FFF4265FE66F131C6DDECF5E278F1DFE6761111B699320211AD542218BA50246BA8A47820817E76152EFB5C66DA080D83D32DBA5C5C7B4FEF51F8987E395F7E77ACA902C9E54AEA50F8E89F2C795033892E086446E48088D4B8DF87A11230E9D3C354D7EC5DE39670E3DF019B0F8810A177FF0EAAC0BAF6B7E872756E596F03E941470368395E3371000C875932739B3A11D103E4F58108E2630698D588CDDFA65274A48176F5E2CFBB18C28FC9DF0A805454822EEAE55391083A920898D142E491B1070A49F77E6ABE84D0C417306B4DB5B4366DAB0C4A60A6A442543B0DB5010C4CF5D4086CA3AD3AEE01A1A84A2C78B6C2870D98ECB4B9D96EEF64D14D7C5030434793B30D0CEAAF10668597D95A8DACF5C706C3A1BDCCD7A6ECE6F38459D955BE5683D4BC4A1A6E95248E743059EE296E0376C13B1F3A63B019CF03E2F94610E460B26826AED675B00A6E6ED775B5A49E413D0CA805610D268BE9795375CA4894C72E982C20BB1BE8294F285DECBCE60E51BA206BDE150A70FD2AD95C2E9C9674A019E903651E957AE2028029C104A00E4770D82400DB35820F6FB03DCC3ABA81198EEB8C6D96E24C2C840EEA53C743E840561312A103617968842E48BB0A8FD049E3D3B1114C1140E66E0303369A82A91E64EE4EF4A8C22F582A52646FA389285A839932BC8449EF998107105D1805DB2144984C72AED478B8311C4DEA62ED45400FAE8116FEF3B9B596E7D6A6BF2425CE1977B1D4E166B558DABD1F7AF1B39D3CF0D4B50DF5C8C2214C76D63AEFA54C792F4513E4601E087B59503908F1999BF5B10926CBD19503F52ED6CE840775FB0ED5DD275207BBD2018F16B02803F3A831E15E378F5F931DBFB43102E68ED9F146FBFCB16DFED866CF4456375FE444E4CAE739A57BFF9982BA1D8A3BE39E49F7A4C31DD36FE4DEFAE7AEE4CD0714E73E65D1A7CA32E55EF627BBD363727D0DD620ACDBE916D36EC2DDB4BD14C6C77417206EFC4C77B223E5D25D4BF708E87077C744B4320FDC961DC572BD3BD31E7CE50065BD8912CD3CD35179B6877190D499BD9E5E88AC0AF63D397D65BEAF4E7BC487F629B8D144BEE4273B239CCF674C794EA1F2133F4F23E6C3192F672893BB7A9FFBC1DC0F5E4E3F90FA6B9FBB01F5F5A9D57A52E470C54C02D8018DB5171633113722672A33211C0021E81DA9CFCC300F9007DB1FDE2449B4F6F34A13D45B3AA062FAC155B8597C8A02B6D354EA64DED28F9837D7FB20F57781BFC6459F2F8F8F8E4EB84A365273076AA4B0E2012DE33F3801B873A1385BDE7BC145146650F07987F637B11FAEFD9D17086BC0A48677F0552D977D73897628CC761DC8CA41CA910728395BD54219F2D099E06C45B433A0F9758E779B36E353920D28784BB7A62B70D05458D254A078127D600458F00070A9E68B6E40A67685464A6C1E1E3074C44EE09C874FCE3612077696CDEAD02063D4284371872ABCD7206D5EACA5DC208C42174A5EF5E880C9E246E061AF5DD143518548739BE67488240C1A63288A68763B4669E9225CAA13FC50B8ED23C5954F0E981D04AE0ADB953C1439887C2C1A37A543CC006F88A188411ACF739046E6E04686C090B63BA8C534ADDE92613AC203B8995AC2C18E86985826E321E4A6B8C2E7C6004279DBE4A4D62F0E783891FB1B6DA7C0E87062BDA7B66CF449509071638E42456CB02847462BFAC4EE3C608D8D12EE00B52338A1C360CD381919277C54334770A2899DD4D774C714524514E5B1062B37E63F9C3D209A00826D39834449B4B1198393C7A022249D23E85305E49B01387100EA62378E8241D685BE1B7B0D9C637F5232FFF280E1A60E71D04E8931E055460218F83C960B781AFC9C96157488100FAE0086F0933FC3C659D830C1101C030F2E77C68EEBD829037AB8029D2660C90C1D67A143C7A471033A6C34955EF73D5D00CB50BB9E56181145C7190527549772639D65C95F07B5C232673A77965744FCA25F8880315D8F572A08112A5002A9E787314491558214C784F0191D214E50CE787871836E4C41E424D994B74B9D435475EB5502ACFAF5CBC097F00EB0F3306B2211B9012F22501729937C7CC0709285299B108C9C222B3ECE9618542F81AA3431C7DC87181705C7118CF1E1AB2890095E1F32CA34C1BC260833B7184D1A0B4A0DBA17C170B03859CE43903C86EC14F8048A498FA9BF04C089EA3B2DA8314163DC80191BC946747BFF25C04B19D1C77968DD902154DC0016A592E0B6F74B00D58D3CB28DFB902A75235DFD3B822C816634C084090E1967A20A1F02DC86BB8CE512A886FAE86C0F1B376E6589F4776B0C942BA8C5D68B181F15F59E167D954EECDD805D15DD8114583F3B603809A35A4C053A4E111713934100A497404FAAC814CEC38A0C26E006A8A8F0069C8F9F970028798007E7E144F8E477034D64900076EEFF12B0240D92E03C9444DEDCDDC094D0CFBCF42CE14B4099DEF3BE6370BBCA3DA8E33C782D81C7EEFAC8C406E54194B32871F75EC25FB7CA72DDA2943F10B65C5CD54ED94507FAB2BBAF5BEF7CF936F6765FFC14BDBDBBB809BC72FE5DB87AA7D273E0A34B664EAB726533EF05A55F4431AA8B66926B0A17741E4E01419A4A89CD7D54172C48A629BCD8B4E1CA2B1E57455C7801C68B17FFCDDF3CA234A98B2B52694A68BC1173A534AF74166D526A4AAB9C9A7265552F742555E934E5941E12B962CAE73ACB95C920C8A89D62894151BF96E2A14EA1298DBFDCC195C8271195CAA7D2942C3A52A9EAFF7522331AA8B369D4218FE2716A902F755822D382CB945B409006AE01B8F282D33CBC2682445A5504798C755118479ED65C33A8B184C70194FD94534AD65DA12A709F8BA52C0BB6079701C4B9720598F7300606172EFC42C0EB204CA6A369712E0B8D14C651A5B6D10F6A382A842FAF17FD5A84563A85AEB46A27942FA87AA3C3459D105694DCE46C0260C150C3D21B2BE21902B885E9D480C99CBC60EA2D646A072D56BC3E534FA2C1C617E76234229625B435AA704D0B2205610E613427F9E2B4AA142E4333C9177C2925B20AE7CD2BBA12D00A0AA6FC92BA6AD7B6EAE53EA1BF76993148F515017604268086E3E9CD0CEC3A2817215DD758A2A1912701812CF08AADA283B4B4342E8AA096B0182ABDB532BDFECC05485694962D5C4993B4AF3866868D8283B4AC2CA085A07AA0D817BDB52BB5DECFF38B97F096AD5A0A9334AA30DC81B97283B42867562A1481A086EA0C2D2BD0251E6C8D21F7BA2FB306D04F7F6F6017ED3B356264FB495D9B2731B70FE779BD6DA55CC00FD53798C379A0FEA43AD037CD2E45558F710A0E3289CA91F8019844E7FF1A64232327DAFD721199BAF0173B8249658E9C81C604F9813E78332A3D12832C09F7697C60C604B8D61518D0D4216F6F46937D5ECA45693F197560AECA552CC44842B7B29D6F0C396012D2192ACC3052F7A9076C9ECCDDA7917538FFA087681CC2A125CC38320F9887671CCE6523C4406A3F8F2DA7A5439B44E79D506010238786BD8D5396F8B33091CCDB9EC03420C77C9D7723C181AC5C82EA68553B33807062E083AE37940C6E1AF9914DB58580473D873014F36990B597ECE39EB9D9942EBF04E682BB08EBCD4CFC99A35C88E204511BB31881C9D8F3D500461241497FD6C9C26410974C229B19BB72EACF68D2035D85D5F4C7B2BA309B19E26C3D140D68442102C107C9DAED951B19139671F80F0B2203420EC0D91F1430329BA1DF98DE8F0D88CCA53BA867FBA5DDC850465E507AFEEE2E3292FA38A18589602E3A4496B270EED19FC114E7260BBB41CE3E76653EED572D634F152D97CB2E99C7AC3BDABB6718146BC2AE6A709CD5DCB4726F010233025D0BF46632E6BC6C2E417600D6DA1446C032BB31DFB76144F0D19CD3B53C9D64642493FBDFFD9E551219487998D8EEE49291750CAE33F7661CC119E97A44E8CE34C0DBB6BA4DD0B18DA53AD9CDEF259A9BEF6C55C8AA6F8ED6EFCE56C5C1F0F201FE8945E3A9EE75B44141923F3D5B7DDAE3DC5B54FCBA4489FFD88838C33243B4CECA6C845669DE850F5135D8301A5549AAD765835EE3C168E3A5DE9B38F51FBC75B548F1C3C7E5E2B317EC33C36FEFD1E65DF8719FEEF629AE32DADE079431B28BB7AAF2CF569CCE671F77D9AFA48B2A949BFCE863F8C3DE0F36B5DE3F7A41C29C159489C86EF4BE45F879D1961984D0E3732DE94314020595E6AB2F22DFA1ED2EC0C2928FE1AD979DD737D70D77E0F7E8D15B3FE3E75FFD4D364ECA84E81B8236FBD9A5EF3DC6DE36296534F9F14F8CE1CDF6E94FFF0F9B69C696219A0200 , N'6.1.3-40302')
+
+GO
+
+
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCPlanner.Appointment') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An entity that contains the details of a calendar appointment', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCPlanner', @level1type=N'TABLE', @level1name=N'Appointment'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An entity that contains the details of a calendar appointment', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCPlanner', @level1type=N'TABLE', @level1name=N'Appointment'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Comparison') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration for comparison', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Comparison'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration for comparison', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Comparison'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.CurrencyDefinition') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing currency types used in a project', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'CurrencyDefinition'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing currency types used in a project', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'CurrencyDefinition'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Language') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the languages used in a project', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Language'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the languages used in a project', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Language'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Person') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An entity providing basic properties of an individual', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Person'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An entity providing basic properties of an individual', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Person'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'CalendarWidgets.PropertyChangeDetail') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'A system entity that can used to get a value of a property before and after an Event', @level0type=N'SCHEMA', @level0name=N'CalendarWidgets', @level1type=N'TABLE', @level1name=N'PropertyChangeDetail'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A system entity that can used to get a value of a property before and after an Event', @level0type=N'SCHEMA',@level0name=N'CalendarWidgets', @level1type=N'TABLE', @level1name=N'PropertyChangeDetail'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.Spinner') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the spin wheel choices', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Spinner'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the spin wheel choices', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'Spinner'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'CalendarWidgets.Theme') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the themes available in a project', @level0type=N'SCHEMA', @level0name=N'CalendarWidgets', @level1type=N'TABLE', @level1name=N'Theme'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration listing the themes available in a project', @level0type=N'SCHEMA',@level0name=N'CalendarWidgets', @level1type=N'TABLE', @level1name=N'Theme'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'CalendarWidgets.User') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An entity that provides some basic properties to persist Users in a application', @level0type=N'SCHEMA', @level0name=N'CalendarWidgets', @level1type=N'TABLE', @level1name=N'User'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An entity that provides some basic properties to persist Users in a application', @level0type=N'SCHEMA',@level0name=N'CalendarWidgets', @level1type=N'TABLE', @level1name=N'User'
+IF EXISTS (SELECT * FROM SYS.EXTENDED_PROPERTIES WHERE [major_id] = OBJECT_ID(N'GraphiteGTCCore.YesNoQuestion') AND [name] = N'MS_Description')
+   EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'An enumeration that provides support for a boolean like functionality', @level0type=N'SCHEMA', @level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'YesNoQuestion'
+ELSE
+   EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An enumeration that provides support for a boolean like functionality', @level0type=N'SCHEMA',@level0name=N'GraphiteGTCCore', @level1type=N'TABLE', @level1name=N'YesNoQuestion'
+GO
+
+
+-- ViewChache table
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[__ViewCache]')) BEGIN
+   CREATE TABLE [dbo].[__ViewCache] (
+      [ConceptualModelContainerName] [nvarchar](255) NOT NULL,
+      [StoreModelContainerName] [nvarchar](255) NOT NULL,
+      [ViewDefinitions] [nvarchar](max)  NULL,
+      [LastUpdated] [datetimeoffset](7) NOT NULL,
+    PRIMARY KEY CLUSTERED
+    (
+       [ConceptualModelContainerName] ASC,
+[StoreModelContainerName] ASC
+    )
+   ) ON [PRIMARY]
+END
+
+DELETE [dbo].[__ViewCache]
+
+INSERT [dbo].[__ViewCache]
+VALUES ('EntityDbContext', 'CodeFirstDatabase', '<views>
+  <mapping-views hash="972242bffc579c63982a3fdc5df399cfaa3f51dabdbc214ce58ce527a2575341" conceptual-container="EntityDbContext" store-container="CodeFirstDatabase">
+    <view extent="CodeFirstDatabase.Appointment"><![CDATA[
+    SELECT VALUE -- Constructing Appointment
+        [CodeFirstDatabaseSchema.Appointment](T1.Appointment_Id, T1.Appointment_Subject, T1.Appointment_Location, T1.Appointment_StartTime, T1.Appointment_EndTime, T1.Appointment_Note, T1.Appointment_AllDayEventId, T1.Appointment_EventRegistrationId, T1.Appointment_TimeStamp, T1.Appointment_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Appointment_Id, 
+            T.Subject AS Appointment_Subject, 
+            T.Location AS Appointment_Location, 
+            T.StartTime AS Appointment_StartTime, 
+            T.EndTime AS Appointment_EndTime, 
+            T.Note AS Appointment_Note, 
+            T.AllDayEventId AS Appointment_AllDayEventId, 
+            T.EventRegistrationId AS Appointment_EventRegistrationId, 
+            T.TimeStamp AS Appointment_TimeStamp, 
+            T.ObjectId AS Appointment_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Appointment_4608 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.YesNoQuestion"><![CDATA[
+    SELECT VALUE -- Constructing YesNoQuestion
+        [CodeFirstDatabaseSchema.YesNoQuestion](T1.YesNoQuestion_Id, T1.YesNoQuestion_Description, T1.YesNoQuestion_EventRegistrationId, T1.YesNoQuestion_TimeStamp, T1.YesNoQuestion_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS YesNoQuestion_Id, 
+            T.Description AS YesNoQuestion_Description, 
+            T.EventRegistrationId AS YesNoQuestion_EventRegistrationId, 
+            T.TimeStamp AS YesNoQuestion_TimeStamp, 
+            T.ObjectId AS YesNoQuestion_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.YesNoQuestion_5783 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.EventRegistration"><![CDATA[
+    SELECT VALUE -- Constructing EventRegistration
+        [CodeFirstDatabaseSchema.EventRegistration](T1.EventRegistration_EventRegistrationId, T1.EventRegistration_InputsXml, T1.EventRegistration_TimeStamp, T1.EventRegistration_EventInformationXml, T1.EventRegistration_EventProcessId, T1.EventRegistration_EffectiveDate, T1.EventRegistration_AddedByUserId, T1.EventRegistration_AddedTime, T1.EventRegistration_ModifiedByUserId, T1.EventRegistration_ModifiedTime, T1.EventRegistration_ExecutedByUserId, T1.EventRegistration_ExecutedDate, T1.EventRegistration_ExecutionStartTime, T1.EventRegistration_ExecutionEndTime, T1.EventRegistration_IsComplete, T1.EventRegistration_ScheduledByEventRegistrationId, T1.EventRegistration_ReversedEventRegistrationId, T1.EventRegistration_ResetToPendingEventRegistrationId, T1.EventRegistration_DeletedByEventRegistrationId)
+    FROM (
+        SELECT 
+            T.EventRegistrationId AS EventRegistration_EventRegistrationId, 
+            T.InputsXml AS EventRegistration_InputsXml, 
+            T.TimeStamp AS EventRegistration_TimeStamp, 
+            T.EventInformationXml AS EventRegistration_EventInformationXml, 
+            T.EventProcessId AS EventRegistration_EventProcessId, 
+            T.EffectiveDate AS EventRegistration_EffectiveDate, 
+            T.AddedByUserId AS EventRegistration_AddedByUserId, 
+            T.AddedTime AS EventRegistration_AddedTime, 
+            T.ModifiedByUserId AS EventRegistration_ModifiedByUserId, 
+            T.ModifiedTime AS EventRegistration_ModifiedTime, 
+            T.ExecutedByUserId AS EventRegistration_ExecutedByUserId, 
+            T.ExecutedDate AS EventRegistration_ExecutedDate, 
+            T.ExecutionStartTime AS EventRegistration_ExecutionStartTime, 
+            T.ExecutionEndTime AS EventRegistration_ExecutionEndTime, 
+            T.IsComplete AS EventRegistration_IsComplete, 
+            T.ScheduledByEventRegistrationId AS EventRegistration_ScheduledByEventRegistrationId, 
+            T.ReversedEventRegistrationId AS EventRegistration_ReversedEventRegistrationId, 
+            T.ResetToPendingEventRegistrationId AS EventRegistration_ResetToPendingEventRegistrationId, 
+            T.DeletedByEventRegistrationId AS EventRegistration_DeletedByEventRegistrationId, 
+            True AS _from0
+        FROM EntityDbContext.EventRegistration AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.User"><![CDATA[
+    SELECT VALUE -- Constructing User
+        [CodeFirstDatabaseSchema.User](T1.User_Id, T1.User_Username, T1.User_LanguageId, T1.User_ThemeId, T1.User_ActiveId, T1.User_PersonId, T1.User_EventRegistrationId, T1.User_TimeStamp, T1.User_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS User_Id, 
+            T.Username AS User_Username, 
+            T.LanguageId AS User_LanguageId, 
+            T.ThemeId AS User_ThemeId, 
+            T.ActiveId AS User_ActiveId, 
+            T.PersonId AS User_PersonId, 
+            T.EventRegistrationId AS User_EventRegistrationId, 
+            T.TimeStamp AS User_TimeStamp, 
+            T.ObjectId AS User_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.User_4231 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Language"><![CDATA[
+    SELECT VALUE -- Constructing Language
+        [CodeFirstDatabaseSchema.Language](T1.Language_Id, T1.Language_Code, T1.Language_Name, T1.Language_EventRegistrationId, T1.Language_TimeStamp, T1.Language_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Language_Id, 
+            T.Code AS Language_Code, 
+            T.Name AS Language_Name, 
+            T.EventRegistrationId AS Language_EventRegistrationId, 
+            T.TimeStamp AS Language_TimeStamp, 
+            T.ObjectId AS Language_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Language_2608 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Person"><![CDATA[
+    SELECT VALUE -- Constructing Person
+        [CodeFirstDatabaseSchema.Person](T1.Person_Id, T1.Person_FirstName, T1.Person_LastName, T1.Person_EventRegistrationId, T1.Person_TimeStamp, T1.Person_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Person_Id, 
+            T.FirstName AS Person_FirstName, 
+            T.LastName AS Person_LastName, 
+            T.EventRegistrationId AS Person_EventRegistrationId, 
+            T.TimeStamp AS Person_TimeStamp, 
+            T.ObjectId AS Person_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Person_5606 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Theme"><![CDATA[
+    SELECT VALUE -- Constructing Theme
+        [CodeFirstDatabaseSchema.Theme](T1.Theme_Id, T1.Theme_Description, T1.Theme_EventRegistrationId, T1.Theme_TimeStamp, T1.Theme_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Theme_Id, 
+            T.Description AS Theme_Description, 
+            T.EventRegistrationId AS Theme_EventRegistrationId, 
+            T.TimeStamp AS Theme_TimeStamp, 
+            T.ObjectId AS Theme_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Theme_6828 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.EventProcess"><![CDATA[
+    SELECT VALUE -- Constructing EventProcess
+        [CodeFirstDatabaseSchema.EventProcess](T1.EventProcess_Id, T1.EventProcess_Name, T1.EventProcess_DisplayName, T1.EventProcess_Tags, T1.EventProcess_ExecutionPriority, T1.EventProcess_InputView, T1.EventProcess_ResultView, T1.EventProcess_EventRegistrationId, T1.EventProcess_TimeStamp, T1.EventProcess_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS EventProcess_Id, 
+            T.Name AS EventProcess_Name, 
+            T.DisplayName AS EventProcess_DisplayName, 
+            T.Tags AS EventProcess_Tags, 
+            T.ExecutionPriority AS EventProcess_ExecutionPriority, 
+            T.InputView AS EventProcess_InputView, 
+            T.ResultView AS EventProcess_ResultView, 
+            T.EventRegistrationId AS EventProcess_EventRegistrationId, 
+            T.TimeStamp AS EventProcess_TimeStamp, 
+            T.ObjectId AS EventProcess_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.EventProcess AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ValidationResult"><![CDATA[
+    SELECT VALUE -- Constructing ValidationResult
+        [CodeFirstDatabaseSchema.ValidationResult](T1.ValidationResult_Id, T1.ValidationResult_Name, T1.ValidationResult_Description, T1.ValidationResult_IsErrorId, T1.ValidationResult_SeverityLevel, T1.ValidationResult_Message, T1.ValidationResult_Category, T1.ValidationResult_Fix, T1.ValidationResult_TestXML, T1.ValidationResult_IsSuppressedId, T1.ValidationResult_IsOverriddenId, T1.ValidationResult_IsOverridableId, T1.ValidationResult_OverriddenByUserId, T1.ValidationResult_EventRegistrationId)
+    FROM (
+        SELECT 
+            T.Id AS ValidationResult_Id, 
+            T.Name AS ValidationResult_Name, 
+            T.Description AS ValidationResult_Description, 
+            T.IsErrorId AS ValidationResult_IsErrorId, 
+            T.SeverityLevel AS ValidationResult_SeverityLevel, 
+            T.Message AS ValidationResult_Message, 
+            T.Category AS ValidationResult_Category, 
+            T.Fix AS ValidationResult_Fix, 
+            T.TestXML AS ValidationResult_TestXML, 
+            T.IsSuppressedId AS ValidationResult_IsSuppressedId, 
+            T.IsOverriddenId AS ValidationResult_IsOverriddenId, 
+            T.IsOverridableId AS ValidationResult_IsOverridableId, 
+            T.OverriddenByUserId AS ValidationResult_OverriddenByUserId, 
+            T.EventRegistrationId AS ValidationResult_EventRegistrationId, 
+            True AS _from0
+        FROM EntityDbContext.ValidationResult AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.AppointmentHistory"><![CDATA[
+    SELECT VALUE -- Constructing AppointmentHistory
+        [CodeFirstDatabaseSchema.AppointmentHistory](T1.AppointmentHistory_Id, T1.AppointmentHistory_Version, T1.AppointmentHistory_Subject, T1.AppointmentHistory_Location, T1.AppointmentHistory_StartTime, T1.AppointmentHistory_EndTime, T1.AppointmentHistory_Note, T1.AppointmentHistory_AllDayEventId, T1.AppointmentHistory_EventRegistrationId, T1.AppointmentHistory_Operation, T1.AppointmentHistory_TimeStamp, T1.AppointmentHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS AppointmentHistory_Id, 
+            T.Version AS AppointmentHistory_Version, 
+            T.Subject AS AppointmentHistory_Subject, 
+            T.Location AS AppointmentHistory_Location, 
+            T.StartTime AS AppointmentHistory_StartTime, 
+            T.EndTime AS AppointmentHistory_EndTime, 
+            T.Note AS AppointmentHistory_Note, 
+            T.AllDayEventId AS AppointmentHistory_AllDayEventId, 
+            T.EventRegistrationId AS AppointmentHistory_EventRegistrationId, 
+            T.Operation AS AppointmentHistory_Operation, 
+            T.TimeStamp AS AppointmentHistory_TimeStamp, 
+            T.ObjectId AS AppointmentHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Appointment_4608History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Comparison"><![CDATA[
+    SELECT VALUE -- Constructing Comparison
+        [CodeFirstDatabaseSchema.Comparison](T1.Comparison_Id, T1.Comparison_Description, T1.Comparison_EventRegistrationId, T1.Comparison_TimeStamp, T1.Comparison_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Comparison_Id, 
+            T.Description AS Comparison_Description, 
+            T.EventRegistrationId AS Comparison_EventRegistrationId, 
+            T.TimeStamp AS Comparison_TimeStamp, 
+            T.ObjectId AS Comparison_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Comparison_1241 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ComparisonHistory"><![CDATA[
+    SELECT VALUE -- Constructing ComparisonHistory
+        [CodeFirstDatabaseSchema.ComparisonHistory](T1.ComparisonHistory_Id, T1.ComparisonHistory_Version, T1.ComparisonHistory_Description, T1.ComparisonHistory_EventRegistrationId, T1.ComparisonHistory_Operation, T1.ComparisonHistory_TimeStamp, T1.ComparisonHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS ComparisonHistory_Id, 
+            T.Version AS ComparisonHistory_Version, 
+            T.Description AS ComparisonHistory_Description, 
+            T.EventRegistrationId AS ComparisonHistory_EventRegistrationId, 
+            T.Operation AS ComparisonHistory_Operation, 
+            T.TimeStamp AS ComparisonHistory_TimeStamp, 
+            T.ObjectId AS ComparisonHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Comparison_1241History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CurrencyDefinition"><![CDATA[
+    SELECT VALUE -- Constructing CurrencyDefinition
+        [CodeFirstDatabaseSchema.CurrencyDefinition](T1.CurrencyDefinition_Id, T1.CurrencyDefinition_Symbol, T1.CurrencyDefinition_MinorUnits, T1.CurrencyDefinition_Code, T1.CurrencyDefinition_EventRegistrationId, T1.CurrencyDefinition_TimeStamp, T1.CurrencyDefinition_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS CurrencyDefinition_Id, 
+            T.Symbol AS CurrencyDefinition_Symbol, 
+            T.MinorUnits AS CurrencyDefinition_MinorUnits, 
+            T.Code AS CurrencyDefinition_Code, 
+            T.EventRegistrationId AS CurrencyDefinition_EventRegistrationId, 
+            T.TimeStamp AS CurrencyDefinition_TimeStamp, 
+            T.ObjectId AS CurrencyDefinition_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.CurrencyDefinition_6897 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CurrencyDefinitionHistory"><![CDATA[
+    SELECT VALUE -- Constructing CurrencyDefinitionHistory
+        [CodeFirstDatabaseSchema.CurrencyDefinitionHistory](T1.CurrencyDefinitionHistory_Id, T1.CurrencyDefinitionHistory_Version, T1.CurrencyDefinitionHistory_Symbol, T1.CurrencyDefinitionHistory_MinorUnits, T1.CurrencyDefinitionHistory_Code, T1.CurrencyDefinitionHistory_EventRegistrationId, T1.CurrencyDefinitionHistory_Operation, T1.CurrencyDefinitionHistory_TimeStamp, T1.CurrencyDefinitionHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS CurrencyDefinitionHistory_Id, 
+            T.Version AS CurrencyDefinitionHistory_Version, 
+            T.Symbol AS CurrencyDefinitionHistory_Symbol, 
+            T.MinorUnits AS CurrencyDefinitionHistory_MinorUnits, 
+            T.Code AS CurrencyDefinitionHistory_Code, 
+            T.EventRegistrationId AS CurrencyDefinitionHistory_EventRegistrationId, 
+            T.Operation AS CurrencyDefinitionHistory_Operation, 
+            T.TimeStamp AS CurrencyDefinitionHistory_TimeStamp, 
+            T.ObjectId AS CurrencyDefinitionHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.CurrencyDefinition_6897History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.EventProcessHistory"><![CDATA[
+    SELECT VALUE -- Constructing EventProcessHistory
+        [CodeFirstDatabaseSchema.EventProcessHistory](T1.EventProcessHistory_Id, T1.EventProcessHistory_Version, T1.EventProcessHistory_Name, T1.EventProcessHistory_DisplayName, T1.EventProcessHistory_Tags, T1.EventProcessHistory_ExecutionPriority, T1.EventProcessHistory_InputView, T1.EventProcessHistory_ResultView, T1.EventProcessHistory_EventRegistrationId, T1.EventProcessHistory_Operation, T1.EventProcessHistory_TimeStamp, T1.EventProcessHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS EventProcessHistory_Id, 
+            T.Version AS EventProcessHistory_Version, 
+            T.Name AS EventProcessHistory_Name, 
+            T.DisplayName AS EventProcessHistory_DisplayName, 
+            T.Tags AS EventProcessHistory_Tags, 
+            T.ExecutionPriority AS EventProcessHistory_ExecutionPriority, 
+            T.InputView AS EventProcessHistory_InputView, 
+            T.ResultView AS EventProcessHistory_ResultView, 
+            T.EventRegistrationId AS EventProcessHistory_EventRegistrationId, 
+            T.Operation AS EventProcessHistory_Operation, 
+            T.TimeStamp AS EventProcessHistory_TimeStamp, 
+            T.ObjectId AS EventProcessHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.EventProcessHistory AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LanguageHistory"><![CDATA[
+    SELECT VALUE -- Constructing LanguageHistory
+        [CodeFirstDatabaseSchema.LanguageHistory](T1.LanguageHistory_Id, T1.LanguageHistory_Version, T1.LanguageHistory_Code, T1.LanguageHistory_Name, T1.LanguageHistory_EventRegistrationId, T1.LanguageHistory_Operation, T1.LanguageHistory_TimeStamp, T1.LanguageHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS LanguageHistory_Id, 
+            T.Version AS LanguageHistory_Version, 
+            T.Code AS LanguageHistory_Code, 
+            T.Name AS LanguageHistory_Name, 
+            T.EventRegistrationId AS LanguageHistory_EventRegistrationId, 
+            T.Operation AS LanguageHistory_Operation, 
+            T.TimeStamp AS LanguageHistory_TimeStamp, 
+            T.ObjectId AS LanguageHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Language_2608History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PersonHistory"><![CDATA[
+    SELECT VALUE -- Constructing PersonHistory
+        [CodeFirstDatabaseSchema.PersonHistory](T1.PersonHistory_Id, T1.PersonHistory_Version, T1.PersonHistory_FirstName, T1.PersonHistory_LastName, T1.PersonHistory_EventRegistrationId, T1.PersonHistory_Operation, T1.PersonHistory_TimeStamp, T1.PersonHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS PersonHistory_Id, 
+            T.Version AS PersonHistory_Version, 
+            T.FirstName AS PersonHistory_FirstName, 
+            T.LastName AS PersonHistory_LastName, 
+            T.EventRegistrationId AS PersonHistory_EventRegistrationId, 
+            T.Operation AS PersonHistory_Operation, 
+            T.TimeStamp AS PersonHistory_TimeStamp, 
+            T.ObjectId AS PersonHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Person_5606History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PropertyChangeDetail"><![CDATA[
+    SELECT VALUE -- Constructing PropertyChangeDetail
+        [CodeFirstDatabaseSchema.PropertyChangeDetail](T1.PropertyChangeDetail_Id, T1.PropertyChangeDetail_ExecutionEndTime, T1.PropertyChangeDetail_OriginalVersion, T1.PropertyChangeDetail_NewVersion, T1.PropertyChangeDetail_OriginalValue, T1.PropertyChangeDetail_NewValue, T1.PropertyChangeDetail_ExecutedByUserId, T1.PropertyChangeDetail_EventRegistrationId, T1.PropertyChangeDetail_TimeStamp, T1.PropertyChangeDetail_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS PropertyChangeDetail_Id, 
+            T.ExecutionEndTime AS PropertyChangeDetail_ExecutionEndTime, 
+            T.OriginalVersion AS PropertyChangeDetail_OriginalVersion, 
+            T.NewVersion AS PropertyChangeDetail_NewVersion, 
+            T.OriginalValue AS PropertyChangeDetail_OriginalValue, 
+            T.NewValue AS PropertyChangeDetail_NewValue, 
+            T.ExecutedByUserId AS PropertyChangeDetail_ExecutedByUserId, 
+            T.EventRegistrationId AS PropertyChangeDetail_EventRegistrationId, 
+            T.TimeStamp AS PropertyChangeDetail_TimeStamp, 
+            T.ObjectId AS PropertyChangeDetail_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.PropertyChangeDetail_8182 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PropertyChangeDetailHistory"><![CDATA[
+    SELECT VALUE -- Constructing PropertyChangeDetailHistory
+        [CodeFirstDatabaseSchema.PropertyChangeDetailHistory](T1.PropertyChangeDetailHistory_Id, T1.PropertyChangeDetailHistory_Version, T1.PropertyChangeDetailHistory_ExecutedByUserId, T1.PropertyChangeDetailHistory_ExecutionEndTime, T1.PropertyChangeDetailHistory_OriginalVersion, T1.PropertyChangeDetailHistory_NewVersion, T1.PropertyChangeDetailHistory_OriginalValue, T1.PropertyChangeDetailHistory_NewValue, T1.PropertyChangeDetailHistory_EventRegistrationId, T1.PropertyChangeDetailHistory_Operation, T1.PropertyChangeDetailHistory_TimeStamp, T1.PropertyChangeDetailHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS PropertyChangeDetailHistory_Id, 
+            T.Version AS PropertyChangeDetailHistory_Version, 
+            T.ExecutedByUserId AS PropertyChangeDetailHistory_ExecutedByUserId, 
+            T.ExecutionEndTime AS PropertyChangeDetailHistory_ExecutionEndTime, 
+            T.OriginalVersion AS PropertyChangeDetailHistory_OriginalVersion, 
+            T.NewVersion AS PropertyChangeDetailHistory_NewVersion, 
+            T.OriginalValue AS PropertyChangeDetailHistory_OriginalValue, 
+            T.NewValue AS PropertyChangeDetailHistory_NewValue, 
+            T.EventRegistrationId AS PropertyChangeDetailHistory_EventRegistrationId, 
+            T.Operation AS PropertyChangeDetailHistory_Operation, 
+            T.TimeStamp AS PropertyChangeDetailHistory_TimeStamp, 
+            T.ObjectId AS PropertyChangeDetailHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.PropertyChangeDetail_8182History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Spinner"><![CDATA[
+    SELECT VALUE -- Constructing Spinner
+        [CodeFirstDatabaseSchema.Spinner](T1.Spinner_Id, T1.Spinner_Description, T1.Spinner_EventRegistrationId, T1.Spinner_TimeStamp, T1.Spinner_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Spinner_Id, 
+            T.Description AS Spinner_Description, 
+            T.EventRegistrationId AS Spinner_EventRegistrationId, 
+            T.TimeStamp AS Spinner_TimeStamp, 
+            T.ObjectId AS Spinner_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Spinner_2122 AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.SpinnerHistory"><![CDATA[
+    SELECT VALUE -- Constructing SpinnerHistory
+        [CodeFirstDatabaseSchema.SpinnerHistory](T1.SpinnerHistory_Id, T1.SpinnerHistory_Version, T1.SpinnerHistory_Description, T1.SpinnerHistory_EventRegistrationId, T1.SpinnerHistory_Operation, T1.SpinnerHistory_TimeStamp, T1.SpinnerHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS SpinnerHistory_Id, 
+            T.Version AS SpinnerHistory_Version, 
+            T.Description AS SpinnerHistory_Description, 
+            T.EventRegistrationId AS SpinnerHistory_EventRegistrationId, 
+            T.Operation AS SpinnerHistory_Operation, 
+            T.TimeStamp AS SpinnerHistory_TimeStamp, 
+            T.ObjectId AS SpinnerHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Spinner_2122History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ThemeHistory"><![CDATA[
+    SELECT VALUE -- Constructing ThemeHistory
+        [CodeFirstDatabaseSchema.ThemeHistory](T1.ThemeHistory_Id, T1.ThemeHistory_Version, T1.ThemeHistory_Description, T1.ThemeHistory_EventRegistrationId, T1.ThemeHistory_Operation, T1.ThemeHistory_TimeStamp, T1.ThemeHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS ThemeHistory_Id, 
+            T.Version AS ThemeHistory_Version, 
+            T.Description AS ThemeHistory_Description, 
+            T.EventRegistrationId AS ThemeHistory_EventRegistrationId, 
+            T.Operation AS ThemeHistory_Operation, 
+            T.TimeStamp AS ThemeHistory_TimeStamp, 
+            T.ObjectId AS ThemeHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.Theme_6828History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.UserHistory"><![CDATA[
+    SELECT VALUE -- Constructing UserHistory
+        [CodeFirstDatabaseSchema.UserHistory](T1.UserHistory_Id, T1.UserHistory_Version, T1.UserHistory_LanguageId, T1.UserHistory_ThemeId, T1.UserHistory_Username, T1.UserHistory_ActiveId, T1.UserHistory_PersonId, T1.UserHistory_EventRegistrationId, T1.UserHistory_Operation, T1.UserHistory_TimeStamp, T1.UserHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS UserHistory_Id, 
+            T.Version AS UserHistory_Version, 
+            T.LanguageId AS UserHistory_LanguageId, 
+            T.ThemeId AS UserHistory_ThemeId, 
+            T.Username AS UserHistory_Username, 
+            T.ActiveId AS UserHistory_ActiveId, 
+            T.PersonId AS UserHistory_PersonId, 
+            T.EventRegistrationId AS UserHistory_EventRegistrationId, 
+            T.Operation AS UserHistory_Operation, 
+            T.TimeStamp AS UserHistory_TimeStamp, 
+            T.ObjectId AS UserHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.User_4231History AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.YesNoQuestionHistory"><![CDATA[
+    SELECT VALUE -- Constructing YesNoQuestionHistory
+        [CodeFirstDatabaseSchema.YesNoQuestionHistory](T1.YesNoQuestionHistory_Id, T1.YesNoQuestionHistory_Version, T1.YesNoQuestionHistory_Description, T1.YesNoQuestionHistory_EventRegistrationId, T1.YesNoQuestionHistory_Operation, T1.YesNoQuestionHistory_TimeStamp, T1.YesNoQuestionHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS YesNoQuestionHistory_Id, 
+            T.Version AS YesNoQuestionHistory_Version, 
+            T.Description AS YesNoQuestionHistory_Description, 
+            T.EventRegistrationId AS YesNoQuestionHistory_EventRegistrationId, 
+            T.Operation AS YesNoQuestionHistory_Operation, 
+            T.TimeStamp AS YesNoQuestionHistory_TimeStamp, 
+            T.ObjectId AS YesNoQuestionHistory_ObjectId, 
+            True AS _from0
+        FROM EntityDbContext.YesNoQuestion_5783History AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Appointment_4608"><![CDATA[
+    SELECT VALUE -- Constructing Appointment_4608
+        [CalendarWidgets.Repository.Appointment](T1.Appointment_Id, T1.Appointment_Subject, T1.Appointment_Location, T1.Appointment_StartTime, T1.Appointment_EndTime, T1.Appointment_Note, T1.Appointment_AllDayEventId, T1.Appointment_EventRegistrationId, T1.Appointment_TimeStamp, T1.Appointment_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Appointment_Id, 
+            T.Subject AS Appointment_Subject, 
+            T.Location AS Appointment_Location, 
+            T.StartTime AS Appointment_StartTime, 
+            T.EndTime AS Appointment_EndTime, 
+            T.Note AS Appointment_Note, 
+            T.AllDayEventId AS Appointment_AllDayEventId, 
+            T.EventRegistrationId AS Appointment_EventRegistrationId, 
+            T.TimeStamp AS Appointment_TimeStamp, 
+            T.ObjectId AS Appointment_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Appointment AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.YesNoQuestion_5783"><![CDATA[
+    SELECT VALUE -- Constructing YesNoQuestion_5783
+        [CalendarWidgets.Repository.YesNoQuestion](T1.YesNoQuestion_Id, T1.YesNoQuestion_Description, T1.YesNoQuestion_EventRegistrationId, T1.YesNoQuestion_TimeStamp, T1.YesNoQuestion_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS YesNoQuestion_Id, 
+            T.Description AS YesNoQuestion_Description, 
+            T.EventRegistrationId AS YesNoQuestion_EventRegistrationId, 
+            T.TimeStamp AS YesNoQuestion_TimeStamp, 
+            T.ObjectId AS YesNoQuestion_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.YesNoQuestion AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.EventRegistration"><![CDATA[
+    SELECT VALUE -- Constructing EventRegistration
+        [CalendarWidgets.Repository.EventRegistration](T1.EventRegistration_EventRegistrationId, T1.EventRegistration_InputsXml, T1.EventRegistration_TimeStamp, T1.EventRegistration_EventInformationXml, T1.EventRegistration_EventProcessId, T1.EventRegistration_EffectiveDate, T1.EventRegistration_AddedByUserId, T1.EventRegistration_AddedTime, T1.EventRegistration_ModifiedByUserId, T1.EventRegistration_ModifiedTime, T1.EventRegistration_ExecutedByUserId, T1.EventRegistration_ExecutedDate, T1.EventRegistration_ExecutionStartTime, T1.EventRegistration_ExecutionEndTime, T1.EventRegistration_IsComplete, T1.EventRegistration_ScheduledByEventRegistrationId, T1.EventRegistration_ReversedEventRegistrationId, T1.EventRegistration_ResetToPendingEventRegistrationId, T1.EventRegistration_DeletedByEventRegistrationId)
+    FROM (
+        SELECT 
+            T.EventRegistrationId AS EventRegistration_EventRegistrationId, 
+            T.InputsXml AS EventRegistration_InputsXml, 
+            T.TimeStamp AS EventRegistration_TimeStamp, 
+            T.EventInformationXml AS EventRegistration_EventInformationXml, 
+            T.EventProcessId AS EventRegistration_EventProcessId, 
+            T.EffectiveDate AS EventRegistration_EffectiveDate, 
+            T.AddedByUserId AS EventRegistration_AddedByUserId, 
+            T.AddedTime AS EventRegistration_AddedTime, 
+            T.ModifiedByUserId AS EventRegistration_ModifiedByUserId, 
+            T.ModifiedTime AS EventRegistration_ModifiedTime, 
+            T.ExecutedByUserId AS EventRegistration_ExecutedByUserId, 
+            T.ExecutedDate AS EventRegistration_ExecutedDate, 
+            T.ExecutionStartTime AS EventRegistration_ExecutionStartTime, 
+            T.ExecutionEndTime AS EventRegistration_ExecutionEndTime, 
+            T.IsComplete AS EventRegistration_IsComplete, 
+            T.ScheduledByEventRegistrationId AS EventRegistration_ScheduledByEventRegistrationId, 
+            T.ReversedEventRegistrationId AS EventRegistration_ReversedEventRegistrationId, 
+            T.ResetToPendingEventRegistrationId AS EventRegistration_ResetToPendingEventRegistrationId, 
+            T.DeletedByEventRegistrationId AS EventRegistration_DeletedByEventRegistrationId, 
+            True AS _from0
+        FROM CodeFirstDatabase.EventRegistration AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.User_4231"><![CDATA[
+    SELECT VALUE -- Constructing User_4231
+        [CalendarWidgets.Repository.User](T1.User_Id, T1.User_Username, T1.User_LanguageId, T1.User_ThemeId, T1.User_ActiveId, T1.User_PersonId, T1.User_EventRegistrationId, T1.User_TimeStamp, T1.User_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS User_Id, 
+            T.Username AS User_Username, 
+            T.LanguageId AS User_LanguageId, 
+            T.ThemeId AS User_ThemeId, 
+            T.ActiveId AS User_ActiveId, 
+            T.PersonId AS User_PersonId, 
+            T.EventRegistrationId AS User_EventRegistrationId, 
+            T.TimeStamp AS User_TimeStamp, 
+            T.ObjectId AS User_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.User AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Language_2608"><![CDATA[
+    SELECT VALUE -- Constructing Language_2608
+        [CalendarWidgets.Repository.Language](T1.Language_Id, T1.Language_Code, T1.Language_Name, T1.Language_EventRegistrationId, T1.Language_TimeStamp, T1.Language_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Language_Id, 
+            T.Code AS Language_Code, 
+            T.Name AS Language_Name, 
+            T.EventRegistrationId AS Language_EventRegistrationId, 
+            T.TimeStamp AS Language_TimeStamp, 
+            T.ObjectId AS Language_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Language AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Person_5606"><![CDATA[
+    SELECT VALUE -- Constructing Person_5606
+        [CalendarWidgets.Repository.Person](T1.Person_Id, T1.Person_FirstName, T1.Person_LastName, T1.Person_EventRegistrationId, T1.Person_TimeStamp, T1.Person_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Person_Id, 
+            T.FirstName AS Person_FirstName, 
+            T.LastName AS Person_LastName, 
+            T.EventRegistrationId AS Person_EventRegistrationId, 
+            T.TimeStamp AS Person_TimeStamp, 
+            T.ObjectId AS Person_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Person AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Theme_6828"><![CDATA[
+    SELECT VALUE -- Constructing Theme_6828
+        [CalendarWidgets.Repository.Theme](T1.Theme_Id, T1.Theme_Description, T1.Theme_EventRegistrationId, T1.Theme_TimeStamp, T1.Theme_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Theme_Id, 
+            T.Description AS Theme_Description, 
+            T.EventRegistrationId AS Theme_EventRegistrationId, 
+            T.TimeStamp AS Theme_TimeStamp, 
+            T.ObjectId AS Theme_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Theme AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.EventProcess"><![CDATA[
+    SELECT VALUE -- Constructing EventProcess
+        [CalendarWidgets.Repository.EventProcess](T1.EventProcess_Id, T1.EventProcess_Name, T1.EventProcess_DisplayName, T1.EventProcess_Tags, T1.EventProcess_ExecutionPriority, T1.EventProcess_InputView, T1.EventProcess_ResultView, T1.EventProcess_EventRegistrationId, T1.EventProcess_TimeStamp, T1.EventProcess_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS EventProcess_Id, 
+            T.Name AS EventProcess_Name, 
+            T.DisplayName AS EventProcess_DisplayName, 
+            T.Tags AS EventProcess_Tags, 
+            T.ExecutionPriority AS EventProcess_ExecutionPriority, 
+            T.InputView AS EventProcess_InputView, 
+            T.ResultView AS EventProcess_ResultView, 
+            T.EventRegistrationId AS EventProcess_EventRegistrationId, 
+            T.TimeStamp AS EventProcess_TimeStamp, 
+            T.ObjectId AS EventProcess_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.EventProcess AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.ValidationResult"><![CDATA[
+    SELECT VALUE -- Constructing ValidationResult
+        [CalendarWidgets.Repository.ValidationResult](T1.ValidationResult_Id, T1.ValidationResult_Name, T1.ValidationResult_Description, T1.ValidationResult_IsErrorId, T1.ValidationResult_SeverityLevel, T1.ValidationResult_Message, T1.ValidationResult_Category, T1.ValidationResult_Fix, T1.ValidationResult_TestXML, T1.ValidationResult_IsSuppressedId, T1.ValidationResult_IsOverriddenId, T1.ValidationResult_IsOverridableId, T1.ValidationResult_OverriddenByUserId, T1.ValidationResult_EventRegistrationId)
+    FROM (
+        SELECT 
+            T.Id AS ValidationResult_Id, 
+            T.Name AS ValidationResult_Name, 
+            T.Description AS ValidationResult_Description, 
+            T.IsErrorId AS ValidationResult_IsErrorId, 
+            T.SeverityLevel AS ValidationResult_SeverityLevel, 
+            T.Message AS ValidationResult_Message, 
+            T.Category AS ValidationResult_Category, 
+            T.Fix AS ValidationResult_Fix, 
+            T.TestXML AS ValidationResult_TestXML, 
+            T.IsSuppressedId AS ValidationResult_IsSuppressedId, 
+            T.IsOverriddenId AS ValidationResult_IsOverriddenId, 
+            T.IsOverridableId AS ValidationResult_IsOverridableId, 
+            T.OverriddenByUserId AS ValidationResult_OverriddenByUserId, 
+            T.EventRegistrationId AS ValidationResult_EventRegistrationId, 
+            True AS _from0
+        FROM CodeFirstDatabase.ValidationResult AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Appointment_4608History"><![CDATA[
+    SELECT VALUE -- Constructing Appointment_4608History
+        [CalendarWidgets.Repository.AppointmentHistory](T1.AppointmentHistory_Id, T1.AppointmentHistory_Version, T1.AppointmentHistory_Subject, T1.AppointmentHistory_Location, T1.AppointmentHistory_StartTime, T1.AppointmentHistory_EndTime, T1.AppointmentHistory_Note, T1.AppointmentHistory_AllDayEventId, T1.AppointmentHistory_EventRegistrationId, T1.AppointmentHistory_Operation, T1.AppointmentHistory_TimeStamp, T1.AppointmentHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS AppointmentHistory_Id, 
+            T.Version AS AppointmentHistory_Version, 
+            T.Subject AS AppointmentHistory_Subject, 
+            T.Location AS AppointmentHistory_Location, 
+            T.StartTime AS AppointmentHistory_StartTime, 
+            T.EndTime AS AppointmentHistory_EndTime, 
+            T.Note AS AppointmentHistory_Note, 
+            T.AllDayEventId AS AppointmentHistory_AllDayEventId, 
+            T.EventRegistrationId AS AppointmentHistory_EventRegistrationId, 
+            T.Operation AS AppointmentHistory_Operation, 
+            T.TimeStamp AS AppointmentHistory_TimeStamp, 
+            T.ObjectId AS AppointmentHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.AppointmentHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Comparison_1241"><![CDATA[
+    SELECT VALUE -- Constructing Comparison_1241
+        [CalendarWidgets.Repository.Comparison](T1.Comparison_Id, T1.Comparison_Description, T1.Comparison_EventRegistrationId, T1.Comparison_TimeStamp, T1.Comparison_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Comparison_Id, 
+            T.Description AS Comparison_Description, 
+            T.EventRegistrationId AS Comparison_EventRegistrationId, 
+            T.TimeStamp AS Comparison_TimeStamp, 
+            T.ObjectId AS Comparison_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Comparison AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Comparison_1241History"><![CDATA[
+    SELECT VALUE -- Constructing Comparison_1241History
+        [CalendarWidgets.Repository.ComparisonHistory](T1.ComparisonHistory_Id, T1.ComparisonHistory_Version, T1.ComparisonHistory_Description, T1.ComparisonHistory_EventRegistrationId, T1.ComparisonHistory_Operation, T1.ComparisonHistory_TimeStamp, T1.ComparisonHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS ComparisonHistory_Id, 
+            T.Version AS ComparisonHistory_Version, 
+            T.Description AS ComparisonHistory_Description, 
+            T.EventRegistrationId AS ComparisonHistory_EventRegistrationId, 
+            T.Operation AS ComparisonHistory_Operation, 
+            T.TimeStamp AS ComparisonHistory_TimeStamp, 
+            T.ObjectId AS ComparisonHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.ComparisonHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.CurrencyDefinition_6897"><![CDATA[
+    SELECT VALUE -- Constructing CurrencyDefinition_6897
+        [CalendarWidgets.Repository.CurrencyDefinition](T1.CurrencyDefinition_Id, T1.CurrencyDefinition_Symbol, T1.CurrencyDefinition_MinorUnits, T1.CurrencyDefinition_Code, T1.CurrencyDefinition_EventRegistrationId, T1.CurrencyDefinition_TimeStamp, T1.CurrencyDefinition_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS CurrencyDefinition_Id, 
+            T.Symbol AS CurrencyDefinition_Symbol, 
+            T.MinorUnits AS CurrencyDefinition_MinorUnits, 
+            T.Code AS CurrencyDefinition_Code, 
+            T.EventRegistrationId AS CurrencyDefinition_EventRegistrationId, 
+            T.TimeStamp AS CurrencyDefinition_TimeStamp, 
+            T.ObjectId AS CurrencyDefinition_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.CurrencyDefinition AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.CurrencyDefinition_6897History"><![CDATA[
+    SELECT VALUE -- Constructing CurrencyDefinition_6897History
+        [CalendarWidgets.Repository.CurrencyDefinitionHistory](T1.CurrencyDefinitionHistory_Id, T1.CurrencyDefinitionHistory_Version, T1.CurrencyDefinitionHistory_Symbol, T1.CurrencyDefinitionHistory_MinorUnits, T1.CurrencyDefinitionHistory_Code, T1.CurrencyDefinitionHistory_EventRegistrationId, T1.CurrencyDefinitionHistory_Operation, T1.CurrencyDefinitionHistory_TimeStamp, T1.CurrencyDefinitionHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS CurrencyDefinitionHistory_Id, 
+            T.Version AS CurrencyDefinitionHistory_Version, 
+            T.Symbol AS CurrencyDefinitionHistory_Symbol, 
+            T.MinorUnits AS CurrencyDefinitionHistory_MinorUnits, 
+            T.Code AS CurrencyDefinitionHistory_Code, 
+            T.EventRegistrationId AS CurrencyDefinitionHistory_EventRegistrationId, 
+            T.Operation AS CurrencyDefinitionHistory_Operation, 
+            T.TimeStamp AS CurrencyDefinitionHistory_TimeStamp, 
+            T.ObjectId AS CurrencyDefinitionHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.CurrencyDefinitionHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.EventProcessHistory"><![CDATA[
+    SELECT VALUE -- Constructing EventProcessHistory
+        [CalendarWidgets.Repository.EventProcessHistory](T1.EventProcessHistory_Id, T1.EventProcessHistory_Version, T1.EventProcessHistory_Name, T1.EventProcessHistory_DisplayName, T1.EventProcessHistory_Tags, T1.EventProcessHistory_ExecutionPriority, T1.EventProcessHistory_InputView, T1.EventProcessHistory_ResultView, T1.EventProcessHistory_EventRegistrationId, T1.EventProcessHistory_Operation, T1.EventProcessHistory_TimeStamp, T1.EventProcessHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS EventProcessHistory_Id, 
+            T.Version AS EventProcessHistory_Version, 
+            T.Name AS EventProcessHistory_Name, 
+            T.DisplayName AS EventProcessHistory_DisplayName, 
+            T.Tags AS EventProcessHistory_Tags, 
+            T.ExecutionPriority AS EventProcessHistory_ExecutionPriority, 
+            T.InputView AS EventProcessHistory_InputView, 
+            T.ResultView AS EventProcessHistory_ResultView, 
+            T.EventRegistrationId AS EventProcessHistory_EventRegistrationId, 
+            T.Operation AS EventProcessHistory_Operation, 
+            T.TimeStamp AS EventProcessHistory_TimeStamp, 
+            T.ObjectId AS EventProcessHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.EventProcessHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Language_2608History"><![CDATA[
+    SELECT VALUE -- Constructing Language_2608History
+        [CalendarWidgets.Repository.LanguageHistory](T1.LanguageHistory_Id, T1.LanguageHistory_Version, T1.LanguageHistory_Code, T1.LanguageHistory_Name, T1.LanguageHistory_EventRegistrationId, T1.LanguageHistory_Operation, T1.LanguageHistory_TimeStamp, T1.LanguageHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS LanguageHistory_Id, 
+            T.Version AS LanguageHistory_Version, 
+            T.Code AS LanguageHistory_Code, 
+            T.Name AS LanguageHistory_Name, 
+            T.EventRegistrationId AS LanguageHistory_EventRegistrationId, 
+            T.Operation AS LanguageHistory_Operation, 
+            T.TimeStamp AS LanguageHistory_TimeStamp, 
+            T.ObjectId AS LanguageHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.LanguageHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Person_5606History"><![CDATA[
+    SELECT VALUE -- Constructing Person_5606History
+        [CalendarWidgets.Repository.PersonHistory](T1.PersonHistory_Id, T1.PersonHistory_Version, T1.PersonHistory_FirstName, T1.PersonHistory_LastName, T1.PersonHistory_EventRegistrationId, T1.PersonHistory_Operation, T1.PersonHistory_TimeStamp, T1.PersonHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS PersonHistory_Id, 
+            T.Version AS PersonHistory_Version, 
+            T.FirstName AS PersonHistory_FirstName, 
+            T.LastName AS PersonHistory_LastName, 
+            T.EventRegistrationId AS PersonHistory_EventRegistrationId, 
+            T.Operation AS PersonHistory_Operation, 
+            T.TimeStamp AS PersonHistory_TimeStamp, 
+            T.ObjectId AS PersonHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.PersonHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.PropertyChangeDetail_8182"><![CDATA[
+    SELECT VALUE -- Constructing PropertyChangeDetail_8182
+        [CalendarWidgets.Repository.PropertyChangeDetail](T1.PropertyChangeDetail_Id, T1.PropertyChangeDetail_ExecutionEndTime, T1.PropertyChangeDetail_OriginalVersion, T1.PropertyChangeDetail_NewVersion, T1.PropertyChangeDetail_OriginalValue, T1.PropertyChangeDetail_NewValue, T1.PropertyChangeDetail_ExecutedByUserId, T1.PropertyChangeDetail_EventRegistrationId, T1.PropertyChangeDetail_TimeStamp, T1.PropertyChangeDetail_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS PropertyChangeDetail_Id, 
+            T.ExecutionEndTime AS PropertyChangeDetail_ExecutionEndTime, 
+            T.OriginalVersion AS PropertyChangeDetail_OriginalVersion, 
+            T.NewVersion AS PropertyChangeDetail_NewVersion, 
+            T.OriginalValue AS PropertyChangeDetail_OriginalValue, 
+            T.NewValue AS PropertyChangeDetail_NewValue, 
+            T.ExecutedByUserId AS PropertyChangeDetail_ExecutedByUserId, 
+            T.EventRegistrationId AS PropertyChangeDetail_EventRegistrationId, 
+            T.TimeStamp AS PropertyChangeDetail_TimeStamp, 
+            T.ObjectId AS PropertyChangeDetail_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.PropertyChangeDetail AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.PropertyChangeDetail_8182History"><![CDATA[
+    SELECT VALUE -- Constructing PropertyChangeDetail_8182History
+        [CalendarWidgets.Repository.PropertyChangeDetailHistory](T1.PropertyChangeDetailHistory_Id, T1.PropertyChangeDetailHistory_Version, T1.PropertyChangeDetailHistory_ExecutedByUserId, T1.PropertyChangeDetailHistory_ExecutionEndTime, T1.PropertyChangeDetailHistory_OriginalVersion, T1.PropertyChangeDetailHistory_NewVersion, T1.PropertyChangeDetailHistory_OriginalValue, T1.PropertyChangeDetailHistory_NewValue, T1.PropertyChangeDetailHistory_EventRegistrationId, T1.PropertyChangeDetailHistory_Operation, T1.PropertyChangeDetailHistory_TimeStamp, T1.PropertyChangeDetailHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS PropertyChangeDetailHistory_Id, 
+            T.Version AS PropertyChangeDetailHistory_Version, 
+            T.ExecutedByUserId AS PropertyChangeDetailHistory_ExecutedByUserId, 
+            T.ExecutionEndTime AS PropertyChangeDetailHistory_ExecutionEndTime, 
+            T.OriginalVersion AS PropertyChangeDetailHistory_OriginalVersion, 
+            T.NewVersion AS PropertyChangeDetailHistory_NewVersion, 
+            T.OriginalValue AS PropertyChangeDetailHistory_OriginalValue, 
+            T.NewValue AS PropertyChangeDetailHistory_NewValue, 
+            T.EventRegistrationId AS PropertyChangeDetailHistory_EventRegistrationId, 
+            T.Operation AS PropertyChangeDetailHistory_Operation, 
+            T.TimeStamp AS PropertyChangeDetailHistory_TimeStamp, 
+            T.ObjectId AS PropertyChangeDetailHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.PropertyChangeDetailHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Spinner_2122"><![CDATA[
+    SELECT VALUE -- Constructing Spinner_2122
+        [CalendarWidgets.Repository.Spinner](T1.Spinner_Id, T1.Spinner_Description, T1.Spinner_EventRegistrationId, T1.Spinner_TimeStamp, T1.Spinner_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS Spinner_Id, 
+            T.Description AS Spinner_Description, 
+            T.EventRegistrationId AS Spinner_EventRegistrationId, 
+            T.TimeStamp AS Spinner_TimeStamp, 
+            T.ObjectId AS Spinner_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Spinner AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Spinner_2122History"><![CDATA[
+    SELECT VALUE -- Constructing Spinner_2122History
+        [CalendarWidgets.Repository.SpinnerHistory](T1.SpinnerHistory_Id, T1.SpinnerHistory_Version, T1.SpinnerHistory_Description, T1.SpinnerHistory_EventRegistrationId, T1.SpinnerHistory_Operation, T1.SpinnerHistory_TimeStamp, T1.SpinnerHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS SpinnerHistory_Id, 
+            T.Version AS SpinnerHistory_Version, 
+            T.Description AS SpinnerHistory_Description, 
+            T.EventRegistrationId AS SpinnerHistory_EventRegistrationId, 
+            T.Operation AS SpinnerHistory_Operation, 
+            T.TimeStamp AS SpinnerHistory_TimeStamp, 
+            T.ObjectId AS SpinnerHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.SpinnerHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.Theme_6828History"><![CDATA[
+    SELECT VALUE -- Constructing Theme_6828History
+        [CalendarWidgets.Repository.ThemeHistory](T1.ThemeHistory_Id, T1.ThemeHistory_Version, T1.ThemeHistory_Description, T1.ThemeHistory_EventRegistrationId, T1.ThemeHistory_Operation, T1.ThemeHistory_TimeStamp, T1.ThemeHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS ThemeHistory_Id, 
+            T.Version AS ThemeHistory_Version, 
+            T.Description AS ThemeHistory_Description, 
+            T.EventRegistrationId AS ThemeHistory_EventRegistrationId, 
+            T.Operation AS ThemeHistory_Operation, 
+            T.TimeStamp AS ThemeHistory_TimeStamp, 
+            T.ObjectId AS ThemeHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.ThemeHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.User_4231History"><![CDATA[
+    SELECT VALUE -- Constructing User_4231History
+        [CalendarWidgets.Repository.UserHistory](T1.UserHistory_Id, T1.UserHistory_Version, T1.UserHistory_LanguageId, T1.UserHistory_ThemeId, T1.UserHistory_Username, T1.UserHistory_ActiveId, T1.UserHistory_PersonId, T1.UserHistory_EventRegistrationId, T1.UserHistory_Operation, T1.UserHistory_TimeStamp, T1.UserHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS UserHistory_Id, 
+            T.Version AS UserHistory_Version, 
+            T.LanguageId AS UserHistory_LanguageId, 
+            T.ThemeId AS UserHistory_ThemeId, 
+            T.Username AS UserHistory_Username, 
+            T.ActiveId AS UserHistory_ActiveId, 
+            T.PersonId AS UserHistory_PersonId, 
+            T.EventRegistrationId AS UserHistory_EventRegistrationId, 
+            T.Operation AS UserHistory_Operation, 
+            T.TimeStamp AS UserHistory_TimeStamp, 
+            T.ObjectId AS UserHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.UserHistory AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.YesNoQuestion_5783History"><![CDATA[
+    SELECT VALUE -- Constructing YesNoQuestion_5783History
+        [CalendarWidgets.Repository.YesNoQuestionHistory](T1.YesNoQuestionHistory_Id, T1.YesNoQuestionHistory_Version, T1.YesNoQuestionHistory_Description, T1.YesNoQuestionHistory_EventRegistrationId, T1.YesNoQuestionHistory_Operation, T1.YesNoQuestionHistory_TimeStamp, T1.YesNoQuestionHistory_ObjectId)
+    FROM (
+        SELECT 
+            T.Id AS YesNoQuestionHistory_Id, 
+            T.Version AS YesNoQuestionHistory_Version, 
+            T.Description AS YesNoQuestionHistory_Description, 
+            T.EventRegistrationId AS YesNoQuestionHistory_EventRegistrationId, 
+            T.Operation AS YesNoQuestionHistory_Operation, 
+            T.TimeStamp AS YesNoQuestionHistory_TimeStamp, 
+            T.ObjectId AS YesNoQuestionHistory_ObjectId, 
+            True AS _from0
+        FROM CodeFirstDatabase.YesNoQuestionHistory AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.SequenceData"><![CDATA[
+    SELECT VALUE -- Constructing SequenceData
+        [CodeFirstDatabaseSchema.SequenceData](T1.SequenceData_TableName, T1.SequenceData_SequenceValue)
+    FROM (
+        SELECT 
+            T.TableName AS SequenceData_TableName, 
+            T.SequenceValue AS SequenceData_SequenceValue, 
+            True AS _from0
+        FROM EntityDbContext.SequenceData AS T
+    ) AS T1]]></view>
+    <view extent="EntityDbContext.SequenceData"><![CDATA[
+    SELECT VALUE -- Constructing SequenceData
+        [CalendarWidgets.Repository.SequenceData](T1.SequenceData_TableName, T1.SequenceData_SequenceValue)
+    FROM (
+        SELECT 
+            T.TableName AS SequenceData_TableName, 
+            T.SequenceValue AS SequenceData_SequenceValue, 
+            True AS _from0
+        FROM CodeFirstDatabase.SequenceData AS T
+    ) AS T1]]></view>
+  </mapping-views>
+</views>', '8/27/2019 8:25:30 AM -04:00')
+]]></Script>
+</DataChangeDefinition>

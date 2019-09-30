@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FieldSet" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>FieldSet is a placeholder for one or more Fields.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FieldSetType" PropertyId="SimpleEntityDefinitionProperty_FieldSetType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Fields" PropertyId="SimpleEntityDefinitionProperty_Fields" IsOptional="true" DataType="$[List,64138c35-5b58-4a55-850e-f1e990a10f73]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="FieldSet" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">FieldSet.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Field Set]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FieldSetType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Type of the Field Set]]></Description>
+        <DescriptionOptions><![CDATA[Default, Long]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="Long" Value="Long" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="FieldSetType" PropertyPath="FieldSetType" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVEhLzZHBCQAxCARNirX/DnK45LlgLmjYgcGnjA53X9bI3LON0wXjQiBTEH/6K3hSwO5XZixgeWXKPJnmJwKZAnrfRPCkgN2vzFjA8sqUeTLNTwQyBfS+iaC5wOwDHKZZWYvZtrIAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVEhLY/wPBAw0BExQmmaAWB8wQmlSANjcQeMDsgFdfABl0gaMJlN8YDSZEgdGkylBMJpMCQIa+4CBAQDJHyz0mlQ+kgAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

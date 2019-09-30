@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetPDFData" OwnerId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" ProcessId="354e45a5-9bb4-44d5-ae2e-4f76a5e2b03c" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Updates image source to with RFC2397 PDF data">
+  <Variables>
+    <Variable Name="PDFElement" DataType="cdb33597-dbd6-4491-8f37-e81c0c50ba39" VariableType="InputOutput" VariableId="ed8386ef-03cc-418a-bac2-40c029b7c3be" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Base64Content" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="bd0373ac-4207-4672-a675-572a390c57a6" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="046aa405-55f5-4488-bdd0-a5836933e37d" Bounds="822.5,55,170,55" />
+        <ExecuteProcessNode ElementDefinition="cdb33597-dbd6-4491-8f37-e81c0c50ba39" ProcessProperty="198bd405-7761-4363-b9bb-cb5891e185f8" ExecuteProcessType="Element" VariableId="BuildPDFDataResult" SuppressValidations="false" Description="Build PDF Data" ID="57ba9b09-1a16-4c8b-8852-1629c87f2145" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Base64Content" Value="Base64Content" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <AssignNode Description="Set PDF Data" ID="f89b47d0-80de-4719-ade8-22ae30f337b2" Bounds="632.5,255,550,55">
+          <Assignment Name="PDFElement.PDFData" Value="BuildPDFDataResult.Outputs.PDFData" />
+        </AssignNode>
+        <EndNode ID="45aab20e-3f2a-4fa9-8d37-3035a0de75d3" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="3aedbe8c-11cd-41ea-98bb-645e4ba90c70" From="046aa405-55f5-4488-bdd0-a5836933e37d" FromIndex="0" To="57ba9b09-1a16-4c8b-8852-1629c87f2145" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="eb053f40-6cd8-485c-b468-aff3bc7a3a53" From="57ba9b09-1a16-4c8b-8852-1629c87f2145" FromIndex="2" To="f89b47d0-80de-4719-ade8-22ae30f337b2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d0958b9a-f694-4cdd-afdf-c7d83f06ffba" From="f89b47d0-80de-4719-ade8-22ae30f337b2" FromIndex="2" To="45aab20e-3f2a-4fa9-8d37-3035a0de75d3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

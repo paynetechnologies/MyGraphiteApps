@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickLoginButton" OwnerId="b46339dc-d95b-49c2-b456-d87211afcb3a" ProcessId="76b1fd0c-c20d-49ab-b1ef-78419bfd3dd1" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="6a6181b5-8da7-4c29-9205-fa62d508377b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="2373a642-88ce-4b94-a436-d6dd0102c2f2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PasswordField" DataType="919223ac-22c6-4540-be89-e85d1be5f0ad" VariableType="Input" VariableId="9b93e797-a739-4aee-9dc2-675157bad60f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="UsernameField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="fd34ff7c-5d9b-437d-b3b1-e6d217998798" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="11cfdf7d-6c9b-4a9e-bd1c-6d4e0e29e7a0" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="14d42b9e-36e6-47ac-b68b-5eb666b118a8" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode EntityDefinition="09e69fa9-5af6-4ff8-8909-f96d588467ef" ProcessProperty="b2f4cf71-857f-4691-b1d3-856bdc36c33d" ExecuteProcessType="EntityStatic" VariableId="UserFindByUsernameResult" SuppressValidations="false" ID="7b97c55f-2c5a-4474-8b1c-a466b17c0aea" Bounds="440.6,255,550,55">
+          <InputVariables>
+            <InputVariable Name="Username" Value="UsernameField" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="CurrentUser" Value="CurrentUser" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ValidationNode ID="235c39c3-36ed-4756-a1d9-cc4e7bca7d90" Bounds="440.6,355,550,55">
+          <Validations>
+            <Validation Name="UserNameValidation" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:InvalidLogin]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="CurrentUser.Username" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <ValidationNode ID="0975b8c1-1a36-4504-888b-dc3194c77272" Bounds="440.6,455,550,55">
+          <Validations>
+            <Validation Name="PasswordValidation" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:InvalidLogin]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="CurrentUser.Password" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <DecisionNode LeftExpression="CurrentUser" Operator="IsInstanceOfType" TypeCheckTypeId="57159bd2-a2fb-4f72-aa3a-fd4759507d1e" ID="602cd43c-eb3e-443e-9b4f-f4f906943766" Bounds="460.6,555,510,125" />
+        <PageInstructionNode Action="ShowView" Context="Current" Theme="CurrentUser.Theme.Description" Locale="CurrentUser.Language.Code" ViewDefinitionId="8535d60f-9d1b-4dde-a002-4ae203377ea5" PageInstructionViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" ID="61be16c8-1e76-4f84-881f-66665440060c" Bounds="840.6,725,550,55" Text="Page Instruction" />
+        <PageInstructionNode Action="ShowView" Context="Current" Theme="CurrentUser.Theme.Description" Locale="CurrentUser.Language.Code" ViewDefinitionId="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" PageInstructionViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" ID="cdafefa9-f763-48ce-895d-4e30152534bf" Bounds="40.6,725,550,55" Text="Page Instruction" />
+        <EndNode ID="04da9929-ad4d-49e9-b0c8-a16a54203659" Bounds="630.6,825,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="34823251-3995-416d-8b13-292dec595b05" From="11cfdf7d-6c9b-4a9e-bd1c-6d4e0e29e7a0" FromIndex="0" To="14d42b9e-36e6-47ac-b68b-5eb666b118a8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d855d9db-329f-4c53-8946-4d4582ad2fd3" From="14d42b9e-36e6-47ac-b68b-5eb666b118a8" FromIndex="2" To="7b97c55f-2c5a-4474-8b1c-a466b17c0aea" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="141962d3-b51b-457f-ac22-b45331199c73" From="7b97c55f-2c5a-4474-8b1c-a466b17c0aea" FromIndex="2" To="235c39c3-36ed-4756-a1d9-cc4e7bca7d90" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d1d31ec7-0036-4efe-8e37-3a147b9729e9" From="235c39c3-36ed-4756-a1d9-cc4e7bca7d90" FromIndex="2" To="0975b8c1-1a36-4504-888b-dc3194c77272" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="215f668e-2f0f-4d24-9b88-f7f00e6d2e90" From="0975b8c1-1a36-4504-888b-dc3194c77272" FromIndex="2" To="602cd43c-eb3e-443e-9b4f-f4f906943766" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,555" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="883bd56b-de37-4947-b1b6-1adddaf69c73" From="602cd43c-eb3e-443e-9b4f-f4f906943766" FromIndex="3" To="cdafefa9-f763-48ce-895d-4e30152534bf" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460.6,617.5" />
+          <Segment EndPoint="315.6,617.5" />
+          <Segment EndPoint="315.6,725" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="fda4833f-e75a-4446-965a-605dd8b896e8" From="602cd43c-eb3e-443e-9b4f-f4f906943766" FromIndex="1" To="61be16c8-1e76-4f84-881f-66665440060c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="970.6,617.5" />
+          <Segment EndPoint="1115.6,617.5" />
+          <Segment EndPoint="1115.6,725" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="25de3d55-34a0-4428-9e05-21d2c828cfbc" From="cdafefa9-f763-48ce-895d-4e30152534bf" FromIndex="2" To="04da9929-ad4d-49e9-b0c8-a16a54203659" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="315.6,780" />
+          <Segment EndPoint="315.6,852.5" />
+          <Segment EndPoint="630.6,852.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="502c718b-8126-4b99-b3b3-c0397e533846" From="61be16c8-1e76-4f84-881f-66665440060c" FromIndex="2" To="04da9929-ad4d-49e9-b0c8-a16a54203659" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115.6,780" />
+          <Segment EndPoint="1115.6,852.5" />
+          <Segment EndPoint="800.6,852.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ChangeMobilePhone" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="5134e509-9511-43bf-bf44-21441e3c124e" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Change the registered mobile phone number of a user">
+  <Variables>
+    <Variable Name="PhoneNumber" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="d0c67757-3663-4f99-9b70-bba26af73a46" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="eb24e18f-7aef-407c-8276-e45e16672555" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="55c246d1-42b5-4e32-b78f-2c8c8434cdb0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Message" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="45f95c14-1abe-4df8-89b9-5d886d20792e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ChangeRequestAccepted" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="86b42ed0-61cd-434b-a338-329be672551a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="be464b5d-4c40-4301-8c84-784b5bca00fc" Bounds="822.5,55,170,55" />
+        <RunWebServiceNode ServiceProcessId="11caddae-4b07-4f9e-a745-2b629daeab01" VariableId="ChangeMobilePhoneResult" ID="e77e0669-de53-4265-aa50-25ee8d429de2" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="NewPhoneNumber" Value="PhoneNumber" />
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode ID="112ad2d8-9a39-4a06-86b1-43f654b6efec" Bounds="632.5,255,550,55">
+          <Assignment Name="Message" Value="ChangeMobilePhoneResult.Outputs.ChangeMobilePhoneRequestResult.Message" />
+          <Assignment Name="ChangeRequestAccepted" Value="ChangeMobilePhoneResult.Outputs.ChangeMobilePhoneRequestResult.Success" />
+        </AssignNode>
+        <EndNode ID="24ff1a55-6cc3-456d-9eec-28dfdf873fd4" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="6aab2003-c5bf-4476-a976-0d48b293aa5e" From="be464b5d-4c40-4301-8c84-784b5bca00fc" FromIndex="0" To="e77e0669-de53-4265-aa50-25ee8d429de2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6a921b5d-c8fc-4e7a-bdd5-ff9e486092ff" From="e77e0669-de53-4265-aa50-25ee8d429de2" FromIndex="2" To="112ad2d8-9a39-4a06-86b1-43f654b6efec" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ac5bfe2d-b178-48bb-b0ae-2b6893f582d3" From="112ad2d8-9a39-4a06-86b1-43f654b6efec" FromIndex="2" To="24ff1a55-6cc3-456d-9eec-28dfdf873fd4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

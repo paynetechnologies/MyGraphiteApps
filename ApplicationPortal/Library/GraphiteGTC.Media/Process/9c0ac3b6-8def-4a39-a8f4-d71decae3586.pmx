@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildReplaceElements" OwnerId="c1589ece-b815-418a-814b-99b6a57ae374" ProcessId="9c0ac3b6-8def-4a39-a8f4-d71decae3586" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Create an Video element and add to a list of ViewElements">
+  <Variables>
+    <Variable Name="Source" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="0f0e6a68-c728-4f03-9ca7-d44f5973209c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Base64Type" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="23aaa150-8a3a-466e-bd34-df38ac78defa" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AutoPlay" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="addfa623-d507-4640-9148-50336a1dd756" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="d93f44b3-b90a-4bed-b227-ded08367643b" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="7b4c71bc-e95c-4643-a469-ec12af4e81ef" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="NewVideo" DataType="c1589ece-b815-418a-814b-99b6a57ae374" Description="Create a new Video" ID="e1b30e05-b0bd-413c-8253-94b3dd682943" Bounds="632.5,155,550,55">
+          <Properties>
+            <Property Name="AutoPlay">AutoPlay</Property>
+            <Property Name="Base64Type">Base64Type</Property>
+            <Property Name="Source">Source</Property>
+            <Property Name="Type">"Video"</Property>
+          </Properties>
+        </CreateNode>
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Initialize View Elements" ID="53abb1e7-7b34-45d0-ad70-c4221f2b5040" Bounds="632.5,255,550,55">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="NewVideo" SourceList="ViewElements" Description="Add Video to View Elements" ID="c823ab45-b6b2-4aa8-b790-903920fab1ba" Bounds="632.5,355,550,55" />
+        <EndNode ID="95f2f809-f24b-4010-926e-8576b107e42d" Bounds="822.5,455,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="dd6c5d51-2ac1-4dd8-87dc-3b543a5f8085" From="7b4c71bc-e95c-4643-a469-ec12af4e81ef" FromIndex="0" To="e1b30e05-b0bd-413c-8253-94b3dd682943" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a44b5e33-231a-49e1-adeb-5a024e3fbd5e" From="e1b30e05-b0bd-413c-8253-94b3dd682943" FromIndex="2" To="53abb1e7-7b34-45d0-ad70-c4221f2b5040" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="302c025a-971c-454c-8ed2-4fbd7ec1ecbb" From="53abb1e7-7b34-45d0-ad70-c4221f2b5040" FromIndex="2" To="c823ab45-b6b2-4aa8-b790-903920fab1ba" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0bde294d-ffbb-49db-9f62-c12761ea4d9e" From="c823ab45-b6b2-4aa8-b790-903920fab1ba" FromIndex="2" To="95f2f809-f24b-4010-926e-8576b107e42d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,410" />
+          <Segment EndPoint="907.5,455" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

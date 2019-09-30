@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AddViewAuthorization" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="69ed6163-6c64-4ee1-8376-4ede677d9129" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Add a View authorization to a Security Group">
+  <Variables>
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="InputOutput" VariableId="043842ea-c89f-4e6d-8fe3-1d3881e345a7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewDetail" DataType="83dfc660-5d65-4969-9850-25db372a93b9" VariableType="Input" VariableId="3651ae3a-623f-4d4f-94ff-aed3dbdf5eb8" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="b80457c8-d0ca-4565-ae82-04a1e8e3013c" Bounds="820,110,170,55" />
+        <DataLookupNode Source="dc08c3a6-5702-4e32-80f0-297a2ea8bbcc" VariableId="FoundViewAuthorization" ResultType="Single" Description="Lookup Allowed ViewAuthorization" ID="c5b4122f-e8ff-4992-bbe0-55321b8c4b1b" Bounds="630,210,550,55" ZOrder="6" Text="Data Lookup">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="ViewDetail.PropertyId" RightExpression="ViewDetail.PropertyId" Operator="IsEqualTo" />
+            <CriteriaExpression LeftExpression="AuthorizationLevel" RightExpression="ViewAuthorizationLevel:Allow" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <ListManagementNode ListActionType="Add" ListItem="FoundViewAuthorization" SourceList="SecurityGroup.ViewAuthorizations" Description="Add Allowed ViewAuthorization to SecurityGroup" ID="83aeb120-c6fc-4895-ba46-4cc78e09363c" Bounds="630,310,550,55" ZOrder="4" Text="List Management" />
+        <EndNode ID="f91e3875-a6d9-4b61-b9cd-b8f0477b71d0" Bounds="820,410,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="5bbb7a57-b80b-4886-aee9-c4b222d8ce3a" From="83aeb120-c6fc-4895-ba46-4cc78e09363c" FromIndex="2" To="f91e3875-a6d9-4b61-b9cd-b8f0477b71d0" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="905,365" />
+          <Segment EndPoint="905,410" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="599f980d-6cdb-482c-b266-9a97f6839087" From="b80457c8-d0ca-4565-ae82-04a1e8e3013c" FromIndex="0" To="c5b4122f-e8ff-4992-bbe0-55321b8c4b1b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="905,165" />
+          <Segment EndPoint="905,210" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="93f8e054-5413-49e2-a0b6-d9bf14c2c206" From="c5b4122f-e8ff-4992-bbe0-55321b8c4b1b" FromIndex="2" To="83aeb120-c6fc-4895-ba46-4cc78e09363c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="905,265" />
+          <Segment EndPoint="905,310" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

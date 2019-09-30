@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="NoteField" ViewElementId="0e273944-c6a0-46b3-b8cb-af8a86500bc2" BasedOn="d09429b4-07f7-48c4-9f4b-176a118b1af5" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Note Field allows adding notes.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MaxLength" PropertyId="SimpleEntityDefinitionProperty_MaxLength" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Columns" PropertyId="SimpleEntityDefinitionProperty_Columns" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Rows" PropertyId="SimpleEntityDefinitionProperty_Rows" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsResizable" PropertyId="SimpleEntityDefinitionProperty_IsResizable" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="NoteField" />
+    <Property PropertyName="Columns" DefaultValue="47" />
+    <Property PropertyName="Rows" DefaultValue="1" />
+    <Property PropertyName="IsResizable" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">NoteField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Textbox.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="MaxLength" EditorType="IntegerTextBox" Label="Maximum Characters" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Characters Allowed]]></Description>
+      </Field>
+      <Field FieldName="Columns" EditorType="IntegerTextBox" Label="Columns" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Number of Columns in the Field (Width)]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="47" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Rows" EditorType="IntegerTextBox" Label="Rows" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Number of Rows in the Field (Height)]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsResizable" EditorType="YesNoToggle" Label="Resizable?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow resizing of the Field?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="MaxLength" PropertyPath="MaxLength" Value="{Text}" />
+      <Map FieldName="Columns" PropertyPath="Columns" Value="{Text}" />
+      <Map FieldName="Rows" PropertyPath="Rows" Value="{Text}" />
+      <Map FieldName="IsResizable" PropertyPath="IsResizable" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAATCAYAAACKsM07AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABhSURBVEhL7ZJdCsAwCIPtzun9r7EymSMVYQ/+QKEfBB+jiYOZbyrkemcZaDCSJdgLnrhUKVgDdf42iNLaQQleBzjDeB0sXxAFDfCDMiS0doDxZEhovcDLMSLhdPDL7h0QTWZdQzkjE1AuAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAATCAYAAACKsM07AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABQSURBVEhLY/zz5/9/BhoCJihNM4DsA0YoTS0ANhfdByBBGKYKQLcA5guq+YbmcUB3C2BhT9M4gGGqgNGMhg+AzaWrD2gCRuOAIBjqccDAAAAZHSPaXMd/GAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

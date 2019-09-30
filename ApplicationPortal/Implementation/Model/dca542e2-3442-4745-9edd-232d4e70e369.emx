@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="ViewElementAuthorization" EntityId="dca542e2-3442-4745-9edd-232d4e70e369" MergedFrom="ba6205ab-a4bc-4600-9f5e-c2caf1ac98ba" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="AuthorizationLevel" PropertyId="855526e3-7596-4e81-b009-e2c4d0701447" IsOptional="false" IsOverride="true" DataType="bf3bab1e-623a-4bd1-b325-00cb5dd06ea6">
+    <ReplacementMapping From="c79af0be-c629-4695-a159-bd481d5dbae1" To="bf3bab1e-623a-4bd1-b325-00cb5dd06ea6" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewElementDetail" PropertyId="2d3cc4eb-2d2c-4dfd-91f7-d27908ff664d" IsOptional="false" IsOverride="true" DataType="59af5e79-5715-4749-98e5-9905ba455019">
+    <ReplacementMapping From="af341bc6-22a0-41e8-a41e-967afb8dd879" To="59af5e79-5715-4749-98e5-9905ba455019" />
+  </Property>
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

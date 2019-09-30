@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="RichTextDisplayItem" ViewElementId="a58b8fad-af85-463a-813f-7cc724b835e0" BasedOn="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Rich Text Display Item is used to display rich text in a Display Item.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="RichTextDisplayItem" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">RichTextDisplayItem.js</Script>
+      <Script Component="false" Group="Caja">HtmlCssSanitizer.min</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="TextColor" EditorType="Hidden" Label="TextColor" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="TranslateContent" EditorType="Hidden" Label="TranslateContent" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping />
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAALCAYAAABlNU3NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEHSURBVDhPtdOxSgNBEMbxOZGAYCFindLC+ACWqVJaWFnYBU4RhPgkirbBIIJa2fgCdpZJlSaptLIQLcRCguf/u52FQwjeFn7wY+a2yOztbbKiKOw/k+V57m2ZZTxjBWNsQjt4xBaSs+A1Zg/6cWUDndDaidfk/B5w5PXK67HXOzyFNi3VAW1o1y84wCv0Blqb4RzJqQ6Iu7/Gp9cMPSh9fIS2fuKAJrZDa5deL7zqu6zhHQMtpCQO0FVaDK2NoJszLJ/MltANrZ3hO7T1ogEN7JdP83MIbWCKey3UjQbsQkfwhXWsVrSgD6wj3IFy6rVWNEC7U24xwVuF/mw3UOKVfUA8vj9i9gO7sy1OePkw0wAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAALCAYAAABlNU3NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADvSURBVDhPtZIxigIxFIZHWSzEYgRrK7ex0SNYeQSrxVMIXsBaYUs7txcsvcFY2XkAO2EXLARBRJ/fPzOBIIiTYj/4SN4/SR4kUzKz6D8p56OjhkdU1x2WUCSoLNjnBl8YZ9Oojf1sGs3yMRxdkecOxU8+rlH5B+4VhOIf3lMAB6ziH96xjfo+wmD8BksFMEXV32llNkfVMZ4UhOAOb+JVAXRQWTetzM7YQL9pYVyDSVq9Zoxa18KbgqJoUwV/0+o1emA9tNavFBRFG4bZ1C74iXVPPbC7ugFqvfsZCqENm2xqC1T9rPtlE3TZVsF7zB5UH+JX6kDBeAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

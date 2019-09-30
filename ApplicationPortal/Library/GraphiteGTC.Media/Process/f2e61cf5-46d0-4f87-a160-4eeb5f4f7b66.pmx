@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Send" OwnerId="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessId="f2e61cf5-46d0-4f87-a160-4eeb5f4f7b66" ProcessType="Normal" Classification="DataTransfer" IsRemovable="true" Description="Write a list of files to a folder">
+  <Variables>
+    <Variable Name="FolderDescriptor" DataType="ddadc386-b0ef-4ea4-ae98-7a36edff0092" VariableType="Input" VariableId="e779de3e-8edd-47b9-85b3-5f813b0b126a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="ce6ca35a-086d-4c67-9437-f52c62b171ae" Bounds="822.5,55,170,55" />
+        <RunWebServiceNode ServiceProcessId="dbb71635-89d8-491a-9632-c451609e4c5f" VariableId="SendFolderResult" ID="e1f381f7-ed71-4766-876a-2f0d9c5fb0dd" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="DestinationFolder" Value="FolderDescriptor" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <EndNode ID="738047b3-b762-4c7c-a706-c8f4d9d86708" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="c83397be-27d4-4926-acc7-ee5b1a9c7185" From="ce6ca35a-086d-4c67-9437-f52c62b171ae" FromIndex="0" To="e1f381f7-ed71-4766-876a-2f0d9c5fb0dd" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="194169d8-97d6-48b0-a6ae-b2e8a7e30076" From="e1f381f7-ed71-4766-876a-2f0d9c5fb0dd" FromIndex="2" To="738047b3-b762-4c7c-a706-c8f4d9d86708" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

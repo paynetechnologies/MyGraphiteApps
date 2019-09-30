@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Spinner" EntityId="aa4fc373-6fd5-4096-a6de-b2eb219923e9" EntityType="Enumeration" MergedFrom="15ca03af-93b0-4cbb-858f-ec6179001d0a" TargetChangeSetId="5b909dbf-fcd6-4aeb-9656-d595a27bc364">
+  <Description />
+  <DataEntries KeyProperty="Description" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

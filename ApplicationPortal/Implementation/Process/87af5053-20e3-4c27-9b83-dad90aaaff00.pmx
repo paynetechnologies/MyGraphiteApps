@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="afed812a-1b26-4b4e-82b7-dac78ff07cb1" ProcessId="87af5053-20e3-4c27-9b83-dad90aaaff00" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="afed812a-1b26-4b4e-82b7-dac78ff07cb1" VariableType="Output" Classification="Pinned, Locked" VariableId="38941843-9315-4d47-a23b-8693fcb38295" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="c83d5a2e-1788-47a1-a1ab-f1a1297462b3" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="03ca36fc-75c3-4249-bce3-3d5f978dfecf" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="afed812a-1b26-4b4e-82b7-dac78ff07cb1" Description="Create the CreateProfileModal view" ID="7217f480-ad16-4955-84d5-9cf00c35b49c" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="51eba737-1da7-4aab-a6f0-c130c78a9414" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="f97cdf02-ed2d-4381-afd5-f838268ab554" From="03ca36fc-75c3-4249-bce3-3d5f978dfecf" FromIndex="0" To="7217f480-ad16-4955-84d5-9cf00c35b49c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="0dac5c6d-9cbf-4712-a74c-6c3ae5b5b0ee" From="7217f480-ad16-4955-84d5-9cf00c35b49c" FromIndex="2" To="51eba737-1da7-4aab-a6f0-c130c78a9414" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

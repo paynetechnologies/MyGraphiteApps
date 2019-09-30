@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="CloseButtonModal" Title="CloseButtonModalTitle" GroupName="Action" NamespaceExtension="Action" ViewId="756a22f3-e392-4fd3-b2ca-6d4d0f29dc62" IsDefaultView="false" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="true" ModalSize="Auto">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="4031dd23-437b-4c7a-80ba-7fb5b054013e" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseDefaultButtonHeading" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CloseButtonDefault" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" ID="b87feb5f-00dc-4f03-949a-e2232d5f191a" Bounds="50,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseDefaultButtonParagraph" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CloseButtonDefaultHint" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="7ef42438-a933-4b13-a576-298feca9fefd" ID="3c1bb0ba-cf9e-479a-877f-700ac24b5ed6" Bounds="90,215,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="7ef42438-a933-4b13-a576-298feca9fefd" Bounds="50,160,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseDefaultButtonPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="723ac0a8-c37b-4d63-b06f-db70b7a3d3f1" Bounds="50,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseDefaultButtonEndLine" />
+                </Field>
+                <Field FieldName="AppendLine">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="Blank" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="cdbc9f87-4401-4dda-ad0c-20d1ac4398cb" Bounds="50,270,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithWarningButtonHeading" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CloseButtonWithWarning" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" ID="9797150f-75f3-4d9c-a0ed-007f437796c4" Bounds="50,325,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithWarningButtonParagraph" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CloseButtonWithWarningHint" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="d440dc02-7c73-438d-8caf-047f818e3177" Bounds="50,380,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="SampleForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="3e91588e-321a-47d8-aa1c-3f8173a19527" ID="575aaf28-d9f3-4d85-86e4-37598f6530c4" Bounds="90,545,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="3e91588e-321a-47d8-aa1c-3f8173a19527" Bounds="50,435,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithWarningButtonPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="3750076f-696c-43c6-8620-13358f5f6059" Bounds="50,490,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithWarningButtonEndLine" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="Blank" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="508d8c81-eda2-4467-968c-f496e3c1f0eb" Bounds="50,545,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithOnCloseButtonHeading" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CloseButtonWithOnClose" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" ID="ea70eaa0-0a44-4af8-818b-e72e5b230a74" Bounds="50,600,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithOnCloseButtonParagraph" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CloseButtonWithOnCloseHint" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="b74d1ae1-c169-47b8-a382-92d09c7d353e" ID="0bed1fb8-2df7-464b-abd9-136b20765989" Bounds="90,820,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="b74d1ae1-c169-47b8-a382-92d09c7d353e" Bounds="50,655,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithOnCloseButtonPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="83b35a7a-a360-4c41-858b-11f42995cf3f" Bounds="50,710,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseWithOnCloseButtonEndLine" />
+                </Field>
+                <Field FieldName="AppendLine">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="Blank" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="25241e6d-7689-48ea-8298-f9a4290d16f5" From="7ef42438-a933-4b13-a576-298feca9fefd" FromIndex="0" To="3c1bb0ba-cf9e-479a-877f-700ac24b5ed6" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,195" />
+              <Segment EndPoint="70,232.5" />
+              <Segment EndPoint="90,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="d599d7f4-f295-4267-9794-27758254a7ca" From="3e91588e-321a-47d8-aa1c-3f8173a19527" FromIndex="0" To="575aaf28-d9f3-4d85-86e4-37598f6530c4" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,470" />
+              <Segment EndPoint="70,562.5" />
+              <Segment EndPoint="90,562.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="d80ec5c8-c24a-4416-a6b9-45c2f8b1e940" From="b74d1ae1-c169-47b8-a382-92d09c7d353e" FromIndex="0" To="0bed1fb8-2df7-464b-abd9-136b20765989" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,690" />
+              <Segment EndPoint="70,837.5" />
+              <Segment EndPoint="90,837.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Action Widgets</Tag>
+  </Tags>
+</ViewDefinition>

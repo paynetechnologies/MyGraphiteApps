@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetPassword" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="9b49a834-aba1-4022-a185-8e46b664fd72" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Set password">
+  <Variables>
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="9b2a7a61-1a81-4a9a-977a-3ec60f2a2632" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="User" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Input" VariableId="ff707c4f-a44f-4e0b-8e5c-9fadcbe3a346" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Password" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="8ff77416-1877-45bb-b6eb-a8bdf0f3f908" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="RequiresPasswordReset" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Input" VariableId="4198d6c9-c564-4008-8e11-5fcf7e79b9cf" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PasswordSet" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="693b2f88-c7a7-48cf-ac3b-1aea497b1b36" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Message" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="6cea95a2-76a3-496e-bb6b-765bf01123f6" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="a611216b-e28d-48c9-a60b-7c13efcaee31" Bounds="822.5,75,170,55" Text="Start" />
+        <RunWebServiceNode ServiceProcessId="3031f15e-bae6-4f36-8c37-e5759dd3b3b1" VariableId="SetPasswordResult" ID="b1f629dc-7aa4-4227-b4e1-6515d0943323" Bounds="632.5,175,550,55">
+          <InputVariables>
+            <InputVariable Name="Password" Value="Password" />
+            <InputVariable Name="RequiresPasswordReset" Value="RequiresPasswordReset" />
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="User.Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode Description="" ID="f966d13b-eff8-4c5c-b29d-e87737b7ecf3" Bounds="632.5,275,550,55" ZOrder="1" Text="Assign">
+          <Assignment Name="Message" Value="SetPasswordResult.Outputs.SetPasswordResult.Message" />
+          <Assignment Name="PasswordSet" Value="SetPasswordResult.Outputs.SetPasswordResult.Success" />
+        </AssignNode>
+        <EndNode ID="ee58f745-434e-4224-b657-706d0fb4d779" Bounds="822.5,375,170,55" ZOrder="1" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="7c071fbd-3e1b-4194-a6d2-0c9f386e05d1" From="a611216b-e28d-48c9-a60b-7c13efcaee31" FromIndex="0" To="b1f629dc-7aa4-4227-b4e1-6515d0943323" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,130" />
+          <Segment EndPoint="907.5,175" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="34eac170-a949-4165-989a-35dc9e6787f3" From="b1f629dc-7aa4-4227-b4e1-6515d0943323" FromIndex="2" To="f966d13b-eff8-4c5c-b29d-e87737b7ecf3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,230" />
+          <Segment EndPoint="907.5,275" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6d996781-a26e-4d64-bd2d-9fa6acf9873e" From="f966d13b-eff8-4c5c-b29d-e87737b7ecf3" FromIndex="2" To="ee58f745-434e-4224-b657-706d0fb4d779" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,330" />
+          <Segment EndPoint="907.5,375" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="USAState" EntityId="3ec53ed9-41be-4557-ba0b-a2f03dbe5b0d" EntityType="Enumeration" MergedFrom="b6d70d91-1744-439f-baee-98a4cab0cd44" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <DataEntries KeyProperty="Description" />
+  <Tags>
+    <Tag Type="Group">Postal Address</Tag>
+  </Tags>
+</EntityDefinition>

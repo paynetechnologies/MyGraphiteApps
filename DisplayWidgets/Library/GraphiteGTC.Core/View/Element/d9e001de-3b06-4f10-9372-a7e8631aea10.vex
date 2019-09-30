@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FieldList" ViewElementId="d9e001de-3b06-4f10-9372-a7e8631aea10" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EnableCheckboxes" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Fields" IsOptional="true" DataType="$[List,64138c35-5b58-4a55-850e-f1e990a10f73]" />
+  </Properties>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true" />
+      <Field FieldName="EnableCheckboxes" EditorType="YesNoToggle" Label="Show Checkboxes?" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="EnableCheckboxes" PropertyPath="EnableCheckboxes" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group" />
+  </Tags>
+</ViewElementDefinition>

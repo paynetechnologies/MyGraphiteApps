@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="CalendarPage" Title="DayPlannerTitle" GroupName="" ViewId="5424dd1c-a43f-4e79-b4d0-f257f36983ab" IsDefaultView="false" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementPackDiagramNode Description="" ElementPackId="dff3dee9-cdbc-47ac-9515-0cc88863245a" Name="GuideHeader" ID="f4efafc7-4eca-4e01-af5a-4e1541019d32" Bounds="50,50,290,35" />
+          </Nodes>
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="7e543221-7a31-43b9-94f6-438c52cdbaf9" ID="e99f8876-cf4f-4645-a64c-162e45fe2897" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="SampleDayPlanner" />
+                </Field>
+                <Field FieldName="DimensionHeight">
+                  <PropertyValue Property="Text" Value="600" />
+                </Field>
+                <Field FieldName="DimnesionWidth">
+                  <PropertyValue Property="Text" Value="800" />
+                </Field>
+                <Field FieldName="OnRefresh">
+                  <PropertyValue Property="ProcessId" Value="6b8c3bc2-3752-4e19-a562-191f0f7589d5" />
+                </Field>
+                <Field FieldName="AppointmentModalView">
+                  <PropertyValue Property="ViewId" Value="6d7c05ad-81c2-4541-a187-af7cf67225b2" />
+                </Field>
+                <Field FieldName="MeetingModalView">
+                  <PropertyValue Property="ViewId" Value="6d7c05ad-81c2-4541-a187-af7cf67225b2" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="02c5e4a0-6ddf-444f-82d4-135fba351f7f" Bounds="50,50,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FooterArea" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="22" />
+                </Field>
+                <Field FieldName="FontWeight">
+                  <PropertyValue Property="Text" Value="Normal" />
+                </Field>
+                <Field FieldName="PaddingTop">
+                  <PropertyValue Property="Text" Value="20" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" ID="a5189aaa-f51a-471b-bcd8-da6046b7daf8" Bounds="90,105,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FooterItemList" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" PropertyName="ListItems" OwnerNode="a5189aaa-f51a-471b-bcd8-da6046b7daf8" ID="056e4816-a6bd-47f0-a48e-a820bf01b40d" Bounds="130,160,290,35" Text="HtmlText">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" ID="f74e2219-376b-4cdb-9eb6-39bd5664769d" Bounds="170,215,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalendarPageHint1Text" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CalendarPageHint1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" ID="379480b7-edac-4098-883f-2fdabc06a0d1" Bounds="170,270,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalendarPageHint2Text" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="CalendarPageHint2" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="18f39018-e05f-4b9b-8d7a-38dd8924cd25" From="02c5e4a0-6ddf-444f-82d4-135fba351f7f" FromIndex="0" To="a5189aaa-f51a-471b-bcd8-da6046b7daf8" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,122.5" />
+              <Segment EndPoint="90,122.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="633bdf12-9219-46fe-b5a1-cc17e25c3ae9" From="a5189aaa-f51a-471b-bcd8-da6046b7daf8" FromIndex="0" To="056e4816-a6bd-47f0-a48e-a820bf01b40d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,177.5" />
+              <Segment EndPoint="130,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="5e4f6dac-20ae-4507-bb2c-177c4eda060f" From="056e4816-a6bd-47f0-a48e-a820bf01b40d" FromIndex="0" To="f74e2219-376b-4cdb-9eb6-39bd5664769d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,232.5" />
+              <Segment EndPoint="170,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="ad8b560f-2917-48b2-8fbb-0d2a0023e5bf" From="056e4816-a6bd-47f0-a48e-a820bf01b40d" FromIndex="0" To="379480b7-edac-4098-883f-2fdabc06a0d1" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,287.5" />
+              <Segment EndPoint="170,287.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Screens</Tag>
+  </Tags>
+</ViewDefinition>

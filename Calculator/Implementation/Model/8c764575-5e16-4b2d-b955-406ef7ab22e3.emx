@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Interest" EntityId="8c764575-5e16-4b2d-b955-406ef7ab22e3" TargetChangeSetId="87f3813d-34f0-4b33-bec1-36da39f83399">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Financial</Tag>
+  </Tags>
+</EntityDefinition>

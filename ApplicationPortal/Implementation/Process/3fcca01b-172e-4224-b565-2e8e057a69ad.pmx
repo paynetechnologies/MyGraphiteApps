@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateAutoDetails" OwnerId="9e724afd-bac4-4e54-9136-dbbebf2834c9" ProcessId="3fcca01b-172e-4224-b565-2e8e057a69ad" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="FinanceModel" DataType="95222e34-5530-4e06-8531-a63209d80a34" VariableType="Input" VariableId="cdf4b019-830b-4dc5-a53d-4ffd97c94d37" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="InsuranceData" DataType="9e724afd-bac4-4e54-9136-dbbebf2834c9" VariableType="InputOutput" VariableId="07f9ff08-224a-4f9b-9913-2bc53600b1eb" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MilesPerYear" DataType="$[Nullable,ca9b1a7c-74c9-4aeb-8870-74ba24407035]" VariableType="Input" VariableId="16614aea-0ec7-4e67-a486-04db79bbe9dc" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="PrimaryUse" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="aca8e43a-5ce9-4375-ad8f-c77eb74a30af" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="RideShare" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="bae02ed6-88ad-4890-b25f-b98de1b8c766" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="VehicleBodyStyle" DataType="7b319dda-aa59-45ad-9cb2-64c5dfdffb8f" VariableType="Input" VariableId="cbf5400b-4d73-4606-9945-bf9b109e2c53" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="VehicleMake" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a09ef9ca-b6a0-4a41-9a18-36ccbbcaf30a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="VehicleModel" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="5a27aecb-975f-4596-9d70-b1399475a68f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="VehicleYear" DataType="$[Nullable,ca9b1a7c-74c9-4aeb-8870-74ba24407035]" VariableType="Input" VariableId="74df927c-d8e1-449f-816d-453bf3a04d2b" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="62a6f159-8600-4974-817d-3a287a865e2d" Bounds="630.6,55,170,55" />
+        <AssignNode ID="abefef46-776e-4659-8c61-5b43737e27ff" Bounds="440.6,155,550,55">
+          <Assignment Name="InsuranceData.FinanceModel" Value="FinanceModel" />
+          <Assignment Name="InsuranceData.MilesPerYear" Value="MilesPerYear" />
+          <Assignment Name="InsuranceData.PrimaryUse" Value="PrimaryUse" />
+          <Assignment Name="InsuranceData.RideShare" Value="RideShare" />
+          <Assignment Name="InsuranceData.VehicleBodyStyle" Value="VehicleBodyStyle" />
+          <Assignment Name="InsuranceData.VehicleMake" Value="VehicleMake" />
+          <Assignment Name="InsuranceData.VehicleModel" Value="VehicleModel" />
+          <Assignment Name="InsuranceData.VehicleYear" Value="VehicleYear" />
+        </AssignNode>
+        <EndNode ID="a2a1b83d-2382-47e7-8aa1-72a290f06ccf" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="e6d73a00-814f-4507-97c0-bde790a2eca0" From="62a6f159-8600-4974-817d-3a287a865e2d" FromIndex="0" To="abefef46-776e-4659-8c61-5b43737e27ff" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b8efaf9f-ad54-4d33-8fd7-da38f519252d" From="abefef46-776e-4659-8c61-5b43737e27ff" FromIndex="2" To="a2a1b83d-2382-47e7-8aa1-72a290f06ccf" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

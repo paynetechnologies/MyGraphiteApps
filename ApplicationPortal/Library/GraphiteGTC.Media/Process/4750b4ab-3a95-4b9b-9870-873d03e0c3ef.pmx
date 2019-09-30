@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Send" OwnerId="30d687ee-3dfb-4dae-95ff-5429488506da" ProcessId="4750b4ab-3a95-4b9b-9870-873d03e0c3ef" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Write files to a folder path">
+  <Variables>
+    <Variable Name="FolderPath" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="c636f86f-a0ab-40fe-b519-6edc1d8f5bb7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MediaFiles" DataType="$[List,30d687ee-3dfb-4dae-95ff-5429488506da]" VariableType="Input" VariableId="7360c9fb-d51a-41c3-a364-64abd3072491" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="895a9783-0dc2-42a6-8d26-bb673f1982a0" Bounds="822.5,80,170,55" />
+        <ExecuteProcessNode DataTransferDefinition="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessProperty="a86fa6f7-8f9f-4a7f-ac4c-5d5525c7cac2" ExecuteProcessType="DataTransfer" VariableId="FolderDescriptorCreateResult" SuppressValidations="false" ID="aaefee9d-10f9-4ad0-9e3a-1ca98ff0c309" Bounds="632.5,180,550,55" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="Path" Value="FolderPath" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <AssignNode ID="7d8f58fe-d939-4675-960c-ecf0942a2e98" Bounds="632.5,280,550,55">
+          <Assignment Name="FolderDescriptor" Value="FolderDescriptorCreateResult.Outputs.FolderDescriptor" />
+        </AssignNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="MediaFiles" IterationVar="CurrentMediaFile" ID="3bbc107b-e049-4655-a955-fdaa0f528c6b" Bounds="557.5,380,700,205" />
+        <ExecuteProcessNode DataTransferDefinition="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessProperty="f3e1a756-9a65-4855-b8bb-ffa1a91129b4" ExecuteProcessType="DataTransfer" VariableId="FolderDescriptorAddMediaFileResult" SuppressValidations="false" Parent="3bbc107b-e049-4655-a955-fdaa0f528c6b" ID="3ee1c457-21e7-4cf1-bb9f-2d31d81df06b" Bounds="75,75,550,55" ZOrder="10">
+          <InputVariables>
+            <InputVariable Name="FolderDescriptor" Value="FolderDescriptor" />
+            <InputVariable Name="MediaFile" Value="CurrentMediaFile" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="FolderDescriptor" Value="FolderDescriptor" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode DataTransferDefinition="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessProperty="f2e61cf5-46d0-4f87-a160-4eeb5f4f7b66" ExecuteProcessType="DataTransfer" VariableId="FolderDescriptorSendResult" SuppressValidations="false" ID="8df34c17-e2b1-4c5d-9788-f113dc152fb3" Bounds="632.5,630,550,55" ZOrder="10">
+          <InputVariables>
+            <InputVariable Name="FolderDescriptor" Value="FolderDescriptor" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="dadeac43-3f4d-46e7-be5b-242718ffb24e" Bounds="822.5,730,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="aea8432a-abb7-4218-8f46-11dacee02d99" From="3bbc107b-e049-4655-a955-fdaa0f528c6b" FromIndex="2" To="8df34c17-e2b1-4c5d-9788-f113dc152fb3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,585" />
+          <Segment EndPoint="907.5,630" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9a532f8a-de23-45d5-8daa-ef83b62dda02" From="8df34c17-e2b1-4c5d-9788-f113dc152fb3" FromIndex="2" To="dadeac43-3f4d-46e7-be5b-242718ffb24e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,685" />
+          <Segment EndPoint="907.5,730" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7e88ab38-fc7f-4210-8231-6518cabb414a" From="895a9783-0dc2-42a6-8d26-bb673f1982a0" FromIndex="0" To="aaefee9d-10f9-4ad0-9e3a-1ca98ff0c309" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,135" />
+          <Segment EndPoint="907.5,180" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="010d0d31-8de5-46cc-b79d-8530dfd06276" From="aaefee9d-10f9-4ad0-9e3a-1ca98ff0c309" FromIndex="2" To="7d8f58fe-d939-4675-960c-ecf0942a2e98" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,235" />
+          <Segment EndPoint="907.5,280" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a060c9c2-bfe0-4558-90e9-7a6b97c52a2a" From="7d8f58fe-d939-4675-960c-ecf0942a2e98" FromIndex="2" To="3bbc107b-e049-4655-a955-fdaa0f528c6b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,335" />
+          <Segment EndPoint="907.5,380" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Member" EntityId="57159bd2-a2fb-4f72-aa3a-fd4759507d1e" TargetChangeSetId="b3726a15-8529-44ed-9a8d-786d8cb752e1" BasedOn="292093ab-1097-44c3-b7b6-76352d824c8d">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Accounts" PropertyId="dc8b4944-311a-4c14-94a7-7666a0b9cfe9" IsOptional="true" DataType="$[List,bc754fa7-601e-4f4e-908a-7f114226cc3e]" />
+  <Tags>
+    <Tag Type="Group">Members</Tag>
+  </Tags>
+</EntityDefinition>

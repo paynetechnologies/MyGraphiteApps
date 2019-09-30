@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Tree" ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tree is used to display parent-child relationships and is to be used in conjuction with Tree Panel.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Nodes" PropertyId="SimpleEntityDefinitionProperty_Nodes" IsOptional="true" DataType="$[List,5b82eaea-f166-4ff4-afc2-fd7cba711604]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnLoad" PropertyId="SimpleEntityDefinitionProperty_OnLoad" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnNodeSelect" PropertyId="SimpleEntityDefinitionProperty_OnNodeSelect" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TreeType" PropertyId="SimpleEntityDefinitionProperty_TreeType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Orientation" PropertyId="SimpleEntityDefinitionProperty_Orientation" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayTooltips" PropertyId="SimpleEntityDefinitionProperty_DisplayTooltips" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayExpandAll" PropertyId="SimpleEntityDefinitionProperty_DisplayExpandAll" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayChangeOrientation" PropertyId="SimpleEntityDefinitionProperty_DisplayChangeOrientation" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="NodeEntityType" PropertyId="SimpleEntityDefinitionProperty_NodeEntityType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Tree" />
+    <Property PropertyName="DisplayTooltips" DefaultValue="No" />
+    <Property PropertyName="DisplayExpandAll" DefaultValue="Yes" />
+    <Property PropertyName="DisplayChangeOrientation" DefaultValue="Yes" />
+    <Property PropertyName="TreeType" DefaultValue="Space" />
+    <Property PropertyName="Orientation" DefaultValue="Landscape" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="false" Group="InfoVis">SpaceTree</Script>
+      <Script Component="true" RelativePath="View/Scripts">Tree.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">AccordionTree.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.AccordionTree.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">SpaceTree.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Tree]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnLoad" EditorType="ViewBehaviorChooser" Label="OnLoad" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Tree loads]]></Description>
+      </Field>
+      <Field FieldName="OnNodeSelect" EditorType="ViewBehaviorChooser" Label="OnNodeSelect" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when a Tree node is selected]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="true" ParameterNameProvider="b5b3b4c0-567d-4740-a99c-95fef5501ffb" DataTypeProvider="SimpleEntityDefinitionProperty_NodeEntityType" IsList="false" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="TreeType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Type of the Tree]]></Description>
+        <DescriptionOptions><![CDATA[Accordion, Space]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Space" Value="Space" />
+          <FieldOption DisplayName="Accordion" Value="Accordion" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Space" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Orientation" EditorType="SelectBox" Label="Orientation" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tree Orientation]]></Description>
+        <DescriptionOptions><![CDATA[Landscape, Portrait]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Landscape" Value="Landscape" />
+          <FieldOption DisplayName="Portrait" Value="Portrait" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Landscape" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DisplayTooltips" EditorType="YesNoToggle" Label="Show Tooltips?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Tree node tooltips?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DisplayExpandAll" EditorType="YesNoToggle" Label="Show Expand Link?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show expand Tree nodes icon?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DisplayChangeOrientation" EditorType="YesNoToggle" Label="Show Change Orientation?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow changing of the Orientation?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="DecimalTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Tree]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Height]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="NodeEntityType" EditorType="TypeChooser" Label="Node Type" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Node Entity Type]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="OnLoad" PropertyPath="OnLoad.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnLoad" PropertyPath="OnLoad.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnNodeSelect" PropertyPath="OnNodeSelect.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnNodeSelect" PropertyPath="OnNodeSelect.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="TreeType" PropertyPath="TreeType" Value="{Text}" />
+      <Map FieldName="Orientation" PropertyPath="Orientation" Value="{Text}" />
+      <Map FieldName="DisplayTooltips" PropertyPath="DisplayTooltips" Value="{Text}" />
+      <Map FieldName="DisplayExpandAll" PropertyPath="DisplayExpandAll" Value="{Text}" />
+      <Map FieldName="DisplayChangeOrientation" PropertyPath="DisplayChangeOrientation" Value="{Text}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="NodeEntityType" PropertyPath="NodeEntityType" Value="{TypeId}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB9SURBVEhLzZJRCsAgDEN1h/X+N9hW8KN0saYbzj4IQn/SpNbWWnnJ2V+Xo7/L8AxkQ08UswTVEcXWimagVA+JAepXJKBZiNQVUXwxsPVBpUugt6OIGugvSJH6yDrNUL8kgM63BDQLkfoG+ssOtT0B3KqLwjOwB7aiWFxRKRcpWDJfqHEa4gAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABwSURBVEhL1ZKBCsAgCESt//9nh2QwtrDTUbMHkhBx3llhZgoCPax6LsNyELZ2ZyZQWjvkjIgsBxAiAFlV3ILLI9qyg2hEOX6RV0Cm7gXhFZCIekGkXjLEFgfavpAL98RPUjuAdve7g89YAjMyRER0AUyeMfyRPIv6AAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

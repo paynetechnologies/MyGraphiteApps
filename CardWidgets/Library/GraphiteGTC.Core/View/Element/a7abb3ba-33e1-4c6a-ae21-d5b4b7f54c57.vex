@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Image" ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Image is used to display an image.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Source" PropertyId="SimpleEntityDefinitionProperty_Source" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsResponsive" PropertyId="SimpleEntityDefinitionProperty_IsResponsive" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Image" />
+    <Property PropertyName="IsResponsive" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Image.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Image]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Source" EditorType="ResourceChooser" Label="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Image]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="IntegerTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Image]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="IntegerTextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Image]]></Description>
+      </Field>
+      <Field FieldName="IsResponsive" EditorType="YesNoToggle" Label="Responsive?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Make Image Responsive?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{Text}" />
+      <Map FieldName="Source" PropertyPath="Source" Value="{SelectedResourceName}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="IsResponsive" PropertyPath="IsResponsive" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Image</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADmSURBVEhLvZNNDgFBEIWHtS2Jc7DH0t6KJeYaXIKds3AZ4ha81109qZmpiZ4/X/KlykjqdddkBmmafpIeGUrtDR0w6FjHX2/QC20D1vAlsi/RNuAGpyL7El2uKHuxmjoBC7j0bcYBvuET7vmgiP7QzBMo7lJXUn/h5sbeIJw+GE1swFkqOUmNIiaguHt9C4ZtfGtTFTCD3DmH69MHOJjyvwscQ5OqgCPkKR9Si/BZCJ7Aq2/LWAEjuPNtNFyTuSorYAsZUheuirfJYQVwPU3gcIbk0AH8MOjc/WoG1xTmOKpeckckyRdKwh/p3HHjzwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADuSURBVEhL1ZXLDcIwEEQTzrmCBG1QQMKROyeu0AdVINEDRaQA6uB3pgCYWXutlTFChkSCJz15sJ31J4oo76DokYFve8OeoPRtV0jd3k/w8wvM4cnL/MS374CFxy4WZzhxUej8HSQ3mLNADRsXA2t4gUe4YkdMzhW1vp359h2uLhfwML+yhkoDU3NihRBAPMHaQoU5NSdWCAHEE1S7e0VPsYELn2OFEIAdnELulMXt7hX2sTi5wiG0z1MhBGAHd+zIYA/t81QIAehABW/syCS+KiH1HSxh5WIWWzhy0eAXIrryQX59hr0q4d//0YriARiBb+T/TtMqAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

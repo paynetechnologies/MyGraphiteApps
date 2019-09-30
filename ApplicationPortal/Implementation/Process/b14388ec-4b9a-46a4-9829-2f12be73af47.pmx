@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateGovernmentData" OwnerId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" ProcessId="b14388ec-4b9a-46a4-9829-2f12be73af47" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="HomeLoanData" DataType="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" VariableType="InputOutput" VariableId="43ac5b2b-0908-4332-b0c0-a6cc213685a2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="BorrowDownPayment" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="7044f006-9f6f-4e3a-85b6-557d051e35ee" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="DeclaredBankruptcy" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="b61b2e08-4ff3-4147-9033-a1bad099fcbb" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="HomeForeclosure" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="e0d79026-4968-424c-a15c-6cd2fd185199" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="OtherOwnership" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="b3282bbd-62a3-415c-a27d-42982f776188" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PrimaryResidence" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="04770c22-502d-4b7e-bb27-c210423e5295" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="UnpaidJudgements" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="f037e3a6-79ba-4faf-9933-9e1887f4deca" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="USCitizen" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="0b19974b-42bc-4281-bb37-bca2e2adc04a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="c7dea4cc-122c-4ec5-8c47-fd7668173435" Bounds="630.6,165,170,55" ZOrder="1" Text="" />
+        <ExecuteProcessNode EntityDefinition="459dd3cc-bf39-40ea-a18e-7fe3a38bdae3" ProcessProperty="9c55b351-4d04-4393-8b0e-78c26325a236" ExecuteProcessType="EntityStatic" VariableId="GovernmentDataUpdateResult" SuppressValidations="false" ID="7a1df0a2-a07c-4bc1-8e73-dbdb1229ef21" Bounds="441.2,265,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="BorrowDownPayment" Value="BorrowDownPayment" />
+            <InputVariable Name="DeclaredBankruptcy" Value="DeclaredBankruptcy" />
+            <InputVariable Name="GovernmentData" Value="HomeLoanData.GovernmentData" />
+            <InputVariable Name="HomeForeclosure" Value="HomeForeclosure" />
+            <InputVariable Name="OtherOwnership" Value="OtherOwnership" />
+            <InputVariable Name="PrimaryResidence" Value="PrimaryResidence" />
+            <InputVariable Name="UnpaidJudgements" Value="UnpaidJudgements" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="GovernmentData" Value="HomeLoanData.GovernmentData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessProperty="681deced-bed7-40ed-8b94-19243001a807" ExecuteProcessType="EntityStatic" VariableId="PersonalDataUpdateCitizenshipResult" SuppressValidations="false" ID="e9b82557-0df4-44de-821d-26a54c5589cd" Bounds="441.2,365,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="PersonalData" Value="HomeLoanData.PersonalData" />
+            <InputVariable Name="USCitizen" Value="USCitizen" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PersonalData" Value="HomeLoanData.PersonalData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="010e1159-84a2-4e95-a3eb-564cfc6ce9e6" Bounds="631.2,465,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="c564b334-60fa-47da-8188-4ee081d1301b" From="c7dea4cc-122c-4ec5-8c47-fd7668173435" FromIndex="0" To="7a1df0a2-a07c-4bc1-8e73-dbdb1229ef21" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,220" />
+          <Segment EndPoint="715.6,242.5" />
+          <Segment EndPoint="716.2,242.5" Movable="true" />
+          <Segment EndPoint="716.2,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="955b6b92-41fc-4540-b7c1-f94e92b5715d" From="7a1df0a2-a07c-4bc1-8e73-dbdb1229ef21" FromIndex="2" To="e9b82557-0df4-44de-821d-26a54c5589cd" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="716.2,320" />
+          <Segment EndPoint="716.2,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7831eb82-64d3-450a-a568-cb75ca35b71c" From="e9b82557-0df4-44de-821d-26a54c5589cd" FromIndex="2" To="010e1159-84a2-4e95-a3eb-564cfc6ce9e6" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="716.2,420" />
+          <Segment EndPoint="716.2,465" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

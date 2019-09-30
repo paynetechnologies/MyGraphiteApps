@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="RecycleEvent" OwnerId="1e4d829f-cddd-4713-8a0d-7af7303d7480" ProcessId="bf7ced83-b413-4e1b-bf1d-df60a4803d4f" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Recycle an event">
+  <Variables>
+    <Variable Name="ExistingEventDetail" DataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" VariableType="Input" VariableId="2f30d997-0945-45fc-a0de-d839cb8fddd2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Input" VariableId="a2ef2d07-7518-48d0-90be-8ee2183700bb" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="eb2e1475-c4f8-45fb-ac3b-2e0aaca66ea4" Bounds="822.5,55,170,55" />
+        <CustomIlNode Description="OnRecycleEvent" ID="13c54171-2575-49d4-8511-fd038f78f024" Bounds="632.5,155,550,55" ZOrder="1" Text="Custom IL">
+          <ReferencedModelDefinitions />
+          <IL><![CDATA[
+var ExistingEventRegistration = Event.ConvertToEventRegistration( Inputs.ExistingEventDetail )
+Event.ResetToPending( ExistingEventRegistration )
+]]></IL>
+        </CustomIlNode>
+        <EndNode ID="35ad11d6-16fe-48ff-8d15-d5c131784ea5" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="6b772345-a528-44c4-9cd9-6604eb291b7c" From="eb2e1475-c4f8-45fb-ac3b-2e0aaca66ea4" FromIndex="0" To="13c54171-2575-49d4-8511-fd038f78f024" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c5433ee3-c17c-4be6-95af-bb66af22e58c" From="13c54171-2575-49d4-8511-fd038f78f024" FromIndex="2" To="35ad11d6-16fe-48ff-8d15-d5c131784ea5" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

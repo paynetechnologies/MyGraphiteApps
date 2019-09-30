@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickSaveAndCloseButton" OwnerId="87b79702-866b-4778-bcc9-067d2aedac13" ProcessId="6736ba17-6910-4429-8df5-b97415f3b169" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="1f2edd81-092e-4f88-9595-71436b345425" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="2393ea92-65ed-40c7-8fbf-1cc0df7030fe" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="b95cb72e-8814-456f-9c41-1f717b2d95fa" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="5938f6d3-875d-4c8e-b1c1-014cb37dc706" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="BodilyInjuryLimitField" DataType="$[Nullable,5a2a204e-9712-4be7-9ef0-79c83427658f]" VariableType="Input" VariableId="546cc82d-cd16-46aa-ab3a-26701c2ce297" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="BodyStyleField" DataType="7b319dda-aa59-45ad-9cb2-64c5dfdffb8f" VariableType="Input" VariableId="28ddee69-530b-49d3-9194-77a4c0203074" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="CityField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="8c31c495-86cb-4e5c-bdeb-04726c4b2501" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="CollisionDeductibleField" DataType="$[Nullable,5a2a204e-9712-4be7-9ef0-79c83427658f]" VariableType="Input" VariableId="3734058b-8b2a-484e-b72c-5654001d3fc6" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="ComprehensiveDeductibleField" DataType="$[Nullable,d9e1311d-0fbb-4ccc-a5ae-8c648554f89d]" VariableType="Input" VariableId="8f6e7425-035d-4d61-a7a4-a58476f9dc3d" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="DateOfBirthField" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="4a5641cf-866a-48c4-a6db-d614c819f33e" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="EmailAddressField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="bf3e7d15-d992-42ba-89aa-63defb88d27e" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="FinanceField" DataType="95222e34-5530-4e06-8531-a63209d80a34" VariableType="Input" VariableId="6c0103b7-d50f-4971-9415-af6c4ae9a163" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="FirstNameField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="39e10516-21fd-446c-9944-dd4f3655a7e7" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="LastNameField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a4890a13-d782-473a-b7a2-871cfee9e2dd" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="MakeField" DataType="745514db-3a28-4b6d-a9b2-5327cd2e8e9d" VariableType="Input" VariableId="d7777110-8d8d-4c28-8638-d095a8aabca4" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="PhoneNumberField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a1ee1948-2837-4ab5-8042-4142c7d59e84" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="PropertyDamageLimitField" DataType="$[Nullable,d9e1311d-0fbb-4ccc-a5ae-8c648554f89d]" VariableType="Input" VariableId="e98203c1-bc18-4cc9-bbb0-8b7c5e84d485" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="RideShareField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="25a8fb08-4f93-4504-866c-b8bac5ddc1cf" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="SsnField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="5fc3a184-5c2f-4302-9aca-e419e07aa3d0" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="StateField" DataType="3ec53ed9-41be-4557-ba0b-a2f03dbe5b0d" VariableType="Input" VariableId="658a0242-1c36-4d17-bcd3-f0e8a9e4458c" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="StreetField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a966a558-fb58-44e2-9bd2-1c999e56eee1" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="UseField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="559e0936-7151-4c1e-8f23-02eb6a2cbd1d" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="YearField" DataType="$[Nullable,ca9b1a7c-74c9-4aeb-8870-74ba24407035]" VariableType="Input" VariableId="c864dd04-27b0-45d1-8f69-68ab90f0cc27" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="ZipField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="3b7661c0-4933-454e-b539-a80bd2b9192a" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="ModelField" DataType="2fed88c7-90c8-4174-9cad-71b76990a2d4" VariableType="Input" VariableId="548bbc96-2e81-4de8-b0e7-0ea8bd528ff4" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="MilesField" DataType="$[Nullable,ca9b1a7c-74c9-4aeb-8870-74ba24407035]" VariableType="Input" VariableId="6d5ab032-3e41-4ac8-9357-97aa6a85fb45" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="StatusField" DataType="4b00238b-ba3b-4d86-a73b-c56a976427aa" VariableType="Input" VariableId="41ee5b19-3322-4e3d-8de5-c3382d6abd3c" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="c43d1368-d12a-4462-abf4-8a5580b5adf0" Bounds="630.6,265,170,55" ZOrder="1" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="8911b271-c96b-4c7e-addc-df0f918b94b0" Bounds="440.6,365,550,55" ZOrder="1" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode EntityDefinition="be83ce04-3d44-4b6f-9d4d-951b176f4197" ProcessProperty="23fa861b-01a7-4931-8792-1793ae0ed2d9" ExecuteProcessType="EntityStatic" VariableId="PersonUpdateAddressResult" SuppressValidations="false" ID="1136aa9f-a51a-4b73-952b-810953f86685" Bounds="440.6,465,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="City" Value="CityField" />
+            <InputVariable Name="Person" Value="ApplicantInContext.Person" />
+            <InputVariable Name="State" Value="StateField" />
+            <InputVariable Name="Street" Value="StreetField" />
+            <InputVariable Name="Zip" Value="ZipField" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Person" Value="ApplicantInContext.Person" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <CreateFromNode Variable="InsuranceDataInContext" FromExpression="ApplicationInContext.ApplicationData" CreateAsTypeId="9e724afd-bac4-4e54-9136-dbbebf2834c9" Description="Convert Application Data to Insurance Data" ID="9e158d3a-1aa2-4986-8e09-2edf331160b2" Bounds="440.6,565,550,55" ZOrder="7" Text="Create From" />
+        <ExecuteProcessNode EntityDefinition="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessProperty="a67c8010-f082-410b-b8d2-e0399f05c34c" ExecuteProcessType="EntityStatic" VariableId="PersonalDataUpdateDateOfBirthResult" SuppressValidations="false" ID="f7354ee8-9998-49d9-8fcf-14dddce503f4" Bounds="440.6,665,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="DateOfBirth" Value="DateOfBirthField" />
+            <InputVariable Name="PersonalData" Value="InsuranceDataInContext.PersonalData" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PersonalData" Value="InsuranceDataInContext.PersonalData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessProperty="777869b9-fb96-4e8e-b041-784877d11673" ExecuteProcessType="EntityStatic" VariableId="PersonalDataUpdateSSNResult" SuppressValidations="false" ID="659be28d-ccca-48dc-91c3-492f62c99950" Bounds="440.6,765,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="PersonalData" Value="InsuranceDataInContext.PersonalData" />
+            <InputVariable Name="SSN" Value="SsnField" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PersonalData" Value="InsuranceDataInContext.PersonalData" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="9e724afd-bac4-4e54-9136-dbbebf2834c9" ProcessProperty="3fcca01b-172e-4224-b565-2e8e057a69ad" ExecuteProcessType="EntityStatic" VariableId="InsuranceDataUpdateAutoDetailsResult" SuppressValidations="false" ID="b3af639a-9861-4825-87aa-9818665cca55" Bounds="440.6,865,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="FinanceModel" Value="FinanceField" />
+            <InputVariable Name="InsuranceData" Value="InsuranceDataInContext" />
+            <InputVariable Name="MilesPerYear" Value="MilesField" />
+            <InputVariable Name="PrimaryUse" Value="UseField" />
+            <InputVariable Name="RideShare" Value="Text.ConvertToYesNoQuestion( RideShareField )" />
+            <InputVariable Name="VehicleBodyStyle" Value="BodyStyleField" />
+            <InputVariable Name="VehicleMake" Value="MakeField.Name" />
+            <InputVariable Name="VehicleModel" Value="ModelField.Name" />
+            <InputVariable Name="VehicleYear" Value="YearField" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="InsuranceData" Value="InsuranceDataInContext" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="9e724afd-bac4-4e54-9136-dbbebf2834c9" ProcessProperty="9fbbe4a5-9c9b-422c-be94-b9e4e6472188" ExecuteProcessType="EntityStatic" VariableId="InsuranceDataUpdateCoverageDetailsResult" SuppressValidations="false" ID="06194ef0-abfc-4807-a980-c4f9d33f80a1" Bounds="440.6,965,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="BodilyInjuryLimit" Value="BodilyInjuryLimitField" />
+            <InputVariable Name="CollisionDeductible" Value="CollisionDeductibleField" />
+            <InputVariable Name="ComprehensiveLimit" Value="ComprehensiveDeductibleField" />
+            <InputVariable Name="InsuranceData" Value="InsuranceDataInContext" />
+            <InputVariable Name="PropertyDamageLimit" Value="PropertyDamageLimitField" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="InsuranceData" Value="InsuranceDataInContext" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" ProcessProperty="3a5d9ff2-9d1d-45a8-be26-1735576aa374" ExecuteProcessType="EntityStatic" VariableId="ApplicationSetStatusResult" SuppressValidations="false" ID="5fbc2eac-002a-4424-b479-2d9a83931a4f" Bounds="440.6,1065,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="Application" Value="ApplicationInContext" />
+            <InputVariable Name="Status" Value="ApplicationStatus:InProgress" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Application" Value="ApplicationInContext" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <SaveNode ID="16ba174b-1325-455e-b6e8-3f6aab8c028e" Bounds="440.6,1165,550,55" ZOrder="2" Text="">
+          <Entity>ApplicantInContext</Entity>
+          <Entity>ApplicationInContext</Entity>
+        </SaveNode>
+        <PageInstructionNode Action="CloseView" Context="Current" PageInstructionViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" ID="6e974fac-3839-4ce7-8f26-8d8c27693438" Bounds="440.6,1265,550,55" ZOrder="2" Text="" />
+        <EndNode ID="472709a0-37a5-4246-b3d0-b5d5f64dfd10" Bounds="630.6,1365,170,55" ZOrder="2" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="f1ec10c9-a47b-4352-a105-380119f16f12" From="1136aa9f-a51a-4b73-952b-810953f86685" FromIndex="2" To="9e158d3a-1aa2-4986-8e09-2edf331160b2" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,520" />
+          <Segment EndPoint="715.6,565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="523c5c6c-182d-4b24-b681-f67ce9a50a06" From="9e158d3a-1aa2-4986-8e09-2edf331160b2" FromIndex="2" To="f7354ee8-9998-49d9-8fcf-14dddce503f4" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,620" />
+          <Segment EndPoint="715.6,665" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3377f591-eabf-4952-ae9f-1eeb63ec8f62" From="16ba174b-1325-455e-b6e8-3f6aab8c028e" FromIndex="2" To="6e974fac-3839-4ce7-8f26-8d8c27693438" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,1220" />
+          <Segment EndPoint="715.6,1265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="2023537e-eabd-468f-bd4a-669b37c30840" From="6e974fac-3839-4ce7-8f26-8d8c27693438" FromIndex="2" To="472709a0-37a5-4246-b3d0-b5d5f64dfd10" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,1320" />
+          <Segment EndPoint="715.6,1365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="bcc4c41c-a117-488e-b75a-cba4ae88fae6" From="c43d1368-d12a-4462-abf4-8a5580b5adf0" FromIndex="0" To="8911b271-c96b-4c7e-addc-df0f918b94b0" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,320" />
+          <Segment EndPoint="715.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a2016c3a-d0ea-4152-bce7-1efa5ec1b539" From="8911b271-c96b-4c7e-addc-df0f918b94b0" FromIndex="2" To="1136aa9f-a51a-4b73-952b-810953f86685" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e9dad406-9807-4409-b43a-33686a729e77" From="f7354ee8-9998-49d9-8fcf-14dddce503f4" FromIndex="2" To="659be28d-ccca-48dc-91c3-492f62c99950" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,720" />
+          <Segment EndPoint="715.6,765" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d24c6806-4f0f-4488-9a35-09d4101f7525" From="659be28d-ccca-48dc-91c3-492f62c99950" FromIndex="2" To="b3af639a-9861-4825-87aa-9818665cca55" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,820" />
+          <Segment EndPoint="715.6,865" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c6a9343e-6ac5-4890-9c96-32e8043228ac" From="b3af639a-9861-4825-87aa-9818665cca55" FromIndex="2" To="06194ef0-abfc-4807-a980-c4f9d33f80a1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,920" />
+          <Segment EndPoint="715.6,965" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e22eaad5-6dd5-4ac3-8042-fcf27994d982" From="06194ef0-abfc-4807-a980-c4f9d33f80a1" FromIndex="2" To="5fbc2eac-002a-4424-b479-2d9a83931a4f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,1020" />
+          <Segment EndPoint="715.6,1065" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="92609ecb-4cba-42b1-a506-f13f3e028248" From="5fbc2eac-002a-4424-b479-2d9a83931a4f" FromIndex="2" To="16ba174b-1325-455e-b6e8-3f6aab8c028e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,1120" />
+          <Segment EndPoint="715.6,1165" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

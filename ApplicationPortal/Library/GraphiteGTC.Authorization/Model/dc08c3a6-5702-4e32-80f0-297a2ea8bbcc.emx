@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ViewAuthorization" EntityId="dc08c3a6-5702-4e32-80f0-297a2ea8bbcc" NamespaceExtension="Common">
+  <Description>An authorization entity that persists information on whether a View is allowed or denied</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="AuthorizationLevel" PropertyId="2f26bbf8-5186-402b-8ddd-001450ecd166" IsOptional="false" DataType="c79af0be-c629-4695-a159-bd481d5dbae1" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewDetail" PropertyId="9ab82bb0-e841-4ded-ac04-2d6a27bc3afa" IsOptional="false" DataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

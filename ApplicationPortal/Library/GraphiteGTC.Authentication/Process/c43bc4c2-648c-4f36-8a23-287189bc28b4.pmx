@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SendTwoFactorAuthenticationCode" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="c43bc4c2-648c-4f36-8a23-287189bc28b4" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Send a two-factor code">
+  <Variables>
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="4296b095-2215-4e5e-a1f9-05152d85ba9a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="133823e4-1b1c-4fff-8e9b-4231e45c7ed2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CodeSent" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="41cfc565-8a65-46c3-abfe-a6be87f7b42d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Message" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="90d70fef-6c73-45b9-b21b-c9e66613f6db" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="44d7c688-22f4-49c6-a58d-1f64c4cf31e9" Bounds="822.5,55,170,55" />
+        <RunWebServiceNode ServiceProcessId="d8b1cd72-0b19-4d4f-b91d-a044f6db74dd" VariableId="SendTwoFactorAuthenticationCodeResult" ID="019155e3-d98f-4ba6-acad-9a96abeb6d71" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode ID="f71b9a79-7a69-4d46-a6f1-2c9445d3acd4" Bounds="632.5,255,550,55">
+          <Assignment Name="Message" Value="SendTwoFactorAuthenticationCodeResult.Outputs.SendTwoFactorAuthenticationCodeResult.Message" />
+          <Assignment Name="CodeSent" Value="SendTwoFactorAuthenticationCodeResult.Outputs.SendTwoFactorAuthenticationCodeResult.Success" />
+        </AssignNode>
+        <EndNode ID="9644c330-bd31-4d8f-a043-0aa964ce43ad" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="39129fb3-3671-48ae-bcee-9f73a93d02ff" From="44d7c688-22f4-49c6-a58d-1f64c4cf31e9" FromIndex="0" To="019155e3-d98f-4ba6-acad-9a96abeb6d71" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="01f1cb0f-f6e1-47cd-9e60-245de98611ac" From="019155e3-d98f-4ba6-acad-9a96abeb6d71" FromIndex="2" To="f71b9a79-7a69-4d46-a6f1-2c9445d3acd4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="82cbbb26-0b68-496e-b10b-659f5ff40136" From="f71b9a79-7a69-4d46-a6f1-2c9445d3acd4" FromIndex="2" To="9644c330-bd31-4d8f-a043-0aa964ce43ad" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

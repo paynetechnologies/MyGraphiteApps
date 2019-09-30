@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="af36af03-934a-466e-b107-400fc944edbf" Name="GetTenants" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Get all tenants">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="GetTenants" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/GetTenantsResponse" Action="http://graphitegtc/membershipservice/IAuthentication/GetTenants">
+        <Inputs />
+        <Outputs>
+          <Output Name="GetTenantsResult" DataType="$[List,62ff6d43-a027-42b1-af68-9508897115fa]" ContractName="GetTenantsResult" ContractType="ArrayOfString" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

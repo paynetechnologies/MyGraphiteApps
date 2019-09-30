@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="EventElement" ViewElementId="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="true" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ControllerPath" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UiParameters" IsOptional="true" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ActionName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">EventElement.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

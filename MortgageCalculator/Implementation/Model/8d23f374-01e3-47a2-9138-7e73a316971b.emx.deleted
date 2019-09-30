@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="FixeRatedMortgage" EntityId="8d23f374-01e3-47a2-9138-7e73a316971b" MergedFrom="e5d0c764-a54a-47b0-a8be-596c2348175d" TargetChangeSetId="35ffccdd-e613-4b35-9590-19681458202c">
+  <Description />
+  <Tags>
+    <Tag Type="Group">FinancialFormulas</Tag>
+  </Tags>
+</EntityDefinition>

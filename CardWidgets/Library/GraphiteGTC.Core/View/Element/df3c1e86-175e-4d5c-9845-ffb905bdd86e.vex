@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SwitchMaskField" ViewElementId="df3c1e86-175e-4d5c-9845-ffb905bdd86e" BasedOn="f755a6c5-48c1-465c-9615-4deb3a49b8de" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Switch Mask Field allows switching between 2 states. These options can be masked to currency or other numeric values.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Selection" PropertyId="SimpleEntityDefinitionProperty_Selection" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="LeftSwitch" PropertyId="SimpleEntityDefinitionProperty_LeftSwitch" IsOptional="true" DataType="8bba2c62-0d3c-475b-a6c4-112a34589eac" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="RightSwitch" PropertyId="SimpleEntityDefinitionProperty_RightSwitch" IsOptional="true" DataType="8bba2c62-0d3c-475b-a6c4-112a34589eac" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SwitchMaskField" />
+    <Property PropertyName="Selection" DefaultValue="Left" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SwitchMaskField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Switchbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Textbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">MaskField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Mask.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">PlaceholderField.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Selection" EditorType="SelectBox" Label="Switch Position" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Default Position of the Switch]]></Description>
+        <DescriptionOptions><![CDATA[Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Left" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="LeftSwitchName" EditorType="TextBox" Label="Name" Grouping="Left Mask" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Name of the Field in the OnChange Behavior]]></Description>
+      </Field>
+      <Field FieldName="LeftSwitchLabel" EditorType="TranslationKeyChooser" Label="Label" Grouping="Left Mask" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Lable on the Left side of the Switch]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="LeftSwitchMask" EditorType="MaskChooser" Label="Mask" Grouping="Left Mask" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Mask for the Field Value]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="LeftSwitchPlaceholder" EditorType="TranslationKeyChooser" Label="Placeholder" Grouping="Left Mask" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Placeholder for the Left Field's Text]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="LeftSwitchIsCurrency" EditorType="YesNoToggle" Label="Currency?" Grouping="Left Mask" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Is it a Currency Field?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="RightSwitchName" EditorType="TextBox" Label="Name" Grouping="Right Mask" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Name of the Field in the OnChange Behavior]]></Description>
+      </Field>
+      <Field FieldName="RightSwitchLabel" EditorType="TranslationKeyChooser" Label="Label" Grouping="Right Mask" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Lable on the Right side of the Switch]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="RightSwitchMask" EditorType="MaskChooser" Label="Mask" Grouping="Right Mask" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Mask for the Field Value]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="RightSwitchPlaceholder" EditorType="TranslationKeyChooser" Label="Placeholder" Grouping="Right Mask" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Placeholder for the Right Field's Text]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="RightSwitchIsCurrency" EditorType="YesNoToggle" Label="Currency?" Grouping="Right Mask" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Is it a Currency Field?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Selection" PropertyPath="Selection" Value="{Text}" />
+      <Map FieldName="LeftSwitchName" PropertyPath="LeftSwitch.Name" Value="{Text}" />
+      <Map FieldName="LeftSwitchLabel" PropertyPath="LeftSwitch.Label" Value="{TranslationKey}" />
+      <Map FieldName="LeftSwitchMask" PropertyPath="LeftSwitch.Mask" Value="{Text}" />
+      <Map FieldName="LeftSwitchPlaceholder" PropertyPath="LeftSwitch.Placeholder" Value="{TranslationKey}" />
+      <Map FieldName="LeftSwitchIsCurrency" PropertyPath="LeftSwitch.IsCurrency" Value="{Text}" />
+      <Map FieldName="RightSwitchName" PropertyPath="RightSwitch.Name" Value="{Text}" />
+      <Map FieldName="RightSwitchLabel" PropertyPath="RightSwitch.Label" Value="{TranslationKey}" />
+      <Map FieldName="RightSwitchMask" PropertyPath="RightSwitch.Mask" Value="{Text}" />
+      <Map FieldName="RightSwitchPlaceholder" PropertyPath="RightSwitch.Placeholder" Value="{TranslationKey}" />
+      <Map FieldName="RightSwitchIsCurrency" PropertyPath="RightSwitch.IsCurrency" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFMSURBVDhP3dS7LkRBHMfxswSNN+ARiEvEpaQgcYlKsR5gSTTUlNSiEZ5AorQUFJQiRFwfwROIAhG+33POJJsTexyJbfyST3bOnMn+Z2ZntlSpVKI0rVhEGV12kAfsYQdvdvw2TelnBy6whWG0p2zb5zvHmCV81vGMU0wjjgWc+SF67agT3x2hDa7mEd/FSY2iinU7LLCAvC8P6YH7+QG3sJThRCfwBLOKGQvMx4/Fkjf2HSeYg9tlVizQn7QLpS/9zMs57pNmNBB+5KJxlkUSVlCywHXSLhSP7U8ZQXfSjC4t4DkvmryxLRjHPsLObNrYxW38mJ87OLYZ7nHt+ZcX8RidMBuoWuAVU7hBvTiBSTjWYx1uejYvOMMs1uwIS/HsDmEZV3CgbNs3iHC+t5G9A4EXbQwHiFP7X9SQhBU0LP+nQPbI/ZVGryCKvgB7KVl9C5UvRwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEQSURBVDhP1ZRBjgFBFIbLCOMOzsDeBayMgxDmEvaOMYlD2FpI0OEIbsBGJHr+r7qfTER3FUkv5ks+/frVS71KdRWXpqnZlFO5kqdcYnKM/a2N1oK23MoiGKOG2jGJAljUUg7kvQGrK5vc2MlPWZcHEgFm0jeY+Nc4qPUre2JD9uVRGl8MsM+xUPs48aM9eZOwrOnn4pxryhiobWVhKYnsytOHf43nmj9DaPM9NRpssjiKQ/4soyc7WejWNPjJ4ijKahuyLxfSdmbOR+HocQRDJNKO6Z5EgPsxxdBFYwF20UYkCjhLLtpQ+rmtAXLhvuVaUojE5N7+q+CY5ttVDa8e05f5/w3sG1T1IfxNrhDnfgHPl79UAtGFDwAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

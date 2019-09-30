@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="4b409081-2386-4342-b471-c9536490d337" Name="ChangePassword" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Change password">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="ChangePassword" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/ChangePasswordResponse" Action="http://graphitegtc/membershipservice/IAuthentication/ChangePassword">
+        <Inputs>
+          <Input Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Tenant" ContractType="string" />
+          <Input Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Username" ContractType="string" />
+          <Input Name="OldPassword" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="OldPassword" ContractType="string" />
+          <Input Name="NewPassword" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="NewPassword" ContractType="string" />
+        </Inputs>
+        <Outputs>
+          <Output Name="ChangePasswordResult" DataType="0d872c6d-b29d-43b7-9f9f-5b9a7618b65b" ContractName="ChangePasswordResult" ContractType="AuthenticationStatus" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

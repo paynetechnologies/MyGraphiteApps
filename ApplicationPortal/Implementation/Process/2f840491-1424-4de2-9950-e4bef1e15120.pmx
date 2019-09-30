@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetupCreditTab" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="2f840491-1424-4de2-9950-e4bef1e15120" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="cb9fc8b3-4478-42ab-abee-7cd0f19b12f2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="36e07a49-40fc-484d-bbea-725fd2dec620" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" VariableType="InputOutput" VariableId="4a25d973-47c2-48ed-a1ba-40aa3319fb1a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="54720da6-c99f-42d4-8eb4-db624f8afab0" Bounds="630.6,165,170,55" ZOrder="1" Text="" />
+        <CreateFromNode Variable="HomeLoanDataInContext" FromExpression="ApplicationInContext.ApplicationData" CreateAsTypeId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" Description="Convert Application Data to Home Loan Data" ID="3e9b1eb5-4172-4449-93cc-f5fe34e33ab3" Bounds="440.6,265,550,55" ZOrder="4" Text="Create From" />
+        <AssignNode ID="6af6e3cf-8f80-472b-9258-7b1bfaddfcbe" Bounds="440.6,365,550,55" ZOrder="1" Text="">
+          <Assignment Name="DateOfBirthField.Value" Value="HomeLoanDataInContext.PersonalData.DateOfBirth" />
+          <Assignment Name="SsnField.Value" Value="HomeLoanDataInContext.PersonalData.SSN" />
+        </AssignNode>
+        <EvaluationNode Variable="DisclosureField.Value" ID="e2fa9849-a947-4754-ba4a-ac64ddea1b1a" Bounds="440.6,465,550,55" ZOrder="1" Text="">
+          <Expression><![CDATA[Text.Concatenate (
+"NO WARRANTIES: All of the information provided on this website is provided AS-IS and with NO WARRANTIES. No express or implied warranties of any type, including for example implied warranties of merchantability or fitness for a particular purpose, are made with respect to the information, or any use of the information, on this site. Adminovate Bank, Inc. (Adminovate) makes no representations and extends no warranties of any type as to the accuracy or completeness of any information or content on this website.\n\nDISCLAIMER OF LIABILITY: Adminovate specifically DISCLAIMS LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES and assumes no responsibility or liability for any loss or damage suffered by any person as a result of the use or misuse of any of the information or content on this website. Adminovate assumes or undertakes NO LIABILITY for any loss or damage suffered as a result of the use, misuse or reliance on the information and content on this website.\n\nUSE AT YOUR OWN RISK: This website is for informational purposes only. Consult a physician before performing any exercise program, including the programs on this website. It is your responsibility to evaluate your own medical and physical condition, or that of your clients, and to independently determine whether to perform, use or adapt any of the information or content on this website. Any exercise program may result in injury. By voluntarily undertaking any exercise displayed on this website, you assume the risk of any resulting injury.")]]></Expression>
+        </EvaluationNode>
+        <DecisionNode LeftExpression="ApplicationInContext.DisclosureAgreement" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" ID="d4a599a2-ebe5-4f65-8b66-5109a8ef3c98" Bounds="460.6,565,510,125" ZOrder="1" Text="" />
+        <EndNode ID="01d632e2-ff9e-42a9-9f8f-c0e63b5cc596" Bounds="630.6,835,170,55" ZOrder="1" Text="" />
+        <AssignNode ID="1490b2d6-0f1e-4702-a965-6a54a69467a7" Bounds="40.6,735,550,55" ZOrder="1" Text="">
+          <Assignment Name="AgreementField.Value" Value="YesNoQuestion:Yes.Description" />
+        </AssignNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="dca1bc93-0ac1-4aa3-afdc-6a32c8d49c6f" From="54720da6-c99f-42d4-8eb4-db624f8afab0" FromIndex="0" To="3e9b1eb5-4172-4449-93cc-f5fe34e33ab3" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,220" />
+          <Segment EndPoint="715.6,265" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="041c144c-eb1f-4e77-9cb2-e1097474eff3" From="d4a599a2-ebe5-4f65-8b66-5109a8ef3c98" FromIndex="2" To="01d632e2-ff9e-42a9-9f8f-c0e63b5cc596" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="715.6,690" />
+          <Segment EndPoint="715.6,835" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="e4a08836-e0c2-42c9-a60c-2bec949905da" From="e2fa9849-a947-4754-ba4a-ac64ddea1b1a" FromIndex="2" To="d4a599a2-ebe5-4f65-8b66-5109a8ef3c98" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,520" />
+          <Segment EndPoint="715.6,565" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="464ffd8d-1acf-4072-8e9c-1a7ef3fd6b5f" From="d4a599a2-ebe5-4f65-8b66-5109a8ef3c98" FromIndex="3" To="1490b2d6-0f1e-4702-a965-6a54a69467a7" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="460.6,627.5" />
+          <Segment EndPoint="315.6,627.5" />
+          <Segment EndPoint="315.6,735" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="624d2408-542b-4cb9-97f8-6aab588621a4" From="1490b2d6-0f1e-4702-a965-6a54a69467a7" FromIndex="1" To="01d632e2-ff9e-42a9-9f8f-c0e63b5cc596" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="590.6,762.5" />
+          <Segment EndPoint="715.6,762.5" />
+          <Segment EndPoint="715.6,835" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="538bd259-be24-4149-96b3-d9010f542059" From="3e9b1eb5-4172-4449-93cc-f5fe34e33ab3" FromIndex="2" To="6af6e3cf-8f80-472b-9258-7b1bfaddfcbe" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,320" />
+          <Segment EndPoint="715.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="181b4906-1c07-4286-bf4b-1c5deca59f7c" From="6af6e3cf-8f80-472b-9258-7b1bfaddfcbe" FromIndex="2" To="e2fa9849-a947-4754-ba4a-ac64ddea1b1a" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,465" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

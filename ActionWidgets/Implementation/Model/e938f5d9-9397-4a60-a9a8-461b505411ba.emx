@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Person" EntityId="e938f5d9-9397-4a60-a9a8-461b505411ba" MergedFrom="07c78d9c-ffea-4fda-b368-ba120f0584ed" TargetChangeSetId="3f668bce-562e-4a57-a0ef-c97a691e93c2">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DragDropItem" ViewElementId="7057516a-8a9f-4bf5-90d2-d37cdc103e9b" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Drag and Drop Item contains a view element that can be moved around the screen.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="SimpleEntityDefinitionProperty_Id" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Item" PropertyId="SimpleEntityDefinitionProperty_Item" IsOptional="true" DataType="38107afd-fd3d-4472-b463-d8d0d5588a55" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsSelected" PropertyId="SimpleEntityDefinitionProperty_IsSelected" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DragDropItem" />
+    <Property PropertyName="IsSelected" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DragDropItem.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Item" EditorType="PropertyNodeCreator" Label="Draggable Item" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View Element that is to dragged and dropped]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Item" PropertyPath="Item" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">DragDrop</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEFSURBVDhPlZMxTsMwGEYdkGBk6QZHQGpLTgGoB6AbS8otGtaeoJ0YuQCdgQuggrgGUiUm6FC+lziuU8mOedKT/7jO/yWpnRVFYSxH8k7eyHMmxKd8lHP5y0SEqbyvyx2HeZ4znspneSvPJGFIfSlH8kl+yxAvdny1Y8WBpBE3D5gIwG9LeVxdhSklb+IgYCJjzRv60n3PCK0QAsZ1mYS/drunjwsh4IIikaEdU6hCCPgPGzumkhHwVtdJsG1TYcuWBLDPU/HXZnv6VM0pCFjIdy46+JCs7cI1BwJ+5LVcMRGAB7iSrI3Rag7NSeaEPsgv2ZMnkj+Up55JzspaxuAztZobY8wfo+kujkGaxwkAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADFSURBVDhPtZRBEsIgDEVTF9U7eEb1CPZ2LlyoZ9GN4wL/q9ABijYb/8xLUwgJQ0MthJDoxV6cxD2CzxhzeWyLY2PMkrMVF/FNzBFTLK5AsyIYdvcredJVrEWRICOpKILZCa+InRZX5JqKYDhnr4htJWxpLNLJPM2sFx4Ru/m4pu0talhFx6tXfHrV/fOIBjF+A/rcK2JTgZpcY3LA0Hq04JJuwtOmU3JIztJFYwOei1Ykh/yFC3cQZ/GI4DPm+VXMkocQ7A1ziE4OdHZLKQAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

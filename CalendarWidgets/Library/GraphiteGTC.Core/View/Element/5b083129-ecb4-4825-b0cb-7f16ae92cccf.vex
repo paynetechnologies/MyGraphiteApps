@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ButtonPanel" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Button Panel is a container for Buttons and Links.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Buttons" PropertyId="SimpleEntityDefinitionProperty_Buttons" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Side" PropertyId="SimpleEntityDefinitionProperty_Side" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ButtonPanel" />
+    <Property PropertyName="Side" DefaultValue="Default" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ButtonPanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Side" EditorType="SelectBox" Label="Side" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Side of the Panel where the Buttons are displayed]]></Description>
+        <DescriptionOptions><![CDATA[Center, Default, Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+          <FieldOption DisplayName="Center" Value="Center" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Side" PropertyPath="Side" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAASCAYAAABFGc6jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE+SURBVEhLxdS7SgNBGIbhjVoYL0AQK0vtgmhnoWKbi7BYUEhhkyJdCkEUFA+FNyD2gm0atbARFYtUgkgaFUG0EM/vt4fJOpvBZjd+8LA7k13+/DPDFnzf//a6kJ7oWsiZKZR77EJaxiyZ/FtHyZxhFkX0Yy6ai2PWn7xBz2q8qAk7rkK3mMEN1rGFFqZxjWS0RPNooIxtpOIqtIsnHGABPg7xjB0kU8MeJrCPXqTiKnSOQYwFozAjGMJlMGpnJbpWMRDepuMq9IWP8PZX3mG/ow5UoA793jGuQpN4xHEwCnOKe4wHo3Y2oOW7wqYmOiX+BMWnJz77dyhBp6mCPmiTP3EBLWHynVeM4gFNDEMxz7g60v4cYQprWIY6OYGK2NHxX8ULljRhx9VRVvmzo8xjF9I/yJJJ1zvS3uTI834AzndmEaLLdx4AAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAASCAYAAABFGc6jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE1SURBVEhL3dSxSsNAHMfx1DpoKboJ6tipoxR9geKiIDg4+QaCg5t06xOUIhR8BX0NFxdBUBBBB0cVN0G0tn5/d/dP0tg4mQ79wSe5f3KXS9JrSkMSTSA2UcmXhWU4ExqFJ/tE//0a4+tO7In+mugKTcxjDpvhmEV3a3f8CfVVfaADv6JXp7cXWJ6wiBp6OEUdC3iAYmMG2A/tHfRhia/rNmFvbaUF1beu8nmEftMjVyVjjsN+He9Ix/r4TdhbW9nCkm+OZAVN34zHmHNkY+dyF8MAfd8cyReyY8qooA2dH5u8iTbwhgtX+VziBQ1XJemghRt0dWBc8v5Hz1iDVtMhZnGCb1xjGekxH6jjFXdYhZL00USaK0hHq2sXVVSwjXtYsmPOoHrPVT5xn+n7Mkzv17vgRNEPKkOqT+/uiF8AAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

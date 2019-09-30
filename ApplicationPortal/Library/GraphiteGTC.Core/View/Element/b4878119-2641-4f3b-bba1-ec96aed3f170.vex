@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Button" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>A Button is a standard HTML button.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClick" PropertyId="SimpleEntityDefinitionProperty_OnClick" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AttachedKey" PropertyId="SimpleEntityDefinitionProperty_AttachedKey" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Confirmation" PropertyId="SimpleEntityDefinitionProperty_Confirmation" IsOptional="true" DataType="1a38ab49-9cbf-476c-a528-a444969d2e53" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Button" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Button.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Button.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Button is clicked]]></Description>
+      </Field>
+      <Field FieldName="OnClickFormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit" AffectsRender="false" IsLocalizable="false" SerializedFieldContainerProvider="true">
+        <Description><![CDATA[Form to Submit when Button is clicked]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="AttachedKey" EditorType="SelectBox" Label="Key" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Key to invoke the OnClick Behavior]]></Description>
+        <DescriptionOptions><![CDATA[(none), Backspace, Delete, Down, ...]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Backspace" Value="Keyboard.Backspace" />
+          <FieldOption DisplayName="Delete" Value="Keyboard.Delete" />
+          <FieldOption DisplayName="Down" Value="Keyboard.Down" />
+          <FieldOption DisplayName="End" Value="Keyboard.End" />
+          <FieldOption DisplayName="Enter" Value="Keyboard.Enter" />
+          <FieldOption DisplayName="Equal" Value="Keyboard.Equal" />
+          <FieldOption DisplayName="Escape" Value="Keyboard.Escape" />
+          <FieldOption DisplayName="Home" Value="Keyboard.Home" />
+          <FieldOption DisplayName="Hyphen" Value="Keyboard.Hyphen" />
+          <FieldOption DisplayName="Left" Value="Keyboard.Left" />
+          <FieldOption DisplayName="PageDown" Value="Keyboard.PageDown" />
+          <FieldOption DisplayName="PageUp" Value="Keyboard.PageUp" />
+          <FieldOption DisplayName="Period" Value="Keyboard.Period" />
+          <FieldOption DisplayName="Right" Value="Keyboard.Right" />
+          <FieldOption DisplayName="Shift" Value="Keyboard.Shift" />
+          <FieldOption DisplayName="Space" Value="Keyboard.Space" />
+          <FieldOption DisplayName="Tab" Value="Keyboard.Tab" />
+          <FieldOption DisplayName="Up" Value="Keyboard.Up" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="ConfirmationBody" EditorType="TranslationKeyChooser" Label="Message" Grouping="Confirmation" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Message in the Confirmation Dialog]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="ConfirmationTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Confirmation" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Confirmation Dialog]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="ConfirmationType" EditorType="SelectBox" Label="Type" Grouping="Confirmation" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Type of the Confiration Dialog]]></Description>
+        <DescriptionOptions><![CDATA[Confirmation, Dialog]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Confirmation" Value="0" />
+          <FieldOption DisplayName="Warning" Value="2" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="ButtonStyle" EditorType="SelectBox" Label="Style" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <FieldOptions>
+          <FieldOption DisplayName="Basic" Value="Basic" />
+          <FieldOption DisplayName="Outline" Value="Outline" />
+          <FieldOption DisplayName="Clear" Value="Clear" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Basic" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickFormToSerialize" PropertyPath="OnClick.FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="AttachedKey" PropertyPath="AttachedKey" Value="{Text}" />
+      <Map FieldName="ConfirmationBody" PropertyPath="Confirmation.Body" Value="{TranslationKey}" />
+      <Map FieldName="ConfirmationTitle" PropertyPath="Confirmation.Title" Value="{TranslationKey}" />
+      <Map FieldName="ConfirmationType" PropertyPath="Confirmation.Type" Value="{Text}" />
+      <Map FieldName="ButtonStyle" PropertyPath="ButtonStyle" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAOCAYAAAAxDQxDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFlSURBVDhP3dSrSwRRGMbhWVEwCIpgEsEgi+AVtIjNZDJZXBS8wBTZsskgBkWLxaAIBi1iMfgHCBtEsYlXFASDJlFhV7B4/72z5yyzztltGnzh4cwMM+eb880l5vv+l/cHKTPjr6dUoXvMYxgjWEIGNlPQsXCWoePbwV4oxVp3hj48og6feEID0mhCDG04hTKHGXRA59QiH9eKVHgImngDWtkDdLd3GMXPrEJFWrCLgiKKq9AxLtAPTao7l0n04gA3sNlCElqliqgDkbgK2Uk6zRiOPXZtxluM4QMViKzEpljrlHczhvNqRntdFvVI4BKzcMZVqNmM+2a00Q0c5jbz52gFevArUMsWodZH4irUih5o0mm84BkpnEPPTm+fotU0ogYLeMMEIt1wFVI2EYe+oypUQ99MO9bhyji6cQStrCClfkF6Hjs4gd66LgygHMoa1LrBYC+XK+yhEvrIdV2Q//av87xvhfpJbWTlA88AAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAOCAYAAAAxDQxDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFRSURBVDhP3dRPK0RRGMfxO5iy1KCU7GTjb9jIG2AzKzZK8Q5mqexm4RVMFigra+/BCyAsqAk1SVHSlBUG39+5z+XBMbux8KtP557n3NvT7Zx7c28k+YO02djyNHujW+zgDDlMYQVdUNbQh1KYpangGrp3UYWPqFEkJ+iB1nvRbdcDqELRfDS9DClDtXHcq+ATa/SKYehtd20uFej+WSi+0SY013N3KnxPrNEhVJ8Ps69RE61d2KhGe2jHIG4QTewwXNo4YaNPVqvaWMMqGsijgGhijbLD8WKjz5ON2XN19GMJOjRlxGNv5nMK1WfC7DPapxForWZjAVd4gA5NHkf4kVgjRU20to5H1FGy2hwUXftTtw3VJvGsgs9vjbTZQ9C6N4ZswzX3jRqYhuobKvg0+2C1H/s4RvbBFtEBZQva/IUwS3OOA3RiGXou5L/965LkHR7OXpH1Xfx9AAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

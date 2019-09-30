@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="b8da6403-17c2-4414-b4a1-4a7da9a37a41" Name="FormatCurrency" ExternalReferenceId="99da9824-7291-4077-8579-65fcc4482feb">
+  <ExternalNamespace>Portal.Utility</ExternalNamespace>
+  <ExternalClassName>CurrencyUtility</ExternalClassName>
+  <ExternalMethodName>FormatCurrency</ExternalMethodName>
+  <Inputs>
+    <Parameter Name="CurrencyValue" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" />
+  </Inputs>
+  <Outputs>
+    <Parameter Name="Result" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Outputs>
+</ExternalProcessDefinition>

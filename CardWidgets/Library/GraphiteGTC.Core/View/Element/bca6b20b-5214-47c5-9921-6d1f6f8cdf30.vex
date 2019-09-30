@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="LocalLink" ViewElementId="bca6b20b-5214-47c5-9921-6d1f6f8cdf30" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Local Link is used to navigate within one View - to a specific element on the View.  It is used in conjunction with the Floating Menu.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ElementName" PropertyId="SimpleEntityDefinitionProperty_ElementName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AddElementFocus" PropertyId="SimpleEntityDefinitionProperty_AddElementFocus" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="LocalLink" />
+    <Property PropertyName="AddElementFocus" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">LocalLink.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="ElementName" EditorType="TextBox" Label="Element Name" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View Element instance to bring to focus]]></Description>
+        <DescriptionOptions><![CDATA[Any Element on the View]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="AddElementFocus" EditorType="YesNoToggle" Label="Add Element Focus?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show animated focus?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="ElementName" PropertyPath="ElementName" Value="{Text}" />
+      <Map FieldName="AddElementFocus" PropertyPath="AddElementFocus" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHpSURBVEhLtdQ7SJVhHMfxYxmVRjkJUQ5BFhg1aIolteUQXcEgiIaWQ5ZDODgkOqg4ONSQJW4RDkKB3WjIraKELksU3YZQIqhFpbKILt/ve3zhOXqU84r+4MN5eXjP83+ub0E6nf6XWsIsm/5dsoQFChZgC66jKWiLRVnoDNbjCl7jGLqxAbOStMBadOEdGuH+jcH2i5iVJAWW4ylaUYxBVKAev+BM9iMrSQo42tUYxk6cwBe8QQ9ML4oyj5nMV+AAnmEctfiLajjijXiJazDuwQdsQrsNcXIV2IUHuIMqfEUJzGY8wi24PIdxBD/hnphmbM88ZhfwD0N4jD34jLOwfRR2aud1MM7oKl5gDZzlb6zAJUQJC/TB0fhSGzzjd9EPl+MQ4ji7HUjDpfRUdcLOb+IMooQFvCzxCEbwDZU4hfi9eHYWK4P34DK8Fw+xG0dhe5SwgKO8kHmMLtEqOJrb8A/OzuV5DzOJUjzHQezFE2QlLGA68BHlOG8DOQmXwwt1H3ZYCGezDh5ZlzJnZhb4ATfWtGArHOUAPLL78B15f4FnFjD3cAMr4aV6heOYgue9Bn+QV3IVMOfgGruRvuNJ8g74mZhA3pmrwCe4B85kG07De5E4YQHXNeR3pQFvg7Ykosw1g0VKKvUfH1ZzWSsih2sAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHGSURBVEhL1ZVNS1VBGIDvNQMRsWWE4Cpukrhp1YfLFiKS/g71J7SKgn6BtKqlkIs+lq0qcte2hQkJEq2NEDTJ2/PMmRneKx3MwEUPPJx35p07X2fm3G4fOufIUH6eG3GA7j/Yww1cDXXFBrcoY/y3XsE1PEL5jhMY2yRqADHZ5jg+xB8oP3G3CfvPMbZN1ABi8k9ewC2UY1zHqziFByjzWNonagAl0eYQOts3eCOXXZG5ByhfcBStS9QASkfFBfyIe3gz113Oz3v4CV/m8ghuozxG6xI1AGO9he+tyPjDOTR3Bz9gZAnN3U2l5r3MNOHgANfxRRMmvuEyXkRzrzDyC5/hJI7hfbRzeZufAwO8y08b2dgf+eOnaGeR1ziNDu4knEzBSTqhRBzAZZUZuFxzLj+yibNozm0r+y5uq9trrvYbBzD2Bcln9MVZ59b4Qhdzubzo2+gF8yB4IKyLJmoAxh6xnVRqjp51HkXvgEfTI/oVh7F01GaiBlASXhbx8lxDL5OXysslXjYHLO3bTNQAYnLDCvBiHTZhfx8f4SWMbdtM1ABi0g+X+yt+0J6gH7jY5jQTNYCTDVbQlfRC3VlM/O//aJ3Ob4G231i3pzcwAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DisplayInstruction" ViewElementId="6e831cc0-06a1-4383-8752-fb65cf1e3567" BasedOn="cd79934a-0312-42e4-a1bc-e1a9cb077d7f" IsSystem="true" IsBuiltIn="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ElementNameList" IsOptional="true" DataType="$[List,62ff6d43-a027-42b1-af68-9508897115fa]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DisplayInstruction" />
+  </DefaultValues>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">ViewElements</Tag>
+  </Tags>
+</ViewElementDefinition>

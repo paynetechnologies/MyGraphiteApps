@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Build" OwnerId="76baba6b-ac07-48da-b3e5-7c2f4d7c795c" ProcessId="917b8bef-0bbe-459e-89ee-86d2a9f51833" ProcessType="Normal" Classification="ViewElementPack, Initialization" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Input" Classification="Pinned, Locked" VariableId="3a7c2fb2-af0b-427c-8f8c-0746707498a8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AppointmentElementPack" DataType="76baba6b-ac07-48da-b3e5-7c2f4d7c795c" VariableType="InputOutput" VariableId="26dffdb2-091c-4c2e-96ef-c9646ddacadd" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="StartDateTime" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="08b1bd13-9915-4aed-9c91-3b5d0413267f" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AppointmentInContext" DataType="3c22c636-a81f-43b6-a099-2d303469555c" VariableType="Input" VariableId="3268c257-5a0a-4ea9-9c5c-f4203a970ebb" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="EndDateTime" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="df66b9ba-ec4e-452a-b7f2-39a4b5ec66ed" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="c46d962a-057e-49a8-9ac2-f14bf24538ea" Bounds="820,20,170,55" Text="Start" />
+        <DecisionNode LeftExpression="AppointmentInContext" Operator="IsNotMissing" Description="Appointment exists?" ID="d2c5f76b-820c-4f3d-a9b8-b0448775b195" Bounds="650,120,510,125" />
+        <AssignNode Description="Hide Remove Button Panel" ID="9ec8432d-9c83-43ef-b2b7-28bed326a951" Bounds="1030,290,550,55" ZOrder="1" Text="Assign">
+          <Assignment Name="AppointmentButtonPanel1.IsDisplayed" Value="&quot;No&quot;" />
+        </AssignNode>
+        <AssignNode Description="Show Remove Button Panel" ID="28ee7014-5a08-4879-a66b-fc8fb2a941ce" Bounds="30,290,550,55" Text="Assign">
+          <Assignment Name="AppointmentButtonPanel1.IsDisplayed" Value="&quot;Yes&quot;" />
+        </AssignNode>
+        <DecisionNode LeftExpression="StartDateTime" Operator="IsNotMissing" Description="" ID="67bdfae6-7b38-4077-bb55-2687de69b2bc" Bounds="1050,390,510,125" />
+        <DecisionNode LeftExpression="AppointmentInContext.AllDayEvent" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" Description="All Day Event?" ID="09adf84c-98af-4fe8-871d-338083e4b35f" Bounds="50,390,510,125" />
+        <DecisionNode LeftExpression="EndDateTime" Operator="IsNotMissing" Description="" ID="c526816f-78a9-43f5-a58f-2285eb330c7e" Bounds="1050,660,510,125" ZOrder="1" Text="" />
+        <AssignNode Description="" ID="efe4074f-9f80-4959-b7a8-e6740f82cd3b" Bounds="630,560,550,55">
+          <Assignment Name="AppointmentStartField.Value" Value="StartDateTime" />
+        </AssignNode>
+        <AssignNode Description="Set Appointment Fields" ID="5c5e5f45-8705-40e4-8cf2-b2fe691720be" Bounds="30,660,550,55" Text="Assign">
+          <Assignment Name="AppointmentSubjectField.Value" Value="AppointmentInContext.Subject" />
+          <Assignment Name="AppointmentLocationField.Value" Value="AppointmentInContext.Location" />
+          <Assignment Name="AppointmentStartField.Value" Value="AppointmentInContext.StartTime" />
+          <Assignment Name="AppointmentEndField.Value" Value="AppointmentInContext.EndTime" />
+          <Assignment Name="AppointmentAllDayField.Value" Value="AppointmentInContext.AllDayEvent.Description" />
+          <Assignment Name="AppointmentNoteField.Value" Value="AppointmentInContext.Note" />
+        </AssignNode>
+        <AssignNode Description="Set Date Only Mask and Placeholder" ID="4033080b-9fc6-43bd-b944-76e65f1d7ac0" Bounds="-370,560,550,55">
+          <Assignment Name="AppointmentStartField.Mask" Value="&quot;Date(MM/DD/YYYY)&quot;" />
+          <Assignment Name="AppointmentStartField.Placeholder" Value="TranslationKeys:DatePlaceholder" />
+          <Assignment Name="AppointmentEndField.Mask" Value="&quot;Date(MM/DD/YYYY)&quot;" />
+          <Assignment Name="AppointmentEndField.Placeholder" Value="TranslationKeys:DatePlaceholder" />
+        </AssignNode>
+        <EndNode ID="364f1881-7350-4f80-a19d-e7f0cfd30ee3" Bounds="820,960,170,55" Text="End" />
+        <AssignNode Description="" ID="f7690494-a1b6-433c-b7f1-c01fc0b0d5c9" Bounds="630,830,550,55">
+          <Assignment Name="AppointmentEndField.Value" Value="EndDateTime" />
+        </AssignNode>
+        <CreateUiParametersNode Variable="AppointmentSaveButton.OnClick.UiParameters" ViewDefinition="76baba6b-ac07-48da-b3e5-7c2f4d7c795c" ProcessProperty="ba211bbd-3c1b-47be-a119-665b350c17f6" Description="Set Save Button Parameters" ID="8178bde7-156d-45a8-b7b1-7fc4d6533833" Bounds="30,760,550,55" Text="Set Parameters">
+          <Parameters>
+            <Parameter Name="AppointmentInContext" Value="AppointmentInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="AppointmentRemoveButton.OnClick.UiParameters" ViewDefinition="76baba6b-ac07-48da-b3e5-7c2f4d7c795c" ProcessProperty="cde0ae86-1fd0-4c6c-9609-df17d074272b" Description="Set Remove Button Parameters" ID="453c19d4-6386-4f67-b8f6-5761b124c93c" Bounds="30,860,550,55">
+          <Parameters>
+            <Parameter Name="AppointmentInContext" Value="AppointmentInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="922c1a67-f765-4cf7-a9bb-4f4d7ae8c529" From="c46d962a-057e-49a8-9ac2-f14bf24538ea" FromIndex="0" To="d2c5f76b-820c-4f3d-a9b8-b0448775b195" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="905,75" />
+          <Segment EndPoint="905,120" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="33bccd52-2309-4e11-9dc3-ea3e01f5dc7d" From="09adf84c-98af-4fe8-871d-338083e4b35f" FromIndex="3" To="4033080b-9fc6-43bd-b944-76e65f1d7ac0" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="50,452.5" />
+          <Segment EndPoint="-95,452.5" />
+          <Segment EndPoint="-95,560" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="8ec757ab-ee10-477d-976d-89c21e4b3fb5" From="09adf84c-98af-4fe8-871d-338083e4b35f" FromIndex="2" To="5c5e5f45-8705-40e4-8cf2-b2fe691720be" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="305,515" />
+          <Segment EndPoint="305,660" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="bd3e0da1-c888-475f-8789-40ca1c5a39bd" From="5c5e5f45-8705-40e4-8cf2-b2fe691720be" FromIndex="2" To="8178bde7-156d-45a8-b7b1-7fc4d6533833" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="305,715" />
+          <Segment EndPoint="305,760" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="661dafc7-b543-4db5-87b8-ad2afcbfa012" From="d2c5f76b-820c-4f3d-a9b8-b0448775b195" FromIndex="3" To="28ee7014-5a08-4879-a66b-fc8fb2a941ce" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="650,182.5" />
+          <Segment EndPoint="305,182.5" />
+          <Segment EndPoint="305,290" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="74586f0b-4e88-4578-8de9-5ba477d86011" From="28ee7014-5a08-4879-a66b-fc8fb2a941ce" FromIndex="2" To="09adf84c-98af-4fe8-871d-338083e4b35f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="305,345" />
+          <Segment EndPoint="305,390" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="e08bf92a-e80d-494c-ae90-983184dcab32" From="d2c5f76b-820c-4f3d-a9b8-b0448775b195" FromIndex="1" To="9ec8432d-9c83-43ef-b2b7-28bed326a951" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1160,182.5" />
+          <Segment EndPoint="1305,182.5" />
+          <Segment EndPoint="1305,290" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="01861c3d-9f64-4daf-b154-ea9d6b296d55" From="9ec8432d-9c83-43ef-b2b7-28bed326a951" FromIndex="2" To="67bdfae6-7b38-4077-bb55-2687de69b2bc" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1305,345" />
+          <Segment EndPoint="1305,390" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="de0c2ff2-552d-4e36-af69-367f95e37c81" From="8178bde7-156d-45a8-b7b1-7fc4d6533833" FromIndex="2" To="453c19d4-6386-4f67-b8f6-5761b124c93c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="305,815" />
+          <Segment EndPoint="305,860" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="514293d2-64bb-471c-9ea7-06632e7704ba" From="4033080b-9fc6-43bd-b944-76e65f1d7ac0" FromIndex="2" To="5c5e5f45-8705-40e4-8cf2-b2fe691720be" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="-95,615" />
+          <Segment EndPoint="-95,687.5" />
+          <Segment EndPoint="30,687.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="ac9d8016-8325-44bc-89ba-04fcfc6dc285" From="67bdfae6-7b38-4077-bb55-2687de69b2bc" FromIndex="3" To="efe4074f-9f80-4959-b7a8-e6740f82cd3b" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="1050,452.5" />
+          <Segment EndPoint="905,452.5" />
+          <Segment EndPoint="905,560" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="a692cd0f-1fcb-4438-9e5a-27391c13b797" From="67bdfae6-7b38-4077-bb55-2687de69b2bc" FromIndex="2" To="c526816f-78a9-43f5-a58f-2285eb330c7e" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1305,515" />
+          <Segment EndPoint="1305,660" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="3fc5cac6-79fd-4bc2-a0b5-75351eab5c89" From="efe4074f-9f80-4959-b7a8-e6740f82cd3b" FromIndex="1" To="c526816f-78a9-43f5-a58f-2285eb330c7e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1180,587.5" />
+          <Segment EndPoint="1305,587.5" />
+          <Segment EndPoint="1305,660" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="c77627fd-aa21-4dac-9f2d-f50f7fbde953" From="c526816f-78a9-43f5-a58f-2285eb330c7e" FromIndex="3" To="f7690494-a1b6-433c-b7f1-c01fc0b0d5c9" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="1050,722.5" />
+          <Segment EndPoint="905,722.5" />
+          <Segment EndPoint="905,830" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="52189c0c-7a62-40c3-a371-d2d0fdf4ebab" From="453c19d4-6386-4f67-b8f6-5761b124c93c" FromIndex="2" To="364f1881-7350-4f80-a19d-e7f0cfd30ee3" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="305,915" />
+          <Segment EndPoint="305,987.5" />
+          <Segment EndPoint="820,987.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5da2c307-fcc3-49ef-932a-bc4cd29ec3e6" From="f7690494-a1b6-433c-b7f1-c01fc0b0d5c9" FromIndex="2" To="364f1881-7350-4f80-a19d-e7f0cfd30ee3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="905,885" />
+          <Segment EndPoint="905,960" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="296713a6-2267-498d-b476-fbdc3c132901" From="c526816f-78a9-43f5-a58f-2285eb330c7e" FromIndex="2" To="364f1881-7350-4f80-a19d-e7f0cfd30ee3" ToIndex="1" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1305,785" />
+          <Segment EndPoint="1305,987.5" />
+          <Segment EndPoint="990,987.5" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

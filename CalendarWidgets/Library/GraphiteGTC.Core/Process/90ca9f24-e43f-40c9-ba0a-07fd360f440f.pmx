@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildReplaceElements" OwnerId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" ProcessId="90ca9f24-e43f-40c9-ba0a-07fd360f440f" ProcessType="Normal" Classification="ViewElement" IsRemovable="true">
+  <Variables>
+    <Variable Name="ProgressBar" DataType="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" VariableType="Input" VariableId="a37f1349-c199-4cb3-a492-320f4accd930" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="91850ad3-b721-4599-b1d8-59a152b1a23c" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="e756f802-8d9e-4877-a3a6-908c3d249a78" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Initialize View Elements" ID="316acf8c-7e8b-48ad-b96d-e090057d92d8" Bounds="632.5,155,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="ProgressBar" SourceList="ViewElements" Description="Add ProgressBar to View Elements" ID="a75d2958-a8a4-4b3c-86fe-f903715596cf" Bounds="632.5,255,550,55" ZOrder="1" Text="" />
+        <EndNode ID="ca8cea74-b5c4-42bf-a004-b34d22434717" Bounds="822.5,355,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="1abf3b14-94b8-49f6-85ae-998699c80173" From="316acf8c-7e8b-48ad-b96d-e090057d92d8" FromIndex="2" To="a75d2958-a8a4-4b3c-86fe-f903715596cf" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="cae0c339-b891-42dc-9fb9-67e7773f7410" From="a75d2958-a8a4-4b3c-86fe-f903715596cf" FromIndex="2" To="ca8cea74-b5c4-42bf-a004-b34d22434717" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="238944cb-6036-4ab2-958f-cfbcb3694aeb" From="e756f802-8d9e-4877-a3a6-908c3d249a78" FromIndex="0" To="316acf8c-7e8b-48ad-b96d-e090057d92d8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

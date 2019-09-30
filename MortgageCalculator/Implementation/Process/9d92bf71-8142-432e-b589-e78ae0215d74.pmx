@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="CalculateMortgageDetails" OwnerId="433261f3-7f69-4e8f-b8b6-99285510924e" ProcessId="9d92bf71-8142-432e-b589-e78ae0215d74" ProcessType="Normal" Classification="Entity" IsRemovable="true" IsServiceEndpoint="true">
+  <Variables>
+    <Variable Name="Mortgage" DataType="433261f3-7f69-4e8f-b8b6-99285510924e" VariableType="InputOutput" VariableId="1a3de04a-aa60-4784-a93c-0972fa3cb134" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="e40440ac-9afb-4228-a402-c00dbfba014f" Bounds="630.6,55,170,55" />
+        <EvaluationNode Variable="Mortgage.TotalNumberOfPayments" Description="TotalNbrPayments  = NumberOfYears * PaymentsPerYear" ID="da84a5c6-c67c-4922-b859-4c2412109686" Bounds="440,155,550,55">
+          <Expression><![CDATA[Mortgage.NumberOfYears * Mortgage.PaymentsPerYear]]></Expression>
+        </EvaluationNode>
+        <EvaluationNode Variable="RateOverPeriod" Description="RateOverPeriod = InterestRate / PaymentsPerYear" ID="1de49618-a463-496a-b19e-e27342706d61" Bounds="440,255,550,55">
+          <Expression><![CDATA[Mortgage.InterestRate / Mortgage.PaymentsPerYear]]></Expression>
+        </EvaluationNode>
+        <ExecuteProcessNode EntityDefinition="5d7b17b7-4155-405a-af85-c66fd90ee1bd" ProcessProperty="71669d61-d4e5-4e9b-9848-8291f44a5dd9" ExecuteProcessType="EntityStatic" VariableId="FixeRateMortgagePMTResult" SuppressValidations="false" Description="Calcualte PMT" ID="ac246d8f-b502-4a47-91ad-69a282999885" Bounds="440.6,355,550,55">
+          <InputVariables>
+            <InputVariable Name="NumberOfPayments" Value="Mortgage.TotalNumberOfPayments" />
+            <InputVariable Name="Principal" Value="Mortgage.LoanAmount" />
+            <InputVariable Name="Rate" Value="RateOverPeriod" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <AssignNode Description="PaymentAmount = PMT" ID="62c001b2-3c5c-4b64-8bd3-b6c066cdc9f8" Bounds="440.6,455,550,55">
+          <Assignment Name="Mortgage.PaymentAmount" Value="FixeRateMortgagePMTResult.Outputs.PMT" />
+        </AssignNode>
+        <EvaluationNode Variable="Mortgage.TotalPaymentAmount" Description="Total Paid = PaymentAmount * TotalNbrPayments" ID="5f33ac54-448c-4893-aa77-dde03e946665" Bounds="440.6,555,550,55">
+          <Expression><![CDATA[Mortgage.PaymentAmount.RawDecimal * Mortgage.TotalNumberOfPayments]]></Expression>
+        </EvaluationNode>
+        <EvaluationNode Variable="Mortgage.TotalInterestPaid" ID="cd7e9f24-5447-4824-b69b-a637cd35723a" Bounds="440.6,655,550,55">
+          <Expression><![CDATA[ Mortgage.TotalPaymentAmount.RoundedDecimal - Mortgage.LoanAmount.RoundedDecimal]]></Expression>
+        </EvaluationNode>
+        <EndNode ID="a13ba516-9dd0-47a9-bb71-aee2100fd015" Bounds="630.6,755,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="63db0895-f698-4ac6-a23b-1125be668210" From="e40440ac-9afb-4228-a402-c00dbfba014f" FromIndex="0" To="da84a5c6-c67c-4922-b859-4c2412109686" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,132.5" />
+          <Segment EndPoint="715,132.5" Movable="true" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="aab4054d-12fc-4627-b123-b0a11960af3e" From="da84a5c6-c67c-4922-b859-4c2412109686" FromIndex="2" To="1de49618-a463-496a-b19e-e27342706d61" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c7ef5dd3-0b7d-44c3-90f1-82cd2567db05" From="1de49618-a463-496a-b19e-e27342706d61" FromIndex="2" To="ac246d8f-b502-4a47-91ad-69a282999885" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,310" />
+          <Segment EndPoint="715,332.5" />
+          <Segment EndPoint="715.6,332.5" Movable="true" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e5f5cba0-ccdb-4af2-8f95-2a0160601233" From="ac246d8f-b502-4a47-91ad-69a282999885" FromIndex="2" To="62c001b2-3c5c-4b64-8bd3-b6c066cdc9f8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="cbfaf8fa-166c-43b5-bb44-3904b3f2b6d7" From="62c001b2-3c5c-4b64-8bd3-b6c066cdc9f8" FromIndex="2" To="5f33ac54-448c-4893-aa77-dde03e946665" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="dd106ede-1cd2-411a-9a1c-fa9b4ff3a6bf" From="5f33ac54-448c-4893-aa77-dde03e946665" FromIndex="2" To="cd7e9f24-5447-4824-b69b-a637cd35723a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,610" />
+          <Segment EndPoint="715.6,655" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="04fa3019-5154-46a2-aca4-b8d8575804b0" From="cd7e9f24-5447-4824-b69b-a637cd35723a" FromIndex="2" To="a13ba516-9dd0-47a9-bb71-aee2100fd015" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,710" />
+          <Segment EndPoint="715.6,755" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+  <ServiceEndpoints>
+    <Endpoint Type="REST">
+      <Category><![CDATA[Mortgage]]></Category>
+      <Description><![CDATA[Calculate Mortgage Details]]></Description>
+      <Method><![CDATA[POST]]></Method>
+      <Title><![CDATA[Mortgage Details]]></Title>
+      <UriTemplate><![CDATA[MortgageDetails]]></UriTemplate>
+    </Endpoint>
+  </ServiceEndpoints>
+</ProcessDefinition>

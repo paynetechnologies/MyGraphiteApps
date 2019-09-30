@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FileData" ViewElementId="5cca6411-f198-40ed-be05-d44f13d31132" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Content" PropertyId="dddb3a64-c763-4493-9db2-d4c77fdc256a" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Name" PropertyId="4469cfe3-b1e9-45e5-b45c-d6d8e0035949" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ContentType" PropertyId="441ed816-f27d-4876-94e7-5e94312f1c45" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags />
+</ViewElementDefinition>

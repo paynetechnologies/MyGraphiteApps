@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="e3273979-48d5-40e1-906a-edc44487df20" Name="Authenticate" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Authenticate login credentials">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="Login" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/LoginResponse" Action="http://graphitegtc/membershipservice/IAuthentication/Login">
+        <Inputs>
+          <Input Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Tenant" ContractType="string" />
+          <Input Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Username" ContractType="string" />
+          <Input Name="Password" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="Password" ContractType="string" />
+          <Input Name="TwoFactorToken" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ContractName="twoFactorToken" ContractType="string" />
+        </Inputs>
+        <Outputs>
+          <Output Name="LoginResult" DataType="aa51660f-8834-4f41-98df-bf062f7d4e11" ContractName="LoginResult" ContractType="AuthenticationDetail" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

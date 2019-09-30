@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Theme" EntityId="d8cb5f60-439e-43c1-a24a-6553dcbb2a8c" EntityType="Enumeration" MergedFrom="36a6d28b-8d8a-4937-bb42-bc0a3a45bfdd" TargetChangeSetId="276eb90c-7564-42e2-98c7-f7e9d5c275b7">
+  <Description />
+  <DataEntries KeyProperty="Description" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

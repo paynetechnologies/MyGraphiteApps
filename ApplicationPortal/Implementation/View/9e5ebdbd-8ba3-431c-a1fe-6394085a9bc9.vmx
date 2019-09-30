@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="Home" Title="Home" GroupName="Account" NamespaceExtension="Account" ViewId="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" IsDefaultView="false" IsSecurityDisabled="false" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementPackDiagramNode Description="" ElementPackId="1143f321-cd34-49e6-8c91-dafc8472d360" Name="PortalHeader" ID="bc7c3bdd-c490-4e17-a69a-38b4fef1e296" Bounds="50,50,290,35" />
+          </Nodes>
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="1c8e988f-7805-4607-8a5d-622e6b199f20" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="PageArea" />
+                </Field>
+                <Field FieldName="BackgroundImageSize">
+                  <PropertyValue Property="Text" Value="Cover" />
+                </Field>
+                <Field FieldName="BackgroundImageSource">
+                  <PropertyValue Property="SelectedResourceName" Value="$[40bb0a1b-60ed-4d67-bbec-128cd95b5f73,polk,Image,PortalBackground]" />
+                </Field>
+                <Field FieldName="BackgroundRepeat">
+                  <PropertyValue Property="Text" Value="No-Repeat" />
+                </Field>
+                <Field FieldName="DimensionHeight">
+                  <PropertyValue Property="Text" Value="100" />
+                </Field>
+                <Field FieldName="DimensionScale">
+                  <PropertyValue Property="Text" Value="%" />
+                </Field>
+                <Field FieldName="DimensionWidth">
+                  <PropertyValue Property="Text" Value="100" />
+                </Field>
+                <Field FieldName="DisplayType">
+                  <PropertyValue Property="Text" Value="inline-block" />
+                </Field>
+                <Field FieldName="PositionSetting">
+                  <PropertyValue Property="Text" Value="absolute" />
+                </Field>
+                <Field FieldName="PositionLeft">
+                  <PropertyValue Property="Text" Value="0" />
+                </Field>
+                <Field FieldName="PositionTop">
+                  <PropertyValue Property="Text" Value="0" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="4005a80a-778e-462f-b427-0a1252e94bd1" Bounds="90,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="NewProductsArea" />
+                </Field>
+                <Field FieldName="DimensionHeight">
+                  <PropertyValue Property="Text" Value="100" />
+                </Field>
+                <Field FieldName="DimensionScale">
+                  <PropertyValue Property="Text" Value="%" />
+                </Field>
+                <Field FieldName="DimensionWidth">
+                  <PropertyValue Property="Text" Value="60" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="e413bdd8-5986-471c-913e-91957e8745a7" Bounds="90,160,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="AccountArea" />
+                </Field>
+                <Field FieldName="PaddingLeft">
+                  <PropertyValue Property="Text" Value="40" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="b0d6a093-bbec-4808-b70e-5a809dd7cf62" Bounds="90,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="TileArea" />
+                </Field>
+                <Field FieldName="PaddingLeft">
+                  <PropertyValue Property="Text" Value="40" />
+                </Field>
+                <Field FieldName="PaddingTop">
+                  <PropertyValue Property="Text" Value="40" />
+                </Field>
+                <Field FieldName="DisableAutoGrid">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="89f53215-4d4e-4d9d-a0ec-b8acbad75120" Bounds="130,160,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="WelcomeArea" />
+                </Field>
+                <Field FieldName="DisableAutoGrid">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="PaddingLeft">
+                  <PropertyValue Property="Text" Value="40" />
+                </Field>
+                <Field FieldName="PaddingTop">
+                  <PropertyValue Property="Text" Value="70" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="4a3abc48-55f1-4fd9-a491-773643a459da" Bounds="170,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="PeriodOfDayHeading" />
+                </Field>
+                <Field FieldName="FontColor">
+                  <PropertyValue Property="Text" Value="White" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="36" />
+                </Field>
+                <Field FieldName="FontWeight">
+                  <PropertyValue Property="Text" Value="Normal" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="GoodAfternoon" />
+                </Field>
+                <Field FieldName="FontLineSpacing">
+                  <PropertyValue Property="Text" Value="0" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="9fe84efc-a8fb-481e-b8ac-77d48607bd58" Bounds="170,270,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="WelcomeHeading" />
+                </Field>
+                <Field FieldName="FontColor">
+                  <PropertyValue Property="Text" Value="White" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="36" />
+                </Field>
+                <Field FieldName="FontWeight">
+                  <PropertyValue Property="Text" Value="Normal" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="WelcomeToAdminovateBank" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" IsElementList="true" PropertyName="Cards" OwnerNode="fd52e18b-e3e3-4318-8d71-bdf3fd5faf54" ID="5c93e304-6c03-4333-893b-323fb6a9ed37" Bounds="170,435,290,35" Text="Card">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Links" OwnerNode="fd52e18b-e3e3-4318-8d71-bdf3fd5faf54" ID="bece0de5-d9b2-48a7-9a34-15338b94774f" Bounds="170,655,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" ID="fd52e18b-e3e3-4318-8d71-bdf3fd5faf54" Bounds="130,380,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="AccountPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Links" OwnerNode="8626c758-b0fe-48e8-90ef-7576f22f4006" ID="6d0fb0ff-a08d-4022-bd84-a9ad548145e2" Bounds="250,545,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" ID="8626c758-b0fe-48e8-90ef-7576f22f4006" Bounds="210,490,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="AccountCard" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="FrontElement" OwnerNode="8626c758-b0fe-48e8-90ef-7576f22f4006" ID="42a43aee-2859-4a1a-9ebb-aca9e0409b05" Bounds="250,600,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="AccountCardArea" />
+                </Field>
+                <Field FieldName="BackgroundColor">
+                  <PropertyValue Property="Text" Value="#284B77" />
+                </Field>
+                <Field FieldName="RoundedCornerBottomLeft">
+                  <PropertyValue Property="Text" Value="10" />
+                </Field>
+                <Field FieldName="RoundedCornerBottomRight">
+                  <PropertyValue Property="Text" Value="10" />
+                </Field>
+                <Field FieldName="RoundedCornerTopLeft">
+                  <PropertyValue Property="Text" Value="10" />
+                </Field>
+                <Field FieldName="RoundedCornerTopRight">
+                  <PropertyValue Property="Text" Value="10" />
+                </Field>
+                <Field FieldName="DisableAutoGrid">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="PaddingLeft">
+                  <PropertyValue Property="Text" Value="20" />
+                </Field>
+                <Field FieldName="PaddingRight">
+                  <PropertyValue Property="Text" Value="20" />
+                </Field>
+                <Field FieldName="PaddingTop">
+                  <PropertyValue Property="Text" Value="20" />
+                </Field>
+                <Field FieldName="DimensionHeight">
+                  <PropertyValue Property="Text" Value="150" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="26a94a37-9281-41c4-8ee5-1c765fb296b1" Bounds="290,490,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="AccountTypeHeading" />
+                </Field>
+                <Field FieldName="FontColor">
+                  <PropertyValue Property="Text" Value="White" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="22" />
+                </Field>
+                <Field FieldName="FontWeight">
+                  <PropertyValue Property="Text" Value="Normal" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="AccountType" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="92d30694-bf99-4eb6-a5f3-5669d57c3e87" Bounds="290,545,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="AccountBalanceHeading" />
+                </Field>
+                <Field FieldName="FontColor">
+                  <PropertyValue Property="Text" Value="White" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="36" />
+                </Field>
+                <Field FieldName="FontWeight">
+                  <PropertyValue Property="Text" Value="Bold" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="AccountBalance" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="d43fd265-dba5-4897-a86b-7d0201505470" Bounds="290,600,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="AvailableBalanceHeading" />
+                </Field>
+                <Field FieldName="FontColor">
+                  <PropertyValue Property="Text" Value="White" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="12" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="AvailableBalance" />
+                </Field>
+                <Field FieldName="FontLineSpacing">
+                  <PropertyValue Property="Text" Value="5" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="113bec9e-0dad-4728-bf61-744f7b76d390" Bounds="130,270,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="RecommendedHeading" />
+                </Field>
+                <Field FieldName="FontColor">
+                  <PropertyValue Property="Text" Value="White" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="24" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="RecommendedProductsForYou" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="362269b3-cc1e-47d0-8100-83ec33ea68dc" Bounds="130,325,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="NewProductsDisplayArea" />
+                </Field>
+                <Field FieldName="MarginLeft">
+                  <PropertyValue Property="Text" Value="-5" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" CustomName="NewProductsPanelTiles" PropertyName="Tiles" OwnerNode="dbb8a4ad-2728-4aeb-99b2-3ac1c62f5cef" ID="0426af1a-c1cd-49ee-aec2-2839420acdfe" Bounds="210,930,290,35" Text="Tile">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" ID="dbb8a4ad-2728-4aeb-99b2-3ac1c62f5cef" Bounds="170,875,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="NewProductsPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" ID="977f8ecd-eae8-49da-ab26-85a856e31385" Bounds="250,985,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="BuyingAHomeTile" />
+                </Field>
+                <Field FieldName="ActiveColor">
+                  <PropertyValue Property="Text" Value="00A6DE" />
+                </Field>
+                <Field FieldName="NavigationView">
+                  <PropertyValue Property="ViewId" Value="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" />
+                </Field>
+                <Field FieldName="ImageSource">
+                  <PropertyValue Property="SelectedResourceName" Value="$[40bb0a1b-60ed-4d67-bbec-128cd95b5f73,common,Image,IconBuyingHome]" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="BuyingAHome" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" ID="70a11ed8-1ecb-4c03-81fa-ce3a44f19a9f" Bounds="250,1040,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="EstatePlanningTile" />
+                </Field>
+                <Field FieldName="ActiveColor">
+                  <PropertyValue Property="Text" Value="36B9AB" />
+                </Field>
+                <Field FieldName="ImageSource">
+                  <PropertyValue Property="SelectedResourceName" Value="$[40bb0a1b-60ed-4d67-bbec-128cd95b5f73,common,Image,IconEstatePlanning]" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="EstatePlanning" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" ID="92b7fdd7-05b3-499f-94eb-398938fe653e" Bounds="250,1095,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="InsuranceServicesTile" />
+                </Field>
+                <Field FieldName="ActiveColor">
+                  <PropertyValue Property="Text" Value="CB333E" />
+                </Field>
+                <Field FieldName="ImageSource">
+                  <PropertyValue Property="SelectedResourceName" Value="$[40bb0a1b-60ed-4d67-bbec-128cd95b5f73,common,Image,IconInsuranceServices]" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="InsuranceServices" />
+                </Field>
+                <Field FieldName="NavigationView">
+                  <PropertyValue Property="ViewId" Value="87b79702-866b-4778-bcc9-067d2aedac13" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="faaf4071-dfa1-4efe-a17a-f73e04dd924c" From="1c8e988f-7805-4607-8a5d-622e6b199f20" FromIndex="0" To="4005a80a-778e-462f-b427-0a1252e94bd1" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,122.5" />
+              <Segment EndPoint="90,122.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="8b143fa5-34be-4aeb-9747-84969b9cbab6" From="1c8e988f-7805-4607-8a5d-622e6b199f20" FromIndex="0" To="e413bdd8-5986-471c-913e-91957e8745a7" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,177.5" />
+              <Segment EndPoint="90,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="32926c38-1d20-4c41-8836-ab4ff04b4324" From="1c8e988f-7805-4607-8a5d-622e6b199f20" FromIndex="0" To="b0d6a093-bbec-4808-b70e-5a809dd7cf62" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,232.5" />
+              <Segment EndPoint="90,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="a34f8774-3d85-4b5a-b3cf-4ef469f92920" From="4005a80a-778e-462f-b427-0a1252e94bd1" FromIndex="0" To="89f53215-4d4e-4d9d-a0ec-b8acbad75120" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,177.5" />
+              <Segment EndPoint="130,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="93e3923c-86e2-4bc1-99a3-5bb580bcb036" From="89f53215-4d4e-4d9d-a0ec-b8acbad75120" FromIndex="0" To="4a3abc48-55f1-4fd9-a491-773643a459da" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,232.5" />
+              <Segment EndPoint="170,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="0174d37b-bb1d-43cb-8a13-76a706e99086" From="89f53215-4d4e-4d9d-a0ec-b8acbad75120" FromIndex="0" To="9fe84efc-a8fb-481e-b8ac-77d48607bd58" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,287.5" />
+              <Segment EndPoint="170,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="f8728a39-71d3-468e-9da0-cd78c858641b" From="fd52e18b-e3e3-4318-8d71-bdf3fd5faf54" FromIndex="0" To="5c93e304-6c03-4333-893b-323fb6a9ed37" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,415" />
+              <Segment EndPoint="150,452.5" />
+              <Segment EndPoint="170,452.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="75c073dd-5e3a-49f0-a585-c11d86f89210" From="fd52e18b-e3e3-4318-8d71-bdf3fd5faf54" FromIndex="0" To="bece0de5-d9b2-48a7-9a34-15338b94774f" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,415" />
+              <Segment EndPoint="150,672.5" />
+              <Segment EndPoint="170,672.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="e5777c4e-574a-40a6-a73f-f6220e074376" From="e413bdd8-5986-471c-913e-91957e8745a7" FromIndex="0" To="fd52e18b-e3e3-4318-8d71-bdf3fd5faf54" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,195" />
+              <Segment EndPoint="110,397.5" />
+              <Segment EndPoint="130,397.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="b04c5824-04cd-4b88-b200-64ce693e974e" From="8626c758-b0fe-48e8-90ef-7576f22f4006" FromIndex="0" To="6d0fb0ff-a08d-4022-bd84-a9ad548145e2" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,525" />
+              <Segment EndPoint="230,562.5" />
+              <Segment EndPoint="250,562.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="c8bab33d-00bb-4ef6-a3d7-5028a412599b" From="5c93e304-6c03-4333-893b-323fb6a9ed37" FromIndex="0" To="8626c758-b0fe-48e8-90ef-7576f22f4006" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,470" />
+              <Segment EndPoint="190,507.5" />
+              <Segment EndPoint="210,507.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="0dc4af8c-cdf7-4f4f-8aed-a134cb2f1765" From="8626c758-b0fe-48e8-90ef-7576f22f4006" FromIndex="0" To="42a43aee-2859-4a1a-9ebb-aca9e0409b05" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,525" />
+              <Segment EndPoint="230,617.5" />
+              <Segment EndPoint="250,617.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="0b6d8b8e-752a-4fb5-b507-ea83c1fe008c" From="42a43aee-2859-4a1a-9ebb-aca9e0409b05" FromIndex="0" To="26a94a37-9281-41c4-8ee5-1c765fb296b1" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,635" />
+              <Segment EndPoint="270,655" />
+              <Segment EndPoint="230,655" Movable="true" />
+              <Segment EndPoint="230,507.5" Movable="true" />
+              <Segment EndPoint="290,507.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="82de82c3-a6f3-455b-8847-3a3254e55b28" From="42a43aee-2859-4a1a-9ebb-aca9e0409b05" FromIndex="0" To="92d30694-bf99-4eb6-a5f3-5669d57c3e87" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,635" />
+              <Segment EndPoint="270,655" />
+              <Segment EndPoint="230,655" Movable="true" />
+              <Segment EndPoint="230,562.5" Movable="true" />
+              <Segment EndPoint="290,562.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="564d7fbf-fb20-4439-8185-3814c075f577" From="42a43aee-2859-4a1a-9ebb-aca9e0409b05" FromIndex="0" To="d43fd265-dba5-4897-a86b-7d0201505470" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,635" />
+              <Segment EndPoint="270,655" />
+              <Segment EndPoint="230,655" Movable="true" />
+              <Segment EndPoint="230,617.5" Movable="true" />
+              <Segment EndPoint="290,617.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="af597f19-e2c9-47b0-abbe-0e20da1078f7" From="b0d6a093-bbec-4808-b70e-5a809dd7cf62" FromIndex="0" To="113bec9e-0dad-4728-bf61-744f7b76d390" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,250" />
+              <Segment EndPoint="110,287.5" />
+              <Segment EndPoint="130,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="276f565e-4b29-4aad-bd5e-7d31819fda47" From="b0d6a093-bbec-4808-b70e-5a809dd7cf62" FromIndex="0" To="362269b3-cc1e-47d0-8100-83ec33ea68dc" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,250" />
+              <Segment EndPoint="110,342.5" />
+              <Segment EndPoint="130,342.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="bf7ea695-7a64-4c75-a2c5-e7c0cfb5799f" From="dbb8a4ad-2728-4aeb-99b2-3ac1c62f5cef" FromIndex="0" To="0426af1a-c1cd-49ee-aec2-2839420acdfe" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,910" />
+              <Segment EndPoint="190,947.5" />
+              <Segment EndPoint="210,947.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="bb69551b-e21b-49b3-82f9-d5bd9d86b203" From="362269b3-cc1e-47d0-8100-83ec33ea68dc" FromIndex="0" To="dbb8a4ad-2728-4aeb-99b2-3ac1c62f5cef" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,360" />
+              <Segment EndPoint="150,892.5" />
+              <Segment EndPoint="170,892.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="a48443d2-01b9-4e80-b223-34566d1fcf5e" From="0426af1a-c1cd-49ee-aec2-2839420acdfe" FromIndex="0" To="977f8ecd-eae8-49da-ab26-85a856e31385" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,965" />
+              <Segment EndPoint="230,1002.5" />
+              <Segment EndPoint="250,1002.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="4fd22bf2-1329-41aa-ad8e-83495e133693" From="0426af1a-c1cd-49ee-aec2-2839420acdfe" FromIndex="0" To="70a11ed8-1ecb-4c03-81fa-ce3a44f19a9f" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,965" />
+              <Segment EndPoint="230,1057.5" />
+              <Segment EndPoint="250,1057.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="f337736e-a0d0-45f3-9757-498a5fa6b70c" From="0426af1a-c1cd-49ee-aec2-2839420acdfe" FromIndex="0" To="92b7fdd7-05b3-499f-94eb-398938fe653e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,965" />
+              <Segment EndPoint="230,1112.5" />
+              <Segment EndPoint="250,1112.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</ViewDefinition>

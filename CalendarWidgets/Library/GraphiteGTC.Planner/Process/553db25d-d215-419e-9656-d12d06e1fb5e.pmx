@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ValidateAppointment" OwnerId="76baba6b-ac07-48da-b3e5-7c2f4d7c795c" ProcessId="553db25d-d215-419e-9656-d12d06e1fb5e" ProcessType="Normal" Classification="ViewElementPack" IsRemovable="true">
+  <Variables>
+    <Variable Name="Subject" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="d772044c-0292-4f12-be81-53ed642f866d" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="StartTime" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="4abbe139-16a3-4bd8-aac6-c4bf99c98152" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="EndTime" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="d7e9274d-b9dc-4427-98fc-03719afe3381" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="db85cf5e-cea7-4a79-87f7-3bf366ffe484" Bounds="830,55,170,55" />
+        <ValidationNode Description="Required Fields" ID="e03da18c-d8ef-48d7-8de7-37f65761e248" Bounds="640,155,550,55">
+          <Validations>
+            <Validation Name="SubjectRequired" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:SubjectRequired]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="Subject" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="StartTimeRequired" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:StartTimeRequired]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="StartTime" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="EndTimeRequired" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:EndTimeRequired]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="EndTime" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <ValidationNode Description="Start Time &lt; End Time Validation" ID="577ae296-3af8-48a0-8f85-479455db95ed" Bounds="640,255,550,55">
+          <Validations>
+            <Validation Name="StartTimeEndTimeComparison" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:StartTimeMustBeBeforeEndTime]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="StartTime" RightExpression="EndTime" Operator="IsGreaterThan" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <EndNode ID="3c4cc82b-1047-4189-a409-792b69bdbf94" Bounds="830,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="ff33783b-1f76-49ee-9612-ebb38d699bf8" From="db85cf5e-cea7-4a79-87f7-3bf366ffe484" FromIndex="0" To="e03da18c-d8ef-48d7-8de7-37f65761e248" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,110" />
+          <Segment EndPoint="915,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4860ce84-04a7-465c-bafc-0d2f8136a8bd" From="e03da18c-d8ef-48d7-8de7-37f65761e248" FromIndex="2" To="577ae296-3af8-48a0-8f85-479455db95ed" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,210" />
+          <Segment EndPoint="915,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="081c39ad-2c5e-41dc-865c-38fb671e8e74" From="577ae296-3af8-48a0-8f85-479455db95ed" FromIndex="2" To="3c4cc82b-1047-4189-a409-792b69bdbf94" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,310" />
+          <Segment EndPoint="915,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

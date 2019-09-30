@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Language" EntityId="7a35c7c1-9ba2-43da-a393-08be54430af5" NamespaceExtension="Common" EntityType="Enumeration">
+  <Description>An enumeration listing the languages used in a project</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Code" PropertyId="72e0b2a6-1f43-4c1e-ac77-cbc49597187e" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Name" PropertyId="c5d75167-bd9d-4e02-865e-88b0647ce416" IsOptional="false" DataType="2a4fb4ec-1b34-4bd6-aecc-227a9b469ca4" />
+  <DataEntries KeyProperty="Name">
+    <DataEntry DataEntryId="693a9503-ac3e-4db9-b857-c91dcf5ed9b7">
+      <DataValue Property="Code">en-US</DataValue>
+      <DataValue Property="Name">English USA</DataValue>
+    </DataEntry>
+  </DataEntries>
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

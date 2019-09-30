@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Applicant" EntityId="292093ab-1097-44c3-b7b6-76352d824c8d" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4" BasedOn="09e69fa9-5af6-4ff8-8909-f96d588467ef">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Applications" PropertyId="8853ffee-4809-4afd-81ac-b0a0898abbf1" IsOptional="true" DataType="$[List,a24c4fa7-5d01-486c-8e0e-b1b719bc2c64]" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="UserLinkPanel" ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>User Link Panel is used to display user information and loggoff link.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UserInformation" PropertyId="SimpleEntityDefinitionProperty_UserInformation" IsOptional="true" DataType="1cb7e804-208f-47a6-b757-f511ea4c2022" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Logoff" PropertyId="SimpleEntityDefinitionProperty_Logoff" IsOptional="true" DataType="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Settings" PropertyId="SimpleEntityDefinitionProperty_Settings" IsOptional="true" DataType="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Help" PropertyId="SimpleEntityDefinitionProperty_Help" IsOptional="true" DataType="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PageUrlButton" PropertyId="bb0a119c-4101-46b0-9952-85504cff5df9" IsOptional="true" DataType="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="UserLinkPanel" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">UserLinkPanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="IsDisplayed" EditorType="Hidden" Label="Show?" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="LogoffTitle" EditorType="Hidden" Label="Title" Grouping="Logoff" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Logoff" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="LogoffNavigationView" EditorType="ViewChooser" Label="Logoff To" Grouping="Logoff" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View to navigate to when Logoff is clicked]]></Description>
+      </Field>
+      <Field FieldName="SettingsIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="Settings" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Settings icon?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SettingsNavigationView" EditorType="ViewChooser" Label="Settings View" Grouping="Settings" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Modal to show when Settings icon is clicked]]></Description>
+      </Field>
+      <Field FieldName="SettingsModalName" EditorType="Hidden" Label="Settings Modal Name" Grouping="Settings" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="SettingsModal" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HelpNavigationView" EditorType="ViewChooser" Label="Help View" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View to navigate to when Help is clicked]]></Description>
+      </Field>
+      <Field FieldName="UserInformationTextString" EditorType="Hidden" Label="User Information" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="User (Security Role)" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SettingsIconSymbol" EditorType="Hidden" Label="Icon" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="fa-cog" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HelpIconSymbol" EditorType="Hidden" Label="Help Icon" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="fa-question-circle" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SettingsName" EditorType="Hidden" Label="Settings Name" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="SettingsModalName" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="LogoffName" EditorType="Hidden" Label="Logoff Name" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="LogoffLinkName" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HelpName" EditorType="Hidden" Label="Help Name" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="HelpLinkName" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="PageUrlButton" EditorType="PropertyNodeCreator" Label="Page Url Button" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Page URL Copy Button]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsDisplayed" PropertyPath="IsDisplayed" Value="{Text}" />
+      <Map FieldName="LogoffTitle" PropertyPath="Logoff.Title" Value="{Text}" />
+      <Map FieldName="LogoffNavigationView" PropertyPath="Logoff.Navigation.View" Value="{Url}" />
+      <Map FieldName="SettingsIsDisplayed" PropertyPath="Settings.IsDisplayed" Value="{Text}" />
+      <Map FieldName="SettingsNavigationView" PropertyPath="Settings.Navigation.View" Value="{Url}" />
+      <Map FieldName="SettingsModalName" PropertyPath="Settings.ModalName" Value="{Text}" />
+      <Map FieldName="HelpNavigationView" PropertyPath="Help.Navigation.View" Value="{Url}" />
+      <Map FieldName="UserInformationTextString" PropertyPath="UserInformation.TextString" Value="{Text}" />
+      <Map FieldName="SettingsIconSymbol" PropertyPath="Settings.Icon.Symbol" Value="{Text}" />
+      <Map FieldName="HelpIconSymbol" PropertyPath="Help.Icon.Symbol" Value="{Text}" />
+      <Map FieldName="SettingsName" PropertyPath="Settings.Name" Value="{Text}" />
+      <Map FieldName="LogoffName" PropertyPath="Logoff.Name" Value="{Text}" />
+      <Map FieldName="HelpName" PropertyPath="Help.Name" Value="{Text}" />
+      <Map FieldName="PageUrlButton" PropertyPath="PageUrlButton" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Logoff</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABcAAAAYCAYAAAARfGZ1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKxSURBVEhLjdVZiI1hHMfxMwZlS7bo2JKlKFvDBcmWJLmw3LikOLIX2beQNSlLXHCjESJuSEYoIrKLuLAlNZbsyb59v+8yzvLOnPnVp/d5pzn/87zP+3+eU5LJZFIJaYzpGIt2eIdT2IaXKJp0Op2qE42z0wk3sBkD0QF9sBj3MAi1Sn7xujiKbsFdYVrgGFoFd0WSX3wc+obDamPhGeGw5uQXHx5di+VydK02lZWVBcUbRdeachansQDb0QaJyS/+KLpWl7/wxTbDEsyGn9mI5shJfvGD+BUOE3ME17EQfsErNMQiPMYK2MZBSsvKyqJhEPv5B0YEd7n5iQmohwOwswZjD9wLvTAMU+EE7+TP3GyCG+hDcPc/e+ESLIeztWVv4SbGwP6/ALtpKyryd6gvdA3OwH8cguwdWh8v4KR6ojfcaOvhEvk0T9Aek7Nn7ga5iHk4CWfljFriKT7D//+CcrjG6zAHD9AEk2Dh+yiPi5dgP9zmcbrC5ZmLh/6BvIFr69JMQWeYQ/CdrAzuwuvvuPhEjAqHBfGRP6EfuuM53mMZjE+yFk7EWdtNHhFVrehMkuJy7IYtdQVX0RSz0BZmJ/wy+999YFt6DYr3Rw9vEuKX2prOvhQeufFGMh9hd32D7WsrnkMQi48OhwW5DdfSjhkJZ7cF8xHvRu//II27OI+qxDNPirPzgxuCu/B8/4ppwV0q9Ro+yVJYuCNyYvGkJfHRKmArDoB9vgPf4ZHseDVsP9ffo6AgFm8dDquSvaYzo6vLcAJuGDeRvb0LvpMGOIxnyInF3ZX2ecy/XYMZD9fY/h6KSzgOd6Y9bq97jnhgFcRCNcU19pzwd3UV7A6XyvPEpfMQ24d4k+WkWPE4bn3PHGfri7X1/OH26tonprbF47yFm6QL3Dz+ErljE5JK/QOWeJX0y/YzZAAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABcAAAAYCAYAAAARfGZ1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJuSURBVEhLjdZLSBVRHMfxm5UlWlkWZWQRZdBCzB4bC4QWtWlRtKpd0CLdRIIo0oMb0cNdBrWJ1kXUpqAHSeSiTUSb2kQIRZAWWVAZ9Pr3/Z2553KcOeO9P/hc55w7878z5zE4y8wKkTSgG3uxCpO4j4sYR8UUi8VCTek4zFo8xxA6sRqbMICX2IGqki4+B7ewwbWyacJtLHOtCkkX34eO5DA3KtyTHFaIxjxwBdVkF9LXZqTvvL70d6aM4CH6MIwViCf1aycxU/5hKxZjUh3kO85jCabVm9ZAK34jLzeg8865ltk49IPKF5xAA1y9sLDXj1h+YT2W4wdUtAObcRc+H3EMdbHicgS6kzCXoe8uuZbZTYTXbMcT+Iymd6gm9DQeYRRdCHdoLT5AC6EN7dBGO4sJaJ+MoQWHwl9uwgv4vIbudhBboHOWQk90DXPxBoomdwEOu5bZK8z2hfUE9xDLBBbCn9uCleiGj25iPt65ltl+lCf0gHpychQ6R0twY+m4Du+haHKboUlUniEZbn1AjxHLGGqhYfmDb1iEPvhcgO5aT6gVtBOurj62IS8HoXMeuJbZGWiIPruW2Vf4zdOGrtJxufgpxKLJrYEuUDRpjSi6VpLjUJ/moFzU00e4AcLshr5/6lpmA5gH7UpFw6AVMgQ9yRpkimtc0xmBvtvjWsnF9VCfJm8YPdAdT0FjHS2u2Q6jEzUP+i5cno/RibCAlqByHWG/k+lI0ZLrxSf43EE71kHvG73o9MLLXJ/pyKE3nV7HWh3KX7xNDu0qYtdUXdzTK0Lr2g/lT2jHxs4t5P1rUSnNGMQU+tWRTaHwH1cuaxjNkcCWAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

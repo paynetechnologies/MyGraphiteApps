@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Account" EntityId="bc754fa7-601e-4f4e-908a-7f114226cc3e" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Active" PropertyId="5859b11f-b735-4721-961e-3b8f202c5436" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Balance" PropertyId="37315f78-a716-4100-8980-cf768363b721" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Number" PropertyId="3ed90f24-2fe5-4ee4-a913-4b9aab371bf7" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Type" PropertyId="275a0e6a-7641-433d-bd35-37874e2f05bb" IsOptional="true" DataType="93a3caf7-88ba-42c1-9906-892937ee1ba6" />
+  <Tags>
+    <Tag Type="Group">Members</Tag>
+  </Tags>
+</EntityDefinition>

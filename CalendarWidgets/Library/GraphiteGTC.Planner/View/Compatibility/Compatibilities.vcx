@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Compatibilities>
+  <Container ViewElementId="da7d8b9b-fb7b-4df7-a6c3-89970e5c006d" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="7e543221-7a31-43b9-94f6-438c52cdbaf9" Allowed="true" />
+  </Container>
+  <Container ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="7e543221-7a31-43b9-94f6-438c52cdbaf9" Allowed="true" />
+  </Container>
+  <Container ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="7e543221-7a31-43b9-94f6-438c52cdbaf9" Allowed="true" />
+  </Container>
+  <Container ViewElementId="e2761b95-c3d4-4ea0-8827-dd2ba735ed21" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="7e543221-7a31-43b9-94f6-438c52cdbaf9" Allowed="true" />
+  </Container>
+</Compatibilities>

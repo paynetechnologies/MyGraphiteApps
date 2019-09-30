@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FloatingMenu" ViewElementId="269845b4-f582-456e-a795-b540aa491e1a" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Floating Menu is a way to display links in a menu that stays fixed on the page, no matter how much you scroll.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,bca6b20b-5214-47c5-9921-6d1f6f8cdf30]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Side" PropertyId="SimpleEntityDefinitionProperty_Side" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Orientation" PropertyId="SimpleEntityDefinitionProperty_Orientation" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="FloatingMenu" />
+    <Property PropertyName="Side" DefaultValue="Left" />
+    <Property PropertyName="Orientation" DefaultValue="Vertical" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">FloatingMenu.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Side" EditorType="SelectBox" Label="Side" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Side of the Content where the Menu should be displayed]]></Description>
+        <DescriptionOptions><![CDATA[Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Left" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Orientation" EditorType="SelectBox" Label="Orientation" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Menu Item Orientation]]></Description>
+        <DescriptionOptions><![CDATA[Horizontal, Vertical]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Vertical" Value="Vertical" />
+          <FieldOption DisplayName="Horizontal" Value="Horizontal" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Vertical" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Side" PropertyPath="Side" Value="{Text}" />
+      <Map FieldName="Orientation" PropertyPath="Orientation" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Open</Key>
+    <Key>Close</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABNSURBVEhLY0xLS/vPQEPABKVpBpAtYKQyBgO6+oAmANkCUGRTE4MBXXyALYKohuniA2zhRzVMFx/QFIxGMkE8GskE8WgkEwQ0toCBAQB7gF5dxtMQRAAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVEhLY/wPBAw0BExQmmYA2QeMUJpaAGwuzX1A1yCiCaCLD6BM2oDROCAIRiOZIBiNZIJgNJIJgqEeyQwMANexIgO8GC3FAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildReplaceElements" OwnerId="f1ebb0e8-3139-4d19-9917-2be9c64a9eac" ProcessId="be98940e-b6f2-4593-a917-796033fc4d6a" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Create an Audio element and add to a list of ViewElements">
+  <Variables>
+    <Variable Name="Source" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="99e31df7-b51c-4965-9062-c08fd4bb2d08" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AudioType" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="ee7cefd5-e1fe-43da-a795-f6f00c57c24f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="293b58f9-27d4-4a9d-b591-de4a0068239b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AutoPlay" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="ee51f2ce-8173-45ea-afe2-b4e85f123a93" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="38e19fe5-16a1-4ef6-a28c-157d7fa06b9c" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="NewAudio" DataType="f1ebb0e8-3139-4d19-9917-2be9c64a9eac" Description="Create a new Audio Element" ID="52d7817a-476c-4cb9-b60c-b22f3411e526" Bounds="632.5,155,550,55">
+          <Properties>
+            <Property Name="AudioType">AudioType</Property>
+            <Property Name="AutoPlay">AutoPlay</Property>
+            <Property Name="Source">Source</Property>
+            <Property Name="Type">"AudioElement"</Property>
+          </Properties>
+        </CreateNode>
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Initialize View Elements" ID="354c52c0-a10d-409b-ab39-657230ae846b" Bounds="632.5,255,550,55">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="NewAudio" SourceList="ViewElements" Description="Add Audio to View Elements" ID="34097c2a-0d9e-4f14-82c0-b9694da9758a" Bounds="632.5,355,550,55" />
+        <EndNode ID="cf6bf524-8aec-472b-93ea-2adcde6f034e" Bounds="822.5,455,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="b5f4d16e-9e29-4148-a518-2cac610bd5ac" From="38e19fe5-16a1-4ef6-a28c-157d7fa06b9c" FromIndex="0" To="52d7817a-476c-4cb9-b60c-b22f3411e526" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e300c843-0d35-4e1c-b0a2-aa3c29b483a3" From="52d7817a-476c-4cb9-b60c-b22f3411e526" FromIndex="2" To="354c52c0-a10d-409b-ab39-657230ae846b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4cd83e5e-8f61-4f44-907b-7ec048c84390" From="354c52c0-a10d-409b-ab39-657230ae846b" FromIndex="2" To="34097c2a-0d9e-4f14-82c0-b9694da9758a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="fd99d333-b0ca-4579-9dd5-15f191b348d0" From="34097c2a-0d9e-4f14-82c0-b9694da9758a" FromIndex="2" To="cf6bf524-8aec-472b-93ea-2adcde6f034e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,410" />
+          <Segment EndPoint="907.5,455" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

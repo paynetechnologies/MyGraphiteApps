@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="5e1b0a76-28bf-46f1-84e7-bfb7f2459598" Name="GetPasswordConfiguration" ServiceReferenceId="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Description="Get password configuration details">
+  <WebService>
+    <Configuration ServiceName="Authentication" ServiceNamespace="http://graphitegtc/membershipservice" ConfigurationName="BasicHttpBinding_IAuthentication" DefaultAddress="http://localhost:8888/MembershipService.svc" SoapVersion="SOAP11">
+      <Action Method="GetPasswordConfiguration" ReplyAction="http://graphitegtc/membershipservice/IAuthentication/GetPasswordConfigurationResponse" Action="http://graphitegtc/membershipservice/IAuthentication/GetPasswordConfiguration">
+        <Inputs />
+        <Outputs>
+          <Output Name="GetPasswordConfigurationResult" DataType="cd10045e-bea2-488e-9574-9dd9517ea646" ContractName="GetPasswordConfigurationResult" ContractType="PasswordConfiguration" />
+        </Outputs>
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

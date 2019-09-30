@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DateField" ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" BasedOn="6c4194eb-b4de-4bdd-9ac8-1992477afd34" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="121b067f-e1c7-4136-9d4c-21a7bf23df53">
+  <Description>Date Field is used for editing date values.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SelectionType" PropertyId="SimpleEntityDefinitionProperty_SelectionType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DateField" />
+    <Property PropertyName="SelectionType" DefaultValue="DatePicker" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DateField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.DatePicker.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Calendar.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Scroll.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Mask" EditorType="MaskChooser" Label="Mask" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Mask for the Field Value]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Date(MM/DD/YYYY)" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Placeholder" EditorType="TranslationKeyChooser" Label="Placeholder" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Placeholder for the Field's Text]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SelectionType" EditorType="SelectBox" Label="Date Popup Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Calendar Popup Look-and-Feel]]></Description>
+        <DescriptionOptions><![CDATA[DatePicker, MonthViewer]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="DatePicker" Value="DatePicker" />
+          <FieldOption DisplayName="MonthViewer" Value="MonthViewer" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="DatePicker" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Mask" PropertyPath="Mask" Value="{Text}" />
+      <Map FieldName="Placeholder" PropertyPath="Placeholder" Value="{TranslationKey}" />
+      <Map FieldName="SelectionType" PropertyPath="SelectionType" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAKCAYAAACqnE5VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACNSURBVDhPY0xLS/vPQAfABKVpDpAtYsSDZYD4PRBzIYkRKw8G6D6CBSN6cMYC8Sog/g7E2NQQkic66BKAeAGEiRUQkifKIksofQJKowNC8mBAjEXxQIzPtYTkwQDdIljkwWhOIA4D4sVgHgQgqyEkDwfIFoEiDx1/A2JBIH6CJEaKPAiDAbGJgULAwAAAZMsqRXsWM9UAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAKCAYAAACqnE5VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACASURBVDhPY/wPBAx0AExQmuYA2SJGPFgGiN8DMReSGLHyYIDuI1gwogdnLBCvAuLvQIxNDSF5IA8BYGxkGoZvALEFlA0C6GrwyYMBMXFkCaVPQGl0QEgeDIixKB6IF0CYWAEheQiA+gwEQGx0zAnE74BYGkmMFHkQBoPhlo8YGAATIMXRnRKbGAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetViewAuthorization" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="411d27a9-90d0-4881-9e94-7cf078ce737c" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Retrieves a View authorization from a Security Group">
+  <Variables>
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Input" VariableId="62b5e371-b233-4402-816a-ce7046ebb122" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewAuthorization" DataType="dc08c3a6-5702-4e32-80f0-297a2ea8bbcc" VariableType="Output" VariableId="00257566-978b-490e-b843-5b16a9f4678b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewDetail" DataType="83dfc660-5d65-4969-9850-25db372a93b9" VariableType="Input" VariableId="2990a9a9-e6c4-4fae-b635-7ef50ec81b47" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="75ccdc74-8502-40bd-92fd-e4b658c8057e" Bounds="822.5,60,170,55" />
+        <CustomIlNode Description="Lookup Allowed ViewAuthorization" ID="035cec8d-6297-42d5-9396-38b63fff968a" Bounds="632.5,160,550,55" ZOrder="1" Text="Custom IL">
+          <ReferencedModelDefinitions>
+            <ReferencedModelDefinition ModelID="c79af0be-c629-4695-a159-bd481d5dbae1" />
+            <ReferencedModelDefinition ModelID="dc08c3a6-5702-4e32-80f0-297a2ea8bbcc" />
+            <ReferencedModelDefinition ModelID="83dfc660-5d65-4969-9850-25db372a93b9" />
+          </ReferencedModelDefinitions>
+          <IL><![CDATA[
+Outputs.ViewAuthorization = ComplexQuery.Lookup {
+    DataGroup IsEqualTo "ViewAuthorization"
+    AuthorizationLevel.Id IsEqualTo ViewAuthorizationLevel.Allow.Id
+    ExistQuery.LookupArray {
+        DataGroup IsEqualTo "ViewDetail"
+        $$Inner$$.Id IsEqualTo $$Outer$$.ViewDetail.Id
+        $$Inner$$.PropertyId TextIsEqualTo Inputs.ViewDetail.PropertyId
+    }
+    ExistQuery.LookupArray {
+        DataGroup IsEqualTo "SecurityGroup.ViewAuthorizations"
+        $$Inner$$.Id IsEqualTo $$Outer$$.Id
+        $$Inner$$.SecurityGroup.Id IsEqualTo Inputs.SecurityGroup.Id
+    }
+}]]></IL>
+        </CustomIlNode>
+        <EndNode ID="37e521ff-6a85-4a8d-a82e-d9a99378aa4d" Bounds="822.5,260,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="4988277e-3028-48ef-aa1d-8654faf2e69f" From="75ccdc74-8502-40bd-92fd-e4b658c8057e" FromIndex="0" To="035cec8d-6297-42d5-9396-38b63fff968a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,115" />
+          <Segment EndPoint="907.5,160" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c65da008-a124-4983-8875-8fed47f49a8e" From="035cec8d-6297-42d5-9396-38b63fff968a" FromIndex="2" To="37e521ff-6a85-4a8d-a82e-d9a99378aa4d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,215" />
+          <Segment EndPoint="907.5,260" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateAddress" OwnerId="be83ce04-3d44-4b6f-9d4d-951b176f4197" ProcessId="23fa861b-01a7-4931-8792-1793ae0ed2d9" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="City" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="45356482-0977-456c-86aa-acffb2506b70" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Person" DataType="be83ce04-3d44-4b6f-9d4d-951b176f4197" VariableType="InputOutput" VariableId="945c23cf-b24f-4d41-90d6-c31ace8c0995" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="State" DataType="3ec53ed9-41be-4557-ba0b-a2f03dbe5b0d" VariableType="Input" VariableId="ab61e8ef-a3e9-470a-9d8d-0cbcc8be6227" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Street" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="939dc08b-c2fe-4124-b936-a2e4e0cfa4ae" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Zip" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="8ced955f-eb00-4162-8733-83160ff4ae6c" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="64915fe2-9041-43ff-ad4b-d0643810524d" Bounds="630.6,55,170,55" />
+        <ExecuteProcessNode EntityDefinition="b24a77b1-a746-47c5-882b-da1513d0aa2f" ProcessProperty="aa05baf0-9f3f-4f4b-80f5-d2939a60702f" ExecuteProcessType="EntityStatic" VariableId="USAAddressGetValidAddressResult" SuppressValidations="false" ID="38925b82-3383-4313-ba9f-1ce0693070d7" Bounds="440.6,155,550,55">
+          <InputVariables>
+            <InputVariable Name="City" Value="City" />
+            <InputVariable Name="State" Value="State" />
+            <InputVariable Name="Street" Value="Street" />
+            <InputVariable Name="Zip" Value="Zip" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <AssignNode ID="fde0bb44-3182-473d-a97e-6b83e1fb6ac9" Bounds="440.6,255,550,55">
+          <Assignment Name="Person.Address" Value="USAAddressGetValidAddressResult.Outputs.Address" />
+        </AssignNode>
+        <EndNode ID="16607e03-15b7-46df-a9a7-1b5e45522755" Bounds="630.6,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="9283fb99-8a6e-475e-873f-2409d74b6181" From="64915fe2-9041-43ff-ad4b-d0643810524d" FromIndex="0" To="38925b82-3383-4313-ba9f-1ce0693070d7" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9ec01bca-5835-4dcd-8e57-4fab7631de97" From="38925b82-3383-4313-ba9f-1ce0693070d7" FromIndex="2" To="fde0bb44-3182-473d-a97e-6b83e1fb6ac9" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6407201f-9123-4c7f-bb29-44cdf9820c77" From="fde0bb44-3182-473d-a97e-6b83e1fb6ac9" FromIndex="2" To="16607e03-15b7-46df-a9a7-1b5e45522755" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

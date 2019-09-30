@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateSessionParameters" OwnerId="ae5a89a1-32a3-4cbb-84a2-26986dc4f176" ProcessId="fb605b78-a229-4d8e-be8c-2f4fd4483507" ProcessType="Normal" Classification="ViewElement" IsRemovable="true">
+  <Variables>
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="InputOutput" VariableId="e20e3323-b04d-4d7e-9060-1776c7549a9f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SessionParameters" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" VariableType="Input" VariableId="4e20fac4-4fcc-4c90-9f73-226e97f8260a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="ed345882-a7a8-44fa-b3ee-ef86d0ea155c" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="UpdateSessionInstruction" DataType="181b09f4-5dfd-4ab2-b297-22069b657b8f" Description="Create Update Session Parameters (Value Instruction)" ID="32f08ec2-7a42-4935-8bb9-b61e270d09ca" Bounds="632.5,155,550,55">
+          <Properties>
+            <Property Name="Action">"UpdateElement"</Property>
+            <Property Name="Context">"Current"</Property>
+            <Property Name="Instruction">"EventParameters"</Property>
+            <Property Name="UiParameters">SessionParameters</Property>
+            <Property Name="Value">"load"</Property>
+          </Properties>
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="UpdateSessionInstruction" SourceList="PageInstructions" Description="Add to PageInstructions" ID="059d6cbd-e4e4-42a2-a76f-8a7b90b15407" Bounds="632.5,255,550,55" />
+        <EndNode ID="69cb714d-d821-40a9-baa5-a3f4b033b1a0" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="7d632862-abca-4b9f-86ef-1d900b2a3d06" From="ed345882-a7a8-44fa-b3ee-ef86d0ea155c" FromIndex="0" To="32f08ec2-7a42-4935-8bb9-b61e270d09ca" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0cd6ead6-7339-451c-9d43-66c99103e092" From="32f08ec2-7a42-4935-8bb9-b61e270d09ca" FromIndex="2" To="059d6cbd-e4e4-42a2-a76f-8a7b90b15407" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5f6b40cf-a7c6-493d-b03a-18741c9247ec" From="059d6cbd-e4e4-42a2-a76f-8a7b90b15407" FromIndex="2" To="69cb714d-d821-40a9-baa5-a3f4b033b1a0" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

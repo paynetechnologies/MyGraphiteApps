@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SliderField" ViewElementId="075e1632-bfbc-4567-8a9f-51f65da301c9" BasedOn="6c4194eb-b4de-4bdd-9ac8-1992477afd34" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d">
+  <Description>Slider Field is used to provide a slider for incremental values.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Minimum" PropertyId="SimpleEntityDefinitionProperty_Minimum" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Maximum" PropertyId="SimpleEntityDefinitionProperty_Maximum" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Orientation" PropertyId="SimpleEntityDefinitionProperty_Orientation" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsRange" PropertyId="SimpleEntityDefinitionProperty_IsRange" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Increment" PropertyId="SimpleEntityDefinitionProperty_Increment" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="HasManualEntry" PropertyId="SimpleEntityDefinitionProperty_HasManualEntry" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SliderField" />
+    <Property PropertyName="Orientation" DefaultValue="Horizontal" />
+    <Property PropertyName="IsRange" DefaultValue="No" />
+    <Property PropertyName="HasManualEntry" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SliderField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.SliderField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">TextField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Textbox.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Minimum" EditorType="DecimalTextBox" Label="Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Slider Value]]></Description>
+      </Field>
+      <Field FieldName="Maximum" EditorType="DecimalTextBox" Label="Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Slider Value]]></Description>
+      </Field>
+      <Field FieldName="Increment" EditorType="DecimalTextBox" Label="Increment" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Value to increment the Slider by]]></Description>
+      </Field>
+      <Field FieldName="Orientation" EditorType="SelectBox" Label="Orientation" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Slider Orientation]]></Description>
+        <DescriptionOptions><![CDATA[Landscape]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Landscape" Value="Horizontal" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Horizontal" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsRange" EditorType="Hidden" Label="IsRange" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HasManualEntry" EditorType="YesNoToggle" Label="Show Entry Field?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show an Entry field next to the Slider?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Minimum" PropertyPath="Minimum" Value="{Text}" />
+      <Map FieldName="Maximum" PropertyPath="Maximum" Value="{Text}" />
+      <Map FieldName="Increment" PropertyPath="Increment" Value="{Text}" />
+      <Map FieldName="Orientation" PropertyPath="Orientation" Value="{Text}" />
+      <Map FieldName="IsRange" PropertyPath="IsRange" Value="{Text}" />
+      <Map FieldName="HasManualEntry" PropertyPath="HasManualEntry" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABySURBVChTpdCxCYAwEEDRRMFWdAjLTJQZtBKxtdTK2tI9nEsE0X9goUdAwQ+PBBJCOOu9N6oEA+TAYkaNDa9F13qvR4kc2bXv8Cl58FAq6Broe0GhH/5KHpQ53Y3QyRj0vaDYOcf6aEGKAismtNjxkjEn+Hcas5b+MMAAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVChTY/j//z86ZgPiiUD8FojfQdkgMWxqMTA2wQlAjA46gBibWgzMCCSAxlIPMEFpqgGQgYxoeCIQo4MuIEZXhx0j+x+KYZECihASI+U/AwAIfsOe2fKfSAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

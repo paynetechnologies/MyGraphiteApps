@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ViewElementSecurityDisplay" ViewElementId="72a4fe60-2494-42cd-92f6-f578e08afc49" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="a8bd2c8a-3b4f-47ab-8ef8-0252ba6f1080" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="0bf2e9fe-d687-435a-96ee-866b3e0c0ec4" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ElementType" PropertyId="9e492901-3d83-4ea9-a2de-358b967bd635" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsAllowed" PropertyId="3b0a66d2-0354-4f0f-b972-a927654c366e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="HasChildren" PropertyId="96709376-9314-4d6a-b308-14fa57fa9509" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ViewElementSecurityDisplay" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags />
+</ViewElementDefinition>

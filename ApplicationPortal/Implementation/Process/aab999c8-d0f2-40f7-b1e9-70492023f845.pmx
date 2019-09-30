@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildNavigateInstruction" OwnerId="8535d60f-9d1b-4dde-a002-4ae203377ea5" ProcessId="aab999c8-d0f2-40f7-b1e9-70492023f845" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="f51775e6-247b-4bf7-8063-dd4e6f9b5152" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="InputOutput" VariableId="9db5070b-a5b2-4c07-bf15-3762f3e73bd6" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="4ff8fffb-f0be-458b-bf64-9b05a4b126d5" Bounds="630.6,165,170,55" ZOrder="1" Text="" />
+        <EndNode ID="8e0638b6-fc60-40b5-94d6-635a0bb0caf7" Bounds="630.6,265,170,55" />
+        <CreateUiParametersNode Variable="PageLoadParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="0298064f-9e85-4987-91d1-79fefedacfdd" Description="Create Parameters for OnLoadView of any Application Page" ID="03ab5225-e7d1-4c26-b810-33f00df94b96" Bounds="440.6,365,550,55" ZOrder="1" Text="">
+          <Parameters>
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <AssignNode Description="Instruction = &quot;/Content/Application&quot; + Category + &quot;.html&quot;" ID="46bd2488-6541-4213-8ce8-02c5a94f3277" Bounds="440.6,465,550,55" ZOrder="1" Text="">
+          <Assignment Name="Instruction" Value="Text.Concatenate( &quot;/Content/Application/&quot;, ApplicationInContext.Type.Category, &quot;.html&quot; )" />
+        </AssignNode>
+        <CreateNode Variable="GotoPageInstruction" DataType="f77eeacc-125b-496b-a9cb-5a9561dd73b6" ID="7b67cab8-4699-492d-920f-89e4937ae6bd" Bounds="440.6,565,550,55" ZOrder="1" Text="">
+          <Properties>
+            <Property Name="Action">"ShowView"</Property>
+            <Property Name="Context">"Current"</Property>
+            <Property Name="Instruction">Instruction</Property>
+            <Property Name="Language">Language:EnglishUSA.Code</Property>
+            <Property Name="Theme">Theme:Polk.Description</Property>
+            <Property Name="UiParameters">PageLoadParameters</Property>
+          </Properties>
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="GotoPageInstruction" SourceList="PageInstructions" ID="ba523f85-357b-4ef2-abed-68866162e206" Bounds="440.6,665,550,55" ZOrder="1" Text="" />
+        <EndNode ID="3cd8bf44-5209-40f8-8894-9d196546c184" Bounds="630.6,765,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="50c7c96c-dd90-4a47-8ad2-a4e7c8328dd8" From="03ab5225-e7d1-4c26-b810-33f00df94b96" FromIndex="2" To="46bd2488-6541-4213-8ce8-02c5a94f3277" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="75d46f3f-a6c2-4981-8f85-55e024a0d6b8" From="46bd2488-6541-4213-8ce8-02c5a94f3277" FromIndex="2" To="7b67cab8-4699-492d-920f-89e4937ae6bd" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,520" />
+          <Segment EndPoint="715.6,565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8f5c53a0-bb38-42c2-84b1-fbbbc62cb4b6" From="7b67cab8-4699-492d-920f-89e4937ae6bd" FromIndex="2" To="ba523f85-357b-4ef2-abed-68866162e206" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,620" />
+          <Segment EndPoint="715.6,665" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e993f3bf-bc63-4b7c-87bf-ed9893d73db6" From="ba523f85-357b-4ef2-abed-68866162e206" FromIndex="2" To="3cd8bf44-5209-40f8-8894-9d196546c184" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,720" />
+          <Segment EndPoint="715.6,765" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8920b0ef-3f72-4625-90d2-89fbedb7c1f4" From="4ff8fffb-f0be-458b-bf64-9b05a4b126d5" FromIndex="0" To="8e0638b6-fc60-40b5-94d6-635a0bb0caf7" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,220" />
+          <Segment EndPoint="715.6,265" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

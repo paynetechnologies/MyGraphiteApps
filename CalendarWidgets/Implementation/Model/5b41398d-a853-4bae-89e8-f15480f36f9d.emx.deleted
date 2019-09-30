@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Appointment" EntityId="5b41398d-a853-4bae-89e8-f15480f36f9d" TargetChangeSetId="83f85fcb-97f2-4573-a84c-5996e49067fc">
+  <Description>An entity that contains the details of a calendar appointment</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="AllDayEvent" PropertyId="99b4c163-5c15-4a66-83c6-00ff632d3588" IsOptional="false" DataType="100b3d78-7d96-4a2b-b36b-c4ab1b935b68" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="EndTime" PropertyId="a5696dde-11cd-4b3b-800d-93321076a216" IsOptional="false" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Location" PropertyId="cbcc34e6-ae32-46a9-8de3-8572251bff47" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Note" PropertyId="05907a52-7adb-4766-bccc-46edd151da89" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="StartTime" PropertyId="8ebff7ff-c515-41f4-940f-5cb251ae18b2" IsOptional="false" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Subject" PropertyId="24d34daf-97bf-4ade-a310-dbd583a7fda2" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

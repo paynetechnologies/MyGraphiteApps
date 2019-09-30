@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickDeleteContactButton" OwnerId="913e4155-0c81-4a39-8f43-113764623287" ProcessId="284b06f4-10fc-40c0-a4f3-9bd9aee0b025" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="94a760f9-83c5-436a-951e-e0f4b0524332" VariableType="Input" Classification="Pinned, Locked" VariableId="bfd0a611-59c9-4b52-8e11-b54c75812af2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="369d6a3e-1312-4b09-a282-ea0ade95bfe0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ContactToDelete" DataType="c10d5592-8fd9-4693-b832-5c171e0bdb3c" VariableType="Input" VariableId="041353cc-4c28-4724-b38d-bce0cb4dc90f" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="1d514ef7-ecb8-49ef-8d44-5a1853112aeb" Bounds="630,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="06f841f8-4d9c-444b-bee4-3a8fd9272b12" Bounds="440,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="ContactDetailsToDelete" DataType="$[List,$[c8e166a7-71da-484a-9ab9-50e4b7cbb0b2,913e4155-0c81-4a39-8f43-113764623287]]" ID="740679d7-3da4-4c5e-ae8f-2b71c07309a2" Bounds="440,255,550,55">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="ContactDetailToDelete" DataType="$[c8e166a7-71da-484a-9ab9-50e4b7cbb0b2,913e4155-0c81-4a39-8f43-113764623287]" ID="44d74bd2-c890-4b94-aadc-9e00214ab035" Bounds="440,355,550,55">
+          <Properties>
+            <Property Name="Id">ContactToDelete</Property>
+          </Properties>
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="ContactDetailToDelete" SourceList="ContactDetailsToDelete" ID="4c9588e5-79a9-4acc-b24f-aa2c706d45e4" Bounds="440,455,550,55" Text="List Management" />
+        <DecisionNode LeftExpression="ContactToDelete" Operator="IsNotMissing" ID="cd6ecf88-f418-4f52-85d5-82c31cfde0be" Bounds="460,555,510,125" />
+        <EndNode ID="ed8f336f-33bf-4a2c-a3b3-003aed629367" Bounds="630,925,170,55" />
+        <DeleteNode Description="Delete Contact" ID="46d8c5c5-200b-46ea-b620-459839d10f52" Bounds="40,725,550,55">
+          <Entity>ContactToDelete</Entity>
+        </DeleteNode>
+        <PageInstructionNode Action="Remove" Instruction="Content" Context="Current" ContainerElementId="39274a48-5c24-4da3-a9de-902633683288" ViewElementsExpression="ContactDetailsToDelete" PageInstructionViewElementId="9c2a999a-fa50-4a60-8b68-957e6d7c2ee5" ID="1cbd35a7-e848-4982-8a57-e018f35922bb" Bounds="40,825,550,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="4bd79403-0553-4a7c-843b-7a254a95dcc3" From="1d514ef7-ecb8-49ef-8d44-5a1853112aeb" FromIndex="0" To="06f841f8-4d9c-444b-bee4-3a8fd9272b12" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,110" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="797945bf-a691-4ad1-b1b8-b733569b4459" From="cd6ecf88-f418-4f52-85d5-82c31cfde0be" FromIndex="3" To="46d8c5c5-200b-46ea-b620-459839d10f52" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460,617.5" />
+          <Segment EndPoint="315,617.5" />
+          <Segment EndPoint="315,725" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="14a2614a-4d6c-4eae-b89e-bfbe447ab33f" From="cd6ecf88-f418-4f52-85d5-82c31cfde0be" FromIndex="2" To="ed8f336f-33bf-4a2c-a3b3-003aed629367" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="715,680" />
+          <Segment EndPoint="715,925" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="9b986988-0985-4f82-8914-2e49fd4aa438" From="46d8c5c5-200b-46ea-b620-459839d10f52" FromIndex="2" To="1cbd35a7-e848-4982-8a57-e018f35922bb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="315,780" />
+          <Segment EndPoint="315,825" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c5759a68-7cbf-403b-8622-66c98cfc69bd" From="1cbd35a7-e848-4982-8a57-e018f35922bb" FromIndex="1" To="ed8f336f-33bf-4a2c-a3b3-003aed629367" ToIndex="2" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="590,852.5" />
+          <Segment EndPoint="610,852.5" />
+          <Segment EndPoint="610,1000" Movable="true" />
+          <Segment EndPoint="715,1000" Movable="true" />
+          <Segment EndPoint="715,980" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e35603a7-1833-461a-bc89-2f64a64c3b06" From="06f841f8-4d9c-444b-bee4-3a8fd9272b12" FromIndex="2" To="740679d7-3da4-4c5e-ae8f-2b71c07309a2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0e6fac4f-0b51-4ecb-a7f9-82c52ba6b527" From="740679d7-3da4-4c5e-ae8f-2b71c07309a2" FromIndex="2" To="44d74bd2-c890-4b94-aadc-9e00214ab035" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,310" />
+          <Segment EndPoint="715,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9391a822-f6cd-4b06-b57b-5c70f04feafb" From="44d74bd2-c890-4b94-aadc-9e00214ab035" FromIndex="2" To="4c9588e5-79a9-4acc-b24f-aa2c706d45e4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,410" />
+          <Segment EndPoint="715,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f6163c10-6851-4a77-abd5-338dce76a427" From="4c9588e5-79a9-4acc-b24f-aa2c706d45e4" FromIndex="2" To="cd6ecf88-f418-4f52-85d5-82c31cfde0be" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,510" />
+          <Segment EndPoint="715,555" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

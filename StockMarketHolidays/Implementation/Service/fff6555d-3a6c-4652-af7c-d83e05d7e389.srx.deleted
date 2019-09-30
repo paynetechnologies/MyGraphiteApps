@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceReference Id="fff6555d-3a6c-4652-af7c-d83e05d7e389" Name="Holidays" ReferenceType="Soap" ServiceAddress="http://graphitegtc.com/soap/MarketHoliday.svc?singleWsdl">
+  <Tags>
+    <Tag Type="Group">Holidays</Tag>
+  </Tags>
+</ServiceReference>

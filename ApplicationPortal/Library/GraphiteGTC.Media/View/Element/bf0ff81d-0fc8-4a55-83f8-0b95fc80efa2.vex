@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DocumentScan" ViewElementId="bf0ff81d-0fc8-4a55-83f8-0b95fc80efa2" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Document Scan allows users to scan documents, provided that they have a Scanner setup on their computer.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSave" PropertyId="31d0cf92-9dff-4095-b22f-74751e2f9aac" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Height" PropertyId="d9b4cc61-8ff9-48c9-970e-98d203a9e468" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DocumentScan" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DocumentScan.js</Script>
+      <Script Component="false" Group="Dynamsoft">dynamsoft.webtwain.initiate</Script>
+      <Script Component="false" Group="Dynamsoft">dynamsoft.webtwain.config</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Selectbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Field.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OnClickSave" EditorType="ViewBehaviorChooser" Label="OnClickSave" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Save Button is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="Base64Scan" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveFormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Form to Submit when Save Button is clicked]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="Height" EditorType="TextBox" Label="Height" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Scan Window]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnClickSave" PropertyPath="OnClickSave.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSave" PropertyPath="OnClickSave.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveFormToSerialize" PropertyPath="OnClickSave.FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="Height" PropertyPath="Height" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACaSURBVEhLY2RAAmlpaf+hTFLAGyB+DMQ7gbh/1qxZr0CCMIBhAVABihg+AFTPD6Q+QHhg8AyITYBmPIdwGRiYoDS1gBQQ10GYEECpBV+hNDJwh9JgQJEFwKD4A2UiA2kojQnIjGQUgG4GteMAA4xaQBCMWkAQMFIj7eMDNPcBCqBFTh5mYEgWdsMM0CUOkBWA2KTyoUwoYGAAAPctPBiPGAAtAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAClSURBVEhL7ZLNCsIwEISzUujRs0/t0WfxZXopvYhP0IvOlBHyU0wCTUXoB0sn2dks2dScxwtI1vBEjIg74mpmD26uUtsA9jNrPCbERekUOiSLgD1uQG5KpzArWQTsHWsiBqUXkjfADIO9HKyR/DDjiF46ZMVcTXzGSd9mHA2yHA2y2Bb//jea3yBgi9u0nsiPaTGifR/5/9nlDXwDNdGyaC0pnHsDsPGkHCYK6dcAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

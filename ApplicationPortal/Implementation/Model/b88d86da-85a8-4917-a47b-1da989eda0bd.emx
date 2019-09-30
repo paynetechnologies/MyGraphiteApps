@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ApplicationType" EntityId="b88d86da-85a8-4917-a47b-1da989eda0bd" EntityType="Enumeration" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="eb744f4f-d6ea-47e8-9172-2fc5a9b5c979" IsOptional="false" DataType="2a4fb4ec-1b34-4bd6-aecc-227a9b469ca4" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Category" PropertyId="ccb2ff79-768f-4045-b7af-01c0f94c0305" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="5e858e05-9724-4399-a13a-7db93f904163" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <DataEntries KeyProperty="Description">
+    <DataEntry DataEntryId="32526b49-d8ed-420f-99c0-9e04b4c56697">
+      <DataValue Property="Description">BuyingHome</DataValue>
+      <DataValue Property="Category">HomeLoan</DataValue>
+      <DataValue Property="Display">Buying a Home</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="e02b20c6-3506-4433-b1f4-0d37d9b97ef5">
+      <DataValue Property="Description">EstatePlanning</DataValue>
+      <DataValue Property="Category"></DataValue>
+      <DataValue Property="Display">Estate Planning</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="4c269b95-d123-4af0-99e3-a83c3004ee04">
+      <DataValue Property="Description">FindWorkingCapital</DataValue>
+      <DataValue Property="Category"></DataValue>
+      <DataValue Property="Display">Find Working Capital</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="d870e212-9241-4c7d-bad3-770050c39d92">
+      <DataValue Property="Description">InsuranceServices</DataValue>
+      <DataValue Property="Category">Insurance</DataValue>
+      <DataValue Property="Display">Insurance  Services</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="dddf2c92-6a8c-4d8b-88e1-a86b688bb7a4">
+      <DataValue Property="Description">Investments</DataValue>
+      <DataValue Property="Category"></DataValue>
+      <DataValue Property="Display">Investments</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="884d869c-01ff-4cb7-b776-ec2bae3dd1c9">
+      <DataValue Property="Description">StartingBusiness</DataValue>
+      <DataValue Property="Category"></DataValue>
+      <DataValue Property="Display">Starting a Business</DataValue>
+    </DataEntry>
+  </DataEntries>
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

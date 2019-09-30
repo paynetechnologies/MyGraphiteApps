@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="GeoLocation" EntityId="77be9b43-bd6b-4ed9-9d70-9dbaaa6c8a7f" NamespaceExtension="Media">
+  <Description>An entity that provides the latitude and logitude of a location - see DetermineLocation</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Latitude" PropertyId="fa78299e-7db6-4f39-be1c-36298af7d993" IsOptional="false" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Longitude" PropertyId="82250fa4-79e1-44fb-9d9a-5e3eedde490a" IsOptional="false" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" />
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+</EntityDefinition>

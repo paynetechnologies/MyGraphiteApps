@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="CalculateSimpleInterest" OwnerId="8c764575-5e16-4b2d-b955-406ef7ab22e3" ProcessId="d5aa5075-bccd-4c6b-8bab-114d7b0fcace" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="Principal" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="c3b4cbbd-10e8-47d6-be43-b588ffd73cf7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Rate" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" VariableType="Input" VariableId="8e6abd3e-7dca-4c66-98eb-ef244f070a29" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Duration" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Input" VariableId="5bcec4ec-ea4d-4b13-b59f-d954f94f9679" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="InterestAmount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Output" VariableId="5aa4b2df-db25-435a-b7cc-68e374bf06ca" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="9a9f1eaa-c151-49b2-a1c2-99267697c034" Bounds="630.6,55,170,55" />
+        <DecisionNode LeftExpression="Principal" RightExpression="0" Operator="IsEqualTo" ID="d10af34f-bcd1-40a3-9b81-084f6863dfe9" Bounds="460.6,155,510,125" />
+        <EvaluationNode Variable="AccruedAmount" ID="158d0bdd-c1ce-4b03-bfdf-ad8b60c78635" Bounds="840,325,550,55" Text="Evaluation">
+          <Expression><![CDATA[Principal * (1 + (Rate / 100) * Duration)]]></Expression>
+        </EvaluationNode>
+        <AssignNode ID="37eb1d69-f20c-427e-9afd-d9e1d2aff400" Bounds="40.6,325,550,55" Text="Assign">
+          <Assignment Name="InterestAmount" Value="0" />
+        </AssignNode>
+        <EvaluationNode Variable="InterestAmount" ID="39cc125e-09c5-46a9-94ce-49ffae01a05a" Bounds="840,425,550,55">
+          <Expression><![CDATA[AccruedAmount - Principal]]></Expression>
+        </EvaluationNode>
+        <EndNode ID="9b029a49-633f-4883-911b-6c9642580aed" Bounds="630.6,525,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="736e9cd5-f869-4434-8c68-003ea9ed3cc6" From="9a9f1eaa-c151-49b2-a1c2-99267697c034" FromIndex="0" To="d10af34f-bcd1-40a3-9b81-084f6863dfe9" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="afec7799-26d1-4002-99e2-4a15ab1f8ee2" From="d10af34f-bcd1-40a3-9b81-084f6863dfe9" FromIndex="3" To="37eb1d69-f20c-427e-9afd-d9e1d2aff400" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460.6,217.5" />
+          <Segment EndPoint="315.6,217.5" />
+          <Segment EndPoint="315.6,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="2559e4c5-a171-492d-976f-4c68063de714" From="d10af34f-bcd1-40a3-9b81-084f6863dfe9" FromIndex="1" To="158d0bdd-c1ce-4b03-bfdf-ad8b60c78635" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="970.6,217.5" />
+          <Segment EndPoint="1115,217.5" />
+          <Segment EndPoint="1115,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="f64c17a3-05cf-4774-8ddc-7a76a52086ae" From="158d0bdd-c1ce-4b03-bfdf-ad8b60c78635" FromIndex="2" To="39cc125e-09c5-46a9-94ce-49ffae01a05a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115,380" />
+          <Segment EndPoint="1115,425" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5008e2b1-b308-4cb5-bea4-4cf7dc8a8a16" From="37eb1d69-f20c-427e-9afd-d9e1d2aff400" FromIndex="2" To="9b029a49-633f-4883-911b-6c9642580aed" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="315.6,380" />
+          <Segment EndPoint="315.6,552.5" />
+          <Segment EndPoint="630.6,552.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4839c2ff-5b68-4379-9596-a6e609ef243d" From="39cc125e-09c5-46a9-94ce-49ffae01a05a" FromIndex="2" To="9b029a49-633f-4883-911b-6c9642580aed" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115,480" />
+          <Segment EndPoint="1115,552.5" />
+          <Segment EndPoint="800.6,552.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

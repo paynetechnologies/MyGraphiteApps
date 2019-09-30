@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickSampleSelectableButton5" OwnerId="5bb6de69-8394-495f-ae33-20bbcd5c5a2b" ProcessId="23a1851f-4d17-4724-9fbd-2567458b6942" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="651619f7-fe0f-41c7-afec-dbf6eb7a6da8" VariableType="Input" Classification="Pinned, Locked" VariableId="619cc653-f222-491e-81a1-022e3cbee1d6" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="40b6993d-2e69-43d0-8e53-12a3aad2af7c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SelectedButton" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="d7b9cb9a-e82b-4c8b-87e4-b35ac0311df4" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FromIndex" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Input" VariableId="e84f914d-cb96-4818-8319-fc73595352ae" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ToIndex" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Input" VariableId="d024cb60-b583-4e71-b669-bb744e2d8b6c" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="b5b18017-4e68-4c5f-b03e-3e9e4395f3a0" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="1ce53145-3925-4815-89c5-407cb2fd7616" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <PageInstructionNode Action="Show" Instruction="SlideRight" Context="Parent" PageInstructionViewElementId="9a61daf0-472c-4f4a-bab5-bcacaed4441c" NotificationMessage="&quot;Select2 clicked&quot;" NotificationTitle="TranslationKeys:SelectableButton" NotificationDuration="2" Description="Notification SelectableButton clicked" ID="e00398cd-d0cd-4f91-a8e5-8b7815a99804" Bounds="440.6,255,550,55" ZOrder="2" Text="" />
+        <EndNode ID="18f446a0-5125-428a-8e14-3415ebc2ad3a" Bounds="630.6,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="bdd22a38-85f2-4d4d-b936-87c783ae9e71" From="b5b18017-4e68-4c5f-b03e-3e9e4395f3a0" FromIndex="0" To="1ce53145-3925-4815-89c5-407cb2fd7616" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="85a0a33a-9266-4048-b238-7b6085505897" From="1ce53145-3925-4815-89c5-407cb2fd7616" FromIndex="2" To="e00398cd-d0cd-4f91-a8e5-8b7815a99804" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="51d40ac8-6528-4815-9ac5-429ffec7d22b" From="e00398cd-d0cd-4f91-a8e5-8b7815a99804" FromIndex="2" To="18f446a0-5125-428a-8e14-3415ebc2ad3a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

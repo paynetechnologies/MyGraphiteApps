@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ImageSlider" ViewElementId="37321b9c-0b04-4ad1-8bef-81e83952596d" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Image slider is a way to display a group of images.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Transition" PropertyId="SimpleEntityDefinitionProperty_Transition" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TransitionDelay" PropertyId="SimpleEntityDefinitionProperty_TransitionDelay" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Images" PropertyId="SimpleEntityDefinitionProperty_Images" IsOptional="true" DataType="$[List,a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MaxHeight" PropertyId="SimpleEntityDefinitionProperty_MaxHeight" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ImageSlider" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ImageSlider.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Transition" EditorType="SelectBox" Label="Transition" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Slide Transition]]></Description>
+        <DescriptionOptions><![CDATA[Fade, FadeAsOne, FaseSlide, FadeSlideCorner, Slide]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Slide" Value="Slide" />
+          <FieldOption DisplayName="Fade" Value="Fade" />
+          <FieldOption DisplayName="FadeAsOne" Value="FadeAsOne" />
+          <FieldOption DisplayName="FadeSlideCorner" Value="FadeSlideCorner" />
+          <FieldOption DisplayName="FadeSlide" Value="FadeSlide" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="TransitionDelay" EditorType="IntegerTextBox" Label="Transition Delay" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Transition delay in seconds]]></Description>
+      </Field>
+      <Field FieldName="MaxHeight" EditorType="TextBox" Label="Maximum Height" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Maximum Height of the Slider]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Transition" PropertyPath="Transition" Value="{Text}" />
+      <Map FieldName="TransitionDelay" PropertyPath="TransitionDelay" Value="{Text}" />
+      <Map FieldName="MaxHeight" PropertyPath="MaxHeight" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Image</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFiSURBVEhLxZY9TsNAFIQdaBANZwDRICgjKEG0cIjQ2MoJoAtnIJUrcgJaSmiDKEHchBZm3g/aXTthDQ580mjfLtIbz/pZYVCWZWF82LoS6roecF2T3R/SllCeJBc8uVXtVFUlff8tYWr4bmufRD1DwzfoSMteYc9XLWPDIfSiZX/g3bHnoe6aV3pra29gaKKebrgHzaGR7JZzDJ1omQV7zmG8zw0NefAMHfAgg2toomU27P0E01F6pd/h6VydoeEMiiZpCUzndEkpXwAGaOYJfZJovoj03X2lxFVNoDHrFthzaNPamNILW50z6AGiWZjOoRGT8m9T1KdyGgCjqGdoyCmVSTI2oBuIKR5tTeGZP8g6dAfTXd0q2PsXIISGMklaCpfQjpbZbEH3MOHqRF9AeqWbtm5DV1p2hgmZlImJ9xRSQ4dXySv9KXyXUy1j2gz5+3Wu5a8YI2Xjv4hFCVdEUXwCxRtNtTsFh5wAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEpSURBVEhLxZUxbsJAEEVN0iA3OQMSDUp6ShBtLkHLKXILWg6RGuUQkKSIcoc0hCaS8/96ZzU7WhBL1s6THsyuxR8PtuVB0zSVJxQdMeDHjSt7JDWhO5OCRLm9T2gbfvvvkkSZuuE7nLZlUZj52pbxNaxhFxOSkG3/0o3/LkmcyQnhBO4gkb1TzuDc7J2TMPseuoZLeICC/YH1xZs6llJgj2XuYzGDc2U+6Eof4B4SfXZWTiZcOiV5g+wRGtIabtTaymtnkWv5BFe+tjKT2W6tD4RN5SPkJGympxO4x2bkBy6gzaDJhuFO8g7hJ8zhC46hzpUnwK31AcI7SdZy5rl8wDsoOfIEuLVsUoH1CB7d6jq28Bba3JMNn9vyT6yhzU2+D7viP96HVfUL7V54CROfoWEAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

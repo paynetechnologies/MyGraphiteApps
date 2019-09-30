@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ConvertEventDetail" OwnerId="300d1bfb-cfdf-427e-bb48-e4b40bb2f5d8" ProcessId="44323332-0a5b-4578-b10f-ef63781e03ad" ProcessType="Normal" Classification="ViewElement" IsRemovable="true">
+  <Variables>
+    <Variable Name="UiEventDetail" DataType="300d1bfb-cfdf-427e-bb48-e4b40bb2f5d8" VariableType="Output" VariableId="3919ba24-58b8-4304-8343-a533b0d64e2a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EventDetail" DataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" VariableType="Input" VariableId="11a1ecae-49c2-498b-9826-19249f328e92" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="e7190e6d-3d81-48ad-8a7e-db86912b660c" Bounds="835,10,170,55" Text="Start" />
+        <CreateNode Variable="UiEventDetail" DataType="300d1bfb-cfdf-427e-bb48-e4b40bb2f5d8" Description="Create UiEventDetail" ID="569c5279-7000-41f4-9b9b-1b7e9106d273" Bounds="645,110,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <AssignNode Description="Setup UiEventDetail" ID="43b4b211-f041-4d00-8a91-af995f028c18" Bounds="645,210,550,55" Text="Assign">
+          <Assignment Name="UiEventDetail.AddedByUser" Value="Text.Concatenate( EventDetail.AddedByUser.Person.FirstName, &quot; &quot;, EventDetail.AddedByUser.Person.LastName )" />
+          <Assignment Name="UiEventDetail.DateProcessed" Value="EventDetail.ExecutedDate" />
+          <Assignment Name="UiEventDetail.EffectiveDate" Value="EventDetail.EffectiveDate" />
+          <Assignment Name="UiEventDetail.Id" Value="EventDetail" />
+          <Assignment Name="UiEventDetail.TransactionName" Value="EventDetail.DisplayName" />
+          <Assignment Name="UiEventDetail.ExecutedByUserId" Value="EventDetail.ExecutedByUser" />
+          <Assignment Name="UiEventDetail.IsComplete" Value="EventDetail.IsComplete.Description" />
+          <Assignment Name="UiEventDetail.IsReversed" Value="YesNoQuestion:No.Description" />
+          <Assignment Name="UiEventDetail.IsScheduledByEvent" Value="YesNoQuestion:No.Description" />
+          <Assignment Name="UiEventDetail.ValidationExists" Value="YesNoQuestion:No.Description" />
+          <Assignment Name="UiEventDetail.IsScheduledByUser" Value="YesNoQuestion:No.Description" />
+          <Assignment Name="UiEventDetail.EditView" Value="EventDetail.InputView" />
+          <Assignment Name="UiEventDetail.ContainsErrors" Value="YesNoQuestion:No.Description" />
+          <Assignment Name="UiEventDetail.ResultView" Value="EventDetail.ResultView" />
+        </AssignNode>
+        <DecisionNode LeftExpression="EventDetail.ExecutedByUser" Operator="IsNotMissing" Description="ExecutedByUser exists?" ID="38eacf00-0286-4a5f-9fc1-e758f8ce6eed" Bounds="790,310,260,125" />
+        <DecisionNode LeftExpression="EventDetail.ReversedByEvent" Operator="IsNotMissing" Description="ReversedByEvent exists?" ID="2aa4c52c-4c8a-4605-a599-569a169bb7d8" Bounds="790,580,260,125" />
+        <AssignNode Description="Set Executed By User" ID="950060ff-78cf-400e-85a0-3f283ba0796c" Bounds="245,480,550,55" Text="Assign">
+          <Assignment Name="UiEventDetail.ExecutedByUser" Value="Text.Concatenate( EventDetail.ExecutedByUser.Person.FirstName, &quot; &quot;, EventDetail.ExecutedByUser.Person.LastName )" />
+        </AssignNode>
+        <DecisionNode LeftExpression="EventDetail.ScheduledByEvent" Operator="IsNotMissing" Description="ScheduledByEvent exists?" ID="fb1ecfd6-f073-42dc-8779-cce4ecd3da01" Bounds="790,850,260,125" ZOrder="1" Text="" />
+        <AssignNode Description="UiEventDetail.IsReversed = Yes" ID="67865206-c000-40d9-be43-2283c1d5c0a4" Bounds="245,750,550,55" Text="Assign">
+          <Assignment Name="UiEventDetail.IsReversed" Value="YesNoQuestion:Yes.Description" />
+        </AssignNode>
+        <DecisionNode LeftExpression="EventDetail.ScheduledByUser" Operator="IsNotMissing" Description="ScheduledByUser exists?" ID="66ab59e8-872e-4bc5-9c44-61a5a882a4ab" Bounds="790,1120,260,125" ZOrder="2" Text="" />
+        <AssignNode Description="Set Scheduled By Details" ID="068e85d1-0599-437b-8618-938cae394207" Bounds="245,1020,550,55" ZOrder="1" Text="Assign">
+          <Assignment Name="UiEventDetail.IsScheduledByEvent" Value="YesNoQuestion:Yes.Description" />
+          <Assignment Name="UiEventDetail.SchedulingEventName" Value="EventDetail.ScheduledByEvent.DisplayName" />
+        </AssignNode>
+        <DecisionNode LeftExpression="EventDetail.ValidationResults.Count" RightExpression="0" Operator="IsGreaterThan" Description="ValidationResults exists?" ID="dc10a4a1-90a9-4c5a-884d-0ce0970b267e" Bounds="790,1390,260,125" ZOrder="2" Text="" />
+        <AssignNode Description="Set Scheduled By User" ID="df5c3641-d503-49ea-b222-a3dec40a41ac" Bounds="245,1290,550,55" ZOrder="2" Text="Assign">
+          <Assignment Name="UiEventDetail.IsScheduledByUser" Value="EventDetail.ScheduledByUser.Description" />
+        </AssignNode>
+        <EndNode ID="58d6a253-febe-411e-8d8e-d1daaa92f7d4" Bounds="835,1930,170,55" Text="End" />
+        <AssignNode Description="ValidationExists, ContainsErrors = Yes" ID="74d03b4b-0d88-4c7e-acc1-3c85a3b27852" Bounds="245,1560,550,55" ZOrder="2" Text="Assign">
+          <Assignment Name="UiEventDetail.ValidationExists" Value="YesNoQuestion:Yes.Description" />
+          <Assignment Name="UiEventDetail.ContainsErrors" Value="YesNoQuestion:Yes.Description" />
+        </AssignNode>
+        <DecisionNode LeftExpression="EventDetail.IsComplete" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" Description="Complete?" ID="ce493124-5f5c-4c45-b542-9fc1b05d3e67" Bounds="390,1660,260,125" ZOrder="3" Text="" />
+        <AssignNode Description="ContainsErrors = No" ID="9cada9f0-21c8-44ca-8ce7-5b5ecf45030d" Bounds="245,1830,550,55" ZOrder="3" Text="Assign">
+          <Assignment Name="UiEventDetail.ContainsErrors" Value="YesNoQuestion:No.Description" />
+        </AssignNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="709b2e75-85fe-4f33-8df2-a16d26d44d1e" From="e7190e6d-3d81-48ad-8a7e-db86912b660c" FromIndex="0" To="569c5279-7000-41f4-9b9b-1b7e9106d273" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="920,65" />
+          <Segment EndPoint="920,110" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8d592221-7740-4b5c-8f81-ce5cfb2f850d" From="43b4b211-f041-4d00-8a91-af995f028c18" FromIndex="2" To="38eacf00-0286-4a5f-9fc1-e758f8ce6eed" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="920,265" />
+          <Segment EndPoint="920,310" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="d51395ad-14e8-49d9-aece-3ee3818ebbb6" From="2aa4c52c-4c8a-4605-a599-569a169bb7d8" FromIndex="3" To="67865206-c000-40d9-be43-2283c1d5c0a4" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="790,642.5" />
+          <Segment EndPoint="520,642.5" />
+          <Segment EndPoint="520,750" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="bcbe5fb7-4aa3-4ad2-b949-5d6fd2793c95" From="2aa4c52c-4c8a-4605-a599-569a169bb7d8" FromIndex="2" To="fb1ecfd6-f073-42dc-8779-cce4ecd3da01" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="920,705" />
+          <Segment EndPoint="920,850" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="94d170c2-fff1-4c16-876d-28f9cb773531" From="67865206-c000-40d9-be43-2283c1d5c0a4" FromIndex="2" To="fb1ecfd6-f073-42dc-8779-cce4ecd3da01" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="520,805" />
+          <Segment EndPoint="520,827.5" />
+          <Segment EndPoint="920,827.5" Movable="true" />
+          <Segment EndPoint="920,850" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="c9c5ccf6-c961-40db-9a8d-edbbad6cfbd5" From="fb1ecfd6-f073-42dc-8779-cce4ecd3da01" FromIndex="3" To="068e85d1-0599-437b-8618-938cae394207" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="790,912.5" />
+          <Segment EndPoint="520,912.5" />
+          <Segment EndPoint="520,1020" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="f8b7b3ab-8ba6-45da-aaf7-f49101c3214f" From="fb1ecfd6-f073-42dc-8779-cce4ecd3da01" FromIndex="2" To="66ab59e8-872e-4bc5-9c44-61a5a882a4ab" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="920,975" />
+          <Segment EndPoint="920,1120" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="8b1ab3e5-0f06-4646-9f4e-32e2b063bb52" From="068e85d1-0599-437b-8618-938cae394207" FromIndex="2" To="66ab59e8-872e-4bc5-9c44-61a5a882a4ab" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="520,1075" />
+          <Segment EndPoint="520,1097.5" />
+          <Segment EndPoint="920,1097.5" Movable="true" />
+          <Segment EndPoint="920,1120" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="dbfc2e63-341e-4c9c-9633-c288b602e0aa" From="dc10a4a1-90a9-4c5a-884d-0ce0970b267e" FromIndex="3" To="74d03b4b-0d88-4c7e-acc1-3c85a3b27852" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="790,1452.5" />
+          <Segment EndPoint="520,1452.5" />
+          <Segment EndPoint="520,1560" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="4a58acb4-a32e-40a2-9ef7-e7c0f42b3f86" From="dc10a4a1-90a9-4c5a-884d-0ce0970b267e" FromIndex="2" To="58d6a253-febe-411e-8d8e-d1daaa92f7d4" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="920,1515" />
+          <Segment EndPoint="920,1930" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="9ad78716-eb92-467a-a629-897b3cdbf3d8" From="569c5279-7000-41f4-9b9b-1b7e9106d273" FromIndex="2" To="43b4b211-f041-4d00-8a91-af995f028c18" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="920,165" />
+          <Segment EndPoint="920,210" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="f0883169-7e2a-436b-9369-c42e7a499cc2" From="38eacf00-0286-4a5f-9fc1-e758f8ce6eed" FromIndex="3" To="950060ff-78cf-400e-85a0-3f283ba0796c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="790,372.5" />
+          <Segment EndPoint="520,372.5" />
+          <Segment EndPoint="520,480" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="3063165b-131a-4b0f-acb6-9f3ce04d4c5a" From="38eacf00-0286-4a5f-9fc1-e758f8ce6eed" FromIndex="2" To="2aa4c52c-4c8a-4605-a599-569a169bb7d8" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="920,435" />
+          <Segment EndPoint="920,580" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="d5fd49c5-8e1e-4db6-88a0-0789386ab652" From="950060ff-78cf-400e-85a0-3f283ba0796c" FromIndex="2" To="2aa4c52c-4c8a-4605-a599-569a169bb7d8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="520,535" />
+          <Segment EndPoint="520,557.5" />
+          <Segment EndPoint="920,557.5" Movable="true" />
+          <Segment EndPoint="920,580" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="052f53b6-feea-4157-9829-f9f2d79ba2f8" From="66ab59e8-872e-4bc5-9c44-61a5a882a4ab" FromIndex="3" To="df5c3641-d503-49ea-b222-a3dec40a41ac" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="790,1182.5" />
+          <Segment EndPoint="520,1182.5" />
+          <Segment EndPoint="520,1290" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="2d7363f5-810f-4667-bff3-7187e4a5c896" From="df5c3641-d503-49ea-b222-a3dec40a41ac" FromIndex="2" To="dc10a4a1-90a9-4c5a-884d-0ce0970b267e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="520,1345" />
+          <Segment EndPoint="520,1367.5" />
+          <Segment EndPoint="920,1367.5" Movable="true" />
+          <Segment EndPoint="920,1390" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="9dddf626-2eee-427e-b45b-337cc4c52817" From="66ab59e8-872e-4bc5-9c44-61a5a882a4ab" FromIndex="2" To="dc10a4a1-90a9-4c5a-884d-0ce0970b267e" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="920,1245" />
+          <Segment EndPoint="920,1390" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="157179d4-cd5b-4172-8cd3-a7cbc6667da6" From="74d03b4b-0d88-4c7e-acc1-3c85a3b27852" FromIndex="2" To="ce493124-5f5c-4c45-b542-9fc1b05d3e67" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="520,1615" />
+          <Segment EndPoint="520,1660" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="aa674631-51c5-4b53-8bea-ec3f6c3d8454" From="9cada9f0-21c8-44ca-8ce7-5b5ecf45030d" FromIndex="2" To="58d6a253-febe-411e-8d8e-d1daaa92f7d4" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="520,1885" />
+          <Segment EndPoint="520,1957.5" />
+          <Segment EndPoint="835,1957.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="22c81ad5-f501-4cad-9e55-40879dfd40c7" From="ce493124-5f5c-4c45-b542-9fc1b05d3e67" FromIndex="1" To="58d6a253-febe-411e-8d8e-d1daaa92f7d4" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="650,1722.5" />
+          <Segment EndPoint="920,1722.5" />
+          <Segment EndPoint="920,1930" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="3b7b7c52-8bb5-4fe3-ac4a-96d07847d1db" From="ce493124-5f5c-4c45-b542-9fc1b05d3e67" FromIndex="2" To="9cada9f0-21c8-44ca-8ce7-5b5ecf45030d" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="520,1785" />
+          <Segment EndPoint="520,1830" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ProgressPoll" ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Progress Poll is a way to time actions based on a fixed time interval.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Subtitle" PropertyId="SimpleEntityDefinitionProperty_Subtitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PollingInterval" PropertyId="SimpleEntityDefinitionProperty_PollingInterval" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="NumberOfSteps" PropertyId="SimpleEntityDefinitionProperty_NumberOfSteps" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ProgressBar" PropertyId="SimpleEntityDefinitionProperty_ProgressBar" IsOptional="true" DataType="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnPoll" PropertyId="SimpleEntityDefinitionProperty_OnPoll" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnComplete" PropertyId="SimpleEntityDefinitionProperty_OnComplete" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ProgressSteps" PropertyId="SimpleEntityDefinitionProperty_ProgressSteps" IsOptional="true" DataType="$[List,bd8d6eb8-f169-460f-b96c-24d4e1f1ee4f]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="WaitForStartInstruction" PropertyId="SimpleEntityDefinitionProperty_WaitForStartInstruction" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnError" PropertyId="f01d8b1b-e2b8-462b-93d1-261ff1cf05aa" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ProgressPoll" />
+    <Property PropertyName="WaitForStartInstruction" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ProgressPoll.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">ProgressBar.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Progress Poll]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Subtitle" EditorType="TranslationKeyChooser" Label="Subtitle" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Subtitle of the Progress Poll]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="PollingInterval" EditorType="IntegerTextBox" Label="Polling Interval" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Polling Interval in seconds]]></Description>
+      </Field>
+      <Field FieldName="NumberOfSteps" EditorType="IntegerTextBox" Label="Number of Steps" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Number of Steps]]></Description>
+      </Field>
+      <Field FieldName="OnPoll" EditorType="ViewBehaviorChooser" Label="OnPoll" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run on every polling interval]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="CurrentPollCount" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="CurrentPollStep" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnComplete" EditorType="ViewBehaviorChooser" Label="OnComplete" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when all steps are completed]]></Description>
+      </Field>
+      <Field FieldName="WaitForStartInstruction" EditorType="YesNoToggle" Label="Wait for Instructions?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Wait for a page instruction to start polling]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ProgressBar" EditorType="PropertyNodeCreator" Label="Progress Bar?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Attach a Progress Bar to the Steps]]></Description>
+      </Field>
+      <Field FieldName="OnError" EditorType="ViewBehaviorChooser" Label="OnError" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when a step errored]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="CurrentPollStep" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="Subtitle" PropertyPath="Subtitle" Value="{TranslationKey}" />
+      <Map FieldName="PollingInterval" PropertyPath="PollingInterval" Value="{Text}" />
+      <Map FieldName="NumberOfSteps" PropertyPath="NumberOfSteps" Value="{Text}" />
+      <Map FieldName="OnPoll" PropertyPath="OnPoll.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnPoll" PropertyPath="OnPoll.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnComplete" PropertyPath="OnComplete.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnComplete" PropertyPath="OnComplete.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="WaitForStartInstruction" PropertyPath="WaitForStartInstruction" Value="{Text}" />
+      <Map FieldName="ProgressBar" PropertyPath="ProgressBar" />
+      <Map FieldName="OnError" PropertyPath="OnError.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnError" PropertyPath="OnError.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFoSURBVEhLzdXNK0RRHMbxM0TKQnlZqVnYysZKslFetihbTdH8B4rsxc4fwMJCWVpIQlhIdpqShY2FlSSkCInvc86dmrhz7j3TjDz16fzOXZynO/c2N5PP502KNKAX7XjBBe6QmLpoLZd6zEOHnWEbh7jFLrrgTVLBKhbRYnfG3OARGYxCpd4SX8EQcm401+hGFvqZ5qB0YMWN8fEVjEWrMoNLN5pPLOPK7tyd6I5i4ytYgB7sOI50oSR66M1uNO/4cuPv+AqecI4tlB7QhE102p0xG9Eam6SH/DOt2MeE3RlTwKwb4xNSoDfpGAN2Z8wJBvFsd2USUrCEHjeaHYzgwe48CSmYjFZlCq9u9CekoC1alftoTUxIgd71otQJKdCrWpQ6IQUV5V8V1PwZVJQ/KdB//B7edIGUvilxcxo6S2dmVbCGYTSiWtFZOnNdBX26UqP0q0Df1VrlVAXTOIC+TNXKBzjT5L4BZONGHMB2ZxIAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFISURBVEhLzdXNSsNAFIZhqwgKLcWfnZBCly69BOk9ifch6M4rcKEgiG4KgrgUceNGwaU/KChCuzC+X5IJYzhJJ8GKHzzk9HSa02aathXH8UxA5rGBVXziBk+YHA2oMIdtvMHPF07Qh/W6nNn07MPPA17TMskjKoeYzcwALndYh/r6VFtwOULxtTmzmdmByyaKz99CGSHZS0vVJnfRRw+H8Bdq0++xhg90YKc4McACDuCyB2tdwmxWWMY5XK7QgbU2YTZLdHENFw1agrU2ZzZL7MLlGIuw1v0Qeicrz1hJy+SOfknL6tQZ4C9sZceJqTOgUWazY0j0Tpzg1BnQKFMf8K/2oFH+ZECEU4zUIP43xapD6Fw6Z6Q9OKMYQNENpAVKWV0nQw14p2inj399wFiX6DKtp5IL/eJFukzQX58eu5TVIRmDc8a9b4GYA+TVcrQBAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

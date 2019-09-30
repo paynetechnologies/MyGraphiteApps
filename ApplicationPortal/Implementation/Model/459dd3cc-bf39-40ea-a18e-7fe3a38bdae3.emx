@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="GovernmentData" EntityId="459dd3cc-bf39-40ea-a18e-7fe3a38bdae3" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="BorrowDownPayment" PropertyId="f6ae22b1-710f-4f2d-93c5-d8f882913541" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="DeclaredBankruptcy" PropertyId="fd1b41b5-64f7-4c99-8b98-399b0983d7cf" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="HomeForeclosure" PropertyId="b5794389-743b-4072-9e3a-9210d5fd794b" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="OtherOwnership" PropertyId="90a74c69-23b9-4967-84c1-35181a0846a1" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PrimaryResidence" PropertyId="1f180596-491a-4394-8f43-d3f98f6db942" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="UnpaidJudgements" PropertyId="423f978b-fa12-485b-b824-bf0bc52c0abb" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

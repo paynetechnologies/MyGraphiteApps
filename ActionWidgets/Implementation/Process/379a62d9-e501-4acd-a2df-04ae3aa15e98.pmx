@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="5bb6de69-8394-495f-ae33-20bbcd5c5a2b" ProcessId="379a62d9-e501-4acd-a2df-04ae3aa15e98" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="5bb6de69-8394-495f-ae33-20bbcd5c5a2b" VariableType="Output" Classification="Pinned, Locked" VariableId="5d15fb2e-1eac-4692-97fa-273190038787" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="651619f7-fe0f-41c7-afec-dbf6eb7a6da8" VariableType="Input" Classification="Pinned, Locked" VariableId="90db382a-66de-4921-b9e0-b2c6821580e4" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="de26d0b8-0be6-47b7-b68c-ebf432b253d5" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="5bb6de69-8394-495f-ae33-20bbcd5c5a2b" Description="Create the SelectableButtons view" ID="f9bcce18-5a6f-43f4-8469-2fff1782b0cf" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="10d422e3-d11b-45b3-ad22-49579775b689" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="2edeaef2-70a5-4cfa-a88e-4b0d0e0847b0" From="de26d0b8-0be6-47b7-b68c-ebf432b253d5" FromIndex="0" To="f9bcce18-5a6f-43f4-8469-2fff1782b0cf" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="541a6fc5-d8c1-44bc-9b4d-9c57e13c86b4" From="f9bcce18-5a6f-43f4-8469-2fff1782b0cf" FromIndex="2" To="10d422e3-d11b-45b3-ad22-49579775b689" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

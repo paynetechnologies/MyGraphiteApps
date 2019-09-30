@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Agreement" EntityId="19d7a19b-5209-4e64-934d-1c4659bf1bb0" EntityType="Enumeration" TargetChangeSetId="b3726a15-8529-44ed-9a8d-786d8cb752e1">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="9bb7ca16-5f0d-46a9-8ee1-67fc78d23369" IsOptional="false" DataType="2a4fb4ec-1b34-4bd6-aecc-227a9b469ca4" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="cf184cc6-9ed3-4b68-a9c3-2768f21df036" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <DataEntries KeyProperty="Description">
+    <DataEntry DataEntryId="237578c5-a548-48d3-b443-32a4530a0117">
+      <DataValue Property="Description">AgreeAndAccept</DataValue>
+      <DataValue Property="Display">I agree and accept</DataValue>
+    </DataEntry>
+  </DataEntries>
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</EntityDefinition>

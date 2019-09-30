@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="GeoLocation" EntityId="71eb8985-b8de-45f0-b4e8-e7597de2cee0" MergedFrom="77be9b43-bd6b-4ed9-9d70-9dbaaa6c8a7f" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+</EntityDefinition>

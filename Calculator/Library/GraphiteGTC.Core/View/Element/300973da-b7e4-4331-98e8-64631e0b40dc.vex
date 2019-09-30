@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TreePanel" ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tree Panel contains a Tree.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tree" PropertyId="SimpleEntityDefinitionProperty_Tree" IsOptional="true" DataType="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayPanel" PropertyId="SimpleEntityDefinitionProperty_DisplayPanel" IsOptional="true" DataType="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="InitialState" PropertyId="SimpleEntityDefinitionProperty_InitialState" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="TreePanel" />
+    <Property PropertyName="InitialState" DefaultValue="Closed" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">TreePanel.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Tree.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">SpaceTree.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">AccordionTree.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.AccordionTree.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="DisplayPanel" EditorType="PropertyNodeCreator" Label="Display Panel" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Panel on the right side of the Tree Panel]]></Description>
+      </Field>
+      <Field FieldName="Tree" EditorType="PropertyNodeCreator" Label="Tree" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tree on the left side of the Tree Panel]]></Description>
+      </Field>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="InitialState" EditorType="SelectBox" Label="Initial State?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Initial state of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Closed, Open]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Closed" Value="Closed" />
+          <FieldOption DisplayName="Open" Value="Open" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Closed" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="DisplayPanel" PropertyPath="DisplayPanel" />
+      <Map FieldName="Tree" PropertyPath="Tree" />
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="InitialState" PropertyPath="InitialState" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACdSURBVEhLtZOBCoAwCERXH7v//4OV0Ik5F2fWg6NtUOoebb330e5s1xPnpf1+Rg5swCd7KfAW6XAVRQrcDgL8ywjDYCfA+DYUcPAXk4PVVdg18BPZKIyDCrSDCEwVRck6CD/yQOk/oMg6CEU+UHJgi/koWQdZJge+ExS3a2CF+yhZB1loB75DuinGAa7Hh6H0H0RFEQUOotE/2LdxAJwUR1ng/lxTAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACYSURBVEhLvZSBDoAgCES1///n6pywItNDsrexlOEOuSrvJ+lOrk/Jh/YQKLtVRAR6B+UWRQCFmmgw04GOaauLEThggwICdPEE2XowGoe7GdxgZsYstAct0NhbKN4RsegoIzeg8HogryhrdsiDq5gNBQK3xMc8voMWKGg10Tuo9V4PvNAeoAkbFL/8rutyDRCwCqIu+cA+pQP4AUT/dZgK1wAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

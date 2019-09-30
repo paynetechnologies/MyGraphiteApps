@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildAccountPanel2" OwnerId="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" ProcessId="7ebb7f1a-cf6f-4ec9-94bc-662768091fd7" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="MemberInContext" DataType="57159bd2-a2fb-4f72-aa3a-fd4759507d1e" VariableType="Input" VariableId="d48bb1ab-d38e-490d-bc20-e7179a42d17d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" VariableType="InputOutput" VariableId="b1376176-4122-4941-8eb0-8fb735846f7b" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="cc66dded-5e0a-498a-9df0-f7a7e7c4cb4f" Bounds="630,55,170,55" />
+        <ListLookupNode Source="MemberInContext.Accounts" VariableId="ActiveAccounts" ResultType="Array" ID="9f208967-f4b5-41da-8477-7651918c910d" Bounds="440.6,155,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Active" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Number" SortOrderType="Ascending" SortPriority="0" />
+            <SortCriteria PropertyName="Number" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </ListLookupNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="f86301b2-18ce-4c32-adfd-500c49a4e9c6" From="cc66dded-5e0a-498a-9df0-f7a7e7c4cb4f" FromIndex="0" To="9f208967-f4b5-41da-8477-7651918c910d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,110" />
+          <Segment EndPoint="715,132.5" />
+          <Segment EndPoint="715.6,132.5" Movable="true" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

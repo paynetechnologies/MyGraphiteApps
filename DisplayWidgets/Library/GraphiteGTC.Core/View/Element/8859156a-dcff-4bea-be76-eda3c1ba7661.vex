@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DisplayDetail" ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Display Detail is used to display a collection of Display Items.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="SimpleEntityDefinitionProperty_Id" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsExpandable" PropertyId="SimpleEntityDefinitionProperty_IsExpandable" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayItems" PropertyId="SimpleEntityDefinitionProperty_DisplayItems" IsOptional="true" DataType="$[List,1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayDetailType" PropertyId="SimpleEntityDefinitionProperty_DisplayDetailType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayItemsPerLine" PropertyId="SimpleEntityDefinitionProperty_DisplayItemsPerLine" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ImageSource" PropertyId="SimpleEntityDefinitionProperty_ImageSource" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnImageClick" PropertyId="ea1e8e55-995b-4d3e-b00b-737a6ee9745a" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsOpen" PropertyId="86601123-aef3-4388-9276-0e877f2191fc" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EntityName" PropertyId="b0098a16-ebf9-44a8-b269-73193dddfbd4" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UiParameters" PropertyId="f146d9a1-e7f6-4484-8074-80e6027fc50f" IsOptional="true" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DisplayDetail" />
+    <Property PropertyName="IsExpandable" DefaultValue="No" />
+    <Property PropertyName="DisplayItemsPerLine" DefaultValue="5" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DisplayDetail.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Display Detail]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IsExpandable" EditorType="YesNoToggle" Label="Expandable?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Second row onwards is hidden and expandable]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DisplayDetailType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Type of the Display Detail]]></Description>
+        <DescriptionOptions><![CDATA[Default, Highlightable, Inline, Single Item]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="Inline" Value="Inline" />
+          <FieldOption DisplayName="Highlightable" Value="Highlightable" />
+          <FieldOption DisplayName="Single Item" Value="SingleItem" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DisplayItemsPerLine" EditorType="SelectBox" Label="Items/Line" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Number of Items per Line]]></Description>
+        <DescriptionOptions><![CDATA[1 - 8]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="1" Value="1" />
+          <FieldOption DisplayName="2" Value="2" />
+          <FieldOption DisplayName="3" Value="3" />
+          <FieldOption DisplayName="4" Value="4" />
+          <FieldOption DisplayName="5" Value="5" />
+          <FieldOption DisplayName="6" Value="6" />
+          <FieldOption DisplayName="7" Value="7" />
+          <FieldOption DisplayName="8" Value="8" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="5" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ImageSource" EditorType="ResourceChooser" Label="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Image of the Display Detail]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Highlightable\Expandable Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order for the Expandable icon]]></Description>
+      </Field>
+      <Field FieldName="OnImageClick" EditorType="ViewBehaviorChooser" Label="OnImageClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run on click of the Image]]></Description>
+      </Field>
+      <Field FieldName="IsOpen" EditorType="YesNoToggle" Label="Is Open?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Keep Open if Expandable?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="EntityName" EditorType="TypeChooser" Label="Editable Entity" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Entity related to the Editable Items]]></Description>
+        <DescriptionOptions><![CDATA[Any Entity Name]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="IsExpandable" PropertyPath="IsExpandable" Value="{Text}" />
+      <Map FieldName="DisplayDetailType" PropertyPath="DisplayDetailType" Value="{Text}" />
+      <Map FieldName="DisplayItemsPerLine" PropertyPath="DisplayItemsPerLine" Value="{Text}" />
+      <Map FieldName="ImageSource" PropertyPath="ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="OnImageClick" PropertyPath="OnImageClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnImageClick" PropertyPath="OnImageClick.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="IsOpen" PropertyPath="IsOpen" Value="{Text}" />
+      <Map FieldName="EntityName" PropertyPath="EntityName" Value="{TypeId}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAYAAAARZmTlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY0xLS/vPQGPABKVpCkYtIQkML0sYaY1BloDyCU3xaMSTBEYtIQEwMAAAVasbTywReKEAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAYAAAARZmTlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVDhPY/wPBAw0BkxQmqZg1BKSwPCxBJSEoUzagdF8QhIYtYQkQAdLGBgARUMLEeHRsGAAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

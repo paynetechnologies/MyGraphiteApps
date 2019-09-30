@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceReference Id="a8564f38-a08d-4e0e-ac5d-254239cf1e65" Name="MembershipServiceReference" ReferenceType="Soap" NamespaceExtension="Service" ServiceAddress="http://localhost:8888/MembershipService.svc?singleWsdl">
+  <Description>Service Reference providing membership support</Description>
+  <Tags>
+    <Tag Type="Group">Service</Tag>
+  </Tags>
+</ServiceReference>

@@ -1,0 +1,167 @@
+/*!
+ * Graphite GTC Monroe Theme
+ * GraphiteGTC.Authorization.css
+ * http://graphitegtc.com/
+ * Authors: Azin Asili <azin.asili@graphitegtc.com>
+ * Copyright 2017
+ */
+@charset "UTF-8";
+.gtc-viewsecuritypanel {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gtc-viewsecuritypanel-title {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.gtc-viewsecuritypanel-allowdenyall {
+  width: 100%;
+}
+
+.gtc-viewsecuritypanel-container {
+  overflow: auto;
+  width: 100%;
+}
+
+.gtc-viewsecuritypanel-columns {
+  height: 100%;
+  white-space: nowrap;
+}
+
+.gtc-viewsecuritypanel-column,
+.gtc-viewsecuritypanel-columns > .gtc-wrapper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+}
+
+.gtc-viewsecuritypanel-column > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.gtc-viewsecuritypanel-node {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  cursor: pointer;
+  position: relative;
+}
+
+.gtc-viewsecuritypanel-node .gtc-input-checkbox,
+.gtc-viewsecuritypanel-node .gtc-input-checkbox-group {
+  display: inline-block;
+}
+
+.gtc-viewsecuritypanel-infotooltip-icon,
+.gtc-viewsecuritypanel-haschildren-icon {
+  position: absolute;
+}
+
+.gtc-viewsecuritypanel-saveall a:first-of-type, .gtc-viewsecuritypanel-saveall-toplevel a:first-of-type {
+  color: #8bc34b;
+  margin-right: 0.7143em;
+}
+
+.gtc-viewsecuritypanel-saveall a:last-of-type, .gtc-viewsecuritypanel-saveall-toplevel a:last-of-type {
+  color: #f44336;
+}
+
+.gtc-viewsecuritypanel {
+  background: white;
+  border: 1px solid;
+  border-color: rgba(224, 224, 224, 0.4) #e0e0e0 rgba(189, 189, 189, 0.7);
+  border-radius: 0.2143em;
+  box-shadow: 0 0.1429em 0.3571em 0 rgba(158, 158, 158, 0.2);
+  margin-bottom: 1.4286em;
+  padding: 1.0714em;
+}
+
+.gtc-viewsecuritypanel-title {
+  margin-bottom: 0.4545em;
+}
+
+.gtc-viewsecuritypanel-saveall > span {
+  margin-right: 0.7143em;
+}
+
+.gtc-viewsecuritypanel-titlebar {
+  background: white;
+  border: 1px solid;
+  border-color: rgba(224, 224, 224, 0.4) #e0e0e0 rgba(189, 189, 189, 0.7);
+  border-radius: 0.2143em;
+  padding: 1.0714em;
+}
+
+.gtc-viewsecuritypanel-titlebar > h3 {
+  margin: 0;
+}
+
+.gtc-viewsecuritypanel-container {
+  background: white;
+  border: 1px solid;
+  border-color: rgba(224, 224, 224, 0.4) #e0e0e0 rgba(189, 189, 189, 0.7);
+  border-radius: 0.2143em;
+  height: 21.4286em;
+}
+
+@media (min-width: 45em) {
+  .gtc-viewsecuritypanel-container {
+    height: 28.5714em;
+  }
+}
+
+.gtc-viewsecuritypanel-column,
+.gtc-viewsecuritypanel-columns > .gtc-wrapper {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  width: 17.8571em;
+}
+
+.gtc-viewsecuritypanel-node {
+  padding: 0.7143em 2.8571em 0.7143em 0.7143em;
+}
+
+.gtc-viewsecuritypanel-node:hover, .gtc-viewsecuritypanel-node:focus, .gtc-viewsecuritypanel-node.gtc-active {
+  background: #fafafa;
+}
+
+.gtc-viewsecuritypanel-node .gtc-input-checkbox,
+.gtc-viewsecuritypanel-node .gtc-input-checkbox-group {
+  margin: 0;
+}
+
+.gtc-viewsecuritypanel-saveall-toplevel {
+  margin-right: 0.7143em;
+}
+
+.gtc-viewsecuritypanel-infotooltip-icon,
+.gtc-viewsecuritypanel-haschildren-icon {
+  color: rgba(0, 0, 0, 0.54);
+  right: 0.7143em;
+}
+
+.gtc-viewsecuritypanel-infotooltip-icon {
+  right: 1.4286em;
+}
+
+.gtc-viewsecuritypanel-infotooltip-icon:hover, .gtc-viewsecuritypanel-infotooltip-icon:focus {
+  color: #779a9c;
+}

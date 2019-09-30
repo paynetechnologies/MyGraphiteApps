@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="b477dff4-9c61-434d-8951-2400755a8cbb" Name="DetermineLocation" ExternalReferenceId="a1eb6f2c-309f-4069-b188-bf8494eb739a">
+  <Description>Extracts geographical location from an image</Description>
+  <ExternalNamespace>GTC.ImageGeoExif</ExternalNamespace>
+  <ExternalClassName>ImageGeoUtility</ExternalClassName>
+  <ExternalMethodName>DetermineLocation</ExternalMethodName>
+  <Inputs>
+    <Parameter Name="Base64Image" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Inputs>
+  <Outputs>
+    <Parameter Name="Result" DataType="77be9b43-bd6b-4ed9-9d70-9dbaaa6c8a7f" />
+  </Outputs>
+</ExternalProcessDefinition>

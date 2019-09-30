@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="NotificationInstruction" ViewElementId="9a61daf0-472c-4f4a-bab5-bcacaed4441c" BasedOn="cd79934a-0312-42e4-a1bc-e1a9cb077d7f" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Message" PropertyId="SimpleEntityDefinitionProperty_Message" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Icon" PropertyId="SimpleEntityDefinitionProperty_Icon" IsOptional="true" DataType="4c0a0a01-60c0-4ace-a4fd-d85180109d0e" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Duration" PropertyId="SimpleEntityDefinitionProperty_Duration" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="BackgroundImage" PropertyId="9099f37e-5ff1-41ce-95bd-0feb87d16266" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="NotificationInstruction" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">ViewElements</Tag>
+  </Tags>
+</ViewElementDefinition>

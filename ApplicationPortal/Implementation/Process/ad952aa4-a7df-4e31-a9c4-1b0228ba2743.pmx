@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateLicenseImages" OwnerId="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessId="ad952aa4-a7df-4e31-a9c4-1b0228ba2743" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="PersonalData" DataType="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" VariableType="InputOutput" VariableId="2acafcc5-3223-4207-8a0b-884970544ba7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="LicenseImages" DataType="$[List,c8ac5346-7774-4e57-af2c-5ff715d1277d]" VariableType="Input" VariableId="891f2c5b-fe71-4891-90f4-a9f634ce0061" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="8a906ea1-96cd-4312-b1a0-3f9c6e543066" Bounds="630.6,55,170,55" />
+        <AssignNode ID="24abf32e-58f1-412a-a2e5-2fe68aa84b22" Bounds="441.2,155,550,55">
+          <Assignment Name="PersonalData.LicenseImages" Value="LicenseImages" />
+        </AssignNode>
+        <EndNode ID="5033ae5b-9e9b-46c3-9d34-f6fa2026953c" Bounds="631.2,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="9be81daa-d822-48ff-beed-fe4cadaf44e1" From="8a906ea1-96cd-4312-b1a0-3f9c6e543066" FromIndex="0" To="24abf32e-58f1-412a-a2e5-2fe68aa84b22" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,132.5" />
+          <Segment EndPoint="716.2,132.5" Movable="true" />
+          <Segment EndPoint="716.2,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9275e963-e691-48d6-8581-54f9dc17f8b8" From="24abf32e-58f1-412a-a2e5-2fe68aa84b22" FromIndex="2" To="5033ae5b-9e9b-46c3-9d34-f6fa2026953c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="716.2,210" />
+          <Segment EndPoint="716.2,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

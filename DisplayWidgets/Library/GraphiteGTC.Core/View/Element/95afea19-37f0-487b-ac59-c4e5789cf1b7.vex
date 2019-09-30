@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="MultiSelectDetail" ViewElementId="95afea19-37f0-487b-ac59-c4e5789cf1b7" BasedOn="8859156a-dcff-4bea-be76-eda3c1ba7661" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Multi Select Detail is a combination of a Display Detail and a checkbox.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsChecked" PropertyId="SimpleEntityDefinitionProperty_IsChecked" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="MultiSelectDetail" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">MultiSelectDetail.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.MultiSelect.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Selectable.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAOCAYAAADaOrdAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEdSURBVDhPnZKvSwRBHEfvDCZBBNMiJqv/gGAxGk0Gk8gmk0ksavKS1WbTJIIgJtEs2KwGQavBajnfm72FZZjdm/XBY37Azmfmu99hWZaDnmzgDe7jtRtFUTi0MoPjDE9QVvEOF/DcjRwMmcYpGrKEDziH4n4WzZBhiwbMowEGyQgvqul0cl4yi7doqeQKj6ppHnGIBz3iSlhVL7lEf7Y84S76n7Kxu+oPPPATLck7ruEBHqK84Tr+hFUP4pc8T0Zf8op1wBduogHHbkCz+zqNQ/bQksjyZPRgAwwyoG7nZnN0Gof84hZ+hFXFDloqqQN6keoub76N33iG95giWZrIQCpEXnARu1o1WZrIQDMkdZPYf9H2khxSl0g4GP8BGfNaZliFgBAAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAOCAYAAADaOrdAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVDhPpZQ/S8NAGIcTh0yFItStY9d8Ced+AOfOfgIXk6lOrt06CHYqhULpZN27dnUQcRb0E8Tnd5e3htIkF3zgyb13+fNLcpfERVFEHbnGJd7iQgN5nqup5QKV0maGIsU1XuKjBkJQSBu6TYUMcYs9FM23X6EaEteogD4qQEHiAWe+bCfkSRJcoV6VeMY7X4ZxGqILveDI9fyTzFGTLV5xgpqncFhdhupPXxZveIVT1/McsI86rpPaGKqffOn4KFuh8CHqmPuyDeY0JMGd6/3xjSlagFAdrDaGDeqVvGugZIy2z7B+q1mWnV1dP3iDXzjFDZ7DPtQmHXVLeI8DbFqq1W+pTof+XcfEDhwvEMJ/QgLPi6JfsOSIUxe2RbUAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

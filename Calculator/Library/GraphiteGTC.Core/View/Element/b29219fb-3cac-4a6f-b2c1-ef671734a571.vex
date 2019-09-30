@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Trigger" ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Trigger is a special button that allows you to invoke another element's "On" behavior.  For example, a Trigger can be used to call a Button's OnClick behavior.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ElementName" PropertyId="SimpleEntityDefinitionProperty_ElementName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TriggerEvent" PropertyId="SimpleEntityDefinitionProperty_TriggerEvent" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Trigger" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Trigger.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="ElementName" EditorType="ViewElementChooser" Label="Element" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Element instance to Trigger]]></Description>
+      </Field>
+      <Field FieldName="TriggerEvent" EditorType="SelectBox" Label="Event to trigger" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Event to Trigger]]></Description>
+        <DescriptionOptions><![CDATA[OnChange, OnClose, OnClick, OnReset, OnSubmit, OnSave, OnNew...]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="OnChange" Value="change" />
+          <FieldOption DisplayName="OnClose" Value="close" />
+          <FieldOption DisplayName="OnClick" Value="click" />
+          <FieldOption DisplayName="OnReset" Value="reset" />
+          <FieldOption DisplayName="OnSubmit" Value="submit" />
+          <FieldOption DisplayName="OnSave" Value="save" />
+          <FieldOption DisplayName="OnNew" Value="new" />
+          <FieldOption DisplayName="OnDelete" Value="delete" />
+          <FieldOption DisplayName="OnDrop" Value="drop" />
+          <FieldOption DisplayName="OnRemove" Value="remove" />
+          <FieldOption DisplayName="OnComplete" Value="complete" />
+          <FieldOption DisplayName="OnPoll" Value="poll" />
+          <FieldOption DisplayName="OnDragLast" Value="draglast" />
+          <FieldOption DisplayName="OnClickColumn" Value="clickcolumn" />
+          <FieldOption DisplayName="OnNodeSelect" Value="nodeselect" />
+          <FieldOption DisplayName="OnLoad" Value="load" />
+        </FieldOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="ElementName" PropertyPath="ElementName" Value="{SelectedElementName}" />
+      <Map FieldName="TriggerEvent" PropertyPath="TriggerEvent" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIBSURBVEhLrZY9T9tQFIYTGFK6INqCBF3pkE5FbRAwwg9AUBWG7tnoxy8B+h9aqa1UBDuMfAXEVGWga1upRCAWIEvhfY7jyB/XduLwSE9yj+N7TmRfn+titVotdEBJVuRzOcQBcSHr8lA2OZBGVqFJ+U4uyIcccHAlN+QnSVEnfa3vKMPyqzyQb2VSEeA3zuFc5jA3hqvQS3kilyzqDuYwlxwhooVeyW351KJ8MJcc3NM2wUIjclMOWtQb5CAXOY1gIW7mmDfM5KP87w0TGZXkNPxCU3LZG3bEmnwjry1KhpzTDPxCLOFu+SHnZMOiZFb4oBAP4zxBDvbkjPxlkRtylyjE6kh7TrI4lVyefYvikLtCIdqKi2KKUbh8s5LL6aJMoUfeuGdYGCyQdYvCPPYXw31y2/oOUqQQXfg+GJDf5AeLwjQo9NMbx+CfJRnliaTtvLYoTp1CNUmrz8u43JX2YDogd41CbFr0pTzQUSjyzCI3W7LpLwZaSrcsyh3p3H8CrPLhF2JnZNPqlPeSG88CSINzbNf1CwH97o83zIQr0O8NE/krrc9BsNA/SV+6tKg3yEEuchrBQnAk6ci/LcoHV4UcrOY20UJwLCfkd4u6gzkvJDlCuArBmeRFg+X7RaY9Z/z2WXIuc5gbo9MXyAeS7aQs/SZ8LnmB5BLdcCCZQuEOko5dy8NyVp8AAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGkSURBVEhLvZY9TsNAEEYTmgAdvxLUpAgtBJKWI4A4B3AUOAMgSIEEPS1CUKNIpAUaIqDhJxIivG8cR3Zsb+wk8KQn7a69M5a93tl8u93OpaCAZVzGKQ3AK9bxBlsacKJEDtfwEN8xCV3TPbo3LoYZO4hzeIpZ0RzNjcSMDOAKPuCgaK5ihOKGOriKbzgsilHGbuxgknl8xFHxhIpp8cc6a0Ic4KLX7Mse/njNRBZQMT06GSuYBc3ZxA/rualiN9GxRjLgz1OQZw04UGxLVEDXfxKHn0gWsYFJKHZB30h//KS9x8FoYBWvrRdFsctKpG0ljrzDXpq4gWfWi1JSommvPTSfuI371gszE1zeo4IvHyGvRNqFR8EE1nDXemGaSnTntSPoyZLsZRYvcct6UeqjWN5LeI9JdJe3ita55c1OBa+waL14LrDlP5WKVhY0J+0WZAXRTyRPMC07+O01nagQWvxgoj8tE8FE8l8Kn++wpVxvpW8p99UBo4ZZ0ZzUh5Og63iErv9M13Tc0r1xMcy0B8hxVDkpob8Jv6AOkLf4pYFkcrlf4MYZy0ZX8qYAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

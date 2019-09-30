@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetupAboutMe" OwnerId="87b79702-866b-4778-bcc9-067d2aedac13" ProcessId="dcaee123-aa7d-4a07-aa12-3a0947adc3fe" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="e9434a49-fef5-409b-beb3-d574111d2dee" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="9c9737cf-e882-40f5-b192-9a872e317905" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="87b79702-866b-4778-bcc9-067d2aedac13" VariableType="InputOutput" VariableId="06653c55-5d56-4263-9fc0-644a0f33f2cc" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="f2cc3dc9-0231-4158-96b7-d5e234a00c35" Bounds="630.6,165,170,55" ZOrder="1" Text="" />
+        <DecisionNode LeftExpression="ApplicantInContext" Operator="IsNotMissing" ID="1376d1e0-a358-44b1-94bc-34ba6ed2d153" Bounds="460.6,265,510,125" ZOrder="3" Text="" />
+        <EndNode ID="89c0f737-572a-4366-bc2e-924561df2a26" Bounds="630.6,805,170,55" ZOrder="2" Text="End" />
+        <AssignNode ID="c2f6cd3a-f4f1-4d4a-9f2d-dca2e99174a8" Bounds="40.6,435,550,55" ZOrder="3" Text="">
+          <Assignment Name="FirstNameField.Value" Value="ApplicantInContext.Person.FirstName" />
+          <Assignment Name="LastNameField.Value" Value="ApplicantInContext.Person.LastName" />
+          <Assignment Name="EmailAddressField.Value" Value="ApplicantInContext.Username" />
+          <Assignment Name="PhoneNumberField.Value" Value="ApplicantInContext.Person.MobilePhone" />
+        </AssignNode>
+        <DecisionNode LeftExpression="ApplicantInContext.Person.Address" Operator="IsNotMissing" ID="a6392fb4-9e66-4451-a8eb-35d1be84352f" Bounds="60.6,535,510,125" ZOrder="2" Text="" />
+        <AssignNode ID="43ac6722-8c1e-468e-94ec-7e0c9437953f" Bounds="40.6,705,550,55" ZOrder="2" Text="">
+          <Assignment Name="StreetField.Value" Value="ApplicantInContext.Person.Address.Street" />
+          <Assignment Name="CityField.Value" Value="ApplicantInContext.Person.Address.City" />
+          <Assignment Name="StateField.Value" Value="ApplicantInContext.Person.Address.State" />
+          <Assignment Name="ZipField.Value" Value="ApplicantInContext.Person.Address.Zip" />
+        </AssignNode>
+      </Nodes>
+      <Connections>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="f42b730a-a087-472b-9a4e-92a6f31246a1" From="1376d1e0-a358-44b1-94bc-34ba6ed2d153" FromIndex="3" To="c2f6cd3a-f4f1-4d4a-9f2d-dca2e99174a8" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="460.6,327.5" />
+          <Segment EndPoint="315.6,327.5" />
+          <Segment EndPoint="315.6,435" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="f58dcfaa-fd7f-485d-b90e-76f0497be608" From="c2f6cd3a-f4f1-4d4a-9f2d-dca2e99174a8" FromIndex="2" To="a6392fb4-9e66-4451-a8eb-35d1be84352f" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="315.6,490" />
+          <Segment EndPoint="315.6,535" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="00000fc8-a1a5-404e-ad77-ea05ea378dad" From="a6392fb4-9e66-4451-a8eb-35d1be84352f" FromIndex="2" To="43ac6722-8c1e-468e-94ec-7e0c9437953f" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="315.6,660" />
+          <Segment EndPoint="315.6,705" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="04c2239c-e149-4217-99ad-9429533a7798" From="43ac6722-8c1e-468e-94ec-7e0c9437953f" FromIndex="1" To="89c0f737-572a-4366-bc2e-924561df2a26" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="590.6,732.5" />
+          <Segment EndPoint="715.6,732.5" />
+          <Segment EndPoint="715.6,805" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="ac8c1c63-c97c-42ad-9dfc-3b3ffea0b7c0" From="1376d1e0-a358-44b1-94bc-34ba6ed2d153" FromIndex="2" To="89c0f737-572a-4366-bc2e-924561df2a26" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="715.6,390" />
+          <Segment EndPoint="715.6,805" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="e7ebdb28-1f7d-4088-8461-4ec649481a5c" From="a6392fb4-9e66-4451-a8eb-35d1be84352f" FromIndex="1" To="89c0f737-572a-4366-bc2e-924561df2a26" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="570.6,597.5" />
+          <Segment EndPoint="715.6,597.5" />
+          <Segment EndPoint="715.6,805" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="a95de895-ed32-4bbb-8ae9-1b0a116fa9e9" From="f2cc3dc9-0231-4158-96b7-d5e234a00c35" FromIndex="0" To="1376d1e0-a358-44b1-94bc-34ba6ed2d153" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,220" />
+          <Segment EndPoint="715.6,265" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

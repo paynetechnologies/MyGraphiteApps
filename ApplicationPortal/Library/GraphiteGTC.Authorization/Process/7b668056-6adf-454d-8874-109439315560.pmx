@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Build" OwnerId="37885c1a-a24e-4c5a-88b1-dc78e790cc10" ProcessId="7b668056-6adf-454d-8874-109439315560" ProcessType="Normal" Classification="ViewElementPack, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="5fbe7890-3b3d-471a-9eae-2d3b9a0f5881" VariableType="Input" Classification="ReadOnly, Pinned, Locked" VariableId="2914b606-3087-4f20-b3fa-4c36be8cbfd9" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AuthorizationPanelPack" DataType="37885c1a-a24e-4c5a-88b1-dc78e790cc10" VariableType="InputOutput" VariableId="d11f9753-3c71-4e1d-9e01-29d7601c615e" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="7960b9d8-96d1-4ad7-81a2-f7935abb1f4a" Bounds="822.5,75,170,55" Text="Start" />
+        <SelectOptionsNode Source="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" SelectFieldVariableId="SecurityGroupField" DisplayProperty="Description" Description="Populate SecurityGroupField" ID="cd75c797-175e-4d48-b96c-3f407a3ecc32" Bounds="632.5,175,550,55" Text="Select Options">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Description" RightExpression="&quot;PrimeMover&quot;" Operator="IsNotEqualTo" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Description" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </SelectOptionsNode>
+        <SelectOptionsNode Source="83dfc660-5d65-4969-9850-25db372a93b9" SelectFieldVariableId="ViewDetailField" DisplayProperty="Display" Description="Populate ViewDetailField" ID="ce8c8846-3721-4e2c-bfde-c0b8bf9b560f" Bounds="632.5,275,550,55" Text="Select Options">
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Display" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </SelectOptionsNode>
+        <AssignNode Description="Set FormToSerialize in SecurityPanel" ID="2b5092b8-2717-40da-a6b0-509d804999a2" Bounds="632.5,375,550,55" Text="Assign">
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickContentDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickFooterDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickHeaderDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickRegionDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveAllContentDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveAllDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveAllFooterDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveAllHeaderDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveAllowedDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveAllRegionDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveDeniedDetails.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+          <Assignment Name="AuthorizationPanelPack.SecurityPanel.OnClickSaveAllViews.FormToSerialize" Value="&quot;SecurityForm&quot;" />
+        </AssignNode>
+        <EndNode ID="320690bd-b343-4cde-8114-0124a655299a" Bounds="822.5,475,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="c9166087-9de3-4eee-9608-4fb130ca1ac2" From="7960b9d8-96d1-4ad7-81a2-f7935abb1f4a" FromIndex="0" To="cd75c797-175e-4d48-b96c-3f407a3ecc32" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,130" />
+          <Segment EndPoint="907.5,175" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="607c90c3-0310-4e9b-a962-da47319d00b3" From="cd75c797-175e-4d48-b96c-3f407a3ecc32" FromIndex="2" To="ce8c8846-3721-4e2c-bfde-c0b8bf9b560f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,230" />
+          <Segment EndPoint="907.5,275" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="60a54029-0e29-4865-bb87-21bdaa691f62" From="ce8c8846-3721-4e2c-bfde-c0b8bf9b560f" FromIndex="2" To="2b5092b8-2717-40da-a6b0-509d804999a2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,330" />
+          <Segment EndPoint="907.5,375" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c03a6157-2a6e-4e31-8d37-1199d374630b" From="2b5092b8-2717-40da-a6b0-509d804999a2" FromIndex="2" To="320690bd-b343-4cde-8114-0124a655299a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,430" />
+          <Segment EndPoint="907.5,475" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

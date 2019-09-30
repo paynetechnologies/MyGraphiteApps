@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateDateOfBirth" OwnerId="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessId="a67c8010-f082-410b-b8d2-e0399f05c34c" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="PersonalData" DataType="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" VariableType="InputOutput" VariableId="a2829881-9866-4967-9fd6-ce8c98855a5b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="DateOfBirth" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="f316d950-59df-4943-bef7-44e13378b112" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="960dfd8e-91b7-4412-b6f0-28315efe7faa" Bounds="630.6,55,170,55" />
+        <AssignNode ID="33d223a4-0f44-4e94-ad6d-2e08a3c83720" Bounds="440.6,155,550,55">
+          <Assignment Name="PersonalData.DateOfBirth" Value="DateOfBirth" />
+        </AssignNode>
+        <EndNode ID="7ce1bb46-0cce-4f60-94f8-88414a920f0e" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="8be0e816-9786-477e-8005-966960c94905" From="960dfd8e-91b7-4412-b6f0-28315efe7faa" FromIndex="0" To="33d223a4-0f44-4e94-ad6d-2e08a3c83720" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="892de4a0-d628-45c3-91ff-24a945cca353" From="33d223a4-0f44-4e94-ad6d-2e08a3c83720" FromIndex="2" To="7ce1bb46-0cce-4f60-94f8-88414a920f0e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

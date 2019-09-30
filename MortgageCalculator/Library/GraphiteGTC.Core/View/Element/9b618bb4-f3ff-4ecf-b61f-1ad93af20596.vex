@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="PercentField" ViewElementId="9b618bb4-f3ff-4ecf-b61f-1ad93af20596" BasedOn="6c4194eb-b4de-4bdd-9ac8-1992477afd34" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d">
+  <Description>Percent Field is for editing percent values.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="PercentField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">PercentField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Textbox.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Mask" EditorType="MaskChooser" Label="Mask" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Mask for the Field Value]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Numeric(%[#{0-100}].[##])" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Mask" PropertyPath="Mask" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGNSURBVDhPtdRNK0RRHMfxMyTEhjdAyoqQt6AkKRaUWJuVjY3HbDwVRVnLkliwmBJiYWtlKeEFWFh4yEPS+P7uPaNzx5m5E+ZXn/5nTtP533PumUmk02lTzCSSyaQdfqcWm+jBJ1IYwQMyacEF9jGgiVwpsdXNEvqwjm1ogWW40Wc1nw4+5YmvQa+tK1gLh6bDVkXjLmzgWhP54mtQaesr3sKhqbI1ATV+xpwm4uJrcGlrK5rDobmydQjtWMWdJuLiazCLDxxjB+9YRDkWoIXVoKCoge6p6xS6JVMYh3ahuVHUQ0fzBH1nAvpOEzKJrKdrqoEbnXN2anCDe2gxXQTt7hGl0HvT3CEi67lHpIV9iyu6jvp9qOr4VLVwJ/pRBu1YiazjewfZqYOO5xx7miANtuqa3oZD02hrJIU0mEcFJpHZ/outOprqcBgc14/ENWjDMA5wpgmbI1t1q2bCoTmxNZK4BvpR6an19G7GsItBdGML3r8N9xblesG/TbBuIe/gT3EbqON/ClLkHRjzBQLGY4TpgYPuAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGKSURBVDhPtdO5SwNBFMfxjSAqqEELLQVRsAgq4n/gAemt/BcsbewtjZ2KhVhZeBQ2HmBpZaOdiAfYeRSKt0EN4/fNzIaXzRAF4w8+7Nu3O7uZ7EzKGBP9Z2r8UacVm/hEHutIQ6cXBWzYs0qRGSQsQpLDsittT9+ziw90q15QqHkNSRsyrjTniK8PSYPMQ48LCjUfIGlClyvNFeSafLNDPKPd9yoKfYMTf+xDxpXRqT+OYwCzuJXGjwm8dRjy/74i70mvDpe4gcwuNLaMTDm5TlPowag9i6IdXGASOUxgAbKSspDx2ziGpPR58oJEyn4FWnCHM9RiDF+4xyNkxlnIvSXRDf3ApBlI5MFyfmTPjBnEiCvNPvQYm2JB9EWtA+84gN35iFdaGp2utMtbj7MJraJkplGPKcT/75s/NqDRldGTP5bGv0ii3x7rRwFbqifiHb6ENVeaOeh7bIoF0Rdje5CPKTta9+WvWcULZNOtoBn6Hhu9TGV5VjP2ub/5Bn9KaKNVNf88gyj6BgHM+JTTpiGNAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickSaveAllHeaderDetailsSecurityPanel" OwnerId="37885c1a-a24e-4c5a-88b1-dc78e790cc10" ProcessId="6124e80d-e640-46f7-a14e-0d45ebdd16ab" ProcessType="Normal" Classification="ViewElementPack, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="5fbe7890-3b3d-471a-9eae-2d3b9a0f5881" VariableType="Input" Classification="ReadOnly, Pinned, Locked" VariableId="d5f7cfea-a78d-4ba3-a8af-fae1c09b5452" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="266d1d99-9a81-4df4-858b-ddd2ea83385b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SecurityGroupField" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Input" VariableId="4b504563-026a-4782-80c2-6665cf341be9" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewDetailField" DataType="83dfc660-5d65-4969-9850-25db372a93b9" VariableType="Input" VariableId="3f11e2a5-b87b-4e6d-b463-c3785efa1faf" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Allow" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="bf438a8f-0345-41fe-a9cc-6cd6d1eb2ad1" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="611ef460-2cf0-4302-9233-8306a5487f87" Bounds="822.5,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create PageInstructions" ID="9901d9d7-51f3-4b3c-a380-86e443505183" Bounds="632.5,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <DecisionNode LeftExpression="Allow" RightExpression="YesNoQuestion:Yes.Description" Operator="IsEqualTo" ID="6363a715-4598-4188-8dbc-a68f9847d786" Bounds="652.5,255,510,125" ZOrder="1" Text="" />
+        <ExecuteProcessNode EntityDefinition="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessProperty="82832dee-fc12-4f7e-bd2c-6d43d2e6a8f1" ExecuteProcessType="EntityStatic" VariableId="SecurityGroupAddViewElementAuthorizationsResult" SuppressValidations="false" Description="" ID="b28f665f-b61b-4010-be18-57e5cdb3627c" Bounds="1032.5,425,550,55" ZOrder="1" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="AddChildElementAuthorizations" Value="YesNoQuestion:Yes" />
+            <InputVariable Name="SecurityGroup" Value="SecurityGroupField" />
+            <InputVariable Name="ViewElementDetails" Value="ViewDetailField.ViewHeaderDetails" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="SecurityGroup" Value="SecurityGroupField" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessProperty="e2df1426-cb99-48ba-8d7c-06d50e2c39c0" ExecuteProcessType="EntityStatic" VariableId="SecurityGroupRemoveViewElementAuthorizationsResult" SuppressValidations="false" Description="" ID="79847848-ee6c-429c-831d-4a8e26f177d0" Bounds="232.5,425,550,55" ZOrder="1" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="SecurityGroup" Value="SecurityGroupField" />
+            <InputVariable Name="ViewElementDetails" Value="ViewDetailField.ViewHeaderDetails" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="SecurityGroup" Value="SecurityGroupField" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <SaveNode ID="de6e6719-dc33-451a-b93b-a991ab85ee13" Bounds="632.5,525,550,55" ZOrder="1" Text="Save">
+          <Entity>SecurityGroupField</Entity>
+        </SaveNode>
+        <ExecuteProcessNode ElementDefinition="37885c1a-a24e-4c5a-88b1-dc78e790cc10" ProcessProperty="8e2755b1-a5f7-411c-86df-dcdc65176816" ExecuteProcessType="Element" VariableId="SecurityElementPackUpdateSecurityGroupFieldResult" SuppressValidations="false" Description="Run UpdateSecurityGroupField" ID="34eac47e-daab-4eef-b905-0fd5e4443e90" Bounds="632.5,625,550,55" ZOrder="1" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="SecurityGroup" Value="SecurityGroupField" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="AddRange" ListItem="SecurityElementPackUpdateSecurityGroupFieldResult.Outputs.PageInstructions" SourceList="PageInstructions" Description="Add PageInstructions from UpdateSecurityGroupField" ID="012b762b-b0c6-488c-b91d-e8c4bf32087e" Bounds="632.5,725,550,55" ZOrder="1" Text="List Management" />
+        <EndNode ID="e756bb1a-8ef6-4f9c-8768-1e76a10d48a4" Bounds="822.5,825,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="52fd50fc-7783-4d83-8373-deda7de93d81" From="611ef460-2cf0-4302-9233-8306a5487f87" FromIndex="0" To="9901d9d7-51f3-4b3c-a380-86e443505183" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5e7ec3f0-6b07-496b-b9f1-9daf77824681" From="9901d9d7-51f3-4b3c-a380-86e443505183" FromIndex="2" To="6363a715-4598-4188-8dbc-a68f9847d786" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d4d0c326-4641-4723-92cc-a15b09ae7b32" From="de6e6719-dc33-451a-b93b-a991ab85ee13" FromIndex="2" To="34eac47e-daab-4eef-b905-0fd5e4443e90" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,580" />
+          <Segment EndPoint="907.5,625" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="acf19190-a906-48ba-bd61-0c6769d85f30" From="34eac47e-daab-4eef-b905-0fd5e4443e90" FromIndex="2" To="012b762b-b0c6-488c-b91d-e8c4bf32087e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,680" />
+          <Segment EndPoint="907.5,725" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="eefffd7e-1276-48ba-b359-7499a3056599" From="012b762b-b0c6-488c-b91d-e8c4bf32087e" FromIndex="2" To="e756bb1a-8ef6-4f9c-8768-1e76a10d48a4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,780" />
+          <Segment EndPoint="907.5,825" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="8b9a880c-f453-4bdd-a120-f17caac5da04" From="6363a715-4598-4188-8dbc-a68f9847d786" FromIndex="1" To="b28f665f-b61b-4010-be18-57e5cdb3627c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="1162.5,317.5" />
+          <Segment EndPoint="1307.5,317.5" />
+          <Segment EndPoint="1307.5,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="0ec3f170-d7ed-4b25-b9d2-5f8f3173699e" From="6363a715-4598-4188-8dbc-a68f9847d786" FromIndex="3" To="79847848-ee6c-429c-831d-4a8e26f177d0" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="652.5,317.5" />
+          <Segment EndPoint="507.5,317.5" />
+          <Segment EndPoint="507.5,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="0cf75370-4082-40c9-8e26-220e0583d045" From="79847848-ee6c-429c-831d-4a8e26f177d0" FromIndex="2" To="de6e6719-dc33-451a-b93b-a991ab85ee13" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,480" />
+          <Segment EndPoint="507.5,552.5" />
+          <Segment EndPoint="632.5,552.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c383f6eb-39fb-408d-adbc-67ab7de444d0" From="b28f665f-b61b-4010-be18-57e5cdb3627c" FromIndex="2" To="de6e6719-dc33-451a-b93b-a991ab85ee13" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1307.5,480" />
+          <Segment EndPoint="1307.5,552.5" />
+          <Segment EndPoint="1182.5,552.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

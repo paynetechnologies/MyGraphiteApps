@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="BaseElementDetail" EntityId="29413272-1c81-4b58-8a40-6d47fb67b845" MergedFrom="93e417f5-5f83-4bc9-8813-a5deb0caa3b5" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewBehaviorDetails" PropertyId="3cc7fc2c-0d43-4972-85b9-811ea6ed7881" IsOptional="true" IsOverride="true" DataType="$[List,ce86e21f-7f28-479a-8de1-65426f336f1c]">
+    <ReplacementMapping From="$[List,eae41d9c-aa91-42d5-ba92-f39456b2c5cb]" To="$[List,ce86e21f-7f28-479a-8de1-65426f336f1c]" />
+  </Property>
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

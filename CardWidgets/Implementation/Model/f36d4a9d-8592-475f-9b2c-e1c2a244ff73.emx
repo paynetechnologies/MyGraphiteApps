@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="User" EntityId="f36d4a9d-8592-475f-9b2c-e1c2a244ff73" MergedFrom="68ad8c56-1d3b-49d8-8727-5280d819dcfc" TargetChangeSetId="31c57a4f-27e3-4b7a-a482-c62319abb31d">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Language" PropertyId="b1179f21-4c7c-4642-be9f-627c8763dbe0" IsOptional="true" IsOverride="true" DataType="727fee3b-91cb-4533-8e97-d107653bf37e">
+    <ReplacementMapping From="7a35c7c1-9ba2-43da-a393-08be54430af5" To="727fee3b-91cb-4533-8e97-d107653bf37e" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Theme" PropertyId="8177b128-b0ec-4ba3-9242-9459705a4762" IsOptional="true" IsOverride="true" DataType="d5450c37-3975-4590-9830-214b35786eb7">
+    <ReplacementMapping From="36a6d28b-8d8a-4937-bb42-bc0a3a45bfdd" To="d5450c37-3975-4590-9830-214b35786eb7" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Active" PropertyId="fd6bcb91-962d-4c2e-9cf3-a9a86be44239" IsOptional="true" IsOverride="true" DataType="8a35635e-935e-4117-992e-49d6303b67ea">
+    <ReplacementMapping From="0e977471-ddab-4761-a910-61b22a47b8ea" To="8a35635e-935e-4117-992e-49d6303b67ea" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Person" PropertyId="51fa999c-2950-4abe-8d01-06f08a150c7e" IsOptional="true" IsOverride="true" DataType="49110285-1025-4a81-9524-2c79c058e3f6">
+    <ReplacementMapping From="07c78d9c-ffea-4fda-b368-ba120f0584ed" To="49110285-1025-4a81-9524-2c79c058e3f6" />
+  </Property>
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="b7a478a9-a682-453e-be51-3cd0bd4190f7" ProcessId="b5a07919-b2cc-4f53-8b68-00acda5de6bb" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="b7a478a9-a682-453e-be51-3cd0bd4190f7" VariableType="Output" Classification="Pinned, Locked" VariableId="171a464f-06d8-4e09-92ff-ad6743cda886" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="7dcf646e-79fb-4d2d-bb76-644c409fe0f6" VariableType="Input" Classification="Pinned, Locked" VariableId="d9a81190-3730-4ca7-9736-999758026611" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="02cd67fa-13d9-4402-a6bc-ef18d7b90654" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="b7a478a9-a682-453e-be51-3cd0bd4190f7" Description="Create the ShowMarketHolidays view" ID="9976299b-b03e-4e7a-8981-15cb61b56a8b" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="df50f652-a000-4f1e-b4d1-9792ae62af00" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="8fd44a11-b306-4d96-aa99-2250e366ec96" From="02cd67fa-13d9-4402-a6bc-ef18d7b90654" FromIndex="0" To="9976299b-b03e-4e7a-8981-15cb61b56a8b" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="2db63c13-4ef7-489d-91a4-5cd0b39c12ca" From="9976299b-b03e-4e7a-8981-15cb61b56a8b" FromIndex="2" To="df50f652-a000-4f1e-b4d1-9792ae62af00" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

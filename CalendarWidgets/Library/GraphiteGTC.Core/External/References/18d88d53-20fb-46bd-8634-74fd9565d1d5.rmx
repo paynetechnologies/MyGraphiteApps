@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="18d88d53-20fb-46bd-8634-74fd9565d1d5" Name="GTCImaging" Reference="GTC.Imaging.dll">
+  <Description>External DLL providing imaging functionality</Description>
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</ExternalReference>

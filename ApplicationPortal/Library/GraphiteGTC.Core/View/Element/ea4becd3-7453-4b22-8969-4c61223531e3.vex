@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ChangeEvent" ViewElementId="ea4becd3-7453-4b22-8969-4c61223531e3" BasedOn="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" IsSystem="true" IsBuiltIn="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FormToSerialize" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <ViewElementEditor />
+  <Tags />
+</ViewElementDefinition>

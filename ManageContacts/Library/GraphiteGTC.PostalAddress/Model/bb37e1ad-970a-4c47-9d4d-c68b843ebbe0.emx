@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Address" EntityId="bb37e1ad-970a-4c47-9d4d-c68b843ebbe0" NamespaceExtension="Common">
+  <Description>A base entity for all address entities</Description>
+  <Tags>
+    <Tag Type="Group">Postal Address</Tag>
+  </Tags>
+</EntityDefinition>

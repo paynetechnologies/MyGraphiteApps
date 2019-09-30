@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="User" EntityId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" BasedOn="5fbe7890-3b3d-471a-9eae-2d3b9a0f5881" NamespaceExtension="Common">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="PersonalHomeLoanData" EntityId="0daf89a6-8ef2-4448-ba4c-4f4ae6dbd6c3" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4" BasedOn="a055ab0f-27bb-4568-88fa-ed2a7abbcf30">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Married" PropertyId="4560f274-8c4b-46d9-a8f0-565caf12c57b" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="MilitaryLoan" PropertyId="9aecf67c-8a8b-4c7b-87b2-6949cb819305" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PrimaryResidenceStart" PropertyId="0fb600e0-b2f6-4159-ab6e-4a7fea5ec516" IsOptional="true" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

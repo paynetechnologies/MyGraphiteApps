@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Update" OwnerId="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessId="511fb284-d472-4691-bbe7-12957539f405" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="Amount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="60b1a43d-325f-4ebe-848e-8b75f8f9f972" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset" DataType="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" VariableType="InputOutput" VariableId="d2a967f2-d128-45cb-9483-15f57c62d368" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EntryOrder" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Input" VariableId="e7e41363-b382-494b-8022-2ddeadbf0b50" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Type" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" VariableType="Input" VariableId="cafdb7aa-9788-4762-b20e-74d679e61baa" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="be969b61-a130-40d5-a3e3-15ec7303a7b2" Bounds="630.6,55,170,55" />
+        <DecisionNode LeftExpression="Asset" Operator="IsNotMissing" ID="de625a32-e3ba-4208-9d91-ff2d283527df" Bounds="460.6,155,510,125" />
+        <CreateNode Variable="Asset" DataType="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ID="72559d68-581c-49e7-9ffc-c14cf3ddb90c" Bounds="840.6,325,550,55" Text="Create">
+          <Properties>
+            <Property Name="Amount">Amount</Property>
+            <Property Name="EntryOrder">EntryOrder</Property>
+            <Property Name="Type">Type</Property>
+          </Properties>
+        </CreateNode>
+        <AssignNode ID="d2107f56-a537-4900-9761-ef9928afdb5f" Bounds="40.6,325,550,55" Text="Assign">
+          <Assignment Name="Asset.Amount" Value="Amount" />
+          <Assignment Name="Asset.Type" Value="Type" />
+        </AssignNode>
+        <EndNode ID="6e0eebba-4895-454b-98b0-1aa6bc915261" Bounds="630.6,425,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="8a67456e-d7dc-484b-b8a9-d2e83cdbf772" From="be969b61-a130-40d5-a3e3-15ec7303a7b2" FromIndex="0" To="de625a32-e3ba-4208-9d91-ff2d283527df" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="f0748499-ab4e-4174-9918-2744aa1d6283" From="de625a32-e3ba-4208-9d91-ff2d283527df" FromIndex="3" To="d2107f56-a537-4900-9761-ef9928afdb5f" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460.6,217.5" />
+          <Segment EndPoint="315.6,217.5" />
+          <Segment EndPoint="315.6,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="01984c60-c828-406a-8030-56eef61f8560" From="de625a32-e3ba-4208-9d91-ff2d283527df" FromIndex="1" To="72559d68-581c-49e7-9ffc-c14cf3ddb90c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="970.6,217.5" />
+          <Segment EndPoint="1115.6,217.5" />
+          <Segment EndPoint="1115.6,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="eeb5d832-a825-49bf-90b9-a7f1052d4602" From="d2107f56-a537-4900-9761-ef9928afdb5f" FromIndex="2" To="6e0eebba-4895-454b-98b0-1aa6bc915261" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="315.6,380" />
+          <Segment EndPoint="315.6,452.5" />
+          <Segment EndPoint="630.6,452.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f180df64-a4eb-4907-9a61-3b816da1d63b" From="72559d68-581c-49e7-9ffc-c14cf3ddb90c" FromIndex="2" To="6e0eebba-4895-454b-98b0-1aa6bc915261" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115.6,380" />
+          <Segment EndPoint="1115.6,452.5" />
+          <Segment EndPoint="800.6,452.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

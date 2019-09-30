@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Employment" EntityId="0d114b1c-9b2e-4823-91a0-2bad45ad9fd9" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="AnnualIncome" PropertyId="dc9df8df-afbf-4881-8a2c-afb6e3ae50c4" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="EmployerName" PropertyId="68263dc2-8574-425e-858e-9c0dcc68c010" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="EmployerPhone" PropertyId="fac3c598-f802-4b82-a672-2e0cd26c7d4b" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="JobTitle" PropertyId="dfaf6b9f-da25-484b-b543-a8ce8d7b1158" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="StartDate" PropertyId="cfa5fdfe-2028-48e4-86a1-6efe3a41d8d2" IsOptional="true" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="EndDate" PropertyId="6ba09b19-8e9e-43fd-bb09-0285560d2eec" IsOptional="true" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

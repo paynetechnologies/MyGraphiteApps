@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="PersonalInsuranceData" EntityId="d80d797f-d363-471f-bae5-53a4b87f2c4c" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4" BasedOn="a055ab0f-27bb-4568-88fa-ed2a7abbcf30">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="MilitaryService" PropertyId="e885bd29-8430-4105-97a9-f3d25852540e" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="OrganDonor" PropertyId="10077554-e530-438c-83a9-2ad2d9fc4236" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="RichTextEditor" ViewElementId="b3d93537-67c4-4e59-8a2b-66eddfc6588e" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" IsValueProvider="true" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Rich Text Editor is used for editing rich text.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Value" PropertyId="SimpleEntityDefinitionProperty_Value" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnSave" PropertyId="SimpleEntityDefinitionProperty_OnSave" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowSelectAllButton" PropertyId="SimpleEntityDefinitionProperty_ShowSelectAllButton" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanViewSource" PropertyId="SimpleEntityDefinitionProperty_CanViewSource" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanUseTemplates" PropertyId="SimpleEntityDefinitionProperty_CanUseTemplates" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowClipboardActions" PropertyId="SimpleEntityDefinitionProperty_ShowClipboardActions" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanUndoRedo" PropertyId="SimpleEntityDefinitionProperty_CanUndoRedo" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanFind" PropertyId="SimpleEntityDefinitionProperty_CanFind" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanReplace" PropertyId="SimpleEntityDefinitionProperty_CanReplace" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanDoBasicStyling" PropertyId="SimpleEntityDefinitionProperty_CanDoBasicStyling" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanDoSubSuperScripts" PropertyId="SimpleEntityDefinitionProperty_CanDoSubSuperScripts" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowRemoveFormatButton" PropertyId="SimpleEntityDefinitionProperty_ShowRemoveFormatButton" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowIndentButtons" PropertyId="SimpleEntityDefinitionProperty_ShowIndentButtons" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanBlockQuote" PropertyId="SimpleEntityDefinitionProperty_CanBlockQuote" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanChangeJustifications" PropertyId="SimpleEntityDefinitionProperty_CanChangeJustifications" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanSpellCheck" PropertyId="SimpleEntityDefinitionProperty_CanSpellCheck" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanInsertFormElements" PropertyId="SimpleEntityDefinitionProperty_CanInsertFormElements" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanInsertLinks" PropertyId="SimpleEntityDefinitionProperty_CanInsertLinks" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanInsertLists" PropertyId="SimpleEntityDefinitionProperty_CanInsertLists" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanInsertImages" PropertyId="SimpleEntityDefinitionProperty_CanInsertImages" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanInsertOther" PropertyId="SimpleEntityDefinitionProperty_CanInsertOther" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanChangeColors" PropertyId="SimpleEntityDefinitionProperty_CanChangeColors" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanMaximize" PropertyId="SimpleEntityDefinitionProperty_CanMaximize" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowContentBlocksButton" PropertyId="SimpleEntityDefinitionProperty_ShowContentBlocksButton" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowStylesDropdown" PropertyId="SimpleEntityDefinitionProperty_ShowStylesDropdown" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowFormatDropdown" PropertyId="SimpleEntityDefinitionProperty_ShowFormatDropdown" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowFontDropdown" PropertyId="SimpleEntityDefinitionProperty_ShowFontDropdown" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowFontSizeDropdown" PropertyId="SimpleEntityDefinitionProperty_ShowFontSizeDropdown" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanInsertTables" PropertyId="SimpleEntityDefinitionProperty_CanInsertTables" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanInsertPageBreaks" PropertyId="SimpleEntityDefinitionProperty_CanInsertPageBreaks" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowNewPageButton" PropertyId="SimpleEntityDefinitionProperty_ShowNewPageButton" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowBiDirectionalTextButtons" PropertyId="SimpleEntityDefinitionProperty_ShowBiDirectionalTextButtons" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowPrintButtons" PropertyId="SimpleEntityDefinitionProperty_ShowPrintButtons" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsHeightResizable" PropertyId="SimpleEntityDefinitionProperty_IsHeightResizable" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsWidthResizable" PropertyId="SimpleEntityDefinitionProperty_IsWidthResizable" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsRequired" PropertyId="b691a0fc-142b-4c31-a1c8-8e1a45d2bfed" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="RichTextEditor" />
+    <Property PropertyName="ShowSelectAllButton" DefaultValue="Yes" />
+    <Property PropertyName="CanViewSource" DefaultValue="No" />
+    <Property PropertyName="CanUseTemplates" DefaultValue="No" />
+    <Property PropertyName="ShowClipboardActions" DefaultValue="Yes" />
+    <Property PropertyName="CanUndoRedo" DefaultValue="Yes" />
+    <Property PropertyName="CanFind" DefaultValue="Yes" />
+    <Property PropertyName="CanReplace" DefaultValue="Yes" />
+    <Property PropertyName="CanDoBasicStyling" DefaultValue="Yes" />
+    <Property PropertyName="CanDoSubSuperScripts" DefaultValue="No" />
+    <Property PropertyName="ShowRemoveFormatButton" DefaultValue="No" />
+    <Property PropertyName="ShowIndentButtons" DefaultValue="Yes" />
+    <Property PropertyName="CanBlockQuote" DefaultValue="No" />
+    <Property PropertyName="CanChangeJustifications" DefaultValue="Yes" />
+    <Property PropertyName="CanSpellCheck" DefaultValue="No" />
+    <Property PropertyName="CanInsertFormElements" DefaultValue="No" />
+    <Property PropertyName="CanInsertLinks" DefaultValue="No" />
+    <Property PropertyName="CanInsertLists" DefaultValue="No" />
+    <Property PropertyName="CanInsertImages" DefaultValue="No" />
+    <Property PropertyName="CanInsertOther" DefaultValue="No" />
+    <Property PropertyName="CanChangeColors" DefaultValue="Yes" />
+    <Property PropertyName="CanMaximize" DefaultValue="Yes" />
+    <Property PropertyName="ShowContentBlocksButton" DefaultValue="No" />
+    <Property PropertyName="ShowStylesDropdown" DefaultValue="No" />
+    <Property PropertyName="ShowFormatDropdown" DefaultValue="No" />
+    <Property PropertyName="ShowFontDropdown" DefaultValue="Yes" />
+    <Property PropertyName="ShowFontSizeDropdown" DefaultValue="Yes" />
+    <Property PropertyName="CanInsertTables" DefaultValue="No" />
+    <Property PropertyName="CanInsertPageBreaks" DefaultValue="No" />
+    <Property PropertyName="ShowNewPageButton" DefaultValue="Yes" />
+    <Property PropertyName="ShowBiDirectionalTextButtons" DefaultValue="No" />
+    <Property PropertyName="ShowPrintButtons" DefaultValue="Yes" />
+    <Property PropertyName="IsHeightResizable" DefaultValue="Yes" />
+    <Property PropertyName="IsWidthResizable" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="false" Group="CKEditor">CKEditor</Script>
+      <Script Component="true" RelativePath="View/Scripts">RichTextEditor.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">StyleHelper.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Editor]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnSave" EditorType="ViewBehaviorChooser" Label="OnSave" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when text is saved]]></Description>
+      </Field>
+      <Field FieldName="ShowSelectAllButton" EditorType="YesNoToggle" Label="Select All Button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show “Select All” button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanViewSource" EditorType="YesNoToggle" Label="Can View Source?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Can view source?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanUseTemplates" EditorType="YesNoToggle" Label="Can Use Templates?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow usage of templates?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowClipboardActions" EditorType="YesNoToggle" Label="Show Clipboard Actions?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show cut/paste button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanUndoRedo" EditorType="YesNoToggle" Label="Can Undo\Redo?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow undo/redo?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanFind" EditorType="YesNoToggle" Label="Can Find?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow search capability?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanReplace" EditorType="YesNoToggle" Label="Can Replace?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Provide replace text capability?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanDoBasicStyling" EditorType="YesNoToggle" Label="Allow Basic Styling?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow basic styling?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanDoSubSuperScripts" EditorType="YesNoToggle" Label="Allow Sub\Superscript?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow subscript and superscript?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowRemoveFormatButton" EditorType="YesNoToggle" Label="Show Remove Format Button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show remove format button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowIndentButtons" EditorType="YesNoToggle" Label="Show Indent Buttons?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show indent options?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanBlockQuote" EditorType="YesNoToggle" Label="Can Block Quote?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow Block quote?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanChangeJustifications" EditorType="YesNoToggle" Label="Can Change Justifications?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Change text justifications?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanSpellCheck" EditorType="YesNoToggle" Label="Spell Check?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show spell check options?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanInsertFormElements" EditorType="YesNoToggle" Label="Can Insert Form Elements?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow form elements to be inserted?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanInsertLinks" EditorType="YesNoToggle" Label="Can Insert Links?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow links in the text?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanInsertLists" EditorType="YesNoToggle" Label="Can Insert Lists?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow creation of lists?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanInsertImages" EditorType="YesNoToggle" Label="Can Insert Images?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow images?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanInsertOther" EditorType="YesNoToggle" Label="Can Insert Other?" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanChangeColors" EditorType="YesNoToggle" Label="Can Change Colors?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Change colors of text?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanMaximize" EditorType="YesNoToggle" Label="Can Maximize?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow maximizing Editor?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowContentBlocksButton" EditorType="YesNoToggle" Label="Show Content Blocks Button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show content block button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowStylesDropdown" EditorType="YesNoToggle" Label="Show Styles Dropdown?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show style options?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowFormatDropdown" EditorType="YesNoToggle" Label="Show Format Dropdown?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Format options?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowFontDropdown" EditorType="YesNoToggle" Label="Show Font Dropdown?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Font choice?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowFontSizeDropdown" EditorType="YesNoToggle" Label="Show Font Size Dropdown?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Font sizing options?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanInsertTables" EditorType="YesNoToggle" Label="Can Insert Tables?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow tables?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CanInsertPageBreaks" EditorType="YesNoToggle" Label="Can Insert Page Breaks?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Allow page breaks?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowNewPageButton" EditorType="YesNoToggle" Label="Show New Page Button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show new page button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowBiDirectionalTextButtons" EditorType="YesNoToggle" Label="Show Bi-Directional Text Buttons?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show bi-directional text button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowPrintButtons" EditorType="YesNoToggle" Label="Show Print Buttons?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show print button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsHeightResizable" EditorType="YesNoToggle" Label="Is Height Resizable?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Is the Height resizable?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="TextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the editor]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="TextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the editor]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Height and Width]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="em" Value="em" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsWidthResizable" EditorType="YesNoToggle" Label="Is Width Resizable?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Is the Width resizable?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="IsRequired" EditorType="YesNoToggle" Label="Required?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Required marker?]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="OnSave" PropertyPath="OnSave.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnSave" PropertyPath="OnSave.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="ShowSelectAllButton" PropertyPath="ShowSelectAllButton" Value="{Text}" />
+      <Map FieldName="CanViewSource" PropertyPath="CanViewSource" Value="{Text}" />
+      <Map FieldName="CanUseTemplates" PropertyPath="CanUseTemplates" Value="{Text}" />
+      <Map FieldName="ShowClipboardActions" PropertyPath="ShowClipboardActions" Value="{Text}" />
+      <Map FieldName="CanUndoRedo" PropertyPath="CanUndoRedo" Value="{Text}" />
+      <Map FieldName="CanFind" PropertyPath="CanFind" Value="{Text}" />
+      <Map FieldName="CanReplace" PropertyPath="CanReplace" Value="{Text}" />
+      <Map FieldName="CanDoBasicStyling" PropertyPath="CanDoBasicStyling" Value="{Text}" />
+      <Map FieldName="CanDoSubSuperScripts" PropertyPath="CanDoSubSuperScripts" Value="{Text}" />
+      <Map FieldName="ShowRemoveFormatButton" PropertyPath="ShowRemoveFormatButton" Value="{Text}" />
+      <Map FieldName="ShowIndentButtons" PropertyPath="ShowIndentButtons" Value="{Text}" />
+      <Map FieldName="CanBlockQuote" PropertyPath="CanBlockQuote" Value="{Text}" />
+      <Map FieldName="CanChangeJustifications" PropertyPath="CanChangeJustifications" Value="{Text}" />
+      <Map FieldName="CanSpellCheck" PropertyPath="CanSpellCheck" Value="{Text}" />
+      <Map FieldName="CanInsertFormElements" PropertyPath="CanInsertFormElements" Value="{Text}" />
+      <Map FieldName="CanInsertLinks" PropertyPath="CanInsertLinks" Value="{Text}" />
+      <Map FieldName="CanInsertLists" PropertyPath="CanInsertLists" Value="{Text}" />
+      <Map FieldName="CanInsertImages" PropertyPath="CanInsertImages" Value="{Text}" />
+      <Map FieldName="CanInsertOther" PropertyPath="CanInsertOther" Value="{Text}" />
+      <Map FieldName="CanChangeColors" PropertyPath="CanChangeColors" Value="{Text}" />
+      <Map FieldName="CanMaximize" PropertyPath="CanMaximize" Value="{Text}" />
+      <Map FieldName="ShowContentBlocksButton" PropertyPath="ShowContentBlocksButton" Value="{Text}" />
+      <Map FieldName="ShowStylesDropdown" PropertyPath="ShowStylesDropdown" Value="{Text}" />
+      <Map FieldName="ShowFormatDropdown" PropertyPath="ShowFormatDropdown" Value="{Text}" />
+      <Map FieldName="ShowFontDropdown" PropertyPath="ShowFontDropdown" Value="{Text}" />
+      <Map FieldName="ShowFontSizeDropdown" PropertyPath="ShowFontSizeDropdown" Value="{Text}" />
+      <Map FieldName="CanInsertTables" PropertyPath="CanInsertTables" Value="{Text}" />
+      <Map FieldName="CanInsertPageBreaks" PropertyPath="CanInsertPageBreaks" Value="{Text}" />
+      <Map FieldName="ShowNewPageButton" PropertyPath="ShowNewPageButton" Value="{Text}" />
+      <Map FieldName="ShowBiDirectionalTextButtons" PropertyPath="ShowBiDirectionalTextButtons" Value="{Text}" />
+      <Map FieldName="ShowPrintButtons" PropertyPath="ShowPrintButtons" Value="{Text}" />
+      <Map FieldName="IsHeightResizable" PropertyPath="IsHeightResizable" Value="{Text}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="IsWidthResizable" PropertyPath="IsWidthResizable" Value="{Text}" />
+      <Map FieldName="IsRequired" PropertyPath="IsRequired" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVEhLtZW/LgVBGMX3IoRKQURBJXoq9DRUEiHRkLDxp8Ab8CRUvAEtT4AH8AK8AQXnzDff9e2YmR1y/ZJf5tyb5czOzs7t1HVdFTAAX+C0+1RVV3BXYp4+P7axCvWfk004JjFPacGRH5VheCAxT0nBLFyW2IBry6XLUlJwCDsSG0zBdYlp2gpG4I5Ex7NXOfFjkraCbTgq0XHpVZbgnMQ4bQVcHuUD3sBrn5VTP0bJFSxCO7tb+ArffFayWzZXcOxHxS6NzUMwuWVTBeNwQ6KDs76T6OAd8DuF70l0y6YK9uCgRAfX/V2ig8+A3ymTMLplYwX9MLxlnj0hdpnImR8bxArWoD13yCP8DHyClgU4L/GbWIHdmr/lx4sXFszAFYl/YgtOSBTCAu4Ge+48QH7OeQ8Vbox9iYIt4BEc/oic+zHHhR8VTrK7A21BeO5w9nZ2KXiNva6xZW1B+KNSMnslvIvuw7YF3GKptW2D19q/5TnmCB9yz2FB+AL11H++g6r6As1QS8hp8S5nAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGCSURBVEhLtZW7SgNBFEA3PiKxslDBQgsRWx+dVv6BYCXYRvBR+EnBxto/MBZiJ5ZiJ4KgjZ1oFOK5M3PXm3F2sxpy4LB3Zm5mMpPZm6zb7VZxDB9QaWEq75fJzoTbaHnDaUzl9jiSVeMoPJUGHviwnJqs0odlvMOaa/3wiIv45VoFVNnBIcaTC/O448MS4jOLnMRXVG6DyhWmPpfbbwd7OOVDRyuobOKaDwtIrWq8QaWDszgTYuUUU591JjuDG2g5Rx2TWHnHwitbdkTH4anYo7HxBBZf2dSqKMfwgcoL1lHHx0Of8oTytts5nEU7aGLdh44z7PjQ8YnSp8xh+somVh1FW3eEVYzzVtByjXFOcoG47vyFdeyZL3VE8ub+l5PwzIlr0RLeY6o0VEF+pwV8di2IdyBV005+idIus42KXIx9HwbMeTXQ1h1hC21OSsmxyJXNr7RNbKKljXa8zAu07KIbs0m27ghVvr0a7yK/slX+cAaiX7keGNnBULcw5B1k2TdHN4qUIjHuogAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetValidAddress" OwnerId="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" ProcessId="aa05baf0-9f3f-4f4b-80f5-d2939a60702f" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Look for a matching address, if not create an address">
+  <Variables>
+    <Variable Name="Street" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="24dee61b-2366-405e-8ed6-0f6a2fda8f0e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="City" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="3bae0c41-c934-4195-8105-0938794ec695" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="State" DataType="b6d70d91-1744-439f-baee-98a4cab0cd44" VariableType="Input" VariableId="553cbf69-9487-4539-90b0-14b0dfc53552" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Zip" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="8edb818b-3e23-4655-a6d8-830752cba589" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Address" DataType="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" VariableType="Output" VariableId="a6bf0b04-d9ed-49e9-b344-2ba838a668d1" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="3bf96e20-e91a-42d2-b83f-848acb29a6ee" Bounds="822.5,55,170,55" />
+        <TestConditionNode Name="NoAAddressProperties" Description="No Address Properties?" ID="bc19ada9-798f-4de9-8216-ce8a9af67845" Bounds="632.5,155,550,55">
+          <Expressions>
+            <Expression LeftExpression="Street" Operator="IsMissing" />
+            <Expression LeftExpression="City" Operator="IsMissing" />
+            <Expression LeftExpression="State" Operator="IsMissing" />
+            <Expression LeftExpression="Zip" Operator="IsMissing" />
+          </Expressions>
+        </TestConditionNode>
+        <TestDecisionNode TestConditionVariableId="NoAAddressProperties" Description="No Address Properties?" ID="1a5563c4-b452-4067-a1fc-51124db01f54" Bounds="632.5,255,550,55" />
+        <DataLookupNode Source="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" VariableId="Address" ResultType="Single" Description="Find a matching Address" ID="54e2d79a-0ae9-4f35-915f-6f77af9918da" Bounds="1032.5,355,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Street" RightExpression="Street" Operator="IsEqualTo" />
+            <CriteriaExpression LeftExpression="City" RightExpression="City" Operator="IsEqualTo" />
+            <CriteriaExpression LeftExpression="State" RightExpression="State" Operator="IsEqualTo" />
+            <CriteriaExpression LeftExpression="Zip" RightExpression="Zip" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <EndNode ID="53b574e1-67b7-4b5c-8a59-1a7a0b09b252" Bounds="422.5,725,170,55" />
+        <DecisionNode LeftExpression="Address" Operator="IsMissing" Description="Address not found?" ID="000bd01a-b9fe-4b24-bbaa-9166615bbb19" Bounds="1052.5,455,510,125" />
+        <CreateNode Variable="Address" DataType="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" Description="Create a new Address" ID="3c940eb2-0f10-4cb2-8917-ded8c23d8578" Bounds="1032.5,625,550,55">
+          <Properties>
+            <Property Name="City">City</Property>
+            <Property Name="State">State</Property>
+            <Property Name="Street">Street</Property>
+            <Property Name="Zip">Zip</Property>
+          </Properties>
+        </CreateNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="fc6915a4-5292-4e72-8b82-181865128c9b" From="54e2d79a-0ae9-4f35-915f-6f77af9918da" FromIndex="2" To="000bd01a-b9fe-4b24-bbaa-9166615bbb19" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1307.5,410" />
+          <Segment EndPoint="1307.5,455" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="a748e63d-9fad-4091-a379-3fd3f7a5b5e8" From="000bd01a-b9fe-4b24-bbaa-9166615bbb19" FromIndex="2" To="3c940eb2-0f10-4cb2-8917-ded8c23d8578" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="1307.5,580" />
+          <Segment EndPoint="1307.5,625" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="a673ecfb-2b5c-4acd-80eb-244db3a59261" From="3bf96e20-e91a-42d2-b83f-848acb29a6ee" FromIndex="0" To="bc19ada9-798f-4de9-8216-ce8a9af67845" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="1d27c828-7255-4c59-a096-4e10cca25f20" From="bc19ada9-798f-4de9-8216-ce8a9af67845" FromIndex="2" To="1a5563c4-b452-4067-a1fc-51124db01f54" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <TestDecisionProcessNodeConnection BranchType="AreAllFalse" ID="49098db1-5933-4ee0-ac98-630cd47df598" From="1a5563c4-b452-4067-a1fc-51124db01f54" FromIndex="1" To="54e2d79a-0ae9-4f35-915f-6f77af9918da" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Are All False">
+          <Segment EndPoint="1182.5,282.5" />
+          <Segment EndPoint="1307.5,282.5" />
+          <Segment EndPoint="1307.5,355" />
+        </TestDecisionProcessNodeConnection>
+        <TestDecisionProcessNodeConnection BranchType="AreAllTrue" ID="163e29a9-d0cd-4b13-bbc8-63101d635f5c" From="1a5563c4-b452-4067-a1fc-51124db01f54" FromIndex="3" To="53b574e1-67b7-4b5c-8a59-1a7a0b09b252" ToIndex="3" LineType="ElbowArrow" ZOrder="100" Text="Are All True">
+          <Segment EndPoint="632.5,282.5" />
+          <Segment EndPoint="402.5,282.5" />
+          <Segment EndPoint="402.5,752.5" Movable="true" />
+          <Segment EndPoint="422.5,752.5" />
+        </TestDecisionProcessNodeConnection>
+        <TestDecisionProcessNodeConnection BranchType="IsInconclusive" ID="be303ef0-e23d-44ad-a77f-0370f6b28b7c" From="1a5563c4-b452-4067-a1fc-51124db01f54" FromIndex="2" To="54e2d79a-0ae9-4f35-915f-6f77af9918da" ToIndex="3" LineType="ElbowArrow" ZOrder="100" Text="Is Inconclusive">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,382.5" />
+          <Segment EndPoint="1032.5,382.5" />
+        </TestDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="039e298c-126a-4909-8544-a6ebdf1adaae" From="3c940eb2-0f10-4cb2-8917-ded8c23d8578" FromIndex="2" To="53b574e1-67b7-4b5c-8a59-1a7a0b09b252" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1307.5,680" />
+          <Segment EndPoint="1307.5,752.5" />
+          <Segment EndPoint="592.5,752.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

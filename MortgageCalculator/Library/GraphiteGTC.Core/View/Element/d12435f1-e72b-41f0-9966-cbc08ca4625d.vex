@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="RichTextDisplay" ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Rich Text Display is used to display rich text.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Value" PropertyId="SimpleEntityDefinitionProperty_Value" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="RichTextDisplay" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">RichTextDisplay.js</Script>
+      <Script Component="false" Group="Caja">HtmlCssSanitizer.min</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFRSURBVEhL3ZW/LgVBGMXnSihwSzyCUnHfwhvQ3WaFqISWR3BJ/IlIVCIUKq8gUQgvoKLQSOiECM7Z7/s2e+3M7Air8Et+mZO7N3tmZie7rSzLPlyDDOjYGN8pWIIt9YQ/pJBa8AwPJOZs6lhLasEhfJKYcw6vJcZJLdjWsUxPxygpBRfQZjulkmP4IDFMSkF59l2VvMBdiWHqCjhDzpQMwhk4q5mw/E2in7qCffgq0U3DcTimmdzDU4l+YgXvcEdijm0NKed1Hb3ECs7grcS+WRNbDeEhuJJYJVZQfrijcBHOqcwj0NjQsULoZXcDJyG3KYUheAdtVQWhFXDv7eZt2AnIa4QHYU9iP76Cr++dNXgZcBUa3FI7cQW+giP4KNFNwHmJXhYg/0O8R9ZXsKUjWYHDEr3w2rLEnMrD/n9fNPti/dSCP18Bn8dvWNDwCpz7BPn/Tvuso7FiAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFqSURBVEhLvZS9SgQxFEaz4k9lIbgrqyBYWQraKNaC+BCCr+BrrIWVimhhIYKFaCm2CjYi9oKggo2Fjcqu+HPuJneZWSeZqDseOOSbTCbJzQxT+gRTIF2uLYyfLLCMJee+dMQQe0SvOIxPzStjZvHUxjCxFeyiTi6c4aWNYWIXWHNtklXXBok5onOcsdFMuPYK+/AeB6XDR0wFyd0vOYU6btjoJ6+CRxzBBvag7Fi+Iul7wyreYjdmklfBFsrkwgJWsOyy8IAHNnqQCjy84yjKGPEQFcnaPy0dPkILHKFOUsYGKpIrqPcvMJPQO5jHYxvNGM7Z2OIEb2w0i7hjYxrfAtc4jh/Nq3x68Q7lHaXwveR11Mn7ccqj3BPkQ9i0sQ2poI0XHEA93xX0UUMdV8U6pshaYBv1oSF8Rh9yT8bo+D1MkbXAJOoDod0rySq+fbIx/6I/Efs3/TXtFch/phO05vz3CjpOwRUY8wW8zwV5svRy/gAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

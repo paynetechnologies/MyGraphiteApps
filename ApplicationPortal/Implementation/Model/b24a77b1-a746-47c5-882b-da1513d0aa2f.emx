@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="USAAddress" EntityId="b24a77b1-a746-47c5-882b-da1513d0aa2f" MergedFrom="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1" BasedOn="0e1b9077-35fc-4ad9-a85b-a0487ccf1d7d">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="State" PropertyId="f6f69a25-35f3-4e33-b844-c4bd37c0b8c7" IsOptional="true" IsOverride="true" DataType="3ec53ed9-41be-4557-ba0b-a2f03dbe5b0d">
+    <ReplacementMapping From="b6d70d91-1744-439f-baee-98a4cab0cd44" To="3ec53ed9-41be-4557-ba0b-a2f03dbe5b0d" />
+  </Property>
+  <Tags>
+    <Tag Type="Group">Postal Address</Tag>
+  </Tags>
+</EntityDefinition>

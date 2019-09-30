@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnRefreshSampleDayPlanner" OwnerId="5424dd1c-a43f-4e79-b4d0-f257f36983ab" ProcessId="6b8c3bc2-3752-4e19-a562-191f0f7589d5" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="933f5737-1269-44fd-b9b1-3d7263f88564" VariableType="Input" Classification="Pinned, Locked" VariableId="49f7a34c-231f-450b-a236-1e8e97fcc7c0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="5d8a2d1d-a64c-4d55-88cd-3c0dd0f1fbf0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="StartTime" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" VariableType="Input" VariableId="981d7da1-624f-44b7-9af4-73755d293fea" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EndTime" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" VariableType="Input" VariableId="03af9f59-45dd-4b51-890f-6a6a9b071cae" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="c9a38f2f-2db6-4690-b21c-0bfed6c3423e" Bounds="630.6,95,170,55" ZOrder="1" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="174ed1af-762d-45c2-9f11-8f18adfd8481" Bounds="440.6,195,550,55" ZOrder="1" Text="Create">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="NewDayPlanner" DataType="7e543221-7a31-43b9-94f6-438c52cdbaf9" Description="Create a new DayPlanner" ID="7d961d95-5a2f-48a8-b157-f06e7dca8554" Bounds="440.6,295,550,55" ZOrder="3" Text="">
+          <Properties />
+        </CreateNode>
+        <DataLookupNode Source="3f23d8d9-12ca-4236-86b7-cdfc777b5e07" VariableId="Appointements" ResultType="Array" Description="Load Appointments" ID="5655ee5e-1616-4542-94ce-6556b2092b66" Bounds="440.6,395,550,55" ZOrder="1" Text="">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="StartTime" RightExpression="StartTime" Operator="IsGreaterThanOrEqualTo" />
+            <CriteriaExpression LeftExpression="EndTime" RightExpression="EndTime" Operator="IsLessThanOrEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="Appointements" IterationVar="AppointmentInContext" Description="For each Appointment" ID="d45f4beb-08ad-42b5-b935-1b344b19e143" Bounds="365.6,495,700,305" ZOrder="1" Text="" />
+        <CreateUiParametersNode Variable="EventParameters" ViewDefinition="6d7c05ad-81c2-4541-a187-af7cf67225b2" ProcessProperty="0ea4cf71-84dc-48c0-9769-44793f42016f" Description="Set Event Parameters" Parent="d45f4beb-08ad-42b5-b935-1b344b19e143" ID="95ad662b-da4f-4c04-ac36-c5c73c444ba7" Bounds="75,75,550,55" ZOrder="2" Text="">
+          <Parameters>
+            <Parameter Name="AppointmentInContext" Value="AppointmentInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <ExecuteProcessNode ElementDefinition="7e543221-7a31-43b9-94f6-438c52cdbaf9" ProcessProperty="eb8acc96-5d79-458e-b088-01e7790f96a4" ExecuteProcessType="Element" VariableId="DayPlannerAddEventResult" SuppressValidations="false" Description="Create the DayPlanner Event" Parent="d45f4beb-08ad-42b5-b935-1b344b19e143" ID="6c37a9d3-6977-4202-8827-743cd08d906e" Bounds="75,175,550,55" ZOrder="11" Text="">
+          <InputVariables>
+            <InputVariable Name="DayPlanner" Value="NewDayPlanner" />
+            <InputVariable Name="EventAppointment" Value="AppointmentInContext" />
+            <InputVariable Name="EventParameters" Value="EventParameters" />
+            <InputVariable Name="EventView" Value="Views:AppointmentModal" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode ElementDefinition="7e543221-7a31-43b9-94f6-438c52cdbaf9" ProcessProperty="beb69444-4424-4ec4-b232-3b064fa14df8" ExecuteProcessType="Element" VariableId="DayPlannerBuildReplaceElementsResult" SuppressValidations="false" ID="bac76985-6eef-4baf-a84e-b06e58913f83" Bounds="440,845,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="DayPlanner" Value="NewDayPlanner" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <PageInstructionNode Action="Replace" Instruction="Content" Context="Current" ContainerElementId="e99f8876-cf4f-4645-a64c-162e45fe2897" ViewElementsExpression="DayPlannerBuildReplaceElementsResult.Outputs.ViewElements" PageInstructionViewElementId="9c2a999a-fa50-4a60-8b68-957e6d7c2ee5" Description="Add Events to DayPlanner" ID="42dc31a3-a37d-4a38-901b-3c42fd962746" Bounds="440,945,550,55" ZOrder="3" Text="" />
+        <EndNode ID="4e45c23d-0fab-4942-858e-45f714a9ab23" Bounds="630.6,1045,170,55" ZOrder="3" Text="" />
+        <CommentNode Todo="false" ID="b1a3cb11-a17b-404e-994b-80d422be6ed1" Bounds="40.6,115,300,110" ZOrder="1" Text="Comment"><![CDATA[This View Behavior is called right after the OnLoadView View Behavior]]></CommentNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="5bff3545-c214-4d9d-8c7a-2ce67ce8b229" From="42dc31a3-a37d-4a38-901b-3c42fd962746" FromIndex="2" To="4e45c23d-0fab-4942-858e-45f714a9ab23" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715,1000" />
+          <Segment EndPoint="715,1022.5" />
+          <Segment EndPoint="715.6,1022.5" Movable="true" />
+          <Segment EndPoint="715.6,1045" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="08224971-123b-4bbc-8f87-b5f21c6567e4" From="c9a38f2f-2db6-4690-b21c-0bfed6c3423e" FromIndex="0" To="174ed1af-762d-45c2-9f11-8f18adfd8481" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,150" />
+          <Segment EndPoint="715.6,195" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b1f5c5c9-cc5a-4d23-a955-246604c4346a" From="174ed1af-762d-45c2-9f11-8f18adfd8481" FromIndex="2" To="7d961d95-5a2f-48a8-b157-f06e7dca8554" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,250" />
+          <Segment EndPoint="715.6,295" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="71130705-707c-4814-8cec-ee05f3737607" From="7d961d95-5a2f-48a8-b157-f06e7dca8554" FromIndex="2" To="5655ee5e-1616-4542-94ce-6556b2092b66" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,350" />
+          <Segment EndPoint="715.6,395" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9b05aa79-2a01-40b4-bca6-f53003f9ef06" From="5655ee5e-1616-4542-94ce-6556b2092b66" FromIndex="2" To="d45f4beb-08ad-42b5-b935-1b344b19e143" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,450" />
+          <Segment EndPoint="715.6,495" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9849ed41-8e52-4256-bc16-ccc25e2063e5" From="d45f4beb-08ad-42b5-b935-1b344b19e143" FromIndex="2" To="bac76985-6eef-4baf-a84e-b06e58913f83" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,800" />
+          <Segment EndPoint="715.6,822.5" />
+          <Segment EndPoint="715,822.5" Movable="true" />
+          <Segment EndPoint="715,845" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="18f9476b-2c81-45ea-a699-d2d074de6719" From="bac76985-6eef-4baf-a84e-b06e58913f83" FromIndex="2" To="42dc31a3-a37d-4a38-901b-3c42fd962746" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715,900" />
+          <Segment EndPoint="715,945" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ff12308d-e42d-4546-ba4f-5aee58044032" From="95ad662b-da4f-4c04-ac36-c5c73c444ba7" FromIndex="2" To="6c37a9d3-6977-4202-8827-743cd08d906e" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,625" />
+          <Segment EndPoint="715.6,670" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

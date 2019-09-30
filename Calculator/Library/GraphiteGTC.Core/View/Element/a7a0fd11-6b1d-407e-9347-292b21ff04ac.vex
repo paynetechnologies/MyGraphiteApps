@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ProgressDisplayItem" ViewElementId="a7a0fd11-6b1d-407e-9347-292b21ff04ac" BasedOn="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Progress Display Item is used to show a progress bar in a Display Detail.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ProgressDisplayItem" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ProgressDisplayItem.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.ProgressBar.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="TranslateContent" EditorType="Hidden" Label="TranslateContent" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping />
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAOCAYAAADaOrdAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACDSURBVDhPY0xLS/vPQGPABKVpCpAtYaQBBgO6+4RmAJslnkD8DIhhCQJEo7NxYZA+kH4UgM2SuUAsCWGSDED6QPpRAC2CCx7hMIDNkhQgfgFhkgyeAnEyhIkA2CzZBsQgb8NchJwcYWxcWAaIQfpRAC2CCwPQ3RJsSZJSDAZ08AkDAwBKxipN3k4xBAAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAOCAYAAADaOrdAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABqSURBVDhPY/wPBAw0BkxQmqYA2SeMUJqaAGw2XXwyYJZ4AvEzIIYFI4hGZ+PCIH0g/SgAW5yAFEpCmGAxZHkYGx94DsRSECZEPS2CCyMBYbMkBYhfQJgkg6dAnAxhIsBoEiYJDJeyi4EBAEi0Kuz0j7ytAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

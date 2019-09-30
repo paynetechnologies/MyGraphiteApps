@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickGoButton" OwnerId="477b08b6-bde0-4087-b90a-405bc19524f5" ProcessId="3a270ffd-8eb9-4f7d-ae45-b18ffa268c2c" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="933f5737-1269-44fd-b9b1-3d7263f88564" VariableType="Input" Classification="Pinned, Locked" VariableId="2e54b3b0-36cf-4a69-bad2-d206581a3526" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="f9a861e0-b34e-4e38-9ab5-2d1ff624ea55" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ThemeField" DataType="7b2f7c91-028a-44e0-a8a7-8968f65ff876" VariableType="Input" Classification="SerializedViewElement" VariableId="578f9ea3-1acd-4244-84de-71b134ce1e56" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="15e72123-8316-495b-969c-2391e30fa0dc" Bounds="630.6,265,170,55" ZOrder="1" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="515b421c-24b2-4f11-b914-97b99fe61b85" Bounds="440.6,365,550,55" ZOrder="1" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ValidationNode Description="Home Field Validations" ID="1765a4e6-224d-4b08-b884-af6c2dce5a2a" Bounds="440.6,465,550,55" ZOrder="2" Text="">
+          <Validations>
+            <Validation Name="ThemeValidation" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustChooseATheme]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="ThemeField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <PageInstructionNode Action="ShowView" Context="Current" Theme="ThemeField.Description" Locale="Language:EnglishUSA.Code" ViewDefinitionId="5424dd1c-a43f-4e79-b4d0-f257f36983ab" PageInstructionViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" Description="Goto CalendarPage Screen" ID="9a2f1766-8e0f-4c24-8f8f-f2cf404fb6d6" Bounds="440.6,565,550,55" ZOrder="3" Text="" />
+        <EndNode ID="f742c872-d8be-47c5-bcd7-2619dc37c63c" Bounds="630.6,665,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="f35a19bb-8f21-4b02-a783-3332096d3d22" From="15e72123-8316-495b-969c-2391e30fa0dc" FromIndex="0" To="515b421c-24b2-4f11-b914-97b99fe61b85" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,320" />
+          <Segment EndPoint="715.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="80ee059d-142e-4e86-a76c-0d58629fe657" From="515b421c-24b2-4f11-b914-97b99fe61b85" FromIndex="2" To="1765a4e6-224d-4b08-b884-af6c2dce5a2a" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="64a625bc-6caf-451d-bc1f-0b3cc8420a51" From="1765a4e6-224d-4b08-b884-af6c2dce5a2a" FromIndex="2" To="9a2f1766-8e0f-4c24-8f8f-f2cf404fb6d6" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,520" />
+          <Segment EndPoint="715.6,565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f067b6df-dc25-45eb-9069-91becab259cf" From="9a2f1766-8e0f-4c24-8f8f-f2cf404fb6d6" FromIndex="2" To="f742c872-d8be-47c5-bcd7-2619dc37c63c" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,620" />
+          <Segment EndPoint="715.6,665" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

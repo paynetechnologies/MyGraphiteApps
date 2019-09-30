@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="MediaFile" EntityId="c8ac5346-7774-4e57-af2c-5ff715d1277d" MergedFrom="30d687ee-3dfb-4dae-95ff-5429488506da" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+</EntityDefinition>

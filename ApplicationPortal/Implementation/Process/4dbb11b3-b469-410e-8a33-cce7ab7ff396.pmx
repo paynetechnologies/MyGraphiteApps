@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Create" OwnerId="292093ab-1097-44c3-b7b6-76352d824c8d" ProcessId="4dbb11b3-b469-410e-8a33-cce7ab7ff396" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicationType" DataType="b88d86da-85a8-4917-a47b-1da989eda0bd" VariableType="Input" VariableId="1b3a2c5d-e5b3-4fae-a579-4423fbca5692" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EmailAddress" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="576ab3fb-e2f4-4baf-8166-bf65f586ca50" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FirstName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a77c68cd-c145-4068-8ecf-f9311647c4d2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="LastName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="7f225458-0afd-4b2a-93af-41a56f6d7a5e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MobilePhone" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="5b7c88a2-07e2-4a46-b3ae-28b5e1b7886f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Password" DataType="919223ac-22c6-4540-be89-e85d1be5f0ad" VariableType="Input" VariableId="4929d6b1-fa8f-4466-9d89-1139010e31bb" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="NewApplicant" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Output" VariableId="7a7012d8-7aaf-40da-ae43-51b144b39923" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="ef72f7d1-441c-4b37-a7f7-ba576c5c675a" Bounds="630.6,55,170,55" />
+        <ExecuteProcessNode EntityDefinition="be83ce04-3d44-4b6f-9d4d-951b176f4197" ProcessProperty="3efd7389-27b9-434a-a013-d5cdb82c0e2f" ExecuteProcessType="EntityStatic" VariableId="PersonCreateResult" SuppressValidations="false" ID="5f788fbd-1507-42ec-8d54-0b7d55e7b2f4" Bounds="440,155,550,55">
+          <InputVariables>
+            <InputVariable Name="FirstName" Value="FirstName" />
+            <InputVariable Name="LastName" Value="LastName" />
+            <InputVariable Name="MobilePhone" Value="MobilePhone" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <DataLookupNode Source="eba31d22-b88b-4d3d-ae05-5bae7c17dd90" VariableId="ApplicantGroup" ResultType="Single" ID="9f4e1e13-5a2d-4d3e-9e1c-b9f5908a0bd8" Bounds="441.2,255,550,55" ZOrder="1" Text="">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Description" RightExpression="&quot;Applicant&quot;" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <CreateNode Variable="NewApplicant" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" ID="e3c6c2c6-78f2-4742-bc8c-e94e586496c3" Bounds="441.2,355,550,55" ZOrder="1" Text="">
+          <Properties>
+            <Property Name="Active">YesNoQuestion:Yes</Property>
+            <Property Name="Language">Language:EnglishUSA</Property>
+            <Property Name="Password">Password</Property>
+            <Property Name="Person">PersonCreateResult.Outputs.NewPerson</Property>
+            <Property Name="SecurityGroup">ApplicantGroup</Property>
+            <Property Name="Theme">Theme:Polk</Property>
+            <Property Name="Username">EmailAddress</Property>
+          </Properties>
+        </CreateNode>
+        <ExecuteProcessNode EntityDefinition="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" ProcessProperty="2398d49f-061e-4eef-9ff6-fb99f1c69b49" ExecuteProcessType="EntityStatic" VariableId="ApplicationCreateByTypeResult" SuppressValidations="false" Description="Create Application by Type" ID="b7d0eafb-de9a-46d3-8482-66dce4cb8265" Bounds="440.6,455,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Type" Value="ApplicationType" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Add" ListItem="ApplicationCreateByTypeResult.Outputs.NewApplication" SourceList="NewApplicant.Applications" ID="ab077c5e-ca42-4b3a-8ba1-11280b9819ef" Bounds="441.2,555,550,55" ZOrder="1" Text="" />
+        <EndNode ID="1c831a98-4bcf-47fb-8c1b-3611eec06f2e" Bounds="631.2,655,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="82f99b2b-12f0-4be1-8615-5ccf00ccb659" From="ef72f7d1-441c-4b37-a7f7-ba576c5c675a" FromIndex="0" To="5f788fbd-1507-42ec-8d54-0b7d55e7b2f4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,132.5" />
+          <Segment EndPoint="715,132.5" Movable="true" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3d6a66c6-7bad-488f-8db4-17a3b0a5501f" From="5f788fbd-1507-42ec-8d54-0b7d55e7b2f4" FromIndex="2" To="9f4e1e13-5a2d-4d3e-9e1c-b9f5908a0bd8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,232.5" />
+          <Segment EndPoint="716.2,232.5" Movable="true" />
+          <Segment EndPoint="716.2,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d01f803f-2abd-4b4c-9fd2-52d374654927" From="9f4e1e13-5a2d-4d3e-9e1c-b9f5908a0bd8" FromIndex="2" To="e3c6c2c6-78f2-4742-bc8c-e94e586496c3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="716.2,310" />
+          <Segment EndPoint="716.2,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9969d1ab-f20d-490e-90ae-8233018cec64" From="e3c6c2c6-78f2-4742-bc8c-e94e586496c3" FromIndex="2" To="b7d0eafb-de9a-46d3-8482-66dce4cb8265" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="716.2,410" />
+          <Segment EndPoint="716.2,432.5" />
+          <Segment EndPoint="715.6,432.5" Movable="true" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7700c99d-c157-49be-aca2-e3276c8f0456" From="b7d0eafb-de9a-46d3-8482-66dce4cb8265" FromIndex="2" To="ab077c5e-ca42-4b3a-8ba1-11280b9819ef" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,532.5" />
+          <Segment EndPoint="716.2,532.5" Movable="true" />
+          <Segment EndPoint="716.2,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="26863d75-1ed7-4984-8d99-d7082afdc90a" From="ab077c5e-ca42-4b3a-8ba1-11280b9819ef" FromIndex="2" To="1c831a98-4bcf-47fb-8c1b-3611eec06f2e" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="716.2,610" />
+          <Segment EndPoint="716.2,655" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

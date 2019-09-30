@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="HomeLoanData" EntityId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4" BasedOn="8d594c19-40b0-4805-8903-3b5365b0bd68">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PersonalData" PropertyId="c484c16a-3de3-4ae9-aba9-abbb94a7a6a6" IsOptional="true" IsOverride="true" DataType="0daf89a6-8ef2-4448-ba4c-4f4ae6dbd6c3">
+    <Mapping From="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" To="0daf89a6-8ef2-4448-ba4c-4f4ae6dbd6c3" />
+  </Property>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Assets" PropertyId="7beb2bdf-fb6f-4c24-9971-66b085211d3c" IsOptional="true" DataType="$[List,6ecd59f3-7d0a-47d2-8f8c-41e1214799a0]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="CurrentJob" PropertyId="179b4902-76ee-4984-b67f-4b37e85374e4" IsOptional="true" DataType="0d114b1c-9b2e-4823-91a0-2bad45ad9fd9" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="GiftData" PropertyId="821b14e8-8792-435f-890d-f8538445b73d" IsOptional="true" DataType="f873ae42-9c64-425b-b3e4-5f75f1660923" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="GovernmentData" PropertyId="8930c966-28ed-4e10-ba71-bb51b69230af" IsOptional="true" DataType="459dd3cc-bf39-40ea-a18e-7fe3a38bdae3" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PreviousJob" PropertyId="9940da59-020e-4924-9b1f-decb5e1c9f8a" IsOptional="true" DataType="0d114b1c-9b2e-4823-91a0-2bad45ad9fd9" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Cell" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Cell is a single element in a Table with a row and column coordinate.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CellElement" PropertyId="SimpleEntityDefinitionProperty_CellElement" IsOptional="true" DataType="38107afd-fd3d-4472-b463-d8d0d5588a55" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextColor" PropertyId="SimpleEntityDefinitionProperty_TextColor" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Alignment" PropertyId="SimpleEntityDefinitionProperty_Alignment" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ColumnSpan" PropertyId="27dfa0e0-772a-4a2c-9f7b-0a99e1d4fcc8" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Cell" />
+    <Property PropertyName="ColumnSpan" DefaultValue="1" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="CellElement" EditorType="PropertyNodeCreator" Label="Cell Element" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View Element inside the Cell]]></Description>
+      </Field>
+      <Field FieldName="TextColor" EditorType="ColorChooser" Label="Text Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Color of the content in the Cell]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Alignment" EditorType="SelectBox" Label="Alignment" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Alignment of the content within Cell]]></Description>
+        <DescriptionOptions><![CDATA[Center, Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+          <FieldOption DisplayName="Center" Value="Center" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="ColumnSpan" EditorType="IntegerTextBox" Label="Column Span" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Number of columns to span]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="CellElement" PropertyPath="CellElement" />
+      <Map FieldName="TextColor" PropertyPath="TextColor" Value="{Text}" />
+      <Map FieldName="Alignment" PropertyPath="Alignment" Value="{Text}" />
+      <Map FieldName="ColumnSpan" PropertyPath="ColumnSpan" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAOCAYAAAA1+Nx+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADpSURBVDhPtdM/C0FRHMbxQzLIIItBGSVkt5m8AIuBkuL6E4M3pEx4MYwWs8XAYEPx/bnn1KEr3VOe+vQ71y3PPc4V8TxPWUnggBR2KOMB50T1NGlBvlxSRN1fuuezYKLnUs+Zns6xC2qo4IgBTpAdFOAcu2Ckpzz9Rc8IxnCOKcii4S/VQs+5nl2YcwkdUzBEzF+qLeTN2byulEqi5y/DRwri6L+uvmcK8wChIgVNZHBFHmlLCXfkcIPsLBQpMIe4wh5ni/zZ1nCOFFQhb0tHPghIG3LfiTnkv0UKAn+7H0yC7r358w6UegIhhEFqcr3q2gAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAPCAYAAAD+pA/bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADqSURBVDhPvdQxCsIwFMbxKCIoDiLOXQSHOugRnDyDg5vgJnglHTyDR3DTpRcQBAfBzUHF+H9tIqEKklb94MdLSm360tqC1lr9MkVTbWo4QVaNUECupBcYoZ4MVYhBMswR2SJHBMnC1BXS53hxJ31IDqjiiDtCuOd5cbdoauoSZ1PlGcyQPWalAFdIupBjvXim9RlNPO/Kh+1gglIyVFvIW7SJZ0pVME6G/pH/QZm6RzM+8j47tHCLZx6RDoaQi1/QRsPRgVw0wBXSmR86WEMyx8sewr6ymfL3T8XXIx1kacF+oz7+9scdKPUAcRNqF2pZX/QAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

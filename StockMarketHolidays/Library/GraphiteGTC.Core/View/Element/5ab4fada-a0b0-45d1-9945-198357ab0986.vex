@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SecureField" ViewElementId="5ab4fada-a0b0-45d1-9945-198357ab0986" BasedOn="d09429b4-07f7-48c4-9f4b-176a118b1af5" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Secure Field is used for passwords and other sensitive information.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SetupPassword" PropertyId="SimpleEntityDefinitionProperty_SetupPassword" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PasswordLength" PropertyId="SimpleEntityDefinitionProperty_PasswordLength" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PasswordComplexity" PropertyId="SimpleEntityDefinitionProperty_PasswordComplexity" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SecureField" />
+    <Property PropertyName="SetupPassword" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SecureField.js</Script>
+      <Script Component="false" Group="zxcvbn">zxcvbn</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="SetupPassword" EditorType="YesNoToggle" Label="Setup?" Grouping="Password Setup" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Is this Field used for creating a Password?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="PasswordLength" EditorType="IntegerTextBox" Label="Length" Grouping="Password Setup" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Length of the Password]]></Description>
+      </Field>
+      <Field FieldName="PasswordComplexity" EditorType="SelectBox" Label="Complexity" Grouping="Password Setup" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Password Complexity]]></Description>
+        <DescriptionOptions><![CDATA[0 - 4]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="0" Value="0" />
+          <FieldOption DisplayName="1" Value="1" />
+          <FieldOption DisplayName="2" Value="2" />
+          <FieldOption DisplayName="3" Value="3" />
+          <FieldOption DisplayName="4" Value="4" />
+        </FieldOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="SetupPassword" PropertyPath="SetupPassword" Value="{Text}" />
+      <Map FieldName="PasswordLength" PropertyPath="PasswordLength" Value="{Text}" />
+      <Map FieldName="PasswordComplexity" PropertyPath="PasswordComplexity" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEWSURBVDhPtZOxTgJBEIYPKbRRJNhZW9kYGiooobHjHa70BYylrcHHoKIhNBQUFDwDCYUkUKmtpfrN3l6yt+wNK+qXfJmbZHf/m1uopGmaRNDER+zgJ87wDl9Q5chWjSuc4w0+4QBbOMVzVIkJuMcKtvHBKpNcokyhEhNwi0NcmS5jiSPsm05hX0AdG7gwXRH5bNd4bLoS9gWc2rq11WWNVbwwXQlawDPKIcIYvzwnKGxQLj6IBPgbRaFmawz52p2ztAnObHXpYTd7LFD6Mm6A/BRzhdCmd6tPvtY/Q72DUMArvmWPBaIm8Al9IgkQfUJrDT+d4MPqc9AEpZsCHBRwgu6lacraIFrAn+AG7PxJfqnhnydIkm+Wq0Gbqzv0UgAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEHSURBVDhPtZTBDsFAEIZbDk6I8AAOxMFN4hV4E4/hGbhLuHgBFw/g4MojODipRIhe65/tVLZjtkr4kq+7O5nudLZNvSiK8tiDa3iHN7iCTajlpvTp8oY23MErnFEAjCCt+/BCASeyouIChrBlxTocG1sxVTUoDOBcxMgl3IvYiwVuxEUN1uHWrNJsYBeWzMrBuwJlHo882hxgETbMyoXWFjuFeZlAbQ/TAX1GUqLKYx6S3Je9so6owqPNEA7iaQrnw9gFfEtCu+nMSpJcuUfmS9YKnGAQT1Pk6kCiHREVICVaruHTDkJW8lUHzpsUnLn0s0s+y+eL+RFm36wOfoLdwV/4cwee9wDGDFuj6ZvxkgAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

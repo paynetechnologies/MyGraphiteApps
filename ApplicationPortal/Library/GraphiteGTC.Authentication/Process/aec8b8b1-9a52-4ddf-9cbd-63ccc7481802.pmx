@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Register" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="aec8b8b1-9a52-4ddf-9cbd-63ccc7481802" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Register a new user within a tenant">
+  <Variables>
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="4d510d6b-eccc-4ee3-9dd4-c96f24691cf6" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="8dc9f99e-223e-464f-8aa5-4d2dde25043d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Password" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="5ecb55da-91c8-45c8-a6f5-278fa593778d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="RequiresPasswordReset" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Input" VariableId="4f078922-b436-4dfe-a28b-88ec16388189" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="User" DataType="2d9dfd58-7449-4197-a8fd-e98457e2f51c" VariableType="Output" VariableId="306c2b42-8d06-4b18-9f47-ea3b8821d6fd" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Message" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="5e8db0b2-fca3-43e6-9a91-f51325d7edb2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PhoneNumber" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="058b6629-4978-4c4f-9ad4-05bb539c2d32" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Registered" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="870c92f6-f972-4977-9623-47c571a029cd" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="acb52423-a860-43df-9268-8c2061dd5fc7" Bounds="822.5,90,170,55" Text="Start" />
+        <RunWebServiceNode ServiceProcessId="fc249c96-d08d-4163-9d91-c474f26d2038" VariableId="RegisterUserResult" ID="355db2c3-e32b-4088-8955-0c47e8ba03eb" Bounds="632.5,190,550,55">
+          <InputVariables>
+            <InputVariable Name="Password" Value="Password" />
+            <InputVariable Name="PhoneNumber" Value="PhoneNumber" />
+            <InputVariable Name="RequiresPasswordReset" Value="RequiresPasswordReset" />
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode Description="Set Message" ID="b058e4f9-f3db-4f17-8d83-d32d56ad528f" Bounds="632.5,290,550,55" Text="Assign">
+          <Assignment Name="Message" Value="RegisterUserResult.Outputs.RegisterResult.Message" />
+          <Assignment Name="Registered" Value="RegisterUserResult.Outputs.RegisterResult.Success" />
+        </AssignNode>
+        <DecisionNode LeftExpression="Registered" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" Description="" ID="1847c46c-740c-4f17-be9c-130bfce6ab48" Bounds="652.5,390,510,125" />
+        <EndNode ID="173ab73d-f7df-45aa-a5b8-ff0dcef5758e" Bounds="822.5,660,170,55" Text="End" />
+        <CreateNode Variable="User" DataType="2d9dfd58-7449-4197-a8fd-e98457e2f51c" Description="Create new User" ID="8261b99b-340a-427d-b57a-797d7f8d210f" Bounds="232.5,560,550,55" Text="Create">
+          <Properties>
+            <Property Name="Active">YesNoQuestion:Yes</Property>
+            <Property Name="Username">Username</Property>
+          </Properties>
+        </CreateNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="260cb099-0dff-4171-8b9a-781ca8681522" From="b058e4f9-f3db-4f17-8d83-d32d56ad528f" FromIndex="2" To="1847c46c-740c-4f17-be9c-130bfce6ab48" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,345" />
+          <Segment EndPoint="907.5,390" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7fa17d49-3027-4927-8f26-b716566bd393" From="8261b99b-340a-427d-b57a-797d7f8d210f" FromIndex="2" To="173ab73d-f7df-45aa-a5b8-ff0dcef5758e" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,615" />
+          <Segment EndPoint="507.5,687.5" />
+          <Segment EndPoint="822.5,687.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="5da33071-0029-4348-aad5-2873dcdc826a" From="1847c46c-740c-4f17-be9c-130bfce6ab48" FromIndex="2" To="173ab73d-f7df-45aa-a5b8-ff0dcef5758e" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,515" />
+          <Segment EndPoint="907.5,660" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="5be0b727-f002-4d70-804e-5c144b56cc0b" From="acb52423-a860-43df-9268-8c2061dd5fc7" FromIndex="0" To="355db2c3-e32b-4088-8955-0c47e8ba03eb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,145" />
+          <Segment EndPoint="907.5,190" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="58c9dd68-79da-4b42-9282-896e589ee70a" From="355db2c3-e32b-4088-8955-0c47e8ba03eb" FromIndex="2" To="b058e4f9-f3db-4f17-8d83-d32d56ad528f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,245" />
+          <Segment EndPoint="907.5,290" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="3d3f7340-b2b5-4783-9577-5e13766b4045" From="1847c46c-740c-4f17-be9c-130bfce6ab48" FromIndex="3" To="8261b99b-340a-427d-b57a-797d7f8d210f" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,452.5" />
+          <Segment EndPoint="507.5,452.5" />
+          <Segment EndPoint="507.5,560" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

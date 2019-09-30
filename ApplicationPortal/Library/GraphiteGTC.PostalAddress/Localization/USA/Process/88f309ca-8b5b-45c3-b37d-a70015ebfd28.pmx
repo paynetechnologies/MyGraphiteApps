@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AppendToLine" OwnerId="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" ProcessId="88f309ca-8b5b-45c3-b37d-a70015ebfd28" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Append an address element to an address line">
+  <Variables>
+    <Variable Name="AddressComponent" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="c8daec3b-4342-4409-b165-d421aa7dd20d" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AddressLine" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="InputOutput" VariableId="691636ab-e9fb-4336-9f2c-da68a901d19c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Separator" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="1c22fd89-b2bd-4dc1-a815-9c2029904096" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="817ceec7-938e-4396-a24c-1af3e09de832" Bounds="822.5,55,170,55" />
+        <DecisionNode LeftExpression="AddressComponent" Operator="IsNotMissing" Description="AddressComponent?" ID="fa89bcbf-108c-41b2-846e-8a24f28fcb3d" Bounds="652.5,155,510,125" ZOrder="1" Text="" />
+        <DecisionNode LeftExpression="AddressLine" RightExpression="&quot;&quot;" Operator="IsEqualTo" Description="AddressLine empty?" ID="c69aedec-5534-4971-b702-02dc813e54b4" Bounds="652.5,325,510,125" ZOrder="1" Text="" />
+        <DecisionNode LeftExpression="Separator" Operator="IsNotMissing" Description="Separator exists?" ID="b5e286f8-9b87-4ede-8e5b-5a3d7bcb4738" Bounds="1052.5,495,510,125" />
+        <AssignNode Description="AddressLine = AddressComponent" ID="aec0be8d-025b-4cee-b62c-1f8b3817a923" Bounds="232.5,495,550,55" ZOrder="1" Text="">
+          <Assignment Name="AddressLine" Value="AddressComponent" />
+        </AssignNode>
+        <AssignNode Description="Add AddressComponent to AddressLine" ID="aff401e6-12f3-4ca6-bd52-b581c412a2b5" Bounds="1432.5,665,550,55" ZOrder="3" Text="">
+          <Assignment Name="AddressLine" Value="Text.Concatenate( AddressLine, AddressComponent )" />
+        </AssignNode>
+        <AssignNode Description="Add a Separator and the AddressComponent to AddressLine" ID="558b8db5-fcd7-4d5e-bac4-0222ddcf32ec" Bounds="632.5,665,550,55" ZOrder="2" Text="">
+          <Assignment Name="AddressLine" Value="Text.Concatenate( AddressLine, Separator, &quot; &quot;, AddressComponent )" />
+        </AssignNode>
+        <EndNode ID="964ab92e-da81-4548-bff6-09b2d95ed113" Bounds="822.5,765,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="a8d4af87-7a73-4482-9156-d8df9805625a" From="817ceec7-938e-4396-a24c-1af3e09de832" FromIndex="0" To="fa89bcbf-108c-41b2-846e-8a24f28fcb3d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="f65a184e-c239-467a-a191-49c8a9aa74b9" From="fa89bcbf-108c-41b2-846e-8a24f28fcb3d" FromIndex="2" To="c69aedec-5534-4971-b702-02dc813e54b4" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="907.5,280" />
+          <Segment EndPoint="907.5,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="ddc889fb-680c-4077-9ab0-f0b9aea99fb5" From="c69aedec-5534-4971-b702-02dc813e54b4" FromIndex="3" To="aec0be8d-025b-4cee-b62c-1f8b3817a923" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,387.5" />
+          <Segment EndPoint="507.5,387.5" />
+          <Segment EndPoint="507.5,495" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="ad7f602e-940b-49ee-9a42-cf9c31dc603a" From="aec0be8d-025b-4cee-b62c-1f8b3817a923" FromIndex="2" To="964ab92e-da81-4548-bff6-09b2d95ed113" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,550" />
+          <Segment EndPoint="507.5,792.5" />
+          <Segment EndPoint="822.5,792.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="f5fdb3fe-1983-4fab-8233-cf3fffc116e5" From="c69aedec-5534-4971-b702-02dc813e54b4" FromIndex="1" To="b5e286f8-9b87-4ede-8e5b-5a3d7bcb4738" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1162.5,387.5" />
+          <Segment EndPoint="1307.5,387.5" />
+          <Segment EndPoint="1307.5,495" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="502a4526-ae8f-4d6d-a15b-215e2fed6ca5" From="558b8db5-fcd7-4d5e-bac4-0222ddcf32ec" FromIndex="2" To="964ab92e-da81-4548-bff6-09b2d95ed113" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,720" />
+          <Segment EndPoint="907.5,765" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="23b56e7b-d4fd-49ec-88cd-e607be1925b6" From="aff401e6-12f3-4ca6-bd52-b581c412a2b5" FromIndex="2" To="964ab92e-da81-4548-bff6-09b2d95ed113" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1707.5,720" />
+          <Segment EndPoint="1707.5,792.5" />
+          <Segment EndPoint="992.5,792.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="a2db6e9b-9589-4ea6-9f7b-e93779212352" From="b5e286f8-9b87-4ede-8e5b-5a3d7bcb4738" FromIndex="3" To="558b8db5-fcd7-4d5e-bac4-0222ddcf32ec" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="1052.5,557.5" />
+          <Segment EndPoint="907.5,557.5" />
+          <Segment EndPoint="907.5,665" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="866c2fd5-684a-41d3-8a97-48b86a14354b" From="b5e286f8-9b87-4ede-8e5b-5a3d7bcb4738" FromIndex="1" To="aff401e6-12f3-4ca6-bd52-b581c412a2b5" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1562.5,557.5" />
+          <Segment EndPoint="1707.5,557.5" />
+          <Segment EndPoint="1707.5,665" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

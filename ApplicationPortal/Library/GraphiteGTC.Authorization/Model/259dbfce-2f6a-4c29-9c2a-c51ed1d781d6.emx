@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="SecurityGroup" EntityId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" NamespaceExtension="Common">
+  <Description>A system entity that is used to list all security groups in an application</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="344211f2-2c14-4de4-b077-fed4c4cc2ba8" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewAuthorizations" PropertyId="67ad27b9-c8d3-4696-af76-7e5b94b369bd" IsOptional="true" DataType="$[List,dc08c3a6-5702-4e32-80f0-297a2ea8bbcc]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewBehaviorAuthorizations" PropertyId="b3c86eb0-d91a-4e4c-9bca-a2fbd9c66000" IsOptional="true" DataType="$[List,05e46522-7e90-434a-89bc-25cf33944a99]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewElementAuthorizations" PropertyId="1c3e6969-5a68-4b7f-93ba-4878515e315a" IsOptional="true" DataType="$[List,ba6205ab-a4bc-4600-9f5e-c2caf1ac98ba]" />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

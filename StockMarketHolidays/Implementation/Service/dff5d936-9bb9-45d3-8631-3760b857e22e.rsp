@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RestProcessDefinition RestProcessId="dff5d936-9bb9-45d3-8631-3760b857e22e" Name="GetMarketHolidays" ServiceReferenceId="7ba0d3e1-300a-44ab-9f07-5506f2ef00ba">
+  <RestCategory>Market Holiday</RestCategory>
+  <MethodName>GetMarketHolidays</MethodName>
+  <HttpMethod>Get</HttpMethod>
+  <Path>MarketHoliday/{year}</Path>
+  <BaseUrl>https://graphitegtc.com/rest</BaseUrl>
+  <Inputs>
+    <Parameter Name="Year" ContractName="year" ContractType="string" DataType="62ff6d43-a027-42b1-af68-9508897115fa" ParameterType="Input, Path" ParameterId="f3a8ce72-8ec3-4fce-8114-a9619bd19cb8" />
+  </Inputs>
+  <Outputs>
+    <Parameter Name="Result" ContractName="Result" ContractType="MarketHoliday" DataType="$[List,81e7f7e8-69c4-46df-8cbe-7e58bda6a1dd]" ParameterType="Output" ParameterId="9c71b3bb-fdff-4b79-879d-250ea51c8e13" />
+  </Outputs>
+</RestProcessDefinition>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Deactivate" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="c695b940-c71e-48f1-a41c-fad378f34bc7" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Deactivate a user">
+  <Variables>
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="b2a149c3-abd2-4adc-930b-7792ef14136e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="User" DataType="2d9dfd58-7449-4197-a8fd-e98457e2f51c" VariableType="InputOutput" VariableId="aa80d999-fdc8-4742-a94c-975e9776df6b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="UserDeactivated" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Output" VariableId="d2bb0763-8c8b-43a5-b012-a331ea465c8e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Message" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="28f6e884-95a2-4687-ab71-0cc8aa3704b1" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="15281527-e06e-4325-aa7c-304f6427354f" Bounds="822.5,100,170,55" Text="Start" />
+        <RunWebServiceNode ServiceProcessId="f796a67c-be72-4e30-9dd9-4ef23b27a406" VariableId="DeactivateUserResult" ID="4c7ba16e-7958-4112-879a-03b2da69dc1d" Bounds="632.5,200,550,55">
+          <InputVariables>
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="User.Username" />
+          </InputVariables>
+        </RunWebServiceNode>
+        <AssignNode Description="" ID="2de01c3d-0f7c-41c8-b365-8a3e320c067a" Bounds="632.5,300,550,55" ZOrder="2" Text="Assign">
+          <Assignment Name="Message" Value="DeactivateUserResult.Outputs.CloseResult.Message" />
+          <Assignment Name="UserDeactivated" Value="DeactivateUserResult.Outputs.CloseResult.Success" />
+        </AssignNode>
+        <DecisionNode LeftExpression="UserDeactivated" RightExpression="YesNoQuestion:Yes" Operator="IsEqualTo" ID="59a25977-3582-4c2c-b13d-9cb4837f521d" Bounds="652.5,400,510,125" />
+        <EndNode ID="d644957e-b379-4fd9-a2a1-e60211860fa3" Bounds="822.5,670,170,55" ZOrder="2" Text="End" />
+        <AssignNode Description="" ID="0da5e7b9-ec12-4d21-81fc-dee320374b78" Bounds="232.5,570,550,55" ZOrder="3" Text="Assign">
+          <Assignment Name="User.Active" Value="YesNoQuestion:No" />
+        </AssignNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="837490f0-0c80-4dd7-acec-bb85bb5a311e" From="15281527-e06e-4325-aa7c-304f6427354f" FromIndex="0" To="4c7ba16e-7958-4112-879a-03b2da69dc1d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,155" />
+          <Segment EndPoint="907.5,200" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d0658f25-7ed1-472a-9521-532ace908e12" From="4c7ba16e-7958-4112-879a-03b2da69dc1d" FromIndex="2" To="2de01c3d-0f7c-41c8-b365-8a3e320c067a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,255" />
+          <Segment EndPoint="907.5,300" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4e068982-dcbb-44e3-a654-6b0124818593" From="2de01c3d-0f7c-41c8-b365-8a3e320c067a" FromIndex="2" To="59a25977-3582-4c2c-b13d-9cb4837f521d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,355" />
+          <Segment EndPoint="907.5,400" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="2e2b85f9-e0ca-4029-a0b0-5bf620c4983d" From="59a25977-3582-4c2c-b13d-9cb4837f521d" FromIndex="3" To="0da5e7b9-ec12-4d21-81fc-dee320374b78" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,462.5" />
+          <Segment EndPoint="507.5,462.5" />
+          <Segment EndPoint="507.5,570" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="f8c383b0-8568-4efb-a14b-950adddf5d11" From="0da5e7b9-ec12-4d21-81fc-dee320374b78" FromIndex="2" To="d644957e-b379-4fd9-a2a1-e60211860fa3" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,625" />
+          <Segment EndPoint="507.5,697.5" />
+          <Segment EndPoint="822.5,697.5" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="37b2f71c-2896-48e2-9384-4ff9b8ed7d44" From="59a25977-3582-4c2c-b13d-9cb4837f521d" FromIndex="2" To="d644957e-b379-4fd9-a2a1-e60211860fa3" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,525" />
+          <Segment EndPoint="907.5,670" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

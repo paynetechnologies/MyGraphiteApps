@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AddViewBehaviorAuthorization" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="7916108e-3c82-40f8-a7c6-b17fa226f821" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Add a View Behavior authorization to a Security Group">
+  <Variables>
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="InputOutput" VariableId="14e56eb6-9c26-4918-b810-9d95ec8f5547" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewBehaviorDetail" DataType="eae41d9c-aa91-42d5-ba92-f39456b2c5cb" VariableType="Input" VariableId="ad7c383b-838c-485f-abbf-ac8c2306263e" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="7fee9961-78f1-48ee-9587-4c0d9c019d60" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="ViewBehaviorAuthorization" DataType="05e46522-7e90-434a-89bc-25cf33944a99" ID="a45dfa21-cc8a-4594-aa1a-b64203d11213" Bounds="632.5,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <CustomIlNode Description="AddViewBehaviorAuthorization" ID="9761e76b-742e-40ad-8571-6f7d393edb40" Bounds="632.5,255,550,55" ZOrder="4" Text="Custom IL">
+          <ReferencedModelDefinitions>
+            <ReferencedModelDefinition ModelID="05e46522-7e90-434a-89bc-25cf33944a99" />
+            <ReferencedModelDefinition ModelID="c79af0be-c629-4695-a159-bd481d5dbae1" />
+            <ReferencedModelDefinition ModelID="eae41d9c-aa91-42d5-ba92-f39456b2c5cb" />
+          </ReferencedModelDefinitions>
+          <IL><![CDATA[
+ViewBehaviorAuthorization = ComplexQuery.Lookup {
+    DataGroup IsEqualTo "ViewBehaviorAuthorization"
+    AuthorizationLevel.Id IsEqualTo ViewAuthorizationLevel.Allow.Id
+    ExistQuery.LookupArray {
+        DataGroup IsEqualTo "ViewBehaviorDetail"
+        $$Inner$$.Id IsEqualTo $$Outer$$.ViewBehaviorDetail.Id
+        $$Inner$$.PropertyId TextIsEqualTo Inputs.ViewBehaviorDetail.PropertyId
+        $$Inner$$.ViewPropertyId TextIsEqualTo Inputs.ViewBehaviorDetail.ViewPropertyId
+    }
+    ExistQuery.LookupArray {
+        DataGroup IsEqualTo "SecurityGroup.ViewBehaviorAuthorizations"
+        $$Inner$$.Id IsEqualTo $$Outer$$.Id
+        $$Inner$$.SecurityGroup.Id IsEqualTo Inputs.SecurityGroup.Id
+    }
+}]]></IL>
+        </CustomIlNode>
+        <DecisionNode LeftExpression="ViewBehaviorAuthorization" Operator="IsMissing" ID="7377d9f3-aef2-4f5c-8e15-e65ed7f4f17a" Bounds="652.5,355,510,125" ZOrder="1" Text="" />
+        <EndNode ID="25e5611c-f54d-4d8c-a6f3-1e575faca7bf" Bounds="822.5,725,170,55" ZOrder="1" Text="End" />
+        <DataLookupNode Source="05e46522-7e90-434a-89bc-25cf33944a99" VariableId="ViewBehaviorAuthorization" ResultType="Single" Description="Lookup Allowed ViewBehaviorAuthorization" ID="6425a42c-8b8d-4eea-ada4-82b626b4c96d" Bounds="232.5,525,550,55" ZOrder="1" Text="Data Lookup">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="ViewBehaviorDetail.PropertyId" RightExpression="ViewBehaviorDetail.PropertyId" Operator="IsEqualTo" />
+            <CriteriaExpression LeftExpression="AuthorizationLevel" RightExpression="ViewAuthorizationLevel:Allow" Operator="IsEqualTo" />
+            <CriteriaExpression LeftExpression="ViewBehaviorDetail.ViewPropertyId" RightExpression="ViewBehaviorDetail.ViewPropertyId" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <ListManagementNode ListActionType="Merge" ListItem="ViewBehaviorAuthorization" SourceList="SecurityGroup.ViewBehaviorAuthorizations" Description="Merge Allowed ViewBehaviorAuthorization" ID="f156eaae-285a-4b7d-b398-1c7c55a6796b" Bounds="232.5,625,550,55" ZOrder="1" Text="List Management" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="0b0b28fa-41a8-474e-8909-a7ccecee39c7" From="6425a42c-8b8d-4eea-ada4-82b626b4c96d" FromIndex="2" To="f156eaae-285a-4b7d-b398-1c7c55a6796b" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="507.5,580" />
+          <Segment EndPoint="507.5,625" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="9e36cd78-36a0-4a5a-8180-29a15155619a" From="7377d9f3-aef2-4f5c-8e15-e65ed7f4f17a" FromIndex="2" To="25e5611c-f54d-4d8c-a6f3-1e575faca7bf" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="907.5,480" />
+          <Segment EndPoint="907.5,725" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="89bf20e5-72e5-49c9-b938-195bf50fe78b" From="a45dfa21-cc8a-4594-aa1a-b64203d11213" FromIndex="2" To="9761e76b-742e-40ad-8571-6f7d393edb40" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d8325ecb-f0e0-4980-879c-1f4a1291e91d" From="7fee9961-78f1-48ee-9587-4c0d9c019d60" FromIndex="0" To="a45dfa21-cc8a-4594-aa1a-b64203d11213" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="85af3dc2-ecea-4ed3-ab9e-136162158456" From="9761e76b-742e-40ad-8571-6f7d393edb40" FromIndex="2" To="7377d9f3-aef2-4f5c-8e15-e65ed7f4f17a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="d7e73bb3-4ca3-4f31-bade-8f9cf4dafc53" From="7377d9f3-aef2-4f5c-8e15-e65ed7f4f17a" FromIndex="3" To="6425a42c-8b8d-4eea-ada4-82b626b4c96d" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,417.5" />
+          <Segment EndPoint="507.5,417.5" />
+          <Segment EndPoint="507.5,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="f1d627cb-72d5-4d09-a5d4-65dadf729142" From="f156eaae-285a-4b7d-b398-1c7c55a6796b" FromIndex="2" To="25e5611c-f54d-4d8c-a6f3-1e575faca7bf" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,680" />
+          <Segment EndPoint="507.5,752.5" />
+          <Segment EndPoint="822.5,752.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

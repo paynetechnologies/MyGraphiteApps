@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateCoverageDetails" OwnerId="9e724afd-bac4-4e54-9136-dbbebf2834c9" ProcessId="9fbbe4a5-9c9b-422c-be94-b9e4e6472188" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="InsuranceData" DataType="9e724afd-bac4-4e54-9136-dbbebf2834c9" VariableType="InputOutput" VariableId="a7afcafc-caae-46d2-a2fb-db2c550ae711" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="BodilyInjuryLimit" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="f1082639-7ada-4924-9029-cbb37d26bb7d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CollisionDeductible" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="7d6394a0-194a-431d-b647-267e2a86005c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ComprehensiveLimit" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="adb1e6f5-d836-4cec-8f4b-67bff0fa09d6" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PropertyDamageLimit" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="2bf5ab9c-3dc3-4a0e-b49e-80f5504ad1db" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="c8261fdd-853c-4824-9ebd-1f35e9849398" Bounds="630.6,55,170,55" />
+        <AssignNode ID="16ea5d8a-87d1-47c7-b16f-04fd6a8e5a93" Bounds="440.6,155,550,55">
+          <Assignment Name="InsuranceData.BodilyInjuryLimit" Value="BodilyInjuryLimit" />
+          <Assignment Name="InsuranceData.CollisionDeductible" Value="CollisionDeductible" />
+          <Assignment Name="InsuranceData.ComprehensiveLimit" Value="ComprehensiveLimit" />
+          <Assignment Name="InsuranceData.PropertyDamageLimit" Value="PropertyDamageLimit" />
+        </AssignNode>
+        <EndNode ID="3ab29942-e03b-4157-a3e8-b544eb8f3290" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="09c06363-e478-4ef1-b031-c50406ac7c8c" From="c8261fdd-853c-4824-9ebd-1f35e9849398" FromIndex="0" To="16ea5d8a-87d1-47c7-b16f-04fd6a8e5a93" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d0a43605-dbac-409c-bf13-5457a9cad850" From="16ea5d8a-87d1-47c7-b16f-04fd6a8e5a93" FromIndex="2" To="3ab29942-e03b-4157-a3e8-b544eb8f3290" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

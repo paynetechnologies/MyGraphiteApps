@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="RadioField" ViewElementId="ad0a280b-28ba-44f8-9b3f-3143836d9e7a" BasedOn="f755a6c5-48c1-465c-9615-4deb3a49b8de" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" ParameterDataTypeFromRelatedEntity="true">
+  <Description>Radio Field is used for radio button functionality.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OptionDetail" PropertyId="SimpleEntityDefinitionProperty_OptionDetail" IsOptional="false" DataType="403b0e0b-e486-44e6-a3fb-0f1dc295918e" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="RadioField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">RadioField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Radio.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OptionDetail" EditorType="DataSource" Label="Options" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Enumeration for the Radio Button Choices]]></Description>
+      </Field>
+      <Field FieldName="IsFirstBlank" EditorType="Hidden" Label="First item empty?" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TranslateContent" EditorType="YesNoToggle" Label="Translate Options?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Translate Options?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Source" Value="{Source}" />
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Display" Value="{DisplayPropertyId}" />
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Value" Value="{ValuePropertyId}" />
+      <Map FieldName="IsFirstBlank" PropertyPath="OptionDetail.IsFirstBlank" Value="{Text}" />
+      <Map FieldName="TranslateContent" PropertyPath="TranslateContent" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFGSURBVDhPtZRNLgRBFIBrSDiElYVIkPhZII6AC3CAJmzEPSwsCLHnAjiBCBYSYsWCjUNgwfd1V0sP1d0L40u+9OtXb+pNT72eTpZloYUBXMcVnDABD3iCB/huoo6+eK1jCK9xFzt4FDU255o1tTQ18Juf4jAu4zxuR43NuXaGg5ikqcEaTuEquomMRMWca5NY+zs3NfDDN3ie34Wwh49RY3HtCq1NYoPPhDKDF0UYxnGjCHOMx4owXOJ0Ef7eq+2QS1KT8hGvUo27qDZwMkrlFheKMDzhfhHmGJsTaxxb+blH4xk4507LYn4XwiaORo3FNWusTdLU4BDv8BjLJuUhiznX7tHaJE0N3nAJn9GRdFp2osbmXtBG1iZpO+RXnMMt7EffDTU2N4vW1OJ/UTmW3wfTI/J9257gz1QbdL0gPTDnn58ghC9l9Vl2VnUydQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAExSURBVDhPtZQxTsNAEEUdinAIaiigoUOCGxCuApyEEk7CFQBFSJBI6ajpkZIiQGH+W88k4/UqRqA86dmzsxuv1zubqq7rPofySj7JuUlMjr7Sb1YOuGxgT97LYzmWjxJO5YmcyAv5LsvkMwZ5u1f5IUeWi5KjbyJ3LdexmDQvJZxLz+2b3qYPGOu5lsWkyXceh/atdIjjOPR2Sy4lyH/KG4uPZM6hpI8xS4s77NhW9PFl98i33SHGLeIEgyC8SKoF3uRdEyaIyQFjZk3YeUbrExFHqXOIm3xgets3mbGecxOrQOQDKD1KkFKMk7jk6JvKUpkmOGh+0tbLWpMftAcJZ5KDNpUjWTpozXPTNA35G7gcuGv5LBcmMblNfxWJvhX8h/Tc35bpn4kr2ApbXkFV/QDST5zPL95mNgAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

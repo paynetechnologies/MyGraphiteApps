@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="CreateFromExisting" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="2d082d22-34d7-45ef-9da6-c7f6df59b0f8" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Clone a Security Group">
+  <Variables>
+    <Variable Name="Description" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a6b995d0-1b31-493b-9f9c-25e4e57454c2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SourceSecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Input" VariableId="01fea158-c906-4a34-9ade-cdb3745bcfd5" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Output" VariableId="f68eb8f0-5438-4765-a477-73b729d663ce" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="91e1956d-e785-4435-af66-4fe8fe4e7213" Bounds="822.5,55,170,55" />
+        <ExecuteProcessNode EntityDefinition="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessProperty="44537141-4b98-487a-864c-8195c35d3cbe" ExecuteProcessType="EntityStatic" VariableId="SecurityGroupCreateResult" SuppressValidations="false" ID="eeb1472f-4b16-402d-b95c-b6801771be61" Bounds="632.5,155,550,55" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="Description" Value="Description" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="SecurityGroup" Value="SecurityGroup" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <DecisionNode LeftExpression="SourceSecurityGroup" Operator="IsNotMissing" ID="26b1ea87-11bf-41fc-9272-1f490f09ea6f" Bounds="652.5,255,510,125" />
+        <EndNode ID="a4e66071-fa91-48f5-84ea-c652b4957f03" Bounds="822.5,725,170,55" Text="End" />
+        <ListManagementNode ListActionType="AddRange" ListItem="SourceSecurityGroup.ViewAuthorizations" SourceList="SecurityGroup.ViewAuthorizations" Description="Add ViewAuthorizations" ID="23834406-795a-487c-a515-9b11ab751cbc" Bounds="232.5,425,550,55" Text="List Management" />
+        <ListManagementNode ListActionType="AddRange" ListItem="SourceSecurityGroup.ViewElementAuthorizations" SourceList="SecurityGroup.ViewElementAuthorizations" Description="Add ViewElementAuthorizations" ID="22ff8f80-f231-4431-8ad4-f56e4c3ab514" Bounds="232.5,525,550,55" ZOrder="1" Text="List Management" />
+        <ListManagementNode ListActionType="AddRange" ListItem="SourceSecurityGroup.ViewBehaviorAuthorizations" SourceList="SecurityGroup.ViewBehaviorAuthorizations" Description="Add ViewBehaviorAuthorizations" ID="47c5bb78-7e08-4124-a7cf-38a4892d351c" Bounds="232.5,625,550,55" ZOrder="2" Text="List Management" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="67b4c43f-788e-4898-8581-bde8942b21c9" From="23834406-795a-487c-a515-9b11ab751cbc" FromIndex="2" To="22ff8f80-f231-4431-8ad4-f56e4c3ab514" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,480" />
+          <Segment EndPoint="507.5,525" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="2a35a37a-645b-4473-9984-ea86ffb86494" From="22ff8f80-f231-4431-8ad4-f56e4c3ab514" FromIndex="2" To="47c5bb78-7e08-4124-a7cf-38a4892d351c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,580" />
+          <Segment EndPoint="507.5,625" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="b733a55b-53af-4c29-bc2e-c4e2845d4ba7" From="26b1ea87-11bf-41fc-9272-1f490f09ea6f" FromIndex="2" To="a4e66071-fa91-48f5-84ea-c652b4957f03" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,380" />
+          <Segment EndPoint="907.5,725" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="10b4089a-6beb-4946-b507-36319dc0a423" From="91e1956d-e785-4435-af66-4fe8fe4e7213" FromIndex="0" To="eeb1472f-4b16-402d-b95c-b6801771be61" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c1d9ae08-d213-43b1-b808-201a5b619f5e" From="eeb1472f-4b16-402d-b95c-b6801771be61" FromIndex="2" To="26b1ea87-11bf-41fc-9272-1f490f09ea6f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="3d26cc60-db4f-4995-b03f-4537422a1e3a" From="26b1ea87-11bf-41fc-9272-1f490f09ea6f" FromIndex="3" To="23834406-795a-487c-a515-9b11ab751cbc" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,317.5" />
+          <Segment EndPoint="507.5,317.5" />
+          <Segment EndPoint="507.5,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="9b1d6318-f007-46f9-b12d-ab36e017eee7" From="47c5bb78-7e08-4124-a7cf-38a4892d351c" FromIndex="2" To="a4e66071-fa91-48f5-84ea-c652b4957f03" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,680" />
+          <Segment EndPoint="507.5,752.5" />
+          <Segment EndPoint="822.5,752.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

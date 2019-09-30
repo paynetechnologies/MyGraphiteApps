@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickGoButton" OwnerId="b7a478a9-a682-453e-be51-3cd0bd4190f7" ProcessId="f904ab67-9013-4d08-9b47-03704d13c61f" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="7dcf646e-79fb-4d2d-bb76-644c409fe0f6" VariableType="Input" Classification="Pinned, Locked" VariableId="bfa92e8c-4dc5-4962-9891-fd4402db131c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="3a21450f-406e-4aa6-8c02-15b2272fac74" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="YearField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="29848a1b-90f1-4149-ade3-e1dd1881cc9f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MarketHolidayList" DataType="$[List,81e7f7e8-69c4-46df-8cbe-7e58bda6a1dd]" VariableType="Output" VariableId="4437b03d-8c6c-4c22-b278-747e6b6ded59" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="d1c2e498-e496-40e1-89f6-2dfcef0650a8" Bounds="630.6,60,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="fecb229a-4a12-4541-bf96-10b804f8ae5a" Bounds="440.6,160,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <RunWebServiceNode ServiceProcessId="dff5d936-9bb9-45d3-8631-3760b857e22e" VariableId="GetMarketHolidaysResult" ID="5df43ab3-e397-434e-9f10-0ae687636c65" Bounds="440.6,260,550,55">
+          <InputVariables>
+            <InputVariable Name="Year" Value="YearField" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="Result" Value="MarketHolidayList" />
+          </OutputVariables>
+        </RunWebServiceNode>
+        <ExecuteProcessNode ViewDefinition="b7a478a9-a682-453e-be51-3cd0bd4190f7" ProcessProperty="bc041b89-ac62-41df-ac0c-50e2729d23ca" ExecuteProcessType="View" VariableId="ShowMarketHolidaysBuildHolidayTableResult" SuppressValidations="false" ID="1a61ee5d-380f-47e0-acbf-a36526f49369" Bounds="440.6,360,550,55">
+          <InputVariables>
+            <InputVariable Name="MarketHolidays" Value="MarketHolidayList" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PageInstructions" Value="PageInstructions" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="233f0326-6e85-4f5a-bbb4-388b88ec17c1" Bounds="630.6,460,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="0e418e2b-24bb-4948-8b37-497d4e0f9b43" From="d1c2e498-e496-40e1-89f6-2dfcef0650a8" FromIndex="0" To="fecb229a-4a12-4541-bf96-10b804f8ae5a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,115" />
+          <Segment EndPoint="715.6,160" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f360167a-d6bc-430b-a0e9-f1d0e1e287b0" From="fecb229a-4a12-4541-bf96-10b804f8ae5a" FromIndex="2" To="5df43ab3-e397-434e-9f10-0ae687636c65" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,215" />
+          <Segment EndPoint="715.6,260" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d4e6f95b-d808-47c2-aec6-76e27df9ce04" From="5df43ab3-e397-434e-9f10-0ae687636c65" FromIndex="2" To="1a61ee5d-380f-47e0-acbf-a36526f49369" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,315" />
+          <Segment EndPoint="715.6,360" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3f74446b-64e1-4c6f-aee6-3ed192d47774" From="1a61ee5d-380f-47e0-acbf-a36526f49369" FromIndex="2" To="233f0326-6e85-4f5a-bbb4-388b88ec17c1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,415" />
+          <Segment EndPoint="715.6,460" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

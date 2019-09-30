@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnChangeAppointmentAllDayField" OwnerId="76baba6b-ac07-48da-b3e5-7c2f4d7c795c" ProcessId="6f338d1e-1047-49b5-81b7-5168c7c23e64" ProcessType="Normal" Classification="ViewElementPack, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Input" Classification="Pinned, Locked" VariableId="6f27feef-6b1d-4d8a-bcdf-4c86253ba353" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="b75bd28f-8248-4583-84cd-fc1a33405daf" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AppointmentAllDayField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="12b28a19-73a5-4266-a8cb-7f08a48bca44" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AppointmentStartField" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="11667e2e-7ffd-49fb-aa39-b731f8f8b08d" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AppointmentEndField" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="2948e2e0-2495-4c08-88b1-ba12c1483667" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="7e22ba2a-5afa-4652-80d7-eab40e962f2c" Bounds="830,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="4ce3501a-329b-478e-9075-ca8f06f9bf20" Bounds="640,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="PlaceholderParameters" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" Description="Create a list of Parameters (for Placeholder)" ID="07dc539b-f465-4e24-bed5-e1cb64aed2df" Bounds="640,255,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <DecisionNode LeftExpression="AppointmentAllDayField" RightExpression="&quot;Yes&quot;" Operator="IsEqualTo" Description="All Day Event?" ID="08ba9dcc-c274-4d13-b61f-e5931eb8476f" Bounds="660,355,510,125" />
+        <CreateNode Variable="DateAndTimePlaceholder" DataType="91713f8e-9fea-4cd7-8973-d5ba81e4742a" Description="Create Date and Time Placeholder" ID="b94db6fb-6931-4b37-bfa3-c757a4602437" Bounds="1040,525,550,55" ZOrder="1" Text="Create">
+          <Properties>
+            <Property Name="Name">"Placeholder"</Property>
+            <Property Name="Value">TranslationKeys:TimePlaceholder</Property>
+          </Properties>
+        </CreateNode>
+        <CreateNode Variable="DateOnlyPlaceholder" DataType="91713f8e-9fea-4cd7-8973-d5ba81e4742a" Description="Create Date only Placeholder" ID="de48eceb-9103-4d24-896a-c916369151f7" Bounds="240,525,550,55" Text="Create">
+          <Properties>
+            <Property Name="Name">"Placeholder"</Property>
+            <Property Name="Value">TranslationKeys:DatePlaceholder</Property>
+          </Properties>
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="DateAndTimePlaceholder" SourceList="PlaceholderParameters" Description="Add to Parameters" ID="6b8f7d68-d7e5-48c5-90e6-b2ac94d2e4cd" Bounds="1040,625,550,55" ZOrder="1" Text="List Management" />
+        <ListManagementNode ListActionType="Add" ListItem="DateOnlyPlaceholder" SourceList="PlaceholderParameters" Description="Add to Parameters" ID="b33ec8cb-be80-4fc9-918a-394730a14cee" Bounds="240,625,550,55" Text="List Management" />
+        <PageInstructionNode Action="UpdateElement" Instruction="Mask" Context="Current" TargetElementId="13cec543-0397-49df-9b8c-3492aec0bc7f" ValueExpression="&quot;Date(MM/DD/YYYY:12)&quot;" UiParametersExpression="PlaceholderParameters" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" Description="Set Date and Time Mask for Start Time" ID="dcc9dd28-7028-4b66-8855-a306c4e8ed40" Bounds="1040,725,550,55" ZOrder="1" Text="" />
+        <PageInstructionNode Action="UpdateElement" Instruction="Mask" Context="Current" TargetElementId="13cec543-0397-49df-9b8c-3492aec0bc7f" ValueExpression="&quot;Date(MM/DD/YYYY)&quot;" UiParametersExpression="PlaceholderParameters" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" Description="Set Date Only Mask for Start Time" ID="8dc15da1-4f4f-4905-94f8-3d29a0df4521" Bounds="240,725,550,55" />
+        <PageInstructionNode Action="UpdateElement" Instruction="Mask" Context="Current" TargetElementId="de64b00f-2ceb-4e1d-b622-1f31183f2277" ValueExpression="&quot;Date(MM/DD/YYYY:12)&quot;" UiParametersExpression="PlaceholderParameters" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" Description="Set Date and Time Mask for End Time" ID="6497b70d-8d41-4d84-a8a2-0f17f9d27608" Bounds="1040,825,550,55" ZOrder="2" Text="" />
+        <PageInstructionNode Action="UpdateElement" Instruction="Mask" Context="Current" TargetElementId="de64b00f-2ceb-4e1d-b622-1f31183f2277" ValueExpression="&quot;Date(MM/DD/YYYY)&quot;" UiParametersExpression="PlaceholderParameters" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" Description="Set Date Only Mask for End Time" ID="04b1d5ff-f388-491d-868d-f02998d5bce4" Bounds="240,825,550,55" ZOrder="1" Text="" />
+        <PageInstructionNode Action="UpdateElement" Instruction="Value" Context="Current" TargetElementId="13cec543-0397-49df-9b8c-3492aec0bc7f" ValueExpression="AppointmentStartField" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" Description="Reset Start Time" ID="145ac2f2-1697-423f-b018-a96e434bbe24" Bounds="640,925,550,55" Text="Page Instruction" />
+        <PageInstructionNode Action="UpdateElement" Instruction="Value" Context="Current" TargetElementId="de64b00f-2ceb-4e1d-b622-1f31183f2277" ValueExpression="AppointmentEndField" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" Description="Reset End Time" ID="270d90b2-cd6d-43d8-bbcd-11a52a17ec6d" Bounds="640,1025,550,55" ZOrder="1" Text="Page Instruction" />
+        <EndNode ID="a8d28cb1-3a5a-4f7e-a71b-a1d417a99e0a" Bounds="830,1125,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="52f6f908-d399-4743-ae91-987b32339a42" From="7e22ba2a-5afa-4652-80d7-eab40e962f2c" FromIndex="0" To="4ce3501a-329b-478e-9075-ca8f06f9bf20" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,110" />
+          <Segment EndPoint="915,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="343a8b10-2274-4714-a946-b3d25ae87bc0" From="8dc15da1-4f4f-4905-94f8-3d29a0df4521" FromIndex="2" To="04b1d5ff-f388-491d-868d-f02998d5bce4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="515,780" />
+          <Segment EndPoint="515,825" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6e08902f-4d35-4177-8acf-cb870e22b4a0" From="de48eceb-9103-4d24-896a-c916369151f7" FromIndex="2" To="b33ec8cb-be80-4fc9-918a-394730a14cee" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="515,580" />
+          <Segment EndPoint="515,625" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="349eb640-872f-4e86-9879-00802a3b44d7" From="b33ec8cb-be80-4fc9-918a-394730a14cee" FromIndex="2" To="8dc15da1-4f4f-4905-94f8-3d29a0df4521" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="515,680" />
+          <Segment EndPoint="515,725" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b5f3e376-7f54-460d-98d3-a372146d49f2" From="4ce3501a-329b-478e-9075-ca8f06f9bf20" FromIndex="2" To="07dc539b-f465-4e24-bed5-e1cb64aed2df" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,210" />
+          <Segment EndPoint="915,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9d09a3a1-b6d7-433c-b7ff-cfad75e883a7" From="07dc539b-f465-4e24-bed5-e1cb64aed2df" FromIndex="2" To="08ba9dcc-c274-4d13-b61f-e5931eb8476f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,310" />
+          <Segment EndPoint="915,355" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="f39a3a5e-9577-43cf-a972-88e6a373faee" From="08ba9dcc-c274-4d13-b61f-e5931eb8476f" FromIndex="3" To="de48eceb-9103-4d24-896a-c916369151f7" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="660,417.5" />
+          <Segment EndPoint="515,417.5" />
+          <Segment EndPoint="515,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="b6772814-a44e-477d-b71d-976c5d112788" From="08ba9dcc-c274-4d13-b61f-e5931eb8476f" FromIndex="1" To="b94db6fb-6931-4b37-bfa3-c757a4602437" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1170,417.5" />
+          <Segment EndPoint="1315,417.5" />
+          <Segment EndPoint="1315,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="b1013512-c5f4-434f-9f57-f20f504cf66a" From="b94db6fb-6931-4b37-bfa3-c757a4602437" FromIndex="2" To="6b8f7d68-d7e5-48c5-90e6-b2ac94d2e4cd" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1315,580" />
+          <Segment EndPoint="1315,625" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3f7b82ac-51d1-4e76-9822-ab68d1bb54f2" From="6b8f7d68-d7e5-48c5-90e6-b2ac94d2e4cd" FromIndex="2" To="dcc9dd28-7028-4b66-8855-a306c4e8ed40" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1315,680" />
+          <Segment EndPoint="1315,725" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e35adc28-5725-42c1-b885-e238283d86c0" From="dcc9dd28-7028-4b66-8855-a306c4e8ed40" FromIndex="2" To="6497b70d-8d41-4d84-a8a2-0f17f9d27608" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1315,780" />
+          <Segment EndPoint="1315,825" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="1da33cc6-2fb8-45f1-a4dc-c9934b020d7e" From="04b1d5ff-f388-491d-868d-f02998d5bce4" FromIndex="2" To="145ac2f2-1697-423f-b018-a96e434bbe24" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="515,880" />
+          <Segment EndPoint="515,952.5" />
+          <Segment EndPoint="640,952.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="25e789e5-fa4b-48ec-840e-9afefe179898" From="6497b70d-8d41-4d84-a8a2-0f17f9d27608" FromIndex="2" To="145ac2f2-1697-423f-b018-a96e434bbe24" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1315,880" />
+          <Segment EndPoint="1315,952.5" />
+          <Segment EndPoint="1190,952.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5df72073-8e0e-4541-b9be-5bcbcbaa559c" From="145ac2f2-1697-423f-b018-a96e434bbe24" FromIndex="2" To="270d90b2-cd6d-43d8-bbcd-11a52a17ec6d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,980" />
+          <Segment EndPoint="915,1025" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0540dd29-4668-44fd-8f9a-3ba9e4d534b4" From="270d90b2-cd6d-43d8-bbcd-11a52a17ec6d" FromIndex="2" To="a8d28cb1-3a5a-4f7e-a71b-a1d417a99e0a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="915,1080" />
+          <Segment EndPoint="915,1125" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

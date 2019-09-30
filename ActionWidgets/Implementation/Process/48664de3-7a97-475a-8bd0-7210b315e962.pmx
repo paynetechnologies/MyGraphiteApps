@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="756a22f3-e392-4fd3-b2ca-6d4d0f29dc62" ProcessId="48664de3-7a97-475a-8bd0-7210b315e962" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="756a22f3-e392-4fd3-b2ca-6d4d0f29dc62" VariableType="Output" Classification="Pinned, Locked" VariableId="074329c7-5c6a-47f9-8852-9628c00a244b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="651619f7-fe0f-41c7-afec-dbf6eb7a6da8" VariableType="Input" Classification="Pinned, Locked" VariableId="a9373628-60c9-497f-9ada-c83cdeea941f" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="e93fb456-5964-4d2e-99ea-ff90eca9d87d" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="756a22f3-e392-4fd3-b2ca-6d4d0f29dc62" Description="Create the CloseButtonModal view" ID="4a63ef35-6d38-468a-82c0-b2b99704e5dc" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="72876d41-4bd4-443e-a9d1-30b509e55e0d" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="911c3e8d-f253-4445-86f4-73079dc6e5fc" From="e93fb456-5964-4d2e-99ea-ff90eca9d87d" FromIndex="0" To="4a63ef35-6d38-468a-82c0-b2b99704e5dc" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="a094fd1d-782f-4498-8808-0b8fadd828d0" From="4a63ef35-6d38-468a-82c0-b2b99704e5dc" FromIndex="2" To="72876d41-4bd4-443e-a9d1-30b509e55e0d" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

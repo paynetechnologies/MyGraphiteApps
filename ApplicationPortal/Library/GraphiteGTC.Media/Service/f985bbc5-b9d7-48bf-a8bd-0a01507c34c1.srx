@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceReference Id="f985bbc5-b9d7-48bf-a8bd-0a01507c34c1" Name="FileServiceReference" ReferenceType="Soap" NamespaceExtension="Service" ServiceAddress="http://localhost:8888/FileService.svc?singleWsdl">
+  <Description>Provides server-side file handling</Description>
+  <Tags>
+    <Tag Type="Group">Service</Tag>
+  </Tags>
+</ServiceReference>

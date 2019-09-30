@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildReplaceElements" OwnerId="1cb7e804-208f-47a6-b757-f511ea4c2022" ProcessId="1807a62f-9629-4399-bb03-eabda2bf3157" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Create an HtmlText and add to a list of ViewElements">
+  <Variables>
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="fb8c83b0-368c-4811-a685-694984b2746c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FocusIndex" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Input" VariableId="96bf829b-f3e8-445e-bb98-29d04428c9aa" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="IsDisplayed" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="b8e1f803-3fde-48c8-9f6a-d31c4e689b46" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Mask" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="2535a4dd-f029-4eba-989c-91d5efbb1672" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Name" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="c57686b4-c4b0-423e-aad8-3cba70c4e55b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Color" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="bcdc90cb-d218-41f0-9d5e-28c5ac0c7487" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="TextString" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="9e990ca0-9595-4484-b1aa-4c5a84a4cc1a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Tooltip" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="1e911e79-5410-45b0-9e10-4f6867985a5e" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="06af668e-c7a3-4a2e-8f10-01eff2759c43" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="NewHtmlText" DataType="1cb7e804-208f-47a6-b757-f511ea4c2022" Description="Create a new HtmlText" ID="503ab615-0fe3-47d3-9bcd-b267d507dbbf" Bounds="632.5,155,550,55" ZOrder="1" Text="">
+          <Properties>
+            <Property Name="FocusIndex">FocusIndex</Property>
+            <Property Name="IsDisplayed">IsDisplayed</Property>
+            <Property Name="Mask">Mask</Property>
+            <Property Name="Name">Name</Property>
+            <Property Name="TextColor">Color</Property>
+            <Property Name="TextString">TextString</Property>
+            <Property Name="Tooltip">Tooltip</Property>
+            <Property Name="Type">"HtmlText"</Property>
+          </Properties>
+        </CreateNode>
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Create a list of ViewElements" ID="04a1dfc4-2979-4b28-841d-116a08a569a5" Bounds="632.5,255,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="NewHtmlText" SourceList="ViewElements" Description="Add to View Elements" ID="7d492f06-cb52-40eb-9e76-5de43b698106" Bounds="632.5,355,550,55" ZOrder="1" Text="" />
+        <EndNode ID="5c2cf8f0-135e-4538-85df-62abe4e15358" Bounds="822.5,455,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="1766f405-e993-4c64-8063-4e2881bf2b49" From="503ab615-0fe3-47d3-9bcd-b267d507dbbf" FromIndex="2" To="04a1dfc4-2979-4b28-841d-116a08a569a5" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ba398664-2420-4287-9159-f597174c34fa" From="04a1dfc4-2979-4b28-841d-116a08a569a5" FromIndex="2" To="7d492f06-cb52-40eb-9e76-5de43b698106" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3c6d6f98-cb48-49e0-8df3-9093e5918979" From="06af668e-c7a3-4a2e-8f10-01eff2759c43" FromIndex="0" To="503ab615-0fe3-47d3-9bcd-b267d507dbbf" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="82af55e9-5108-44f7-9768-14442c938081" From="7d492f06-cb52-40eb-9e76-5de43b698106" FromIndex="2" To="5c2cf8f0-135e-4538-85df-62abe4e15358" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,410" />
+          <Segment EndPoint="907.5,455" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

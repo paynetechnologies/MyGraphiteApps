@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DayPlannerEvent" ViewElementId="312a5150-0b7b-4272-8a0d-7e3a0268c397" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>An abstract view element that contains information about one calendar event</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Subject" PropertyId="e9380845-a236-4ca6-ad99-90a13b979868" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="StartTime" PropertyId="9059f36f-33f0-40bf-bd7f-37d7386c1997" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EndTime" PropertyId="26c1c5b7-f2fc-49f2-88f2-0cf8a25a6269" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AllDay" PropertyId="5689c637-ebad-40c5-b419-b726100cbb9b" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="cff67159-5ae0-41e7-812d-427993e77668" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="BackgroundColor" PropertyId="97102266-536d-452d-9a12-64327658d01c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextColor" PropertyId="30a2f957-81a0-495d-9804-7de9f80566b7" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EventModal" PropertyId="142b6032-d0dc-4cb0-88a5-7141cca1494a" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+  </Properties>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags />
+</ViewElementDefinition>

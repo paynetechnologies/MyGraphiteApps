@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceProcessDefinition ServiceProcessId="dbb71635-89d8-491a-9632-c451609e4c5f" Name="SendFolder" ServiceReferenceId="f985bbc5-b9d7-48bf-a8bd-0a01507c34c1" Description="Write a list of files to a folder">
+  <WebService>
+    <Configuration ServiceName="FileService" ServiceNamespace="http://graphitegtc/fileservice" ConfigurationName="BasicHttpBinding_IFileService" DefaultAddress="http://localhost:8888/FileService.svc" SoapVersion="SOAP11">
+      <Action Method="Send" ReplyAction="http://graphitegtc/fileservice/IFileService/SendResponse" Action="http://graphitegtc/fileservice/IFileService/Send">
+        <Inputs>
+          <Input Name="DestinationFolder" DataType="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ContractName="DestinationFolder" ContractType="FolderDescriptor" />
+        </Inputs>
+        <Outputs />
+      </Action>
+    </Configuration>
+  </WebService>
+  <Tags />
+</ServiceProcessDefinition>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DisplayPanel" ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Display Panel contains one or more Display Details.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayDetails" PropertyId="SimpleEntityDefinitionProperty_DisplayDetails" IsOptional="true" DataType="$[List,8859156a-dcff-4bea-be76-eda3c1ba7661]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsSerializable" PropertyId="SimpleEntityDefinitionProperty_IsSerializable" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayNoItems" PropertyId="SimpleEntityDefinitionProperty_DisplayNoItems" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="StackDisplayDetails" PropertyId="SimpleEntityDefinitionProperty_StackDisplayDetails" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnScroll" PropertyId="072e4a9a-7339-421a-8351-4aadf68c5cf1" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FormToSerialize" PropertyId="c884cf9d-e3fb-42d9-8169-7a358b978a4c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ListName" PropertyId="3756a258-bd2a-41fd-96a3-54f39eab5224" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DisplayPanel" />
+    <Property PropertyName="IsSerializable" DefaultValue="No" />
+    <Property PropertyName="DisplayNoItems" DefaultValue="Yes" />
+    <Property PropertyName="StackDisplayDetails" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DisplayPanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IsSerializable" EditorType="YesNoToggle" Label="Serialize?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Serialize this Panel when Form is submitted?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DisplayNoItems" EditorType="YesNoToggle" Label="Display No Items?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show "No Items" message?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="StackDisplayDetails" EditorType="YesNoToggle" Label="Stack Display Details?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Stack all Display Details together?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OnScroll" EditorType="ViewBehaviorChooser" Label="OnScroll" Grouping="Paging" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when scorlled (for Paging)]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="PageNumber" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit" Grouping="Paging" AffectsRender="false" IsLocalizable="false" SerializedFieldContainerProvider="true">
+        <Description><![CDATA[Form to Submit? (Optional for Paging)]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="ListName" EditorType="TextBox" Label="Editable List" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[The Name for the list of Entities related to the Editable Items]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="IsSerializable" PropertyPath="IsSerializable" Value="{Text}" />
+      <Map FieldName="DisplayNoItems" PropertyPath="DisplayNoItems" Value="{Text}" />
+      <Map FieldName="StackDisplayDetails" PropertyPath="StackDisplayDetails" Value="{Text}" />
+      <Map FieldName="OnScroll" PropertyPath="OnScroll.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnScroll" PropertyPath="OnScroll.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="FormToSerialize" PropertyPath="FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="ListName" PropertyPath="ListName" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>NoItemsToDisplay</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABxSURBVEhL3ZNLDsAgCES1h+X+N6Ad0zG0dlU+C18yUdgQGOgiou1Jv1/mXfFxCQkrEhKjQCoowNYA/hEiWtJBKjQ5i3qTo6kx+etYvCKLB+99/qvJfh5Es8kdZI5odGCxu+wRGR5kjmh2wAOxxQLipidZY0Fbwq6DRQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVEhLY/wPBAyogBFKw8Qp4oMsAPNoBZigNM0ALIjQvUkpgJtHcx/QxQKYd2gBGOniA1qmU9pHMs0zGroF1M4HwyAOQBaM5gN8ABwHtAwi+lQ4NLUBFskgS2AYBqjAZ/gPABSAMAJzUdgsAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildSubTree" OwnerId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" ProcessId="9f3e6fd1-203c-4381-9e61-29ed26374fec" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Create a sub tree from its root node and add to a list of ViewElements">
+  <Variables>
+    <Variable Name="RootNode" DataType="5b82eaea-f166-4ff4-afc2-fd7cba711604" VariableType="Input" VariableId="744ad8da-5342-44b6-a60c-236350513a22" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="163df8a1-8ecd-4442-a6af-cec52060b35f" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="5421e690-2441-44c9-9539-51314c775dae" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="SubTree" DataType="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Description="Create a Sub Tree" ID="d28dfcbe-bf90-46dd-8a70-b88f3de27845" Bounds="632.5,155,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="SubTree.Nodes" DataType="$[List,5b82eaea-f166-4ff4-afc2-fd7cba711604]" Description="Initialize Nodes" ID="237ba483-1bfb-4a38-80d7-83fd54712b0b" Bounds="632.5,255,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="RootNode" SourceList="SubTree.Nodes" Description="Add to Nodes" ID="9ee608c5-ffc9-44e2-a472-7d132edf2170" Bounds="632.5,355,550,55" ZOrder="1" Text="" />
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Create new ViewElements" ID="40a1b269-b80d-447f-ae5c-e188897c7886" Bounds="632.5,455,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="SubTree" SourceList="ViewElements" Description="Add to ViewElements" ID="3652680f-e81b-49a6-91a2-77124932ac7e" Bounds="632.5,555,550,55" ZOrder="1" Text="" />
+        <EndNode ID="acab9c88-273e-4370-b2a3-a0e26dfc78ba" Bounds="822.5,655,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="78028c76-9bb3-408c-9e5c-1b7039cf4081" From="40a1b269-b80d-447f-ae5c-e188897c7886" FromIndex="2" To="3652680f-e81b-49a6-91a2-77124932ac7e" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,510" />
+          <Segment EndPoint="907.5,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e436f429-cf35-4f89-8214-2651d4d67779" From="d28dfcbe-bf90-46dd-8a70-b88f3de27845" FromIndex="2" To="237ba483-1bfb-4a38-80d7-83fd54712b0b" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a23288e1-6e35-48d7-bcb1-1ed57fe3fa3e" From="237ba483-1bfb-4a38-80d7-83fd54712b0b" FromIndex="2" To="9ee608c5-ffc9-44e2-a472-7d132edf2170" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9b5492df-1252-4c38-beec-7872d678e07e" From="9ee608c5-ffc9-44e2-a472-7d132edf2170" FromIndex="2" To="40a1b269-b80d-447f-ae5c-e188897c7886" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,410" />
+          <Segment EndPoint="907.5,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d8ab3f5e-7a49-43a9-8a89-0509586b2542" From="5421e690-2441-44c9-9539-51314c775dae" FromIndex="0" To="d28dfcbe-bf90-46dd-8a70-b88f3de27845" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5610d5c7-bbea-405b-9260-c917613c2baa" From="3652680f-e81b-49a6-91a2-77124932ac7e" FromIndex="2" To="acab9c88-273e-4370-b2a3-a0e26dfc78ba" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,610" />
+          <Segment EndPoint="907.5,655" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

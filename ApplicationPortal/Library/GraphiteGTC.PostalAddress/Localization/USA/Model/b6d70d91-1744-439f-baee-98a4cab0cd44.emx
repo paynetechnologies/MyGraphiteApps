@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="USAState" EntityId="b6d70d91-1744-439f-baee-98a4cab0cd44" NamespaceExtension="Common" EntityType="Enumeration">
+  <Description>An enumeration containing all US states</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="446babdf-4d5a-4383-8e61-4ce5d51a08e3" IsOptional="false" DataType="2a4fb4ec-1b34-4bd6-aecc-227a9b469ca4" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Abbreviation" PropertyId="96a41afb-8d4f-48f7-a77c-3fb3102c5628" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <DataEntries KeyProperty="Description">
+    <DataEntry DataEntryId="e09b595f-9be6-42e1-a80c-ea590ad0d8d7">
+      <DataValue Property="Description">Alabama</DataValue>
+      <DataValue Property="Abbreviation">AL</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="cfc96813-ff8e-4ab1-bd1e-a86641849088">
+      <DataValue Property="Description">Alaska</DataValue>
+      <DataValue Property="Abbreviation">AK</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="e598e23a-2bbb-4872-8d8a-555a0222b885">
+      <DataValue Property="Description">Arizona</DataValue>
+      <DataValue Property="Abbreviation">AZ</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="70e68359-762f-49f4-b909-dab461d66c8b">
+      <DataValue Property="Description">Arkansas</DataValue>
+      <DataValue Property="Abbreviation">AR</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="0086bba0-813b-4c33-b059-03984aff6ba0">
+      <DataValue Property="Description">California</DataValue>
+      <DataValue Property="Abbreviation">CA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="332b4699-3b03-430e-b0a7-3dcc41afa0ed">
+      <DataValue Property="Description">Colorado</DataValue>
+      <DataValue Property="Abbreviation">CO</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="c69605c0-fe45-43a4-bdee-4e5421590178">
+      <DataValue Property="Description">Connecticut</DataValue>
+      <DataValue Property="Abbreviation">CT</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="57ba804b-080d-45ce-929a-388a54228cf9">
+      <DataValue Property="Description">Delaware</DataValue>
+      <DataValue Property="Abbreviation">DE</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="65143d38-4f9a-425d-acaa-787c95c4f5cd">
+      <DataValue Property="Description">District Of Columbia</DataValue>
+      <DataValue Property="Abbreviation">DC</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="6c67c67f-1a4c-4ea3-9bf4-338811ab5989">
+      <DataValue Property="Description">Florida</DataValue>
+      <DataValue Property="Abbreviation">FL</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="74a1b7bd-e70c-4d28-a71c-2f2d1d17db4a">
+      <DataValue Property="Description">Georgia</DataValue>
+      <DataValue Property="Abbreviation">GA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="0534d750-5f6d-43f4-a59c-3e35f63ec6d4">
+      <DataValue Property="Description">Hawaii</DataValue>
+      <DataValue Property="Abbreviation">HI</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="7690f13d-0dcf-4068-9b18-592b5ba6dc9c">
+      <DataValue Property="Description">Idaho</DataValue>
+      <DataValue Property="Abbreviation">ID</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="bf26aaf2-bd2a-494b-bab5-74d709f23075">
+      <DataValue Property="Description">Illinois</DataValue>
+      <DataValue Property="Abbreviation">IL</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="4ad3a83b-40e0-4691-900e-d780e6bbb7b7">
+      <DataValue Property="Description">Indiana</DataValue>
+      <DataValue Property="Abbreviation">IN</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="76dff76b-84e1-4fc5-bdf0-53067e09a6a0">
+      <DataValue Property="Description">Iowa</DataValue>
+      <DataValue Property="Abbreviation">IA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="f762d64b-b6a3-4586-9af0-b881f6d36349">
+      <DataValue Property="Description">Kansas</DataValue>
+      <DataValue Property="Abbreviation">KS</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="ac3e4c2c-d666-4ca8-b596-22e56b20455d">
+      <DataValue Property="Description">Kentucky</DataValue>
+      <DataValue Property="Abbreviation">KY</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="a2698c40-e12d-49b8-a443-e998bf91ba07">
+      <DataValue Property="Description">Louisiana</DataValue>
+      <DataValue Property="Abbreviation">LA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="fbbdf089-5269-4931-b1dc-017570641140">
+      <DataValue Property="Description">Maine</DataValue>
+      <DataValue Property="Abbreviation">ME</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="407fec17-de8a-4823-8669-07c47f2bb0a9">
+      <DataValue Property="Description">Maryland</DataValue>
+      <DataValue Property="Abbreviation">MD</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="41a129fc-c588-43dc-bc99-9fe9675209b7">
+      <DataValue Property="Description">Massachusetts</DataValue>
+      <DataValue Property="Abbreviation">MA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="979749fe-dc8b-47b2-bc41-ec50ebcc2dfc">
+      <DataValue Property="Description">Michigan</DataValue>
+      <DataValue Property="Abbreviation">MI</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="c657351b-84fb-4b2f-b506-eb9ac79365a4">
+      <DataValue Property="Description">Minnesota</DataValue>
+      <DataValue Property="Abbreviation">MN</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="460d71cf-dca9-4678-8d99-03b8871e8901">
+      <DataValue Property="Description">Mississippi</DataValue>
+      <DataValue Property="Abbreviation">MS</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="a14d07fd-ff16-4cac-97aa-dafed4c7f8e0">
+      <DataValue Property="Description">Missouri</DataValue>
+      <DataValue Property="Abbreviation">MO</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="99c6a7ec-20d0-4c3d-aee2-bfe666a25c33">
+      <DataValue Property="Description">Montana</DataValue>
+      <DataValue Property="Abbreviation">MT</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="b3e23bfa-04fb-4542-b901-1b5c4f2cebf8">
+      <DataValue Property="Description">Nebraska</DataValue>
+      <DataValue Property="Abbreviation">NE</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="c9fb76cf-b889-456c-9e4c-095482f523e2">
+      <DataValue Property="Description">Nevada</DataValue>
+      <DataValue Property="Abbreviation">NV</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="8c2782e1-3bb2-44fa-be8b-d63305609238">
+      <DataValue Property="Description">New Hampshire</DataValue>
+      <DataValue Property="Abbreviation">NH</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="3db53016-4334-46d2-be00-034b7331716f">
+      <DataValue Property="Description">New Jersey</DataValue>
+      <DataValue Property="Abbreviation">NJ</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="ad4a9027-7044-4e1f-bbc4-49274a2b455a">
+      <DataValue Property="Description">New Mexico</DataValue>
+      <DataValue Property="Abbreviation">NM</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="eb7175f1-6b3b-4a20-85fd-7ec66df1d7d5">
+      <DataValue Property="Description">New York</DataValue>
+      <DataValue Property="Abbreviation">NY</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="c94c627e-9448-4d8f-a8ff-05531ee08e27">
+      <DataValue Property="Description">North Carolina</DataValue>
+      <DataValue Property="Abbreviation">NC</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="1d0006c8-643b-46bd-b7a9-9c58f7effa99">
+      <DataValue Property="Description">North Dakota</DataValue>
+      <DataValue Property="Abbreviation">ND</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="2b4e44a6-5624-4971-82df-c678b94453a9">
+      <DataValue Property="Description">Ohio</DataValue>
+      <DataValue Property="Abbreviation">OH</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="b1c499c8-409e-45a8-ae43-cb1d73794cdc">
+      <DataValue Property="Description">Oklahoma</DataValue>
+      <DataValue Property="Abbreviation">OK</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="318a83c2-2701-4484-9ff0-2ebbf97108f5">
+      <DataValue Property="Description">Oregon</DataValue>
+      <DataValue Property="Abbreviation">OR</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="490f3eb6-b0bf-4214-8915-bc529f51e14c">
+      <DataValue Property="Description">Pennsylvania</DataValue>
+      <DataValue Property="Abbreviation">PA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="af4e18b4-ab33-46f0-84d9-6ec1c7685343">
+      <DataValue Property="Description">Rhode Island</DataValue>
+      <DataValue Property="Abbreviation">RI</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="a7714592-aa3b-497e-8216-2c8fe8b82b48">
+      <DataValue Property="Description">South Carolina</DataValue>
+      <DataValue Property="Abbreviation">SC</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="b2a32070-4ea1-4fe4-9ddb-13db509d20a2">
+      <DataValue Property="Description">South Dakota</DataValue>
+      <DataValue Property="Abbreviation">SD</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="986fa56a-4721-40d9-8220-91acc8deb871">
+      <DataValue Property="Description">Tennessee</DataValue>
+      <DataValue Property="Abbreviation">TN</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="9a1490f3-cebb-47b8-aeac-6b82ab7fb77a">
+      <DataValue Property="Description">Texas</DataValue>
+      <DataValue Property="Abbreviation">TX</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="b482d575-a967-4574-9f37-85c9f396f23f">
+      <DataValue Property="Description">Utah</DataValue>
+      <DataValue Property="Abbreviation">UT</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="9c3e3a8d-1f5c-4de0-873d-65dea2ee1899">
+      <DataValue Property="Description">Vermont</DataValue>
+      <DataValue Property="Abbreviation">VT</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="4a504889-e518-4ec2-beab-8046577b6153">
+      <DataValue Property="Description">Virginia</DataValue>
+      <DataValue Property="Abbreviation">VA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="397c2867-b9cf-492b-b558-0e21b7d54196">
+      <DataValue Property="Description">Washington</DataValue>
+      <DataValue Property="Abbreviation">WA</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="951a9f77-9e69-4479-8123-f254f0531bca">
+      <DataValue Property="Description">West Virgina</DataValue>
+      <DataValue Property="Abbreviation">WV</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="ba93388b-2d77-4c6f-a9e2-05a1a17764da">
+      <DataValue Property="Description">Wisconsin</DataValue>
+      <DataValue Property="Abbreviation">WI</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="1ada47dd-2f0c-4a05-bca5-ecc4bc8a18af">
+      <DataValue Property="Description">Wyoming</DataValue>
+      <DataValue Property="Abbreviation">WY</DataValue>
+    </DataEntry>
+  </DataEntries>
+  <Tags>
+    <Tag Type="Group">Postal Address</Tag>
+  </Tags>
+</EntityDefinition>

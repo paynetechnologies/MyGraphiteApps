@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Hyperlink" ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Hyperlink is a standard hyperlink.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Navigation" PropertyId="SimpleEntityDefinitionProperty_Navigation" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FormToSerialize" PropertyId="e1b0f426-1cc2-4be4-b0af-5ff589f3900f" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Target" PropertyId="3c756480-66be-4ec2-8e14-66e2a1fdb41f" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Hyperlink" />
+    <Property PropertyName="Target" DefaultValue="_self" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Hyperlink.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="NavigationView" EditorType="ViewChooser" Label="Goto" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View to navigate to when the Hyperlink is clicked]]></Description>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="ViewElementChooser" Label="Form to Send" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Form to Submit to the OnLoadView Behavior of the invoked View]]></Description>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="Target" EditorType="SelectBox" Label="Opens In?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Open the new View in new or the same tab of the Browser]]></Description>
+        <DescriptionOptions><![CDATA[New Windows, Same Window]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Same Window" Value="_self" />
+          <FieldOption DisplayName="New Window" Value="_blank" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="_self" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="NavigationView" PropertyPath="Navigation.View" Value="{Url}" />
+      <Map FieldName="FormToSerialize" PropertyPath="FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="Target" PropertyPath="Target" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI5SURBVEhLrZZNS1VBHIfHDMrcFILQxpVgoKvuphADS0EXChFuFCnC7peocBMtgr5AmxbRohSEK4i4cGGbtFolqAuXRlSSYoFCb8/vnDs0TjPn3HtPP3g4Z+a8PHfO/Ge4TeVy2fyHDMM7+JS0MnKieiySG1CBFWhXR1aKCiV7ASehC3KlRYRW1py00uRKGxWGZDaZ0kaEIdkGHKWnSaLSeoWj4MtUnZdB13Kl9QhVGM/Blb2Fa7APS5ArrVfYmp4mkWwAxuAJNEGutB7hD/iWnpo34MruVI+50uZSqZT0RHIOzsMe/IJ16IAhcEemXATdvwjb8BFGwF4/C5WsEV6HD6CHH6qDzMMV8GU2dq664RG41/Wjd2NClf4MnAY9dBPOgHIbQjJ97sfQA69Ao7X5An2wFRKG1plGqkxBTNYPh6C5Csk21fCFIZmtxnEoJFNcYUjmV2NMpp1mGVzZZzgmU6wwNrJByJPpPsV9VjIV1zGZIqG2pdhn1A7SCzHZTtIy5jtMgip6Ff4ZmY2Ewn+h1pJkiuZFa9DmAOycvYdpUBagEy7BljpCkew1zCatv7kHd9NT8xRUnZJKdhVsgbTBfTgFNUXCn6AKfKkOJw/Ald4CV2YLRO+oOfbmWqTPIFT6mjd338yMu5f+hjm4ANqabDQqbdxfwZepGlXJu0mrhvifI2uka+DLVPrRAgkl9P1j0pbqUYmus7zEJtxKtT79NCxTsipM0glwpYVkSpZQcaX6G19IZowxfwAYyKASTSg3rQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGkSURBVEhLrdaxLgRRFMbxYSUSCtFIJBrVSig1HoCEhETUCom3UOj0Wh6AB5GgUKHTUJCsCAUKEeM7436bs2fPnbk74yS/nZk7wz927yaG8jzP/mFW4Qo6xVXZSLChLfiCG5gKa1Hu4gAY41RG3cVENsYpjbqLCWzsGj7+TouJRvsWEtjYJUzAClRGey4SbICOXYDEeL8y2j1JMAIvwLExKo3ah8vo4DkwtgtHUHyng2iUD6RahzPQsR+QOQYdXYa+KG/GTMKsWRsORx3jHAKfm4dn4DxBmzc9m/AJ8ksPwhp5sTdYBLkvsQ5wJDYH0bfUbn3ZIGMg96piC+DGBAOaF/M+M05yTHRPAhuzu3GQ2CP0xIS+aPKXjYMEOG5M8KRJjNbgDuRn22Gtj7wsgY49AGNiB76B8wqMTYdjMnlpwSno2QP9IKM6xs9sP1wn4UlKdBu8DSLvzijoZ6P0RUpU2N14C/aZKLtQFfW2fnSDeLzFWDTpe1bFXQQv+h6OMrViwl0MJHoCdmrHhLuo2GijmHAXDUYbx0Tqv/otmIH74qr2ZNkvfqtiqR26tDsAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Heading" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Heading is used to display headings.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Sizing" PropertyId="SimpleEntityDefinitionProperty_Sizing" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextString" PropertyId="SimpleEntityDefinitionProperty_TextString" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Font" PropertyId="SimpleEntityDefinitionProperty_Font" IsOptional="true" DataType="cc846db1-1be3-4125-80d5-55f182bd26d1" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AppendLine" PropertyId="SimpleEntityDefinitionProperty_AppendLine" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Heading" />
+    <Property PropertyName="AppendLine" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Heading.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Sizing" EditorType="SelectBox" Label="Importance" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[H# (Impotance)]]></Description>
+        <DescriptionOptions><![CDATA[1 - 6]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="1" Value="1" />
+          <FieldOption DisplayName="2" Value="2" />
+          <FieldOption DisplayName="3" Value="3" />
+          <FieldOption DisplayName="4" Value="4" />
+          <FieldOption DisplayName="5" Value="5" />
+          <FieldOption DisplayName="6" Value="6" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="TextString" EditorType="TranslationKeyChooser" Label="Text" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Text of the Heading]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="AppendLine" EditorType="YesNoToggle" Label="Append Line?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Append a Line after the Heading?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FontSize" EditorType="DecimalTextBox" Label="Size" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Size of the Font]]></Description>
+      </Field>
+      <Field FieldName="FontColor" EditorType="ColorChooser" Label="Color" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Color]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FontScale" EditorType="SelectBox" Label="Scale" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Font size]]></Description>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FontWeight" EditorType="SelectBox" Label="Weight" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Weight of the Font]]></Description>
+        <DescriptionOptions><![CDATA[Bold, Bolder, Normal]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Normal" Value="Normal" />
+          <FieldOption DisplayName="Bold" Value="Bold" />
+          <FieldOption DisplayName="Bolder" Value="Bolder" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="FontLineSpacing" EditorType="IntegerTextBox" Label="Line Spacing" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Line Spacing]]></Description>
+      </Field>
+      <Field FieldName="FontLetterSpacing" EditorType="IntegerTextBox" Label="Letter Spacing" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Letter Spacing]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Sizing" PropertyPath="Sizing" Value="{Text}" />
+      <Map FieldName="TextString" PropertyPath="TextString" Value="{TranslationKey}" />
+      <Map FieldName="AppendLine" PropertyPath="AppendLine" Value="{Text}" />
+      <Map FieldName="FontSize" PropertyPath="Font.Size" Value="{Text}" />
+      <Map FieldName="FontColor" PropertyPath="Font.Color" Value="{Text}" />
+      <Map FieldName="FontScale" PropertyPath="Font.Scale" Value="{Text}" />
+      <Map FieldName="FontWeight" PropertyPath="Font.Weight" Value="{Text}" />
+      <Map FieldName="FontLineSpacing" PropertyPath="Font.LineSpacing" Value="{Text}" />
+      <Map FieldName="FontLetterSpacing" PropertyPath="Font.LetterSpacing" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAMCAYAAAB8xa1IAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVDhPrdM/SFVhGMfxc7XJSCPCi/+wgrs4Jg6FgoqLSGqLZukk3ZZqtaHZKXJQUWgTkRJBgiAREUFokCaHqCGQgjuE5KJ0a7C+X+974HhwMPEHHx49597znPd535vJ5/PRKZLB5dKf0V6o/5WyUOP0429w0wshlfgZnCnpRvdCNSOhnkuSjS7hDgo4wBAuIB3H2ApXX+2FVGrhvR7UeMEkG3mzAjN4iyy6YIqhmjlsYhnfkdzkZ9iB997hG57gWKP7+IVZLHiBxOP7HappQgeeohzTuIY2jMPDMggn4vNe4kbcyBH49vPYxSrceFfpSJN5hA1M4j0cbzfcX8c6hUW8Ri9uoRA3GoBfeAhP3B9cgaO8i2Q+hWocjalCvB9fQzW+0EcU40bJ05ZO+vTlQjVXQ91H/Pu6HqpxpY4xa6NG3IYb6NKTvqATnqQ4E6iH++TJcgJrWIFxtC1oxis4wpyN3DQf6r6k8wZ+5sHRf6W0w9O2jot4gc9YgnvTgC04sjps44MP8bSZkxr5RTMcqhmFvzX34jHGYFyZL/0c7t0P2LwviqLDf3lYUrNfU92FAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAMCAYAAAB8xa1IAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGPSURBVDhPrdM9KEVhHMfx40akvCQRKS+llM3bgmIjC4PrLgYDkYxKYbDaLVYZpCwGm0wmFIMMDEReyktCuJfj+7vn/9RxJuRXn/7nPOec5zkv/5Ph+773g2SgMNj07q3+KjGrLr3QytKgAUs+7syfEl0oYVUZtPovCb+6PFzhAQV4QgVStq9xRTfXimJs4wbhlKMFSezhErwjFjKDUGawHGz6XdCx7PRekCWryhtG4OaYwjtckpjAt4U28IJi9EDRgu64yy46oAlS0GRVaMcnrhFHAo/Q8Ro3SYkNLNp+Fm7xjDwbc2mCu25dA2QMC8GmPwt3XDek83NcM8SRiWHoo72jCLnoQziHVpUzq/qGZcGmd2JV2cIOXt1C4W6LJtp9tVYVNYSixnH/V7VVpRsDKNXjVULvdg3ukZ0jfKAcLpuoQCeeoGvr0A/lDM1oxLkGSJsmU6coo4guNAdl0qqiicOZh87Vr7KigUj2EdMJB+ldOgPhRaQeik52GcIFjjGO9L9oYpjGKdR9q6Ajfe8LxH5EvbBuKMsAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

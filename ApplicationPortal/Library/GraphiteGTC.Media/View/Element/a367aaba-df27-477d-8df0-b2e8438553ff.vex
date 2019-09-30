@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FileDownload" ViewElementId="a367aaba-df27-477d-8df0-b2e8438553ff" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" IsDownload="true" FileNamesProperty="FileNames" FileDirectoryProperty="FileDirectory" FileFilterProperty="FileFilters">
+  <Description>File Download element facilitates downloading and saving selected files to a preset directory path.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileDirectory" PropertyId="SimpleEntityDefinitionProperty_FileDirectory" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileNames" PropertyId="SimpleEntityDefinitionProperty_Files" IsOptional="true" DataType="$[List,62ff6d43-a027-42b1-af68-9508897115fa]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileFilters" PropertyId="ce002ffa-7ae8-4e73-bf8e-e2e0aa11f5c8" IsOptional="true" DataType="$[List,62ff6d43-a027-42b1-af68-9508897115fa]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="FileDownload" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">FileDownload.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="FileDirectory" EditorType="TextBox" Label="File Directory" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Folder to download to (to be deprecated)]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="/Content/Uploads" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Download Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="FileDirectory" PropertyPath="FileDirectory" Value="{Text}" />
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>SelectAll</Key>
+    <Key>UnselectAll</Key>
+    <Key>DownloadSelectedFiles</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHjSURBVEhLtZbNSxVRAEefViptxMDAhQYR2CY3ZdHOQDdq0ab6D17pJhD8KyIo2tjOXeRKEAxx4U7BUqE27aIPCGqlK0MXnTPznry53ZnGB3PgcD/m3vubN3PfzHTU6/VaAd14B+/jbbyEvbiPX3ELl3ED/2CUzkYZchZN/4Lv8DGOoAFiadt+j3/DOezCf4iFDOMOvsYBO0pwEZ/je7xqRythyChuomfZDs5z/q2k1aA1xDNYxwtJq336cA1PflEz5By+xeY1j9ERMQ/XWULXPQl5iu1eojyuoesmIT04b6MCXLfHkGl0d1SB6941ZCppVsekIdfTemXcMGQorVfGoCGxbTuLZbZrOMZ5Ib2GHKT1DK/wXlotjeOdF3JgyPe0nuEMvsHM46EAxzneeSE/DPGhFuM8ruCVpJWPxx3n+Bjbhqym9Sj96KPcMsb/jsuqIZ7Fr6QZJ+9My/zS37hiyCE+s6eA8JqXvWeue2iIvMSPaTWX1t1TZvd9whdWmiFH+Ah9dxcxg77PLYtwnYfoupmX1mccx6L7I2ONMg/nT6DrJbSGyAf0FbybtE7PHt7EzN8iDBG/PLyhXpKfdpTAcU/QAD+VMsRC5BgX8DI+wEX0RjYfQZa27fe44/y6cV5ArfYX1/5SkMWF4uwAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG2SURBVEhLtZa7SgNBFIY3XkMKU2lpGkEbbYyIpa03bPIKKjaC6Kv4HIpap1SUCIpWVjaCASUrCApC/P5sNuxlMhPX+MHH7MyeOWc3u5nZXLPZ9CyM4jJu4hKWsIg+PuEFHmMVv9CMihgcwi18xl54wX0cwVS+1ABO4y1mQfNmMJYz1sEFfMW/8IaL2MkbLaAraGA/UJ7OHYUFhtH1E4WxUW3cofJ6A+3nv4dzwWHfmEXl9fQK52n1Ok5owEKu3Uaxvv9Qx5LuZA1dBbKivOsqstrq/h8rKjIfHP8bZT2TBgdaKlxkeSbC152YCuyikkY1kYzRvCRFves+JvnGDUz+L2wqXvOS+Dp5Hxyn+MDY8mBRcYo38aCf6zq4qxQFPMWpVq87Oq84xZu40lVUgoJdecRxTF691LjO26goMI/aD2xcYgGjBdTXuI065sMJBxpxcIKDqHi16rs4xF+twuIIFa/WRWcVDovIXveTaru1YdxPQsvoej4uNF87bCdvtEDoJNYwCzdYwljOWCeivlZ2sNevFcVto+al8rm+u7Shab/RdqDVWt9dY/iO2uhqeI5n+IkGPO8HldN0hIiesE0AAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

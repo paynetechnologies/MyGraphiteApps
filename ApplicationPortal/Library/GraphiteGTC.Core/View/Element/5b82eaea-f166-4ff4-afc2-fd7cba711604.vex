@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Node" ViewElementId="5b82eaea-f166-4ff4-afc2-fd7cba711604" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Name" PropertyId="f68ca0ec-0939-4a1e-893a-5b42d6a2510e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="249e085c-d423-483d-85db-9534da499bc8" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="a80bcac1-4fbe-438a-b3ee-de9ca7bce9c0" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Children" PropertyId="58b429b5-3e82-494c-8866-e68ac0c902ce" IsOptional="true" DataType="$[List,5b82eaea-f166-4ff4-afc2-fd7cba711604]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tooltip" PropertyId="9482c08e-a17d-4692-bdde-4330b4e27d8c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IgnoreNodeSelect" PropertyId="b1af754b-058d-498a-a8bf-bd7b2637cb17" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UiParameters" PropertyId="53232de5-c300-4c34-a825-ed182966b677" IsOptional="true" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="IgnoreNodeSelect" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags />
+</ViewElementDefinition>

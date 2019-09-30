@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="RatingDisplayItem" ViewElementId="773618ae-031e-425d-b0c3-c8baaf32f40b" BasedOn="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClick" PropertyId="08f2d55b-2d25-4c2b-b484-08eb7aeddc2e" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="RatingDisplayItem" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">RatingDisplayItem.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="TextColor" EditorType="ColorChooser" Label="Star Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Color of the Star]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when a Star is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="RatingStars" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="Mask" EditorType="Hidden" Label="Mask" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="TranslateContent" EditorType="Hidden" Label="TranslateContent" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="TextColor" PropertyPath="TextColor" Value="{Text}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAYAAAARZmTlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEaSURBVDhPY/z//z8DrQETlKYpwGpJQ0MDU2pqqgGUSxTApwerJc+fP5/ByMg4EcolCuDTgyu4UoEa7DIzM9WhfGIATj0oEZ+ens4KpDKAeBJYgIFhISsra/GUKVPeQvkYgBg9jCkpKQZAF5wGYhaoGE4AVNMyY8aMWlDYk6KHafbs2ReAjAqoGD4wHWQBiEGqHnCczJw5sxdI5YDY2AAwSDuBarKgXDAgRQ9KnKSlpW0AutAfyoWBv0DFOIOFGD0oqQuo2BXKRAbMWVlZslA2BiBGD9wSoGJGIMUFYv/7968WyI0CMj9C+TYgGh0QqwfuJWAqMwdS69+/fx+6atWqvxBRhuXAJFr69+9fkIblECEEIFbPcCkgGRgAWAiIXE0JhHIAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAYAAAARZmTlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEBSURBVDhPYxi+4P///2L//v1r+Pz582oQGyqMF5CsB6jIHYhhwB0qjBeA1EGUgwGGHiYojRX8+vWrFqiJKN/AADY9jFABQxAH6GXbP3/+5LCxsfGD+CAA5G9iYWGZBuWCwHkoTbweaDiSAtxJ1QOONKAXP0G4BEEkEIuBMCl6wL4BMsR+/vz5HiKGE4AtAGsAAhCbVD3oKQQdoCqGAqAYUXrwpi4Y+P79uxMjI+MrKJcogKwH2RI5KA1KHd+AQfEcygUlSz0oEx0QpQduCTDF+IBooBcXAZOfIjs7uwGQ6/Hx48fbZ86ceQKSQwck6wGFHxCDwhgj7HEBcvTQCDAwAAA2TANvdy8R4AAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

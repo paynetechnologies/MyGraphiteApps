@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="USAAddress" EntityId="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" NamespaceExtension="Common" BasedOn="bb37e1ad-970a-4c47-9d4d-c68b843ebbe0">
+  <Description>An entity that persist US addresses</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Street" PropertyId="9716f1d0-f474-40cc-bee9-6d7f866a6ea1" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="City" PropertyId="31eb743b-ecbf-45b0-8fcf-51b1b22b1184" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="State" PropertyId="f6f69a25-35f3-4e33-b844-c4bd37c0b8c7" IsOptional="true" DataType="b6d70d91-1744-439f-baee-98a4cab0cd44" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Zip" PropertyId="55f6b465-d58b-4eb9-bce7-545feb582838" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Postal Address</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Audio" ViewElementId="f1ebb0e8-3139-4d19-9917-2be9c64a9eac" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Audio element is used for playing Audio.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Source" PropertyId="3743295b-91be-41fe-9409-e425cbb98e19" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AudioType" PropertyId="cee135d3-e48f-453f-ab2d-a3552d040e50" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AutoPlay" PropertyId="bc3a2f6d-d84c-4b29-b921-449864a20c81" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="AudioElement" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Audio.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="AutoPlay" EditorType="YesNoToggle" Label="Auto Play?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Play audio on load?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="AutoPlay" PropertyPath="AutoPlay" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGeSURBVEhLtZTdKkRRGIb3KOJYlHLiCghnHMhf4Qo4IpoTF+FK5g6c+E1OKTeA5NxPlJxRhPdZP82aYa2915Snnva398ysd75vrZlavV4vShiR7/LB3GXS5a4pFuSkLfOpEjAnx22ZT1kArxMwYe46oCxgTPbLfxsR84chZzZlAfPuCh11kQrolVO2NLTvw6icsWWcVMC07LOlof0kbcgdW8ZJBYTjgXBE3XJV0kGyi1QAxzMk3OhlOWjLdBexAI4mI3mWNzxw+C4YjyfZRSxgVvLatTzggYONHpBL5q5JtItYgB8PAXu2NBCwJnvMXZNoFwTwbe6d/pstuuulvJBP5s4GrNuyuJW7tjT4LlrWI6Ah/QYey2/JXzTQwZc8NHf2Pfx9AKPblj6cDvgsa/j1GrERea7cdd9dQ44kixMSo0bAlnyUd3KFh4GcIjiVb7Y0vMpzW5oxhZ9hDb/eJgG+pWFX/wWLE+LhfR+2/EXLemUjCgnHxHgqkRPARrPhn/KEB1XICWBDObJn8oUHVcgJAH50lccDuQGc/YyAovgBO2dHeKf7jTEAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGTSURBVEhLtZWrTgNBFIa3TSBUN5RU4nAQwIFouIiSEDyuFh4Ci+AVkCgMl6AxOASKm0GRNlSAI4QElv8/M8POLjM7O034ki9zzsxsT3cu2VqapkmAafgBB5JFUtdtGetwUYXxVCmwCudVGE+oAMdZYEGyEQgVmINN+G9LxPUnbW00oQJruiUjvUVZgQm4pEKhuA+zsKNCP2UFlmFDhULxJPXgngpL4EXzuA9t+tCMjcEXSDrQfi6ns1N7DYu0Ice2JFNcwuKzvzo7YRN+wSG8h4ZNyPETyTK8b+HbgxXIsTt4zg4NN3oSdiXL8O6FrwBvL2GBUxUKLLANxyXL4Glynyi8RhdyAylj9j1BsgPr0Gwo59yoMH2ExyoUzF7kfo8dDHyYtT2ULM8BbEFT3EW/7B6QW92e6dbmAg7hrmRuavx3G3AAn3XMvqIN+A4Nb5B3wTU393uuCT7to3kEXXP+GFoiG3uZuDyVqPJNNrQgv8vfcAq+wiAxBcgV/IS8iJWIWSLCS1d5eUjsG8zo9kG3AZLkB59qYu+xPNTcAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

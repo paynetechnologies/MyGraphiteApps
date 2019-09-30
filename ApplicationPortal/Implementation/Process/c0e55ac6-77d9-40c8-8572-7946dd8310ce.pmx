@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildAccountCards" OwnerId="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" ProcessId="c0e55ac6-77d9-40c8-8572-7946dd8310ce" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="Accounts" DataType="$[List,bc754fa7-601e-4f4e-908a-7f114226cc3e]" VariableType="Input" VariableId="018c73cb-106d-40b0-ae68-0b00f858c583" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AccountCards" DataType="$[List,$[8626c758-b0fe-48e8-90ef-7576f22f4006,9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9]]" VariableType="Output" VariableId="b7e3e997-1155-4429-a08f-437b94448d10" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="7c8b54a7-42cd-4c09-9b22-7a56da767bb3" Bounds="640,165,170,55" ZOrder="1" Text="" />
+        <CreateNode Variable="AccountCards" DataType="$[List,$[8626c758-b0fe-48e8-90ef-7576f22f4006,9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9]]" ID="90938bbc-d2ea-46c5-9f12-c65b7f61ceef" Bounds="450.6,265,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="Accounts" IterationVar="AccountInContext" ID="2afaa060-e752-47b4-af40-044e81359af6" Bounds="375.6,365,700,305" ZOrder="1" Text="" />
+        <ExecuteProcessNode ViewDefinition="9e5ebdbd-8ba3-431c-a1fe-6394085a9bc9" ProcessProperty="e08d16b9-eb76-4e1c-a0c6-ad970b367476" ExecuteProcessType="View" VariableId="HomeBuildAccountCardResult" SuppressValidations="false" Parent="2afaa060-e752-47b4-af40-044e81359af6" ID="f25ed55f-8564-46af-a493-c345eee5d71e" Bounds="75,75,550,55" ZOrder="11" Text="">
+          <InputVariables>
+            <InputVariable Name="AccountInContext" Value="AccountInContext" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Add" ListItem="HomeBuildAccountCardResult.Outputs.NewAccountCard" SourceList="AccountCards" Parent="2afaa060-e752-47b4-af40-044e81359af6" ID="b471a9a0-d120-44e3-b81d-bfdd02b60871" Bounds="75,175,550,55" ZOrder="11" Text="" />
+        <EndNode ID="1cfa9259-40f6-4e1d-bb36-e2367ed57680" Bounds="640.6,715,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="130f2671-f3bc-477b-9026-fb21f706c190" From="7c8b54a7-42cd-4c09-9b22-7a56da767bb3" FromIndex="0" To="90938bbc-d2ea-46c5-9f12-c65b7f61ceef" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725,220" />
+          <Segment EndPoint="725,242.5" />
+          <Segment EndPoint="725.6,242.5" Movable="true" />
+          <Segment EndPoint="725.6,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c6ada414-fab6-4bc1-bfe9-1cf4b19fb3ad" From="90938bbc-d2ea-46c5-9f12-c65b7f61ceef" FromIndex="2" To="2afaa060-e752-47b4-af40-044e81359af6" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,320" />
+          <Segment EndPoint="725.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f2cba259-5705-498c-9295-68f07beb498d" From="f25ed55f-8564-46af-a493-c345eee5d71e" FromIndex="2" To="b471a9a0-d120-44e3-b81d-bfdd02b60871" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,495" />
+          <Segment EndPoint="725.6,540" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b4931e89-e761-494b-93ad-103f658a38ce" From="2afaa060-e752-47b4-af40-044e81359af6" FromIndex="2" To="1cfa9259-40f6-4e1d-bb36-e2367ed57680" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,670" />
+          <Segment EndPoint="725.6,715" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

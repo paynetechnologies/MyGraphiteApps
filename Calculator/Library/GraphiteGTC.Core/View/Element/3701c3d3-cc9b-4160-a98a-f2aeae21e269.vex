@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="NumericField" ViewElementId="3701c3d3-cc9b-4160-a98a-f2aeae21e269" BasedOn="6c4194eb-b4de-4bdd-9ac8-1992477afd34" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d">
+  <Description>Numeric Field is used for editing numeric values.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="NumericField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">NumericField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Calculator.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAARCAYAAADHeGwwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEmSURBVDhPxZM9SgRBEEZ7ZQUNVjDTO4iBgghiomJm6AUM5g6CgWDsATyIm6jBgiaiJuamZiIK/mCg7+uugmF3drsRfx48qqsYurpmpltVVYUCJvABJ3ETT/AA9/AW57GRMYs5VlCbv+G5CrBmUc2GUtpg3eIFvmIHl1SAU4uNjGrwWXNXBVAj5U/YVgG6qFojpRN8m1ENWuZyzNIpp1G1YxXgCP25RtTAX0PdOosW7/AxLcOCxSuLzsBeJa/IG9xYnMHZtAzXFodSb+Cj+rh+ip2YhbCNyu9jllBTf0707/H/H3krLcML6jarprsg9nHgxP3kJtiw2MN3LL5gTmmDM4urOI7PeKlCjlyDOdT4hzFLt1b5FH6okONPP7L/bj9l5JcnCOELuU1KpqwmdYIAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAARCAYAAADHeGwwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD0SURBVDhPxZPNDsFAFIWnEkktLOx4DRKRiI2fpXeSeAoPYoWFhI1g4QE8g0RSrMY57R2pmrYTgi/5cmautrfXpEpr7aIPA0gGkLVxuNP6AJPXPywoN9qwBK9wxQLoSs4krbg26Emu4QWWYZMFMJe04nGMFFJ/SMGTfMJ1grfJasA3oq1wF01UgaxNWQATaK6zwga8MWmchuQRnqKlqktuJQ0vz3L5i0yDvWQV1qKl2kmmwkM2b5wc09Rdsd7/90MeRksVQB+yxm+BjCD3Rit5E/Qll/AGnT8wg2uDhWQHFuEZbljII+uQP+U3hxyf4Ct8eQKl7i2+f3h+U95xAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

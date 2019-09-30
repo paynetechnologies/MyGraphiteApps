@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="RemoveViewElementAuthorizations" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="e2df1426-cb99-48ba-8d7c-06d50e2c39c0" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Removes a list of View Elemant authorizations from a Security Group">
+  <Variables>
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="InputOutput" VariableId="7419dbea-2851-4b0f-9a3a-ef2217cb0a73" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElementDetails" DataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" VariableType="Input" VariableId="375b2055-1ff1-4e7c-91ca-cfa7801e70ef" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="d09108b1-edfe-4af2-b1e4-abbdc1a927aa" Bounds="822.5,55,170,55" />
+        <RepeatNode LoopType="ForEach" EnumerationSource="ViewElementDetails" IterationVar="ViewElementDetail" ID="8e4d837d-4395-4532-9a43-8525d4753b2f" Bounds="557.5,155,700,205" Text="Repeat" />
+        <ExecuteProcessNode EntityDefinition="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessProperty="0bb555ef-1118-4600-b043-8e1ecdcb8279" ExecuteProcessType="EntityStatic" VariableId="SecurityGroupRemoveViewElementAuthorizationResult" SuppressValidations="false" Parent="8e4d837d-4395-4532-9a43-8525d4753b2f" ID="d9dfb657-80c8-4d01-b172-5e905abc81f2" Bounds="72.5,75,550,55" ZOrder="1">
+          <InputVariables>
+            <InputVariable Name="SecurityGroup" Value="SecurityGroup" />
+            <InputVariable Name="ViewElementDetail" Value="ViewElementDetail" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="SecurityGroup" Value="SecurityGroup" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="e5adf9f4-ee0b-42a3-9c28-b5e4b38f56ed" Bounds="822.5,405,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="ce7d4ab2-1127-49a8-adaa-8f01c31bd975" From="d09108b1-edfe-4af2-b1e4-abbdc1a927aa" FromIndex="0" To="8e4d837d-4395-4532-9a43-8525d4753b2f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="52fa6687-d19d-4366-84c4-43f6af1cd127" From="8e4d837d-4395-4532-9a43-8525d4753b2f" FromIndex="2" To="e5adf9f4-ee0b-42a3-9c28-b5e4b38f56ed" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,360" />
+          <Segment EndPoint="907.5,405" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

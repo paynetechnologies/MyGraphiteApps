@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="LoadAll" OwnerId="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" ProcessId="ab58f2f3-5aad-448c-b0f5-0a80399ede5b" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Loads all Security Groups">
+  <Variables>
+    <Variable Name="SecurityGroups" DataType="$[List,259dbfce-2f6a-4c29-9c2a-c51ed1d781d6]" VariableType="Output" VariableId="c919fd39-857d-4e02-8678-cb7013d027c4" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="deed8d18-6e38-4842-a5ec-acb719c58a56" Bounds="886.5,55,170,55" />
+        <DataLookupNode Source="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableId="SecurityGroups" ResultType="Array" Description="Load all SecurityGroups" ID="985e70e4-9a7b-44af-baef-133a188e2703" Bounds="696.5,155,550,55" ZOrder="1" Text="Data Lookup">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Description" RightExpression="&quot;PrimeMover&quot;" Operator="IsNotEqualTo" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Description" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </DataLookupNode>
+        <EndNode ID="a4040bc9-63e0-481c-9a96-cb2539d1c88d" Bounds="886.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="a2d19f77-7047-4ad5-95b5-28111b267848" From="deed8d18-6e38-4842-a5ec-acb719c58a56" FromIndex="0" To="985e70e4-9a7b-44af-baef-133a188e2703" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="971.5,110" />
+          <Segment EndPoint="971.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="785e71d4-c3d8-4763-bad3-4136ec501d13" From="985e70e4-9a7b-44af-baef-133a188e2703" FromIndex="2" To="a4040bc9-63e0-481c-9a96-cb2539d1c88d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="971.5,210" />
+          <Segment EndPoint="971.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

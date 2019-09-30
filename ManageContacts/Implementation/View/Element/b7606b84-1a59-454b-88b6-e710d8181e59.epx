@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementPackDefinition ElementPackId="b7606b84-1a59-454b-88b6-e710d8181e59" ElementPackName="ContactsHeaderPack">
+  <Properties />
+  <ViewDiagram>
+    <Diagram>
+      <Nodes>
+        <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="7ea81379-4a7a-4744-81d4-93674adabb76" Bounds="50,50,290,35">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="ContactsHeaderArea" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" ID="3597e0d7-fcc5-47e0-ad19-9635e3f43881" Bounds="90,105,290,35">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="GraphiteGTCLogo" />
+            </Field>
+            <Field FieldName="Source">
+              <PropertyValue Property="SelectedResourceName" Value="$[ce8fc861-b3f3-4b1e-bf7a-3af2282f9c80,common,Image,GraphiteGTCGuide]" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" ID="9d5980fd-e7d4-403d-b621-1acdf0c266e6" Bounds="90,160,290,35">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="ContactsUserLinkPanel" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+      </Nodes>
+      <Connections>
+        <ViewDiagramNodeConnection ID="65b3a4b2-fb15-4213-a5e8-170eb1dfc26c" From="7ea81379-4a7a-4744-81d4-93674adabb76" FromIndex="0" To="3597e0d7-fcc5-47e0-ad19-9635e3f43881" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,122.5" />
+          <Segment EndPoint="90,122.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="a1303c97-c150-45a8-94fa-2cfc3b90c6ec" From="7ea81379-4a7a-4744-81d4-93674adabb76" FromIndex="0" To="9d5980fd-e7d4-403d-b621-1acdf0c266e6" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,177.5" />
+          <Segment EndPoint="90,177.5" />
+        </ViewDiagramNodeConnection>
+      </Connections>
+    </Diagram>
+  </ViewDiagram>
+  <Tags>
+    <Tag Type="Group">Contacts</Tag>
+    <Tag Type="Default">Element Pack</Tag>
+  </Tags>
+</ViewElementPackDefinition>

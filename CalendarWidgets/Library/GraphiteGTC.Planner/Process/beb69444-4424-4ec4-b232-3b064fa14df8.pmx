@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildReplaceElements" OwnerId="7e543221-7a31-43b9-94f6-438c52cdbaf9" ProcessId="beb69444-4424-4ec4-b232-3b064fa14df8" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Add DayPlannerEvents to a DayPlanner and add to a list of ViewElements">
+  <Variables>
+    <Variable Name="DayPlanner" DataType="7e543221-7a31-43b9-94f6-438c52cdbaf9" VariableType="Input" VariableId="7f537eb2-cb4e-486b-a222-2884e4c209b4" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="e25c1f51-6c5e-4177-a5dc-9a14905286ab" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="4d25f1bf-a1be-4216-a344-a9850a9cd625" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Create ViewElements" ID="55bd7bda-dd9b-4ba9-8525-45ccea1d595a" Bounds="632.5,155,550,55" ZOrder="3" Text="">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="DayPlanner" SourceList="ViewElements" Description="Add DayPlanner to View Elements" ID="a5070300-b747-45d2-b862-a0e06525fd9d" Bounds="632.5,255,550,55" ZOrder="3" Text="" />
+        <EndNode ID="419bc412-8969-461f-82d3-6d83b8b41926" Bounds="822.5,355,170,55" ZOrder="2" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="e4e3919f-4c13-47fe-945d-2edd299b89a6" From="55bd7bda-dd9b-4ba9-8525-45ccea1d595a" FromIndex="2" To="a5070300-b747-45d2-b862-a0e06525fd9d" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ae9bba3f-eec7-4cfe-96cd-8eb00c3e3c4a" From="a5070300-b747-45d2-b862-a0e06525fd9d" FromIndex="2" To="419bc412-8969-461f-82d3-6d83b8b41926" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6be32ef3-6545-44a9-a8c8-52addc7780a3" From="4d25f1bf-a1be-4216-a344-a9850a9cd625" FromIndex="0" To="55bd7bda-dd9b-4ba9-8525-45ccea1d595a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

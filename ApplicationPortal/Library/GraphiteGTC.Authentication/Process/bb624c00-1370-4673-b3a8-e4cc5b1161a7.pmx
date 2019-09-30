@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetTenants" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="bb624c00-1370-4673-b3a8-e4cc5b1161a7" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Get all tenants">
+  <Variables>
+    <Variable Name="Tenants" DataType="$[List,62ff6d43-a027-42b1-af68-9508897115fa]" VariableType="Output" VariableId="d34ae000-19ad-4b2d-abfe-e094a6e08038" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="4ee92e14-e93f-4e26-9360-127613e20c0b" Bounds="822.5,55,170,55" />
+        <RunWebServiceNode ServiceProcessId="af36af03-934a-466e-b107-400fc944edbf" VariableId="GetTenantsResult" ID="2910aa77-0c24-41ec-bee2-b32b8b7815b2" Bounds="632.5,155,550,55">
+          <OutputVariables>
+            <OutputVariable Name="GetTenantsResult" Value="Tenants" />
+          </OutputVariables>
+        </RunWebServiceNode>
+        <EndNode ID="437a2919-83c0-4c99-ac2b-ffaab81e2160" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="5569c2c1-bcc3-41f8-a45f-0e276a7237f9" From="4ee92e14-e93f-4e26-9360-127613e20c0b" FromIndex="0" To="2910aa77-0c24-41ec-bee2-b32b8b7815b2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8aab4e84-8667-4b17-9087-80e90a25c751" From="2910aa77-0c24-41ec-bee2-b32b8b7815b2" FromIndex="2" To="437a2919-83c0-4c99-ac2b-ffaab81e2160" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

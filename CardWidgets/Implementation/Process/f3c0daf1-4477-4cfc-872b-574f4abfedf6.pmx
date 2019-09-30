@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickGoButton" OwnerId="c85fb505-bd7e-4290-b397-e331eda9d43a" ProcessId="f3c0daf1-4477-4cfc-872b-574f4abfedf6" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="f36d4a9d-8592-475f-9b2c-e1c2a244ff73" VariableType="Input" Classification="Pinned, Locked" VariableId="815a6f16-050f-4848-8619-49a5cd174184" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="c0a2858f-bec6-4461-9ea2-79117886e433" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageChoiceField" DataType="ecd4b3a6-fb9e-4d6a-b23d-614d9a7dffab" VariableType="Input" VariableId="2c4a231f-c24d-4a6f-a0ab-ea72b448e00f" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="ThemeField" DataType="d5450c37-3975-4590-9830-214b35786eb7" VariableType="Input" VariableId="ca28d443-c07a-4aab-8f24-e211be346b90" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="97b8b31a-663c-4e40-a218-76dc5be512fd" Bounds="630.6,265,170,55" ZOrder="1" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="cf3fd72e-a417-4ae6-ba0d-7acc07b9f018" Bounds="440.6,365,550,55" ZOrder="1" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ValidationNode Description="Required Fields Validations" ID="b871c779-5a6a-4f39-bf24-7a18e238bf28" Bounds="440.6,465,550,55" ZOrder="2" Text="">
+          <Validations>
+            <Validation Name="PageChoiceValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustChooseAPage]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="PageChoiceField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="ThemeValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustChooseATheme]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="ThemeField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <RaiseErrorsNode ID="3e66127b-ecc9-40ce-a805-31c951b7966e" Bounds="440,565,550,55" ZOrder="2" Text="" />
+        <DecisionNode LeftExpression="PageChoiceField" RightExpression="PageChoice:Simple1" Operator="IsEqualTo" Description="Sample1 View?" ID="36267739-733a-4c52-b0b1-2ea0cd15510c" Bounds="460.6,665,510,125" ZOrder="3" Text="" />
+        <PageInstructionNode Action="ShowView" Context="Current" Theme="ThemeField.Description" Locale="Language:EnglishUSA.Code" ViewDefinitionId="2e440b18-29a0-4b86-b258-2d4377e58fe4" PageInstructionViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" Description="Goto Sample2 View" ID="ab8c2a06-792a-452b-9a85-88f89756f86f" Bounds="840.6,835,550,55" ZOrder="4" Text="" />
+        <PageInstructionNode Action="ShowView" Context="Current" Theme="ThemeField.Description" Locale="Language:EnglishUSA.Code" ViewDefinitionId="b60dcbe8-d178-4d9f-b95c-45f5047981f8" PageInstructionViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" Description="Goto Sample1 View" ID="68dde8ce-0c95-4b1c-8113-d19cc5f9daaa" Bounds="40.6,835,550,55" ZOrder="3" Text="" />
+        <EndNode ID="4af6ab04-d074-4dae-b608-9ec809d5960c" Bounds="630.6,935,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="7dc90153-c491-4724-9eca-99f6c6879e35" From="36267739-733a-4c52-b0b1-2ea0cd15510c" FromIndex="3" To="68dde8ce-0c95-4b1c-8113-d19cc5f9daaa" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="460.6,727.5" />
+          <Segment EndPoint="315.6,727.5" />
+          <Segment EndPoint="315.6,835" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="511fbe87-5f86-43b5-b04c-49aed6f86bd0" From="b871c779-5a6a-4f39-bf24-7a18e238bf28" FromIndex="2" To="3e66127b-ecc9-40ce-a805-31c951b7966e" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,520" />
+          <Segment EndPoint="715.6,542.5" />
+          <Segment EndPoint="715,542.5" Movable="true" />
+          <Segment EndPoint="715,565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="cb210522-9019-4e3a-a458-becee392d1a7" From="3e66127b-ecc9-40ce-a805-31c951b7966e" FromIndex="2" To="36267739-733a-4c52-b0b1-2ea0cd15510c" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715,620" />
+          <Segment EndPoint="715,642.5" />
+          <Segment EndPoint="715.6,642.5" Movable="true" />
+          <Segment EndPoint="715.6,665" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6dfe7f36-2129-4513-9e43-e0b28359054f" From="97b8b31a-663c-4e40-a218-76dc5be512fd" FromIndex="0" To="cf3fd72e-a417-4ae6-ba0d-7acc07b9f018" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,320" />
+          <Segment EndPoint="715.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="422b38b9-f991-4309-8190-fa830d805924" From="cf3fd72e-a417-4ae6-ba0d-7acc07b9f018" FromIndex="2" To="b871c779-5a6a-4f39-bf24-7a18e238bf28" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,465" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="99fa7337-31b0-4283-843e-4212d691e5ca" From="36267739-733a-4c52-b0b1-2ea0cd15510c" FromIndex="1" To="ab8c2a06-792a-452b-9a85-88f89756f86f" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="970.6,727.5" />
+          <Segment EndPoint="1115.6,727.5" />
+          <Segment EndPoint="1115.6,835" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="1584a838-b47a-4265-870c-5919810e71c1" From="68dde8ce-0c95-4b1c-8113-d19cc5f9daaa" FromIndex="2" To="4af6ab04-d074-4dae-b608-9ec809d5960c" ToIndex="3" LineType="ElbowArrow">
+          <Segment EndPoint="315.6,890" />
+          <Segment EndPoint="315.6,962.5" />
+          <Segment EndPoint="630.6,962.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c1527d6f-32d3-4037-b995-66703ac25481" From="ab8c2a06-792a-452b-9a85-88f89756f86f" FromIndex="2" To="4af6ab04-d074-4dae-b608-9ec809d5960c" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="1115.6,890" />
+          <Segment EndPoint="1115.6,962.5" />
+          <Segment EndPoint="800.6,962.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

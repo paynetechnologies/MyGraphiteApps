@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ConvertOptionsToParameters" OwnerId="d755da0a-0e5c-4094-8ba7-791b6dd53e2c" ProcessId="90116ec4-a4e7-4eea-b652-968ac013841a" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Converts Options to UI Parameters">
+  <Variables>
+    <Variable Name="Options" DataType="$[List,d755da0a-0e5c-4094-8ba7-791b6dd53e2c]" VariableType="Input" VariableId="3db91b13-1119-48f6-a63d-82ece76ae4b0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="UiParameters" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" VariableType="Output" VariableId="c0bbce8f-b0ba-44c0-b598-f4d2a6c60678" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="905a3202-0f7c-470d-8440-3689187bc9af" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="UiParameters" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" Description="Initialize UiParameters" ID="14fe8c8f-975a-4272-80ef-d9e67bc89797" Bounds="632.5,155,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="Options" IterationVar="OptionInContext" ID="f1bee81a-f1cd-4661-93e1-2ac7586fab7f" Bounds="557.5,255,700,305" />
+        <CreateNode Variable="NewUiParameter" DataType="91713f8e-9fea-4cd7-8973-d5ba81e4742a" Description="Create a new UiParameter" Parent="f1bee81a-f1cd-4661-93e1-2ac7586fab7f" ID="a567567e-ef9a-47e9-8bdd-3e6c11448ff8" Bounds="75,75,550,55" ZOrder="10">
+          <Properties>
+            <Property Name="Name">OptionInContext.Display</Property>
+            <Property Name="Value">OptionInContext.Value</Property>
+          </Properties>
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="NewUiParameter" SourceList="UiParameters" Description="Add to UiParameters" Parent="f1bee81a-f1cd-4661-93e1-2ac7586fab7f" ID="a6e844d3-e0a1-45f9-a608-b2a9436269dc" Bounds="75,175,550,55" ZOrder="10" />
+        <EndNode ID="8b72a8e0-faae-4a72-ad59-9bb35dc050d3" Bounds="822.5,605,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="e8d53fef-1080-417d-93c5-62c7295acac8" From="905a3202-0f7c-470d-8440-3689187bc9af" FromIndex="0" To="14fe8c8f-975a-4272-80ef-d9e67bc89797" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="bf950d89-2a10-440c-acf6-051e5b4df39c" From="14fe8c8f-975a-4272-80ef-d9e67bc89797" FromIndex="2" To="f1bee81a-f1cd-4661-93e1-2ac7586fab7f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="1b9a897b-7fe6-4f49-a02e-d6fa351055b9" From="a567567e-ef9a-47e9-8bdd-3e6c11448ff8" FromIndex="2" To="a6e844d3-e0a1-45f9-a608-b2a9436269dc" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,385" />
+          <Segment EndPoint="907.5,430" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="08f0ab04-b657-492f-b281-983b62cd3499" From="f1bee81a-f1cd-4661-93e1-2ac7586fab7f" FromIndex="2" To="8b72a8e0-faae-4a72-ad59-9bb35dc050d3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,560" />
+          <Segment EndPoint="907.5,605" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

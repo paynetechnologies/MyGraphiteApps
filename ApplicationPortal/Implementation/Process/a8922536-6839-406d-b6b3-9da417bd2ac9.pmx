@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="b46339dc-d95b-49c2-b456-d87211afcb3a" ProcessId="a8922536-6839-406d-b6b3-9da417bd2ac9" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="b46339dc-d95b-49c2-b456-d87211afcb3a" VariableType="Output" Classification="Pinned, Locked" VariableId="b5b96716-9d6a-4cac-b498-5be908434367" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="25304fab-edc4-4189-9086-d245791fac12" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="39950b21-ec5d-4d18-af13-3ec7adaccc59" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="b46339dc-d95b-49c2-b456-d87211afcb3a" Description="Create the Login view" ID="e0a023a0-e89d-4806-abcc-09ec9aa19bcc" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <RunExternalProcessNode ExternalProcessId="681fdc94-308e-49d1-b336-acf381343e30" VariableId="GetPeriodOfDayResult" ID="8777780d-3bd4-4bf2-b53c-39d590da7d09" Bounds="440.6,255,550,55" />
+        <AssignNode ID="7fefc199-b1f9-43ca-9c45-27975869d46b" Bounds="440.6,355,550,55">
+          <Assignment Name="PeriodOfDayHeading.TextString" Value="Text.Concatenate( GetPeriodOfDayResult, &quot;,&quot; )" />
+        </AssignNode>
+        <EndNode ID="3e98b1f4-3465-4090-9871-a612beab3127" Bounds="630.6,455,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="6f480d32-56dd-410f-b03a-c02dbafdf203" From="39950b21-ec5d-4d18-af13-3ec7adaccc59" FromIndex="0" To="e0a023a0-e89d-4806-abcc-09ec9aa19bcc" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="2cd951af-6c89-4aba-8bfd-0ad90bc5c943" From="e0a023a0-e89d-4806-abcc-09ec9aa19bcc" FromIndex="2" To="8777780d-3bd4-4bf2-b53c-39d590da7d09" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="48d95aab-869d-489d-ad84-c024071c52d7" From="8777780d-3bd4-4bf2-b53c-39d590da7d09" FromIndex="2" To="7fefc199-b1f9-43ca-9c45-27975869d46b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="db300bab-d241-46b3-8a82-d72495eab5e3" From="7fefc199-b1f9-43ca-9c45-27975869d46b" FromIndex="2" To="3e98b1f4-3465-4090-9871-a612beab3127" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

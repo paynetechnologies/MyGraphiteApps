@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ActionButton" ViewElementId="8e63c35b-4d07-4292-a06d-bfbe457ba294" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Action Button is a specialized version of a Hyperlink that provides an Apple style icon button. It is usually used in the Footer for navigation purposes.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Navigation" PropertyId="SimpleEntityDefinitionProperty_Navigation" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Target" PropertyId="61b537b4-1ae0-4e47-9a99-785b0571f3d6" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ActionButton" />
+    <Property PropertyName="Target" DefaultValue="_self" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ActionButton.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Button.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="NavigationView" EditorType="ViewChooser" Label="Goto" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View to Navigate to when clicked]]></Description>
+      </Field>
+      <Field FieldName="Target" EditorType="SelectBox" Label="Opens In?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Open the new View in new or the same of the Browser]]></Description>
+        <DescriptionOptions><![CDATA[New Window, Same Window]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="New Window" Value="_blank" />
+          <FieldOption DisplayName="Same Window" Value="_self" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="_self" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FullWidth" EditorType="Hidden" Label="Full Width?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsPill" EditorType="Hidden" Label="Pill?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonStyle" EditorType="Hidden" Label="Style" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Clear" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonType" EditorType="Hidden" Label="Type" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Active" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsWide" EditorType="Hidden" Label="Wide?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="FocusIndex" PropertyPath="FocusIndex" Value="{Text}" />
+      <Map FieldName="NavigationView" PropertyPath="Navigation.View" Value="{Url}" />
+      <Map FieldName="Target" PropertyPath="Target" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAYAAAAv3j5gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGBSURBVEhL7ZU/KEVRHMfPQ8xKmCU2WaSIiZJiI38Xw7OwWRCz0WZkIYuUSYmMdonIoIgsomQSn9/7Hbf77nv3nPNeMfnUp/N9d3jf7rm/e24mm81+mT+gwq6/zn9R2YQUTWIm0F4siq/oFfc1BrFi1wJ8Rbv4odFcobwKSfdQ6MB+jYX4irbs2omtGvN4wTmNZtmuRXEVXeKZRjNl1yQL+IhtOCwX0nAV/dxNNY5pzOMYNzWaRZRhSCWt6BO3NZoBrNMY8Y6zKM+oBUfRiRQlR1SswgcUpu0aZxVvNZprrMRi/xPpG4ZaHNIY8YQX2BezC534ikawRmNEIx7ikVVycmsL8BUV27Yk83igMR1XURN2a0xlDTc0unEVybsjD/KHZzzRmEOmckmjH1dRM67jBMrdNeApClI4gzLeQcin3EYv9XiDd9iDcuAG4xuGOHKWveEgllQihBbJ1o2jlNzLhVIJLZLvjJx357lfZRBS1I7yYsYnrmRCiuQc29FYLsZ8A9DePONggjgNAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAYAAAAv3j5gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFvSURBVEhL7dVPK0VBGMfxcymytCHZXbJQZCM2LJSNhRfARnehbC1slK2t8gJshJKyFlLKS5CysvKvhMTGxfeZOXTMfWbmnCtWfvXpzjwzp6dz7txzS+8k+YM0pJ+/nv9GdSdPo2mUchqFHjl1gdyjBbIvjz2oid3RFl7sMDmD/BRcO5AMYtwOlaQNfRmG7Bkys9rcoQOyZ1cKvoQanULWxaoUlFQg6/14k4IvoUYLkPUm3ErByT7kzSJ7NqUQiq/RKzoh65NScPKELsh6D6oIRjbGbMPNPLS9XubWA2nFJZrNzOYKM6iamc0zTuzQE7ezYxaxyGOWx6td/0UtZhwjljlo136jFlNlBI8sWYZ2bQ21mFpCNtc4sEOTdXwe76jQK6gbK5hCGe04guQQFQRPUjaxU5dNG85xgRE8IHeK/B8t4hETKNTExH2WHnIwbtCXqRWiFhVrGHNqheT5jgbQiw0zqzN5vqNG/KhJkiTJB7DfV5kSH9LMAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

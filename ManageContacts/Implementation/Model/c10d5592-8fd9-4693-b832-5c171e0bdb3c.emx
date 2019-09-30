@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Contact" EntityId="c10d5592-8fd9-4693-b832-5c171e0bdb3c" TargetChangeSetId="23980923-7e69-4f0f-95be-6c62570f5059" BasedOn="298c9e23-74ca-4d1c-ac68-8b0bb174c995">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="EmailAddress" PropertyId="ba2e37a9-eab3-479f-adcc-68d83b89c31f" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="HomeNumber" PropertyId="5910f390-df72-4195-9020-73cf5b4fd1b2" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="MobileNumber" PropertyId="44e464db-288f-4b30-b26a-3c61c567ec85" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="HomeAddress" PropertyId="73aa4080-3f6f-4a2d-b0d2-2a07abfabeb3" IsOptional="true" DataType="e23a24bf-452b-432c-9bc3-e173bfd928ad" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="DateOfBirth" PropertyId="dde0237f-f4c9-457f-857c-4a4b7a1ec5d8" IsOptional="true" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Tags>
+    <Tag Type="Group">Contacts</Tag>
+  </Tags>
+</EntityDefinition>

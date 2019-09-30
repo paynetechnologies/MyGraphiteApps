@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="PDFElement" ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>PDF Element allows a user to display a PDF with all of the bells and whistles associated with that type of document.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PDFData" PropertyId="SimpleEntityDefinitionProperty_PDFData" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="PDFElement" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">PDFElement.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="DimensionHeight" EditorType="IntegerTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the PDF Element]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="IntegerTextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the PDF Element]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVEhLY0xLS/vPQB3ACKUZmKA0SIASjAJghlIVjBpKfUB3Q0Hpl1gMAnD+aJhSH9DdUGwFBy4MAnD+aJhSH5BrKHIWBeHfQAwH5BjKAqWRwVMoDQbkGMoNpZHBHigNBtQI0xdA3ARhQgDMUPQwwoc/APE3IL4BxJOA2BiIHwMxHIAMRc4ZIAzynhAS5gJibGo0gTgfiJ8BMRJgYAAAXHwpvP2D5wQAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACPSURBVEhL7ZXRCkBAEEWXlOLBF/hgvyRfo/AHKA/ctWOsF9lpycOeOt1Jui8zEa1A+SGiVEcpPxBy6YgpvRJK/fNK6d1Jie83LMo/n2/fhfBBOflVqV6M7QIZSWlCadNR7khKc0qbhtKg71SfqoMFtBlgCfkd6S96hC2sYQV7yOhSGpkMpmbcmeFkxicotQHG+mqPALuJBAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

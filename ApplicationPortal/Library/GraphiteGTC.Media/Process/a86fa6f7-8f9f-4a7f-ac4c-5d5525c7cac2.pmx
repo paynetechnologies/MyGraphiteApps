@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Create" OwnerId="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessId="a86fa6f7-8f9f-4a7f-ac4c-5d5525c7cac2" ProcessType="Normal" Classification="DataTransfer" IsRemovable="true" Description="Create a Folder Descriptor">
+  <Variables>
+    <Variable Name="Path" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="c6a782e3-4050-4599-81a9-ab70d189bcd0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FolderDescriptor" DataType="ddadc386-b0ef-4ea4-ae98-7a36edff0092" VariableType="Output" VariableId="c2870218-7c49-43b1-a172-edfc340d0b2b" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="43cb892b-6b6e-42b8-8c9d-491b0227d2fb" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="FolderDescriptor" DataType="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ID="1427f96f-1abe-455c-8519-39217dc9d605" Bounds="632.5,155,550,55">
+          <Properties>
+            <Property Name="Path">Path</Property>
+          </Properties>
+        </CreateNode>
+        <CreateNode Variable="FolderDescriptor.Files" DataType="$[List,993c2be0-0891-4ac3-8e2f-9890fda1cb23]" ID="27422b4f-f456-4509-bb42-05867ef4c227" Bounds="632.5,255,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="02e2b2ef-5eb6-4179-9801-3a417a082700" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="57e13da0-0d0e-488e-9c10-7fb57c2d51fb" From="43cb892b-6b6e-42b8-8c9d-491b0227d2fb" FromIndex="0" To="1427f96f-1abe-455c-8519-39217dc9d605" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="13d5697d-2797-4a8a-b934-7ac4d14bb1da" From="1427f96f-1abe-455c-8519-39217dc9d605" FromIndex="2" To="27422b4f-f456-4509-bb42-05867ef4c227" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="152ca558-e660-471a-9279-78e8152a3d1b" From="27422b4f-f456-4509-bb42-05867ef4c227" FromIndex="2" To="02e2b2ef-5eb6-4179-9801-3a417a082700" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

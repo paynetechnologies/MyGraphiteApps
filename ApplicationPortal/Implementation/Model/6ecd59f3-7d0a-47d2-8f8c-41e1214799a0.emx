@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Asset" EntityId="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Amount" PropertyId="9a2a69e7-b389-4309-94e0-82af2122145d" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="EntryOrder" PropertyId="95656125-bb49-48d2-a1d8-e04e0fbfa168" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Type" PropertyId="a7d7e495-4360-4e7a-8f18-632b68ca58ea" IsOptional="true" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

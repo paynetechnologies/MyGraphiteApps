@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildContactDetail" OwnerId="913e4155-0c81-4a39-8f43-113764623287" ProcessId="1529dfd8-8e81-4d8a-9b52-cd27d0fa0011" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ContactToDisplay" DataType="c10d5592-8fd9-4693-b832-5c171e0bdb3c" VariableType="Input" VariableId="498a9527-2f67-44bd-88e1-c5558d18a463" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="NewContactDetail" DataType="$[c8e166a7-71da-484a-9ab9-50e4b7cbb0b2,913e4155-0c81-4a39-8f43-113764623287]" VariableType="Output" VariableId="1f0f9c12-d072-49b9-ad73-7bb0599d31e0" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="e92b3524-c3fe-48a8-bea0-77bd1c18c6e5" Bounds="630.6,55,170,55" />
+        <CreateNode Variable="NewContactDetail" DataType="$[c8e166a7-71da-484a-9ab9-50e4b7cbb0b2,913e4155-0c81-4a39-8f43-113764623287]" ID="d7747e2d-f207-4c9c-a03b-03250f375d37" Bounds="440.6,155,550,55">
+          <Properties>
+            <Property Name="Id">ContactToDisplay</Property>
+          </Properties>
+        </CreateNode>
+        <AssignNode Description="Set Display Items (except Address)" ID="6c5c71b1-58d4-4671-8910-870f61829a05" Bounds="440.6,255,550,55">
+          <Assignment Name="NewContactDetail.ContactDetailDisplayItems.DateOfBirthItem.Value" Value="ContactToDisplay.DateOfBirth" />
+          <Assignment Name="NewContactDetail.ContactDetailDisplayItems.Nameitem.Value" Value="Text.Concatenate( ContactToDisplay.FirstName, &quot; &quot;, ContactToDisplay.LastName )" />
+          <Assignment Name="NewContactDetail.ContactDetailDisplayItems.MobileNumberItem.Value" Value="ContactToDisplay.MobileNumber" />
+          <Assignment Name="NewContactDetail.ContactDetailDisplayItems.HomeNumberItem.Value" Value="ContactToDisplay.HomeNumber" />
+          <Assignment Name="NewContactDetail.ContactDetailDisplayItems.EmailAddressItem.Value" Value="ContactToDisplay.EmailAddress" />
+        </AssignNode>
+        <ExecuteProcessNode EntityDefinition="e23a24bf-452b-432c-9bc3-e173bfd928ad" ProcessProperty="1b5d367a-64ed-4014-b088-86b8fe17f51e" ExecuteProcessType="EntityStatic" VariableId="USAAddressGetPunctuatedLineResult" SuppressValidations="false" Description="Get Address Line" ID="1d02d367-9e2e-487b-a117-12fe61ef2a60" Bounds="440.6,355,550,55">
+          <InputVariables>
+            <InputVariable Name="Address" Value="ContactToDisplay.HomeAddress" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="AddressLine" Value="USAAddressGetPunctuatedLineResult.Outputs.AddressLine" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <AssignNode Description="Set Address Display Item" ID="ddff06c9-f652-44b2-a007-010a3b0dc8d5" Bounds="440.6,455,550,55">
+          <Assignment Name="NewContactDetail.ContactDetailDisplayItems.AddressItem.Value" Value="USAAddressGetPunctuatedLineResult.Outputs.AddressLine" />
+        </AssignNode>
+        <CreateUiParametersNode Variable="NewContactDetail.ContactDetailLinks.EditContactLink.Navigation.UiParameters" ViewDefinition="f290f20c-82fb-42b8-a551-71ac8943b7fd" ProcessProperty="187fd304-eaff-43b9-a0bd-19aa44647f62" ID="76542b04-98f8-4c8a-ab6d-500d99d0f70b" Bounds="440.6,555,550,55">
+          <Parameters>
+            <Parameter Name="ContactToEdit" Value="ContactToDisplay" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="NewContactDetail.ContactDetailLinks.DeleteContactButton.OnClick.UiParameters" ViewDefinition="913e4155-0c81-4a39-8f43-113764623287" ProcessProperty="284b06f4-10fc-40c0-a4f3-9bd9aee0b025" ID="808af752-5ddb-45ac-a097-e52df152f384" Bounds="440.6,655,550,55">
+          <Parameters>
+            <Parameter Name="ContactToDelete" Value="ContactToDisplay" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <EndNode ID="87de8a3d-1c23-49c0-83df-a9b39e3d9978" Bounds="630.6,755,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="3f9d7bc8-8751-41bc-99a6-d5ee82cd358f" From="e92b3524-c3fe-48a8-bea0-77bd1c18c6e5" FromIndex="0" To="d7747e2d-f207-4c9c-a03b-03250f375d37" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0c6896b0-7040-4a7d-8ef5-ee86eaead81e" From="d7747e2d-f207-4c9c-a03b-03250f375d37" FromIndex="2" To="6c5c71b1-58d4-4671-8910-870f61829a05" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b11d3ece-d00d-488f-af8a-1531505812f9" From="6c5c71b1-58d4-4671-8910-870f61829a05" FromIndex="2" To="1d02d367-9e2e-487b-a117-12fe61ef2a60" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="453f9a03-6cf7-405c-8ec7-cb867c2a0524" From="1d02d367-9e2e-487b-a117-12fe61ef2a60" FromIndex="2" To="ddff06c9-f652-44b2-a007-010a3b0dc8d5" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ea3b5f54-76ba-45da-a925-c6052d16c599" From="ddff06c9-f652-44b2-a007-010a3b0dc8d5" FromIndex="2" To="76542b04-98f8-4c8a-ab6d-500d99d0f70b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="01a23cd1-85f9-4268-a938-b39e5afc2fd7" From="76542b04-98f8-4c8a-ab6d-500d99d0f70b" FromIndex="2" To="808af752-5ddb-45ac-a097-e52df152f384" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,610" />
+          <Segment EndPoint="715.6,655" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9ec58599-11aa-4e97-872d-63fadacd8d89" From="808af752-5ddb-45ac-a097-e52df152f384" FromIndex="2" To="87de8a3d-1c23-49c0-83df-a9b39e3d9978" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,710" />
+          <Segment EndPoint="715.6,755" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

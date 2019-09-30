@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ViewElement" ViewElementId="38107afd-fd3d-4472-b463-d8d0d5588a55" BasedOn="f572ede2-ab19-4fa6-aeff-c41f5e8e80a1" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Name" PropertyId="b5b3b4c0-567d-4740-a99c-95fef5501ffb" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FocusIndex" PropertyId="81e6040b-a422-4aaf-95f1-2c9a62875bf9" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsDisplayed" PropertyId="70ea17bd-68cb-4687-aff5-eb185d5a8102" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TranslateContent" PropertyId="235f0f53-b73b-4b7a-a871-3fdaed4f30e0" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="TranslateContent" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="false" Group="when">Promise.min</Script>
+      <Script Component="false" Group="Velocity">velocity.min</Script>
+      <Script Component="false" Group="i18next">i18next.min</Script>
+      <Script Component="true" RelativePath="View/Scripts">ViewElement.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">GTC.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Position.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">WidgetFactory.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Modal.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Mouse.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.MobileMenu.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Button.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Checkbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.MultiSelect.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Selectable.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Tooltip.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Touch.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Validation.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Colors.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">QueryString.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Name" EditorType="AlphaNumericTextBox" Label="Name" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Name of the Instance]]></Description>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="Hidden" Label="FocusIndex" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="IsDisplayed" EditorType="YesNoToggle" Label="Show?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show or Hide?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TranslateContent" EditorType="Hidden" Label="TranslateContent" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Name" PropertyPath="Name" Value="{Text}" />
+      <Map FieldName="FocusIndex" PropertyPath="FocusIndex" Value="{Text}" />
+      <Map FieldName="IsDisplayed" PropertyPath="IsDisplayed" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>ErrorDetails</Key>
+    <Key>PermissionDenied</Key>
+    <Key>ConcurrencyError</Key>
+    <Key>SessionExpired</Key>
+    <Key>ValidationDetails</Key>
+    <Key>WarningDetails</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="MediaFile" EntityId="30d687ee-3dfb-4dae-95ff-5429488506da" NamespaceExtension="Media">
+  <Description>An entity used to contain the details and content of a file</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Location" PropertyId="8b16b477-a171-4e27-bbce-f279ed72a3ec" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayName" PropertyId="bc8a8089-d592-496b-a359-6c94b7921a14" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileName" PropertyId="3affc058-20e8-4744-baf5-9d15c6dc0d6d" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ContentType" PropertyId="765285ca-f514-4d4b-9b98-978a7a117fdb" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Content" PropertyId="f4ca9cff-5cae-443c-8180-c5ddc8dc09bc" IsOptional="true" DataType="a34995d1-d881-4b42-a62b-b465b969f46a" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileExtension" PropertyId="e09cfe71-a987-438c-9a35-4b204f789736" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ContentLength" PropertyId="c5572afc-d9a4-450a-9e6a-7c914574f170" IsOptional="false" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+</EntityDefinition>

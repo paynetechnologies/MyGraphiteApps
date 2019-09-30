@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="8535d60f-9d1b-4dde-a002-4ae203377ea5" ProcessId="ab002091-fd61-47a1-a2e2-0ae9e66c5647" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="8535d60f-9d1b-4dde-a002-4ae203377ea5" VariableType="Output" Classification="Pinned, Locked" VariableId="1311bfe5-b15c-424a-a771-c8ed0be9e070" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="da2ec3d1-a9a1-452b-9420-c8d7a5a10ba1" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="68a53441-a964-409e-94ae-9f0254ecf1bb" Bounds="630.6,55,170,55" Text="Start" />
+        <EndNode ID="371b801f-b53f-4f59-a519-7f7acb84a61c" Bounds="630.6,155,170,55" />
+        <CreateNode Variable="View" DataType="8535d60f-9d1b-4dde-a002-4ae203377ea5" Description="Create the ContinueModal view" ID="8c2f5b11-1540-4632-b053-dcbd4f47ade1" Bounds="440.6,255,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <CreateFromNode Variable="CurrentApplicant" FromExpression="CurrentUser" CreateAsTypeId="292093ab-1097-44c3-b7b6-76352d824c8d" ID="2e8f5902-1c88-4603-aa3f-0aea0c04538a" Bounds="440.6,355,550,55" />
+        <ExecuteProcessNode ViewDefinition="8535d60f-9d1b-4dde-a002-4ae203377ea5" ProcessProperty="d079fb2b-165b-4d75-ad9c-9ec27525c1b7" ExecuteProcessType="View" VariableId="ContinueModalBuildApplicationPanelResult" SuppressValidations="false" ID="6b4827fd-00ea-4399-91e1-9e2978fd85ec" Bounds="440.6,455,550,55">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="CurrentApplicant" />
+            <InputVariable Name="View" Value="View" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="View" Value="View" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="bb4d8401-c824-4ce0-b364-79a9ef8c4389" Bounds="630.6,555,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="c0628499-ad27-4bec-af36-83eaee60e9d5" From="8c2f5b11-1540-4632-b053-dcbd4f47ade1" FromIndex="2" To="2e8f5902-1c88-4603-aa3f-0aea0c04538a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="dc4ef0a4-c018-45d7-b3f9-2d076a778d23" From="2e8f5902-1c88-4603-aa3f-0aea0c04538a" FromIndex="2" To="6b4827fd-00ea-4399-91e1-9e2978fd85ec" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="57ffba84-b925-459a-8d61-f7f909adaa07" From="6b4827fd-00ea-4399-91e1-9e2978fd85ec" FromIndex="2" To="bb4d8401-c824-4ce0-b364-79a9ef8c4389" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b962ddaf-3a51-461a-9e2c-2321beb2f085" From="68a53441-a964-409e-94ae-9f0254ecf1bb" FromIndex="0" To="371b801f-b53f-4f59-a519-7f7acb84a61c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

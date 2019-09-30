@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AddFile" OwnerId="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessId="cfb52fa1-9c9f-4fa1-9c72-41ca20d7a248" ProcessType="Normal" Classification="DataTransfer" IsRemovable="true" Description="Add a File Descriptor to a Folder Descriptor">
+  <Variables>
+    <Variable Name="FileDescriptor" DataType="993c2be0-0891-4ac3-8e2f-9890fda1cb23" VariableType="Input" VariableId="8d32a010-40b9-4c50-a55c-8db006adf330" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FolderDescriptor" DataType="ddadc386-b0ef-4ea4-ae98-7a36edff0092" VariableType="InputOutput" VariableId="1b27c1a9-ea91-42cb-ac28-02edb5d24cb0" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="ec63799e-2fcc-4227-aa15-cbce9609695d" Bounds="822.5,55,170,55" />
+        <ListManagementNode ListActionType="Add" ListItem="FileDescriptor" SourceList="FolderDescriptor.Files" ID="099e7ee6-8c0a-47e7-8978-c07e927476c0" Bounds="632.5,155,550,55" />
+        <EndNode ID="c5cd3762-0b8b-468b-8b98-7f80a06ef890" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="a131bd5e-d4e0-43b1-aabb-4c3535e7485e" From="ec63799e-2fcc-4227-aa15-cbce9609695d" FromIndex="0" To="099e7ee6-8c0a-47e7-8978-c07e927476c0" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="08aff0bb-ddc5-41be-8368-bc3ed96566e5" From="099e7ee6-8c0a-47e7-8978-c07e927476c0" FromIndex="2" To="c5cd3762-0b8b-468b-8b98-7f80a06ef890" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

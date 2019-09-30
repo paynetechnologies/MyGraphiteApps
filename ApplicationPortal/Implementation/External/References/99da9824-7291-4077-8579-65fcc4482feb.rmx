@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="99da9824-7291-4077-8579-65fcc4482feb" Name="PortalUtility" Reference="Portal.Utility.dll">
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</ExternalReference>

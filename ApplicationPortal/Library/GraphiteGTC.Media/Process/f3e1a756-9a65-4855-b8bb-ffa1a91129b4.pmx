@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AddMediaFile" OwnerId="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessId="f3e1a756-9a65-4855-b8bb-ffa1a91129b4" ProcessType="Normal" Classification="DataTransfer" IsRemovable="true" Description="Add a Media File to a Folder Descriptor">
+  <Variables>
+    <Variable Name="MediaFile" DataType="30d687ee-3dfb-4dae-95ff-5429488506da" VariableType="Input" VariableId="35c34af3-5e00-4c77-9679-ad401a1598ed" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FolderDescriptor" DataType="ddadc386-b0ef-4ea4-ae98-7a36edff0092" VariableType="InputOutput" VariableId="06e5f46e-f397-4ba3-a6a0-1538226ecd3a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="c0a3d7dd-11e8-4d53-86fe-f8a2fbf91767" Bounds="822.5,55,170,55" />
+        <ExecuteProcessNode DataTransferDefinition="993c2be0-0891-4ac3-8e2f-9890fda1cb23" ProcessProperty="b2df7fd8-d1b7-4f0a-a1d0-70c0baa13dd0" ExecuteProcessType="DataTransfer" VariableId="FileDescriptorCreateResult" SuppressValidations="false" ID="1baed47f-d2e3-4675-bb45-a9ca07eff476" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Content" Value="MediaFile.Content.Base64Content" />
+            <InputVariable Name="FileExtension" Value="MediaFile.FileExtension" />
+            <InputVariable Name="FileName" Value="MediaFile.DisplayName" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode DataTransferDefinition="ddadc386-b0ef-4ea4-ae98-7a36edff0092" ProcessProperty="cfb52fa1-9c9f-4fa1-9c72-41ca20d7a248" ExecuteProcessType="DataTransfer" VariableId="FolderDescriptorAddFileResult" SuppressValidations="false" ID="2bbd5dd2-eb0b-4f4c-994a-ea7bea3ab625" Bounds="632.5,255,550,55">
+          <InputVariables>
+            <InputVariable Name="FileDescriptor" Value="FileDescriptorCreateResult.Outputs.FileDescriptor" />
+            <InputVariable Name="FolderDescriptor" Value="FolderDescriptor" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="FolderDescriptor" Value="FolderDescriptor" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="8a3e8615-9701-4777-879b-42d666142bb7" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="6d9af43c-68d2-43ad-9459-d977ed5a13a4" From="c0a3d7dd-11e8-4d53-86fe-f8a2fbf91767" FromIndex="0" To="1baed47f-d2e3-4675-bb45-a9ca07eff476" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="81822ac9-d4e2-4858-bc42-7fd2642df969" From="1baed47f-d2e3-4675-bb45-a9ca07eff476" FromIndex="2" To="2bbd5dd2-eb0b-4f4c-994a-ea7bea3ab625" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ce9b8489-b383-4a93-aecc-34dc8a7367c2" From="2bbd5dd2-eb0b-4f4c-994a-ea7bea3ab625" FromIndex="2" To="8a3e8615-9701-4777-879b-42d666142bb7" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

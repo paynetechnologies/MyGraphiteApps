@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="CardPanel" ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Card Panel holds one or more Cards.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Cards" PropertyId="SimpleEntityDefinitionProperty_Cards" IsOptional="true" DataType="$[List,72dd79de-f665-43de-b226-600b20fa0dd7]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="d4cde0f3-40c9-4630-b64c-2eb46e86c15a" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CardsPerLine" PropertyId="28d0b531-4f4a-4ad4-8c16-631e7d30a83f" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="CardPanel" />
+    <Property PropertyName="CardsPerLine" DefaultValue="4" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">CardPanel.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">StyleHelper.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="TextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Panel]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Height]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CardsPerLine" EditorType="SelectBox" Label="Cards Per Line" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Number of adjacent Cards on the Panel]]></Description>
+        <DescriptionOptions><![CDATA[1 - 8]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="1" Value="1" />
+          <FieldOption DisplayName="2" Value="2" />
+          <FieldOption DisplayName="3" Value="3" />
+          <FieldOption DisplayName="4" Value="4" />
+          <FieldOption DisplayName="5" Value="5" />
+          <FieldOption DisplayName="6" Value="6" />
+          <FieldOption DisplayName="7" Value="7" />
+          <FieldOption DisplayName="8" Value="8" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="4" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="CardsPerLine" PropertyPath="CardsPerLine" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVEhL3ZFBCgAgCAStx/r/HxRBgYc9GJsiDSweF2ebqg4JpO8bRmpBIwOxBWsLJpDSilwwilykKgphFSC/z5LyARrwWf4Y+QBHugjEFkCHF4GUVuSCUeQiVVEAIhNgNFJdFwJhJAAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABQSURBVEhLY/wPBAw0BExQmmaA5hYgBxEjlCYXYA3qoR8HlAQRUT4fTaYEASiIoEzaALqmIpqA4RHJ5GY0dIA1qId+HFASRET5fDSZEgAMDABYLy73PXQOSAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

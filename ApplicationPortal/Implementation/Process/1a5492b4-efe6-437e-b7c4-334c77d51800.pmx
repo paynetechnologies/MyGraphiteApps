@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetPageParameters" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="1a5492b4-efe6-437e-b7c4-334c77d51800" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="46a7c8b5-38ff-457b-b85b-c445b8895caf" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="758d3fb1-a8ad-4d5b-9c9a-8131ca39146b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" VariableType="InputOutput" VariableId="2fe09eff-5229-4e74-92b2-7ded6438d182" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="f9752598-2de4-4913-9486-c8a31403dcd3" Bounds="640.6,165,170,55" ZOrder="1" Text="" />
+        <CreateUiParametersNode Variable="AssetsAndIncomeTab.OnEnter.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="56216be6-f43f-4acc-9d92-656d5b4c7537" ID="d59c2223-f460-4c35-9c79-73f781abdd1f" Bounds="450.6,265,550,55" ZOrder="1" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="AboutMeTab.OnLeave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="e8d01223-1db0-4844-81df-9a2bee875b62" ID="b6df8a87-d785-48f4-9a8b-0ee17581da47" Bounds="450.6,365,550,55" ZOrder="1" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="HomeInformationTab.OnLeave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="6e9b9c99-0290-4736-8c6b-e6f46fddedee" ID="0347cfd1-dd7b-41bf-8d62-0707a026e0e0" Bounds="450.6,465,550,55" ZOrder="2" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="AssetsAndIncomeTab.OnLeave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="2ee79df7-cd77-4de7-91a3-27b4fd9e7c0a" ID="0c05245c-6708-49e9-a79f-ae8872c9dd83" Bounds="450.6,565,550,55" ZOrder="3" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="EmploymentHistoryTab.OnLeave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="cf9eb66b-2735-4323-a243-81bd939461c5" ID="dd501c27-baef-452c-b44f-245004f7af20" Bounds="450.6,665,550,55" ZOrder="4" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="GovernmentTab.OnLeave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="63d64e62-0f34-41a3-b693-30437cb97b37" ID="1162286b-b5e3-4d73-8157-a1df380b1b3d" Bounds="450.6,765,550,55" ZOrder="5" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="CreditTab.OnLeave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="3195ebfb-17c5-4dce-81ff-31be2a9f37bd" ID="38fd993c-9f62-47a2-83f6-4b8a21959fb7" Bounds="450.6,865,550,55" ZOrder="6" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="AboutMeTab.OnSave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="4da16d5a-3193-4c98-bb38-abe83674f7e5" ID="d8bc5012-2f88-4d8a-9e3e-86b3519366d7" Bounds="450.6,965,550,55" ZOrder="2" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="HomeInformationTab.OnSave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="0bfd982d-c412-4544-bc31-55086ad7c16d" ID="b4b8cb67-47bc-49b2-ad87-000d1b7ef0e1" Bounds="450.6,1065,550,55" ZOrder="3" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="AssetsAndIncomeTab.OnSave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="7ee82852-bb1d-4999-b507-b3bdec890973" ID="fe001c61-546d-4a23-a471-c133a782c2f8" Bounds="450.6,1165,550,55" ZOrder="4" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="EmploymentHistoryTab.OnSave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="0bfd982d-c412-4544-bc31-55086ad7c16d" ID="a28e6766-d73d-4d13-9ea4-b8ae43bd6b0e" Bounds="450.6,1265,550,55" ZOrder="5" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="GovernmentTab.OnSave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="780fca7b-ab6e-42d0-b49a-5dd5544dd4e9" ID="7e57cf02-a3d7-4944-89f6-6dbfb79dc6d1" Bounds="450.6,1365,550,55" ZOrder="6" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="CreditTab.OnSave.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="172b910f-0e7a-4aff-9f7e-8a9ba8bc7443" ID="c0d78c4e-0ceb-41bb-945f-72151ff03be5" Bounds="450.6,1465,550,55" ZOrder="7" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="CreditTab.OnSubmit.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="1a176d3d-b07e-4a8a-baee-d30d7cc0bce5" ID="3e4dcbb5-eecf-4843-89f9-292491ef0b27" Bounds="450.6,1565,550,55" ZOrder="3" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="LicenseUpload.OnUpload.UiParameters" ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="85cd16a1-f408-416b-b6a5-0fec84d7131c" ID="a30568be-07df-41ec-b35b-eb0abbbc2019" Bounds="450.6,1665,550,55" ZOrder="1" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <EndNode ID="3f327328-094c-43c3-928a-0e956421c412" Bounds="640.6,1765,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="3175de43-ef75-4009-82ae-8a17e74883d5" From="b4b8cb67-47bc-49b2-ad87-000d1b7ef0e1" FromIndex="2" To="fe001c61-546d-4a23-a471-c133a782c2f8" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1120" />
+          <Segment EndPoint="725.6,1165" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f1d271da-45ed-423f-8851-a00d537297d0" From="fe001c61-546d-4a23-a471-c133a782c2f8" FromIndex="2" To="a28e6766-d73d-4d13-9ea4-b8ae43bd6b0e" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1220" />
+          <Segment EndPoint="725.6,1265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7613a3ff-b1a2-4889-bef0-6d54a97d3f6a" From="a28e6766-d73d-4d13-9ea4-b8ae43bd6b0e" FromIndex="2" To="7e57cf02-a3d7-4944-89f6-6dbfb79dc6d1" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1320" />
+          <Segment EndPoint="725.6,1365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="bf5c814a-af84-4522-88e2-c5dcb6a9b5e5" From="7e57cf02-a3d7-4944-89f6-6dbfb79dc6d1" FromIndex="2" To="c0d78c4e-0ceb-41bb-945f-72151ff03be5" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1420" />
+          <Segment EndPoint="725.6,1465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="22ddc95d-1eec-4ac6-bc2b-b230a41ce8c9" From="a30568be-07df-41ec-b35b-eb0abbbc2019" FromIndex="2" To="3f327328-094c-43c3-928a-0e956421c412" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1720" />
+          <Segment EndPoint="725.6,1765" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b64896f2-143b-4ab9-a596-3256778eb3e4" From="b6df8a87-d785-48f4-9a8b-0ee17581da47" FromIndex="2" To="0347cfd1-dd7b-41bf-8d62-0707a026e0e0" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,420" />
+          <Segment EndPoint="725.6,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d7e9826f-181c-448c-9f36-1f582420626c" From="0347cfd1-dd7b-41bf-8d62-0707a026e0e0" FromIndex="2" To="0c05245c-6708-49e9-a79f-ae8872c9dd83" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,520" />
+          <Segment EndPoint="725.6,565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="321c7c75-c7be-414e-8be3-0c0c16682cf5" From="0c05245c-6708-49e9-a79f-ae8872c9dd83" FromIndex="2" To="dd501c27-baef-452c-b44f-245004f7af20" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,620" />
+          <Segment EndPoint="725.6,665" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="93e50fe7-3a24-4602-b924-12ee14dde404" From="dd501c27-baef-452c-b44f-245004f7af20" FromIndex="2" To="1162286b-b5e3-4d73-8157-a1df380b1b3d" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,720" />
+          <Segment EndPoint="725.6,765" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e095b3ff-f57b-4e5d-8a92-1dcf30fed2d7" From="1162286b-b5e3-4d73-8157-a1df380b1b3d" FromIndex="2" To="38fd993c-9f62-47a2-83f6-4b8a21959fb7" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,820" />
+          <Segment EndPoint="725.6,865" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="8ea38234-7740-4623-9ced-d00952375792" From="38fd993c-9f62-47a2-83f6-4b8a21959fb7" FromIndex="2" To="d8bc5012-2f88-4d8a-9e3e-86b3519366d7" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,920" />
+          <Segment EndPoint="725.6,965" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="554b3090-3e8d-450f-bcef-f3b7e33e2aa8" From="d8bc5012-2f88-4d8a-9e3e-86b3519366d7" FromIndex="2" To="b4b8cb67-47bc-49b2-ad87-000d1b7ef0e1" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1020" />
+          <Segment EndPoint="725.6,1065" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7ec69029-241a-4497-9c79-d6904d742779" From="c0d78c4e-0ceb-41bb-945f-72151ff03be5" FromIndex="2" To="3e4dcbb5-eecf-4843-89f9-292491ef0b27" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1520" />
+          <Segment EndPoint="725.6,1565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b7c173a1-7914-4c68-9e66-ca75521ec38a" From="3e4dcbb5-eecf-4843-89f9-292491ef0b27" FromIndex="2" To="a30568be-07df-41ec-b35b-eb0abbbc2019" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,1620" />
+          <Segment EndPoint="725.6,1665" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e4d007b5-4b93-4c18-ac98-1539c6a21429" From="f9752598-2de4-4913-9486-c8a31403dcd3" FromIndex="0" To="d59c2223-f460-4c35-9c79-73f781abdd1f" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,220" />
+          <Segment EndPoint="725.6,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="89b7f92c-7c55-4c0c-ac75-45efaba242d3" From="d59c2223-f460-4c35-9c79-73f781abdd1f" FromIndex="2" To="b6df8a87-d785-48f4-9a8b-0ee17581da47" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,320" />
+          <Segment EndPoint="725.6,365" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

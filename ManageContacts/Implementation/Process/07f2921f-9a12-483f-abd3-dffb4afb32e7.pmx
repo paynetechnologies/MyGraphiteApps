@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Build" OwnerId="b7606b84-1a59-454b-88b6-e710d8181e59" ProcessId="07f2921f-9a12-483f-abd3-dffb4afb32e7" ProcessType="Normal" Classification="ViewElementPack, Initialization" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="94a760f9-83c5-436a-951e-e0f4b0524332" VariableType="Input" Classification="Pinned, Locked" VariableId="52145417-1fee-43c1-9823-27ebb9a23748" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ContactsHeaderArea" DataType="b7606b84-1a59-454b-88b6-e710d8181e59" VariableType="InputOutput" VariableId="ac1e3ac0-d032-45d7-837b-37a4f08d6409" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="7f32aa39-5d4a-4a80-b631-52b9f6f63703" Bounds="630.6,55,170,55" Text="Start" />
+        <EndNode ID="b591bc2a-4d99-4704-80ff-b59cd1db7c77" Bounds="630.6,155,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="1582f260-8cde-4ccd-944c-be09d883207e" From="7f32aa39-5d4a-4a80-b631-52b9f6f63703" FromIndex="0" To="b591bc2a-4d99-4704-80ff-b59cd1db7c77" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="Home" GroupName="" ViewId="dbc7906e-85cf-48e0-834d-33fad4509642" IsDefaultView="true" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false" Color="WhiteSmoke">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementPackDiagramNode Description="" ElementPackId="03a089dc-6a4e-487b-a90e-14d42305ddea" Name="ElementPack1" ID="00cf0c63-2685-44ea-a018-11c1c140501f" Bounds="50,50,290,35" />
+          </Nodes>
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ListViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" PropertyName="Tiles" OwnerNode="044e3f23-831b-4138-ab1d-a5dc1fcd7606" ID="96b14657-ad8e-4d6c-a32d-843e4f7f7770" Bounds="90,105,290,35" Text="Tile">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" ID="044e3f23-831b-4138-ab1d-a5dc1fcd7606" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="SampleAppsPanel" />
+                </Field>
+                <Field FieldName="TooltipName">
+                  <PropertyValue Property="Text" Value="SampleAppsPanelTooltip" />
+                </Field>
+                <Field FieldName="TooltipTextString">
+                  <PropertyValue Property="TranslationKey" Value="WelcomeToThisSampleApplication" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="SampleAppsWidgets" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" ID="158582d2-5b1a-4250-a603-52f57bda5f77" Bounds="130,160,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="LinkWidgetsTile" />
+                </Field>
+                <Field FieldName="IconSymbol">
+                  <PropertyValue Property="Text" Value="fa-bolt" />
+                  <PropertyValue Property="IconName" Value="Bolt" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="Links" />
+                </Field>
+                <Field FieldName="Tooltip">
+                  <PropertyValue Property="TranslationKey" Value="LinksTip" />
+                </Field>
+                <Field FieldName="NavigationView">
+                  <PropertyValue Property="ViewId" Value="e2e0a7b4-644f-4b4e-8dfc-d98a482a485e" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" ID="c6b9a170-22e9-48e8-9706-f9f9bb05717f" Bounds="130,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ActionButtonsTile" />
+                </Field>
+                <Field FieldName="IconSymbol">
+                  <PropertyValue Property="Text" Value="fa-address-book" />
+                  <PropertyValue Property="IconName" Value="Address book" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="ActionButtons" />
+                </Field>
+                <Field FieldName="Tooltip">
+                  <PropertyValue Property="TranslationKey" Value="ActionButtonsTip" />
+                </Field>
+                <Field FieldName="NavigationView">
+                  <PropertyValue Property="ViewId" Value="279466b9-2125-4a5e-a58c-044528db431a" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" ID="be5154b6-9486-4b21-89b0-a2ee6748a8fd" Bounds="130,270,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="SelectableButtonsTile" />
+                </Field>
+                <Field FieldName="IconSymbol">
+                  <PropertyValue Property="Text" Value="fa-ellipsis-h" />
+                  <PropertyValue Property="IconName" Value="Ellipsis horizontal" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="SelectableButtons" />
+                </Field>
+                <Field FieldName="Tooltip">
+                  <PropertyValue Property="TranslationKey" Value="SelectableButtonsTip" />
+                </Field>
+                <Field FieldName="NavigationView">
+                  <PropertyValue Property="ViewId" Value="5bb6de69-8394-495f-ae33-20bbcd5c5a2b" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" ID="71a8e032-7354-405a-9bee-480fdcb49370" Bounds="130,325,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="MenuLinkSlidePanelTile" />
+                </Field>
+                <Field FieldName="IconSymbol">
+                  <PropertyValue Property="Text" Value="fa-navicon" />
+                  <PropertyValue Property="IconName" Value="Navicon" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="MenuLinkAndSlidePanel" />
+                </Field>
+                <Field FieldName="Tooltip">
+                  <PropertyValue Property="TranslationKey" Value="MenuLinkAndSlidePanelTip" />
+                </Field>
+                <Field FieldName="NavigationView">
+                  <PropertyValue Property="ViewId" Value="33dfb643-b702-4690-8d86-3a3b0156a19f" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="094987d2-eca8-43eb-b13b-b79107843dc4" From="044e3f23-831b-4138-ab1d-a5dc1fcd7606" FromIndex="0" To="96b14657-ad8e-4d6c-a32d-843e4f7f7770" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,122.5" />
+              <Segment EndPoint="90,122.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="3d5dc6ba-6874-47f1-9cd7-89b0a46bd2dc" From="96b14657-ad8e-4d6c-a32d-843e4f7f7770" FromIndex="0" To="158582d2-5b1a-4250-a603-52f57bda5f77" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,177.5" />
+              <Segment EndPoint="130,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="8978a997-56a9-47c9-94b4-7637b710d6c9" From="96b14657-ad8e-4d6c-a32d-843e4f7f7770" FromIndex="0" To="c6b9a170-22e9-48e8-9706-f9f9bb05717f" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,232.5" />
+              <Segment EndPoint="130,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="00cc296f-c574-494d-ad8f-80d87540cf90" From="96b14657-ad8e-4d6c-a32d-843e4f7f7770" FromIndex="0" To="be5154b6-9486-4b21-89b0-a2ee6748a8fd" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,287.5" />
+              <Segment EndPoint="130,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="5281b16d-edfa-46c7-afa9-f69659842c6c" From="96b14657-ad8e-4d6c-a32d-843e4f7f7770" FromIndex="0" To="71a8e032-7354-405a-9bee-480fdcb49370" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,342.5" />
+              <Segment EndPoint="130,342.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="0f69389c-478f-473b-96db-b2bc4c583f55" Bounds="50,50,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FooterArea" />
+                </Field>
+                <Field FieldName="FontSize">
+                  <PropertyValue Property="Text" Value="18" />
+                </Field>
+                <Field FieldName="FontWeight">
+                  <PropertyValue Property="Text" Value="Bold" />
+                </Field>
+                <Field FieldName="PaddingTop">
+                  <PropertyValue Property="Text" Value="20" />
+                </Field>
+                <Field FieldName="BackgroundColor">
+                  <PropertyValue Property="Text" Value="WhiteSmoke" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" ID="bef9c0c5-07e4-43cc-be72-2bfb9fb9d58c" Bounds="90,105,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FooterItemList" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" PropertyName="ListItems" OwnerNode="bef9c0c5-07e4-43cc-be72-2bfb9fb9d58c" ID="b05fd5ba-f5e0-453f-a45d-a22bddad94e7" Bounds="130,160,290,35" Text="HtmlText">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" ID="4fbb614b-d006-4185-a782-43933ee4b36a" Bounds="170,215,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DescriptionText" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="ProjectDescription" />
+                </Field>
+                <Field FieldName="TextColor">
+                  <PropertyValue Property="Text" Value="Black" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" ID="598e5045-be66-4a8f-99c8-2821d2cc4b76" Bounds="170,270,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Hint1Text" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="Hint1" />
+                </Field>
+                <Field FieldName="TextColor">
+                  <PropertyValue Property="Text" Value="Black" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" ID="482ff5a4-4faf-42d9-bd7a-c122a5f506bb" Bounds="170,325,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Hint2Text1" />
+                </Field>
+                <Field FieldName="TextString">
+                  <PropertyValue Property="TranslationKey" Value="Hint2" />
+                </Field>
+                <Field FieldName="TextColor">
+                  <PropertyValue Property="Text" Value="Black" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="fed0a602-22c5-460e-83ac-8b50ed02e70c" From="0f69389c-478f-473b-96db-b2bc4c583f55" FromIndex="0" To="bef9c0c5-07e4-43cc-be72-2bfb9fb9d58c" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,122.5" />
+              <Segment EndPoint="90,122.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="f6d7e2b5-bbd0-4590-a599-2fb70ba2c84b" From="bef9c0c5-07e4-43cc-be72-2bfb9fb9d58c" FromIndex="0" To="b05fd5ba-f5e0-453f-a45d-a22bddad94e7" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,177.5" />
+              <Segment EndPoint="130,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="12ad8e7b-4e8d-495f-a8bc-a8a50c87f40f" From="b05fd5ba-f5e0-453f-a45d-a22bddad94e7" FromIndex="0" To="4fbb614b-d006-4185-a782-43933ee4b36a" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,232.5" />
+              <Segment EndPoint="170,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="7326ea85-e7a0-4441-a535-908190229ed1" From="b05fd5ba-f5e0-453f-a45d-a22bddad94e7" FromIndex="0" To="598e5045-be66-4a8f-99c8-2821d2cc4b76" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,287.5" />
+              <Segment EndPoint="170,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="84d844f9-9d71-447e-9be5-768333f1536b" From="b05fd5ba-f5e0-453f-a45d-a22bddad94e7" FromIndex="0" To="482ff5a4-4faf-42d9-bd7a-c122a5f506bb" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,342.5" />
+              <Segment EndPoint="170,342.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Action Widgets</Tag>
+  </Tags>
+</ViewDefinition>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ValidateApplication" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="c90b8b8b-2945-4275-ae51-88a966775df3" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="d586031b-f92d-4760-ae1a-498fb2d56603" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="d472bb1f-1288-4d02-8c20-998c90bc701c" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="bdfe0e74-7452-4a7c-a672-e60ab1687558" Bounds="630.6,55,170,55" />
+        <ValidationNode ID="4ab23ec4-f2eb-4b00-a1dc-a93730e4eb41" Bounds="440,155,550,55" Text="Validation">
+          <Validations>
+            <Validation Name="AgreementValidation" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:PleaseAgreeAndAcceptDisclosureAgreement]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="ApplicationInContext.DisclosureAgreement" RightExpression="YesNoQuestion:No" Operator="IsEqualTo" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <ValidationNode ID="429ad48d-b8fc-4216-99e4-b9bd7109623a" Bounds="440.6,255,550,55" Text="Validation">
+          <Validations>
+            <Validation Name="SSNValidation" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterSSN]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="ApplicationInContext.ApplicationData.PersonalData.SSN" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <ValidationNode ID="2d7b577f-96b3-4b40-a4be-dae39d486abc" Bounds="440.6,355,550,55" Text="Validation">
+          <Validations>
+            <Validation Name="DateOfBirthValidation" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterDateOfBirth]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="ApplicationInContext.ApplicationData.PersonalData.DateOfBirth" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <EndNode ID="d9cb0b34-069a-4bde-bdb2-8831c7b85f7f" Bounds="630.6,455,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="9fea03b6-433f-493c-88a0-65a1cce56996" From="2d7b577f-96b3-4b40-a4be-dae39d486abc" FromIndex="2" To="d9cb0b34-069a-4bde-bdb2-8831c7b85f7f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f95dee60-9e2e-4b1f-99a5-173e175c9c6e" From="4ab23ec4-f2eb-4b00-a1dc-a93730e4eb41" FromIndex="2" To="429ad48d-b8fc-4216-99e4-b9bd7109623a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,232.5" />
+          <Segment EndPoint="715.6,232.5" Movable="true" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="735bc075-0946-45b7-951e-4eae401ed21c" From="429ad48d-b8fc-4216-99e4-b9bd7109623a" FromIndex="2" To="2d7b577f-96b3-4b40-a4be-dae39d486abc" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="23fde290-f295-471d-8033-bbc0d72ba2fa" From="bdfe0e74-7452-4a7c-a672-e60ab1687558" FromIndex="0" To="4ab23ec4-f2eb-4b00-a1dc-a93730e4eb41" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,132.5" />
+          <Segment EndPoint="715,132.5" Movable="true" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

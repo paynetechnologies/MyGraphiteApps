@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ViewBehaviorDetail" EntityId="eae41d9c-aa91-42d5-ba92-f39456b2c5cb" NamespaceExtension="Common">
+  <Description>A system entity that is used to persist View Behavior detail for the authorization framework</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="7040dc47-cbe8-4edc-b05f-468444b13454" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PropertyId" PropertyId="67f684c6-9ba0-4c33-bcbd-25391f85dde9" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewPropertyId" PropertyId="553239ca-e500-42a0-95f1-47b97a026d7c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

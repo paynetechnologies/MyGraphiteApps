@@ -1,0 +1,1919 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataChangeDefinition DataChangeId="07216683-a2de-47f0-940a-be89e5c05101" Version="2" Created="636984527461607097">
+  <Script Type="Seed"><![CDATA[DECLARE @EventRegistrationId INT
+INSERT [dbo].[EventRegistration]
+       ([EffectiveDate], [AddedTime], [ExecutedDate], [ExecutionStartTime], [ExecutionEndTime], [IsComplete])
+VALUES (GETDATE(), GETDATE(), GETDATE(), GETDATE(), GETDATE(), 1)
+SELECT @EventRegistrationId = SCOPE_IDENTITY()
+DECLARE @InheritanceRootId INT
+DECLARE @ObjectId [NVARCHAR](MAX)
+DECLARE @TimeStamp [VARBINARY](MAX)
+
+
+DECLARE @EventProcessId INT
+DECLARE @DataMaintenanceUserId INT
+
+-- DMU Event Initialization
+INSERT [dbo].[EventProcess]
+       ([Name], [EventRegistrationId])
+VALUES('System.DMU', @EventRegistrationId)
+SELECT @EventProcessId = SCOPE_IDENTITY()
+INSERT [dbo].[EventRegistration]
+       ([EventProcessId], [EffectiveDate], [AddedTime], [ExecutedDate], [ExecutionStartTime], [ExecutionEndTime], [IsComplete])
+VALUES (@EventProcessId, GETDATE(), GETDATE(), GETDATE(), GETDATE(), GETDATE(), 1)
+SELECT @EventRegistrationId = SCOPE_IDENTITY()
+
+-- Insert user System.
+IF NOT EXISTS(
+              SELECT *
+                FROM [ApplicationPortal].[User]
+               WHERE [Username] = N'System'
+) BEGIN
+   INSERT [ApplicationPortal].[User]
+          ([Username], [EventRegistrationId], [ObjectId])
+   VALUES ('System', @EventRegistrationId, LOWER(NEWID()))
+   
+   -- History for 'System'.
+   INSERT [ApplicationPortal].[UserHistory]
+          ([Id], [Version], [Username], [EventRegistrationId], [ObjectId], [Operation], [TimeStamp])
+   SELECT [Id], 1, [UserName], @EventRegistrationId, [ObjectId], 'Insert', [TimeStamp]
+     FROM [ApplicationPortal].[User]
+    WHERE [Username] = N'System'
+END
+
+-- Insert user DataMaintenance.
+IF NOT EXISTS(
+              SELECT *
+                FROM [ApplicationPortal].[User]
+               WHERE [Username] = N'DataMaintenance'
+) BEGIN
+   INSERT [ApplicationPortal].[User]
+          ([Username], [EventRegistrationId], [ObjectId])
+   VALUES ('DataMaintenance', @EventRegistrationId, LOWER(NEWID()))
+   
+   -- History for 'DataMaintenance'.
+   INSERT [ApplicationPortal].[UserHistory]
+          ([Id], [Version], [Username], [EventRegistrationId], [ObjectId], [Operation], [TimeStamp])
+   SELECT [Id], 1, [UserName], @EventRegistrationId, [ObjectId], 'Insert', [TimeStamp]
+     FROM [ApplicationPortal].[User]
+    WHERE [Username] = N'DataMaintenance'
+END
+
+SELECT @DataMaintenanceUserId = Id
+  FROM [ApplicationPortal].[User]
+ WHERE [Username] = N'DataMaintenance'
+
+UPDATE [dbo].[EventRegistration]
+   SET [AddedByUserId] = @DataMaintenanceUserId,
+       [ExecutedByUserId] = @DataMaintenanceUserId
+ WHERE [EventRegistrationId] = @EventRegistrationId
+
+-- SECTION MARKER
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_VehicleModel FROM [ApplicationPortal].[VehicleModel] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[VehicleModel] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_VehicleModel DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_VehicleModel ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_VehicleModel ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('CRV', 'fdb62342-c557-4290-bee1-c5a9dd9cc235', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Pilot', 'ab3ca769-a973-4d97-9bb6-633557597071', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('F150', '873c886d-010b-46ea-b69b-7c6a65239e70', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Focus', '39561424-cf4b-40cf-bbd8-4ecd4661506e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Mustang', '0bd7895f-232c-4c41-83ab-3e1cca8b2bf8', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('325xi', '9ef74622-fb5e-4272-afa4-818f5df2b038', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('C300', '2c43d915-bb1f-427b-a585-808b8fa240ce', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('G55', '07b59bcd-0b40-4f26-bd75-056815406777', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleModel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleModel]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleModel ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('SL65', 'a6455bab-e119-49ca-91c8-945f9f640693', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCPostalAddress_USA_USAState FROM [GraphiteGTCPostalAddress_USA].[USAState] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCPostalAddress_USA].[USAState] WHERE 0<>0
+ALTER TABLE #GraphiteGTCPostalAddress_USA_USAState DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCPostalAddress_USA_USAState ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCPostalAddress_USA_USAState ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Alabama', 'AL', 'f84f0095-796c-4007-9167-9ff23e17970d', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Alaska', 'AK', '85e1d8b7-b27d-4828-b033-0b3e3322ae81', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Arizona', 'AZ', '9405cd89-cf06-4417-8f22-88315f01eed0', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Arkansas', 'AR', 'f5ba27fc-1ab1-4b26-9581-44cd021042d4', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('California', 'CA', 'a049ed23-2fbc-479f-9aa3-2146f9ea24f9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Colorado', 'CO', '7b3f1ecf-1410-4b02-a38e-171894ffeedc', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Connecticut', 'CT', '985fda62-52fa-4b36-8b08-b09e749fd85e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Delaware', 'DE', '1d9a3cf8-41d5-497c-8f16-4d7f6261e337', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('District Of Columbia', 'DC', '9ff4c00f-c07b-4cff-9358-a292bad0468b', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Florida', 'FL', 'c0f4f58b-2992-445b-b209-2c6c487ac069', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Georgia', 'GA', 'dbe428d7-2062-4ae1-b71c-6ed355deec56', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Hawaii', 'HI', 'a3d3e010-5276-4086-a61d-defd5479bead', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Idaho', 'ID', '21f4c3a0-3c3e-4d61-990f-79729032511d', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Illinois', 'IL', 'f21477d6-5314-4204-9cab-cf2a294b92b9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Indiana', 'IN', '6c448297-405e-40ed-a156-3cb319a04f6f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Iowa', 'IA', '3a2d90cc-07da-4421-9b0d-5c55ba05cbf8', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Kansas', 'KS', '22715615-a4c3-4312-b309-08e33c2e0c12', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Kentucky', 'KY', 'a0f287e9-f059-4135-9dfa-406e7e51d098', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Louisiana', 'LA', 'e09e5f14-f614-4c52-982a-3572d3c907ce', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Maine', 'ME', 'f1459cf2-8da3-4caa-8182-6e38cfaeaeb9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Maryland', 'MD', '699dec73-326c-42ea-b0d5-6ca0a6cfc930', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Massachusetts', 'MA', 'f0538839-2dc0-41a8-96b9-58dc203f6261', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Michigan', 'MI', '3029d4aa-8ce9-4c1b-8f12-f853d8630b44', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Minnesota', 'MN', 'a7919427-9dcb-4123-ac8b-24b2f4425b7d', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Mississippi', 'MS', '973d9111-1986-4302-b1c0-d7599b3d86e7', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Missouri', 'MO', 'a3b1bb52-7d17-4488-ac5d-cf6c0a103c1c', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Montana', 'MT', '8be69534-b91d-4956-8040-b086d1635f10', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Nebraska', 'NE', '44e7341a-422e-40f9-86b7-65e2b03984d5', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Nevada', 'NV', 'd93893eb-1039-496f-b53e-4a9086f19b69', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('New Hampshire', 'NH', 'cc0b5e0c-4c1d-45a4-99e4-885a7b86e8a2', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('New Jersey', 'NJ', 'a03e00b1-2fc7-4f78-b715-f4bf96cc35e1', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('New Mexico', 'NM', 'f08f8a54-4a12-4878-bc20-4893f1b051a9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('New York', 'NY', '3501bf3e-8b00-4068-8e56-6e3e9bddbfec', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('North Carolina', 'NC', '1f439771-2cfe-46c7-84f4-93adcc322044', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('North Dakota', 'ND', 'fe1116f4-45b3-4db3-97a6-c2b43d439e47', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Ohio', 'OH', '2d827c37-943d-402d-8cea-760bd8973de8', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Oklahoma', 'OK', 'e5d494c3-f43f-403d-968c-7d62e5db65b6', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Oregon', 'OR', '160509fd-ae72-410c-850f-5ccc7f1bce0f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Pennsylvania', 'PA', '4d8ae8ba-af08-4170-935e-917485a17b55', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Rhode Island', 'RI', '65b2fa98-6586-4914-9911-8601773ec4c0', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('South Carolina', 'SC', '28d785da-0851-4caf-b977-6d4d749bb677', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('South Dakota', 'SD', '9227839e-18fb-4ffd-bef7-51d5c3530c85', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Tennessee', 'TN', '925b70fe-9171-45ff-ae51-0bd4cd70c8b1', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Texas', 'TX', '1cd10de3-faa7-48d9-8868-1ec13dcf3086', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Utah', 'UT', '23e0d78f-e744-42ff-b382-2341c2a53f43', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Vermont', 'VT', '506520ce-a826-4263-93a8-cc91ab9220e2', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Virginia', 'VA', '0c2e99a0-cc83-417f-bdf8-cb8f1b2dbba5', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Washington', 'WA', 'b4499f7d-dedc-462b-9457-97299ded9664', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('West Virgina', 'WV', '6720afcc-9cbd-4e36-8fc9-45eff44c9fa5', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Wisconsin', 'WI', 'ae4f5457-973f-48df-8d1c-424b6b3ddf71', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCPostalAddress_USA.USAState (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCPostalAddress_USA].[USAState]
+       ([Description], [Abbreviation], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Abbreviation], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCPostalAddress_USA_USAState ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Wyoming', 'WY', 'e1b2d31d-97f9-4885-9415-a0549e8ec9c7', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_ApplicationStatus FROM [ApplicationPortal].[ApplicationStatus] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[ApplicationStatus] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_ApplicationStatus DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_ApplicationStatus ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_ApplicationStatus ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('New', 'New', '468e5b96-6c25-408d-8fcc-c4f872c99ba5', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Reviewed', 'Reviewed', '2ce58798-4fb6-4f9b-a02b-cefd24bda40f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Approved', 'Approved', '954391bb-cff3-414c-a8a6-6e18384d6485', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Completed', 'Completed', '59e3488b-9d4f-4c6f-83a4-bf724fa99a5e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Declined', 'Declined', '49e94fe2-9cba-44e6-a29d-aba490013aa8', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('OnHold', 'OnHold', 'fba66483-fc07-4f38-adae-f1e7de49b0e4', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Pending', 'Pending', '8cb75fe5-ae43-45e7-a2ac-64ac97ce7da0', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationStatus (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationStatus]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationStatus ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Closed', 'Closed', '45bf4175-3026-4158-af60-1fc14d59107f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.YesNoQuestion (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_YesNoQuestion FROM [GraphiteGTCCore].[YesNoQuestion] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[YesNoQuestion] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_YesNoQuestion DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_YesNoQuestion ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_YesNoQuestion ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[YesNoQuestion]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_YesNoQuestion ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('No', 'd27c5d04-df7e-4bb7-b1cd-ff2557a38247', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- SECTION MARKER
+
+-- Insert statements for table GraphiteGTCCore.YesNoQuestion (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[YesNoQuestion]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_YesNoQuestion ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Yes', 'ea4f655b-eb0a-45ad-b332-5da716c6fe6a', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleYear (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_VehicleYear FROM [ApplicationPortal].[VehicleYear] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[VehicleYear] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_VehicleYear DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_VehicleYear ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_VehicleYear ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[VehicleYear]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleYear ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Year1980', '1980', '8d5242f1-e9b3-43ff-89c8-dacb94f4a1ad', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AssetType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_AssetType FROM [ApplicationPortal].[AssetType] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[AssetType] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_AssetType DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_AssetType ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_AssetType ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[AssetType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AssetType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Checking', 'Checking', '8da2071c-fa13-441a-9e20-ea31b40018cf', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AssetType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AssetType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AssetType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('IRA', 'IRA', '232ba70b-1e71-4bed-9624-f5dd583b96a4', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AssetType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AssetType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AssetType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('MoneyMarket', 'Money Market', '24bc1904-4969-44d1-89e4-64e998434fd3', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AssetType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AssetType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AssetType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('MutualFunds', 'Mutual Funds', '711535f7-8518-4d22-803d-b618a3f1e3dc', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AssetType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AssetType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AssetType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Retirement401K', '401K', '9e4492f0-b5b9-4f91-bca7-a68ca8d75407', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AssetType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AssetType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AssetType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Savings', 'Savings', '9b3abb68-1adc-4a5f-a0e3-4a1b1dfc0bca', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AssetType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AssetType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AssetType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Stocks', 'Stocks', '61de9060-a503-406e-a39b-43a6627f6352', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleMake (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_VehicleMake FROM [ApplicationPortal].[VehicleMake] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[VehicleMake] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_VehicleMake DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_VehicleMake ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_VehicleMake ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[VehicleMake]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleMake ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Honda', '13f8ad3c-2339-42ce-bb3f-a179b4033f47', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [ApplicationPortal].[VehicleMake].[Id] FROM [ApplicationPortal].[VehicleMake] WHERE [ApplicationPortal].[VehicleMake].[ObjectId] = '13f8ad3c-2339-42ce-bb3f-a179b4033f47')
+-- Modify junction table for VehicleModel
+
+SELECT * INTO #ApplicationPortal_11da909ada8661ad6bc789 FROM [ApplicationPortal].[11da909ada8661ad6bc789] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[11da909ada8661ad6bc789] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_11da909ada8661ad6bc789 ADD [Operation] [nvarchar](max) NULL
+DELETE [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT DELETED.[VehicleMakeId], DELETED.[VehicleModelId], 'Delete'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+ WHERE [VehicleMakeId] = @InheritanceRootId
+
+INSERT [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT INSERTED.[VehicleMakeId], INSERTED.[VehicleModelId], 'Insert'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+VALUES (@InheritanceRootId, (SELECT [ApplicationPortal].[VehicleModel].[Id] FROM [ApplicationPortal].[VehicleModel] WHERE [ApplicationPortal].[VehicleModel].[ObjectId] = 'fdb62342-c557-4290-bee1-c5a9dd9cc235'))
+
+-- Insert statements for table ApplicationPortal.VehicleMake (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleMake]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleMake ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Mercedes-Benz', 'f87340e3-0ba0-4e9b-8ec8-050fd702803f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [ApplicationPortal].[VehicleMake].[Id] FROM [ApplicationPortal].[VehicleMake] WHERE [ApplicationPortal].[VehicleMake].[ObjectId] = 'f87340e3-0ba0-4e9b-8ec8-050fd702803f')
+-- Modify junction table for VehicleModel
+DELETE [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT DELETED.[VehicleMakeId], DELETED.[VehicleModelId], 'Delete'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+ WHERE [VehicleMakeId] = @InheritanceRootId
+
+INSERT [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT INSERTED.[VehicleMakeId], INSERTED.[VehicleModelId], 'Insert'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+VALUES (@InheritanceRootId, (SELECT [ApplicationPortal].[VehicleModel].[Id] FROM [ApplicationPortal].[VehicleModel] WHERE [ApplicationPortal].[VehicleModel].[ObjectId] = '2c43d915-bb1f-427b-a585-808b8fa240ce'))
+
+-- Insert statements for table ApplicationPortal.VehicleMake (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleMake]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleMake ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('BMW', '4d61ccbc-5210-47bb-994b-1172b849d8ed', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [ApplicationPortal].[VehicleMake].[Id] FROM [ApplicationPortal].[VehicleMake] WHERE [ApplicationPortal].[VehicleMake].[ObjectId] = '4d61ccbc-5210-47bb-994b-1172b849d8ed')
+-- Modify junction table for VehicleModel
+DELETE [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT DELETED.[VehicleMakeId], DELETED.[VehicleModelId], 'Delete'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+ WHERE [VehicleMakeId] = @InheritanceRootId
+
+INSERT [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT INSERTED.[VehicleMakeId], INSERTED.[VehicleModelId], 'Insert'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+VALUES (@InheritanceRootId, (SELECT [ApplicationPortal].[VehicleModel].[Id] FROM [ApplicationPortal].[VehicleModel] WHERE [ApplicationPortal].[VehicleModel].[ObjectId] = '9ef74622-fb5e-4272-afa4-818f5df2b038'))
+
+-- Insert statements for table ApplicationPortal.VehicleMake (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleMake]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleMake ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Ford', '04400c83-d5d2-44f5-b08e-2f6eacb4b9ab', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [ApplicationPortal].[VehicleMake].[Id] FROM [ApplicationPortal].[VehicleMake] WHERE [ApplicationPortal].[VehicleMake].[ObjectId] = '04400c83-d5d2-44f5-b08e-2f6eacb4b9ab')
+-- Modify junction table for VehicleModel
+DELETE [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT DELETED.[VehicleMakeId], DELETED.[VehicleModelId], 'Delete'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+ WHERE [VehicleMakeId] = @InheritanceRootId
+
+INSERT [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT INSERTED.[VehicleMakeId], INSERTED.[VehicleModelId], 'Insert'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+VALUES (@InheritanceRootId, (SELECT [ApplicationPortal].[VehicleModel].[Id] FROM [ApplicationPortal].[VehicleModel] WHERE [ApplicationPortal].[VehicleModel].[ObjectId] = '873c886d-010b-46ea-b69b-7c6a65239e70'))
+
+-- Insert statements for table ApplicationPortal.VehicleMake (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleMake]
+       ([Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleMake ([Id], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Lexus', '24c5b524-e7c8-43c6-aa87-41a105ff6683', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [ApplicationPortal].[VehicleMake].[Id] FROM [ApplicationPortal].[VehicleMake] WHERE [ApplicationPortal].[VehicleMake].[ObjectId] = '24c5b524-e7c8-43c6-aa87-41a105ff6683')
+-- Modify junction table for VehicleModel
+DELETE [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT DELETED.[VehicleMakeId], DELETED.[VehicleModelId], 'Delete'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+ WHERE [VehicleMakeId] = @InheritanceRootId
+
+INSERT [ApplicationPortal].[11da909ada8661ad6bc789]
+OUTPUT INSERTED.[VehicleMakeId], INSERTED.[VehicleModelId], 'Insert'
+  INTO #ApplicationPortal_11da909ada8661ad6bc789 ([VehicleMakeId], [VehicleModelId], [Operation])
+VALUES (@InheritanceRootId, (SELECT [ApplicationPortal].[VehicleModel].[Id] FROM [ApplicationPortal].[VehicleModel] WHERE [ApplicationPortal].[VehicleModel].[ObjectId] = '07b59bcd-0b40-4f26-bd75-056815406777'))
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_Spinner FROM [GraphiteGTCCore].[Spinner] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[Spinner] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_Spinner DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_Spinner ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_Spinner ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('ChasingDots', '336d1f42-90c2-4d6c-9a6c-be95caee3f91', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Circle', '495361dd-f95b-4fb8-826d-6001370077de', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('CubeGrid', '0bbfee96-52b7-43c6-af12-8cbf190fff57', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('DoubleBounce', 'c852f287-f389-47d4-82b0-61309ff8206e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('FadingCircle', '6f16ab95-3a4c-4e89-b348-118211a8f2ea', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('FoldingCube', '333781bf-b38c-45d5-8121-304ae26da3e4', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Pulse', '4c384d43-15c9-4a90-8b69-b40eb98b00eb', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('RotatingPlane', 'bc6e7f1f-852d-434d-b822-47894b1774bb', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('ThreeBounce', 'b19bf2f3-a4b8-483d-b958-853d9cfcda22', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('WanderingCubes', '89fe32da-691b-4c6f-8b20-bcea5c1b6b4f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Wave', '590f51a5-3fc7-4552-a41b-9d62c819bc40', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Comparison (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_Comparison FROM [GraphiteGTCCore].[Comparison] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[Comparison] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_Comparison DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_Comparison ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_Comparison ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[Comparison]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Comparison ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Greater Than', 'a289fdcf-a5de-4bc3-9b37-3ab8bcdf0a7e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Comparison (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Comparison]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Comparison ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Is Same As', '4584fddd-37a8-457d-9cad-93f5fec691ab', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Comparison (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Comparison]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Comparison ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Less Than', '12dff539-ee28-4fe2-afdf-7240f8f81ac4', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleBodyStyle (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_VehicleBodyStyle FROM [ApplicationPortal].[VehicleBodyStyle] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[VehicleBodyStyle] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_VehicleBodyStyle DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_VehicleBodyStyle ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_VehicleBodyStyle ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[VehicleBodyStyle]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleBodyStyle ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Coupe', 'Coupe', '457f5c75-2283-4dc2-b532-53fc08d170d0', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleBodyStyle (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleBodyStyle]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleBodyStyle ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Sedan', 'Sedan', '54999989-82f6-49b3-b03b-678aaebe92b1', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleBodyStyle (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleBodyStyle]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleBodyStyle ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('SUV', 'SUV', '2f4efc1d-ee55-4106-a36d-1ebc9906e03b', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleBodyStyle (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleBodyStyle]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleBodyStyle ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Truck', 'Truck', '5c0f2ce6-e408-4ea9-a602-94b4ea146cd9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_Theme FROM [ApplicationPortal].[Theme] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[Theme] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_Theme DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_Theme ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_Theme ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Adams', '95035a03-765c-4111-9b28-4fe27e670976', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Fillmore', '5c0fa6f6-3768-42ca-854a-484dbf300315', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Grant', '727eabd4-9369-42e7-851c-0847fe9d85e3', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Harrison', '3c206fbb-68c3-4771-a33d-c23d3ce2fd91', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Jackson', '3e1f1c3d-54be-41d5-a31c-bdfceef86169', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Jefferson', '9d769458-8c60-4152-a71b-ce112d287e8c', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Madison', '70f553f8-39aa-4811-8f49-1d1150d5f24e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Monroe', 'c49ec666-15b1-470e-acc3-758f865b8aaa', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Tyler', '83d2b37a-ac69-466c-90d9-0b48493c8ab3', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('VanBuren', 'baaab7ce-15d0-4a39-8139-828c96112730', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Washington', '607e07c1-8ad2-402f-af00-065b1be51e55', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Polk', '709c3a5d-050c-4332-b0ef-3273477d8f28', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.CurrencyDefinition (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_CurrencyDefinition FROM [GraphiteGTCCore].[CurrencyDefinition] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[CurrencyDefinition] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_CurrencyDefinition DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_CurrencyDefinition ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_CurrencyDefinition ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[CurrencyDefinition]
+       ([Symbol], [MinorUnits], [Code], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Symbol], INSERTED.[MinorUnits], INSERTED.[Code], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_CurrencyDefinition ([Id], [Symbol], [MinorUnits], [Code], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('$', 2, 'USD', 'b1701345-6bc5-40d5-87a1-12a141a0d69e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_AccountType FROM [ApplicationPortal].[AccountType] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[AccountType] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_AccountType DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_AccountType ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_AccountType ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('AutoInsurance', 'Auto Insurance', '841caa96-f314-4812-bb7b-ad6e2f1ac747', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('AutoLoan', 'Auto Loan', 'ecf62de1-4c4f-4de2-b866-b254ee898d9f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('BusinessCreditLine', 'Business Credit Line', 'ea4cd28d-8f93-42b3-a650-1da217614142', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('BusinessLoan', 'Business Loan', '0695983d-1795-4f9d-b1cd-0f3061f3e949', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Checking', 'Checking', '0ef0cb9a-5bbe-4d9f-aa7c-6d265c2846bd', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('HomeLoan', 'Home Loan', '36aa8803-941e-44df-a28e-239f11a73539', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Investment', 'Investment', '014fff83-9d3e-4e32-bdfe-758c6e1d4f54', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('LifeInsurance', 'Life Insurance', 'd77af057-8261-422a-8a7e-91cc208980c5', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.AccountType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[AccountType]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_AccountType ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Saving', 'Saving', 'e70b1551-f2e6-4731-9fe2-9bf732fe674c', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleFinance (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_VehicleFinance FROM [ApplicationPortal].[VehicleFinance] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[VehicleFinance] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_VehicleFinance DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_VehicleFinance ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_VehicleFinance ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[VehicleFinance]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleFinance ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Finance', '290a3efe-ea5b-4ef2-8ace-c6c444f69822', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleFinance (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleFinance]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleFinance ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Lease', 'cd83b4c3-cb64-40e5-9aa5-5c830a89b864', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.VehicleFinance (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[VehicleFinance]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_VehicleFinance ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Own', '84645449-8dee-4fee-b90e-63b19917400e', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Language (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_Language FROM [GraphiteGTCCore].[Language] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[Language] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_Language DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_Language ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_Language ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[Language]
+       ([Code], [Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Code], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Language ([Id], [Code], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('en-US', 'English USA', '090445b8-2bd5-4097-a7ee-a486832fda42', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_ApplicationType FROM [ApplicationPortal].[ApplicationType] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[ApplicationType] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_ApplicationType DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_ApplicationType ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_ApplicationType ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[ApplicationType]
+       ([Description], [Category], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Category], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationType ([Id], [Description], [Category], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('BuyingHome', 'HomeLoan', 'Buying a Home', '1fc342d5-56ea-425c-a6b3-504dfaada260', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationType]
+       ([Description], [Category], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Category], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationType ([Id], [Description], [Category], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('EstatePlanning', NULL, 'Estate Planning', 'bc024ee4-4636-4c92-9d3c-070442755955', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationType]
+       ([Description], [Category], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Category], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationType ([Id], [Description], [Category], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('FindWorkingCapital', NULL, 'Find Working Capital', '674be7df-f1bf-4db8-ad46-4fdd51c818c7', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationType]
+       ([Description], [Category], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Category], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationType ([Id], [Description], [Category], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('InsuranceServices', 'Insurance', 'Insurance  Services', '1e296b3b-6d68-4fe7-b579-d5e8aab82409', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- SECTION MARKER
+
+-- Insert statements for table ApplicationPortal.ApplicationType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationType]
+       ([Description], [Category], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Category], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationType ([Id], [Description], [Category], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Investments', NULL, 'Investments', '70528069-0dc1-4822-9242-0de3432f5b55', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.ApplicationType (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [ApplicationPortal].[ApplicationType]
+       ([Description], [Category], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Category], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_ApplicationType ([Id], [Description], [Category], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('StartingBusiness', NULL, 'Starting a Business', '9419945f-9d2f-4fca-90e8-15b6516ca944', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorizationLevel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCAuthorization_ViewAuthorizationLevel FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_ViewAuthorizationLevel DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCAuthorization_ViewAuthorizationLevel ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCAuthorization_ViewAuthorizationLevel ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorizationLevel]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorizationLevel ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Allow', '1e82d881-cd43-4717-96e7-ff045bc57152', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorizationLevel (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorizationLevel]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorizationLevel ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Deny', '99b7f53b-17d7-417d-aaca-fc9bc4df04a2', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewDetail (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCAuthorization_ViewDetail FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_ViewDetail DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCAuthorization_ViewDetail ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCAuthorization_ViewDetail ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCAuthorization].[ViewDetail]
+       ([Display], [PropertyId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Display], INSERTED.[PropertyId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewDetail ([Id], [Display], [PropertyId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Application Home Loan', '6B401B6CFD324685AED50A2A6C86F68A', 'f4a3260c-8f59-40c5-8ed9-9a104e1fcbf6', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'f4a3260c-8f59-40c5-8ed9-9a104e1fcbf6')
+-- Modify junction table for ViewElementDetail
+
+SELECT * INTO #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b FROM [GraphiteGTCAuthorization].[ad9fcce7674caba4a2b75b] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[ad9fcce7674caba4a2b75b] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b ADD [Operation] [nvarchar](max) NULL
+DELETE [GraphiteGTCAuthorization].[ad9fcce7674caba4a2b75b]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'f4a3260c-8f59-40c5-8ed9-9a104e1fcbf6')
+-- Modify junction table for ViewElementDetail
+
+SELECT * INTO #GraphiteGTCAuthorization_79397261e884a4246a9847 FROM [GraphiteGTCAuthorization].[79397261e884a4246a9847] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[79397261e884a4246a9847] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_79397261e884a4246a9847 ADD [Operation] [nvarchar](max) NULL
+DELETE [GraphiteGTCAuthorization].[79397261e884a4246a9847]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_79397261e884a4246a9847 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'f4a3260c-8f59-40c5-8ed9-9a104e1fcbf6')
+-- Modify junction table for ViewElementDetail
+
+SELECT * INTO #GraphiteGTCAuthorization_e83c9f9211300d595d266a FROM [GraphiteGTCAuthorization].[e83c9f9211300d595d266a] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[e83c9f9211300d595d266a] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_e83c9f9211300d595d266a ADD [Operation] [nvarchar](max) NULL
+DELETE [GraphiteGTCAuthorization].[e83c9f9211300d595d266a]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_e83c9f9211300d595d266a ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'f4a3260c-8f59-40c5-8ed9-9a104e1fcbf6')
+-- Modify junction table for ViewElementDetail
+
+SELECT * INTO #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 FROM [GraphiteGTCAuthorization].[154036ad405bfcb3f68ff7] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[154036ad405bfcb3f68ff7] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 ADD [Operation] [nvarchar](max) NULL
+DELETE [GraphiteGTCAuthorization].[154036ad405bfcb3f68ff7]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewDetail (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewDetail]
+       ([Display], [PropertyId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Display], INSERTED.[PropertyId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewDetail ([Id], [Display], [PropertyId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Application Continue Modal', '8535D60F9D1B4DDEA0024AE203377EA5', 'a36ac453-03ac-4c8a-9f28-5e18dd2855a9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'a36ac453-03ac-4c8a-9f28-5e18dd2855a9')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[ad9fcce7674caba4a2b75b]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'a36ac453-03ac-4c8a-9f28-5e18dd2855a9')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[79397261e884a4246a9847]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_79397261e884a4246a9847 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'a36ac453-03ac-4c8a-9f28-5e18dd2855a9')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[e83c9f9211300d595d266a]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_e83c9f9211300d595d266a ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'a36ac453-03ac-4c8a-9f28-5e18dd2855a9')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[154036ad405bfcb3f68ff7]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewDetail (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewDetail]
+       ([Display], [PropertyId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Display], INSERTED.[PropertyId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewDetail ([Id], [Display], [PropertyId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Account Home', '9E5EBDBD8BA3431CA1FE6394085A9BC9', '9330450c-01ac-4880-a649-5208b5381b2b', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '9330450c-01ac-4880-a649-5208b5381b2b')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[ad9fcce7674caba4a2b75b]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '9330450c-01ac-4880-a649-5208b5381b2b')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[79397261e884a4246a9847]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_79397261e884a4246a9847 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '9330450c-01ac-4880-a649-5208b5381b2b')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[e83c9f9211300d595d266a]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_e83c9f9211300d595d266a ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '9330450c-01ac-4880-a649-5208b5381b2b')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[154036ad405bfcb3f68ff7]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewDetail (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewDetail]
+       ([Display], [PropertyId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Display], INSERTED.[PropertyId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewDetail ([Id], [Display], [PropertyId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('(All)', 'E75D019C5DF94FBF9AFE8ACA80773B3A', '0016260f-60b9-44ad-bebd-8c60b538c617', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '0016260f-60b9-44ad-bebd-8c60b538c617')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[ad9fcce7674caba4a2b75b]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '0016260f-60b9-44ad-bebd-8c60b538c617')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[79397261e884a4246a9847]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_79397261e884a4246a9847 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '0016260f-60b9-44ad-bebd-8c60b538c617')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[e83c9f9211300d595d266a]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_e83c9f9211300d595d266a ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '0016260f-60b9-44ad-bebd-8c60b538c617')
+-- Modify junction table for ViewElementDetail
+DELETE [GraphiteGTCAuthorization].[154036ad405bfcb3f68ff7]
+OUTPUT DELETED.[ViewDetailId], DELETED.[ViewElementDetailId], 'Delete'
+  INTO #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 ([ViewDetailId], [ViewElementDetailId], [Operation])
+ WHERE [ViewDetailId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCAuthorization_ViewAuthorization FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_ViewAuthorization DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCAuthorization_ViewAuthorization ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCAuthorization_ViewAuthorization ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '1e82d881-cd43-4717-96e7-ff045bc57152'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'f4a3260c-8f59-40c5-8ed9-9a104e1fcbf6'), '9ec49e04-859e-41df-8a40-a0b5c2c45d3f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = '9ec49e04-859e-41df-8a40-a0b5c2c45d3f')
+-- Remove records from junction table by secondary key for ViewAuthorization
+
+SELECT * INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 FROM [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ADD [Operation] [nvarchar](max) NULL
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '99b7f53b-17d7-417d-aaca-fc9bc4df04a2'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'f4a3260c-8f59-40c5-8ed9-9a104e1fcbf6'), '10a64b66-f725-4b91-9fd0-c1831e64cc0f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = '10a64b66-f725-4b91-9fd0-c1831e64cc0f')
+-- Remove records from junction table by secondary key for ViewAuthorization
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '1e82d881-cd43-4717-96e7-ff045bc57152'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'a36ac453-03ac-4c8a-9f28-5e18dd2855a9'), 'cfd51138-d779-4746-9ec6-5a85ae6f853c', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = 'cfd51138-d779-4746-9ec6-5a85ae6f853c')
+-- Remove records from junction table by secondary key for ViewAuthorization
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '99b7f53b-17d7-417d-aaca-fc9bc4df04a2'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = 'a36ac453-03ac-4c8a-9f28-5e18dd2855a9'), '1c577457-5242-4292-9e88-b9720c834cad', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = '1c577457-5242-4292-9e88-b9720c834cad')
+-- Remove records from junction table by secondary key for ViewAuthorization
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '1e82d881-cd43-4717-96e7-ff045bc57152'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '9330450c-01ac-4880-a649-5208b5381b2b'), 'a8b60220-9e74-4909-ac5d-c0bec9c68f36', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = 'a8b60220-9e74-4909-ac5d-c0bec9c68f36')
+-- Remove records from junction table by secondary key for ViewAuthorization
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '99b7f53b-17d7-417d-aaca-fc9bc4df04a2'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '9330450c-01ac-4880-a649-5208b5381b2b'), 'e6e27d5c-762c-476e-954c-2d56cbe2c4ba', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = 'e6e27d5c-762c-476e-954c-2d56cbe2c4ba')
+-- Remove records from junction table by secondary key for ViewAuthorization
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '1e82d881-cd43-4717-96e7-ff045bc57152'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '0016260f-60b9-44ad-bebd-8c60b538c617'), 'f8193bf2-3312-4855-8d05-84f180fdfb65', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = 'f8193bf2-3312-4855-8d05-84f180fdfb65')
+-- Remove records from junction table by secondary key for ViewAuthorization
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.ViewAuthorization (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCAuthorization].[ViewAuthorization]
+       ([AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[AuthorizationLevelId], INSERTED.[ViewDetailId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_ViewAuthorization ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ((SELECT [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevel] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevel].[ObjectId] = '99b7f53b-17d7-417d-aaca-fc9bc4df04a2'), (SELECT [GraphiteGTCAuthorization].[ViewDetail].[Id] FROM [GraphiteGTCAuthorization].[ViewDetail] WHERE [GraphiteGTCAuthorization].[ViewDetail].[ObjectId] = '0016260f-60b9-44ad-bebd-8c60b538c617'), 'a53165e0-f05f-4b4d-9011-a7f7a00dfb46', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+SELECT @InheritanceRootId = (SELECT [GraphiteGTCAuthorization].[ViewAuthorization].[Id] FROM [GraphiteGTCAuthorization].[ViewAuthorization] WHERE [GraphiteGTCAuthorization].[ViewAuthorization].[ObjectId] = 'a53165e0-f05f-4b4d-9011-a7f7a00dfb46')
+-- Remove records from junction table by secondary key for ViewAuthorization
+DELETE [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925]
+OUTPUT DELETED.[SecurityGroupId], DELETED.[ViewAuthorizationId], 'Delete'
+  INTO #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 ([SecurityGroupId], [ViewAuthorizationId], [Operation])
+ WHERE [ViewAuthorizationId] = @InheritanceRootId
+
+-- Insert statements for table GraphiteGTCAuthorization.SecurityGroup (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCAuthorization_SecurityGroup FROM [GraphiteGTCAuthorization].[SecurityGroup] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCAuthorization].[SecurityGroup] WHERE 0<>0
+ALTER TABLE #GraphiteGTCAuthorization_SecurityGroup DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCAuthorization_SecurityGroup ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCAuthorization_SecurityGroup ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCAuthorization].[SecurityGroup]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCAuthorization_SecurityGroup ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('PrimeMover', 'be7a0ebd-5f36-4630-9d34-c5642d25e413', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table ApplicationPortal.User (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #ApplicationPortal_User FROM [ApplicationPortal].[User] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [ApplicationPortal].[User] WHERE 0<>0
+ALTER TABLE #ApplicationPortal_User DROP COLUMN [TimeStamp]
+ALTER TABLE #ApplicationPortal_User ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #ApplicationPortal_User ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [ApplicationPortal].[User]
+       ([Username], [LanguageId], [ThemeId], [ActiveId], [SecurityGroupId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Username], INSERTED.[LanguageId], INSERTED.[ThemeId], INSERTED.[ActiveId], INSERTED.[SecurityGroupId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #ApplicationPortal_User ([Id], [Username], [LanguageId], [ThemeId], [ActiveId], [SecurityGroupId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('ScottH', (SELECT [GraphiteGTCCore].[Language].[Id] FROM [GraphiteGTCCore].[Language] WHERE [GraphiteGTCCore].[Language].[ObjectId] = '090445b8-2bd5-4097-a7ee-a486832fda42'), (SELECT [ApplicationPortal].[Theme].[Id] FROM [ApplicationPortal].[Theme] WHERE [ApplicationPortal].[Theme].[ObjectId] = '709c3a5d-050c-4332-b0ef-3273477d8f28'), (SELECT [GraphiteGTCCore].[YesNoQuestion].[Id] FROM [GraphiteGTCCore].[YesNoQuestion] WHERE [GraphiteGTCCore].[YesNoQuestion].[ObjectId] = 'ea4f655b-eb0a-45ad-b332-5da716c6fe6a'), (SELECT [GraphiteGTCAuthorization].[SecurityGroup].[Id] FROM [GraphiteGTCAuthorization].[SecurityGroup] WHERE [GraphiteGTCAuthorization].[SecurityGroup].[ObjectId] = 'be7a0ebd-5f36-4630-9d34-c5642d25e413'), '71fcbd48-1502-4a5e-9c40-ac8f17b3b674', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- SECTION MARKER
+
+
+-- ----- History -----
+INSERT [ApplicationPortal].[VehicleModelHistory]
+       ([Id], [Name], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Name], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[VehicleModelHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[VehicleModelHistory].[Version]) + 1 END FROM [ApplicationPortal].[VehicleModelHistory] WHERE [ApplicationPortal].[VehicleModelHistory].[Id] = #ApplicationPortal_VehicleModel.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_VehicleModel 
+INSERT [GraphiteGTCPostalAddress_USA].[USAStateHistory]
+       ([Id], [Description], [Abbreviation], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Abbreviation], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCPostalAddress_USA].[USAStateHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCPostalAddress_USA].[USAStateHistory].[Version]) + 1 END FROM [GraphiteGTCPostalAddress_USA].[USAStateHistory] WHERE [GraphiteGTCPostalAddress_USA].[USAStateHistory].[Id] = #GraphiteGTCPostalAddress_USA_USAState.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCPostalAddress_USA_USAState 
+INSERT [ApplicationPortal].[ApplicationStatusHistory]
+       ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Display], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[ApplicationStatusHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[ApplicationStatusHistory].[Version]) + 1 END FROM [ApplicationPortal].[ApplicationStatusHistory] WHERE [ApplicationPortal].[ApplicationStatusHistory].[Id] = #ApplicationPortal_ApplicationStatus.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_ApplicationStatus 
+INSERT [GraphiteGTCCore].[YesNoQuestionHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[YesNoQuestionHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[YesNoQuestionHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[YesNoQuestionHistory] WHERE [GraphiteGTCCore].[YesNoQuestionHistory].[Id] = #GraphiteGTCCore_YesNoQuestion.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_YesNoQuestion 
+INSERT [ApplicationPortal].[VehicleYearHistory]
+       ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Display], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[VehicleYearHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[VehicleYearHistory].[Version]) + 1 END FROM [ApplicationPortal].[VehicleYearHistory] WHERE [ApplicationPortal].[VehicleYearHistory].[Id] = #ApplicationPortal_VehicleYear.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_VehicleYear 
+INSERT [ApplicationPortal].[AssetTypeHistory]
+       ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Display], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[AssetTypeHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[AssetTypeHistory].[Version]) + 1 END FROM [ApplicationPortal].[AssetTypeHistory] WHERE [ApplicationPortal].[AssetTypeHistory].[Id] = #ApplicationPortal_AssetType.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_AssetType 
+INSERT [ApplicationPortal].[VehicleMakeHistory]
+       ([Id], [Name], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Name], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[VehicleMakeHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[VehicleMakeHistory].[Version]) + 1 END FROM [ApplicationPortal].[VehicleMakeHistory] WHERE [ApplicationPortal].[VehicleMakeHistory].[Id] = #ApplicationPortal_VehicleMake.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_VehicleMake 
+INSERT [ApplicationPortal].[11da909ada8661ad6bc789History]
+       ([VehicleMakeId], [VehicleModelId], [Operation], [WrittenByEventRegistrationId])
+       SELECT [VehicleMakeId], [VehicleModelId], [Operation], @EventRegistrationId
+         FROM #ApplicationPortal_11da909ada8661ad6bc789 TT1
+        WHERE NOT EXISTS(SELECT * FROM #ApplicationPortal_11da909ada8661ad6bc789 TT2 WHERE TT2.VehicleMakeId = TT1.VehicleMakeId AND TT2.VehicleModelId = TT1.VehicleModelId AND TT2.Operation <> TT1.Operation)
+INSERT [GraphiteGTCCore].[SpinnerHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[SpinnerHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[SpinnerHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[SpinnerHistory] WHERE [GraphiteGTCCore].[SpinnerHistory].[Id] = #GraphiteGTCCore_Spinner.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_Spinner 
+INSERT [GraphiteGTCCore].[ComparisonHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[ComparisonHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[ComparisonHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[ComparisonHistory] WHERE [GraphiteGTCCore].[ComparisonHistory].[Id] = #GraphiteGTCCore_Comparison.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_Comparison 
+INSERT [ApplicationPortal].[VehicleBodyStyleHistory]
+       ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Display], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[VehicleBodyStyleHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[VehicleBodyStyleHistory].[Version]) + 1 END FROM [ApplicationPortal].[VehicleBodyStyleHistory] WHERE [ApplicationPortal].[VehicleBodyStyleHistory].[Id] = #ApplicationPortal_VehicleBodyStyle.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_VehicleBodyStyle 
+INSERT [ApplicationPortal].[ThemeHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[ThemeHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[ThemeHistory].[Version]) + 1 END FROM [ApplicationPortal].[ThemeHistory] WHERE [ApplicationPortal].[ThemeHistory].[Id] = #ApplicationPortal_Theme.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_Theme 
+INSERT [GraphiteGTCCore].[CurrencyDefinitionHistory]
+       ([Id], [Symbol], [MinorUnits], [Code], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Symbol], [MinorUnits], [Code], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[CurrencyDefinitionHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[CurrencyDefinitionHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[CurrencyDefinitionHistory] WHERE [GraphiteGTCCore].[CurrencyDefinitionHistory].[Id] = #GraphiteGTCCore_CurrencyDefinition.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_CurrencyDefinition 
+INSERT [ApplicationPortal].[AccountTypeHistory]
+       ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Display], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[AccountTypeHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[AccountTypeHistory].[Version]) + 1 END FROM [ApplicationPortal].[AccountTypeHistory] WHERE [ApplicationPortal].[AccountTypeHistory].[Id] = #ApplicationPortal_AccountType.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_AccountType 
+INSERT [ApplicationPortal].[VehicleFinanceHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[VehicleFinanceHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[VehicleFinanceHistory].[Version]) + 1 END FROM [ApplicationPortal].[VehicleFinanceHistory] WHERE [ApplicationPortal].[VehicleFinanceHistory].[Id] = #ApplicationPortal_VehicleFinance.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_VehicleFinance 
+INSERT [GraphiteGTCCore].[LanguageHistory]
+       ([Id], [Code], [Name], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Code], [Name], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[LanguageHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[LanguageHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[LanguageHistory] WHERE [GraphiteGTCCore].[LanguageHistory].[Id] = #GraphiteGTCCore_Language.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_Language 
+INSERT [ApplicationPortal].[ApplicationTypeHistory]
+       ([Id], [Description], [Category], [Display], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Category], [Display], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[ApplicationTypeHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[ApplicationTypeHistory].[Version]) + 1 END FROM [ApplicationPortal].[ApplicationTypeHistory] WHERE [ApplicationPortal].[ApplicationTypeHistory].[Id] = #ApplicationPortal_ApplicationType.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_ApplicationType 
+INSERT [GraphiteGTCAuthorization].[ViewAuthorizationLevelHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCAuthorization].[ViewAuthorizationLevelHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCAuthorization].[ViewAuthorizationLevelHistory].[Version]) + 1 END FROM [GraphiteGTCAuthorization].[ViewAuthorizationLevelHistory] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationLevelHistory].[Id] = #GraphiteGTCAuthorization_ViewAuthorizationLevel.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCAuthorization_ViewAuthorizationLevel 
+INSERT [GraphiteGTCAuthorization].[ViewDetailHistory]
+       ([Id], [Display], [PropertyId], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Display], [PropertyId], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCAuthorization].[ViewDetailHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCAuthorization].[ViewDetailHistory].[Version]) + 1 END FROM [GraphiteGTCAuthorization].[ViewDetailHistory] WHERE [GraphiteGTCAuthorization].[ViewDetailHistory].[Id] = #GraphiteGTCAuthorization_ViewDetail.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCAuthorization_ViewDetail 
+INSERT [GraphiteGTCAuthorization].[ad9fcce7674caba4a2b75bHistory]
+       ([ViewDetailId], [ViewElementDetailId], [Operation], [WrittenByEventRegistrationId])
+       SELECT [ViewDetailId], [ViewElementDetailId], [Operation], @EventRegistrationId
+         FROM #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b TT1
+        WHERE NOT EXISTS(SELECT * FROM #GraphiteGTCAuthorization_ad9fcce7674caba4a2b75b TT2 WHERE TT2.ViewDetailId = TT1.ViewDetailId AND TT2.ViewElementDetailId = TT1.ViewElementDetailId AND TT2.Operation <> TT1.Operation)
+INSERT [GraphiteGTCAuthorization].[79397261e884a4246a9847History]
+       ([ViewDetailId], [ViewElementDetailId], [Operation], [WrittenByEventRegistrationId])
+       SELECT [ViewDetailId], [ViewElementDetailId], [Operation], @EventRegistrationId
+         FROM #GraphiteGTCAuthorization_79397261e884a4246a9847 TT1
+        WHERE NOT EXISTS(SELECT * FROM #GraphiteGTCAuthorization_79397261e884a4246a9847 TT2 WHERE TT2.ViewDetailId = TT1.ViewDetailId AND TT2.ViewElementDetailId = TT1.ViewElementDetailId AND TT2.Operation <> TT1.Operation)
+INSERT [GraphiteGTCAuthorization].[e83c9f9211300d595d266aHistory]
+       ([ViewDetailId], [ViewElementDetailId], [Operation], [WrittenByEventRegistrationId])
+       SELECT [ViewDetailId], [ViewElementDetailId], [Operation], @EventRegistrationId
+         FROM #GraphiteGTCAuthorization_e83c9f9211300d595d266a TT1
+        WHERE NOT EXISTS(SELECT * FROM #GraphiteGTCAuthorization_e83c9f9211300d595d266a TT2 WHERE TT2.ViewDetailId = TT1.ViewDetailId AND TT2.ViewElementDetailId = TT1.ViewElementDetailId AND TT2.Operation <> TT1.Operation)
+INSERT [GraphiteGTCAuthorization].[154036ad405bfcb3f68ff7History]
+       ([ViewDetailId], [ViewElementDetailId], [Operation], [WrittenByEventRegistrationId])
+       SELECT [ViewDetailId], [ViewElementDetailId], [Operation], @EventRegistrationId
+         FROM #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 TT1
+        WHERE NOT EXISTS(SELECT * FROM #GraphiteGTCAuthorization_154036ad405bfcb3f68ff7 TT2 WHERE TT2.ViewDetailId = TT1.ViewDetailId AND TT2.ViewElementDetailId = TT1.ViewElementDetailId AND TT2.Operation <> TT1.Operation)
+INSERT [GraphiteGTCAuthorization].[ViewAuthorizationHistory]
+       ([Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [AuthorizationLevelId], [ViewDetailId], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCAuthorization].[ViewAuthorizationHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCAuthorization].[ViewAuthorizationHistory].[Version]) + 1 END FROM [GraphiteGTCAuthorization].[ViewAuthorizationHistory] WHERE [GraphiteGTCAuthorization].[ViewAuthorizationHistory].[Id] = #GraphiteGTCAuthorization_ViewAuthorization.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCAuthorization_ViewAuthorization 
+INSERT [GraphiteGTCAuthorization].[c48fbc234cc48c917e6925History]
+       ([SecurityGroupId], [ViewAuthorizationId], [Operation], [WrittenByEventRegistrationId])
+       SELECT [SecurityGroupId], [ViewAuthorizationId], [Operation], @EventRegistrationId
+         FROM #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 TT1
+        WHERE NOT EXISTS(SELECT * FROM #GraphiteGTCAuthorization_c48fbc234cc48c917e6925 TT2 WHERE TT2.SecurityGroupId = TT1.SecurityGroupId AND TT2.ViewAuthorizationId = TT1.ViewAuthorizationId AND TT2.Operation <> TT1.Operation)
+INSERT [GraphiteGTCAuthorization].[SecurityGroupHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCAuthorization].[SecurityGroupHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCAuthorization].[SecurityGroupHistory].[Version]) + 1 END FROM [GraphiteGTCAuthorization].[SecurityGroupHistory] WHERE [GraphiteGTCAuthorization].[SecurityGroupHistory].[Id] = #GraphiteGTCAuthorization_SecurityGroup.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCAuthorization_SecurityGroup 
+INSERT [ApplicationPortal].[UserHistory]
+       ([Id], [Username], [LanguageId], [ThemeId], [ActiveId], [SecurityGroupId], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Username], [LanguageId], [ThemeId], [ActiveId], [SecurityGroupId], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([ApplicationPortal].[UserHistory].[Version]) IS NULL THEN 1 ELSE MAX([ApplicationPortal].[UserHistory].[Version]) + 1 END FROM [ApplicationPortal].[UserHistory] WHERE [ApplicationPortal].[UserHistory].[Id] = #ApplicationPortal_User.[Id]), [Operation], [TimeStamp]
+         FROM #ApplicationPortal_User 
+-- SECTION MARKER
+
+-- Junction Table Map
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[__@JunctionTableMap]')) BEGIN
+   CREATE TABLE [dbo].[__@JunctionTableMap] (
+      [Id] [int] IDENTITY(1,1) NOT NULL,
+      [PrimaryTableName] [nvarchar](max) NOT NULL,
+      [SecondaryTableName] [nvarchar](max) NOT NULL,
+      [JunctionTableName] [nvarchar](max) NOT NULL
+    CONSTRAINT [PK_dbo.__@JunctionTableMap] PRIMARY KEY CLUSTERED
+    (
+       [Id] ASC
+    )
+   ) ON [PRIMARY]
+   
+   INSERT [dbo].[__@JunctionTableMap]
+      ([PrimaryTableName], [SecondaryTableName], [JunctionTableName])
+   VALUES('VehicleMake', 'VehicleModel', 'ApplicationPortal.11da909ada8661ad6bc789')
+   INSERT [dbo].[__@JunctionTableMap]
+      ([PrimaryTableName], [SecondaryTableName], [JunctionTableName])
+   VALUES('ViewDetail', 'ViewElementDetail', 'GraphiteGTCAuthorization.ad9fcce7674caba4a2b75b')
+   INSERT [dbo].[__@JunctionTableMap]
+      ([PrimaryTableName], [SecondaryTableName], [JunctionTableName])
+   VALUES('ViewDetail', 'ViewElementDetail', 'GraphiteGTCAuthorization.79397261e884a4246a9847')
+   INSERT [dbo].[__@JunctionTableMap]
+      ([PrimaryTableName], [SecondaryTableName], [JunctionTableName])
+   VALUES('ViewDetail', 'ViewElementDetail', 'GraphiteGTCAuthorization.e83c9f9211300d595d266a')
+   INSERT [dbo].[__@JunctionTableMap]
+      ([PrimaryTableName], [SecondaryTableName], [JunctionTableName])
+   VALUES('ViewDetail', 'ViewElementDetail', 'GraphiteGTCAuthorization.154036ad405bfcb3f68ff7')
+END
+]]></Script>
+</DataChangeDefinition>

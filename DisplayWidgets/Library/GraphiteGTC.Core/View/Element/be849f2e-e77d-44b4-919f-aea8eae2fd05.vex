@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Column" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Column is used to setup a column in a Table.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Label" PropertyId="SimpleEntityDefinitionProperty_Label" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Mask" PropertyId="SimpleEntityDefinitionProperty_Mask" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Priority" PropertyId="SimpleEntityDefinitionProperty_Priority" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClick" PropertyId="SimpleEntityDefinitionProperty_OnClick" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Alignment" PropertyId="SimpleEntityDefinitionProperty_Alignment" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Column" />
+    <Property PropertyName="Priority" DefaultValue="NoPriority" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Mask.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">MaskField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Column.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Label" EditorType="TranslationKeyChooser" Label="Label" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Label of the Column]]></Description>
+      </Field>
+      <Field FieldName="Mask" EditorType="MaskChooser" Label="Mask" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[A Mask for the Column Label]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Priority" EditorType="SelectBox" Label="Priority" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Priority of responsive Column display]]></Description>
+        <DescriptionOptions><![CDATA[High, Highest, Low, Lowest, Medium, Medium-Low, No Priority]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Highest" Value="Highest" />
+          <FieldOption DisplayName="High" Value="High" />
+          <FieldOption DisplayName="Medium" Value="Medium" />
+          <FieldOption DisplayName="Medium-Low" Value="MediumLow" />
+          <FieldOption DisplayName="Low" Value="Low" />
+          <FieldOption DisplayName="Lowest" Value="Lowest" />
+          <FieldOption DisplayName="No Priority" Value="NoPriority" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="NoPriority" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run on click of the Column]]></Description>
+      </Field>
+      <Field FieldName="Alignment" EditorType="SelectBox" Label="Alignment" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Alignment of the content within Column]]></Description>
+        <DescriptionOptions><![CDATA[Center, Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+          <FieldOption DisplayName="Center" Value="Center" />
+        </FieldOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Label" PropertyPath="Label" Value="{TranslationKey}" />
+      <Map FieldName="Mask" PropertyPath="Mask" Value="{Text}" />
+      <Map FieldName="Priority" PropertyPath="Priority" Value="{Text}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="Alignment" PropertyPath="Alignment" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVEhLvZGxCcBADAP9Gdb7b5DwIoULdZZ0cLg0h053v2Xk+a+N+eCIBdECC/PBHVspiBSwgWTeByxPZnRkmrgQRAsszAd0pIUgUsAGknkfsDyZ0ZFp4kIQLbAwH9CRFgJzQdUHoyluX+gjYD8AAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABCSURBVEhLY/wPBAw0BExQmmYA2QeMUJpaAGwuzX1A1yCiCaCLD6BM2oDRfIAPjOYD4sBoPiAIRvMBQTCaDwgABgYASFYs+nM2HU4AAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

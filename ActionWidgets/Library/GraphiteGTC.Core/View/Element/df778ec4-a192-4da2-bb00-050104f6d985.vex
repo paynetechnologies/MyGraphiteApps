@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="CurrencyDisplayItem" ViewElementId="df778ec4-a192-4da2-bb00-050104f6d985" BasedOn="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Currency Display Item is Display Item used to display currency values. It speciailizes in displaying different currencies. For example, if your project is set to use US Dollars, it will format the currency as such.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Code" PropertyId="SimpleEntityDefinitionProperty_Code" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Symbol" PropertyId="SimpleEntityDefinitionProperty_Symbol" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="NumberOfDecimalPlaces" PropertyId="SimpleEntityDefinitionProperty_NumberOfDecimalPlaces" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AlwaysShowCurrency" PropertyId="SimpleEntityDefinitionProperty_AlwaysShowCurrency" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="CurrencyDisplayItem" />
+    <Property PropertyName="AlwaysShowCurrency" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">CurrencyDisplayItem.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Mask" EditorType="MaskChooser" Label="Mask" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Currency Mask]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Numeric($,[#{*-*}].[##])" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="AlwaysShowCurrency" EditorType="YesNoToggle" Label="Show ISO 4217 Code?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show ISO Currnecy Code?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TranslateContent" EditorType="Hidden" Label="TranslateContent" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Mask" PropertyPath="Mask" Value="{Text}" />
+      <Map FieldName="AlwaysShowCurrency" PropertyPath="AlwaysShowCurrency" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEvSURBVDhP1dNBK0RhFMbxdzQyCM1mGpFPYGVDEUmJmg2mma2FbrNS9rJSNopYIZ/Awha72dAsbJTYWyllxULE/5l7znSb1d3MwlO/e9653Tr3nvedTBRFv6GD6bLasXiDjPEkf39hEyPIYhg1fELxZ6WIVTyimTRfsItj5LGDb5zgAO15xSUm8aAbaRo8Wc1hHKc4xzyS0V6+YBEf2EaqBhpHL+6xhjIuoFF5+q2O4ixehrou7Q30+ZLMAp6hUU1Bb3qFKjzaG4+fyh9dvMGg1Vtcx8swYFVvXYHGc4d9KGrq6baqEUXxMkzr4g1mrc6hFC/DjNUhNLCBLWj+ypJV5Q06RWO4QR/20GpwhGVoI3ugDdTJUXRa1qExHOIdekufdTIFrEBfOqEb//2fHMIf4ikz7t0jlNoAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEjSURBVDhP1dOxSkJRHMfxoyiakS4SSm+QrUHg5CIGLiU11yJN0QPkEDT2BEEPIjTX1NAgOkQUvUBLDTbo93fu/w9ndHHoBx/P+Z977r36v9fcgoQ1Jm/j2uI3yBlPWs9xiR0U0MQFfqH4XmngGBNkUYvUJeNJ6xE0b+EGdatvofje1CZesVilRVMby9jDPR7QQRo9yy908YNrrPQLHrEBX8ujh3coWtM39nxCa1UVfhE/+c947dFJaskB9Obp2D4UzWvZNOYDWos39RZVbXzCOJuGLRsHOIXa84w7KDMblaKNatEwm4Z2/NRdSB+apw6hnEO1Hu4Vdq0+gZKe4yp4QSwU9VMXLKOEDt6gfOMMDWh/E0NoXUkvvI0jxDdI+e//5BCWIYewir05t9UAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

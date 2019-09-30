@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="VehicleMake" EntityId="745514db-3a28-4b6d-a9b2-5327cd2e8e9d" TargetChangeSetId="b3726a15-8529-44ed-9a8d-786d8cb752e1">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Models" PropertyId="5da694a0-87b7-4b72-9a11-9f795d6153ff" IsOptional="true" DataType="$[List,2fed88c7-90c8-4174-9cad-71b76990a2d4]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Name" PropertyId="0f1d0b4f-896e-470e-a94a-7c0a6b1bb985" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+  <DataEntries>
+    <DataEntry DataEntryId="0b7219ad-50b5-49af-a994-a916587d02f6">
+      <DataValue PropertyId="5da694a0-87b7-4b72-9a11-9f795d6153ff">
+        <Value>50d3f9ba-8f67-495b-a132-c6733d5fca95</Value>
+        <Value>a7748e46-a218-4fe6-8c6a-8f747d1e1ead</Value>
+      </DataValue>
+      <DataValue PropertyId="0f1d0b4f-896e-470e-a94a-7c0a6b1bb985">Honda</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="3d29ecbc-7f18-4df6-8d24-078e0d1c5167">
+      <DataValue PropertyId="5da694a0-87b7-4b72-9a11-9f795d6153ff">
+        <Value>8e845649-6684-4f31-adce-e37ad02372f1</Value>
+      </DataValue>
+      <DataValue PropertyId="0f1d0b4f-896e-470e-a94a-7c0a6b1bb985">Mercedes-Benz</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="81d7846c-e546-4bdf-a851-372bf0793cc4">
+      <DataValue PropertyId="5da694a0-87b7-4b72-9a11-9f795d6153ff">
+        <Value>d7e0b860-cc9a-4b29-97ef-b0effd056366</Value>
+      </DataValue>
+      <DataValue PropertyId="0f1d0b4f-896e-470e-a94a-7c0a6b1bb985">BMW</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="95ae2452-9bfd-4c84-8fb6-dec040750edf">
+      <DataValue PropertyId="5da694a0-87b7-4b72-9a11-9f795d6153ff">
+        <Value>80edfbcc-84e0-4788-bf1a-b38bf5775685</Value>
+        <Value>d14c8d69-e27c-4cc6-98b0-8d94e81b0e0a</Value>
+      </DataValue>
+      <DataValue PropertyId="0f1d0b4f-896e-470e-a94a-7c0a6b1bb985">Ford</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="5e40e9ee-fff0-4c75-be3e-c5a7a5beef28">
+      <DataValue PropertyId="5da694a0-87b7-4b72-9a11-9f795d6153ff">
+        <Value>e33bc803-ec06-49f3-8364-839a8f176fba</Value>
+      </DataValue>
+      <DataValue PropertyId="0f1d0b4f-896e-470e-a94a-7c0a6b1bb985">Lexus</DataValue>
+    </DataEntry>
+  </DataEntries>
+</EntityDefinition>

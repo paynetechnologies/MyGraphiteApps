@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ContentInstruction" ViewElementId="9c2a999a-fa50-4a60-8b68-957e6d7c2ee5" BasedOn="cd79934a-0312-42e4-a1bc-e1a9cb077d7f" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ContainerName" PropertyId="02aba9c4-390a-4318-923a-a9f7017d0fa8" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewElements" PropertyId="89983d5e-1a96-45c7-8896-d608d107b876" IsOptional="true" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="faa7b7a7-35a0-4374-b706-3d88bdbf87fc" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Prefix" PropertyId="94460f7b-a1e2-4a88-b69c-85505c7227c0" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ContentInstruction" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">ViewElements</Tag>
+  </Tags>
+</ViewElementDefinition>

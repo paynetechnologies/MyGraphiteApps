@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetPasswordConfiguration" OwnerId="cd10045e-bea2-488e-9574-9dd9517ea646" ProcessId="aa1c1e6e-1692-4f95-9643-2b8b1c7ad8e6" ProcessType="Normal" Classification="DataTransfer" IsRemovable="true" Description="Get password configuration details">
+  <Variables>
+    <Variable Name="PasswordConfiguration" DataType="cd10045e-bea2-488e-9574-9dd9517ea646" VariableType="Output" VariableId="bd8b002f-c44e-4094-9ac4-32a00314f9f2" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="5fa93d3b-0681-41c6-b3ff-4e906e0bde0d" Bounds="822.5,55,170,55" />
+        <RunWebServiceNode ServiceProcessId="5e1b0a76-28bf-46f1-84e7-bfb7f2459598" VariableId="GetPasswordConfigurationResult" ID="90af1f91-f784-4751-93cb-d1b9f530cb46" Bounds="632.5,155,550,55" Text="Run Web Service">
+          <OutputVariables>
+            <OutputVariable Name="GetPasswordConfigurationResult" Value="PasswordConfiguration" />
+          </OutputVariables>
+        </RunWebServiceNode>
+        <EndNode ID="83e0e3aa-4b79-4486-acb1-2f30ac61a5ce" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="21b78ebb-40d1-4f0e-a599-1368d3b2dd36" From="5fa93d3b-0681-41c6-b3ff-4e906e0bde0d" FromIndex="0" To="90af1f91-f784-4751-93cb-d1b9f530cb46" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6cde37d7-ae1f-481f-a804-317707a14063" From="90af1f91-f784-4751-93cb-d1b9f530cb46" FromIndex="2" To="83e0e3aa-4b79-4486-acb1-2f30ac61a5ce" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

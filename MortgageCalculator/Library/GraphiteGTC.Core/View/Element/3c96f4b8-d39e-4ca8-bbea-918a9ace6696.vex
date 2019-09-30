@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TabGroup" ViewElementId="3c96f4b8-d39e-4ca8-bbea-918a9ace6696" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tab Group is a container that holds multiple Tabs and is used in conjunction with a Tab Header.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tabs" PropertyId="SimpleEntityDefinitionProperty_Tabs" IsOptional="true" DataType="$[List,e2761b95-c3d4-4ea0-8827-dd2ba735ed21]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="TabGroup" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">TabGroup.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="IsDisplayed" EditorType="Hidden" Label="Show?" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsDisplayed" PropertyPath="IsDisplayed" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Tab</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB1SURBVEhL7ZRBCsAgDARjH5t3tC9rf9a6QaWFgAc3PYgLY24OSSBJVW8JzFZqCqIJwjKPAIuOwATecmhA4JlpzLPksCxBN0vQzS8C94awqB2cGfeWDHBl2oiOUpnZ8VQBbG6LA3w6QJhjss+Rt4A5JhuPiMgDi89c58JPXZIAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVEhL7ZRBCgAhDAN1X7Y/d39WE63nXhphoQOBejEkSruBJuQY9H1Mxx4fZPzf4Moj+6hBnqB+UUgZhJRBiNxAvotOggHRKVMfhAkJoJdLLxneea8iklnTrocwgSuzplWPmbUJdtH5LxxKw9YAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

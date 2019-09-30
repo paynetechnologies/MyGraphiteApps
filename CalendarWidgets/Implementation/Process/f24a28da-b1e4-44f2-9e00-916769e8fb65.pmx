@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="5424dd1c-a43f-4e79-b4d0-f257f36983ab" ProcessId="f24a28da-b1e4-44f2-9e00-916769e8fb65" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="5424dd1c-a43f-4e79-b4d0-f257f36983ab" VariableType="Output" Classification="Pinned, Locked" VariableId="ece3b995-aa63-4b83-8d26-35aae3979784" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="933f5737-1269-44fd-b9b1-3d7263f88564" VariableType="Input" Classification="Pinned, Locked" VariableId="dcc031bb-53e2-4b01-aba7-a2cf238418a2" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="87d8cfe9-5228-4145-b332-e2f39884043d" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="5424dd1c-a43f-4e79-b4d0-f257f36983ab" Description="Create the CalendarPage view" ID="b3dbcdc3-0318-43d6-9a50-61808a05bd6d" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="540900d7-53f5-445f-8150-3d83c89edda2" Bounds="630.6,255,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="0fff974d-27bb-4e4e-b452-7c8b3adbcedf" From="87d8cfe9-5228-4145-b332-e2f39884043d" FromIndex="0" To="b3dbcdc3-0318-43d6-9a50-61808a05bd6d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="124ca7fa-4ced-4def-96db-b80288ebadd2" From="b3dbcdc3-0318-43d6-9a50-61808a05bd6d" FromIndex="2" To="540900d7-53f5-445f-8150-3d83c89edda2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

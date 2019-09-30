@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DocumentDisplay" ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Document Display element allows the display of a supported document for viewing in the browser.  This is a third party control.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="e6216801-961d-4267-b079-293e91129272" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileName" PropertyId="b45ff5dd-a724-4a5c-9e3d-cffc4eb50969" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowDownloadButton" PropertyId="a0c8ebea-3266-4ca9-aa0c-21bcd806164c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowPrintButton" PropertyId="6f93a862-128a-4adc-9902-38142e068bee" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DocumentDisplay" />
+    <Property PropertyName="ShowDownloadButton" DefaultValue="Yes" />
+    <Property PropertyName="ShowPrintButton" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DocumentDisplay.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="DimensionHeight" EditorType="DecimalTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Display]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Height and Width]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="DecimalTextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Display]]></Description>
+      </Field>
+      <Field FieldName="FileName" EditorType="TextBox" Label="File Name" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Optional File Name]]></Description>
+      </Field>
+      <Field FieldName="ShowDownloadButton" EditorType="YesNoToggle" Label="Show download button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Download button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowPrintButton" EditorType="YesNoToggle" Label="Show print button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Print button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="FileName" PropertyPath="FileName" Value="{Text}" />
+      <Map FieldName="ShowDownloadButton" PropertyPath="ShowDownloadButton" Value="{Text}" />
+      <Map FieldName="ShowPrintButton" PropertyPath="ShowPrintButton" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAYAAAD+vg1LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE2SURBVEhL7ZW/LgRBAIf39BL1KI7OA4haQlQ04gU0W2koSEQIcSUatTeg0YnQSki8AorVCg/A95s/G5edm7vYKX3Jt/ebmc0vdzu7e52yLL+LPHR0MMbYwZg9usk2NgjF2fkvLqqqso5SvIJ3+OVVXsYkw4qP8QTPcdKrfIpaG0iqWN9qDefwCj+9yprTmn5NlFTxFu7ihx31ozmtbdpRhFTxLN66GOUGdU6UUTYvRfSpE6niJ1x0McoSPrrYJFV8hj2csKN+NKc1nRMlVXyNl/iAqzjuVdbcDP75Gu/hDm7gu1d5G49wHw+xQXgfD9yEIahU5WIKX11sf1cc4LOLxT12XWxfLHTNxTTW5TmKX3591uU5igPzGMovchZr41Su1+p6zmKh8gV8C8W65dpYo79/Y0zxA1TsSUQ6MJGiAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAYAAAD+vg1LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEtSURBVEhL1ZU9TsNAEEbX1BBxgAgoOUCOgKgSkHIjS1yHijqpkYJoQRRJlwOQ9PA9MmPZznqVzU/Bk553MjMer7xRUvyIcByKsiwtDOHM1uJAt/DBR+f/DfbDi76nDLZm7LLjkZzKlUk8lGnYMZvu8El+ybHsmcTkqHkf1O9LDh7KT3lZy7nkqI3sMzR6oklzKtldrIbU6CGGRj11eN+yb2uMc7mUPbnX4aXo/DalBr/Ju00Y5V7ONmEEXgVvIyIH8yG7Do9a5+Gldvwin+WrHMsLk5jcrRzIODyKJyR8lJz+2iR+kKUEXxv3cYFGMkMfCteyqnGBKrGH7xLmshrOBeqNud5IpxpOAdrNucLC1r/hnmw35grs1IdPPNluzBVYGT6RVyf7oT/R338Iv3deLQksht93AAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Payment" EntityId="e810f7b4-8de5-4688-aa15-3ef085d8b6bb" TargetChangeSetId="adb14b24-c7b3-46ae-834e-e6175fbd2f3d">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PrincipalPaid" PropertyId="c9a118e0-3d62-4277-b7ca-d25b61f80eaa" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="InterestPaid" PropertyId="a2497655-8384-48f8-a5ba-4254bb04b7a4" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Number" PropertyId="f2269c09-b955-43ab-8035-d79e704ff10a" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PaymentAmount" PropertyId="689f39e7-1ff3-457a-a1db-e7660e198bd3" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="RemainingBalance" PropertyId="172b9d43-2aca-4982-8e0a-6a40cdd5be23" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="StartingBalance" PropertyId="506bf907-4e26-44bc-9639-702f2ba2f50e" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Tags>
+    <Tag Type="Group">Mortgage</Tag>
+  </Tags>
+</EntityDefinition>

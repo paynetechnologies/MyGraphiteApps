@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="e2e0a7b4-644f-4b4e-8dfc-d98a482a485e" ProcessId="e16c7674-d333-4b51-851d-fad1a9998cba" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="e2e0a7b4-644f-4b4e-8dfc-d98a482a485e" VariableType="Output" Classification="Pinned, Locked" VariableId="d41ce4e1-4697-479b-89f8-508e5fb263e0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="651619f7-fe0f-41c7-afec-dbf6eb7a6da8" VariableType="Input" Classification="Pinned, Locked" VariableId="f03acb8e-d366-4d3e-843b-2bc5f1a01ebe" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="c6f72659-9948-4cdd-b008-8cd22c182ecf" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="e2e0a7b4-644f-4b4e-8dfc-d98a482a485e" Description="Create the LinkWidgets view" ID="b244d1fe-ba0a-4b45-9f7d-3a5a01cf350c" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="7cf5174a-f082-4d72-a80e-902dfbcee2b5" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="452e0387-bc3d-48e5-bf1d-aecd5b28a7c6" From="c6f72659-9948-4cdd-b008-8cd22c182ecf" FromIndex="0" To="b244d1fe-ba0a-4b45-9f7d-3a5a01cf350c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="e988b49f-b253-49cf-87a5-e735f1928f9c" From="b244d1fe-ba0a-4b45-9f7d-3a5a01cf350c" FromIndex="2" To="7cf5174a-f082-4d72-a80e-902dfbcee2b5" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

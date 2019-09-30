@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="UrlLink" ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>URL link is a hyperlink that supports a raw URL.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Url" PropertyId="SimpleEntityDefinitionProperty_Url" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Prefix" PropertyId="SimpleEntityDefinitionProperty_Prefix" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Target" PropertyId="SimpleEntityDefinitionProperty_Target" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Disable508Message" PropertyId="12674ce8-0163-4ade-9be9-e9216bbbbe77" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="UrlLink" />
+    <Property PropertyName="Prefix" DefaultValue="http://" />
+    <Property PropertyName="Target" DefaultValue="_self" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">UrlLink.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Url" EditorType="TextBox" Label="Url" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[A valid URL]]></Description>
+      </Field>
+      <Field FieldName="Target" EditorType="SelectBox" Label="Url Opens In?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Open the new View in new or the same tab of the Browser]]></Description>
+        <DescriptionOptions><![CDATA[New Window, Same Window]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Same Window" Value="_self" />
+          <FieldOption DisplayName="New Window" Value="_blank" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="_self" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Prefix" EditorType="TextBox" Label="Url Prefix" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[URL Prefix]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="http://" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Disable508Message" EditorType="YesNoToggle" Label="Disable 508 Message?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Disable display of Target information]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Url" PropertyPath="Url" Value="{Text}" />
+      <Map FieldName="Target" PropertyPath="Target" Value="{Text}" />
+      <Map FieldName="Prefix" PropertyPath="Prefix" Value="{Text}" />
+      <Map FieldName="Disable508Message" PropertyPath="Disable508Message" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>SameWindow</Key>
+    <Key>NewWindow</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAVCAYAAACzK0UYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALgSURBVEhLjdVZiI1hHMfxM3bZS2Qtk10JY5flhpA9ipEL1MlWJEm2C+RCIXsuLNlGyJ7EhezKWEqWbIlEKEt2Wb7f95xn5p3jzPCrT2d73/f/7CcnmUwm/jMdMAG90AR18QbPcBE7cRN/pVz6tazk4iCuYza6oSEqpV/97Pf+7nVeXyL/KjIQ3jwSOX4RyxecT72N4u9e5/XeV5SyigzDcdSKPhXnNwrQGj7sKeLxeu/z/iilFWmB3SgffSrODfRDPnz4Z8xDZrzP+1v6obQia1E99TbKS0xGZ5yDjdiH6diL+LCFeP8a32Qrkocwpt+xEm2wFfWxEXcwBsvh5Dvxv5AZn5OXrcj49OtRtMMc+IBluI+pcF5cujWxGoXYhmzJz1akNgZhOB7C8b2KBagGh6ctBuAb7NFgLMQHZKZvtiKTcDL1NoqtrorTcE7s6SvcwwqY9bDA0uhTyeRmKzIEdv8dusOh6gJb3hi3sAPGObG3zbAY6/AA8dSJF+kBV84xOPmv4dCZ5riAI3CoHMoR+ArnyDj5LlnnMJ63FvGmQ7iE3ngBl6bfuxd8sAU8s4w92w53tsvU3v5ARdgTF8wphDy2yCbYKi9cBFvjjt0Mh6Zo5xJ72R6eqg6rq815sMBhTIPxOSFnLTIDoSVX8BGdMBFhOEMvLegJ7D7ZgAZwI/aE59ZduHAsGFLgQ2ztquhjaqNVgRfZbR9mLx2qMKGuonq4hqHog8tw2GzMFljcuEoLQ0uX4Ak8Lub7BfG/w6Fx0znGPrQCfJCHoMvZYW2EPfB7C4V8wkzfhCIedE62mYtWsLW74HLuD29yz4S4d9yg7pdxiP8V/ISHqHNW4uw6gQOoDDfebYyF/xvuh67wZjMaPtyjJn6QGufUU8DhjhIvYmbBMXdy/c0V5h6xxe/REWewH02RGbeCf9O+FiWzyHM4J/bIw3EK3DfGc8shqAFPA+Orc+XCsQGj8AixJBJ/AMHiqpN0xT2DAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAVCAYAAACzK0UYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ1SURBVEhLjdVLiI5RHMfxccs1LJSRWLhHaphJGM3KQpJL2VjYWLK1YyVKMZay0MxiiqLcNmJjyGQzycYCRS6xkUsuub++3/M85+08533e4Vef5j3P5Tznec7/nBnXaDQ6/jNd2IteLMAcvMVLjGAID9AaH/IPi3AJfzBWPO91Xl/po9KosQUfUJevuFP8rMTrva/ZT9phbjt+IY8jPoeFmIbnyON93h/6yjuOluIT8txHH9Jr96Au3r8MbR9yHWneYB/Gw/MO4gIOwOKp+2zGfmof0o2Y7ziJ2fDcPJzGT5iPmI8e/PZATbrzB+gUzFUsgcdm4ijiJ/yBF8XP8EZecza0WtOfdh4NIK2OCXgE46Sfhw9fgW8wW9EJ3yzPaNp5O86Do76JtWXbN/PcEZinsNIOhlY17/IOtQ2jsN7Xl8fmln8ty4e4Uran4AnMcUzG49BKEjvWBqRV4s3xs/XiLtLshOc2h1YxT6vhQNKEN1mJy6FZ5DX2YxI8ZwGksYoG4WKcgcPwAWYY9nkjtIqEObld/A4XeoM32oEFkJflNayCA3AgDijGgToo+1zngTKhunzFOBJf3WN+ijQj2ATP+QnjPBg/sZ/acy5MF2368B5PyEkzTpqT6TE/k5O8o2zHyd8IS9XisEhiHxbJPaSprHjL7xmMZekxy9Q1Ytlavq8wEfGeyBXvhpn/K/iMlr3LBWVcYMvhgnPhxZtdkD40Xj8Vh1C3kY65C1+EcfG5b5kvOIZZiNftRt0Wb3zoLjT7bf4o+epxa3ATPAM3xXh+DW6hXfzPuBhpn7W7sNu3bxS+Z2I6TsAJfw/jX9v96EJ6fanR8RdO3tq4oCEk8QAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

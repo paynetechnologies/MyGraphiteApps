@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="PageInstruction" ViewElementId="cd79934a-0312-42e4-a1bc-e1a9cb077d7f" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Action" PropertyId="4584d1f4-b412-4230-bfb4-acf0ac9c16e4" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Instruction" PropertyId="bb077810-1560-47cc-a2e1-778dc1056604" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Type" PropertyId="bc237056-1a4b-4d21-a6a9-9466c84e18d1" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Context" PropertyId="c3f3b0ed-c8fe-4e67-aa27-3277923d2ae9" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Version" PropertyId="c369ac50-424d-4dc5-a20e-fff25efea8e7" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PropertyName" PropertyId="fb57da17-c7c0-49ee-a44f-96ce2a0f9951" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Context" DefaultValue="Current" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Context" EditorType="SelectBox" Label="Context" AffectsRender="false" IsLocalizable="false">
+        <FieldOptions>
+          <FieldOption DisplayName="Current" Value="Current" />
+          <FieldOption DisplayName="Parent" Value="Parent" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Current" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Context" PropertyPath="Context" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">ViewElements</Tag>
+  </Tags>
+</ViewElementDefinition>

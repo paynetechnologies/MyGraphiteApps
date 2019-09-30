@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataChangeDefinition DataChangeId="7c04c45b-4ae5-4145-8109-cad63fa3fd83" Version="2" Created="637006946964823544">
+  <Script Type="Seed"><![CDATA[DECLARE @EventRegistrationId INT
+INSERT [dbo].[EventRegistration]
+       ([EffectiveDate], [AddedTime], [ExecutedDate], [ExecutionStartTime], [ExecutionEndTime], [IsComplete])
+VALUES (GETDATE(), GETDATE(), GETDATE(), GETDATE(), GETDATE(), 1)
+SELECT @EventRegistrationId = SCOPE_IDENTITY()
+DECLARE @InheritanceRootId INT
+DECLARE @ObjectId [NVARCHAR](MAX)
+DECLARE @TimeStamp [VARBINARY](MAX)
+
+
+DECLARE @EventProcessId INT
+DECLARE @DataMaintenanceUserId INT
+
+-- DMU Event Initialization
+INSERT [dbo].[EventProcess]
+       ([Name], [EventRegistrationId])
+VALUES('System.DMU', @EventRegistrationId)
+SELECT @EventProcessId = SCOPE_IDENTITY()
+INSERT [dbo].[EventRegistration]
+       ([EventProcessId], [EffectiveDate], [AddedTime], [ExecutedDate], [ExecutionStartTime], [ExecutionEndTime], [IsComplete])
+VALUES (@EventProcessId, GETDATE(), GETDATE(), GETDATE(), GETDATE(), GETDATE(), 1)
+SELECT @EventRegistrationId = SCOPE_IDENTITY()
+
+-- Insert user System.
+IF NOT EXISTS(
+              SELECT *
+                FROM [CardWidgets].[User]
+               WHERE [Username] = N'System'
+) BEGIN
+   INSERT [CardWidgets].[User]
+          ([Username], [EventRegistrationId], [ObjectId])
+   VALUES ('System', @EventRegistrationId, LOWER(NEWID()))
+   
+   -- History for 'System'.
+   INSERT [CardWidgets].[UserHistory]
+          ([Id], [Version], [Username], [EventRegistrationId], [ObjectId], [Operation], [TimeStamp])
+   SELECT [Id], 1, [UserName], @EventRegistrationId, [ObjectId], 'Insert', [TimeStamp]
+     FROM [CardWidgets].[User]
+    WHERE [Username] = N'System'
+END
+
+-- Insert user DataMaintenance.
+IF NOT EXISTS(
+              SELECT *
+                FROM [CardWidgets].[User]
+               WHERE [Username] = N'DataMaintenance'
+) BEGIN
+   INSERT [CardWidgets].[User]
+          ([Username], [EventRegistrationId], [ObjectId])
+   VALUES ('DataMaintenance', @EventRegistrationId, LOWER(NEWID()))
+   
+   -- History for 'DataMaintenance'.
+   INSERT [CardWidgets].[UserHistory]
+          ([Id], [Version], [Username], [EventRegistrationId], [ObjectId], [Operation], [TimeStamp])
+   SELECT [Id], 1, [UserName], @EventRegistrationId, [ObjectId], 'Insert', [TimeStamp]
+     FROM [CardWidgets].[User]
+    WHERE [Username] = N'DataMaintenance'
+END
+
+SELECT @DataMaintenanceUserId = Id
+  FROM [CardWidgets].[User]
+ WHERE [Username] = N'DataMaintenance'
+
+UPDATE [dbo].[EventRegistration]
+   SET [AddedByUserId] = @DataMaintenanceUserId,
+       [ExecutedByUserId] = @DataMaintenanceUserId
+ WHERE [EventRegistrationId] = @EventRegistrationId
+
+-- SECTION MARKER
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_Spinner FROM [GraphiteGTCCore].[Spinner] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[Spinner] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_Spinner DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_Spinner ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_Spinner ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('ChasingDots', '79e0a6fe-dfbb-4e6e-a21f-4c48780e33ed', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Circle', '26b8b4bb-5d43-4d2e-9230-b4bd54f17276', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('CubeGrid', '453dfeee-3be7-4ebc-9864-a2d74998276f', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('DoubleBounce', '75af8734-3104-42df-af80-8ecc18c7ab15', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('FadingCircle', 'deeae969-dcd8-4f23-917d-e4b3ad1b3ceb', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('FoldingCube', '11645d23-bf7c-4deb-ac3b-e13f60ceccf6', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Pulse', 'abadfcd6-9ab8-4830-9655-cdf6d03909dd', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('RotatingPlane', '98a4764e-0751-4963-9f5e-39de00cd4cb4', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('ThreeBounce', 'f28fee88-a14d-4b47-8295-ce8fc86d1e21', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('WanderingCubes', 'f534e807-a29c-44e7-99d5-9a011d7331cd', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Spinner (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Spinner]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Spinner ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Wave', '7f1ed4f8-a7fc-4e72-be49-43eb6fb80bef', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Comparison (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_Comparison FROM [GraphiteGTCCore].[Comparison] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[Comparison] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_Comparison DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_Comparison ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_Comparison ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[Comparison]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Comparison ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Greater Than', '72ff08b2-1464-459f-9c76-1b2e20911aba', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Comparison (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Comparison]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Comparison ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Is Same As', 'd6c13373-504a-48eb-a61c-9c806af82385', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Comparison (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[Comparison]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Comparison ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Less Than', 'e38f5f4f-1f37-4a74-93f6-fdc7405c2b76', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.CurrencyDefinition (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_CurrencyDefinition FROM [GraphiteGTCCore].[CurrencyDefinition] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[CurrencyDefinition] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_CurrencyDefinition DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_CurrencyDefinition ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_CurrencyDefinition ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[CurrencyDefinition]
+       ([Symbol], [MinorUnits], [Code], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Symbol], INSERTED.[MinorUnits], INSERTED.[Code], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_CurrencyDefinition ([Id], [Symbol], [MinorUnits], [Code], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('$', 2, 'USD', 'fd674b75-4a3b-4dca-bf3b-3f64b7bf4031', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.Language (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_Language FROM [GraphiteGTCCore].[Language] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[Language] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_Language DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_Language ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_Language ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[Language]
+       ([Code], [Name], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Code], INSERTED.[Name], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_Language ([Id], [Code], [Name], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('en-US', 'English USA', 'f3bf0a00-f00e-45ff-85b9-8023a1256343', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.YesNoQuestion (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #GraphiteGTCCore_YesNoQuestion FROM [GraphiteGTCCore].[YesNoQuestion] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [GraphiteGTCCore].[YesNoQuestion] WHERE 0<>0
+ALTER TABLE #GraphiteGTCCore_YesNoQuestion DROP COLUMN [TimeStamp]
+ALTER TABLE #GraphiteGTCCore_YesNoQuestion ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #GraphiteGTCCore_YesNoQuestion ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [GraphiteGTCCore].[YesNoQuestion]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_YesNoQuestion ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('No', '7054a728-59d2-4ead-aca5-34e27b3cdeb7', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table GraphiteGTCCore.YesNoQuestion (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [GraphiteGTCCore].[YesNoQuestion]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #GraphiteGTCCore_YesNoQuestion ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Yes', 'abfca617-7a83-4329-92dc-a8c3e818b84b', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #CardWidgets_Theme FROM [CardWidgets].[Theme] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [CardWidgets].[Theme] WHERE 0<>0
+ALTER TABLE #CardWidgets_Theme DROP COLUMN [TimeStamp]
+ALTER TABLE #CardWidgets_Theme ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #CardWidgets_Theme ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Adams', 'fa2aa4bf-dad5-437c-8c49-ce48de8d58f6', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Fillmore', 'ca6d2438-32ea-4cde-ac19-268a6f45edd7', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Grant', 'c1f700b7-ec3d-4d1a-b78a-0004e19c3ea5', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Harrison', '24a2b854-a221-4075-8b94-5f99fc1f5bfb', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Jackson', '5e2f9ecf-3151-4e81-b401-b49b5c97b89b', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Jefferson', '4d604501-e851-4d9a-8a51-c50653283836', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Madison', 'dfb8baa5-0bd2-42ce-b40d-fb6244bab496', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Monroe', '272c8b11-7e80-4144-bd24-b40e8f6de20b', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Tyler', '62ba0fc2-b129-452e-96c8-9c1e326ea4b4', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('VanBuren', 'bab556e8-8c30-407b-858c-7f101811bbf5', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Washington', '76414c62-fc57-4292-a740-1122faf34fb9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.Theme (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[Theme]
+       ([Description], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_Theme ([Id], [Description], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Polk', 'a81e25fe-2803-4821-a0ca-41973009f555', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.PageChoice (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #CardWidgets_PageChoice FROM [CardWidgets].[PageChoice] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [CardWidgets].[PageChoice] WHERE 0<>0
+ALTER TABLE #CardWidgets_PageChoice DROP COLUMN [TimeStamp]
+ALTER TABLE #CardWidgets_PageChoice ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #CardWidgets_PageChoice ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [CardWidgets].[PageChoice]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_PageChoice ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Simple1', 'Simple1', '502c6376-fd02-493f-8a71-74b5de5d8f12', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.PageChoice (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+INSERT [CardWidgets].[PageChoice]
+       ([Description], [Display], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Display], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_PageChoice ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('Simple2', 'Simple2', '826e994b-b3aa-4808-8dd9-2bef447b5e8b', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- Insert statements for table CardWidgets.User (component table GraphiteGTC.DataMaintenance.Interface.EntityTable)
+
+SELECT * INTO #CardWidgets_User FROM [CardWidgets].[User] WHERE 0<>0 UNION ALL SELECT TOP(1) * FROM [CardWidgets].[User] WHERE 0<>0
+ALTER TABLE #CardWidgets_User DROP COLUMN [TimeStamp]
+ALTER TABLE #CardWidgets_User ADD [Operation] [nvarchar](max) NULL
+ALTER TABLE #CardWidgets_User ADD [TimeStamp] [varbinary](max) NULL
+
+INSERT [CardWidgets].[User]
+       ([Username], [LanguageId], [ThemeId], [ActiveId], [ObjectId], [EventRegistrationId])
+       OUTPUT INSERTED.[Id], INSERTED.[Username], INSERTED.[LanguageId], INSERTED.[ThemeId], INSERTED.[ActiveId], INSERTED.[ObjectId], INSERTED.[EventRegistrationId], 'Insert', INSERTED.[TimeStamp]
+         INTO #CardWidgets_User ([Id], [Username], [LanguageId], [ThemeId], [ActiveId], [ObjectId], [EventRegistrationId], [Operation], [TimeStamp])
+VALUES ('ScottH', (SELECT [GraphiteGTCCore].[Language].[Id] FROM [GraphiteGTCCore].[Language] WHERE [GraphiteGTCCore].[Language].[ObjectId] = 'f3bf0a00-f00e-45ff-85b9-8023a1256343'), (SELECT [CardWidgets].[Theme].[Id] FROM [CardWidgets].[Theme] WHERE [CardWidgets].[Theme].[ObjectId] = '76414c62-fc57-4292-a740-1122faf34fb9'), (SELECT [GraphiteGTCCore].[YesNoQuestion].[Id] FROM [GraphiteGTCCore].[YesNoQuestion] WHERE [GraphiteGTCCore].[YesNoQuestion].[ObjectId] = 'abfca617-7a83-4329-92dc-a8c3e818b84b'), 'f3caac00-6b25-46b9-bf1a-4ecd3fac4ee9', @EventRegistrationId)
+SELECT @InheritanceRootId = SCOPE_IDENTITY()
+
+-- SECTION MARKER
+
+
+-- ----- History -----
+INSERT [GraphiteGTCCore].[SpinnerHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[SpinnerHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[SpinnerHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[SpinnerHistory] WHERE [GraphiteGTCCore].[SpinnerHistory].[Id] = #GraphiteGTCCore_Spinner.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_Spinner 
+INSERT [GraphiteGTCCore].[ComparisonHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[ComparisonHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[ComparisonHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[ComparisonHistory] WHERE [GraphiteGTCCore].[ComparisonHistory].[Id] = #GraphiteGTCCore_Comparison.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_Comparison 
+INSERT [GraphiteGTCCore].[CurrencyDefinitionHistory]
+       ([Id], [Symbol], [MinorUnits], [Code], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Symbol], [MinorUnits], [Code], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[CurrencyDefinitionHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[CurrencyDefinitionHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[CurrencyDefinitionHistory] WHERE [GraphiteGTCCore].[CurrencyDefinitionHistory].[Id] = #GraphiteGTCCore_CurrencyDefinition.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_CurrencyDefinition 
+INSERT [GraphiteGTCCore].[LanguageHistory]
+       ([Id], [Code], [Name], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Code], [Name], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[LanguageHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[LanguageHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[LanguageHistory] WHERE [GraphiteGTCCore].[LanguageHistory].[Id] = #GraphiteGTCCore_Language.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_Language 
+INSERT [GraphiteGTCCore].[YesNoQuestionHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([GraphiteGTCCore].[YesNoQuestionHistory].[Version]) IS NULL THEN 1 ELSE MAX([GraphiteGTCCore].[YesNoQuestionHistory].[Version]) + 1 END FROM [GraphiteGTCCore].[YesNoQuestionHistory] WHERE [GraphiteGTCCore].[YesNoQuestionHistory].[Id] = #GraphiteGTCCore_YesNoQuestion.[Id]), [Operation], [TimeStamp]
+         FROM #GraphiteGTCCore_YesNoQuestion 
+INSERT [CardWidgets].[ThemeHistory]
+       ([Id], [Description], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([CardWidgets].[ThemeHistory].[Version]) IS NULL THEN 1 ELSE MAX([CardWidgets].[ThemeHistory].[Version]) + 1 END FROM [CardWidgets].[ThemeHistory] WHERE [CardWidgets].[ThemeHistory].[Id] = #CardWidgets_Theme.[Id]), [Operation], [TimeStamp]
+         FROM #CardWidgets_Theme 
+INSERT [CardWidgets].[PageChoiceHistory]
+       ([Id], [Description], [Display], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Description], [Display], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([CardWidgets].[PageChoiceHistory].[Version]) IS NULL THEN 1 ELSE MAX([CardWidgets].[PageChoiceHistory].[Version]) + 1 END FROM [CardWidgets].[PageChoiceHistory] WHERE [CardWidgets].[PageChoiceHistory].[Id] = #CardWidgets_PageChoice.[Id]), [Operation], [TimeStamp]
+         FROM #CardWidgets_PageChoice 
+INSERT [CardWidgets].[UserHistory]
+       ([Id], [Username], [LanguageId], [ThemeId], [ActiveId], [ObjectId], [EventRegistrationId], [Version], [Operation], [TimeStamp])
+       SELECT [Id], [Username], [LanguageId], [ThemeId], [ActiveId], [ObjectId], @EventRegistrationId, (SELECT CASE WHEN MAX([CardWidgets].[UserHistory].[Version]) IS NULL THEN 1 ELSE MAX([CardWidgets].[UserHistory].[Version]) + 1 END FROM [CardWidgets].[UserHistory] WHERE [CardWidgets].[UserHistory].[Id] = #CardWidgets_User.[Id]), [Operation], [TimeStamp]
+         FROM #CardWidgets_User 
+]]></Script>
+</DataChangeDefinition>

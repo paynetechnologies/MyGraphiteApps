@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="FindByEntryOrder" OwnerId="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" ProcessId="3d81ac79-0d3c-4f1a-bb95-cc3f20a6b93c" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="Assets" DataType="$[List,6ecd59f3-7d0a-47d2-8f8c-41e1214799a0]" VariableType="Input" VariableId="88440206-4dee-4e72-a031-d7fc0ac9a411" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EntryOrder" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Input" VariableId="2ac5acac-c8b1-41e5-83fe-9983a047e827" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Asset" DataType="6ecd59f3-7d0a-47d2-8f8c-41e1214799a0" VariableType="Output" VariableId="eaf681de-bd43-4537-990c-9b73c6d37e4c" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="f2c2967a-df4a-4cbe-8153-20c10fa5772a" Bounds="630.6,55,170,55" />
+        <ListLookupNode Source="Assets" VariableId="Asset" ResultType="Single" ID="352c4f17-a1f5-4f7f-af71-3c45d48f4656" Bounds="440.6,155,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="EntryOrder" RightExpression="EntryOrder" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </ListLookupNode>
+        <EndNode ID="47c12d35-56d5-4626-b15e-242b4b13c41b" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="1521c320-a4a6-4b6e-b6e1-2b9fa0702f23" From="f2c2967a-df4a-4cbe-8153-20c10fa5772a" FromIndex="0" To="352c4f17-a1f5-4f7f-af71-3c45d48f4656" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a523cf62-9c53-4c58-8387-f2b7abdbb081" From="352c4f17-a1f5-4f7f-af71-3c45d48f4656" FromIndex="2" To="47c12d35-56d5-4626-b15e-242b4b13c41b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ValueInstruction" ViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" BasedOn="cd79934a-0312-42e4-a1bc-e1a9cb077d7f" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ElementName" PropertyId="8b27e97a-f470-4d54-9ab8-7b8b9fe73206" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Value" PropertyId="b012aa9c-c630-4ecf-8f70-88a8e529167c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UiParameters" PropertyId="112cc76b-1753-48d0-a1fd-6312e7950aea" IsOptional="true" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="83f1b841-cc8a-41a4-b78d-91b0644e5371" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Prefix" PropertyId="a50eab91-5bf2-4518-87bf-d158d579a6f6" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ValueInstruction" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">ViewElements</Tag>
+  </Tags>
+</ViewElementDefinition>

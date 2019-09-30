@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SelectableButton" ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" BasedOn="b4878119-2641-4f3b-bba1-ec96aed3f170" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Selectable Buttons work as a group of buttons where one is selected at any given time.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsSelected" PropertyId="SimpleEntityDefinitionProperty_IsSelected" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="GroupName" PropertyId="SimpleEntityDefinitionProperty_GroupName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Index" PropertyId="SimpleEntityDefinitionProperty_Index" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SelectableButton" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SelectableButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="IsSelected" EditorType="YesNoToggle" Label="Selected?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Selected by Default?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="GroupName" EditorType="TextBox" Label="Button Group Name" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Uniquely identify a set of Selectable Buttons]]></Description>
+      </Field>
+      <Field FieldName="Index" EditorType="IntegerTextBox" Label="Index in Group" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[A Selectable Button's Index in a Group]]></Description>
+      </Field>
+      <Field FieldName="OnClick" EditorType="ViewBehaviorChooser" Label="OnClick" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Selectable Button is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SelectedButton" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="FromIndex" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ToIndex" ParameterDataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsSelected" PropertyPath="IsSelected" Value="{Text}" />
+      <Map FieldName="GroupName" PropertyPath="GroupName" Value="{Text}" />
+      <Map FieldName="Index" PropertyPath="Index" Value="{Text}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClick" PropertyPath="OnClick.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADgSURBVDhPtZMhDsJAEEVbBIoK4CrlAHgKJ8CRSkgRGAgGMAgasEhuQPEcoJwFBMVg4P/ZabKy2cBLXufvJDsjNvXjOPaUCCawAxtsOFDAHO7ghY0aP2ANz7ALXYcT3uWMDHKmLOjBOQ8/hjMjLpjK0fCGE9iGLc3suZJwQWiyMIMHeIcPzUvoSsgFgcnCSavNUSvxK2gTlI/8N7jgaaIw1Goz0ko+FbQpuOBmsrCFY9hUmVfQlZwLUpOFOtxDPjJlZs+VlAv4U2zk+Fs4MysfeQEH8ApfbDjCu5zRh5jpeV8jbC5OfW2fDwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC3SURBVDhPtZNBDoJADEWLNxCvBXgCd6516QU4ke65kS6Ajavx/2lLZmE0mcy85NGGhHZoQUIIbg8nuMBc+CxrdDDW9eIjLA1rSoNLJyIPWIOBp+crOW94gS3cW857uUxsMGseuUIfm3uDucwcETaxcYAvTTda+NRUGou/SOvJzmI12GDRNHKymHK2SHi6f6asnPG3JXPBRZbMHfTodNeGxYmfKa32o3kDeoQc1wpz4bOsMUDUDPIBTReamLkVCCYAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ApplicationData" EntityId="8d594c19-40b0-4805-8903-3b5365b0bd68" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PersonalData" PropertyId="c484c16a-3de3-4ae9-aba9-abbb94a7a6a6" IsOptional="true" DataType="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

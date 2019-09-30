@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementPackDefinition ElementPackId="1143f321-cd34-49e6-8c91-dafc8472d360" ElementPackName="PortalHeaderPack">
+  <Properties />
+  <ViewDiagram>
+    <Diagram>
+      <Nodes>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Links" OwnerNode="f9fae066-b51e-4588-93ea-d0dddc790695" ID="ba3ce751-db92-484a-a2d0-688ec591b37b" Bounds="90,105,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="UserProfileLinks" OwnerNode="f9fae066-b51e-4588-93ea-d0dddc790695" ID="73bbd19f-3ee2-4bac-a42c-fb0c5e771dae" Bounds="90,215,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" ID="f9fae066-b51e-4588-93ea-d0dddc790695" Bounds="50,50,290,35">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="HeaderAppBar" />
+            </Field>
+            <Field FieldName="BackgroundColor">
+              <PropertyValue Property="Text" Value="White" />
+            </Field>
+            <Field FieldName="LogoffTitle">
+              <PropertyValue Property="TranslationKey" Value="Logout" />
+            </Field>
+            <Field FieldName="UserInformationIsDisplayed">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="UserProfileIsDisplayed">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="LogoffNavigationView">
+              <PropertyValue Property="ViewId" Value="b46339dc-d95b-49c2-b456-d87211afcb3a" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <PropertyViewElementDiagramNode Description="" ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" PropertyName="ImageLink" OwnerNode="f9fae066-b51e-4588-93ea-d0dddc790695" ID="a240d537-28bd-4ee8-b1f0-5f2b6f88ca2c" Bounds="90,160,290,35" Text="ImageLink">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="LogoImageLink" />
+            </Field>
+            <Field FieldName="ImageSource">
+              <PropertyValue Property="SelectedResourceName" Value="$[40bb0a1b-60ed-4d67-bbec-128cd95b5f73,polk,Image,vgit_services]" />
+            </Field>
+            <Field FieldName="NavigationView">
+              <PropertyValue Property="ViewId" Value="b46339dc-d95b-49c2-b456-d87211afcb3a" />
+            </Field>
+          </FieldPropertyValues>
+        </PropertyViewElementDiagramNode>
+      </Nodes>
+      <Connections>
+        <ViewDiagramNodeConnection ID="f4b88d09-8bdc-4988-b678-715d20bb447b" From="f9fae066-b51e-4588-93ea-d0dddc790695" FromIndex="0" To="ba3ce751-db92-484a-a2d0-688ec591b37b" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,122.5" />
+          <Segment EndPoint="90,122.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="9c5d3d79-03e0-4f3e-866a-11009b24a78a" From="f9fae066-b51e-4588-93ea-d0dddc790695" FromIndex="0" To="73bbd19f-3ee2-4bac-a42c-fb0c5e771dae" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,232.5" />
+          <Segment EndPoint="90,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="41157a18-f6dc-4f12-8379-f1ee31212e38" From="f9fae066-b51e-4588-93ea-d0dddc790695" FromIndex="0" To="a240d537-28bd-4ee8-b1f0-5f2b6f88ca2c" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,177.5" />
+          <Segment EndPoint="90,177.5" />
+        </ViewDiagramNodeConnection>
+      </Connections>
+    </Diagram>
+  </ViewDiagram>
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+    <Tag Type="Default">Element Pack</Tag>
+  </Tags>
+</ViewElementPackDefinition>

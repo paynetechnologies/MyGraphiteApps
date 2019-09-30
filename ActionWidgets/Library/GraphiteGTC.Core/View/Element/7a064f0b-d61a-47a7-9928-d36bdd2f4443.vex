@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TabFooter" ViewElementId="7a064f0b-d61a-47a7-9928-d36bdd2f4443" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tab Footer is used to navigate through Tabs via the footer. It is controlled via a property on TabHeader and is disabled by default.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CloseTitle" PropertyId="SimpleEntityDefinitionProperty_CloseTitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PreviousTitle" PropertyId="SimpleEntityDefinitionProperty_PreviousTitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PreviousAttachedKey" PropertyId="SimpleEntityDefinitionProperty_PreviousAttachedKey" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="NextTitle" PropertyId="SimpleEntityDefinitionProperty_NextTitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="NextAttachedKey" PropertyId="SimpleEntityDefinitionProperty_NextAttachedKey" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Buttons" PropertyId="SimpleEntityDefinitionProperty_Buttons" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CloseConfirmation" PropertyId="d9293f4a-9b81-45a7-aad1-1045722ad5db" IsOptional="true" DataType="1a38ab49-9cbf-476c-a528-a444969d2e53" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CloseIsDisplayed" PropertyId="957f87c6-e207-4825-96fa-45e969fae518" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SubmitTitle" PropertyId="0eedd9d4-f369-4809-8258-bbfe19db4798" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SaveIsDisplayed" PropertyId="e868971d-83f2-49b7-a4d1-88cdd8f8f8c9" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SaveTitle" PropertyId="9b6f8102-3b79-48ef-920c-48a5397a5884" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ResetIsDisplayed" PropertyId="59ac7781-9a8a-42da-ada9-20bfc59907a3" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ResetTitle" PropertyId="1fe9a809-9909-4805-9a15-e2c955383b26" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="TabFooter" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">TabFooter.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="IsDisplayed" EditorType="Hidden" Label="Show?" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="CloseTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Close Button" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Close Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Close" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="PreviousTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Previous Button" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Previous Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Previous" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="PreviousAttachedKey" EditorType="SelectBox" Label="Key" Grouping="Previous Button" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Key to activate the Previous Button]]></Description>
+        <FieldOptions>
+          <FieldOption DisplayName="Backspace" Value="Keyboard.Backspace" />
+          <FieldOption DisplayName="Delete" Value="Keyboard.Delete" />
+          <FieldOption DisplayName="Down" Value="Keyboard.Down" />
+          <FieldOption DisplayName="End" Value="Keyboard.End" />
+          <FieldOption DisplayName="Enter" Value="Keyboard.Enter" />
+          <FieldOption DisplayName="Equal" Value="Keyboard.Equal" />
+          <FieldOption DisplayName="Escape" Value="Keyboard.Escape" />
+          <FieldOption DisplayName="Home" Value="Keyboard.Home" />
+          <FieldOption DisplayName="Hyphen" Value="Keyboard.Hyphen" />
+          <FieldOption DisplayName="Left" Value="Keyboard.Left" />
+          <FieldOption DisplayName="PageDown" Value="Keyboard.PageDown" />
+          <FieldOption DisplayName="PageUp" Value="Keyboard.PageUp" />
+          <FieldOption DisplayName="Period" Value="Keyboard.Period" />
+          <FieldOption DisplayName="Right" Value="Keyboard.Right" />
+          <FieldOption DisplayName="Shift" Value="Keyboard.Shift" />
+          <FieldOption DisplayName="Space" Value="Keyboard.Space" />
+          <FieldOption DisplayName="Tab" Value="Keyboard.Tab" />
+          <FieldOption DisplayName="Up" Value="Keyboard.Up" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="NextTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Next Button" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Next Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Next" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="NextAttachedKey" EditorType="SelectBox" Label="Key" Grouping="Next Button" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Key to activate the Next Button]]></Description>
+        <FieldOptions>
+          <FieldOption DisplayName="Backspace" Value="Keyboard.Backspace" />
+          <FieldOption DisplayName="Delete" Value="Keyboard.Delete" />
+          <FieldOption DisplayName="Down" Value="Keyboard.Down" />
+          <FieldOption DisplayName="End" Value="Keyboard.End" />
+          <FieldOption DisplayName="Enter" Value="Keyboard.Enter" />
+          <FieldOption DisplayName="Equal" Value="Keyboard.Equal" />
+          <FieldOption DisplayName="Escape" Value="Keyboard.Escape" />
+          <FieldOption DisplayName="Home" Value="Keyboard.Home" />
+          <FieldOption DisplayName="Hyphen" Value="Keyboard.Hyphen" />
+          <FieldOption DisplayName="Left" Value="Keyboard.Left" />
+          <FieldOption DisplayName="PageDown" Value="Keyboard.PageDown" />
+          <FieldOption DisplayName="PageUp" Value="Keyboard.PageUp" />
+          <FieldOption DisplayName="Period" Value="Keyboard.Period" />
+          <FieldOption DisplayName="Right" Value="Keyboard.Right" />
+          <FieldOption DisplayName="Shift" Value="Keyboard.Shift" />
+          <FieldOption DisplayName="Space" Value="Keyboard.Space" />
+          <FieldOption DisplayName="Tab" Value="Keyboard.Tab" />
+          <FieldOption DisplayName="Up" Value="Keyboard.Up" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="CloseIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="Close Button" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Close Button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CloseConfirmationBody" EditorType="TranslationKeyChooser" Label="Message" Grouping="Close Button,Warning" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Confirmation message when tabs are closed]]></Description>
+      </Field>
+      <Field FieldName="CloseConfirmation.Title" EditorType="TranslationKeyChooser" Label="Title" Grouping="Close Button,Warning" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Title for Confirmation message when tabs are closed]]></Description>
+      </Field>
+      <Field FieldName="CloseConfirmation.Type" EditorType="Hidden" Label="Type" Grouping="Close Button" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="0" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SubmitTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Submit Button" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Submit Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Submit" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SaveIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="Save Button" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Save Button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SaveTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Save Button" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Save Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Save" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ResetIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="Reset Button" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Reset Button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ResetTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Reset Button" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Reset Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Reset" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsDisplayed" PropertyPath="IsDisplayed" Value="{Text}" />
+      <Map FieldName="CloseTitle" PropertyPath="CloseTitle" Value="{TranslationKey}" />
+      <Map FieldName="PreviousTitle" PropertyPath="PreviousTitle" Value="{TranslationKey}" />
+      <Map FieldName="PreviousAttachedKey" PropertyPath="PreviousAttachedKey" Value="{Text}" />
+      <Map FieldName="NextTitle" PropertyPath="NextTitle" Value="{TranslationKey}" />
+      <Map FieldName="NextAttachedKey" PropertyPath="NextAttachedKey" Value="{Text}" />
+      <Map FieldName="CloseIsDisplayed" PropertyPath="CloseIsDisplayed" Value="{Text}" />
+      <Map FieldName="CloseConfirmationBody" PropertyPath="CloseConfirmation.Body" Value="{TranslationKey}" />
+      <Map FieldName="CloseConfirmation.Title" PropertyPath="CloseConfirmation.Title" Value="{TranslationKey}" />
+      <Map FieldName="CloseConfirmation.Type" PropertyPath="CloseConfirmation.Type" Value="{Text}" />
+      <Map FieldName="SubmitTitle" PropertyPath="SubmitTitle" Value="{TranslationKey}" />
+      <Map FieldName="SaveIsDisplayed" PropertyPath="SaveIsDisplayed" Value="{Text}" />
+      <Map FieldName="SaveTitle" PropertyPath="SaveTitle" Value="{TranslationKey}" />
+      <Map FieldName="ResetIsDisplayed" PropertyPath="ResetIsDisplayed" Value="{Text}" />
+      <Map FieldName="ResetTitle" PropertyPath="ResetTitle" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Close</Key>
+    <Key>Previous</Key>
+    <Key>Next</Key>
+    <Key>Submit</Key>
+    <Key>Save</Key>
+    <Key>Reset</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Tab</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABFSURBVEhLY0xLS/vPQEPABKVpBkYtIAjoYgEjLTHIAlAypRkejWSCYNQCgmDUAoJgeFiAtZCiFgZZgLWQohYe6nHAwAAAaLgyX+sCqfUAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA5SURBVEhLY/wPBAw0BExQmmZg1AKCgOYWgFIRlEkbMJpMCYJRCwiCUQsIglELCILRwo4goLEFDAwAzLwSGDgT130AAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

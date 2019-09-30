@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnChangeAssetAmount1Field" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="4b18ac68-5ac6-463c-9b60-509cb5844527" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="3380215a-f5e4-4e6e-a59c-1df7de37cffb" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="b9cced21-5e78-44f8-aa93-bc6201cbd10c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AssetAmount1Field" DataType="$[Nullable,5a2a204e-9712-4be7-9ef0-79c83427658f]" VariableType="Input" VariableId="75e077fa-5c24-4f24-b9ce-6765e0d45e8d" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AssetAmount2Field" DataType="$[Nullable,5a2a204e-9712-4be7-9ef0-79c83427658f]" VariableType="Input" VariableId="320731fa-7fc5-4d8b-956e-8abf85d418fa" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AssetAmount3Field" DataType="$[Nullable,5a2a204e-9712-4be7-9ef0-79c83427658f]" VariableType="Input" VariableId="626b4d9b-74e9-4c75-9821-b1486f03fd85" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AssetType1Field" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" VariableType="Input" VariableId="54339327-6cac-4523-952f-79547d251a7b" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AssetType2Field" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" VariableType="Input" VariableId="bfccea7c-2216-46b1-9d11-96ebd74d1492" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="AssetType3Field" DataType="69161e28-eac7-44c9-b044-6ee8e57ab7fb" VariableType="Input" VariableId="583587ae-c95c-4938-8abe-ff51220554e3" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="GiftAmountField" DataType="$[Nullable,5a2a204e-9712-4be7-9ef0-79c83427658f]" VariableType="Input" VariableId="0682b775-c722-4cb6-9214-61fdbda644c6" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="GiftFromField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="cb135290-7bc4-433c-b58a-114b8f63ca62" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="fb5ed77d-d1b9-4b2f-9092-df714651c595" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="2a5b0b72-f356-45ff-8858-0615e417c763" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode ViewDefinition="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessProperty="d628a3b4-9116-4cca-b679-ff1eb3af8301" ExecuteProcessType="View" VariableId="HomeLoanUpdateTotalAssetItemResult" SuppressValidations="false" ID="65efe9db-c548-47cb-8abf-059258282026" Bounds="440.6,255,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="AssetAmount1" Value="AssetAmount1Field" />
+            <InputVariable Name="AssetAmount2" Value="AssetAmount2Field" />
+            <InputVariable Name="AssetAmount3" Value="AssetAmount3Field" />
+            <InputVariable Name="GiftAmount" Value="GiftAmountField" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PageInstructions" Value="PageInstructions" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="a113ea27-ff18-4fc4-ab63-11fe466b3170" Bounds="630.6,355,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="2a8a62b9-e629-4842-a4bc-9a003c64bf29" From="fb5ed77d-d1b9-4b2f-9092-df714651c595" FromIndex="0" To="2a5b0b72-f356-45ff-8858-0615e417c763" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="078f5649-a332-4fd8-8467-f294e253b43f" From="65efe9db-c548-47cb-8abf-059258282026" FromIndex="2" To="a113ea27-ff18-4fc4-ab63-11fe466b3170" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="40defe8e-cd38-43d6-ab30-ce56d158d054" From="2a5b0b72-f356-45ff-8858-0615e417c763" FromIndex="2" To="65efe9db-c548-47cb-8abf-059258282026" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

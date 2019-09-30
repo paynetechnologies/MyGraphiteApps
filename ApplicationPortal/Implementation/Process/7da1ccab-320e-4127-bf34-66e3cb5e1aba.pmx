@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetupAutoDetails" OwnerId="87b79702-866b-4778-bcc9-067d2aedac13" ProcessId="7da1ccab-320e-4127-bf34-66e3cb5e1aba" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="8c949f87-2ec1-4b6b-8bef-4e974fcfa729" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="99f7c1b7-2ac4-450b-bf25-27f1b7516323" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="87b79702-866b-4778-bcc9-067d2aedac13" VariableType="InputOutput" VariableId="b850318a-0901-4f2a-a20f-665a03600bcf" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="a0e208ad-5fcb-4d97-b198-40f6ba5ec4a0" Bounds="630.6,120,170,55" ZOrder="1" Text="" />
+        <CreateFromNode Variable="InsuranceDataInContext" FromExpression="ApplicationInContext.ApplicationData" CreateAsTypeId="9e724afd-bac4-4e54-9136-dbbebf2834c9" Description="Convert Application Data to Insurance Data" ID="04feb159-c44c-4b0b-9d2a-2446b41418e5" Bounds="440.6,220,550,55" ZOrder="7" Text="Create From" />
+        <AssignNode ID="849d51c4-a987-46a7-aede-8b7e2986ec11" Bounds="440.6,320,550,55" ZOrder="1" Text="">
+          <Assignment Name="YearField.Value" Value="InsuranceDataInContext.VehicleYear" />
+          <Assignment Name="BodyStyleField.Value" Value="InsuranceDataInContext.VehicleBodyStyle" />
+          <Assignment Name="FinanceField.Value" Value="InsuranceDataInContext.FinanceModel" />
+          <Assignment Name="UseField.Value" Value="InsuranceDataInContext.PrimaryUse" />
+          <Assignment Name="MilesField.Value" Value="InsuranceDataInContext.MilesPerYear" />
+          <Assignment Name="RideShareField.Value" Value="Text.GetEnumDescription( InsuranceDataInContext.RideShare )" />
+        </AssignNode>
+        <SelectOptionsNode Source="745514db-3a28-4b6d-a9b2-5327cd2e8e9d" SelectFieldVariableId="MakeField" DisplayProperty="Name" ID="09da7eb0-4bd0-4a8a-b3a7-9d291d45fa90" Bounds="440,420,550,55" />
+        <DecisionNode LeftExpression="InsuranceDataInContext.VehicleMake" Operator="IsMissing" ID="5d3761f1-315b-494b-8a4b-9a8e0cac5f56" Bounds="460.6,520,510,125" />
+        <DataLookupNode Source="745514db-3a28-4b6d-a9b2-5327cd2e8e9d" VariableId="MakeInContext" ResultType="Single" ID="fe3caa30-ce54-4d5b-b4cb-cc988fa6b730" Bounds="840.6,690,550,55" ZOrder="1" Text="">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Name" RightExpression="InsuranceDataInContext.VehicleMake" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <DataLookupNode Source="745514db-3a28-4b6d-a9b2-5327cd2e8e9d" VariableId="FirstVehicleMake" ResultType="Single" ID="f14d0c7c-1649-476d-aa5a-f924f37675f3" Bounds="40.6,690,550,55" ZOrder="1" Text="">
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Name" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </DataLookupNode>
+        <SelectOptionsNode Source="2fed88c7-90c8-4174-9cad-71b76990a2d4" SelectFieldVariableId="FinanceField" DisplayProperty="Name" IsListSource="true" SourceList="MakeInContext.Models" ID="93e255af-7cd8-4ff6-b68e-bcc58a8cbdf1" Bounds="840.6,790,550,55" ZOrder="1" Text="">
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Name" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </SelectOptionsNode>
+        <SelectOptionsNode Source="2fed88c7-90c8-4174-9cad-71b76990a2d4" SelectFieldVariableId="MakeField" DisplayProperty="Name" IsListSource="true" SourceList="FirstVehicleMake.Models" ID="f57b7f80-1a5d-4c8d-aa0b-9c7aa0cebf03" Bounds="40.6,790,550,55">
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="Name" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </SelectOptionsNode>
+        <ListLookupNode Source="MakeInContext.Models" VariableId="ModelInContext" ResultType="Single" ID="df40e735-bc6d-484a-a40d-fc934ee15bdb" Bounds="840.6,890,550,55" ZOrder="1" Text="">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Name" RightExpression="InsuranceDataInContext.VehicleModel" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </ListLookupNode>
+        <EndNode ID="b8f3e54f-5970-465e-a65c-0a37784fc54b" Bounds="630.6,1090,170,55" />
+        <AssignNode ID="cf0763c1-200f-487c-b142-2d00e0076ecf" Bounds="840.6,990,550,55" ZOrder="1" Text="">
+          <Assignment Name="MakeField.Value" Value="MakeInContext" />
+          <Assignment Name="ModelField.Value" Value="ModelInContext" />
+        </AssignNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="a71e388b-7c85-426d-bce0-28f1d3501ebb" From="a0e208ad-5fcb-4d97-b198-40f6ba5ec4a0" FromIndex="0" To="04feb159-c44c-4b0b-9d2a-2446b41418e5" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,175" />
+          <Segment EndPoint="715.6,220" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a88c0f06-deab-4205-a274-4d6167a6b678" From="04feb159-c44c-4b0b-9d2a-2446b41418e5" FromIndex="2" To="849d51c4-a987-46a7-aede-8b7e2986ec11" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,275" />
+          <Segment EndPoint="715.6,320" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d2d5e33a-87f5-4bd9-831f-ab8dff0b6e1d" From="849d51c4-a987-46a7-aede-8b7e2986ec11" FromIndex="2" To="09da7eb0-4bd0-4a8a-b3a7-9d291d45fa90" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,375" />
+          <Segment EndPoint="715.6,397.5" />
+          <Segment EndPoint="715,397.5" Movable="true" />
+          <Segment EndPoint="715,420" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="eb5949af-87c4-4fa4-a6a3-f4f5200ed51f" From="09da7eb0-4bd0-4a8a-b3a7-9d291d45fa90" FromIndex="2" To="5d3761f1-315b-494b-8a4b-9a8e0cac5f56" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,475" />
+          <Segment EndPoint="715,497.5" />
+          <Segment EndPoint="715.6,497.5" Movable="true" />
+          <Segment EndPoint="715.6,520" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="03cdf9e8-9a7d-457d-9e9b-a919039cc9c9" From="5d3761f1-315b-494b-8a4b-9a8e0cac5f56" FromIndex="3" To="f14d0c7c-1649-476d-aa5a-f924f37675f3" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460.6,582.5" />
+          <Segment EndPoint="315.6,582.5" />
+          <Segment EndPoint="315.6,690" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="193fbac1-c54f-4a31-89df-439fab693873" From="5d3761f1-315b-494b-8a4b-9a8e0cac5f56" FromIndex="1" To="fe3caa30-ce54-4d5b-b4cb-cc988fa6b730" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="970.6,582.5" />
+          <Segment EndPoint="1115.6,582.5" />
+          <Segment EndPoint="1115.6,690" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="6cf5b3c2-339a-48d8-a171-f1f993ba331a" From="df40e735-bc6d-484a-a40d-fc934ee15bdb" FromIndex="2" To="cf0763c1-200f-487c-b142-2d00e0076ecf" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115.6,945" />
+          <Segment EndPoint="1115.6,990" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="fa6d2416-b479-4ae6-a803-677bc529f3bd" From="cf0763c1-200f-487c-b142-2d00e0076ecf" FromIndex="2" To="b8f3e54f-5970-465e-a65c-0a37784fc54b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115.6,1045" />
+          <Segment EndPoint="1115.6,1067.5" />
+          <Segment EndPoint="715.6,1067.5" Movable="true" />
+          <Segment EndPoint="715.6,1090" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c8cfa297-f61b-427b-8844-ff8f3515f0e1" From="f14d0c7c-1649-476d-aa5a-f924f37675f3" FromIndex="2" To="f57b7f80-1a5d-4c8d-aa0b-9c7aa0cebf03" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="315.6,745" />
+          <Segment EndPoint="315.6,790" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c806caca-2ef5-4308-91e6-3ef0060158dd" From="f57b7f80-1a5d-4c8d-aa0b-9c7aa0cebf03" FromIndex="2" To="b8f3e54f-5970-465e-a65c-0a37784fc54b" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="315.6,845" />
+          <Segment EndPoint="315.6,1117.5" />
+          <Segment EndPoint="630.6,1117.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7c229d25-c2f2-47ac-a93e-641d0da4284a" From="fe3caa30-ce54-4d5b-b4cb-cc988fa6b730" FromIndex="2" To="93e255af-7cd8-4ff6-b68e-bcc58a8cbdf1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115.6,745" />
+          <Segment EndPoint="1115.6,790" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ae8924a6-b947-4c9e-97be-e6132e44b663" From="93e255af-7cd8-4ff6-b68e-bcc58a8cbdf1" FromIndex="2" To="df40e735-bc6d-484a-a40d-fc934ee15bdb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1115.6,845" />
+          <Segment EndPoint="1115.6,890" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

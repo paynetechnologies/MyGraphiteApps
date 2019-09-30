@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Create" OwnerId="8d594c19-40b0-4805-8903-3b5365b0bd68" ProcessId="4cbb0ca8-2375-4d82-a9a6-c5ed6bf4683e" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="Category" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="31cf4f92-aea7-434d-aac1-7f3e5392cac4" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="NewApplicationData" DataType="8d594c19-40b0-4805-8903-3b5365b0bd68" VariableType="Output" VariableId="a4ca9469-7a06-4c06-87c6-29b5e83188c2" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="a12786a0-fd95-489b-94f1-2e77d92ba612" Bounds="630.6,165,170,55" ZOrder="1" Text="" />
+        <ExecuteProcessNode EntityDefinition="a055ab0f-27bb-4568-88fa-ed2a7abbcf30" ProcessProperty="9a280ff5-28f4-4b7f-9988-2f345c083894" ExecuteProcessType="EntityStatic" VariableId="PersonalDataCreateResult" SuppressValidations="false" ID="c90ea5e6-cd25-4b67-9a11-50a1bfb64385" Bounds="440,265,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="Category" Value="Category" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <AssignNode Description="ApplicationDataType = Category + &quot;Data&quot;" ID="d2e5f09f-1c46-44cf-94a6-df55a2b713bb" Bounds="440.6,365,550,55" ZOrder="1" Text="">
+          <Assignment Name="ApplicationDataType" Value="Text.Concatenate( Category, &quot;Data&quot; )" />
+        </AssignNode>
+        <CreateNode Variable="NewApplicationData" DataType="8d594c19-40b0-4805-8903-3b5365b0bd68" IsDynamic="true" DynamicTypeProvider="ApplicationDataType" ID="8ae3bce4-705e-44a0-86ad-fc0078b98d12" Bounds="440.6,465,550,55" ZOrder="1" Text="">
+          <Properties>
+            <Property Name="PersonalData">PersonalDataCreateResult.Outputs.NewPersonalData</Property>
+          </Properties>
+        </CreateNode>
+        <EndNode ID="cabdaa39-8d8c-4331-97dd-b3cdeb5567a0" Bounds="630.6,565,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="ebef23d0-202b-4b49-be83-3d4a41376d7e" From="a12786a0-fd95-489b-94f1-2e77d92ba612" FromIndex="0" To="c90ea5e6-cd25-4b67-9a11-50a1bfb64385" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,220" />
+          <Segment EndPoint="715.6,242.5" />
+          <Segment EndPoint="715,242.5" Movable="true" />
+          <Segment EndPoint="715,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="14d5dac1-c1fa-4d1e-b126-6fb00e07dc1b" From="c90ea5e6-cd25-4b67-9a11-50a1bfb64385" FromIndex="2" To="d2e5f09f-1c46-44cf-94a6-df55a2b713bb" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715,320" />
+          <Segment EndPoint="715,342.5" />
+          <Segment EndPoint="715.6,342.5" Movable="true" />
+          <Segment EndPoint="715.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9075fdc5-04d8-4169-84ef-df15006d45a2" From="d2e5f09f-1c46-44cf-94a6-df55a2b713bb" FromIndex="2" To="8ae3bce4-705e-44a0-86ad-fc0078b98d12" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="46283b8f-80ab-4de9-a800-7d1f55912cdc" From="8ae3bce4-705e-44a0-86ad-fc0078b98d12" FromIndex="2" To="cabdaa39-8d8c-4331-97dd-b3cdeb5567a0" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,520" />
+          <Segment EndPoint="715.6,565" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

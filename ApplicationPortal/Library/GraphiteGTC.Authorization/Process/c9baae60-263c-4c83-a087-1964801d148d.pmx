@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="CreateList" OwnerId="72a4fe60-2494-42cd-92f6-f578e08afc49" ProcessId="c9baae60-263c-4c83-a087-1964801d148d" ProcessType="Normal" Classification="ViewElement" IsRemovable="true">
+  <Variables>
+    <Variable Name="ViewElementSecurityDisplays" DataType="$[List,72a4fe60-2494-42cd-92f6-f578e08afc49]" VariableType="Output" VariableId="d8e58667-9b8c-4a87-8c65-780311615d9f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="SecurityGroup" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" VariableType="Input" VariableId="e0c9cabb-c443-4e57-9f1f-00b3abd69724" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElementDetails" DataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" VariableType="Input" VariableId="c3e4acff-0057-4960-8f0a-12f92d80c912" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="ccf5bd32-4cdf-4806-99bc-51c1bff23db0" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="ViewElementSecurityDisplays" DataType="$[List,72a4fe60-2494-42cd-92f6-f578e08afc49]" Description="Create ViewElementSecurityDisplays" ID="d51b7f62-42f1-435e-b5cc-f9b5ce4c15bc" Bounds="632.5,155,550,55" ZOrder="1" Text="Create">
+          <Properties />
+        </CreateNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="ViewElementDetails" IterationVar="ViewElementDetail" ID="87bf970b-f637-418f-8500-6692992a7b9e" Bounds="557.5,255,700,305" ZOrder="1" Text="Repeat" />
+        <ExecuteProcessNode ElementDefinition="72a4fe60-2494-42cd-92f6-f578e08afc49" ProcessProperty="3137dc4a-0ba0-4410-bbfd-48e0df4e6115" ExecuteProcessType="Element" VariableId="ViewElementSecurityDisplayCreateResult" SuppressValidations="false" Parent="87bf970b-f637-418f-8500-6692992a7b9e" ID="7becac95-90f5-40ab-bec6-e84f8ae33f50" Bounds="75,75,550,55" ZOrder="2">
+          <InputVariables>
+            <InputVariable Name="SecurityGroup" Value="SecurityGroup" />
+            <InputVariable Name="ViewElementDetail" Value="ViewElementDetail" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Add" ListItem="ViewElementSecurityDisplayCreateResult.Outputs.ViewElementSecurityDisplay" SourceList="ViewElementSecurityDisplays" Parent="87bf970b-f637-418f-8500-6692992a7b9e" ID="45a58d57-cc1c-4ad9-bf28-b1c8397b0feb" Bounds="75,175,550,55" ZOrder="11" />
+        <EndNode ID="d4fd2060-7bd8-4953-84fc-aa7e7d7b5579" Bounds="822.5,605,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="92a3cbde-fddb-4ed6-8a5f-2aedbf84b343" From="d51b7f62-42f1-435e-b5cc-f9b5ce4c15bc" FromIndex="2" To="87bf970b-f637-418f-8500-6692992a7b9e" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7667b7e1-bab0-4ee8-880f-b6dd6f39cf92" From="ccf5bd32-4cdf-4806-99bc-51c1bff23db0" FromIndex="0" To="d51b7f62-42f1-435e-b5cc-f9b5ce4c15bc" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="fbe85fa7-a88b-4acb-b26e-cf2af2cd301d" From="7becac95-90f5-40ab-bec6-e84f8ae33f50" FromIndex="2" To="45a58d57-cc1c-4ad9-bf28-b1c8397b0feb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,385" />
+          <Segment EndPoint="907.5,430" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="720f8ff7-6a3e-4d59-9a7c-0cd967bd52d5" From="87bf970b-f637-418f-8500-6692992a7b9e" FromIndex="2" To="d4fd2060-7bd8-4953-84fc-aa7e7d7b5579" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,560" />
+          <Segment EndPoint="907.5,605" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

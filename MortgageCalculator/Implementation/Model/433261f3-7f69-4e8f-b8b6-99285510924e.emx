@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Mortgage" EntityId="433261f3-7f69-4e8f-b8b6-99285510924e" TargetChangeSetId="adb14b24-c7b3-46ae-834e-e6175fbd2f3d">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="InterestRate" PropertyId="6a13c9c6-d020-477b-9ca9-02a0b14288cd" IsOptional="true" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="LoanAmount" PropertyId="9109f045-6b3a-48dd-bbbe-72a1c918f4e7" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="NumberOfYears" PropertyId="03abc1c3-626b-41c9-b54a-284b61b6dbad" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PaymentAmount" PropertyId="d105ad68-6a38-4c05-b219-761fe0ba3878" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Payments" PropertyId="ae3ce684-2e86-4e51-830e-1bfb73e53e7d" IsOptional="true" DataType="$[List,e810f7b4-8de5-4688-aa15-3ef085d8b6bb]" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="PaymentsPerYear" PropertyId="00420c73-6c70-4c7c-a0e8-8cb2ec7d3efe" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="TotalInterestPaid" PropertyId="76a31f3d-87a0-4427-a81f-eaab3ebf160c" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="TotalNumberOfPayments" PropertyId="92c1507a-c11d-4d16-91b5-5f7bb96611b2" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="TotalPaymentAmount" PropertyId="66547ffa-07ae-4223-b72a-c60c213c04e2" IsOptional="true" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" />
+  <Tags>
+    <Tag Type="Group">Mortgage</Tag>
+  </Tags>
+</EntityDefinition>

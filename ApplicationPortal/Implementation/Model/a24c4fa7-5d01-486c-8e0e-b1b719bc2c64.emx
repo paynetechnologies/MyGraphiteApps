@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Application" EntityId="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ApplicationData" PropertyId="c0668827-2d67-42f3-8336-ba9dc362bcd7" IsOptional="true" DataType="8d594c19-40b0-4805-8903-3b5365b0bd68" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisclosureAgreement" PropertyId="62e005e5-667b-47ed-991b-6a00942bbec1" IsOptional="true" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="StartDate" PropertyId="1679fbc7-c2b9-4e1a-a367-24c049caf71b" IsOptional="true" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="EndDate" PropertyId="c6c3cc5a-e540-4eb7-9831-3610785617b0" IsOptional="true" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Status" PropertyId="46208666-60fe-4f3a-8591-6439663c0d82" IsOptional="true" DataType="4b00238b-ba3b-4d86-a73b-c56a976427aa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Type" PropertyId="12bf9617-cf7b-43ea-96e1-4fbc9e36ab3a" IsOptional="true" DataType="b88d86da-85a8-4917-a47b-1da989eda0bd" />
+  <Tags>
+    <Tag Type="Group">Applications</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="a1eb6f2c-309f-4069-b188-bf8494eb739a" Name="GTCImageGeoExif" Reference="GTC.ImageGeoExif.dll">
+  <Description>External DLL providing locaton functionality</Description>
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+</ExternalReference>

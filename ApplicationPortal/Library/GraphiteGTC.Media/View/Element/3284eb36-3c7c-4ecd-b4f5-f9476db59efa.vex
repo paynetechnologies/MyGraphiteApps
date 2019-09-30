@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DownloadButton" ViewElementId="3284eb36-3c7c-4ecd-b4f5-f9476db59efa" BasedOn="b4878119-2641-4f3b-bba1-ec96aed3f170" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Download Button element facilitates downloading files.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileContent" PropertyId="6f91cb55-b2fd-4981-9031-186af8f2b371" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FilePath" PropertyId="c360473e-53ca-455e-8a1b-03c13fb19572" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileName" PropertyId="c0a687d8-a3fa-4489-a71d-d61b41ec2dc2" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FileType" PropertyId="b34b2bb4-3fb4-4c96-83d7-0b549b04f90b" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DownloadButton" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DownloadButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Media</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACtSURBVEhL7ZMLCsIwEES3eqRcwNPkFv7wYtp7+ZnRKCGscaJYAvpgSNpmeXRohxjj2SZgltav8xe9zW+KBjFVuqyOP7YXidY3aqorp8vqPmJSUdl7GRVv9pEuqlsiymecn+GMS020Q1a3rW0QVlDCe3xGeJYzLvMQQtq6jMgJ2V6vzA5pvbNGKKpKyCsReSaTJUQRkVK2QGQJUUUkl1EkS0iLiFB2RPaILDEzuwB4uin7GCtMawAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACZSURBVEhL7ZNRCoAgEAWtcxd9dPDaCQWJ17YGRUQDg7VaL027xUgP0Of2dv6gy3wvKLK9u9ye4b7nlUvHFytDtM6IZawN871d91gQ2ztfnsLA/X9RNckrlm40yxb2pl2P4RkNS+c4mjCZqh/pA8aq/k1Z3OmFhUJQFoUqLByCsnhgHdYUgrLoWMIgHIIt56gwmJydebsLkdIKAlS2XjJrErcAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

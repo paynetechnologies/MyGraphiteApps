@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildUpdateLinkParameters" OwnerId="f6097fcd-5ebf-4653-a4cb-635f1c961573" ProcessId="fecf038c-bce6-4613-b7a1-eda1a23d1c05" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Create UI Parameters for an UrlLink">
+  <Variables>
+    <Variable Name="Url" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="b28137e0-d052-48ab-ae18-797170ae00ce" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Title" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="20b7c0b7-8178-42f1-972b-462ccba7ce4d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="UiParameters" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" VariableType="Output" VariableId="5ab0ba89-d001-4ca9-8016-cf9fcf1b8224" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="e6ac318b-f01d-4e21-b806-5a10f50469e2" Bounds="822.5,110,170,55" />
+        <CreateNode Variable="UiParameters" DataType="$[List,91713f8e-9fea-4cd7-8973-d5ba81e4742a]" Description="Initialize UiParameters" ID="08f34cb7-3664-408a-b4e8-38177e9f9d3b" Bounds="632.5,210,550,55" ZOrder="1" Text="">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="UpdateLinkUiParameter" DataType="91713f8e-9fea-4cd7-8973-d5ba81e4742a" Description="Create Update Link UiParameter" ID="2eecbd4b-290a-434b-9fc1-9921e8c0cd4c" Bounds="632.5,310,550,55" ZOrder="1" Text="">
+          <Properties>
+            <Property Name="Name">Title</Property>
+            <Property Name="Value">Url</Property>
+          </Properties>
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="UpdateLinkUiParameter" SourceList="UiParameters" Description="Add to UiParameters" ID="fbd9e18d-e53f-4630-a341-9c11965b27e4" Bounds="632.5,410,550,55" ZOrder="1" Text="" />
+        <EndNode ID="9e241edc-c32c-4958-aeeb-64fbd9be92df" Bounds="822.5,510,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="6f3fd1b9-be46-47de-b6f8-27f5b983eedb" From="08f34cb7-3664-408a-b4e8-38177e9f9d3b" FromIndex="2" To="2eecbd4b-290a-434b-9fc1-9921e8c0cd4c" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,265" />
+          <Segment EndPoint="907.5,310" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f55a21cb-3f33-453d-a53b-fb931547b9c6" From="2eecbd4b-290a-434b-9fc1-9921e8c0cd4c" FromIndex="2" To="fbd9e18d-e53f-4630-a341-9c11965b27e4" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,365" />
+          <Segment EndPoint="907.5,410" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="c7da8785-a752-49a7-803c-53f4f7d39197" From="fbd9e18d-e53f-4630-a341-9c11965b27e4" FromIndex="2" To="9e241edc-c32c-4958-aeeb-64fbd9be92df" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,465" />
+          <Segment EndPoint="907.5,510" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="5e761fba-ab72-427e-acd0-1113d4bb987a" From="e6ac318b-f01d-4e21-b806-5a10f50469e2" FromIndex="0" To="08f34cb7-3664-408a-b4e8-38177e9f9d3b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,165" />
+          <Segment EndPoint="907.5,210" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementPackDefinition ElementPackId="dff3dee9-cdbc-47ac-9515-0cc88863245a" ElementPackName="GuideHeaderPack">
+  <Properties />
+  <ViewDiagram>
+    <Diagram>
+      <Nodes>
+        <ViewElementDiagramNode Description="" ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" ID="b42ca887-ffc9-4209-8662-7445cc1ca052" Bounds="50,50,290,35" Text="">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="GuideAppBar" />
+            </Field>
+            <Field FieldName="BackgroundColor">
+              <PropertyValue Property="Text" Value="WhiteSmoke" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Links" OwnerNode="b42ca887-ffc9-4209-8662-7445cc1ca052" ID="c49e37f7-6375-4f2e-938c-91801959d7b0" Bounds="90,105,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <PropertyViewElementDiagramNode Description="" ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" PropertyName="ImageLink" OwnerNode="b42ca887-ffc9-4209-8662-7445cc1ca052" ID="8a703706-8db3-42ff-8952-965eed991450" Bounds="90,160,290,35" Text="ImageLink">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="SampleAppsImageLink" />
+            </Field>
+            <Field FieldName="ImageSource">
+              <PropertyValue Property="SelectedResourceName" Value="$[057031ce-dc4c-4003-ac49-e2034a902acd,common,Image,MyLogo]" />
+            </Field>
+            <Field FieldName="NavigationView">
+              <PropertyValue Property="ViewId" Value="477b08b6-bde0-4087-b90a-405bc19524f5" />
+            </Field>
+          </FieldPropertyValues>
+        </PropertyViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="UserProfileLinks" OwnerNode="b42ca887-ffc9-4209-8662-7445cc1ca052" ID="d17c89d4-1df5-4e78-94db-1a09678e9a53" Bounds="90,215,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+      </Nodes>
+      <Connections>
+        <ViewDiagramNodeConnection ID="faef8831-cb88-42ff-b11f-b76bb33b0757" From="b42ca887-ffc9-4209-8662-7445cc1ca052" FromIndex="0" To="c49e37f7-6375-4f2e-938c-91801959d7b0" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,122.5" />
+          <Segment EndPoint="90,122.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="c699bb69-5cfc-4929-8f44-78070c7a776f" From="b42ca887-ffc9-4209-8662-7445cc1ca052" FromIndex="0" To="d17c89d4-1df5-4e78-94db-1a09678e9a53" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,232.5" />
+          <Segment EndPoint="90,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="e9d70c9b-0f75-4162-a116-94f108b235ab" From="b42ca887-ffc9-4209-8662-7445cc1ca052" FromIndex="0" To="8a703706-8db3-42ff-8952-965eed991450" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,177.5" />
+          <Segment EndPoint="90,177.5" />
+        </ViewDiagramNodeConnection>
+      </Connections>
+    </Diagram>
+  </ViewDiagram>
+  <Tags>
+    <Tag Type="Group">Screens</Tag>
+    <Tag Type="Default">Element Pack</Tag>
+  </Tags>
+</ViewElementPackDefinition>

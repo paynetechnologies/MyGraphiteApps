@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickContinueButton" OwnerId="afed812a-1b26-4b4e-82b7-dac78ff07cb1" ProcessId="45517426-f290-4865-a226-11ef9a5becd1" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="a2e05d2f-190b-43b2-ad5a-052f1e2dd52c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="8dbe3a50-b492-4238-87a4-8e8e298e2d17" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ConfirmPasswordField" DataType="919223ac-22c6-4540-be89-e85d1be5f0ad" VariableType="Input" VariableId="d4de201f-30aa-4985-9109-0c163e368a15" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="EmailAddressField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="c65641ad-6442-466b-b5ee-2d50133977db" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FirstNameField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="07e22015-1409-436a-b43f-230d638b5c43" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="InterestedInField" DataType="b88d86da-85a8-4917-a47b-1da989eda0bd" VariableType="Input" VariableId="60ece3f7-52fd-47e5-a176-493997be91c9" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="LastNameField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="2f693a04-7ccb-452e-85a9-cc6af7814ad6" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="PasswordField" DataType="919223ac-22c6-4540-be89-e85d1be5f0ad" VariableType="Input" VariableId="60b1086f-4d97-40a4-aa0f-b2ee44351bf4" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="PhoneNumberField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="c2de0669-26fd-4888-b689-8dac827f0842" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="27777008-7ab5-4122-904c-6e3cc669de84" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="e0bc67d5-829f-4325-8469-ba21b476ba26" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ValidationNode ID="ed303fd3-1d99-4ebe-ae6d-99442736453a" Bounds="440,255,550,55">
+          <Validations>
+            <Validation Name="FirstNameValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterFirstName]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="FirstNameField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="LastNameValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterLastName]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="LastNameField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="PhoneNumberValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterAPhoneNumber]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="PhoneNumberField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="EmailAddressValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterAValidEmailAddress]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="EmailAddressField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="PasswordValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterAPassword]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="PasswordField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="ConfirmPasswordValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustEnterConfirmPassword]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="ConfirmPasswordField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+            <Validation Name="PasswordMatchValidation" Type="Warning" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:PasswordAndConfirmPasswordMustMatch]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="PasswordField" RightExpression="ConfirmPasswordField" Operator="IsNotEqualTo" />
+              </Expressions>
+            </Validation>
+            <Validation Name="InterestedInValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:MustChooseTheProductYouAreInterestedIn]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="InterestedInField" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <DecisionNode LeftExpression="EmailAddressField" Operator="IsNotMissing" ID="2d0a8cf5-72fc-43f8-a8ae-834fec773609" Bounds="460.6,355,510,125" />
+        <RaiseErrorsNode ID="bdcb9fdd-7c15-4c3e-9ce7-88c392467b63" Bounds="440.6,725,550,55" Text="Raise Errors" />
+        <ExecuteProcessNode EntityDefinition="09e69fa9-5af6-4ff8-8909-f96d588467ef" ProcessProperty="b2f4cf71-857f-4691-b1d3-856bdc36c33d" ExecuteProcessType="EntityStatic" VariableId="UserFindByUsernameResult" SuppressValidations="false" ID="27915cbf-1ea2-42d5-828d-d1c5852e7a77" Bounds="40.6,525,550,55" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="Username" Value="EmailAddressField" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="292093ab-1097-44c3-b7b6-76352d824c8d" ProcessProperty="4dbb11b3-b469-410e-8a33-cce7ab7ff396" ExecuteProcessType="EntityStatic" VariableId="ApplicantCreateResult" SuppressValidations="false" ID="492c1d80-3734-4acd-b597-5e61261c109f" Bounds="440.6,825,550,55">
+          <InputVariables>
+            <InputVariable Name="ApplicationType" Value="InterestedInField" />
+            <InputVariable Name="EmailAddress" Value="EmailAddressField" />
+            <InputVariable Name="FirstName" Value="FirstNameField" />
+            <InputVariable Name="LastName" Value="LastNameField" />
+            <InputVariable Name="MobilePhone" Value="PhoneNumberField" />
+            <InputVariable Name="Password" Value="PasswordField" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ValidationNode ID="b5c32ed6-e717-443b-981f-11afe6d6cc2c" Bounds="40.6,625,550,55">
+          <Validations>
+            <Validation Name="UserExistsValidation" Type="Error" Severity="High" Suppress="true" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[TranslationKeys:EmailAddressAlreadyExists]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="UserFindByUsernameResult.Outputs.CurrentUser" Operator="IsNotMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <SaveNode ID="a5e090ae-0098-4c7d-ae1c-169f8cec5870" Bounds="440.6,925,550,55">
+          <Entity>ApplicantCreateResult.Outputs.NewApplicant</Entity>
+        </SaveNode>
+        <ExecuteProcessNode ViewDefinition="afed812a-1b26-4b4e-82b7-dac78ff07cb1" ProcessProperty="cf270a6e-60be-403f-b735-66fe15d2dc9d" ExecuteProcessType="View" VariableId="CreateProfileModalBuildNavigateInstructionResult" SuppressValidations="false" ID="d5d1969f-3023-431d-85bf-fbe6d1e5bf6a" Bounds="440.6,1025,550,55">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="ApplicantCreateResult.Outputs.NewApplicant" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PageInstructions" Value="PageInstructions" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="3f541d36-f3e7-48ba-8262-a16e782daec4" Bounds="630.6,1125,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="38fa84f2-34f9-4f1d-9660-634c8a5ef5eb" From="27777008-7ab5-4122-904c-6e3cc669de84" FromIndex="0" To="e0bc67d5-829f-4325-8469-ba21b476ba26" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ce5000ab-e513-4240-955f-438e871a0528" From="e0bc67d5-829f-4325-8469-ba21b476ba26" FromIndex="2" To="ed303fd3-1d99-4ebe-ae6d-99442736453a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,232.5" />
+          <Segment EndPoint="715,232.5" Movable="true" />
+          <Segment EndPoint="715,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a6dac2e7-ac3c-47c3-8614-42ec50c3c82c" From="ed303fd3-1d99-4ebe-ae6d-99442736453a" FromIndex="2" To="2d0a8cf5-72fc-43f8-a8ae-834fec773609" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,310" />
+          <Segment EndPoint="715,332.5" />
+          <Segment EndPoint="715.6,332.5" Movable="true" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="c42fbc04-de3e-4668-91b4-00eb71ad4c62" From="2d0a8cf5-72fc-43f8-a8ae-834fec773609" FromIndex="3" To="27915cbf-1ea2-42d5-828d-d1c5852e7a77" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="460.6,417.5" />
+          <Segment EndPoint="315.6,417.5" />
+          <Segment EndPoint="315.6,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="e93eeecc-de1e-4f93-a84a-b1f9dd115fa9" From="27915cbf-1ea2-42d5-828d-d1c5852e7a77" FromIndex="2" To="b5c32ed6-e717-443b-981f-11afe6d6cc2c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="315.6,580" />
+          <Segment EndPoint="315.6,625" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="821d2bea-46b4-42e4-80ab-7228d40bf784" From="2d0a8cf5-72fc-43f8-a8ae-834fec773609" FromIndex="2" To="bdcb9fdd-7c15-4c3e-9ce7-88c392467b63" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="715.6,480" />
+          <Segment EndPoint="715.6,725" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="6a7eaa91-bd3b-40b0-a661-06e431bf5155" From="b5c32ed6-e717-443b-981f-11afe6d6cc2c" FromIndex="1" To="bdcb9fdd-7c15-4c3e-9ce7-88c392467b63" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="590.6,652.5" />
+          <Segment EndPoint="715.6,652.5" />
+          <Segment EndPoint="715.6,725" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="31e4fdfb-fde9-4157-b21e-fc8607c1e746" From="bdcb9fdd-7c15-4c3e-9ce7-88c392467b63" FromIndex="2" To="492c1d80-3734-4acd-b597-5e61261c109f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,780" />
+          <Segment EndPoint="715.6,825" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="59f92938-dff8-4fa0-811b-0795b5fc7b47" From="492c1d80-3734-4acd-b597-5e61261c109f" FromIndex="2" To="a5e090ae-0098-4c7d-ae1c-169f8cec5870" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,880" />
+          <Segment EndPoint="715.6,925" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="018b4eab-6adc-42ba-a0a5-5621ec00e72d" From="a5e090ae-0098-4c7d-ae1c-169f8cec5870" FromIndex="2" To="d5d1969f-3023-431d-85bf-fbe6d1e5bf6a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,980" />
+          <Segment EndPoint="715.6,1025" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6f333bdb-8904-4e45-b5a2-2d9504299d19" From="d5d1969f-3023-431d-85bf-fbe6d1e5bf6a" FromIndex="2" To="3f541d36-f3e7-48ba-8262-a16e782daec4" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,1080" />
+          <Segment EndPoint="715.6,1125" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

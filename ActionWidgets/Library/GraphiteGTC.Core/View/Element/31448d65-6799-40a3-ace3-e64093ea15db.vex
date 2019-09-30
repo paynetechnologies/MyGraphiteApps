@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="CheckboxField" ViewElementId="31448d65-6799-40a3-ace3-e64093ea15db" BasedOn="64138c35-5b58-4a55-850e-f1e990a10f73" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" ParameterDataTypeFromRelatedEntity="true" IsListBehaviorParameterDataType="true">
+  <Description>Checkbox Field is used for check box functionality.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ChoiceDetail" PropertyId="4ea4d9e2-ead8-4e3e-84ee-64843d438879" IsOptional="true" DataType="978602f1-0607-4746-b691-d993af1e166c" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Orientation" PropertyId="a72e63a9-0c86-48fc-87f9-fce5639ee8b6" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="CheckboxField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">CheckboxField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Checkbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Choice.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="ChoiceDetail" EditorType="DataSource" Label="Choices" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Enumeration for the Checkbox Choices]]></Description>
+      </Field>
+      <Field FieldName="TranslateContent" EditorType="YesNoToggle" Label="Translate Choices?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Translate Choices?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Orientation" EditorType="SelectBox" Label="Orientation" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Dropdown With CheckBox]]></Description>
+        <DescriptionOptions><![CDATA[Horizontal, Vertical]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Horizontal" Value="Horizontal" />
+          <FieldOption DisplayName="Vertical" Value="Vertical" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Horizontal" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="ChoiceDetail" PropertyPath="ChoiceDetail.Source" Value="{Source}" />
+      <Map FieldName="ChoiceDetail" PropertyPath="ChoiceDetail.Display" Value="{DisplayPropertyId}" />
+      <Map FieldName="ChoiceDetail" PropertyPath="ChoiceDetail.Value" Value="{ValuePropertyId}" />
+      <Map FieldName="TranslateContent" PropertyPath="TranslateContent" Value="{Text}" />
+      <Map FieldName="Orientation" PropertyPath="Orientation" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF9SURBVEhLtZS/K0ZRHIfvSxmUTMogk9VssLFRBkWhDIY7YbCQKFIyGETRXWwyUSijxWS22vgHlAxKPJ9z7nld9z3n/XFdTz3vPef2dj73+z333Eocx1HJ7OA8jiZJ8tRmbpXHCm5gP17pRpkBc7hvh4YX/ZQVMIKnWDGzKHrEaQ0U8FXALXQs4iV2mJl98jF81aRIBdvoAvpwFbvNzC6qxU17RDZA5TWjW1yL3qJCxAdOotpTpegeqB1qy6CZ2bYt4J2ZZQgFDGOvHdagKrSh2ljHOp7Z4W98AXrd7lN7dCPHLuo/jhPcs8NafAGHqKccwBvsRMcyrtmh4QKX7NCPL+A4vYohPMd21FMfoEP9nsVPMwvgC9hEle2YQB37/EHSG6M3x9fGKqFNVtnXdmgYR99BUvvUxiChAJU9gw9m9kP+IKl9amOQUIB4x6n06tDXMnuQ1L661AsQz6hK3vAItQ8t0ShAaC+6UK9oyzQT8CeyAflPcjM25J8riKJvcuRXjqaOjI0AAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFNSURBVEhLxZWvSgRRFIdnFQwWk2DQZvUJbD6AL7DNLAaTUTBYTAafwGgRttrNgskkWgVBDBbH73d3fsO5MxdWdwf84Du7c879P1ymqut6aM/wGbf1XGqwiMdoHrFaqoZjjBfTv4nXFDXLAO7hF5oHXMM0wTycogc/xHc0L7iJqT7PBHFwDaQBjSbaQdezCdrkL9UR6CiMjkhHlbVTMFlhhit4h+Ybx9hrq2BiYRc3Ojk7wmuMnGCpbXECrUQresL1Jhc9x8gVdtu0Khgn39LTlHtcRdeOMHKDy+h6TwXjpK565BY1iHdm9A70LtrBSiqYWNC2IxMsXiQsHWOrgokFrVgrLxEvko5Pxxj7ZiqYbtGdI92L5EXEfpkKplfELfxEc4CxbmIuU8H0io37+IGXIWdNN9+qS8M0iVHz+xdm9h3ye1Ak7mAR/msHVfUDgSYKfiPaVGUAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

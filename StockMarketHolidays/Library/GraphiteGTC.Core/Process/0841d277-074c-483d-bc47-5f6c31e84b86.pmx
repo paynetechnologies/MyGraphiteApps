@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildReplaceElements" OwnerId="31448d65-6799-40a3-ace3-e64093ea15db" ProcessId="0841d277-074c-483d-bc47-5f6c31e84b86" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Convert a list of Choices to a list of ViewElements">
+  <Variables>
+    <Variable Name="Choices" DataType="$[List,eea148b2-0a25-4110-93aa-816305e2c1d9]" VariableType="Input" VariableId="871dd0ad-8cda-497b-92a7-cf94e8d18101" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="b435abb9-491d-4578-af63-97527fa23919" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="4f7c245f-76a4-4cc5-856e-4063f3efb9c8" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="CheckboxFieldToReplace" DataType="31448d65-6799-40a3-ace3-e64093ea15db" Description="Create a CheckboxField to Replace" ID="4756eba9-b750-486d-b0b0-3c72e8c75de1" Bounds="632.5,155,550,55" ZOrder="2" Text="">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="CheckboxFieldToReplace.ChoiceDetail" DataType="978602f1-0607-4746-b691-d993af1e166c" Description="Initialize ChoiceDetail" ID="99889a93-daa3-4a3c-a196-c361af983d7d" Bounds="632.5,255,550,55" ZOrder="2" Text="">
+          <Properties />
+        </CreateNode>
+        <CreateNode Variable="CheckboxFieldToReplace.ChoiceDetail.Choices" DataType="$[List,eea148b2-0a25-4110-93aa-816305e2c1d9]" Description="Initialize Choices" ID="4bb2f40e-333b-4d40-ac0c-f90321757695" Bounds="632.5,355,550,55" ZOrder="3" Text="">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="AddRange" ListItem="Choices" SourceList="CheckboxFieldToReplace.ChoiceDetail.Choices" Description="Add to Choices" ID="beff7ea0-2ec6-4769-ac85-a5f7ff34be68" Bounds="632.5,455,550,55" ZOrder="2" Text="" />
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Create ViewElements" ID="67abfaaf-0bd9-4842-8922-9108cb86ce19" Bounds="632.5,555,550,55" ZOrder="2" Text="">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="CheckboxFieldToReplace" SourceList="ViewElements" Description="Add CheckboxField to View Elements" ID="268ccbf5-b1f5-4977-8e00-eb000ccb90da" Bounds="632.5,655,550,55" ZOrder="2" Text="" />
+        <EndNode ID="1d78d653-7fef-46c6-99be-46dc92d7003a" Bounds="822.5,755,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="60289f0e-a8ac-4565-a92d-c659fb0504dc" From="4756eba9-b750-486d-b0b0-3c72e8c75de1" FromIndex="2" To="99889a93-daa3-4a3c-a196-c361af983d7d" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b188021c-6e69-4da4-bea4-276bf4eced34" From="99889a93-daa3-4a3c-a196-c361af983d7d" FromIndex="2" To="4bb2f40e-333b-4d40-ac0c-f90321757695" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a096c169-fdd3-4498-b481-be1d7d208f7c" From="4bb2f40e-333b-4d40-ac0c-f90321757695" FromIndex="2" To="beff7ea0-2ec6-4769-ac85-a5f7ff34be68" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,410" />
+          <Segment EndPoint="907.5,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="80952517-c329-4fe6-b1f0-bd5484f0d817" From="beff7ea0-2ec6-4769-ac85-a5f7ff34be68" FromIndex="2" To="67abfaaf-0bd9-4842-8922-9108cb86ce19" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,510" />
+          <Segment EndPoint="907.5,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a140a369-6cb1-4526-aeb4-12ffb70ad422" From="67abfaaf-0bd9-4842-8922-9108cb86ce19" FromIndex="2" To="268ccbf5-b1f5-4977-8e00-eb000ccb90da" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,610" />
+          <Segment EndPoint="907.5,655" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="21a8350a-4364-4f28-9eed-5365f28f0ec3" From="268ccbf5-b1f5-4977-8e00-eb000ccb90da" FromIndex="2" To="1d78d653-7fef-46c6-99be-46dc92d7003a" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,710" />
+          <Segment EndPoint="907.5,755" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="be8b39a5-999d-4cad-935a-26f18c02d136" From="4f7c245f-76a4-4cc5-856e-4063f3efb9c8" FromIndex="0" To="4756eba9-b750-486d-b0b0-3c72e8c75de1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

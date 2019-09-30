@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="CreateListContainer" OwnerId="7cab0137-9e77-41e1-8465-8c1c4b94f5bd" ProcessId="08c6416f-3826-40d6-bf08-7b040220c46a" ProcessType="Normal" Classification="ViewElement" IsRemovable="true">
+  <Variables>
+    <Variable Name="IsAllowed" DataType="0e977471-ddab-4761-a910-61b22a47b8ea" VariableType="Input" VariableId="110a0efa-7d0a-41bd-a1c7-8975014c9347" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewDetail" DataType="83dfc660-5d65-4969-9850-25db372a93b9" VariableType="Input" VariableId="9e8a6986-09b5-47db-b948-d6b00c0a71d5" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" VariableType="Output" VariableId="06e8b6a3-e7ec-4c90-a178-91bb711701dc" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="c3a4e2eb-c46f-4aaf-8d77-0a13e808f80d" Bounds="822.5,55,170,55" />
+        <ExecuteProcessNode ElementDefinition="7cab0137-9e77-41e1-8465-8c1c4b94f5bd" ProcessProperty="b1bb38be-10e7-4e4a-b326-8245e3ad9f54" ExecuteProcessType="Element" VariableId="ViewSecurityDisplayCreateFromViewDetailResult" SuppressValidations="false" ID="cfc654f4-d88d-4d26-a8ef-35376462dab1" Bounds="632.5,155,550,55" ZOrder="1" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="IsAllowed" Value="IsAllowed" />
+            <InputVariable Name="ViewDetail" Value="ViewDetail" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <CreateNode Variable="ViewElements" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" Description="Create ViewElements" ID="27f241d6-55ef-4416-842d-61cdaced322a" Bounds="632.5,255,550,55" ZOrder="3" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ListManagementNode ListActionType="Add" ListItem="ViewSecurityDisplayCreateFromViewDetailResult.Outputs.ViewSecurityDisplay" SourceList="ViewElements" Description="Add ViewSecurityDisplay" ID="15e24a18-ea44-48f5-946d-8e4f5ceaea8f" Bounds="632.5,355,550,55" ZOrder="3" Text="List Management" />
+        <EndNode ID="70e71724-6197-45fb-afc7-9c586c6f367b" Bounds="822.5,455,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="a445623e-180b-4725-b6e0-158fe2549471" From="27f241d6-55ef-4416-842d-61cdaced322a" FromIndex="2" To="15e24a18-ea44-48f5-946d-8e4f5ceaea8f" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3006dff3-3c54-4d05-bf9b-3e136cd996a2" From="c3a4e2eb-c46f-4aaf-8d77-0a13e808f80d" FromIndex="0" To="cfc654f4-d88d-4d26-a8ef-35376462dab1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e95fa336-89ff-4318-a34f-499d281ac8cc" From="15e24a18-ea44-48f5-946d-8e4f5ceaea8f" FromIndex="2" To="70e71724-6197-45fb-afc7-9c586c6f367b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,410" />
+          <Segment EndPoint="907.5,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4d82fd8e-da80-4034-8c7e-91137f23696d" From="cfc654f4-d88d-4d26-a8ef-35376462dab1" FromIndex="2" To="27f241d6-55ef-4416-842d-61cdaced322a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

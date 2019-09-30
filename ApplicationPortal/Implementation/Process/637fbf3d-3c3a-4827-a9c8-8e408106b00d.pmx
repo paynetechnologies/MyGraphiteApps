@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateHomeLoanData" OwnerId="0daf89a6-8ef2-4448-ba4c-4f4ae6dbd6c3" ProcessId="637fbf3d-3c3a-4827-a9c8-8e408106b00d" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="AreYouMarried" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="b348e05b-2cfb-4025-914a-ccc186ab05dd" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MilitaryLoanEligible" DataType="6393b477-15f4-4f23-90a2-fd7c56f5332c" VariableType="Input" VariableId="637fd0a9-323a-4cea-a129-9ba3ea41dc1b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PersonalHomeLoanData" DataType="0daf89a6-8ef2-4448-ba4c-4f4ae6dbd6c3" VariableType="InputOutput" VariableId="5ebc63b1-20e8-4ca3-a978-653e9737e3fa" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="87fda11f-909e-4e39-aacc-d039dd5faa46" Bounds="630,55,170,55" />
+        <AssignNode ID="40a863fd-5318-4d30-8509-e7814ac8270b" Bounds="440,155,550,55">
+          <Assignment Name="PersonalHomeLoanData.Married" Value="AreYouMarried" />
+          <Assignment Name="PersonalHomeLoanData.MilitaryLoan" Value="MilitaryLoanEligible" />
+        </AssignNode>
+        <EndNode ID="3c6ea5ba-d670-41f7-bc05-2dce5655290f" Bounds="630,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="2a08ba51-77f0-4c4a-97f6-cfd48d5a115b" From="87fda11f-909e-4e39-aacc-d039dd5faa46" FromIndex="0" To="40a863fd-5318-4d30-8509-e7814ac8270b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,110" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="63b2d196-d06f-410e-9d62-0a0b0d7ac310" From="40a863fd-5318-4d30-8509-e7814ac8270b" FromIndex="2" To="3c6ea5ba-d670-41f7-bc05-2dce5655290f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

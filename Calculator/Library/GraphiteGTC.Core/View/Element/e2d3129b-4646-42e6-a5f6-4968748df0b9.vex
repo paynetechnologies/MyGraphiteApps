@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Tile" ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" BasedOn="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tile is a special type of hyperlink to be used in conjunction with Tile Panel.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ActiveColor" PropertyId="SimpleEntityDefinitionProperty_ActiveColor" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Prefix" PropertyId="49f296a5-c0ea-45fd-bcb7-c03f6c4877a4" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Url" PropertyId="c5678630-5fb7-4e58-a189-ec98e1591149" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ImageSource" PropertyId="aecee70b-061e-4337-aadf-989032131361" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ImageDimension" PropertyId="7cc2122e-cf76-4054-97f3-1d6afb656b5a" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Tile" />
+    <Property PropertyName="Prefix" DefaultValue="http://" />
+    <Property PropertyName="Target" DefaultValue="_self" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Tile.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="ActiveColor" EditorType="ColorChooser" Label="Active Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Active Color of the Tile]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="Url" EditorType="TextBox" Label="Url" Grouping="External?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[URL to naviagte to on click of the Tile]]></Description>
+      </Field>
+      <Field FieldName="Target" EditorType="SelectBox" Label="Url Opens In?" Grouping="External?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Open the new View in new or the same tab of the Browser]]></Description>
+        <DescriptionOptions><![CDATA[New Window, Same Window]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Same Window" Value="_self" />
+          <FieldOption DisplayName="New Window" Value="_blank" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="_self" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Prefix" EditorType="TextBox" Label="Url Prefix" Grouping="External?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[URL Prefix]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="http://" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonStyle" EditorType="Hidden" Label="Style" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Clear" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonType" EditorType="Hidden" Label="Type" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Active" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FullWidth" EditorType="Hidden" Label="Full Width?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Size" EditorType="Hidden" Label="Size" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsWide" EditorType="Hidden" Label="Wide?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsPill" EditorType="Hidden" Label="Pill" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ImageSource" EditorType="ResourceChooser" Label="Image" Grouping="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Image in the Tile]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="ImageDimensionHeight" EditorType="TextBox" Label="Height" Grouping="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Image]]></Description>
+      </Field>
+      <Field FieldName="ImageDimensionWidth" EditorType="TextBox" Label="Width" Grouping="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Image]]></Description>
+      </Field>
+      <Field FieldName="ImageDimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Image]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="ActiveColor" PropertyPath="ActiveColor" Value="{Text}" />
+      <Map FieldName="Url" PropertyPath="Url" Value="{Text}" />
+      <Map FieldName="Target" PropertyPath="Target" Value="{Text}" />
+      <Map FieldName="Prefix" PropertyPath="Prefix" Value="{Text}" />
+      <Map FieldName="IsWide" PropertyPath="IsWide" Value="{Text}" />
+      <Map FieldName="ImageSource" PropertyPath="ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="ImageDimensionHeight" PropertyPath="ImageDimension.Height" Value="{Text}" />
+      <Map FieldName="ImageDimensionWidth" PropertyPath="ImageDimension.Width" Value="{Text}" />
+      <Map FieldName="ImageDimensionScale" PropertyPath="ImageDimension.Scale" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADaSURBVEhLxZQ9CgIxEIV3Laz9uYseRuwkjaCdpY2dnbaWgrfQm1hot41iq4K+wVdsYDIJi8t+8PGGBB4hgeTOuU9WAy3m32m0+AnnsA97nGXNJKV4AbfwBu+cl9AkpXjPLLNjBmn0jsfMMhNmkJTiNZzBLpV5BU1SittwA+XxRJllzSSl+AJHsENlvkKTWPEZDuEBPqjMAyh7QWLFU1j8Rg9Zk70gseITU+PIVIkVv5gab6ZKrFi+VMsgWnFeUQ+tWDtZih7WVWin0lSxirVTaarEHq8yNRVn2Re76D5dm4OZ/QAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC+SURBVEhLxZS7DsIwDEVThJh5DHwSH4HYmOnIz7LADjswwL2NW6UljitEyJGObCWNZblpqxdwGZhI/DlFCz9gDVdwKTnX0nDGBjXkc6FHmGTMy2OnN592sPOrT+MUnfFOYsheok4zkDR3eIALkTnXkhT9QM5wC+ci8wtM0/Stc4JrGF41yjXuqViFN3BYtJV7KtaMZ/Dp0w+mUNtzVuFKooZ6NtutiBW2utTo1flrxy1jO4+ez9Zx0b/bFzj3Bh0Zflk94zfOAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

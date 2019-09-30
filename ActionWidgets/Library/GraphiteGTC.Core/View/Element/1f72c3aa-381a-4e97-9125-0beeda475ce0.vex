@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Region" ViewElementId="1f72c3aa-381a-4e97-9125-0beeda475ce0" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Left Region or Right Region in a View</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Side" PropertyId="23d5d802-222b-45f3-b4eb-0b2589efaa97" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Size" PropertyId="8870c66e-c2e6-4322-840b-fc02c0e23ddf" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Sticky" PropertyId="af0550c7-0aa6-4445-962f-496a672bc9c2" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Region" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Region.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Side" EditorType="SelectBox" Label="Side" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Side of the Region Area]]></Description>
+        <DescriptionOptions><![CDATA[Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="Name" EditorType="Hidden" Label="Name" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="PageRegion" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Size" EditorType="SelectBox" Label="Size" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Size of the Region Area (with respect to Content)]]></Description>
+        <DescriptionOptions><![CDATA[10%, 20%, 30%, 40%, 50%]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="10%" Value="10" />
+          <FieldOption DisplayName="20%" Value="20" />
+          <FieldOption DisplayName="30%" Value="30" />
+          <FieldOption DisplayName="40%" Value="40" />
+          <FieldOption DisplayName="50%" Value="50" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="30" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Sticky" EditorType="YesNoToggle" Label="Sticky" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scroll or not along with Content]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Side" PropertyPath="Side" Value="{Text}" />
+      <Map FieldName="Name" PropertyPath="Name" Value="{Text}" />
+      <Map FieldName="Size" PropertyPath="Size" Value="{Text}" />
+      <Map FieldName="Sticky" PropertyPath="Sticky" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

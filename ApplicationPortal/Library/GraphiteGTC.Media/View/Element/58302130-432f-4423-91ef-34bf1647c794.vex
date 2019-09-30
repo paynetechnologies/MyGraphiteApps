@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ImageGallery" ViewElementId="58302130-432f-4423-91ef-34bf1647c794" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Images" PropertyId="SimpleEntityDefinitionProperty_Images" IsOptional="true" DataType="$[List,a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ImageGallery" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ImageGallery.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.ImageGallery.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Image</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEKSURBVEhLvZQ9DgFBGIZ3RaWkkjgAejUlp1CQTbgEJ1DqnECvdQeFGxAn0PK+87P5zMzKzvp5kif7Lcm888032TTLskfyQ2rm+TNkQPplFX/toAoTeDWy9vg0YAfbRtYeMQFDONJlkPzcJTEBa7jSZc4c3uAFzviDS9kAu3ur5QB5PB1Te5QN4O4tbhdvKRPgnr3sgmFTXYYpChjDI+TicvcWLkz53xb2YRD5LbK3oA5PsKfeynGGA3hXbxq1bqiDBYxZnLADduLhBjRh1BAFnIU3DzeAi7d0WQlvHjKgC5e6rEwD7s1TIQM2kAN2kZ/folryMg8ZEPwaViSfhTuDELxu9ioX1QUkyROQoyc4SFxcFwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEKSURBVEhLtZWxDcIwEEUTREVJBxMglgglsAQTMAMzsAFT0DIFTIBIQ0tFAf/OvtPpiBFJ8JOe/GObsx1LpHyBIiOD2GbDnqCM7b/gutlP0HeBFbxFKX/Q9xVR4UmIRQ2nITKtX1EFFyE20rxBOkGE8jdPUdu3hjW8xmzHGA3ADnorKCxg0xwvowH4CVbaueBPkZLRAPwE0e5ekFPs4CZmL6MB2MElpJ1Scbt7gfqoOPGAc2h/TzIagAwM4YU6WnCGIyg1tK4GIANbfmrPAUoNrasBUB7DOz91w94H4xfYh9gZex+MXWAGnyH2Qu6DsQscY+uhOTIvlT10H8wvXzT5j6F5qZwk8yezKN7FO9Encg8vEgAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

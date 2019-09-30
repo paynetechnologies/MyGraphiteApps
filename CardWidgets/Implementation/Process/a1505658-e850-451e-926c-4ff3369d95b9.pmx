@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Build" OwnerId="413f17b5-eab0-4c8e-afe7-6777315c46ce" ProcessId="a1505658-e850-451e-926c-4ff3369d95b9" ProcessType="Normal" Classification="ViewElementPack, Initialization" IsRemovable="true">
+  <Variables>
+    <Variable Name="GuideHeaderPack" DataType="413f17b5-eab0-4c8e-afe7-6777315c46ce" VariableType="InputOutput" VariableId="9c7753fb-b3ab-46e7-a9cf-84ccd793d826" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="f36d4a9d-8592-475f-9b2c-e1c2a244ff73" VariableType="Input" Classification="Pinned, Locked" VariableId="2e5d00f5-1681-4aa3-ab0a-8c822c29a6cb" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="19f443cf-f8b1-4344-b86c-1263bdccbba8" Bounds="0,0,170,55" Text="Start" />
+        <EndNode ID="16d58215-b099-4d22-a9ee-359c3c121d08" Bounds="0,100,170,55" Text="End" />
+      </Nodes>
+      <Connections />
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

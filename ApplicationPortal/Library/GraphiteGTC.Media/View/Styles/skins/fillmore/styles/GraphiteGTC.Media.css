@@ -1,0 +1,715 @@
+/*!
+ * Graphite GTC Fillmore Theme
+ * GraphiteGTC.Media.css
+ * http://graphitegtc.com/
+ * Authors: Azin Asili <azin.asili@graphitegtc.com>
+ * Copyright 2017
+ */
+@charset "UTF-8";
+.gtc-fileupload {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.gtc-classInputFileUpload {
+  display: none;
+}
+
+.gtc-classDivFileUpload {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  cursor: pointer;
+  position: relative;
+}
+
+.gtc-classDivPreviewMessage {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  left: 0;
+  width: 100%;
+}
+
+.gtc-classDivPreview {
+  -ms-flex-direction: column;
+      flex-direction: column;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+  position: relative;
+  vertical-align: top;
+}
+
+.gtc-classDivDetails {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+.gtc-classDivFileName {
+  word-break: break-all;
+}
+
+.gtc-classImgThumbnail {
+  -ms-flex-order: -1;
+      order: -1;
+}
+
+.gtc-classAnchorRemoveFile {
+  display: block;
+}
+
+.gtc-classDivSuccess,
+.gtc-classDivFileUploadError {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.gtc-classDivSuccess::before,
+.gtc-classDivFileUploadError::before {
+  font-family: 'FontAwesome';
+}
+
+.gtc-classDivFileUploadErrorMessage {
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.gtc-classDivUploadProgress {
+  display: block;
+  height: 100%;
+  width: 0;
+}
+
+.gtc-fileupload {
+  background: #66cef5;
+  border-radius: 0.625em;
+  box-shadow: 0 0.1875em 0.3125em 0 rgba(55, 71, 79, 0.4);
+  padding: 0.9375em;
+  margin-bottom: 1.25em;
+}
+
+.gtc-classDivFileUpload {
+  border: 0.1875em dashed rgba(255, 255, 255, 0.3);
+  cursor: url("../images/CursorHand.png"), pointer;
+  margin-bottom: 1.25em;
+  min-height: 9.375em;
+  padding-left: 0.625em;
+  padding-top: 0.625em;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gtc-classDivFileUpload ~ .gtc-btn,
+.gtc-classDivFileUpload ~ .gtc-link {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: #ab47bc;
+  padding: 0;
+}
+
+.gtc-classDragHover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.gtc-classDivPreviewMessage {
+  color: white;
+  font-size: 2em;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 0.0625em 0 rgba(144, 164, 174, 0.2);
+}
+
+.gtc-classDivPreview {
+  background: #893996;
+  border-radius: 0.3125em;
+  font-size: 0.875em;
+  margin-bottom: 0.625em;
+  margin-right: 0.625em;
+  padding: 0.3125em;
+}
+
+.gtc-classDivDetails {
+  margin-bottom: 0.3125em;
+}
+
+.gtc-classDivFileName {
+  margin-bottom: 0.3125em;
+  width: 6.25em;
+}
+
+.gtc-classDivFileSize {
+  font-size: 0.625em;
+}
+
+.gtc-classImgThumbnail {
+  height: 6.25em;
+  margin-bottom: 0.3125em;
+  width: 6.25em;
+}
+
+.gtc-classDivProgress {
+  background: #90a4ae;
+  height: 0.375em;
+}
+
+.gtc-classAnchorRemoveFile {
+  background: #ff3e3e;
+  border-radius: inherit;
+  color: white;
+  margin-top: 0.3125em;
+  padding: inherit;
+  text-align: center;
+}
+
+.gtc-classDivSuccess,
+.gtc-classDivFileUploadError {
+  right: -0.625em;
+  top: -0.625em;
+}
+
+.gtc-classDivSuccess::before,
+.gtc-classDivFileUploadError::before {
+  font-size: 2.5em;
+}
+
+.gtc-classDivSuccess::before {
+  color: #c8f000;
+  content: "";
+}
+
+.gtc-classDivFileUploadError::before {
+  color: #ff3e3e;
+  content: "";
+}
+
+.gtc-classDivFileUploadErrorMessage {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: inherit;
+  color: #ff3e3e;
+  padding: inherit;
+}
+
+.gtc-classDivUploadProgress {
+  background: #c8f000;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gtc-classErrorUpload .gtc-classDivUploadProgress {
+  background: #ff3e3e;
+}
+
+.gtc-filedownload {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.gtc-filedownload .gtc-scrolltarget {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gtc-filedownload-file {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gtc-filedownload-link {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.gtc-filedownload {
+  background: #66cef5;
+  border-radius: 0.625em;
+  box-shadow: 0 0.1875em 0.3125em 0 rgba(55, 71, 79, 0.4);
+  margin-bottom: 1.25em;
+  padding: 0.9375em 0.9375em 0.3125em;
+}
+
+.gtc-filedownload > .gtc-btn,
+.gtc-filedownload > .gtc-link {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: #ab47bc;
+  padding: 0;
+}
+
+.gtc-filedownload .gtc-scrolltarget {
+  margin-bottom: 1.25em;
+  max-height: 18.75em;
+}
+
+.gtc-filedownload-file {
+  -ms-flex: 0 1 100%;
+      flex: 0 1 100%;
+  margin-bottom: 0.3125em;
+  padding-right: 0.9375em;
+  width: 100%;
+}
+
+@media (min-width: 45em) {
+  .gtc-filedownload-file {
+    -ms-flex-preferred-size: 48%;
+        flex-basis: 48%;
+    width: 48%;
+  }
+}
+
+.gtc-filedownload-file > .gtc-input-checkbox {
+  margin: 0;
+}
+
+.gtc-filedownload-link {
+  color: white;
+  line-height: 1.3;
+  margin-left: 0.3125em;
+}
+
+.gtc-filedownload-link:hover, .gtc-filedownload-link:focus {
+  color: #893996;
+}
+
+.gtc-filedownload-link > .gtc-icon-styles {
+  margin-right: 0.1875em;
+}
+
+.gtc-video {
+  position: relative;
+}
+
+.gtc-video > video {
+  height: auto;
+  max-width: 100%;
+}
+
+.gtc-video {
+  margin-bottom: 1.25em;
+}
+
+.gtc-video-title {
+  margin-bottom: 0.1786em;
+}
+
+.gtc-image-slider {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+  height: 100% !important;
+  position: relative;
+}
+
+.gtc-image-slider::after {
+  content: '';
+  display: block;
+  padding-bottom: 1.7778%;
+  width: 100%;
+}
+
+.gtc-image-slider > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.gtc-image-slide {
+  height: 100%;
+  position: static !important;
+  width: 100% !important;
+}
+
+.gtc-image-slide > .gtc-img-responsive {
+  display: block;
+  height: 100% !important;
+  margin: auto;
+}
+
+.gtc-classOlDots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.gtc-classLiDot {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.gtc-image-slider {
+  background: #ffca28;
+  border-radius: 0.625em;
+  box-shadow: 0 0.1875em 0.3125em 0 rgba(55, 71, 79, 0.4);
+  margin-bottom: 1.25em;
+  min-height: 18.75em;
+}
+
+@media (min-width: 45em) {
+  .gtc-image-slider {
+    min-height: 31.25em;
+  }
+}
+
+.gtc-classOlDots {
+  bottom: 0.625em;
+  text-align: center;
+}
+
+.gtc-classLiDot {
+  border-radius: 50%;
+  height: 0.9375em;
+  width: 0.9375em;
+  filter: alpha(opacity=40);
+  opacity: 0.4;
+  border: 0.125em solid #37474f;
+  cursor: url("../images/CursorHand.png"), pointer;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gtc-classLiDot.gtc-active {
+  filter: alpha(opacity=100);
+  opacity: 1;
+  background: white;
+}
+
+.gtc-imagegallery {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gtc-classSelectedImageFullDisplayOverlay {
+  display: none;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1100;
+}
+
+.gtc-classDivSelectedImage {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.gtc-classDivSelectedImage > img {
+  cursor: zoom-in;
+  display: block;
+  height: auto;
+  margin: auto;
+  max-width: 100%;
+}
+
+.gtc-classSelectedImageFullDisplay {
+  display: none;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 1300;
+}
+
+.gtc-classSelectedImageFullDisplay > img {
+  cursor: zoom-out;
+  display: block;
+  height: 100%;
+  margin: auto;
+}
+
+.gtc-classDivThumbnailSlider {
+  position: relative;
+}
+
+.gtc-classDivNext,
+.gtc-classDivPrevious {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.gtc-classDivNext > a,
+.gtc-classDivPrevious > a {
+  overflow: hidden;
+  text-indent: -100%;
+  white-space: nowrap;
+  font-size: 0;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.gtc-classDivNext > a > .gtc-icon-styles,
+.gtc-classDivPrevious > a > .gtc-icon-styles {
+  text-indent: 0;
+}
+
+.gtc-classDivPrevious {
+  left: 0;
+}
+
+.gtc-classDivNext {
+  right: 0;
+}
+
+.gtc-classDivThumbnailImages > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gtc-classDivThumbnailImages > ul > li {
+  -ms-flex: 1 1 0%;
+      flex: 1 1 0%;
+  max-width: 100%;
+}
+
+.gtc-classDivThumbnailImages > ul > li > img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.gtc-classDivPrevious, .gtc-classDivNext {
+  background: #ffca28;
+  color: white;
+  width: 3em;
+}
+
+.gtc-classDivPrevious .gtc-icon-styles, .gtc-classDivNext .gtc-icon-styles {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  font-size: 1.875rem;
+  text-indent: 0;
+}
+
+.gtc-classDivPrevious:hover, .gtc-classDivNext:hover, .gtc-classDivPrevious:focus, .gtc-classDivNext:focus {
+  color: #b359c3;
+}
+
+.gtc-imagegallery {
+  background: #66cef5;
+  border-radius: 0.625em;
+  box-shadow: 0 0.1875em 0.3125em 0 rgba(55, 71, 79, 0.4);
+  margin-bottom: 1.25em;
+  overflow: hidden;
+}
+
+.gtc-classSelectedImageFullDisplayOverlay {
+  filter: alpha(opacity=75);
+  opacity: 0.75;
+  background: #263238;
+}
+
+.gtc-classDivSelectedImage {
+  width: 100%;
+}
+
+@media (min-width: 45em) {
+  .gtc-classDivSelectedImage {
+    width: 50%;
+  }
+}
+
+.gtc-classDivThumbnailSlider {
+  width: 100%;
+}
+
+@media (min-width: 45em) {
+  .gtc-classDivThumbnailSlider {
+    width: 50%;
+  }
+}
+
+.gtc-classDivPrevious {
+  left: 0;
+}
+
+.gtc-classDivNext {
+  right: 0;
+}
+
+.gtc-classDivThumbnailImages {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.gtc-classDivThumbnailImages > ul > li {
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gtc-classDivThumbnailImages > ul > li:not(.gtc-classLiSelectedImageShadow) {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+.gtc-documentscan {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+@media (min-width: 45em) {
+  .gtc-documentscan {
+    -ms-flex-direction: row;
+        flex-direction: row;
+  }
+}
+
+.ds-dwt-container {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.gtc-documentscan-fullscreen {
+  height: 100%;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+}
+
+.gtc-documentscan-control-buttons {
+  position: absolute;
+  z-index: 1;
+}
+
+@media (min-width: 45em) {
+  .gtc-documentscan-control-buttons {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    position: static;
+  }
+}
+
+@media (min-width: 45em) {
+  .gtc-documentscan-control-buttons > .gtc-btn:first-child, .gtc-documentscan-control-buttons > .gtc-btn:last-child {
+    width: 100%;
+  }
+  .gtc-documentscan-control-buttons > .gtc-btn:not(:first-child):not(:last-child) {
+    -ms-flex-order: -1;
+        order: -1;
+    -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+.gtc-documentscan {
+  background: #66cef5;
+  border-radius: 0.625em;
+  box-shadow: 0 0.1875em 0.3125em 0 rgba(55, 71, 79, 0.4);
+  padding: 0.9375em;
+  margin-bottom: 1.25em;
+}
+
+@media (min-width: 45em) {
+  .gtc-documentscan-controls {
+    -ms-flex: 0 1 15.625em;
+        flex: 0 1 15.625em;
+    max-width: 15.625em;
+    margin-right: 0.9375em;
+  }
+}
+
+.gtc-documentscan-control-item > .gtc-fieldset {
+  margin-bottom: 0.625em;
+}
+
+.gtc-documentscan-control-item > .gtc-fieldset .gtc-label {
+  float: none;
+  text-align: left;
+  width: 100%;
+}
+
+.gtc-documentscan-control-item > .gtc-fieldset .gtc-label::after {
+  display: none;
+}
+
+.gtc-documentscan-control-item > .gtc-fieldset .gtc-classSpanSelectbox {
+  float: none;
+  width: 100%;
+}
+
+.gtc-documentscan-control-item > .gtc-fieldset .gtc-classSpanRequired {
+  right: 0.625em;
+}
+
+.gtc-documentscan-control-buttons {
+  bottom: 0.9375em;
+  left: 1.5625em;
+  right: 1.5625em;
+}
+
+@media (min-width: 45em) {
+  .gtc-documentscan-control-buttons {
+    margin-left: -0.3125em;
+    margin-right: -0.3125em;
+  }
+}
+
+@media (min-width: 45em) {
+  .gtc-documentscan-control-buttons > .gtc-btn {
+    margin: 0 0.3125em 0.625em;
+  }
+  .gtc-documentscan-control-buttons > .gtc-btn:not(:first-child):not(:last-child) {
+    padding: 1.875em;
+  }
+}

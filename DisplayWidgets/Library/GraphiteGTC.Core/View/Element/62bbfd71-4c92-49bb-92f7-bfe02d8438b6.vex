@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Link" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Icon" PropertyId="SimpleEntityDefinitionProperty_Icon" IsOptional="true" DataType="4c0a0a01-60c0-4ace-a4fd-d85180109d0e" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tooltip" PropertyId="SimpleEntityDefinitionProperty_Tooltip" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ButtonType" PropertyId="6f772163-2ac2-43fc-a753-e2130e22a157" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Size" PropertyId="9861bdbe-449b-4649-9fbc-54080bf6e128" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FullWidth" PropertyId="fbb1ccdf-bf36-468f-a9de-37bd181159b5" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ButtonStyle" PropertyId="d0e5e822-3ade-4391-a04b-d8c443429ad0" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsPill" PropertyId="06f163b9-e65c-49fa-b82b-f9aa1eaeea77" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsDisabled" PropertyId="4158dd3d-f964-444a-9136-187b78383f59" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsWide" PropertyId="9c85d09f-e69e-4bc3-93e6-ce886aeda88a" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="ButtonType" DefaultValue="Active" />
+    <Property PropertyName="Size" DefaultValue="Default" />
+    <Property PropertyName="FullWidth" DefaultValue="No" />
+    <Property PropertyName="ButtonStyle" DefaultValue="Clear" />
+    <Property PropertyName="IsWide" DefaultValue="No" />
+    <Property PropertyName="IsPill" DefaultValue="No" />
+    <Property PropertyName="IsDisabled" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Link.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IconSymbol" EditorType="IconChooser" Label="Icon" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Icon]]></Description>
+      </Field>
+      <Field FieldName="Tooltip" EditorType="TranslationKeyChooser" Label="Tooltip" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Tooltip]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="FullWidth" EditorType="YesNoToggle" Label="Full Width?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Span the width of the Container?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Size" EditorType="SelectBox" Label="Size" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Size]]></Description>
+        <DescriptionOptions><![CDATA[Default, Extra Large, Extra Small, Large Small]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Extra Small" Value="xsmall" />
+          <FieldOption DisplayName="Small" Value="small" />
+          <FieldOption DisplayName="Default" Value="default" />
+          <FieldOption DisplayName="Large" Value="large" />
+          <FieldOption DisplayName="Extra Large" Value="xlarge" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsWide" EditorType="YesNoToggle" Label="Wide?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display a little Wider?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsDisabled" EditorType="YesNoToggle" Label="Disabled?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Disable?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsPill" EditorType="YesNoToggle" Label="Pill?" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show in the Pill form?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonType" EditorType="SelectBox" Label="Type" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Type]]></Description>
+        <DescriptionOptions><![CDATA[Active, Danger, Passive, Sucess, Warning]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Active" Value="Active" />
+          <FieldOption DisplayName="Passive" Value="Passive" />
+          <FieldOption DisplayName="Success" Value="Success" />
+          <FieldOption DisplayName="Warning" Value="Warning" />
+          <FieldOption DisplayName="Danger" Value="Danger" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Active" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ButtonStyle" EditorType="SelectBox" Label="Style" Grouping="Display" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Style]]></Description>
+        <DescriptionOptions><![CDATA[Basic, Clear, Outline]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Clear" Value="Clear" />
+          <FieldOption DisplayName="Basic" Value="Basic" />
+          <FieldOption DisplayName="Outline" Value="Outline" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Clear" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="IconSymbol" PropertyPath="Icon.Symbol" Value="{Text}" />
+      <Map FieldName="Tooltip" PropertyPath="Tooltip" Value="{TranslationKey}" />
+      <Map FieldName="FocusIndex" PropertyPath="FocusIndex" Value="{Text}" />
+      <Map FieldName="FullWidth" PropertyPath="FullWidth" Value="{Text}" />
+      <Map FieldName="Size" PropertyPath="Size" Value="{Text}" />
+      <Map FieldName="IsWide" PropertyPath="IsWide" Value="{Text}" />
+      <Map FieldName="IsDisabled" PropertyPath="IsDisabled" Value="{Text}" />
+      <Map FieldName="IsPill" PropertyPath="IsPill" Value="{Text}" />
+      <Map FieldName="ButtonType" PropertyPath="ButtonType" Value="{Text}" />
+      <Map FieldName="ButtonStyle" PropertyPath="ButtonStyle" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

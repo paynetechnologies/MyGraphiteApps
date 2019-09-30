@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="87b79702-866b-4778-bcc9-067d2aedac13" ProcessId="acfb2c14-12da-4df9-a0fe-ab31a0bddd1c" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="87b79702-866b-4778-bcc9-067d2aedac13" VariableType="Output" Classification="Pinned, Locked" VariableId="7522f0b9-ccea-4439-9a54-104268adfe20" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="09e69fa9-5af6-4ff8-8909-f96d588467ef" VariableType="Input" Classification="Pinned, Locked" VariableId="0c57841a-37fe-460f-ae84-eaf68b444be5" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="4bd0b832-77ad-4e6e-a603-7c989bc037a9" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="7c28ae71-e9a5-4d68-a986-0dca29dd50ad" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="3d6a25a5-43c9-4056-ad1d-d8e1fe6a0bf7" Bounds="630.6,365,170,55" ZOrder="1" Text="Start" />
+        <CreateNode Variable="View" DataType="87b79702-866b-4778-bcc9-067d2aedac13" Description="Create the Insurance view" ID="58f84eea-aeba-4b70-95ef-08e33d88c814" Bounds="441.2,465,550,55" ZOrder="1" Text="Create">
+          <Properties />
+        </CreateNode>
+        <DecisionNode LeftExpression="CurrentUser" Operator="IsMissing" ID="538bc61a-aa38-4706-9b89-bfa456b10a88" Bounds="461.2,565,510,125" ZOrder="2" Text="" />
+        <ExecuteProcessNode ElementDefinition="1143f321-cd34-49e6-8c91-dafc8472d360" ProcessProperty="8812288d-ede4-41bf-bc69-b75d1a2ac6dc" ExecuteProcessType="Element" VariableId="PortalHeaderPackBuildResult" SuppressValidations="false" ID="7f50a901-0810-4aa2-b899-2c256b9a8827" Bounds="441.2,835,550,55" ZOrder="2" Text="Run Behavior">
+          <InputVariables>
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="PortalHeaderPack" Value="PortalHeader" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="PortalHeaderPack" Value="PortalHeader" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="09e69fa9-5af6-4ff8-8909-f96d588467ef" ProcessProperty="b2f4cf71-857f-4691-b1d3-856bdc36c33d" ExecuteProcessType="EntityStatic" VariableId="UserFindByUsernameResult" SuppressValidations="false" ID="99495f76-726d-4f66-bbd5-2dc3b8d6be59" Bounds="41.2,735,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="CurrentUser" Value="CurrentUser" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <DecisionNode LeftExpression="ApplicationInContext" Operator="IsNotMissing" ID="0f5adc59-68b4-43de-add0-986d213bd1b1" Bounds="461.2,935,510,125" ZOrder="2" Text="" />
+        <ExecuteProcessNode ViewDefinition="87b79702-866b-4778-bcc9-067d2aedac13" ProcessProperty="dcaee123-aa7d-4a07-aa12-3a0947adc3fe" ExecuteProcessType="View" VariableId="InsuranceSetupAboutMeResult" SuppressValidations="false" ID="11fb0fef-5011-4dc4-8011-d42cae597434" Bounds="440.6,1105,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="CurrentUser" />
+            <InputVariable Name="ApplicationInContext" Value="ApplicationInContext" />
+            <InputVariable Name="View" Value="View" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="View" Value="View" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode ViewDefinition="87b79702-866b-4778-bcc9-067d2aedac13" ProcessProperty="0cb5db1b-48c5-4ee5-8abc-b63a9a9bb790" ExecuteProcessType="View" VariableId="InsuranceSetPersonalDetailsResult" SuppressValidations="false" ID="6f9040ab-a873-4dd6-bfe6-090b9e56af32" Bounds="441.2,1205,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="CurrentUser" />
+            <InputVariable Name="ApplicationInContext" Value="ApplicationInContext" />
+            <InputVariable Name="View" Value="View" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="View" Value="View" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode ViewDefinition="87b79702-866b-4778-bcc9-067d2aedac13" ProcessProperty="7da1ccab-320e-4127-bf34-66e3cb5e1aba" ExecuteProcessType="View" VariableId="InsuranceSetupAutoDetailsResult" SuppressValidations="false" ID="8786c91b-f159-4501-9437-2a83db9d6548" Bounds="440,1305,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="CurrentUser" />
+            <InputVariable Name="ApplicationInContext" Value="ApplicationInContext" />
+            <InputVariable Name="View" Value="View" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="View" Value="View" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode ViewDefinition="87b79702-866b-4778-bcc9-067d2aedac13" ProcessProperty="73ae0ef3-5917-45cf-ad01-d8f25fbc31d6" ExecuteProcessType="View" VariableId="InsuranceSetCoverageLimitsResult" SuppressValidations="false" ID="11127944-c896-4701-819c-48e51f50ce1f" Bounds="441.2,1405,550,55" ZOrder="4" Text="">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="CurrentUser" />
+            <InputVariable Name="ApplicationInContext" Value="ApplicationInContext" />
+            <InputVariable Name="View" Value="View" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="View" Value="View" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode ViewDefinition="87b79702-866b-4778-bcc9-067d2aedac13" ProcessProperty="c9b13c4e-ca39-42ae-959b-04aebf9a0643" ExecuteProcessType="View" VariableId="InsuranceSetupPageParametersResult" SuppressValidations="false" ID="e1fc6b71-2f39-4bd6-8180-8b22eeeaac02" Bounds="441.2,1505,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="ApplicantInContext" Value="CurrentUser" />
+            <InputVariable Name="ApplicationInContext" Value="ApplicationInContext" />
+            <InputVariable Name="View" Value="View" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="View" Value="View" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="12ba5d33-aa27-4d5a-821a-7d95370ea6c7" Bounds="631.2,1605,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="2a78f59a-5a49-48df-9586-54d042d8f7c9" From="538bc61a-aa38-4706-9b89-bfa456b10a88" FromIndex="2" To="7f50a901-0810-4aa2-b899-2c256b9a8827" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="716.2,690" />
+          <Segment EndPoint="716.2,835" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="0e2d5664-3bd4-4a01-82c6-eb7e27b3a7e4" From="538bc61a-aa38-4706-9b89-bfa456b10a88" FromIndex="3" To="99495f76-726d-4f66-bbd5-2dc3b8d6be59" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="461.2,627.5" />
+          <Segment EndPoint="316.2,627.5" />
+          <Segment EndPoint="316.2,735" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="a967b933-59d3-47b3-8b34-4485feebb3d2" From="99495f76-726d-4f66-bbd5-2dc3b8d6be59" FromIndex="1" To="7f50a901-0810-4aa2-b899-2c256b9a8827" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="591.2,762.5" />
+          <Segment EndPoint="716.2,762.5" />
+          <Segment EndPoint="716.2,835" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="38be6680-f773-4ecc-bc04-360209837c12" From="3d6a25a5-43c9-4056-ad1d-d8e1fe6a0bf7" FromIndex="0" To="58f84eea-aeba-4b70-95ef-08e33d88c814" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,420" />
+          <Segment EndPoint="715.6,442.5" />
+          <Segment EndPoint="716.2,442.5" Movable="true" />
+          <Segment EndPoint="716.2,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="415f2bd8-6c9d-497a-ac7f-f542b8663ab8" From="58f84eea-aeba-4b70-95ef-08e33d88c814" FromIndex="2" To="538bc61a-aa38-4706-9b89-bfa456b10a88" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="716.2,520" />
+          <Segment EndPoint="716.2,565" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="6b46075a-a84a-4495-bc49-c429b060be02" From="7f50a901-0810-4aa2-b899-2c256b9a8827" FromIndex="2" To="0f5adc59-68b4-43de-add0-986d213bd1b1" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="716.2,890" />
+          <Segment EndPoint="716.2,935" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="cb1c0adc-be5d-4030-8e7a-ea2728d9d3db" From="0f5adc59-68b4-43de-add0-986d213bd1b1" FromIndex="2" To="11fb0fef-5011-4dc4-8011-d42cae597434" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="716.2,1060" />
+          <Segment EndPoint="716.2,1082.5" />
+          <Segment EndPoint="715.6,1082.5" Movable="true" />
+          <Segment EndPoint="715.6,1105" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="abd83704-7426-4df9-a143-a18fd140191e" From="8786c91b-f159-4501-9437-2a83db9d6548" FromIndex="2" To="11127944-c896-4701-819c-48e51f50ce1f" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715,1360" />
+          <Segment EndPoint="715,1382.5" />
+          <Segment EndPoint="716.2,1382.5" Movable="true" />
+          <Segment EndPoint="716.2,1405" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4c98a0c2-6645-4996-868b-a9432c2e54a9" From="11127944-c896-4701-819c-48e51f50ce1f" FromIndex="2" To="e1fc6b71-2f39-4bd6-8180-8b22eeeaac02" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="716.2,1460" />
+          <Segment EndPoint="716.2,1505" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="aa634675-2146-4597-aaff-3a53db06072e" From="e1fc6b71-2f39-4bd6-8180-8b22eeeaac02" FromIndex="2" To="12ba5d33-aa27-4d5a-821a-7d95370ea6c7" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="716.2,1560" />
+          <Segment EndPoint="716.2,1605" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="96713375-42dd-4ad1-90a1-0f8356452dab" From="11fb0fef-5011-4dc4-8011-d42cae597434" FromIndex="2" To="6f9040ab-a873-4dd6-bfe6-090b9e56af32" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,1160" />
+          <Segment EndPoint="715.6,1182.5" />
+          <Segment EndPoint="716.2,1182.5" Movable="true" />
+          <Segment EndPoint="716.2,1205" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b37d17b9-b74d-437c-a35a-8ea65f41e370" From="6f9040ab-a873-4dd6-bfe6-090b9e56af32" FromIndex="2" To="8786c91b-f159-4501-9437-2a83db9d6548" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="716.2,1260" />
+          <Segment EndPoint="716.2,1282.5" />
+          <Segment EndPoint="715,1282.5" Movable="true" />
+          <Segment EndPoint="715,1305" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

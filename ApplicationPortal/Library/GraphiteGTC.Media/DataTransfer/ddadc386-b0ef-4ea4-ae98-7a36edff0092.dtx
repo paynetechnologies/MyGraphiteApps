@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataTransferDefinition Name="FolderDescriptor" DataTransferId="ddadc386-b0ef-4ea4-ae98-7a36edff0092" OriginatorId="f985bbc5-b9d7-48bf-a8bd-0a01507c34c1" OriginatorModelType="ServiceReference" Description="A data contract containing a path and a list of files">
+  <Properties>
+    <Property Type="DataTransferEntityDefinitionProperty" PropertyName="Path" PropertyId="56a931cb-4232-44b4-926f-f407b0fe1dd9" DataType="62ff6d43-a027-42b1-af68-9508897115fa" IsOptional="false" ContractName="Path" ContractType="string" />
+    <Property Type="DataTransferEntityDefinitionProperty" PropertyName="Files" PropertyId="4ff66af0-3ef9-4366-b687-3e0a899e38f3" DataType="$[List,993c2be0-0891-4ac3-8e2f-9890fda1cb23]" IsOptional="false" ContractName="Files" ContractType="ArrayOfFileDescriptor" />
+  </Properties>
+  <ContractName>FolderDescriptor</ContractName>
+  <Tags>
+    <Tag Type="Group">Service</Tag>
+  </Tags>
+</DataTransferDefinition>

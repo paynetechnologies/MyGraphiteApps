@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="User" EntityId="5fbe7890-3b3d-471a-9eae-2d3b9a0f5881" BasedOn="68ad8c56-1d3b-49d8-8727-5280d819dcfc" NamespaceExtension="Common">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="SecurityGroup" PropertyId="20c64d13-e2c6-4ef7-a2a4-d02e24ed7ce3" IsOptional="true" DataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

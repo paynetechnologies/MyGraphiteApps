@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition LastKnownName="GetPunctuatedLine" OwnerId="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" ProcessId="2de7a033-bd82-4b98-a438-5fe68acc0d25" ProcessType="Derived" Classification="Entity" IsRemovable="true" BaseProcessId="1b5d367a-64ed-4014-b088-86b8fe17f51e" Description="Get a one-line US address">
+  <Variables>
+    <Variable Name="Address" DataType="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" VariableType="Input" VariableId="1978a0bc-3fcf-4f2a-a1f3-06e743933e45" IsOptional="false" SendUiParameters="false" IsOverride="true" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="5f97f345-1408-4ee2-9c17-361768da98da" Bounds="822.5,55,170,55" />
+        <AssignNode Description="AddressLine = &quot;&quot;" ID="ca4461fd-a905-497b-ac2e-8bd6cdaeaa50" Bounds="632.5,155,550,55">
+          <Assignment Name="AddressLine" Value="&quot;&quot;" />
+        </AssignNode>
+        <DecisionNode LeftExpression="Address" Operator="IsNotMissing" Description="Address exists?" ID="e8f4644b-69dd-49db-b50c-656f9f703214" Bounds="652.5,255,510,125" />
+        <ExecuteProcessNode EntityDefinition="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" ProcessProperty="88f309ca-8b5b-45c3-b37d-a70015ebfd28" ExecuteProcessType="EntityStatic" VariableId="USAAddressAppendToLineResult1" SuppressValidations="false" Description="Append Street" ID="aecf66f7-f599-4881-bace-a4dc49f937db" Bounds="632.5,425,550,55">
+          <InputVariables>
+            <InputVariable Name="AddressComponent" Value="Address.Street" />
+            <InputVariable Name="AddressLine" Value="AddressLine" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="AddressLine" Value="AddressLine" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" ProcessProperty="88f309ca-8b5b-45c3-b37d-a70015ebfd28" ExecuteProcessType="EntityStatic" VariableId="USAAddressAppendToLineResult2" SuppressValidations="false" Description="Append City" ID="d6d5d0a2-f5b7-45b8-817c-d65403dc2612" Bounds="632.5,525,550,55" ZOrder="1" Text="">
+          <InputVariables>
+            <InputVariable Name="AddressComponent" Value="Address.City" />
+            <InputVariable Name="AddressLine" Value="AddressLine" />
+            <InputVariable Name="Separator" Value="&quot;,&quot;" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="AddressLine" Value="AddressLine" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <DecisionNode LeftExpression="Address.State" Operator="IsNotMissing" Description="State not missing?" ID="b51ee991-18c1-4efc-a6c5-389fb059b68f" Bounds="652.5,625,510,125" />
+        <ExecuteProcessNode EntityDefinition="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" ProcessProperty="88f309ca-8b5b-45c3-b37d-a70015ebfd28" ExecuteProcessType="EntityStatic" VariableId="USAAddressAppendToLineResult4" SuppressValidations="false" Description="Append Zip" ID="855effbd-0874-42a1-9aec-aa4874e9a23c" Bounds="632.5,895,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="AddressComponent" Value="Address.Zip" />
+            <InputVariable Name="AddressLine" Value="AddressLine" />
+            <InputVariable Name="Separator" Value="&quot; &quot;" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="AddressLine" Value="AddressLine" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode EntityDefinition="6297361b-9436-4ce3-a8cf-d9fdcbf17d85" ProcessProperty="88f309ca-8b5b-45c3-b37d-a70015ebfd28" ExecuteProcessType="EntityStatic" VariableId="USAAddressAppendToLineResult3" SuppressValidations="false" Description="Append State (Abbreviation)" ID="b53a087e-5124-4f93-ae92-e7e37d2687b5" Bounds="232.5,795,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="AddressComponent" Value="Address.State.Abbreviation" />
+            <InputVariable Name="AddressLine" Value="AddressLine" />
+            <InputVariable Name="Separator" Value="&quot;,&quot;" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="AddressLine" Value="AddressLine" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="e1614de7-6b42-40fc-a718-80026e631f6a" Bounds="822.5,995,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="ca878218-de48-4ec8-b07d-f7aedd71dc3d" From="5f97f345-1408-4ee2-9c17-361768da98da" FromIndex="0" To="ca4461fd-a905-497b-ac2e-8bd6cdaeaa50" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ac886d7e-b988-4530-9055-73ba33d01c97" From="ca4461fd-a905-497b-ac2e-8bd6cdaeaa50" FromIndex="2" To="e8f4644b-69dd-49db-b50c-656f9f703214" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="79e86c35-bd24-4417-8be4-01aaf036185d" From="e8f4644b-69dd-49db-b50c-656f9f703214" FromIndex="2" To="aecf66f7-f599-4881-bace-a4dc49f937db" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="907.5,380" />
+          <Segment EndPoint="907.5,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="f16c0f8b-dfd1-49d3-be6f-0cce91bba075" From="aecf66f7-f599-4881-bace-a4dc49f937db" FromIndex="2" To="d6d5d0a2-f5b7-45b8-817c-d65403dc2612" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,480" />
+          <Segment EndPoint="907.5,525" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ca8ade58-2ad5-4db2-859d-e1cc42ec2d90" From="855effbd-0874-42a1-9aec-aa4874e9a23c" FromIndex="2" To="e1614de7-6b42-40fc-a718-80026e631f6a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,950" />
+          <Segment EndPoint="907.5,995" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e3755b15-d1cc-4079-a94e-ec6f26398e22" From="d6d5d0a2-f5b7-45b8-817c-d65403dc2612" FromIndex="2" To="b51ee991-18c1-4efc-a6c5-389fb059b68f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,580" />
+          <Segment EndPoint="907.5,625" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="e69a1c88-762f-4baa-907d-badf8285a86e" From="b51ee991-18c1-4efc-a6c5-389fb059b68f" FromIndex="3" To="b53a087e-5124-4f93-ae92-e7e37d2687b5" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,687.5" />
+          <Segment EndPoint="507.5,687.5" />
+          <Segment EndPoint="507.5,795" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="2afc561a-2ac4-4301-8ddd-748ce2081218" From="b51ee991-18c1-4efc-a6c5-389fb059b68f" FromIndex="2" To="855effbd-0874-42a1-9aec-aa4874e9a23c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,750" />
+          <Segment EndPoint="907.5,895" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="4d92039c-76c9-41f8-8681-749c7f09f1f5" From="b53a087e-5124-4f93-ae92-e7e37d2687b5" FromIndex="2" To="855effbd-0874-42a1-9aec-aa4874e9a23c" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,850" />
+          <Segment EndPoint="507.5,922.5" />
+          <Segment EndPoint="632.5,922.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

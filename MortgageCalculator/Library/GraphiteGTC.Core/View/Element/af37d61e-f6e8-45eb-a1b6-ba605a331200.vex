@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="AppBar" ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>App Bar is a Header element used to show user information and logoff functionality.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="BackgroundColor" PropertyId="9dd31430-c3f2-4b45-bf83-8863cb3d9f87" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ImageLink" PropertyId="63f27743-aa80-432e-ba54-621317a0550d" IsOptional="true" DataType="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="1a077847-5170-4182-86c4-182217bc0324" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SearchTool" PropertyId="a5cc30d4-409a-4411-b318-f6e9071c368e" IsOptional="true" DataType="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SlidePanel" PropertyId="6b8e731d-29ee-47d1-bf13-34b22ece45f8" IsOptional="true" DataType="457dc588-0201-47aa-93e5-7b921628fd26" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UserProfileLinks" PropertyId="72b643eb-598c-42f1-9c43-c6e0bcbe1656" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Help" PropertyId="28964e12-81c0-445b-bfde-ce62c2c6e27c" IsOptional="true" DataType="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Logoff" PropertyId="a3e5adbc-c0b5-4478-9f29-21f66e281cb5" IsOptional="true" DataType="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Settings" PropertyId="e19eab81-7462-47a9-b0c6-67aa9bad50b6" IsOptional="true" DataType="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UserInformation" PropertyId="6fd00ecb-a1e7-4f83-9c63-8e3bf642f52f" IsOptional="true" DataType="1cb7e804-208f-47a6-b757-f511ea4c2022" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UserPicture" PropertyId="692c4aaa-09d3-4ede-9cc0-31655e5f102d" IsOptional="true" DataType="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UserPictureThumbnail" PropertyId="c84beec2-4a3c-4863-a1e7-e43d036e5f50" IsOptional="true" DataType="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UserRole" PropertyId="80321cca-31d2-40a0-8462-d555a9b75159" IsOptional="true" DataType="1cb7e804-208f-47a6-b757-f511ea4c2022" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="UserProfileIsDisplayed" PropertyId="1a72010f-d29e-4796-a346-1978d087a05d" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="AppBar" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">AppBar.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="HelpIconSymbol" EditorType="Hidden" Label="Help Icon" Grouping="User,Help" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="fa-question-circle" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HelpName" EditorType="Hidden" Label="Help Name" Grouping="User,Help" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="HelpLinkName" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HelpNavigationView" EditorType="ViewChooser" Label="Help View" Grouping="User,Help" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Help View]]></Description>
+        <DescriptionOptions><![CDATA[Any View]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SettingsIconSymbol" EditorType="Hidden" Label="Settings Icon" Grouping="User,Settings" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="fa-cog" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="LogoffIcon" EditorType="Hidden" Label="Logoff Icon" Grouping="User,Logoff" AffectsRender="true" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="fa-sign-out" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="LogoffName" EditorType="Hidden" Label="Logoff Name" Grouping="User,Logoff" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="LogoffLinkName" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="LogoffNavigationView" EditorType="ViewChooser" Label="Logoff To" Grouping="User,Logoff" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Log off View]]></Description>
+        <DescriptionOptions><![CDATA[Any View]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SettingsModalName" EditorType="Hidden" Label="Settings Modal Name" Grouping="User,Settings" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="SettingsModal" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SettingsName" EditorType="Hidden" Label="Settings Name" Grouping="User,Settings" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="SettingsModalName" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SettingsNavigationView" EditorType="ViewChooser" Label="Settings View" Grouping="User,Settings" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Settings View]]></Description>
+        <DescriptionOptions><![CDATA[Any View]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SettingsIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="User,Settings" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Settings?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="HelpIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="User,Help" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Show Help?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="LogoffTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="User,Logoff" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Log off Title]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Logoff" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SettingsTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="User,Settings" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Settings Title]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Settings" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HelpTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="User,Help" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Help Title]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Help" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="UserInformationTextString" EditorType="Hidden" Label="User Information" Grouping="User,Profile" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="User Name" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="UserPicture" EditorType="ResourceChooser" Label="User Picture" Grouping="User,Profile" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[User Picture from Resources]]></Description>
+      </Field>
+      <Field FieldName="UserPictureThumbnail" EditorType="ResourceChooser" Label="User Picture Thumbnail" Grouping="User,Profile" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[User Thumbnail Picture from Resources]]></Description>
+      </Field>
+      <Field FieldName="ImageLink" EditorType="PropertyNodeCreator" Label="Add Image Link" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[An Image Link in the AppBar]]></Description>
+      </Field>
+      <Field FieldName="SearchTool" EditorType="PropertyNodeCreator" Label="Add Search Tool" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[A Search Tool in the AppBar]]></Description>
+      </Field>
+      <Field FieldName="SlidePanel" EditorType="PropertyNodeCreator" Label="Add Slide Panel" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Slide Panel capability from the AppBar]]></Description>
+      </Field>
+      <Field FieldName="UserInformationIsDisplayed" EditorType="YesNoToggle" Label="Show User Name?" Grouping="User,Profile" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Show User Name?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="BackgroundColor" EditorType="ColorChooser" Label="Background Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Color of the AppBar]]></Description>
+      </Field>
+      <Field FieldName="UserRoleTextString" EditorType="Hidden" Label="User Role" Grouping="User,Profile" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="User Role" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="UserProfileIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="User" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Show User Profile?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="UserRoleIsDisplayed" EditorType="YesNoToggle" Label="Show User Role?" Grouping="User,Profile" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Show Security Group?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="HelpIconSymbol" PropertyPath="Help.Icon.Symbol" Value="{Text}" />
+      <Map FieldName="HelpName" PropertyPath="Help.Name" Value="{Text}" />
+      <Map FieldName="HelpNavigationView" PropertyPath="Help.Navigation.View" Value="{Url}" />
+      <Map FieldName="SettingsIconSymbol" PropertyPath="Settings.Icon.Symbol" Value="{Text}" />
+      <Map FieldName="LogoffIcon" PropertyPath="Logoff.Icon.Symbol" Value="{Text}" />
+      <Map FieldName="LogoffName" PropertyPath="Logoff.Name" Value="{Text}" />
+      <Map FieldName="LogoffNavigationView" PropertyPath="Logoff.Navigation.View" Value="{Url}" />
+      <Map FieldName="SettingsModalName" PropertyPath="Settings.ModalName" Value="{Text}" />
+      <Map FieldName="SettingsName" PropertyPath="Settings.Name" Value="{Text}" />
+      <Map FieldName="SettingsNavigationView" PropertyPath="Settings.Navigation.View" Value="{Url}" />
+      <Map FieldName="SettingsIsDisplayed" PropertyPath="Settings.IsDisplayed" Value="{Text}" />
+      <Map FieldName="HelpIsDisplayed" PropertyPath="Help.IsDisplayed" Value="{Text}" />
+      <Map FieldName="LogoffTitle" PropertyPath="Logoff.Title" Value="{TranslationKey}" />
+      <Map FieldName="SettingsTitle" PropertyPath="Settings.Title" Value="{TranslationKey}" />
+      <Map FieldName="HelpTitle" PropertyPath="Help.Title" Value="{TranslationKey}" />
+      <Map FieldName="UserInformationTextString" PropertyPath="UserInformation.TextString" Value="{Text}" />
+      <Map FieldName="UserPicture" PropertyPath="UserPicture.Source" Value="{SelectedResourceName}" />
+      <Map FieldName="UserPictureThumbnail" PropertyPath="UserPictureThumbnail.Source" Value="{SelectedResourceName}" />
+      <Map FieldName="ImageLink" PropertyPath="ImageLink" />
+      <Map FieldName="SearchTool" PropertyPath="SearchTool" />
+      <Map FieldName="SlidePanel" PropertyPath="SlidePanel" />
+      <Map FieldName="UserInformationIsDisplayed" PropertyPath="UserInformation.IsDisplayed" Value="{Text}" />
+      <Map FieldName="BackgroundColor" PropertyPath="BackgroundColor" Value="{Text}" />
+      <Map FieldName="UserRoleTextString" PropertyPath="UserRole.TextString" Value="{Text}" />
+      <Map FieldName="UserProfileIsDisplayed" PropertyPath="UserProfileIsDisplayed" Value="{Text}" />
+      <Map FieldName="UserRoleIsDisplayed" PropertyPath="UserRole.IsDisplayed" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVEhLY0xLS/vPQEPABKVpBuA+mDVrFiNYBAsg5EuYXpA6ZDaIpp8PaAVo7gOC4UsJAJlNcx+MWkAQjFpAEIxaQBCMWkAQjFpAENC4ymRgAACAIhlRIWG3SwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVEhLY/wPBAw0BExQmmYA7gNGIACLYAGEfAnTC1KHzAbR9PMBrQDNfUAwfCkBILNp7oNRCwiCUQsIglELCIJRCwiCUQsIAhpXmQwMAHReJBN4bDWJAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

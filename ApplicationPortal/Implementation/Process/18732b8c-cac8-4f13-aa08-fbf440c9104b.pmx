@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="FindApplicantDateOfBirth" OwnerId="292093ab-1097-44c3-b7b6-76352d824c8d" ProcessId="18732b8c-cac8-4f13-aa08-fbf440c9104b" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="Applicant" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="7efb1d67-c4f6-49af-bb2b-5b6482bf5438" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="DateOfBirth" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Output" VariableId="d2706e18-7404-4612-aedc-aec8674e2e9b" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="2d1a27b5-c303-40c9-8bff-9739de6f6009" Bounds="630.6,55,170,55" />
+        <ListLookupNode Source="Applicant.Applications" VariableId="ApplicationInContext" ResultType="Single" ID="9bb7d181-5e80-41bb-9913-76409151dbed" Bounds="440.6,155,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="ApplicationData.PersonalData.DateOfBirth" Operator="IsNotMissing" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="StartDate" SortOrderType="Descending" SortPriority="0" />
+          </Sort>
+        </ListLookupNode>
+        <DecisionNode LeftExpression="ApplicationInContext" Operator="IsNotMissing" ID="d443bac8-1ffd-4c94-ba06-57d22b3509f3" Bounds="460.6,255,510,125" />
+        <AssignNode ID="07603c21-2402-4409-b3c3-15c5e304574e" Bounds="440.6,425,550,55" Text="Assign">
+          <Assignment Name="DateOfBirth" Value="ApplicationInContext.ApplicationData.PersonalData.DateOfBirth" />
+        </AssignNode>
+        <EndNode ID="8ce5d560-46cd-4319-93a1-ae304728e6e0" Bounds="630.6,525,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="b5a6cb9f-9e31-4e44-9a1b-2819ea4ea217" From="2d1a27b5-c303-40c9-8bff-9739de6f6009" FromIndex="0" To="9bb7d181-5e80-41bb-9913-76409151dbed" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="2e98e90b-9d1e-4226-91cc-a54f11a60680" From="9bb7d181-5e80-41bb-9913-76409151dbed" FromIndex="2" To="d443bac8-1ffd-4c94-ba06-57d22b3509f3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="71d4831f-09fe-49ab-beaf-888c6d9c594d" From="d443bac8-1ffd-4c94-ba06-57d22b3509f3" FromIndex="2" To="07603c21-2402-4409-b3c3-15c5e304574e" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="715.6,380" />
+          <Segment EndPoint="715.6,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="bec6c7fb-94fd-4cf7-8610-998d2cff5c24" From="07603c21-2402-4409-b3c3-15c5e304574e" FromIndex="2" To="8ce5d560-46cd-4319-93a1-ae304728e6e0" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,480" />
+          <Segment EndPoint="715.6,525" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

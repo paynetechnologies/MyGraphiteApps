@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="MortgageTest" EntityId="68f57377-f6ab-4864-90cd-324a8deef9f4" NamespaceExtension="UnitTest.TestCase" TargetChangeSetId="adb14b24-c7b3-46ae-834e-e6175fbd2f3d">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Unit Test</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ExpandablePanel" ViewElementId="ac855314-78a9-4918-8881-b513fe786061" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Expandable Panel is a special panel to be used in conjunction with Expandable Displays.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExpandableDisplays" PropertyId="SimpleEntityDefinitionProperty_ExpandableDisplays" IsOptional="true" DataType="$[List,130d5f70-8798-433b-a80d-ba29fc455fe4]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayNoItems" PropertyId="SimpleEntityDefinitionProperty_DisplayNoItems" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="StackExpandableDisplays" PropertyId="SimpleEntityDefinitionProperty_StackExpandableDisplays" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ExpandablePanel" />
+    <Property PropertyName="DisplayNoItems" DefaultValue="Yes" />
+    <Property PropertyName="StackExpandableDisplays" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ExpandablePanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="DisplayNoItems" EditorType="YesNoToggle" Label="Display No Items?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show "No Items" message?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="StackExpandableDisplays" EditorType="YesNoToggle" Label="Stack Expandable Displays?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Stack all Expandable Displays together?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="DisplayNoItems" PropertyPath="DisplayNoItems" Value="{Text}" />
+      <Map FieldName="StackExpandableDisplays" PropertyPath="StackExpandableDisplays" Value="{Text}" />
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>NoItemsToDisplay</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAQCAYAAADj5tSrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVDhPY0xLS/vPQGPABKVpCnBZwoiEKQYD6hOqAmRL+oEYxEcPIhAfJN4H5pEBkC0pBOLlQMwO5iEAiA8SLwLzyADowRUOxDuAWADMg9DbgRgkTjZAtwQEHID4MBBbQGlHIKYIYLMEBHSA+DiUphjgsoSqAGQJcsajCQZZAiq7aIrpFlw0B3SwhIEBAKrRJFHxngiGAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAQCAYAAADj5tSrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABxSURBVDhPY/wPBAw0BkxQmqYAlyWMSJhiMKA+oSpAtqQfiEF89CAC8UHifWAeOQCUupDACiBmB2KQOAyD+CBxsgG6JSCwH4gFgBgkB6L3ATFFAJslIHAZiC2gNMVg+GRGkE+gTNqB4V92URXQwRIGBgA72TD5bR67ygAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="b556d485-9aa8-45f4-b925-fbb623d1fcde" ProcessId="d345c819-1386-4578-8563-e8c6b076843a" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="b556d485-9aa8-45f4-b925-fbb623d1fcde" VariableType="Output" Classification="Pinned, Locked" VariableId="d05d3b19-2d90-4c73-8b54-c1b9361102c1" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="651619f7-fe0f-41c7-afec-dbf6eb7a6da8" VariableType="Input" Classification="Pinned, Locked" VariableId="4f88cc4d-45bd-447b-9e93-de3e08d88ba1" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="1036300e-3d71-43fb-9561-3e61fa6d942f" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="b556d485-9aa8-45f4-b925-fbb623d1fcde" Description="Create the SampleModal view" ID="1dc14160-6160-4c26-9469-c3046563e9d0" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="64ecd3b1-75f0-4c52-8cc5-3a2d1b393809" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="7fa442db-02f4-4f39-b4dd-88d0c711bc5d" From="1036300e-3d71-43fb-9561-3e61fa6d942f" FromIndex="0" To="1dc14160-6160-4c26-9469-c3046563e9d0" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="71f25737-ab42-485a-afc1-7e0b74016919" From="1dc14160-6160-4c26-9469-c3046563e9d0" FromIndex="2" To="64ecd3b1-75f0-4c52-8cc5-3a2d1b393809" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

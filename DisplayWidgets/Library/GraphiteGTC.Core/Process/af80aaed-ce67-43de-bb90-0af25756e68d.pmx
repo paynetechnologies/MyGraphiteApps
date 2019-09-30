@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetImage" OwnerId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" ProcessId="af80aaed-ce67-43de-bb90-0af25756e68d" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Updates image source to with RFC2397 image data">
+  <Variables>
+    <Variable Name="Image" DataType="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" VariableType="InputOutput" VariableId="28162c76-0477-4d02-814c-61ba352dd64e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Base64Content" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="b5ae0052-a922-4346-8277-367600884590" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MediaType" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="da09670a-a62d-432a-be9c-d19f940a83cf" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="223ba24e-44a8-47b3-86a5-086bb8b1a3a7" Bounds="822.5,55,170,55" />
+        <ExecuteProcessNode ElementDefinition="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" ProcessProperty="5c93296e-29a0-4f52-9e27-d4c89763238c" ExecuteProcessType="Element" VariableId="BuildImageSourceResult" SuppressValidations="false" Description="Build Image Source" ID="9aa624a6-746c-4674-8f5d-5c6f9ed17a2f" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Base64Content" Value="Base64Content" />
+            <InputVariable Name="MediaType" Value="MediaType" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <AssignNode Description="Set Image Source" ID="b0b2f230-9b87-44ea-9ced-86a3ec997abb" Bounds="632.5,255,550,55">
+          <Assignment Name="Image.Source" Value="BuildImageSourceResult.Outputs.ImageSource" />
+        </AssignNode>
+        <EndNode ID="1891ac1c-0a7e-4db1-ade3-72b7e81f115c" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="998df1e3-5b05-4794-bfd8-afd08d791f06" From="b0b2f230-9b87-44ea-9ced-86a3ec997abb" FromIndex="2" To="1891ac1c-0a7e-4db1-ade3-72b7e81f115c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="15d8bb1c-b581-41dc-975a-5ed1fd1fbee5" From="9aa624a6-746c-4674-8f5d-5c6f9ed17a2f" FromIndex="2" To="b0b2f230-9b87-44ea-9ced-86a3ec997abb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="95869e7d-90d9-4a88-bed3-5adbbf8eda04" From="223ba24e-44a8-47b3-86a5-086bb8b1a3a7" FromIndex="0" To="9aa624a6-746c-4674-8f5d-5c6f9ed17a2f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

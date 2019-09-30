@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Compatibilities>
+  <Container ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" PropertyId="SimpleEntityDefinitionProperty_AccordionFieldSets">
+    <CompatibleElement ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" Allowed="true" />
+  </Container>
+  <Container ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="28964e12-81c0-445b-bfde-ce62c2c6e27c">
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="63f27743-aa80-432e-ba54-621317a0550d">
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="1a077847-5170-4182-86c4-182217bc0324">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="a3e5adbc-c0b5-4478-9f29-21f66e281cb5">
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="a5cc30d4-409a-4411-b318-f6e9071c368e">
+    <CompatibleElement ViewElementId="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="e19eab81-7462-47a9-b0c6-67aa9bad50b6">
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="6b8e731d-29ee-47d1-bf13-34b22ece45f8">
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="6fd00ecb-a1e7-4f83-9c63-8e3bf642f52f">
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="692c4aaa-09d3-4ede-9cc0-31655e5f102d">
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="c84beec2-4a3c-4863-a1e7-e43d036e5f50">
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="72b643eb-598c-42f1-9c43-c6e0bcbe1656">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" PropertyId="80321cca-31d2-40a0-8462-d555a9b75159">
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+  </Container>
+  <Container ViewElementId="2d15e230-91b8-408c-89a4-2ab51ff9f000" PropertyId="SimpleEntityDefinitionProperty_HomeCrumb">
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+  </Container>
+  <Container ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" PropertyId="SimpleEntityDefinitionProperty_Buttons">
+    <CompatibleElement ViewElementId="8e63c35b-4d07-4292-a06d-bfbe457ba294" Allowed="true" />
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="3323ae7c-e3c1-4ecc-9c7c-a43db731438a" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" PropertyId="SimpleEntityDefinitionProperty_FlipElement">
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+  </Container>
+  <Container ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" PropertyId="13ad3a9c-bb8e-47ae-971f-2a5d8b3c1eea">
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+  </Container>
+  <Container ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" PropertyId="SimpleEntityDefinitionProperty_Cards">
+    <CompatibleElement ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" PropertyId="d4cde0f3-40c9-4630-b64c-2eb46e86c15a">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" PropertyId="SimpleEntityDefinitionProperty_CellElement">
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+  </Container>
+  <Container ViewElementId="da7d8b9b-fb7b-4df7-a6c3-89970e5c006d" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" Allowed="true" />
+    <CompatibleElement ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" Allowed="true" />
+    <CompatibleElement ViewElementId="ac855314-78a9-4918-8881-b513fe786061" Allowed="true" />
+    <CompatibleElement ViewElementId="269845b4-f582-456e-a795-b540aa491e1a" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" Allowed="true" />
+    <CompatibleElement ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="3c96f4b8-d39e-4ca8-bbea-918a9ace6696" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+    <CompatibleElement ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" Allowed="true" />
+    <CompatibleElement ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" Allowed="true" />
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="3b942f8c-cec4-465d-a242-3d7d40ac3cb2" PropertyId="SimpleEntityDefinitionProperty_LeftFields">
+    <CompatibleElement ViewElementId="08ee413d-b757-4c1e-a4ec-5d8118f22794" Allowed="true" />
+    <CompatibleElement ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" Allowed="true" />
+    <CompatibleElement ViewElementId="5da93b83-bdda-4646-bf49-399c59757228" Allowed="true" />
+    <CompatibleElement ViewElementId="3701c3d3-cc9b-4160-a98a-f2aeae21e269" Allowed="true" />
+    <CompatibleElement ViewElementId="9b618bb4-f3ff-4ecf-b61f-1ad93af20596" Allowed="true" />
+    <CompatibleElement ViewElementId="ad0a280b-28ba-44f8-9b3f-3143836d9e7a" Allowed="true" />
+    <CompatibleElement ViewElementId="5ab4fada-a0b0-45d1-9945-198357ab0986" Allowed="true" />
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+    <CompatibleElement ViewElementId="075e1632-bfbc-4567-8a9f-51f65da301c9" Allowed="true" />
+    <CompatibleElement ViewElementId="bc318f1c-9406-45b7-bc7b-055ef9743ee5" Allowed="true" />
+    <CompatibleElement ViewElementId="df3c1e86-175e-4d5c-9845-ffb905bdd86e" Allowed="true" />
+    <CompatibleElement ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" Allowed="true" />
+  </Container>
+  <Container ViewElementId="3b942f8c-cec4-465d-a242-3d7d40ac3cb2" PropertyId="SimpleEntityDefinitionProperty_LongFields">
+    <CompatibleElement ViewElementId="08ee413d-b757-4c1e-a4ec-5d8118f22794" Allowed="true" />
+    <CompatibleElement ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" Allowed="true" />
+    <CompatibleElement ViewElementId="5da93b83-bdda-4646-bf49-399c59757228" Allowed="true" />
+    <CompatibleElement ViewElementId="0e273944-c6a0-46b3-b8cb-af8a86500bc2" Allowed="true" />
+    <CompatibleElement ViewElementId="3701c3d3-cc9b-4160-a98a-f2aeae21e269" Allowed="true" />
+    <CompatibleElement ViewElementId="9b618bb4-f3ff-4ecf-b61f-1ad93af20596" Allowed="true" />
+    <CompatibleElement ViewElementId="ad0a280b-28ba-44f8-9b3f-3143836d9e7a" Allowed="true" />
+    <CompatibleElement ViewElementId="5ab4fada-a0b0-45d1-9945-198357ab0986" Allowed="true" />
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+    <CompatibleElement ViewElementId="075e1632-bfbc-4567-8a9f-51f65da301c9" Allowed="true" />
+    <CompatibleElement ViewElementId="bc318f1c-9406-45b7-bc7b-055ef9743ee5" Allowed="true" />
+    <CompatibleElement ViewElementId="df3c1e86-175e-4d5c-9845-ffb905bdd86e" Allowed="true" />
+    <CompatibleElement ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" Allowed="true" />
+  </Container>
+  <Container ViewElementId="3b942f8c-cec4-465d-a242-3d7d40ac3cb2" PropertyId="SimpleEntityDefinitionProperty_RightFields">
+    <CompatibleElement ViewElementId="08ee413d-b757-4c1e-a4ec-5d8118f22794" Allowed="true" />
+    <CompatibleElement ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" Allowed="true" />
+    <CompatibleElement ViewElementId="5da93b83-bdda-4646-bf49-399c59757228" Allowed="true" />
+    <CompatibleElement ViewElementId="3701c3d3-cc9b-4160-a98a-f2aeae21e269" Allowed="true" />
+    <CompatibleElement ViewElementId="9b618bb4-f3ff-4ecf-b61f-1ad93af20596" Allowed="true" />
+    <CompatibleElement ViewElementId="ad0a280b-28ba-44f8-9b3f-3143836d9e7a" Allowed="true" />
+    <CompatibleElement ViewElementId="5ab4fada-a0b0-45d1-9945-198357ab0986" Allowed="true" />
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+    <CompatibleElement ViewElementId="075e1632-bfbc-4567-8a9f-51f65da301c9" Allowed="true" />
+    <CompatibleElement ViewElementId="bc318f1c-9406-45b7-bc7b-055ef9743ee5" Allowed="true" />
+    <CompatibleElement ViewElementId="df3c1e86-175e-4d5c-9845-ffb905bdd86e" Allowed="true" />
+    <CompatibleElement ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" Allowed="true" />
+  </Container>
+  <Container ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" Allowed="true" />
+    <CompatibleElement ViewElementId="2d15e230-91b8-408c-89a4-2ab51ff9f000" Allowed="true" />
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="3b942f8c-cec4-465d-a242-3d7d40ac3cb2" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" Allowed="true" />
+    <CompatibleElement ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="3323ae7c-e3c1-4ecc-9c7c-a43db731438a" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" Allowed="true" />
+    <CompatibleElement ViewElementId="ac855314-78a9-4918-8881-b513fe786061" Allowed="true" />
+    <CompatibleElement ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" Allowed="true" />
+    <CompatibleElement ViewElementId="269845b4-f582-456e-a795-b540aa491e1a" Allowed="true" />
+    <CompatibleElement ViewElementId="31941768-ba7f-4202-bb05-2641656811fc" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="6bc26bee-fdd3-4148-a17f-847b2f95bf03" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" Allowed="true" />
+    <CompatibleElement ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+    <CompatibleElement ViewElementId="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="7a064f0b-d61a-47a7-9928-d36bdd2f4443" Allowed="true" />
+    <CompatibleElement ViewElementId="3c96f4b8-d39e-4ca8-bbea-918a9ace6696" Allowed="true" />
+    <CompatibleElement ViewElementId="cffde676-fb2a-4fe8-a796-b19910ecb681" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+    <CompatibleElement ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" Allowed="true" />
+    <CompatibleElement ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" Allowed="true" />
+    <CompatibleElement ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" Allowed="true" />
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+    <CompatibleElement ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" Allowed="true" />
+  </Container>
+  <Container ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" PropertyId="SimpleEntityDefinitionProperty_DisplayItems">
+    <CompatibleElement ViewElementId="df778ec4-a192-4da2-bb00-050104f6d985" Allowed="true" />
+    <CompatibleElement ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" Allowed="true" />
+    <CompatibleElement ViewElementId="33aaa9ff-874d-41ce-93bd-ec4ae381e066" Allowed="true" />
+    <CompatibleElement ViewElementId="b07a8384-c579-4679-9401-226b2af0eb1b" Allowed="true" />
+    <CompatibleElement ViewElementId="a7a0fd11-6b1d-407e-9347-292b21ff04ac" Allowed="true" />
+    <CompatibleElement ViewElementId="773618ae-031e-425d-b0c3-c8baaf32f40b" Allowed="true" />
+    <CompatibleElement ViewElementId="a58b8fad-af85-463a-813f-7cc724b835e0" Allowed="true" />
+  </Container>
+  <Container ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" PropertyId="SimpleEntityDefinitionProperty_DisplayDetails">
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+  </Container>
+  <Container ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="7057516a-8a9f-4bf5-90d2-d37cdc103e9b" PropertyId="SimpleEntityDefinitionProperty_Item">
+    <CompatibleElement ViewElementId="72dd79de-f665-43de-b226-600b20fa0dd7" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+  </Container>
+  <Container ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" PropertyId="SimpleEntityDefinitionProperty_DragDropItems">
+    <CompatibleElement ViewElementId="7057516a-8a9f-4bf5-90d2-d37cdc103e9b" Allowed="true" />
+  </Container>
+  <Container ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" PropertyId="SimpleEntityDefinitionProperty_SelectedItems">
+    <CompatibleElement ViewElementId="7057516a-8a9f-4bf5-90d2-d37cdc103e9b" Allowed="true" />
+  </Container>
+  <Container ViewElementId="33aaa9ff-874d-41ce-93bd-ec4ae381e066" PropertyId="abf2b36e-a6c2-4cc0-9eaf-a724ef1f537e">
+    <CompatibleElement ViewElementId="08ee413d-b757-4c1e-a4ec-5d8118f22794" Allowed="true" />
+    <CompatibleElement ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" Allowed="true" />
+    <CompatibleElement ViewElementId="5da93b83-bdda-4646-bf49-399c59757228" Allowed="true" />
+    <CompatibleElement ViewElementId="3701c3d3-cc9b-4160-a98a-f2aeae21e269" Allowed="true" />
+    <CompatibleElement ViewElementId="9b618bb4-f3ff-4ecf-b61f-1ad93af20596" Allowed="true" />
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+    <CompatibleElement ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" Allowed="true" />
+  </Container>
+  <Container ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" Allowed="true" />
+    <CompatibleElement ViewElementId="2d15e230-91b8-408c-89a4-2ab51ff9f000" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="3b942f8c-cec4-465d-a242-3d7d40ac3cb2" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" Allowed="true" />
+    <CompatibleElement ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" Allowed="true" />
+    <CompatibleElement ViewElementId="ac855314-78a9-4918-8881-b513fe786061" Allowed="true" />
+    <CompatibleElement ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" Allowed="true" />
+    <CompatibleElement ViewElementId="269845b4-f582-456e-a795-b540aa491e1a" Allowed="true" />
+    <CompatibleElement ViewElementId="31941768-ba7f-4202-bb05-2641656811fc" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" Allowed="true" />
+    <CompatibleElement ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" Allowed="true" />
+    <CompatibleElement ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+    <CompatibleElement ViewElementId="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" Allowed="true" />
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="7a064f0b-d61a-47a7-9928-d36bdd2f4443" Allowed="true" />
+    <CompatibleElement ViewElementId="3c96f4b8-d39e-4ca8-bbea-918a9ace6696" Allowed="true" />
+    <CompatibleElement ViewElementId="cffde676-fb2a-4fe8-a796-b19910ecb681" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+    <CompatibleElement ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" Allowed="true" />
+    <CompatibleElement ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" Allowed="true" />
+    <CompatibleElement ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" Allowed="true" />
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+    <CompatibleElement ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" Allowed="true" />
+  </Container>
+  <Container ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" PropertyId="SimpleEntityDefinitionProperty_DisplayItems">
+    <CompatibleElement ViewElementId="df778ec4-a192-4da2-bb00-050104f6d985" Allowed="true" />
+    <CompatibleElement ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" Allowed="true" />
+    <CompatibleElement ViewElementId="a7a0fd11-6b1d-407e-9347-292b21ff04ac" Allowed="true" />
+    <CompatibleElement ViewElementId="a58b8fad-af85-463a-813f-7cc724b835e0" Allowed="true" />
+  </Container>
+  <Container ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+  </Container>
+  <Container ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" PropertyId="SimpleEntityDefinitionProperty_DisplayDetails">
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+  </Container>
+  <Container ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" Allowed="true" />
+    <CompatibleElement ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" Allowed="true" />
+    <CompatibleElement ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+    <CompatibleElement ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" Allowed="true" />
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" PropertyId="SimpleEntityDefinitionProperty_VisibleElement">
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+  </Container>
+  <Container ViewElementId="ac855314-78a9-4918-8881-b513fe786061" PropertyId="SimpleEntityDefinitionProperty_ExpandableDisplays">
+    <CompatibleElement ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" Allowed="true" />
+  </Container>
+  <Container ViewElementId="ac855314-78a9-4918-8881-b513fe786061" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" PropertyId="SimpleEntityDefinitionProperty_Fields">
+    <CompatibleElement ViewElementId="31448d65-6799-40a3-ace3-e64093ea15db" Allowed="true" />
+    <CompatibleElement ViewElementId="08ee413d-b757-4c1e-a4ec-5d8118f22794" Allowed="true" />
+    <CompatibleElement ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" Allowed="true" />
+    <CompatibleElement ViewElementId="5da93b83-bdda-4646-bf49-399c59757228" Allowed="true" />
+    <CompatibleElement ViewElementId="0e273944-c6a0-46b3-b8cb-af8a86500bc2" Allowed="true" />
+    <CompatibleElement ViewElementId="3701c3d3-cc9b-4160-a98a-f2aeae21e269" Allowed="true" />
+    <CompatibleElement ViewElementId="9b618bb4-f3ff-4ecf-b61f-1ad93af20596" Allowed="true" />
+    <CompatibleElement ViewElementId="ad0a280b-28ba-44f8-9b3f-3143836d9e7a" Allowed="true" />
+    <CompatibleElement ViewElementId="5ab4fada-a0b0-45d1-9945-198357ab0986" Allowed="true" />
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+    <CompatibleElement ViewElementId="50dfe854-3c75-4ecf-bc8e-e8657ddb6388" Allowed="true" />
+    <CompatibleElement ViewElementId="075e1632-bfbc-4567-8a9f-51f65da301c9" Allowed="true" />
+    <CompatibleElement ViewElementId="bc318f1c-9406-45b7-bc7b-055ef9743ee5" Allowed="true" />
+    <CompatibleElement ViewElementId="df3c1e86-175e-4d5c-9845-ffb905bdd86e" Allowed="true" />
+    <CompatibleElement ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" Allowed="true" />
+  </Container>
+  <Container ViewElementId="269845b4-f582-456e-a795-b540aa491e1a" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="bca6b20b-5214-47c5-9921-6d1f6f8cdf30" Allowed="true" />
+  </Container>
+  <Container ViewElementId="f16f1e9a-fbc8-4a8c-a618-c920c8a40cc7" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="31941768-ba7f-4202-bb05-2641656811fc" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" Allowed="true" />
+    <CompatibleElement ViewElementId="7a064f0b-d61a-47a7-9928-d36bdd2f4443" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+  </Container>
+  <Container ViewElementId="31941768-ba7f-4202-bb05-2641656811fc" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+  </Container>
+  <Container ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="3b942f8c-cec4-465d-a242-3d7d40ac3cb2" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" Allowed="true" />
+    <CompatibleElement ViewElementId="b3d93537-67c4-4e59-8a2b-66eddfc6588e" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="bc9c8470-25de-48b5-8f10-3443f90d297d" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" Allowed="true" />
+    <CompatibleElement ViewElementId="2d15e230-91b8-408c-89a4-2ab51ff9f000" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="cffde676-fb2a-4fe8-a796-b19910ecb681" Allowed="true" />
+    <CompatibleElement ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" Allowed="true" />
+  </Container>
+  <Container ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" PropertyId="SimpleEntityDefinitionProperty_ListItems">
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+  </Container>
+  <Container ViewElementId="b07a8384-c579-4679-9401-226b2af0eb1b" PropertyId="SimpleEntityDefinitionProperty_Link">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="95afea19-37f0-487b-ac59-c4e5789cf1b7" PropertyId="SimpleEntityDefinitionProperty_DisplayItems">
+    <CompatibleElement ViewElementId="df778ec4-a192-4da2-bb00-050104f6d985" Allowed="true" />
+    <CompatibleElement ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" Allowed="true" />
+    <CompatibleElement ViewElementId="a7a0fd11-6b1d-407e-9347-292b21ff04ac" Allowed="true" />
+    <CompatibleElement ViewElementId="a58b8fad-af85-463a-813f-7cc724b835e0" Allowed="true" />
+  </Container>
+  <Container ViewElementId="95afea19-37f0-487b-ac59-c4e5789cf1b7" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" PropertyId="SimpleEntityDefinitionProperty_DisplayDetails">
+    <CompatibleElement ViewElementId="95afea19-37f0-487b-ac59-c4e5789cf1b7" Allowed="true" />
+  </Container>
+  <Container ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" PropertyId="SimpleEntityDefinitionProperty_ProgressBar">
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+  </Container>
+  <Container ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" PropertyId="SimpleEntityDefinitionProperty_ProgressSteps">
+    <CompatibleElement ViewElementId="bd8d6eb8-f169-460f-b96c-24d4e1f1ee4f" Allowed="true" />
+  </Container>
+  <Container ViewElementId="bd8d6eb8-f169-460f-b96c-24d4e1f1ee4f" PropertyId="SimpleEntityDefinitionProperty_DisplayItems">
+    <CompatibleElement ViewElementId="df778ec4-a192-4da2-bb00-050104f6d985" Allowed="true" />
+    <CompatibleElement ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" Allowed="true" />
+    <CompatibleElement ViewElementId="a58b8fad-af85-463a-813f-7cc724b835e0" Allowed="true" />
+  </Container>
+  <Container ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" PropertyId="SimpleEntityDefinitionProperty_DragDropItems">
+    <CompatibleElement ViewElementId="7057516a-8a9f-4bf5-90d2-d37cdc103e9b" Allowed="true" />
+  </Container>
+  <Container ViewElementId="1f72c3aa-381a-4e97-9125-0beeda475ce0" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" Allowed="true" />
+    <CompatibleElement ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" Allowed="true" />
+    <CompatibleElement ViewElementId="ac855314-78a9-4918-8881-b513fe786061" Allowed="true" />
+    <CompatibleElement ViewElementId="269845b4-f582-456e-a795-b540aa491e1a" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" Allowed="true" />
+    <CompatibleElement ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="3c96f4b8-d39e-4ca8-bbea-918a9ace6696" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+    <CompatibleElement ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" Allowed="true" />
+    <CompatibleElement ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" Allowed="true" />
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" PropertyId="SimpleEntityDefinitionProperty_Cells">
+    <CompatibleElement ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" Allowed="true" />
+  </Container>
+  <Container ViewElementId="a5f71c78-d4e1-4b8d-90c3-3d63f4fbd9f6" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="8e63c35b-4d07-4292-a06d-bfbe457ba294" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+  </Container>
+  <Container ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" PropertyId="SimpleEntityDefinitionProperty_MenuLink">
+    <CompatibleElement ViewElementId="937ebd4b-da12-474e-af5b-0d79ae7305aa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" Allowed="true" />
+    <CompatibleElement ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" Allowed="true" />
+    <CompatibleElement ViewElementId="ac855314-78a9-4918-8881-b513fe786061" Allowed="true" />
+    <CompatibleElement ViewElementId="269845b4-f582-456e-a795-b540aa491e1a" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="5e115c58-fef6-4db6-8dfe-b987f0dde8d8" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" Allowed="true" />
+    <CompatibleElement ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="3c96f4b8-d39e-4ca8-bbea-918a9ace6696" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+    <CompatibleElement ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" Allowed="true" />
+    <CompatibleElement ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" Allowed="true" />
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" PropertyId="SimpleEntityDefinitionProperty_Slides">
+    <CompatibleElement ViewElementId="a5f71c78-d4e1-4b8d-90c3-3d63f4fbd9f6" Allowed="true" />
+  </Container>
+  <Container ViewElementId="e2761b95-c3d4-4ea0-8827-dd2ba735ed21" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="2ce8443f-07e8-4cb6-8b92-e131f14e44ce" Allowed="true" />
+    <CompatibleElement ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" Allowed="true" />
+    <CompatibleElement ViewElementId="6d170c0c-07af-4065-ade6-bd934c2b790a" Allowed="true" />
+    <CompatibleElement ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" Allowed="true" />
+    <CompatibleElement ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" Allowed="true" />
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="f62a5ec4-9e2c-4465-a424-7935cd62e45b" Allowed="true" />
+    <CompatibleElement ViewElementId="002768f3-fdb8-470a-8992-068494ae3620" Allowed="true" />
+    <CompatibleElement ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" Allowed="true" />
+    <CompatibleElement ViewElementId="1e4d829f-cddd-4713-8a0d-7af7303d7480" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="130d5f70-8798-433b-a80d-ba29fc455fe4" Allowed="true" />
+    <CompatibleElement ViewElementId="ac855314-78a9-4918-8881-b513fe786061" Allowed="true" />
+    <CompatibleElement ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" Allowed="true" />
+    <CompatibleElement ViewElementId="94de27ae-801a-40d7-a023-4873027290be" Allowed="true" />
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+    <CompatibleElement ViewElementId="a7abb3ba-33e1-4c6a-ae21-d5b4b7f54c57" Allowed="true" />
+    <CompatibleElement ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" Allowed="true" />
+    <CompatibleElement ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" Allowed="true" />
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+    <CompatibleElement ViewElementId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" Allowed="true" />
+    <CompatibleElement ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" Allowed="true" />
+    <CompatibleElement ViewElementId="e4d338fb-ee19-41d1-8eba-8cb792718a2c" Allowed="true" />
+    <CompatibleElement ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" Allowed="true" />
+    <CompatibleElement ViewElementId="d12435f1-e72b-41f0-9966-cbc08ca4625d" Allowed="true" />
+    <CompatibleElement ViewElementId="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" Allowed="true" />
+    <CompatibleElement ViewElementId="009aef16-4fd7-43c7-8799-14f81d5da217" Allowed="true" />
+    <CompatibleElement ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" Allowed="true" />
+    <CompatibleElement ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" Allowed="true" />
+    <CompatibleElement ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" Allowed="true" />
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+    <CompatibleElement ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="7a064f0b-d61a-47a7-9928-d36bdd2f4443" PropertyId="SimpleEntityDefinitionProperty_Buttons">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+  </Container>
+  <Container ViewElementId="3c96f4b8-d39e-4ca8-bbea-918a9ace6696" PropertyId="SimpleEntityDefinitionProperty_Tabs">
+    <CompatibleElement ViewElementId="e2761b95-c3d4-4ea0-8827-dd2ba735ed21" Allowed="true" />
+  </Container>
+  <Container ViewElementId="cffde676-fb2a-4fe8-a796-b19910ecb681" PropertyId="SimpleEntityDefinitionProperty_TabButtons">
+    <CompatibleElement ViewElementId="e6157524-f02c-437d-985d-d21965aaa8ce" Allowed="true" />
+  </Container>
+  <Container ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" PropertyId="SimpleEntityDefinitionProperty_Columns">
+    <CompatibleElement ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" Allowed="true" />
+  </Container>
+  <Container ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" PropertyId="SimpleEntityDefinitionProperty_Rows">
+    <CompatibleElement ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" Allowed="true" />
+  </Container>
+  <Container ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" PropertyId="SimpleEntityDefinitionProperty_Tiles">
+    <CompatibleElement ViewElementId="e2d3129b-4646-42e6-a5f6-4968748df0b9" Allowed="true" />
+  </Container>
+  <Container ViewElementId="add99fc9-9d20-4901-aa90-27c2297d5b01" PropertyId="SimpleEntityDefinitionProperty_Tooltip">
+    <CompatibleElement ViewElementId="c541e5ee-ea09-4685-99d5-1c1cee0bfa71" Allowed="true" />
+  </Container>
+  <Container ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" PropertyId="SimpleEntityDefinitionProperty_FilterSelectField1">
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" PropertyId="SimpleEntityDefinitionProperty_FilterSelectField2">
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="cf61a57a-c68d-4557-b3d2-bfd674125615" PropertyId="SimpleEntityDefinitionProperty_FilterSelectField3">
+    <CompatibleElement ViewElementId="0141b846-2660-4fe9-ab57-e3fc226650fc" Allowed="true" />
+  </Container>
+  <Container ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" PropertyId="SimpleEntityDefinitionProperty_QuickNavigationLinks">
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" PropertyId="SimpleEntityDefinitionProperty_SearchTool">
+    <CompatibleElement ViewElementId="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" Allowed="true" />
+  </Container>
+  <Container ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" PropertyId="SimpleEntityDefinitionProperty_SlidePanel">
+    <CompatibleElement ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" Allowed="true" />
+  </Container>
+  <Container ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" PropertyId="SimpleEntityDefinitionProperty_DisplayPanel">
+    <CompatibleElement ViewElementId="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" Allowed="true" />
+    <CompatibleElement ViewElementId="eb8a2c5a-6d9b-4439-992b-c86691ae6618" Allowed="true" />
+    <CompatibleElement ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" Allowed="true" />
+  </Container>
+  <Container ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" PropertyId="SimpleEntityDefinitionProperty_Links">
+    <CompatibleElement ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" Allowed="true" />
+    <CompatibleElement ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" Allowed="true" />
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+    <CompatibleElement ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" Allowed="true" />
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+    <CompatibleElement ViewElementId="b29219fb-3cac-4a6f-b2c1-ef671734a571" Allowed="true" />
+    <CompatibleElement ViewElementId="f6097fcd-5ebf-4653-a4cb-635f1c961573" Allowed="true" />
+  </Container>
+  <Container ViewElementId="300973da-b7e4-4331-98e8-64631e0b40dc" PropertyId="SimpleEntityDefinitionProperty_Tree">
+    <CompatibleElement ViewElementId="27d00f61-ef3e-49f7-88b6-5fbc1edb0eeb" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" PropertyId="SimpleEntityDefinitionProperty_Help">
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" PropertyId="SimpleEntityDefinitionProperty_Logoff">
+    <CompatibleElement ViewElementId="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" PropertyId="bb0a119c-4101-46b0-9952-85504cff5df9">
+    <CompatibleElement ViewElementId="bf0254fb-b78c-41bb-a5b7-e3ebf6e32faa" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" PropertyId="SimpleEntityDefinitionProperty_Settings">
+    <CompatibleElement ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" Allowed="true" />
+  </Container>
+  <Container ViewElementId="6b17ac87-cd79-426b-894f-f6bc64a10177" PropertyId="SimpleEntityDefinitionProperty_UserInformation">
+    <CompatibleElement ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" Allowed="true" />
+  </Container>
+</Compatibilities>

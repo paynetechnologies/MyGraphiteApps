@@ -1,0 +1,1487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DisplayArea" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Display Area is a generic container of elements.  This is an advanced feature as it allows the user to write their own styling for elements within.  CAUTION: Using Display Area inappropriately may lead to pages that are not responsive.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Background" PropertyId="SimpleEntityDefinitionProperty_Background" IsOptional="true" DataType="f0ef9671-86c2-490b-b187-5a1685db0a28" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Border" PropertyId="SimpleEntityDefinitionProperty_Border" IsOptional="true" DataType="6c098ba7-ded7-4ba9-bd9a-a80c343f64b1" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsContentCentered" PropertyId="SimpleEntityDefinitionProperty_IsContentCentered" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Margin" PropertyId="SimpleEntityDefinitionProperty_Margin" IsOptional="true" DataType="199d0fb8-59b5-4226-bae1-af2e1b46920c" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Opacity" PropertyId="SimpleEntityDefinitionProperty_Opacity" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Padding" PropertyId="SimpleEntityDefinitionProperty_Padding" IsOptional="true" DataType="199d0fb8-59b5-4226-bae1-af2e1b46920c" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="RoundedCorner" PropertyId="SimpleEntityDefinitionProperty_RoundedCorner" IsOptional="true" DataType="8b1befe6-dfe3-4dc8-a01d-75df433b3c47" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Shadow" PropertyId="SimpleEntityDefinitionProperty_Shadow" IsOptional="true" DataType="7d3101d6-3297-45c4-86e9-22ed405dbd05" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Font" PropertyId="SimpleEntityDefinitionProperty_Font" IsOptional="true" DataType="cc846db1-1be3-4125-80d5-55f182bd26d1" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Layer" PropertyId="SimpleEntityDefinitionProperty_Layer" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Position" PropertyId="SimpleEntityDefinitionProperty_Position" IsOptional="true" DataType="199d0fb8-59b5-4226-bae1-af2e1b46920c" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayType" PropertyId="SimpleEntityDefinitionProperty_DisplayType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisableAutoGrid" PropertyId="SimpleEntityDefinitionProperty_DisableAutoGrid" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="VerticalAlignment" PropertyId="SimpleEntityDefinitionProperty_VerticalAlignment" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Minimum" PropertyId="6fe89e44-c058-49d2-b082-fe55409de584" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Maximum" PropertyId="8f691e40-670a-44ff-ad10-a1bc286d2b43" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Overflow" PropertyId="197bd1d3-6fac-4700-9293-2cfeaec5f9a4" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OverrideForDesktop" PropertyId="0f3349d1-3203-4b0c-9dcb-dec4cadb14c5" IsOptional="true" DataType="0bbc57d4-7f68-454d-abef-6d37d009ec16" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OverrideForLaptop" PropertyId="2016e534-7f69-42e5-ae5a-54d6eedc033d" IsOptional="true" DataType="0bbc57d4-7f68-454d-abef-6d37d009ec16" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OverrideForTablet" PropertyId="ca2d22a5-d002-4e26-9d3a-a5da52927ecb" IsOptional="true" DataType="0bbc57d4-7f68-454d-abef-6d37d009ec16" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OverrideForMobile" PropertyId="84fba58d-eb6c-471c-8baf-3aea740541ab" IsOptional="true" DataType="0bbc57d4-7f68-454d-abef-6d37d009ec16" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DisplayArea" />
+    <Property PropertyName="Opacity" DefaultValue="1" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DisplayArea.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">DisplayAreaStyle.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">StyleHelper.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="BackgroundColor" EditorType="ColorChooser" Label="Color" Grouping="Background" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Color]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="BackgroundImageSize" EditorType="SelectBox" Label="Type" Grouping="Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image type]]></Description>
+        <DescriptionOptions><![CDATA[Contain, Cover]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Contain" Value="Contain" />
+          <FieldOption DisplayName="Cover" Value="Cover" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="BackgroundImageSource" EditorType="ResourceChooser" Label="Image" Grouping="Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background image of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="BackgroundRepeat" EditorType="SelectBox" Label="Repeat" Grouping="Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image Repeat option]]></Description>
+        <DescriptionOptions><![CDATA[No Repeat, Repeat, Repeat-X, Repeat-Y, Round]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Repeat" Value="Repeat" />
+          <FieldOption DisplayName="Repeat X" Value="Repeat-X" />
+          <FieldOption DisplayName="Repeat-Y" Value="Repeat-Y" />
+          <FieldOption DisplayName="No Repeat" Value="No-Repeat" />
+          <FieldOption DisplayName="Round" Value="Round" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="BackgroundPositionTop" EditorType="TextBox" Label="Top" Grouping="Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Top]]></Description>
+      </Field>
+      <Field FieldName="BackgroundPositionLeft" EditorType="TextBox" Label="Left" Grouping="Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Left]]></Description>
+      </Field>
+      <Field FieldName="BackgroundPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Background Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="BorderThickness" EditorType="DecimalTextBox" Label="Thickness" Grouping="Border" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Border Thickness]]></Description>
+      </Field>
+      <Field FieldName="BorderScale" EditorType="SelectBox" Label="Scale" Grouping="Border" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for Border]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="BorderColor" EditorType="ColorChooser" Label="Color" Grouping="Border" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Border Color]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="BorderBorderType" EditorType="SelectBox" Label="Type" Grouping="Border" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Border Type]]></Description>
+        <DescriptionOptions><![CDATA[Dashed, Dotted, Double, Groove, Hidden, Inset, Outset, Ridge, Solid]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Solid" Value="Solid" />
+          <FieldOption DisplayName="Dotted" Value="Dotted" />
+          <FieldOption DisplayName="Dashed" Value="Dashed" />
+          <FieldOption DisplayName="Hidden" Value="Hidden" />
+          <FieldOption DisplayName="Double" Value="Double" />
+          <FieldOption DisplayName="Groove" Value="Groove" />
+          <FieldOption DisplayName="Ridge" Value="Ridge" />
+          <FieldOption DisplayName="Inset" Value="Inset" />
+          <FieldOption DisplayName="Outset" Value="Outset" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="TextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="TextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsContentCentered" EditorType="YesNoToggle" Label="Center Content?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Center the content of the Display Area]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="MarginTop" EditorType="TextBox" Label="Top" Grouping="Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Margin]]></Description>
+      </Field>
+      <Field FieldName="MarginRight" EditorType="TextBox" Label="Right" Grouping="Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Margin]]></Description>
+      </Field>
+      <Field FieldName="MarginBottom" EditorType="TextBox" Label="Bottom" Grouping="Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Margin]]></Description>
+      </Field>
+      <Field FieldName="MarginLeft" EditorType="TextBox" Label="Left" Grouping="Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Margin]]></Description>
+      </Field>
+      <Field FieldName="MarginScale" EditorType="SelectBox" Label="Scale" Grouping="Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Margin]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Opacity" EditorType="DecimalTextBox" Label="Opacity" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Opacity of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[0 - 1 (Decimal)]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="PaddingTop" EditorType="TextBox" Label="Top" Grouping="Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Padding]]></Description>
+      </Field>
+      <Field FieldName="PaddingRight" EditorType="TextBox" Label="Right" Grouping="Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Padding]]></Description>
+      </Field>
+      <Field FieldName="PaddingBottom" EditorType="TextBox" Label="Bottom" Grouping="Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Padding]]></Description>
+      </Field>
+      <Field FieldName="PaddingLeft" EditorType="TextBox" Label="Left" Grouping="Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Padding]]></Description>
+      </Field>
+      <Field FieldName="PaddingScale" EditorType="SelectBox" Label="Scale" Grouping="Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Padding]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="PositionSetting" EditorType="SelectBox" Label="Setting" Grouping="Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Positioning Method]]></Description>
+        <DescriptionOptions><![CDATA[Absolute, Relative, Fixed, Static]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Absolute" Value="absolute" />
+          <FieldOption DisplayName="Relative" Value="relative" />
+          <FieldOption DisplayName="Fixed" Value="fixed" />
+          <FieldOption DisplayName="Static" Value="static" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="PositionTop" EditorType="TextBox" Label="Top" Grouping="Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="PositionRight" EditorType="TextBox" Label="Right" Grouping="Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="PositionBottom" EditorType="TextBox" Label="Bottom" Grouping="Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="PositionLeft" EditorType="TextBox" Label="Left" Grouping="Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="PositionScale" EditorType="SelectBox" Label="Scale" Grouping="Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="RoundedCornerTopLeft" EditorType="IntegerTextBox" Label="TopLeft" Grouping="Corner" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Left]]></Description>
+      </Field>
+      <Field FieldName="RoundedCornerTopRight" EditorType="IntegerTextBox" Label="TopRight" Grouping="Corner" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Right]]></Description>
+      </Field>
+      <Field FieldName="RoundedCornerBottomLeft" EditorType="IntegerTextBox" Label="BottomLeft" Grouping="Corner" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Left]]></Description>
+      </Field>
+      <Field FieldName="RoundedCornerBottomRight" EditorType="IntegerTextBox" Label="BottomRight" Grouping="Corner" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Right]]></Description>
+      </Field>
+      <Field FieldName="ShadowColor" EditorType="ColorChooser" Label="Color" Grouping="Shadow" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Shadow Color]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="ShadowOpacity" EditorType="DecimalTextBox" Label="Opacity" Grouping="Shadow" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Shadow Opacity]]></Description>
+        <DescriptionOptions><![CDATA[0 - 1 (Decimal)]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="ShadowHorizontal" EditorType="IntegerTextBox" Label="Horizontal" Grouping="Shadow" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Horizontal Shadow value]]></Description>
+      </Field>
+      <Field FieldName="ShadowVertical" EditorType="IntegerTextBox" Label="Vertical" Grouping="Shadow" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Shadow Vertical value]]></Description>
+      </Field>
+      <Field FieldName="ShadowBlur" EditorType="IntegerTextBox" Label="Blur" Grouping="Shadow" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Blur value]]></Description>
+      </Field>
+      <Field FieldName="ShadowSpread" EditorType="IntegerTextBox" Label="Spread" Grouping="Shadow" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Shadow spread value]]></Description>
+      </Field>
+      <Field FieldName="ShadowShadowType" EditorType="SelectBox" Label="Type" Grouping="Shadow" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Shadow Type]]></Description>
+        <DescriptionOptions><![CDATA[Inset, Outset]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Inset" Value="Inset" />
+          <FieldOption DisplayName="Outset" Value="Outset" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="Layer" EditorType="IntegerTextBox" Label="Screen Layer" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[z-index]]></Description>
+      </Field>
+      <Field FieldName="FontSize" EditorType="TextBox" Label="Size" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Size of the Font]]></Description>
+      </Field>
+      <Field FieldName="FontColor" EditorType="ColorChooser" Label="Color" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Font Color]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="FontScale" EditorType="SelectBox" Label="Scale" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Font]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FontWeight" EditorType="SelectBox" Label="Weight" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Weight of the Font]]></Description>
+        <DescriptionOptions><![CDATA[Bold, Bolder, Normal]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Normal" Value="Normal" />
+          <FieldOption DisplayName="Bold" Value="Bold" />
+          <FieldOption DisplayName="Bolder" Value="Bolder" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="FontLineSpacing" EditorType="IntegerTextBox" Label="Line Spacing" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[LIne Spacing]]></Description>
+      </Field>
+      <Field FieldName="FontLetterSpacing" EditorType="IntegerTextBox" Label="Letter Spacing" Grouping="Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Letter Spacing]]></Description>
+      </Field>
+      <Field FieldName="DisplayType" EditorType="SelectBox" Label="Display Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Type]]></Description>
+        <DescriptionOptions><![CDATA[Block, Inline, Inline Block]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Block" Value="block" />
+          <FieldOption DisplayName="Inline" Value="inline" />
+          <FieldOption DisplayName="Inline Block" Value="inline-block" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="DisableAutoGrid" EditorType="YesNoToggle" Label="Disable Auto Grid" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Disable auto gridding]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="VerticalAlignment" EditorType="SelectBox" Label="Vertical Alignment" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Vertical Alignment]]></Description>
+        <DescriptionOptions><![CDATA[Bottom, Middle, Top]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Top" Value="top" />
+          <FieldOption DisplayName="Middle" Value="middle" />
+          <FieldOption DisplayName="Bottom" Value="bottom" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="MinimumHeight" EditorType="TextBox" Label="Height" Grouping="Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="MaximumHeight" EditorType="TextBox" Label="Height" Grouping="Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="MinimumWidth" EditorType="TextBox" Label="Width" Grouping="Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="MaximumWidth" EditorType="TextBox" Label="Width" Grouping="Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="MinimumScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Minimum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="MaximumScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Maximum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Overflow" EditorType="SelectBox" Label="Overflow" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Controls the Overflow of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[auto,hidden,initial,inherit,scroll,visible]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="auto" Value="auto" />
+          <FieldOption DisplayName="hidden" Value="hidden" />
+          <FieldOption DisplayName="initial" Value="initial" />
+          <FieldOption DisplayName="inherit" Value="inherit" />
+          <FieldOption DisplayName="scroll" Value="scroll" />
+          <FieldOption DisplayName="visible" Value="visible" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForMobileBackgroundImageSize" EditorType="SelectBox" Label="Type" Grouping="Override,Mobile,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image type]]></Description>
+        <DescriptionOptions><![CDATA[Contain, Cover]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Contain" Value="Contain" />
+          <FieldOption DisplayName="Cover" Value="Cover" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForMobileBackgroundImageSource" EditorType="ResourceChooser" Label="Image" Grouping="Override,Mobile,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background image of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OverrideForMobileBackgroundRepeat" EditorType="SelectBox" Label="Repeat" Grouping="Override,Mobile,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image Repeat option]]></Description>
+        <DescriptionOptions><![CDATA[No Repeat, Repeat, Repeat-X, Repeat-Y, Round]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Repeat" Value="Repeat" />
+          <FieldOption DisplayName="Repeat X" Value="Repeat-X" />
+          <FieldOption DisplayName="Repeat-Y" Value="Repeat-Y" />
+          <FieldOption DisplayName="No Repeat" Value="No-Repeat" />
+          <FieldOption DisplayName="Round" Value="Round" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForMobileBackgroundPositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Mobile,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Top]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileBackgroundPositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Mobile,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Left]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileBackgroundPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Background Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobileDimensionHeight" EditorType="TextBox" Label="Height" Grouping="Override,Mobile,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileDimensionWidth" EditorType="TextBox" Label="Width" Grouping="Override,Mobile,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileDimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobileMarginTop" EditorType="TextBox" Label="Top" Grouping="Override,Mobile,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMarginRight" EditorType="TextBox" Label="Right" Grouping="Override,Mobile,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMarginBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Mobile,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMarginLeft" EditorType="TextBox" Label="Left" Grouping="Override,Mobile,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMarginScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Margin]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobilePaddingTop" EditorType="TextBox" Label="Top" Grouping="Override,Mobile,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePaddingRight" EditorType="TextBox" Label="Right" Grouping="Override,Mobile,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePaddingBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Mobile,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePaddingLeft" EditorType="TextBox" Label="Left" Grouping="Override,Mobile,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePaddingScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Padding]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobilePositionSetting" EditorType="SelectBox" Label="Setting" Grouping="Override,Mobile,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Positioning Method]]></Description>
+        <DescriptionOptions><![CDATA[Absolute, Relative, Fixed, Static]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Absolute" Value="absolute" />
+          <FieldOption DisplayName="Relative" Value="relative" />
+          <FieldOption DisplayName="Fixed" Value="fixed" />
+          <FieldOption DisplayName="Static" Value="static" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForMobilePositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Mobile,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePositionRight" EditorType="TextBox" Label="Right" Grouping="Override,Mobile,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePositionBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Mobile,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Mobile,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobilePositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobileFontSize" EditorType="TextBox" Label="Size" Grouping="Override,Mobile,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Size of the Font]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileFontScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Font]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobileDisplayType" EditorType="SelectBox" Label="Display Type" Grouping="Override,Mobile" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Type]]></Description>
+        <DescriptionOptions><![CDATA[Block, Inline, Inline Block]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Block" Value="block" />
+          <FieldOption DisplayName="Inline" Value="inline" />
+          <FieldOption DisplayName="Inline Block" Value="inline-block" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForMobileMinimumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Mobile,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMaximumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Mobile,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMinimumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Mobile,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMaximumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Mobile,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForMobileMinimumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Minimum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobileMaximumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Mobile,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Maximum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForMobileOverflow" EditorType="SelectBox" Label="Overflow" Grouping="Override,Mobile,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Controls the Overflow of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[auto,hidden,initial,inherit,scroll,visible]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="auto" Value="auto" />
+          <FieldOption DisplayName="hidden" Value="hidden" />
+          <FieldOption DisplayName="initial" Value="initial" />
+          <FieldOption DisplayName="inherit" Value="inherit" />
+          <FieldOption DisplayName="scroll" Value="scroll" />
+          <FieldOption DisplayName="visible" Value="visible" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForTabletBackgroundImageSize" EditorType="SelectBox" Label="Type" Grouping="Override,Tablet,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image type]]></Description>
+        <DescriptionOptions><![CDATA[Contain, Cover]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Contain" Value="Contain" />
+          <FieldOption DisplayName="Cover" Value="Cover" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForTabletBackgroundImageSource" EditorType="ResourceChooser" Label="Image" Grouping="Override,Tablet,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background image of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OverrideForTabletBackgroundRepeat" EditorType="SelectBox" Label="Repeat" Grouping="Override,Tablet,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image Repeat option]]></Description>
+        <DescriptionOptions><![CDATA[No Repeat, Repeat, Repeat-X, Repeat-Y, Round]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Repeat" Value="Repeat" />
+          <FieldOption DisplayName="Repeat X" Value="Repeat-X" />
+          <FieldOption DisplayName="Repeat-Y" Value="Repeat-Y" />
+          <FieldOption DisplayName="No Repeat" Value="No-Repeat" />
+          <FieldOption DisplayName="Round" Value="Round" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForTabletBackgroundPositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Tablet,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Top]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletBackgroundPositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Tablet,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Left]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletBackgroundPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Background Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletDimensionHeight" EditorType="TextBox" Label="Height" Grouping="Override,Tablet,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletDimensionWidth" EditorType="TextBox" Label="Width" Grouping="Override,Tablet,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletDimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletMarginTop" EditorType="TextBox" Label="Top" Grouping="Override,Tablet,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMarginRight" EditorType="TextBox" Label="Right" Grouping="Override,Tablet,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMarginBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Tablet,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMarginLeft" EditorType="TextBox" Label="Left" Grouping="Override,Tablet,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMarginScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Margin]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletPaddingTop" EditorType="TextBox" Label="Top" Grouping="Override,Tablet,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPaddingRight" EditorType="TextBox" Label="Right" Grouping="Override,Tablet,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPaddingBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Tablet,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPaddingLeft" EditorType="TextBox" Label="Left" Grouping="Override,Tablet,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPaddingScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Padding]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletPositionSetting" EditorType="SelectBox" Label="Setting" Grouping="Override,Tablet,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Positioning Method]]></Description>
+        <DescriptionOptions><![CDATA[Absolute, Relative, Fixed, Static]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Absolute" Value="absolute" />
+          <FieldOption DisplayName="Relative" Value="relative" />
+          <FieldOption DisplayName="Fixed" Value="fixed" />
+          <FieldOption DisplayName="Static" Value="static" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForTabletPositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Tablet,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPositionRight" EditorType="TextBox" Label="Right" Grouping="Override,Tablet,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPositionBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Tablet,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Tablet,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletFontSize" EditorType="TextBox" Label="Size" Grouping="Override,Tablet,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Size of the Font]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletFontScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Font]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletDisplayType" EditorType="SelectBox" Label="Display Type" Grouping="Override,Tablet" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Type]]></Description>
+        <DescriptionOptions><![CDATA[Block, Inline, Inline Block]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Block" Value="block" />
+          <FieldOption DisplayName="Inline" Value="inline" />
+          <FieldOption DisplayName="Inline Block" Value="inline-block" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForTabletMinimumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Tablet,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMaximumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Tablet,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMinimumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Tablet,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMaximumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Tablet,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForTabletMinimumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Minimum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletMaximumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Tablet,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Maximum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForTabletOverflow" EditorType="SelectBox" Label="Overflow" Grouping="Override,Tablet,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Controls the Overflow of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[auto,hidden,initial,inherit,scroll,visible]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="auto" Value="auto" />
+          <FieldOption DisplayName="hidden" Value="hidden" />
+          <FieldOption DisplayName="initial" Value="initial" />
+          <FieldOption DisplayName="inherit" Value="inherit" />
+          <FieldOption DisplayName="scroll" Value="scroll" />
+          <FieldOption DisplayName="visible" Value="visible" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForLaptopBackgroundImageSize" EditorType="SelectBox" Label="Type" Grouping="Override,Laptop,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image type]]></Description>
+        <DescriptionOptions><![CDATA[Contain, Cover]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Contain" Value="Contain" />
+          <FieldOption DisplayName="Cover" Value="Cover" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForLaptopBackgroundImageSource" EditorType="ResourceChooser" Label="Image" Grouping="Override,Laptop,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background image of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OverrideForLaptopBackgroundRepeat" EditorType="SelectBox" Label="Repeat" Grouping="Override,Laptop,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image Repeat option]]></Description>
+        <DescriptionOptions><![CDATA[No Repeat, Repeat, Repeat-X, Repeat-Y, Round]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Repeat" Value="Repeat" />
+          <FieldOption DisplayName="Repeat X" Value="Repeat-X" />
+          <FieldOption DisplayName="Repeat-Y" Value="Repeat-Y" />
+          <FieldOption DisplayName="No Repeat" Value="No-Repeat" />
+          <FieldOption DisplayName="Round" Value="Round" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForLaptopBackgroundPositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Laptop,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Top]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopBackgroundPositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Laptop,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Left]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopBackgroundPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Background Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopDimensionHeight" EditorType="TextBox" Label="Height" Grouping="Override,Laptop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopDimensionWidth" EditorType="TextBox" Label="Width" Grouping="Override,Laptop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopDimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopMarginTop" EditorType="TextBox" Label="Top" Grouping="Override,Laptop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMarginRight" EditorType="TextBox" Label="Right" Grouping="Override,Laptop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMarginBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Laptop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMarginLeft" EditorType="TextBox" Label="Left" Grouping="Override,Laptop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMarginScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Margin]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopPaddingTop" EditorType="TextBox" Label="Top" Grouping="Override,Laptop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPaddingRight" EditorType="TextBox" Label="Right" Grouping="Override,Laptop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPaddingBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Laptop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPaddingLeft" EditorType="TextBox" Label="Left" Grouping="Override,Laptop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPaddingScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Padding]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopPositionSetting" EditorType="SelectBox" Label="Setting" Grouping="Override,Laptop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Positioning Method]]></Description>
+        <DescriptionOptions><![CDATA[Absolute, Relative, Fixed, Static]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Absolute" Value="absolute" />
+          <FieldOption DisplayName="Relative" Value="relative" />
+          <FieldOption DisplayName="Fixed" Value="fixed" />
+          <FieldOption DisplayName="Static" Value="static" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForLaptopPositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Laptop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPositionRight" EditorType="TextBox" Label="Right" Grouping="Override,Laptop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPositionBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Laptop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Laptop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopFontSize" EditorType="TextBox" Label="Size" Grouping="Override,Laptop,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Size of the Font]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopFontScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Font]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopDisplayType" EditorType="SelectBox" Label="Display Type" Grouping="Override,Laptop" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Type]]></Description>
+        <DescriptionOptions><![CDATA[Block, Inline, Inline Block]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Block" Value="block" />
+          <FieldOption DisplayName="Inline" Value="inline" />
+          <FieldOption DisplayName="Inline Block" Value="inline-block" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForLaptopMinimumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Laptop,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMaximumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Laptop,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMinimumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Laptop,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMaximumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Laptop,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForLaptopMinimumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Minimum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopMaximumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Laptop,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Maximum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForLaptopOverflow" EditorType="SelectBox" Label="Overflow" Grouping="Override,Laptop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Controls the Overflow of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[auto,hidden,initial,inherit,scroll,visible]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="auto" Value="auto" />
+          <FieldOption DisplayName="hidden" Value="hidden" />
+          <FieldOption DisplayName="initial" Value="initial" />
+          <FieldOption DisplayName="inherit" Value="inherit" />
+          <FieldOption DisplayName="scroll" Value="scroll" />
+          <FieldOption DisplayName="visible" Value="visible" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForDesktopBackgroundImageSize" EditorType="SelectBox" Label="Type" Grouping="Override,Desktop,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image type]]></Description>
+        <DescriptionOptions><![CDATA[Contain, Cover]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Contain" Value="Contain" />
+          <FieldOption DisplayName="Cover" Value="Cover" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForDesktopBackgroundImageSource" EditorType="ResourceChooser" Label="Image" Grouping="Override,Desktop,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background image of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[An image from resources]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OverrideForDesktopBackgroundRepeat" EditorType="SelectBox" Label="Repeat" Grouping="Override,Desktop,Background,Image" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Image Repeat option]]></Description>
+        <DescriptionOptions><![CDATA[No Repeat, Repeat, Repeat-X, Repeat-Y, Round]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Repeat" Value="Repeat" />
+          <FieldOption DisplayName="Repeat X" Value="Repeat-X" />
+          <FieldOption DisplayName="Repeat-Y" Value="Repeat-Y" />
+          <FieldOption DisplayName="No Repeat" Value="No-Repeat" />
+          <FieldOption DisplayName="Round" Value="Round" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForDesktopBackgroundPositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Desktop,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Top]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopBackgroundPositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Desktop,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Background Position - Left]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopBackgroundPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Background,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Background Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopDimensionHeight" EditorType="TextBox" Label="Height" Grouping="Override,Desktop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopDimensionWidth" EditorType="TextBox" Label="Width" Grouping="Override,Desktop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopDimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopMarginTop" EditorType="TextBox" Label="Top" Grouping="Override,Desktop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMarginRight" EditorType="TextBox" Label="Right" Grouping="Override,Desktop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMarginBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Desktop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMarginLeft" EditorType="TextBox" Label="Left" Grouping="Override,Desktop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Margin]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMarginScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Margin" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Margin]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopPaddingTop" EditorType="TextBox" Label="Top" Grouping="Override,Desktop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPaddingRight" EditorType="TextBox" Label="Right" Grouping="Override,Desktop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPaddingBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Desktop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPaddingLeft" EditorType="TextBox" Label="Left" Grouping="Override,Desktop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Padding]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPaddingScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Padding" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Padding]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopPositionSetting" EditorType="SelectBox" Label="Setting" Grouping="Override,Desktop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Positioning Method]]></Description>
+        <DescriptionOptions><![CDATA[Absolute, Relative, Fixed, Static]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Absolute" Value="absolute" />
+          <FieldOption DisplayName="Relative" Value="relative" />
+          <FieldOption DisplayName="Fixed" Value="fixed" />
+          <FieldOption DisplayName="Static" Value="static" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForDesktopPositionTop" EditorType="TextBox" Label="Top" Grouping="Override,Desktop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Top Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPositionRight" EditorType="TextBox" Label="Right" Grouping="Override,Desktop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Right Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPositionBottom" EditorType="TextBox" Label="Bottom" Grouping="Override,Desktop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Bottom Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPositionLeft" EditorType="TextBox" Label="Left" Grouping="Override,Desktop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Left Position of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopPositionScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Position" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Position]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopFontSize" EditorType="TextBox" Label="Size" Grouping="Override,Desktop,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Size of the Font]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopFontScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Font" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of Font]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopDisplayType" EditorType="SelectBox" Label="Display Type" Grouping="Override,Desktop" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Type]]></Description>
+        <DescriptionOptions><![CDATA[Block, Inline, Inline Block]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Block" Value="block" />
+          <FieldOption DisplayName="Inline" Value="inline" />
+          <FieldOption DisplayName="Inline Block" Value="inline-block" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="OverrideForDesktopMinimumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Desktop,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMaximumHeight" EditorType="TextBox" Label="Height" Grouping="Override,Desktop,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Height of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMinimumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Desktop,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Minimum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMaximumWidth" EditorType="TextBox" Label="Width" Grouping="Override,Desktop,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Maximum Width of the Display Area]]></Description>
+      </Field>
+      <Field FieldName="OverrideForDesktopMinimumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Dimension,Minimum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Minimum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopMaximumScale" EditorType="SelectBox" Label="Scale" Grouping="Override,Desktop,Dimension,Maximum" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the Maximum Dimension]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OverrideForDesktopOverflow" EditorType="SelectBox" Label="Overflow" Grouping="Override,Desktop,Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Controls the Overflow of the Display Area]]></Description>
+        <DescriptionOptions><![CDATA[auto,hidden,initial,inherit,scroll,visible]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="auto" Value="auto" />
+          <FieldOption DisplayName="hidden" Value="hidden" />
+          <FieldOption DisplayName="initial" Value="initial" />
+          <FieldOption DisplayName="inherit" Value="inherit" />
+          <FieldOption DisplayName="scroll" Value="scroll" />
+          <FieldOption DisplayName="visible" Value="visible" />
+        </FieldOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="BackgroundColor" PropertyPath="Background.Color" Value="{Text}" />
+      <Map FieldName="BackgroundImageSize" PropertyPath="Background.ImageSize" Value="{Text}" />
+      <Map FieldName="BackgroundImageSource" PropertyPath="Background.ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="BackgroundRepeat" PropertyPath="Background.Repeat" Value="{Text}" />
+      <Map FieldName="BackgroundPositionTop" PropertyPath="Background.Position.Top" Value="{Text}" />
+      <Map FieldName="BackgroundPositionLeft" PropertyPath="Background.Position.Left" Value="{Text}" />
+      <Map FieldName="BackgroundPositionScale" PropertyPath="Background.Position.Scale" Value="{Text}" />
+      <Map FieldName="BorderThickness" PropertyPath="Border.Thickness" Value="{Text}" />
+      <Map FieldName="BorderScale" PropertyPath="Border.Scale" Value="{Text}" />
+      <Map FieldName="BorderColor" PropertyPath="Border.Color" Value="{Text}" />
+      <Map FieldName="BorderBorderType" PropertyPath="Border.BorderType" Value="{Text}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="IsContentCentered" PropertyPath="IsContentCentered" Value="{Text}" />
+      <Map FieldName="MarginTop" PropertyPath="Margin.Top" Value="{Text}" />
+      <Map FieldName="MarginRight" PropertyPath="Margin.Right" Value="{Text}" />
+      <Map FieldName="MarginBottom" PropertyPath="Margin.Bottom" Value="{Text}" />
+      <Map FieldName="MarginLeft" PropertyPath="Margin.Left" Value="{Text}" />
+      <Map FieldName="MarginScale" PropertyPath="Margin.Scale" Value="{Text}" />
+      <Map FieldName="Opacity" PropertyPath="Opacity" Value="{Text}" />
+      <Map FieldName="PaddingTop" PropertyPath="Padding.Top" Value="{Text}" />
+      <Map FieldName="PaddingRight" PropertyPath="Padding.Right" Value="{Text}" />
+      <Map FieldName="PaddingBottom" PropertyPath="Padding.Bottom" Value="{Text}" />
+      <Map FieldName="PaddingLeft" PropertyPath="Padding.Left" Value="{Text}" />
+      <Map FieldName="PaddingScale" PropertyPath="Padding.Scale" Value="{Text}" />
+      <Map FieldName="PositionSetting" PropertyPath="Position.Setting" Value="{Text}" />
+      <Map FieldName="PositionTop" PropertyPath="Position.Top" Value="{Text}" />
+      <Map FieldName="PositionRight" PropertyPath="Position.Right" Value="{Text}" />
+      <Map FieldName="PositionBottom" PropertyPath="Position.Bottom" Value="{Text}" />
+      <Map FieldName="PositionLeft" PropertyPath="Position.Left" Value="{Text}" />
+      <Map FieldName="PositionScale" PropertyPath="Position.Scale" Value="{Text}" />
+      <Map FieldName="RoundedCornerTopLeft" PropertyPath="RoundedCorner.TopLeft" Value="{Text}" />
+      <Map FieldName="RoundedCornerTopRight" PropertyPath="RoundedCorner.TopRight" Value="{Text}" />
+      <Map FieldName="RoundedCornerBottomLeft" PropertyPath="RoundedCorner.BottomLeft" Value="{Text}" />
+      <Map FieldName="RoundedCornerBottomRight" PropertyPath="RoundedCorner.BottomRight" Value="{Text}" />
+      <Map FieldName="ShadowColor" PropertyPath="Shadow.Color" Value="{Text}" />
+      <Map FieldName="ShadowOpacity" PropertyPath="Shadow.Opacity" Value="{Text}" />
+      <Map FieldName="ShadowHorizontal" PropertyPath="Shadow.Horizontal" Value="{Text}" />
+      <Map FieldName="ShadowVertical" PropertyPath="Shadow.Vertical" Value="{Text}" />
+      <Map FieldName="ShadowBlur" PropertyPath="Shadow.Blur" Value="{Text}" />
+      <Map FieldName="ShadowSpread" PropertyPath="Shadow.Spread" Value="{Text}" />
+      <Map FieldName="ShadowShadowType" PropertyPath="Shadow.ShadowType" Value="{Text}" />
+      <Map FieldName="Layer" PropertyPath="Layer" Value="{Text}" />
+      <Map FieldName="FontSize" PropertyPath="Font.Size" Value="{Text}" />
+      <Map FieldName="FontColor" PropertyPath="Font.Color" Value="{Text}" />
+      <Map FieldName="FontScale" PropertyPath="Font.Scale" Value="{Text}" />
+      <Map FieldName="FontWeight" PropertyPath="Font.Weight" Value="{Text}" />
+      <Map FieldName="FontLineSpacing" PropertyPath="Font.LineSpacing" Value="{Text}" />
+      <Map FieldName="FontLetterSpacing" PropertyPath="Font.LetterSpacing" Value="{Text}" />
+      <Map FieldName="DisplayType" PropertyPath="DisplayType" Value="{Text}" />
+      <Map FieldName="DisableAutoGrid" PropertyPath="DisableAutoGrid" Value="{Text}" />
+      <Map FieldName="VerticalAlignment" PropertyPath="VerticalAlignment" Value="{Text}" />
+      <Map FieldName="MinimumHeight" PropertyPath="Minimum.Height" Value="{Text}" />
+      <Map FieldName="MaximumHeight" PropertyPath="Maximum.Height" Value="{Text}" />
+      <Map FieldName="MinimumWidth" PropertyPath="Minimum.Width" Value="{Text}" />
+      <Map FieldName="MaximumWidth" PropertyPath="Maximum.Width" Value="{Text}" />
+      <Map FieldName="MinimumScale" PropertyPath="Minimum.Scale" Value="{Text}" />
+      <Map FieldName="MaximumScale" PropertyPath="Maximum.Scale" Value="{Text}" />
+      <Map FieldName="Overflow" PropertyPath="Overflow" Value="{Text}" />
+      <Map FieldName="OverrideForMobileBackgroundImageSize" PropertyPath="OverrideForMobile.Background.ImageSize" Value="{Text}" />
+      <Map FieldName="OverrideForMobileBackgroundImageSource" PropertyPath="OverrideForMobile.Background.ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="OverrideForMobileBackgroundRepeat" PropertyPath="OverrideForMobile.Background.Repeat" Value="{Text}" />
+      <Map FieldName="OverrideForMobileBackgroundPositionTop" PropertyPath="OverrideForMobile.Background.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForMobileBackgroundPositionLeft" PropertyPath="OverrideForMobile.Background.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForMobileBackgroundPositionScale" PropertyPath="OverrideForMobile.Background.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobileDimensionHeight" PropertyPath="OverrideForMobile.Dimension.Height" Value="{Text}" />
+      <Map FieldName="OverrideForMobileDimensionWidth" PropertyPath="OverrideForMobile.Dimension.Width" Value="{Text}" />
+      <Map FieldName="OverrideForMobileDimensionScale" PropertyPath="OverrideForMobile.Dimension.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMarginTop" PropertyPath="OverrideForMobile.Margin.Top" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMarginRight" PropertyPath="OverrideForMobile.Margin.Right" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMarginBottom" PropertyPath="OverrideForMobile.Margin.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMarginLeft" PropertyPath="OverrideForMobile.Margin.Left" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMarginScale" PropertyPath="OverrideForMobile.Margin.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePaddingTop" PropertyPath="OverrideForMobile.Padding.Top" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePaddingRight" PropertyPath="OverrideForMobile.Padding.Right" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePaddingBottom" PropertyPath="OverrideForMobile.Padding.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePaddingLeft" PropertyPath="OverrideForMobile.Padding.Left" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePaddingScale" PropertyPath="OverrideForMobile.Padding.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePositionSetting" PropertyPath="OverrideForMobile.Position.Setting" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePositionTop" PropertyPath="OverrideForMobile.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePositionRight" PropertyPath="OverrideForMobile.Position.Right" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePositionBottom" PropertyPath="OverrideForMobile.Position.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePositionLeft" PropertyPath="OverrideForMobile.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForMobilePositionScale" PropertyPath="OverrideForMobile.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobileFontSize" PropertyPath="OverrideForMobile.Font.Size" Value="{Text}" />
+      <Map FieldName="OverrideForMobileFontScale" PropertyPath="OverrideForMobile.Font.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobileDisplayType" PropertyPath="OverrideForMobile.DisplayType" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMinimumHeight" PropertyPath="OverrideForMobile.Minimum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMaximumHeight" PropertyPath="OverrideForMobile.Maximum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMinimumWidth" PropertyPath="OverrideForMobile.Minimum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMaximumWidth" PropertyPath="OverrideForMobile.Maximum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMinimumScale" PropertyPath="OverrideForMobile.Minimum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobileMaximumScale" PropertyPath="OverrideForMobile.Maximum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForMobileOverflow" PropertyPath="OverrideForMobile.Overflow" Value="{Text}" />
+      <Map FieldName="OverrideForTabletBackgroundImageSize" PropertyPath="OverrideForTablet.Background.ImageSize" Value="{Text}" />
+      <Map FieldName="OverrideForTabletBackgroundImageSource" PropertyPath="OverrideForTablet.Background.ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="OverrideForTabletBackgroundRepeat" PropertyPath="OverrideForTablet.Background.Repeat" Value="{Text}" />
+      <Map FieldName="OverrideForTabletBackgroundPositionTop" PropertyPath="OverrideForTablet.Background.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForTabletBackgroundPositionLeft" PropertyPath="OverrideForTablet.Background.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForTabletBackgroundPositionScale" PropertyPath="OverrideForTablet.Background.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletDimensionHeight" PropertyPath="OverrideForTablet.Dimension.Height" Value="{Text}" />
+      <Map FieldName="OverrideForTabletDimensionWidth" PropertyPath="OverrideForTablet.Dimension.Width" Value="{Text}" />
+      <Map FieldName="OverrideForTabletDimensionScale" PropertyPath="OverrideForTablet.Dimension.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMarginTop" PropertyPath="OverrideForTablet.Margin.Top" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMarginRight" PropertyPath="OverrideForTablet.Margin.Right" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMarginBottom" PropertyPath="OverrideForTablet.Margin.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMarginLeft" PropertyPath="OverrideForTablet.Margin.Left" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMarginScale" PropertyPath="OverrideForTablet.Margin.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPaddingTop" PropertyPath="OverrideForTablet.Padding.Top" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPaddingRight" PropertyPath="OverrideForTablet.Padding.Right" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPaddingBottom" PropertyPath="OverrideForTablet.Padding.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPaddingLeft" PropertyPath="OverrideForTablet.Padding.Left" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPaddingScale" PropertyPath="OverrideForTablet.Padding.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPositionSetting" PropertyPath="OverrideForTablet.Position.Setting" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPositionTop" PropertyPath="OverrideForTablet.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPositionRight" PropertyPath="OverrideForTablet.Position.Right" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPositionBottom" PropertyPath="OverrideForTablet.Position.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPositionLeft" PropertyPath="OverrideForTablet.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForTabletPositionScale" PropertyPath="OverrideForTablet.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletFontSize" PropertyPath="OverrideForTablet.Font.Size" Value="{Text}" />
+      <Map FieldName="OverrideForTabletFontScale" PropertyPath="OverrideForTablet.Font.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletDisplayType" PropertyPath="OverrideForTablet.DisplayType" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMinimumHeight" PropertyPath="OverrideForTablet.Minimum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMaximumHeight" PropertyPath="OverrideForTablet.Maximum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMinimumWidth" PropertyPath="OverrideForTablet.Minimum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMaximumWidth" PropertyPath="OverrideForTablet.Maximum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMinimumScale" PropertyPath="OverrideForTablet.Minimum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletMaximumScale" PropertyPath="OverrideForTablet.Maximum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForTabletOverflow" PropertyPath="OverrideForTablet.Overflow" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopBackgroundImageSize" PropertyPath="OverrideForLaptop.Background.ImageSize" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopBackgroundImageSource" PropertyPath="OverrideForLaptop.Background.ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="OverrideForLaptopBackgroundRepeat" PropertyPath="OverrideForLaptop.Background.Repeat" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopBackgroundPositionTop" PropertyPath="OverrideForLaptop.Background.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopBackgroundPositionLeft" PropertyPath="OverrideForLaptop.Background.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopBackgroundPositionScale" PropertyPath="OverrideForLaptop.Background.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopDimensionHeight" PropertyPath="OverrideForLaptop.Dimension.Height" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopDimensionWidth" PropertyPath="OverrideForLaptop.Dimension.Width" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopDimensionScale" PropertyPath="OverrideForLaptop.Dimension.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMarginTop" PropertyPath="OverrideForLaptop.Margin.Top" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMarginRight" PropertyPath="OverrideForLaptop.Margin.Right" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMarginBottom" PropertyPath="OverrideForLaptop.Margin.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMarginLeft" PropertyPath="OverrideForLaptop.Margin.Left" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMarginScale" PropertyPath="OverrideForLaptop.Margin.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPaddingTop" PropertyPath="OverrideForLaptop.Padding.Top" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPaddingRight" PropertyPath="OverrideForLaptop.Padding.Right" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPaddingBottom" PropertyPath="OverrideForLaptop.Padding.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPaddingLeft" PropertyPath="OverrideForLaptop.Padding.Left" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPaddingScale" PropertyPath="OverrideForLaptop.Padding.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPositionSetting" PropertyPath="OverrideForLaptop.Position.Setting" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPositionTop" PropertyPath="OverrideForLaptop.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPositionRight" PropertyPath="OverrideForLaptop.Position.Right" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPositionBottom" PropertyPath="OverrideForLaptop.Position.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPositionLeft" PropertyPath="OverrideForLaptop.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopPositionScale" PropertyPath="OverrideForLaptop.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopFontSize" PropertyPath="OverrideForLaptop.Font.Size" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopFontScale" PropertyPath="OverrideForLaptop.Font.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopDisplayType" PropertyPath="OverrideForLaptop.DisplayType" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMinimumHeight" PropertyPath="OverrideForLaptop.Minimum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMaximumHeight" PropertyPath="OverrideForLaptop.Maximum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMinimumWidth" PropertyPath="OverrideForLaptop.Minimum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMaximumWidth" PropertyPath="OverrideForLaptop.Maximum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMinimumScale" PropertyPath="OverrideForLaptop.Minimum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopMaximumScale" PropertyPath="OverrideForLaptop.Maximum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForLaptopOverflow" PropertyPath="OverrideForLaptop.Overflow" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopBackgroundImageSize" PropertyPath="OverrideForDesktop.Background.ImageSize" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopBackgroundImageSource" PropertyPath="OverrideForDesktop.Background.ImageSource" Value="{SelectedResourceName}" />
+      <Map FieldName="OverrideForDesktopBackgroundRepeat" PropertyPath="OverrideForDesktop.Background.Repeat" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopBackgroundPositionTop" PropertyPath="OverrideForDesktop.Background.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopBackgroundPositionLeft" PropertyPath="OverrideForDesktop.Background.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopBackgroundPositionScale" PropertyPath="OverrideForDesktop.Background.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopDimensionHeight" PropertyPath="OverrideForDesktop.Dimension.Height" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopDimensionWidth" PropertyPath="OverrideForDesktop.Dimension.Width" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopDimensionScale" PropertyPath="OverrideForDesktop.Dimension.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMarginTop" PropertyPath="OverrideForDesktop.Margin.Top" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMarginRight" PropertyPath="OverrideForDesktop.Margin.Right" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMarginBottom" PropertyPath="OverrideForDesktop.Margin.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMarginLeft" PropertyPath="OverrideForDesktop.Margin.Left" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMarginScale" PropertyPath="OverrideForDesktop.Margin.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPaddingTop" PropertyPath="OverrideForDesktop.Padding.Top" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPaddingRight" PropertyPath="OverrideForDesktop.Padding.Right" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPaddingBottom" PropertyPath="OverrideForDesktop.Padding.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPaddingLeft" PropertyPath="OverrideForDesktop.Padding.Left" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPaddingScale" PropertyPath="OverrideForDesktop.Padding.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPositionSetting" PropertyPath="OverrideForDesktop.Position.Setting" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPositionTop" PropertyPath="OverrideForDesktop.Position.Top" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPositionRight" PropertyPath="OverrideForDesktop.Position.Right" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPositionBottom" PropertyPath="OverrideForDesktop.Position.Bottom" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPositionLeft" PropertyPath="OverrideForDesktop.Position.Left" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopPositionScale" PropertyPath="OverrideForDesktop.Position.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopFontSize" PropertyPath="OverrideForDesktop.Font.Size" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopFontScale" PropertyPath="OverrideForDesktop.Font.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopDisplayType" PropertyPath="OverrideForDesktop.DisplayType" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMinimumHeight" PropertyPath="OverrideForDesktop.Minimum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMaximumHeight" PropertyPath="OverrideForDesktop.Maximum.Height" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMinimumWidth" PropertyPath="OverrideForDesktop.Minimum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMaximumWidth" PropertyPath="OverrideForDesktop.Maximum.Width" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMinimumScale" PropertyPath="OverrideForDesktop.Minimum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopMaximumScale" PropertyPath="OverrideForDesktop.Maximum.Scale" Value="{Text}" />
+      <Map FieldName="OverrideForDesktopOverflow" PropertyPath="OverrideForDesktop.Overflow" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVEhLY0xLS/vPgAoYoTRMnCI+ExCDBJAxDFCFD7KApgBkAcxrtAD/6eID5HCjNhiNA8JgNA4IgdE4IAxG44AQoF8cIGMYoAKf4T8AzNQdWeh1C7EAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABGSURBVEhLY/wPBAyogBFKw8Qp4oMsAPNoBZigNM0AyAJaeuE/XXwAixRaAMbROCAIRuOAEBiNA8JgNA4IAdrHAY2rTAYGAO+jHRvNh+JUAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

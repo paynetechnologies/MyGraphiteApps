@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DayPlanner" ViewElementId="7e543221-7a31-43b9-94f6-438c52cdbaf9" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Day Planner is a calendar feature that allows users to create events and view them as calendar events.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="2f8dc23f-a976-4ccc-a79d-3572151d425e" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnRefresh" PropertyId="4aabd72f-8d6c-4749-b7ca-87ad8cbe7f85" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Events" PropertyId="9f28e688-bb59-4946-b76b-1ba3594b80c5" IsOptional="true" DataType="$[List,312a5150-0b7b-4272-8a0d-7e3a0268c397]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowMonth" PropertyId="253c3fe2-781f-4b5f-b9bc-f93f0626d749" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowWeek" PropertyId="61ccc4f7-d9af-440d-8e52-2a024027decc" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowDay" PropertyId="a994295a-588d-4ad9-89df-5acab8432889" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DefaultView" PropertyId="6ba8f9b5-8ac3-41e4-abf4-684e543099ed" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AppointmentModal" PropertyId="28ee712a-b4cc-47b8-9de8-5d9be6398870" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MeetingModal" PropertyId="fa62b6f3-33a3-4e55-8837-5b5b4db9dbd8" IsOptional="true" DataType="8b165cf8-aecd-4345-bc03-bcbc9e38207a" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DefaultDate" PropertyId="8d564a00-b14f-41e5-8873-e27ddda8d8ca" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DayPlanner" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="false" Group="FullCalendar">fullcalendar.min</Script>
+      <Script Component="false" Group="FullCalendar">locales-all</Script>
+      <Script Component="true" RelativePath="View/Scripts">DayPlanner.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="DimnesionWidth" EditorType="IntegerTextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Planner]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="Hidden" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type of the height and width]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OnRefresh" EditorType="ViewBehaviorChooser" Label="OnRefresh" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Planner needs to loaded or reloaded]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="StartTime" ParameterDataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="EndTime" ParameterDataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="IntegerTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false" />
+      <Field FieldName="ShowMonth" EditorType="YesNoToggle" Label="Show Month?" Grouping="Views" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show detail of a month?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowWeek" EditorType="YesNoToggle" Label="Show Week?" Grouping="Views" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show detail of a week?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowDay" EditorType="YesNoToggle" Label="Show Day?" Grouping="Views" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show detail of a day?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DefaultView" EditorType="SelectBox" Label="Default" Grouping="Views" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Default period]]></Description>
+        <DescriptionOptions><![CDATA[Day, Month, Week]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Month" Value="month" />
+          <FieldOption DisplayName="Week" Value="agendaWeek" />
+          <FieldOption DisplayName="Day" Value="agendaDay" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="month" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="AppointmentModalView" EditorType="ViewChooser" Label="Appointment Modal" Grouping="Views" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View to navigate to when the add appointment is clicked]]></Description>
+      </Field>
+      <Field FieldName="MeetingModalView" EditorType="ViewChooser" Label="Meeting Modal" Grouping="Views" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[View to navigate to when the add meeting is clicked]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="DimnesionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="OnRefresh" PropertyPath="OnRefresh.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnRefresh" PropertyPath="OnRefresh.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="ShowMonth" PropertyPath="ShowMonth" Value="{Text}" />
+      <Map FieldName="ShowWeek" PropertyPath="ShowWeek" Value="{Text}" />
+      <Map FieldName="ShowDay" PropertyPath="ShowDay" Value="{Text}" />
+      <Map FieldName="DefaultView" PropertyPath="DefaultView" Value="{Text}" />
+      <Map FieldName="AppointmentModalView" PropertyPath="AppointmentModal.View" Value="{Url}" />
+      <Map FieldName="MeetingModalView" PropertyPath="MeetingModal.View" Value="{Url}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Month</Key>
+    <Key>Week</Key>
+    <Key>Day</Key>
+    <Key>Today</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACISURBVEhLxZALCgAhCETbvWP3P8ouRiMiDmtLnwePwKQcr1prcTz9vPrJCPvufk5DHpSfoMfeWT16F00oEb7iCmGff9BOITJo35IdTsU+iJ38tbElsl+4FbD6ngmj/UDA6sORmcrxyEwlExn4ulU5Ehn4ulXJRM6oHImcUVk6YbSbERuTJyzlBbT4Vx9kRkJnAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVEhL3ZGBCsAgCAVt///PjhcG0bTcsmAdRCCPOjUxMzWUQpLbQs1dcocBw1oRv9U/P/QFM6cZIoAzQs21htOEz3DpUjxz65Hf2WLYW5KVQX2f4VfyO29btjisZc8oDmvZw49aXmoYQrAh0Q2X4Uf1RW+OYwAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

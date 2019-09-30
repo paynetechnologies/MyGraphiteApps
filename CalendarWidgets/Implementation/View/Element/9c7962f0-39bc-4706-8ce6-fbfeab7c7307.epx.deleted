@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementPackDefinition ElementPackId="9c7962f0-39bc-4706-8ce6-fbfeab7c7307" ElementPackName="AppointmentElementPack">
+  <Properties />
+  <ViewDiagram>
+    <Diagram>
+      <Nodes>
+        <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="d0a4a85f-7cb8-4ab5-af5d-f8081f4356be" Bounds="50,50,290,35" Text="DisplayArea">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentDisplayArea" />
+            </Field>
+            <Field FieldName="DisplayType">
+              <PropertyValue Property="Text" Value="inline" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="94de27ae-801a-40d7-a023-4873027290be" ID="75492de5-1056-4573-93d2-51a19f1c14ec" Bounds="90,105,290,35" Text="Heading">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentHeading" />
+            </Field>
+            <Field FieldName="Sizing">
+              <PropertyValue Property="Text" Value="2" />
+            </Field>
+            <Field FieldName="TextString">
+              <PropertyValue Property="TranslationKey" Value="Appointment" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="89b7a96b-ee6f-4913-b2af-8ab5e7ce54a8" Bounds="90,160,290,35" Text="ButtonPanel">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentButtonPanel1" />
+            </Field>
+            <Field FieldName="Side">
+              <PropertyValue Property="Text" Value="Right" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="89b7a96b-ee6f-4913-b2af-8ab5e7ce54a8" ID="0d193487-88ed-409f-b24b-4ee64b0b0bef" Bounds="130,215,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="89a76b04-474f-47f1-b133-9d525afc5ecb" Bounds="50,105,290,35" Text="Form">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentForm" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="cad4bf4e-464e-44e1-87f8-c107b5928882" Bounds="90,160,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentFieldSet1" />
+            </Field>
+            <Field FieldName="FieldSetType">
+              <PropertyValue Property="Text" Value="Long" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="cad4bf4e-464e-44e1-87f8-c107b5928882" ID="7fb58400-1125-485f-87df-6c5465166756" Bounds="130,215,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" ID="68777ca4-347c-4a1a-b8e8-9d75cfb569af" Bounds="170,270,290,35" Text="TextField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentSubjectField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="Subject" />
+            </Field>
+            <Field FieldName="IsRequired">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="1" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" ID="678e02ba-1268-4e20-b5fd-3e5e76981838" Bounds="170,325,290,35" Text="TextField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentLocationField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="Location" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="2" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="fd933047-a81d-49e0-b886-98ba9c8b8a54" Bounds="90,215,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentFieldSet2" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="fd933047-a81d-49e0-b886-98ba9c8b8a54" ID="3d12efd0-98dc-4e9d-a7a4-0ab3c059d713" Bounds="130,270,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" ID="2cb1f910-5d71-446b-bf70-0702ee0f2858" Bounds="170,325,290,35" Text="DateField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentStartField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="StartTime" />
+            </Field>
+            <Field FieldName="Mask">
+              <PropertyValue Property="Text" Value="Date(MM/DD/YYYY:12)" />
+            </Field>
+            <Field FieldName="Placeholder">
+              <PropertyValue Property="TranslationKey" Value="TimePlaceholder" />
+            </Field>
+            <Field FieldName="IsRequired">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="3" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="bfe5740a-8dac-4075-9ef8-ef6f7748c344" ID="e3009f38-d27d-49ab-b4dc-e58ff3b1cfef" Bounds="170,380,290,35" Text="DateField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentEndField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="EndTime" />
+            </Field>
+            <Field FieldName="Mask">
+              <PropertyValue Property="Text" Value="Date(MM/DD/YYYY:12)" />
+            </Field>
+            <Field FieldName="Placeholder">
+              <PropertyValue Property="TranslationKey" Value="TimePlaceholder" />
+            </Field>
+            <Field FieldName="IsRequired">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="4" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="b42f8b94-8e5e-40e1-a269-055a044abab8" Bounds="90,325,290,35" Text="FieldSet">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentFieldSet3" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="b42f8b94-8e5e-40e1-a269-055a044abab8" ID="d06f4c69-4c42-48c0-8f35-0b204d0462ca" Bounds="130,380,290,35" Text="Field">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="bc318f1c-9406-45b7-bc7b-055ef9743ee5" ID="94a7fa36-47c4-4164-86c0-31b17e8934b4" Bounds="170,435,290,35" Text="SwitchField">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentAllDayField" />
+            </Field>
+            <Field FieldName="LabelTextString">
+              <PropertyValue Property="TranslationKey" Value="AllDayEvent" />
+            </Field>
+            <Field FieldName="FormToSerialize">
+              <PropertyValue Property="SelectedElementName" Value="AppointmentForm" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="5" />
+            </Field>
+            <Field FieldName="OnChange">
+              <PropertyValue Property="ProcessId" Value="e274c78e-87cf-46b8-ad36-654dfa3b27ee" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="b3d93537-67c4-4e59-8a2b-66eddfc6588e" ID="5c83c1fe-4045-4a9d-91da-b6c1a0401815" Bounds="90,490,290,35" Text="RichTextEditor">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentNoteField" />
+            </Field>
+            <Field FieldName="CanFind">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="CanInsertImages">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="CanMaximize">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="CanReplace">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="IsHeightResizable">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="IsWidthResizable">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="ShowSelectAllButton">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="ShowClipboardActions">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="ShowFormatDropdown">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="ShowNewPageButton">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="ShowPrintButtons">
+              <PropertyValue Property="Text" Value="No" />
+            </Field>
+            <Field FieldName="ShowStylesDropdown">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="6" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="c0d988e0-b50d-4320-ade2-8aec45a28d5c" Bounds="50,545,290,35" Text="ButtonPanel">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentButtonPanel2" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="c0d988e0-b50d-4320-ade2-8aec45a28d5c" ID="14d1ff1d-83c5-4fcd-aefc-e5e112c64a85" Bounds="90,600,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="2fdb1c52-c7e2-4208-b404-2d8db2c493b5" Bounds="130,655,290,35" Text="Button">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentSaveButton" />
+            </Field>
+            <Field FieldName="OnClickFormToSerialize">
+              <PropertyValue Property="SelectedElementName" Value="AppointmentForm" />
+            </Field>
+            <Field FieldName="AttachedKey">
+              <PropertyValue Property="Text" Value="Keyboard.Enter" />
+            </Field>
+            <Field FieldName="Title">
+              <PropertyValue Property="TranslationKey" Value="SaveAndClose" />
+            </Field>
+            <Field FieldName="IsWide">
+              <PropertyValue Property="Text" Value="Yes" />
+            </Field>
+            <Field FieldName="Size">
+              <PropertyValue Property="Text" Value="default" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="7" />
+            </Field>
+            <Field FieldName="OnClick">
+              <PropertyValue Property="ProcessId" Value="c350ad57-94b2-4373-b9be-c9ef2e1de4f4" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="46086412-6d87-465b-acc7-e56ad70219ad" Bounds="130,710,290,35" Text="Button">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="AppointmentRemoveButton" />
+            </Field>
+            <Field FieldName="ButtonType">
+              <PropertyValue Property="Text" Value="Passive" />
+            </Field>
+            <Field FieldName="IconSymbol">
+              <PropertyValue Property="Text" Value="fa-trash" />
+              <PropertyValue Property="IconName" Value="Trash" />
+            </Field>
+            <Field FieldName="ConfirmationBody">
+              <PropertyValue Property="TranslationKey" Value="AreYouSure" />
+            </Field>
+            <Field FieldName="ConfirmationTitle">
+              <PropertyValue Property="TranslationKey" Value="RemoveAppointment" />
+            </Field>
+            <Field FieldName="ConfirmationType">
+              <PropertyValue Property="Text" Value="0" />
+            </Field>
+            <Field FieldName="Size">
+              <PropertyValue Property="Text" Value="default" />
+            </Field>
+            <Field FieldName="FocusIndex">
+              <PropertyValue Property="Text" Value="8" />
+            </Field>
+            <Field FieldName="Title">
+              <PropertyValue Property="TranslationKey" Value="RemoveAppointment" />
+            </Field>
+            <Field FieldName="OnClick">
+              <PropertyValue Property="ProcessId" Value="b7498d7d-9731-41b1-982c-198d25a0ffaf" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+      </Nodes>
+      <Connections>
+        <ViewDiagramNodeConnection ID="8b7125f9-6d1c-432a-8482-f778aaa4ef7b" From="d0a4a85f-7cb8-4ab5-af5d-f8081f4356be" FromIndex="0" To="75492de5-1056-4573-93d2-51a19f1c14ec" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,122.5" />
+          <Segment EndPoint="90,122.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="688f5699-cd07-4864-9a1b-aa47a2497764" From="d0a4a85f-7cb8-4ab5-af5d-f8081f4356be" FromIndex="0" To="89b7a96b-ee6f-4913-b2af-8ab5e7ce54a8" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,177.5" />
+          <Segment EndPoint="90,177.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="1359b680-cb25-4b00-8e84-f5db9d02a463" From="89b7a96b-ee6f-4913-b2af-8ab5e7ce54a8" FromIndex="0" To="0d193487-88ed-409f-b24b-4ee64b0b0bef" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,195" />
+          <Segment EndPoint="110,232.5" />
+          <Segment EndPoint="130,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="dc252082-0d9d-446a-a48d-c7f6db363fb4" From="89a76b04-474f-47f1-b133-9d525afc5ecb" FromIndex="0" To="cad4bf4e-464e-44e1-87f8-c107b5928882" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,140" />
+          <Segment EndPoint="70,177.5" />
+          <Segment EndPoint="90,177.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="0119421c-6b21-4aec-8405-a7850301ed25" From="89a76b04-474f-47f1-b133-9d525afc5ecb" FromIndex="0" To="fd933047-a81d-49e0-b886-98ba9c8b8a54" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,140" />
+          <Segment EndPoint="70,232.5" />
+          <Segment EndPoint="90,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="1c5c3253-d2da-4f4a-955a-bc6d9e5515e6" From="89a76b04-474f-47f1-b133-9d525afc5ecb" FromIndex="0" To="b42f8b94-8e5e-40e1-a269-055a044abab8" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,140" />
+          <Segment EndPoint="70,342.5" />
+          <Segment EndPoint="90,342.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="7476024d-ef6d-45cb-be3b-320c7a647530" From="89a76b04-474f-47f1-b133-9d525afc5ecb" FromIndex="0" To="5c83c1fe-4045-4a9d-91da-b6c1a0401815" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,140" />
+          <Segment EndPoint="70,507.5" />
+          <Segment EndPoint="90,507.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="eb6eb5cd-6b8d-4671-94b3-937174be59f5" From="cad4bf4e-464e-44e1-87f8-c107b5928882" FromIndex="0" To="7fb58400-1125-485f-87df-6c5465166756" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,195" />
+          <Segment EndPoint="110,232.5" />
+          <Segment EndPoint="130,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="baf977c1-f606-4710-8688-a72f67aacfa0" From="7fb58400-1125-485f-87df-6c5465166756" FromIndex="0" To="68777ca4-347c-4a1a-b8e8-9d75cfb569af" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,250" />
+          <Segment EndPoint="150,287.5" />
+          <Segment EndPoint="170,287.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="b542bfd1-9069-4a03-ada3-2abc135f43a7" From="7fb58400-1125-485f-87df-6c5465166756" FromIndex="0" To="678e02ba-1268-4e20-b5fd-3e5e76981838" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,250" />
+          <Segment EndPoint="150,342.5" />
+          <Segment EndPoint="170,342.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="fd345fdd-398c-4ad3-9a68-0f31784e7a57" From="fd933047-a81d-49e0-b886-98ba9c8b8a54" FromIndex="0" To="3d12efd0-98dc-4e9d-a7a4-0ab3c059d713" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,250" />
+          <Segment EndPoint="110,287.5" />
+          <Segment EndPoint="130,287.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="cdb7d86a-b275-4c17-be47-ab1b491087b2" From="3d12efd0-98dc-4e9d-a7a4-0ab3c059d713" FromIndex="0" To="2cb1f910-5d71-446b-bf70-0702ee0f2858" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,305" />
+          <Segment EndPoint="150,342.5" />
+          <Segment EndPoint="170,342.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="fb8dced4-920d-4f73-9799-b0ba0ccb480f" From="3d12efd0-98dc-4e9d-a7a4-0ab3c059d713" FromIndex="0" To="e3009f38-d27d-49ab-b4dc-e58ff3b1cfef" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,305" />
+          <Segment EndPoint="150,397.5" />
+          <Segment EndPoint="170,397.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="ddd9a3c7-f19d-4d71-9d42-7ae8e6e5a851" From="b42f8b94-8e5e-40e1-a269-055a044abab8" FromIndex="0" To="d06f4c69-4c42-48c0-8f35-0b204d0462ca" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,360" />
+          <Segment EndPoint="110,397.5" />
+          <Segment EndPoint="130,397.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="959963bc-5bf0-4240-a452-4cd53f415a39" From="d06f4c69-4c42-48c0-8f35-0b204d0462ca" FromIndex="0" To="94a7fa36-47c4-4164-86c0-31b17e8934b4" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="150,415" />
+          <Segment EndPoint="150,452.5" />
+          <Segment EndPoint="170,452.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="8bba19f1-c16f-4ece-864b-466d2cf1b86f" From="c0d988e0-b50d-4320-ade2-8aec45a28d5c" FromIndex="0" To="14d1ff1d-83c5-4fcd-aefc-e5e112c64a85" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,580" />
+          <Segment EndPoint="70,617.5" />
+          <Segment EndPoint="90,617.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="3d13d510-17a1-4806-b7a3-e48ee3a14bb2" From="14d1ff1d-83c5-4fcd-aefc-e5e112c64a85" FromIndex="0" To="2fdb1c52-c7e2-4208-b404-2d8db2c493b5" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,635" />
+          <Segment EndPoint="110,672.5" />
+          <Segment EndPoint="130,672.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="dc0071be-96ee-4374-9991-52c9ae95b17f" From="14d1ff1d-83c5-4fcd-aefc-e5e112c64a85" FromIndex="0" To="46086412-6d87-465b-acc7-e56ad70219ad" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="110,635" />
+          <Segment EndPoint="110,727.5" />
+          <Segment EndPoint="130,727.5" />
+        </ViewDiagramNodeConnection>
+      </Connections>
+    </Diagram>
+  </ViewDiagram>
+  <Tags>
+    <Tag Type="Group">Screens</Tag>
+    <Tag Type="Default">Element Pack</Tag>
+  </Tags>
+</ViewElementPackDefinition>

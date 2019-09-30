@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="UpdateTotalAssetItem" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="d628a3b4-9116-4cca-b679-ff1eb3af8301" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="AssetAmount1" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="bc53e44d-b047-4461-9ea1-56a2fbc38e7b" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AssetAmount2" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="db4badae-9384-45ad-a42e-34d0e2b81ef8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AssetAmount3" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="7a824fa4-ced2-4dd5-a9c3-0023593f3b45" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="GiftAmount" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="dcc2ebe9-a554-4138-bd9f-bded38636acb" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="InputOutput" VariableId="09d7ce9e-5688-4237-9c60-bbbe7ec7dc7b" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="e3ac91ba-07d9-444c-80e2-17e9543bef77" Bounds="640.6,165,170,55" ZOrder="1" Text="" />
+        <EvaluationNode Variable="TotalAssets" ID="21179a61-b32c-4833-93aa-b9f9e8830dfb" Bounds="450.6,265,550,55" ZOrder="2" Text="">
+          <Expression><![CDATA[AssetAmount1 + AssetAmount2 + AssetAmount3 + GiftAmount]]></Expression>
+        </EvaluationNode>
+        <PageInstructionNode Action="UpdateElement" Instruction="Value" Context="Current" TargetElementId="aa0f2f17-9d7b-40c1-bbb7-7e23ac21c6b3" ValueExpression="TotalAssets" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" ID="4068d7d5-16c1-4c96-857d-6b3e97495563" Bounds="450.6,365,550,55" ZOrder="2" Text="" />
+        <EndNode ID="e6bb401e-23c2-43a9-950b-685e61424573" Bounds="640.6,465,170,55" ZOrder="2" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="5cfde234-4aa7-48b3-a3bd-8a0fef09d8dc" From="21179a61-b32c-4833-93aa-b9f9e8830dfb" FromIndex="2" To="4068d7d5-16c1-4c96-857d-6b3e97495563" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,320" />
+          <Segment EndPoint="725.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="1424097f-c174-4c04-85d3-b971b22ebb62" From="4068d7d5-16c1-4c96-857d-6b3e97495563" FromIndex="2" To="e6bb401e-23c2-43a9-950b-685e61424573" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,420" />
+          <Segment EndPoint="725.6,465" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7f687727-be5a-4cff-8fb1-5ae0d13c0bbf" From="e3ac91ba-07d9-444c-80e2-17e9543bef77" FromIndex="0" To="21179a61-b32c-4833-93aa-b9f9e8830dfb" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,220" />
+          <Segment EndPoint="725.6,265" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

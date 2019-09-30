@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Header" ViewElementId="bc9c8470-25de-48b5-8f10-3443f90d297d" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Header of the View</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Sticky" PropertyId="a5634fd6-d7a6-4590-80a5-c678e99fa70e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Header" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Header.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Name" EditorType="Hidden" Label="Name" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="PageHeader" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Sticky" EditorType="YesNoToggle" Label="Sticky" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Leave Header fixed to the Bottom of the Screen]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Name" PropertyPath="Name" Value="{Text}" />
+      <Map FieldName="Sticky" PropertyPath="Sticky" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

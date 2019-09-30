@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="PropertyChangeDetail" EntityId="40c31e66-9527-45b3-b67c-fba0b22d0d5e" MergedFrom="4eaaacca-5834-4bca-ab02-e997727eac25" TargetChangeSetId="31c57a4f-27e3-4b7a-a482-c62319abb31d">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExecutedByUser" PropertyId="cfa4f5ab-adee-4e37-a0b4-8eafb3e1270c" IsOptional="true" IsOverride="true" DataType="f36d4a9d-8592-475f-9b2c-e1c2a244ff73">
+    <ReplacementMapping From="68ad8c56-1d3b-49d8-8727-5280d819dcfc" To="f36d4a9d-8592-475f-9b2c-e1c2a244ff73" />
+  </Property>
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

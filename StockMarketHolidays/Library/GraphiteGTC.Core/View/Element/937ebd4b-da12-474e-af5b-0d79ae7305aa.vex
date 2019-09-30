@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="MenuLink" ViewElementId="937ebd4b-da12-474e-af5b-0d79ae7305aa" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MenuLinkType" PropertyId="SimpleEntityDefinitionProperty_MenuLinkType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Color" PropertyId="SimpleEntityDefinitionProperty_Color" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TransitionTime" PropertyId="SimpleEntityDefinitionProperty_TransitionTime" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="MenuLink" />
+    <Property PropertyName="MenuLinkType" DefaultValue="BarsToX" />
+    <Property PropertyName="Color" DefaultValue="Black" />
+    <Property PropertyName="TransitionTime" DefaultValue="1" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">MenuLink.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="MenuLinkType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Icon Transition Type]]></Description>
+        <DescriptionOptions><![CDATA[Bars to X, Bars to Left Arrow, Bars to Right Arrow]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="BarsToX" Value="BarsToX" />
+          <FieldOption DisplayName="BarsToLeftArrow" Value="BarsToLeftArrow" />
+          <FieldOption DisplayName="BarsToRightArrow" Value="BarsToRightArrow" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="BarsToX" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Color" EditorType="ColorChooser" Label="Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Color of the Icon set]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Black" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TransitionTime" EditorType="IntegerTextBox" Label="Transition Time" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Icon Transition Time]]></Description>
+        <DescriptionOptions><![CDATA[In Seconds]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="MenuLinkType" PropertyPath="MenuLinkType" Value="{Text}" />
+      <Map FieldName="Color" PropertyPath="Color" Value="{Text}" />
+      <Map FieldName="TransitionTime" PropertyPath="TransitionTime" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABDSURBVEhLY0xLS/vPQEPABKVpBoaHBYy0xKNxQBAMDwtAOZlmeDQOCAKQBVhzILXwaBwQBMPDAqw5kFp4NA4IAAYGAJHxMmGKMOEMAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA/SURBVEhLY/wPBAw0BExQmmZg6FsAigMokzZgNA4IguGRikZzMl5AlziAMmkDRuOAIBgeqWg0J+MFNLaAgQEADU4SGsO9PwQAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

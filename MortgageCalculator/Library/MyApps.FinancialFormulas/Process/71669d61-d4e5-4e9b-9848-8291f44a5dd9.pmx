@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="PMT" OwnerId="e5d0c764-a54a-47b0-a8be-596c2348175d" ProcessId="71669d61-d4e5-4e9b-9848-8291f44a5dd9" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Calculate Mortgage payment">
+  <Variables>
+    <Variable Name="NumberOfPayments" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" VariableType="Input" VariableId="76772a47-c6b9-452d-b700-f2c1fb8b0671" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Principal" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="fb5e34ac-c555-49f7-bd48-f7a2686039f8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Rate" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" VariableType="Input" VariableId="229d14f0-147c-4250-b5a5-b00370668615" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PMT" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Output" VariableId="ffc6d528-918f-488c-8e88-bae492a2c9a0" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="dad7441f-fbe5-47cc-8240-194827ae91a7" Bounds="630.6,55,170,55" />
+        <EvaluationNode Variable="OneOverOnePlusRate" Description="Evaluation - Calculate 1 / ( 1 + Rate )" ID="9fc93229-645b-4d93-8177-2a83b527a7bc" Bounds="440,155,550,55">
+          <Expression><![CDATA[1 / ( 1 + Rate )]]></Expression>
+        </EvaluationNode>
+        <EvaluationNode Variable="PaymentsOverRate" Description="Evaluation - Calculate ( 1 / ( 1 + Rate ) ) ^ Number of Payments" ID="4d4567d8-fbfd-43fe-8709-726c7c6ca2f3" Bounds="440,255,550,55">
+          <Expression><![CDATA[Decimal.PowerOf( OneOverOnePlusRate, NumberOfPayments )]]></Expression>
+        </EvaluationNode>
+        <EvaluationNode Variable="PMT" Description="Evaluation - Principal.RoundedDecimal / ( ( 1 - PaymentsOverRate ) / Rate )" ID="4b8bbcce-83f5-4497-afab-b3ffda652bdb" Bounds="440.6,355,550,55">
+          <Expression><![CDATA[Principal.RoundedDecimal / ( ( 1 - PaymentsOverRate ) / Rate )]]></Expression>
+        </EvaluationNode>
+        <EndNode ID="823fb5b2-af5d-46f4-a727-0d3d3ed76dc1" Bounds="630.6,455,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="a43a0142-ebd3-4e9a-8390-dd79adf8dbd3" From="dad7441f-fbe5-47cc-8240-194827ae91a7" FromIndex="0" To="9fc93229-645b-4d93-8177-2a83b527a7bc" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,132.5" />
+          <Segment EndPoint="715,132.5" Movable="true" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="2a4244b2-09e7-45c3-af46-d72dcf0d28b6" From="9fc93229-645b-4d93-8177-2a83b527a7bc" FromIndex="2" To="4d4567d8-fbfd-43fe-8709-726c7c6ca2f3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0c8db5d1-2fec-47f9-8e8e-311916a60c36" From="4d4567d8-fbfd-43fe-8709-726c7c6ca2f3" FromIndex="2" To="4b8bbcce-83f5-4497-afab-b3ffda652bdb" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,310" />
+          <Segment EndPoint="715,332.5" />
+          <Segment EndPoint="715.6,332.5" Movable="true" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e882b2cc-e171-495e-aced-ba35a8490e48" From="4b8bbcce-83f5-4497-afab-b3ffda652bdb" FromIndex="2" To="823fb5b2-af5d-46f4-a727-0d3d3ed76dc1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

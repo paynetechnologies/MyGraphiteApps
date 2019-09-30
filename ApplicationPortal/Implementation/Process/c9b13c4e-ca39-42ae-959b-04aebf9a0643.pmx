@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetupPageParameters" OwnerId="87b79702-866b-4778-bcc9-067d2aedac13" ProcessId="c9b13c4e-ca39-42ae-959b-04aebf9a0643" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="cb2301b8-8faa-43ae-95be-fc3a52fb875e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="f21ed0c2-66fa-4327-b2e8-b53ad109acd2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="87b79702-866b-4778-bcc9-067d2aedac13" VariableType="InputOutput" VariableId="daefe3d0-7079-4cb8-9fa9-b9ac2b672147" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="48f63ce1-2db1-47ff-bb1c-cb0676f6a640" Bounds="640.6,165,170,55" ZOrder="1" Text="" />
+        <CreateUiParametersNode Variable="SubmitButton.OnClick.UiParameters" ViewDefinition="87b79702-866b-4778-bcc9-067d2aedac13" ProcessProperty="35ade4ce-57ce-4b2c-8210-c62b19c2b224" ID="f10b1cad-73e0-42e6-9a68-c15938be96aa" Bounds="450.6,265,550,55" ZOrder="1" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+            <Parameter Name="StatusField" Value="ApplicationStatus:Completed" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <CreateUiParametersNode Variable="SaveAndCloseButton.OnClick.UiParameters" ViewDefinition="87b79702-866b-4778-bcc9-067d2aedac13" ProcessProperty="6736ba17-6910-4429-8df5-b97415f3b169" ID="93bbdca3-5dcb-4ff8-8801-7bca4afe3f7e" Bounds="450.6,365,550,55" ZOrder="2" Text="">
+          <Parameters>
+            <Parameter Name="ApplicantInContext" Value="ApplicantInContext" />
+            <Parameter Name="ApplicationInContext" Value="ApplicationInContext" />
+            <Parameter Name="StatusField" Value="ApplicationStatus:InProgress" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <EndNode ID="c4c67090-9d24-4239-8645-5ed4ff9e27b4" Bounds="640.6,465,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="b28d16b9-6f60-4f8f-a831-b9554c2329a7" From="48f63ce1-2db1-47ff-bb1c-cb0676f6a640" FromIndex="0" To="f10b1cad-73e0-42e6-9a68-c15938be96aa" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,220" />
+          <Segment EndPoint="725.6,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="88a58a40-b818-4031-96bf-2f3d65ece949" From="f10b1cad-73e0-42e6-9a68-c15938be96aa" FromIndex="2" To="93bbdca3-5dcb-4ff8-8801-7bca4afe3f7e" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,320" />
+          <Segment EndPoint="725.6,365" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d3a6dfb9-506e-4204-b319-838a9a2271b2" From="93bbdca3-5dcb-4ff8-8801-7bca4afe3f7e" FromIndex="2" To="c4c67090-9d24-4239-8645-5ed4ff9e27b4" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,420" />
+          <Segment EndPoint="725.6,465" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

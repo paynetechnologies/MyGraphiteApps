@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetAuthenicationDetail" OwnerId="2d9dfd58-7449-4197-a8fd-e98457e2f51c" ProcessId="07f2180d-aced-4f12-9ad1-b37670a104bc" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="Get authentication detail about a user">
+  <Variables>
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="6eaa650f-58ff-4f3c-ab04-55e07d76665a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="AuthenticationDetail" DataType="aa51660f-8834-4f41-98df-bf062f7d4e11" VariableType="Output" VariableId="d0e3c1cf-eda1-4506-8aa7-9b1532eb6161" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Tenant" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="caeff132-2b05-4269-af7a-26ebb2842bff" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="fbbc3a21-2c09-4f87-a70d-479edae7f878" Bounds="822.5,55,170,55" />
+        <ExecuteProcessNode DataTransferDefinition="aa51660f-8834-4f41-98df-bf062f7d4e11" ProcessProperty="b338295c-baba-499b-8e35-061fb43823ad" ExecuteProcessType="DataTransfer" VariableId="AuthenticationDetailGetAuthenticationDetailResult" SuppressValidations="false" ID="4baff2dc-4630-4289-8272-7bdc57059ea6" Bounds="632.5,155,550,55">
+          <InputVariables>
+            <InputVariable Name="Tenant" Value="Tenant" />
+            <InputVariable Name="Username" Value="Username" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="AuthenticationDetail" Value="AuthenticationDetail" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="81a2409f-58e7-4dfd-92e0-a29e31f253b1" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="3a9f7c6e-f5f3-49ad-8e48-ca071f87072c" From="fbbc3a21-2c09-4f87-a70d-479edae7f878" FromIndex="0" To="4baff2dc-4630-4289-8272-7bdc57059ea6" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="71fa23ad-8173-4357-bead-77e3415a4aa1" From="4baff2dc-4630-4289-8272-7bdc57059ea6" FromIndex="2" To="81a2409f-58e7-4dfd-92e0-a29e31f253b1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Create" OwnerId="be83ce04-3d44-4b6f-9d4d-951b176f4197" ProcessId="3efd7389-27b9-434a-a013-d5cdb82c0e2f" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="FirstName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a19abc9a-cfa4-48f8-8746-e62317bb13f2" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="LastName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="7a0b269a-41d0-4c66-a969-ef17eabafa3c" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="MobilePhone" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="e536a416-00b6-4988-a3e7-4787ed1b9782" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="NewPerson" DataType="be83ce04-3d44-4b6f-9d4d-951b176f4197" VariableType="Output" VariableId="e87f3853-463c-4feb-a3d7-70580a33b47a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="2b667c34-b714-49a8-a24b-64fa40c81fda" Bounds="825,50,170,55" />
+        <CreateNode Variable="NewPerson" DataType="be83ce04-3d44-4b6f-9d4d-951b176f4197" ID="f3037f51-cea9-444a-8893-f50ad8b8b218" Bounds="635,150,550,55">
+          <Properties>
+            <Property Name="FirstName">FirstName</Property>
+            <Property Name="LastName">LastName</Property>
+            <Property Name="MobilePhone">MobilePhone</Property>
+          </Properties>
+        </CreateNode>
+        <EndNode ID="1e1e7fb4-9d64-4f11-afce-521fd1e38476" Bounds="825,250,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="1d792cca-092b-45b0-947e-ffcd9d7fd3c3" From="2b667c34-b714-49a8-a24b-64fa40c81fda" FromIndex="0" To="f3037f51-cea9-444a-8893-f50ad8b8b218" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="910,105" />
+          <Segment EndPoint="910,150" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f6f1d518-725d-427e-b415-83cf7f994811" From="f3037f51-cea9-444a-8893-f50ad8b8b218" FromIndex="2" To="1e1e7fb4-9d64-4f11-afce-521fd1e38476" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="910,205" />
+          <Segment EndPoint="910,250" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Person" EntityId="be83ce04-3d44-4b6f-9d4d-951b176f4197" MergedFrom="07c78d9c-ffea-4fda-b368-ba120f0584ed" TargetChangeSetId="522cf2f5-c658-416c-adb1-b5cbcc36c8b4">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Address" PropertyId="cfee9c8b-55c6-4e82-88fc-feb3c01e7367" IsOptional="true" DataType="b24a77b1-a746-47c5-882b-da1513d0aa2f" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="MobilePhone" PropertyId="32a98a96-6cc4-416a-8ecc-1815b77501f9" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

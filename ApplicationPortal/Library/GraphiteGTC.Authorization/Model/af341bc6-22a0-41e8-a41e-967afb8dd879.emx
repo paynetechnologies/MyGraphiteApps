@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ViewElementDetail" EntityId="af341bc6-22a0-41e8-a41e-967afb8dd879" NamespaceExtension="Common" BasedOn="93e417f5-5f83-4bc9-8813-a5deb0caa3b5">
+  <Description>A system entity that is used to persist View Element detail for the authorization framework</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ChildElementDetails" PropertyId="63d49871-a38f-4b44-bcd6-ada7bed61fde" IsOptional="true" DataType="$[List,93e417f5-5f83-4bc9-8813-a5deb0caa3b5]" />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>

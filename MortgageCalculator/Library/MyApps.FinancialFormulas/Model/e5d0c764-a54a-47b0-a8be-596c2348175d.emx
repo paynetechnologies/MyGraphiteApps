@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="FixeRateMortgage" EntityId="e5d0c764-a54a-47b0-a8be-596c2348175d" NamespaceExtension="Mortgage">
+  <Description />
+  <Tags>
+    <Tag Type="Group">FinancialFormulas</Tag>
+  </Tags>
+</EntityDefinition>

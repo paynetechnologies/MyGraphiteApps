@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ProgressBar" ViewElementId="97465b1c-4ed2-4d8f-8d17-82b01fb3fa07" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Progress Bar is used show progression of a process.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Color" PropertyId="SimpleEntityDefinitionProperty_Color" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="HasStriping" PropertyId="SimpleEntityDefinitionProperty_HasStriping" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsRounded" PropertyId="SimpleEntityDefinitionProperty_IsRounded" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="HideOnComplete" PropertyId="SimpleEntityDefinitionProperty_HideOnComplete" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="WaitsForFillInstructions" PropertyId="SimpleEntityDefinitionProperty_WaitsForFillInstructions" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FillTime" PropertyId="SimpleEntityDefinitionProperty_FillTime" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnComplete" PropertyId="SimpleEntityDefinitionProperty_OnComplete" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ProgressBar" />
+    <Property PropertyName="WaitsForFillInstructions" DefaultValue="Yes" />
+    <Property PropertyName="HasStriping" DefaultValue="Yes" />
+    <Property PropertyName="IsRounded" DefaultValue="No" />
+    <Property PropertyName="HideOnComplete" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ProgressBar.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">ProgressPoll.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.ProgressBar.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">StyleHelper.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Color" EditorType="ColorChooser" Label="Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Color of the Bar]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="HasStriping" EditorType="YesNoToggle" Label="Striping?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Stripes across the Bar?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsRounded" EditorType="YesNoToggle" Label="Rounded?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Rounder corners on the Bar?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="HideOnComplete" EditorType="YesNoToggle" Label="Hide after Completion?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Hide the Progress Bar after completion]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DimensionHeight" EditorType="TextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Bar]]></Description>
+      </Field>
+      <Field FieldName="DimensionWidth" EditorType="TextBox" Label="Width" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Width of the Bar]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for Height and Width]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="WaitsForFillInstructions" EditorType="YesNoToggle" Label="Wait for Instructions?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Wait for Page Instruction to start the progress]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FillTime" EditorType="IntegerTextBox" Label="Fill Time" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Total time to fill the Bar]]></Description>
+        <DescriptionOptions><![CDATA[In Seconds]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnComplete" EditorType="ViewBehaviorChooser" Label="OnComplete" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run on completion]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Color" PropertyPath="Color" Value="{Text}" />
+      <Map FieldName="HasStriping" PropertyPath="HasStriping" Value="{Text}" />
+      <Map FieldName="IsRounded" PropertyPath="IsRounded" Value="{Text}" />
+      <Map FieldName="HideOnComplete" PropertyPath="HideOnComplete" Value="{Text}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="WaitsForFillInstructions" PropertyPath="WaitsForFillInstructions" Value="{Text}" />
+      <Map FieldName="FillTime" PropertyPath="FillTime" Value="{Text}" />
+      <Map FieldName="OnComplete" PropertyPath="OnComplete.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnComplete" PropertyPath="OnComplete.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAFCAYAAABfPyy9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABcSURBVChTY0xLS5NjYGCYA8T2QMwOxP+BGAQYgRgbmxjwC4gPAnEKE5CYC8SuQMwGxNQCILNAZi4EWWABEqERsAJZcALCpgk4BrIgGYj3ADEo3KgFfgMx0EyGBAA0sw9e6TQPxwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAFCAYAAABfPyy9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVChTY/j//78cEO8C4p9ADOLDAC42MQBkFshMOUYgsZuBgcEFiEGAEYj/Q5g42aSAAyALPgMZPBA+1S34xQQkTkDYNAHHYHGwG4ipGQe/gBho5n95ANkuxd+1C5tdAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

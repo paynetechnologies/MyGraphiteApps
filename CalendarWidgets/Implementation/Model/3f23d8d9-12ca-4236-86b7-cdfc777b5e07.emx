@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Appointment" EntityId="3f23d8d9-12ca-4236-86b7-cdfc777b5e07" MergedFrom="3c22c636-a81f-43b6-a099-2d303469555c" TargetChangeSetId="83f85fcb-97f2-4573-a84c-5996e49067fc">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="AllDayEvent" PropertyId="b9553a18-6f94-4e7c-8b18-455ce3679fa0" IsOptional="false" IsOverride="true" DataType="100b3d78-7d96-4a2b-b36b-c4ab1b935b68">
+    <ReplacementMapping From="0e977471-ddab-4761-a910-61b22a47b8ea" To="100b3d78-7d96-4a2b-b36b-c4ab1b935b68" />
+  </Property>
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

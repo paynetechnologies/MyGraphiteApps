@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="LinkDisplayItem" ViewElementId="b07a8384-c579-4679-9401-226b2af0eb1b" BasedOn="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Link Display Item is used to provide links within a Display Detail.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Link" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="LinkDisplayItem" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">LinkDisplayItem.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Mask" EditorType="Hidden" Label="Mask" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="TextColor" EditorType="Hidden" Label="TextColor" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="TranslateContent" EditorType="Hidden" Label="TranslateContent" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping />
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABsAAAAWCAYAAAAxSueLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJgSURBVEhLrdVbaI9xHMfxZ3IcadkFUnPehaldUKRcSMoSt8Id9W8tMVlLOZ+KnLWohUvLnUSkNFcOcbUoOU1KpEgYQrb3+3n+P1n///7/Z3t86tWefvF8n9/p+6/I5XLRf8g5vMMhfHWgWIbl/2bJIqzHdjzGGlSgIFmL+f9PIby8BhdxBwsd+DdZizmj+cljtBk3kse4kAUtPNkBk6XYeBxIHqNrOI0GrMRzOFuX9Clc4jFZiu3CRPzCFoR3XUUdWvAJ4+BH3RpqsUo0JY/xjJ7BJTsPl+0njsGlDWmzWG9KXzAF5juewOO+D0uwGu6hyzYTo7EH5i46BjOzg3iTPMbFF2MVenACIffxAlsxHX+wCb1pizmL48ljNBV+tUUewK5QD/MbzXAFtjlALuChD2mLufbuQyNewS+fkLcfIWfwCIfhwfiMnYiTpthl3IQnz5eY2/iI3ah2gHzAXvgByxwgzs59jVOu2DeEE+Xx9W7Z+1oxF+FEGmfgB2gaZuAs/qZcMRvra9glPGnGMQ/KSQx3gHShHfPg8nlau9EvpYq9xBHYCex//ltf4P2ZhQUI8VCMhRfa0xg+ol9KFfO4/oAtx85uvDeO2Y5q4Um7hE7YUSbBOzYKBbGYX16M/c5szP81ztD7MxJvsQFrMRt+nGmD16Ig5fbMLMUO+IIqHIW/WzZc46X1Uo/Ae9hRiiZNMTfb7jEHHbB7uGdXcB3OaAWM3d27VTRpioV4Kl0y9++eA2Q5XFpjl3APB8xgioVYyILr4L4ZZ+t9dEkHzFCKGV/uT4on0iV2Rv4yl0gU9QGj94peHJWrWQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABsAAAAWCAYAAAAxSueLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIcSURBVEhLrda/S1VhHMfxa0l0TRpaMoREyq2tgmhzaUn/AB2aHGxpaRGk3cGludoq2lqCltZ0CKIGaZCChvwBgkQmodTx/X70eziee26ek33gJZ7vfY7PPc95ftiTZVnrP+Qx1jCHLQuVsbNjuok/MF8xgfQQZR2Fhk7gHcpZxA0can/o4h9MIXIPr/d/TfFpn+MCUvvyzU2cxRrMK0R9DMuI/MAs2sWbm5qH2cEIHNL47BTuYxORheLNTfRhG8ZOrb3AE+TDhjuITFqoG4djEN7jbHuPVTico4jY7hJO44sFsoCeJp3NIL6xzuA6TuIDIm/g574n8xvXkCZInXyC78H2Q/BbR6d3EdnFFTgCPqF5hNS2bme3YNvpdJVl33DuwIaFgzyE7Z6mqyz7jgHU7uwlbHce3myewZp/PGKn8QXWLRCfOnWkozr7iYuwncNhYqI4XA5bpPiH2xguXCf++FsewDa+YF+08cVbcyJEPsKJchX9yDso8ke3fIYTwWn+1gJxKlu7jJgAxqnvEnApLKEXjTq7DT+fTFf7cZHGzS5eF7GL2evYUX7BZRHtch2FCi7IiNuP21AsA7lNuV25bZnYUTpUFkt82b6nLUTcaMcRbdyIjbPQ4Szen6ssduGs9MiIg9J4pHi0RDxyqu5NKotH8FD0cCzHQ7S483eoLNbgDHXirMD4tP57UNU2d9x/ePoxgwFMWeieVmsPZsoq1z66ICgAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

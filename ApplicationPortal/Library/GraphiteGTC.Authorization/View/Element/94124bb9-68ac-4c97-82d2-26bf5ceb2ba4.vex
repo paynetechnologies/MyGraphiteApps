@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ViewSecurityPanel" ViewElementId="94124bb9-68ac-4c97-82d2-26bf5ceb2ba4" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>View Security Panel is a special element to be utilized when web pages have security enabled.  It allows a user to customize the privileges for security groups via the web application.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="984c0664-0024-4ace-b4f6-c3a92b8017f5" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickDetails" PropertyId="3fb0d8be-b7f2-430a-8f79-d16075dec1ae" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickHeaderDetails" PropertyId="852696fd-d9fb-4abe-a643-59c74623e0ba" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickContentDetails" PropertyId="fd07f32f-88d2-4d04-91f4-568d7b558418" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickFooterDetails" PropertyId="a7bac070-58fb-4417-bc6c-66d322e7eef6" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickRegionDetails" PropertyId="2d761cd8-7001-4525-b987-5ec3167c39f4" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveAllDetails" PropertyId="9504791f-359b-41a2-8634-a108e91810f6" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveAllHeaderDetails" PropertyId="78e19965-ede8-49ce-ab76-787e7fa17174" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveAllContentDetails" PropertyId="208727fb-b885-483e-b940-bbd70b889954" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveAllRegionDetails" PropertyId="22ed6bbe-2b40-42ec-a18f-bbc32861fb49" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveAllFooterDetails" PropertyId="55429bcf-a58b-4628-b986-651727af31de" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveAllowedDetails" PropertyId="9083174d-0105-4173-9e49-ebb3aa1287b2" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveDeniedDetails" PropertyId="50801066-3f70-4750-ac7e-e15b356e11bd" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClickSaveAllViews" PropertyId="46335726-4eb2-453d-b1fc-1fe4f591858f" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ViewSecurityPanel" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ViewSecurityPanel.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">CheckboxField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Checkbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Choice.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Panel]]></Description>
+      </Field>
+      <Field FieldName="OnClickDetails" EditorType="ViewBehaviorChooser" Label="OnClick Details" Grouping="OnClick Display" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when any View Element is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewElementDetail" ParameterDataType="af341bc6-22a0-41e8-a41e-967afb8dd879" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickHeaderDetails" EditorType="ViewBehaviorChooser" Label="OnClick Header Details" Grouping="OnClick Display" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Header is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickContentDetails" EditorType="ViewBehaviorChooser" Label="OnClick Content Details" Grouping="OnClick Display" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Content is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickFooterDetails" EditorType="ViewBehaviorChooser" Label="OnClick Footer Details" Grouping="OnClick Display" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Footer is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickRegionDetails" EditorType="ViewBehaviorChooser" Label="OnClick Region Details" Grouping="OnClick Display" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Region is clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveAllDetails" EditorType="ViewBehaviorChooser" Label="OnClick Save All Details" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Allow All icons for View Elements are clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="Allow" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveAllContentDetails" EditorType="ViewBehaviorChooser" Label="OnClick Save All Content Details" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Content icons are clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="Allow" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveAllHeaderDetails" EditorType="ViewBehaviorChooser" Label="OnClick Save All Header Details" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Header icons are clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="Allow" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveAllRegionDetails" EditorType="ViewBehaviorChooser" Label="OnClick Save All Region Details" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Region icons are clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="Allow" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveDeniedDetails" EditorType="ViewBehaviorChooser" Label="OnClick Save Denied Details" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when View Element is unchecked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewElementDetail" ParameterDataType="af341bc6-22a0-41e8-a41e-967afb8dd879" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveAllowedDetails" EditorType="ViewBehaviorChooser" Label="OnClick Save Allowed Details" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when View Element is checked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewElementDetails" ParameterDataType="$[List,af341bc6-22a0-41e8-a41e-967afb8dd879]" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveAllFooterDetails" EditorType="ViewBehaviorChooser" Label="OnClick Save All Footer Details" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Footer icons are clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="ViewDetailField" ParameterDataType="83dfc660-5d65-4969-9850-25db372a93b9" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="Allow" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnClickSaveAllViews" EditorType="ViewBehaviorChooser" Label="OnClick Save All Views" Grouping="OnClick Save" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when Allow All icons for Views are clicked]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="SecurityGroupField" ParameterDataType="259dbfce-2f6a-4c29-9c2a-c51ed1d781d6" />
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterName="Allow" ParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+        </BehaviorParameters>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="OnClickDetails" PropertyPath="OnClickDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickDetails" PropertyPath="OnClickDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickHeaderDetails" PropertyPath="OnClickHeaderDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickHeaderDetails" PropertyPath="OnClickHeaderDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickContentDetails" PropertyPath="OnClickContentDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickContentDetails" PropertyPath="OnClickContentDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickFooterDetails" PropertyPath="OnClickFooterDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickFooterDetails" PropertyPath="OnClickFooterDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickRegionDetails" PropertyPath="OnClickRegionDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickRegionDetails" PropertyPath="OnClickRegionDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveAllDetails" PropertyPath="OnClickSaveAllDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveAllDetails" PropertyPath="OnClickSaveAllDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveAllContentDetails" PropertyPath="OnClickSaveAllContentDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveAllContentDetails" PropertyPath="OnClickSaveAllContentDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveAllHeaderDetails" PropertyPath="OnClickSaveAllHeaderDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveAllHeaderDetails" PropertyPath="OnClickSaveAllHeaderDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveAllRegionDetails" PropertyPath="OnClickSaveAllRegionDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveAllRegionDetails" PropertyPath="OnClickSaveAllRegionDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveDeniedDetails" PropertyPath="OnClickSaveDeniedDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveDeniedDetails" PropertyPath="OnClickSaveDeniedDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveAllowedDetails" PropertyPath="OnClickSaveAllowedDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveAllowedDetails" PropertyPath="OnClickSaveAllowedDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveAllFooterDetails" PropertyPath="OnClickSaveAllFooterDetails.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveAllFooterDetails" PropertyPath="OnClickSaveAllFooterDetails.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnClickSaveAllViews" PropertyPath="OnClickSaveAllViews.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClickSaveAllViews" PropertyPath="OnClickSaveAllViews.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>AllViews</Key>
+    <Key>AllowAllViews</Key>
+    <Key>AllowAll</Key>
+    <Key>Content</Key>
+    <Key>Header</Key>
+    <Key>Region</Key>
+    <Key>Footer</Key>
+    <Key>All</Key>
+    <Key>PleaseChooseASecurityGroupAndView</Key>
+    <Key>AllowViewToChangeElementSecurity</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABcAAAAVCAYAAACt4nWrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVEhLY0xLS/vPgBswAjHZ8kxQGqQIHSMDsuRhhoNsR8fIgCx5mOE0AaPBghWMBgtWMBosWMFosGAFo8GCFQzVYGFgAAAyim1bLRzCTwAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABcAAAAVCAYAAACt4nWrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVEhLY/wPBAy4ASMQky0PMxykCB3AxMmWp6nLmaA0TcBosGAFo8GCFYwGC1YwGixYwWiwYAVDNVgYGAAbq27gQwCK9gAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

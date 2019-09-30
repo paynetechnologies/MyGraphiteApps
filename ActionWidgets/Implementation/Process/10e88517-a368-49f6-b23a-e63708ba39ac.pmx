@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="33dfb643-b702-4690-8d86-3a3b0156a19f" ProcessId="10e88517-a368-49f6-b23a-e63708ba39ac" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="33dfb643-b702-4690-8d86-3a3b0156a19f" VariableType="Output" Classification="Pinned, Locked" VariableId="c8a76680-c7aa-42bc-8b17-74227e6b3bf8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="651619f7-fe0f-41c7-afec-dbf6eb7a6da8" VariableType="Input" Classification="Pinned, Locked" VariableId="9b91eaaa-639e-47f9-8ad2-6c6e3cb1502f" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="1f085e4a-443e-449b-a09b-1e40858e6811" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="33dfb643-b702-4690-8d86-3a3b0156a19f" Description="Create the MenuLinkSlidePanel view" ID="7d44dca5-a82e-4c83-aca3-d5e94a466e17" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="8f85de96-938c-471f-8f65-1f88861f5c5e" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="3359d043-9d1c-4e54-ab3d-0b03ea2778f7" From="1f085e4a-443e-449b-a09b-1e40858e6811" FromIndex="0" To="7d44dca5-a82e-4c83-aca3-d5e94a466e17" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="037105bf-9fdf-47fd-91b7-3c62590cf883" From="7d44dca5-a82e-4c83-aca3-d5e94a466e17" FromIndex="2" To="8f85de96-938c-471f-8f65-1f88861f5c5e" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

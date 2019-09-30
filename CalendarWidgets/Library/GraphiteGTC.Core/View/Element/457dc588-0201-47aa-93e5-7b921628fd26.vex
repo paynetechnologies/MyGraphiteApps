@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SlidePanel" ViewElementId="457dc588-0201-47aa-93e5-7b921628fd26" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Slide Panel contains one or more slides.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Side" PropertyId="SimpleEntityDefinitionProperty_Side" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MenuLink" PropertyId="SimpleEntityDefinitionProperty_MenuLink" IsOptional="true" DataType="937ebd4b-da12-474e-af5b-0d79ae7305aa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CloseOnBodyClick" PropertyId="SimpleEntityDefinitionProperty_CloseOnBodyClick" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="HideDefaultButton" PropertyId="31b804ce-6912-4a40-afa9-90159e93695f" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tooltip" PropertyId="8b124c0c-ddbf-48af-9c25-47afdcc23892" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SlidePanel" />
+    <Property PropertyName="CloseOnBodyClick" DefaultValue="Yes" />
+    <Property PropertyName="Side" DefaultValue="Right" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SlidePanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Side" EditorType="SelectBox" Label="Side" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Side of the Panel on the Content]]></Description>
+        <DescriptionOptions><![CDATA[Left, Right]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Left" Value="Left" />
+          <FieldOption DisplayName="Right" Value="Right" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Right" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="CloseOnBodyClick" EditorType="YesNoToggle" Label="Close on body click?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Close the Panel when clicked outside the Panel?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="MenuLink" EditorType="PropertyNodeCreator" Label="Menu Link" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Icon Button needed to open the Panel]]></Description>
+      </Field>
+      <Field FieldName="HideDefaultButton" EditorType="YesNoToggle" Label="Hide default button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Hide the handle that shows the Slide Panel? (If MenuLink is not used)]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Tooltip" EditorType="TranslationKeyChooser" Label="Tooltip" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Tooltip of the Menu Link]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Side" PropertyPath="Side" Value="{Text}" />
+      <Map FieldName="CloseOnBodyClick" PropertyPath="CloseOnBodyClick" Value="{Text}" />
+      <Map FieldName="MenuLink" PropertyPath="MenuLink" />
+      <Map FieldName="HideDefaultButton" PropertyPath="HideDefaultButton" Value="{Text}" />
+      <Map FieldName="Tooltip" PropertyPath="Tooltip" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVDhPtZNBDkAwFAXLyjW4jnt0x5YjsOUsrsM17HjzqVjTTjLSL/Je2lTmvXc3tVzkYdM/MhnyXM5DFHK6lgYffTUwS3Kfkk5W1zIapSTXShh6hgSQW1LCMdm2EkDuTMn7HJNASSN3m+JDbkvJJkfeJIDclRIYJGUxIY/c5wqzLY4twA/51UArlevcCUcbI0dkOpd9AAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVDhPvZPBDYMwEAQPXrRBnlBK6IcaqCfUwg/SRn7ODuYiP5FjGGm0BsSZOxkLIbjPI0uQ1jPfoJHrsQa/nyOQm6Su1RYZ5SMui9FK6lqlnbhYZMO1VH975uLvkx/Z0dZLOmm7uYInzIzrn68+xR3j6unkLSd5BdTdfI4cNY5cOtNcgfwd4fRh6Z9xiBnsC2fPu97029XoAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

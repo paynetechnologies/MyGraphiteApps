@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Compatibilities>
+  <Container ViewElementId="770f5058-e068-4b2d-8376-e0f299f55eb0" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870">
+    <CompatibleElement ViewElementId="94124bb9-68ac-4c97-82d2-26bf5ceb2ba4" Allowed="true" />
+  </Container>
+</Compatibilities>

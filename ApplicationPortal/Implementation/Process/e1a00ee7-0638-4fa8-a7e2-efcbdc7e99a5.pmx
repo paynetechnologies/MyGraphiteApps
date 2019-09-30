@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Update" OwnerId="0d114b1c-9b2e-4823-91a0-2bad45ad9fd9" ProcessId="e1a00ee7-0638-4fa8-a7e2-efcbdc7e99a5" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="AnnualIncome" DataType="5a2a204e-9712-4be7-9ef0-79c83427658f" VariableType="Input" VariableId="b5e9a9bd-6542-4975-b287-c7433f66d2e8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EmployerName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="3f58c028-d9bb-48e8-8134-258b3347d13f" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="EmployerPhone" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a8a5415e-0fe6-4a34-9299-31a4f80671a6" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Employment" DataType="0d114b1c-9b2e-4823-91a0-2bad45ad9fd9" VariableType="InputOutput" VariableId="8266d947-aa42-435f-be55-d424618d1705" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="JobTitle" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="f3f0f758-55a7-4451-9dd3-a62313ed33f7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="StartDate" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="d1d18415-744f-4c50-9537-b7c1fafbd740" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="EndDate" DataType="$[Nullable,121b067f-e1c7-4136-9d4c-21a7bf23df53]" VariableType="Input" VariableId="033b99e0-bc48-4870-8804-a54518be447c" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="0a2fe346-8421-4559-803f-27a4bbb0e426" Bounds="630,55,170,55" />
+        <TestConditionNode Name="NoEmployerProperties" Description="No Employer Properties?" ID="04875519-cfe3-4cf4-88a1-5dfe146d841f" Bounds="440.6,155,550,55">
+          <Expressions>
+            <Expression LeftExpression="AnnualIncome" Operator="IsMissing" />
+            <Expression LeftExpression="EmployerName" Operator="IsMissing" />
+            <Expression LeftExpression="EmployerPhone" Operator="IsMissing" />
+            <Expression LeftExpression="JobTitle" Operator="IsMissing" />
+            <Expression LeftExpression="StartDate" Operator="IsMissing" />
+          </Expressions>
+        </TestConditionNode>
+        <TestDecisionNode TestConditionVariableId="NoEmployerProperties" Description="No Empoyer Properties?" ID="a278ad43-1772-4040-b786-d6462c3b87f8" Bounds="440.6,255,550,55" />
+        <DecisionNode LeftExpression="Employment" Operator="IsMissing" ID="bf37534b-4f4c-4a4a-84c2-9395203c001f" Bounds="860.6,355,510,125" />
+        <EndNode ID="1f63d3ed-4ef1-457c-857d-32f2d1290bc3" Bounds="230.6,625,170,55" />
+        <AssignNode ID="8fd1fec4-38be-40f6-87a0-f5c18055a3ad" Bounds="1240.6,525,550,55" Text="Assign">
+          <Assignment Name="Employment.AnnualIncome" Value="AnnualIncome" />
+          <Assignment Name="Employment.EmployerName" Value="EmployerName" />
+          <Assignment Name="Employment.EmployerPhone" Value="EmployerPhone" />
+          <Assignment Name="Employment.JobTitle" Value="JobTitle" />
+          <Assignment Name="Employment.StartDate" Value="StartDate" />
+          <Assignment Name="Employment.EndDate" Value="EndDate" />
+        </AssignNode>
+        <CreateNode Variable="Employment" DataType="0d114b1c-9b2e-4823-91a0-2bad45ad9fd9" ID="8f7142b2-2d99-47b6-904d-bc6ee36172a2" Bounds="440.6,525,550,55" Text="Create">
+          <Properties>
+            <Property Name="AnnualIncome">AnnualIncome</Property>
+            <Property Name="EmployerName">EmployerName</Property>
+            <Property Name="EmployerPhone">EmployerPhone</Property>
+            <Property Name="EndDate">EndDate</Property>
+            <Property Name="JobTitle">JobTitle</Property>
+            <Property Name="StartDate">StartDate</Property>
+          </Properties>
+        </CreateNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="18ba5481-ffee-4b09-a95b-512cbaaa7bf6" From="0a2fe346-8421-4559-803f-27a4bbb0e426" FromIndex="0" To="04875519-cfe3-4cf4-88a1-5dfe146d841f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,110" />
+          <Segment EndPoint="715,132.5" />
+          <Segment EndPoint="715.6,132.5" Movable="true" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f50b070e-e751-47c1-ac58-877ee95547cd" From="04875519-cfe3-4cf4-88a1-5dfe146d841f" FromIndex="2" To="a278ad43-1772-4040-b786-d6462c3b87f8" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <TestDecisionProcessNodeConnection BranchType="AreAllTrue" ID="74113334-eefb-4e16-b9e4-c52667103fdb" From="a278ad43-1772-4040-b786-d6462c3b87f8" FromIndex="3" To="1f63d3ed-4ef1-457c-857d-32f2d1290bc3" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Are All True">
+          <Segment EndPoint="440.6,282.5" />
+          <Segment EndPoint="315.6,282.5" />
+          <Segment EndPoint="315.6,625" />
+        </TestDecisionProcessNodeConnection>
+        <TestDecisionProcessNodeConnection BranchType="AreAllFalse" ID="999c22dd-dff0-43e3-ae01-7af503aaae0b" From="a278ad43-1772-4040-b786-d6462c3b87f8" FromIndex="2" To="bf37534b-4f4c-4a4a-84c2-9395203c001f" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Are All False">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,332.5" />
+          <Segment EndPoint="1115.6,332.5" Movable="true" />
+          <Segment EndPoint="1115.6,355" />
+        </TestDecisionProcessNodeConnection>
+        <TestDecisionProcessNodeConnection BranchType="IsInconclusive" ID="a5ca25db-54ec-4749-ad48-1944dbfc2531" From="a278ad43-1772-4040-b786-d6462c3b87f8" FromIndex="1" To="bf37534b-4f4c-4a4a-84c2-9395203c001f" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Is Inconclusive">
+          <Segment EndPoint="990.6,282.5" />
+          <Segment EndPoint="1115.6,282.5" />
+          <Segment EndPoint="1115.6,355" />
+        </TestDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="82009f3d-8f32-4b43-bc9e-e36cf35fc033" From="bf37534b-4f4c-4a4a-84c2-9395203c001f" FromIndex="3" To="8f7142b2-2d99-47b6-904d-bc6ee36172a2" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="860.6,417.5" />
+          <Segment EndPoint="715.6,417.5" />
+          <Segment EndPoint="715.6,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="db8fabe0-3b93-49c8-b851-698830ae141d" From="8f7142b2-2d99-47b6-904d-bc6ee36172a2" FromIndex="2" To="1f63d3ed-4ef1-457c-857d-32f2d1290bc3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,580" />
+          <Segment EndPoint="715.6,602.5" />
+          <Segment EndPoint="315.6,602.5" Movable="true" />
+          <Segment EndPoint="315.6,625" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="f615d7dc-a530-4b5a-8e1f-8c152bfdf043" From="bf37534b-4f4c-4a4a-84c2-9395203c001f" FromIndex="1" To="8fd1fec4-38be-40f6-87a0-f5c18055a3ad" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1370.6,417.5" />
+          <Segment EndPoint="1515.6,417.5" />
+          <Segment EndPoint="1515.6,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="a745d901-c909-406f-9d0d-ad041060a9a5" From="8fd1fec4-38be-40f6-87a0-f5c18055a3ad" FromIndex="2" To="1f63d3ed-4ef1-457c-857d-32f2d1290bc3" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1515.6,580" />
+          <Segment EndPoint="1515.6,652.5" />
+          <Segment EndPoint="400.6,652.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

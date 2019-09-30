@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="FindByUsername" OwnerId="68ad8c56-1d3b-49d8-8727-5280d819dcfc" ProcessId="b2f4cf71-857f-4691-b1d3-856bdc36c33d" ProcessType="Normal" Classification="Entity" IsRemovable="true" Description="System Behavior used to load CurrentUser in View Controller Behaviors (Single Sign-on)">
+  <Variables>
+    <Variable Name="Username" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="58962dd7-9ddb-488b-9861-f0c7592afa00" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Output" VariableId="bf8d89bb-5447-4308-8c61-c4420f8dd84e" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="8c316b18-963f-42b0-9503-e2c6c24a1534" Bounds="822.5,55,170,55" />
+        <DataLookupNode Source="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableId="CurrentUser" ResultType="First" ID="6a5c7fef-ff90-44f0-a8ec-04dbee49a946" Bounds="632.5,155,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Username" RightExpression="Username" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </DataLookupNode>
+        <EndNode ID="bc3f6a28-2bbf-4100-868d-13c71c4ad710" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="dfcd6c42-4d07-4ec1-bc59-06759aa77aa8" From="8c316b18-963f-42b0-9503-e2c6c24a1534" FromIndex="0" To="6a5c7fef-ff90-44f0-a8ec-04dbee49a946" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="305fb479-d8bc-4406-9f33-ade30600832f" From="6a5c7fef-ff90-44f0-a8ec-04dbee49a946" FromIndex="2" To="bc3f6a28-2bbf-4100-868d-13c71c4ad710" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

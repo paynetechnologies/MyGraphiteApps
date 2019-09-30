@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Page" ViewElementId="ae5a89a1-32a3-4cbb-84a2-26986dc4f176" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Header" PropertyId="SimpleEntityDefinitionProperty_Header" IsOptional="true" DataType="bc9c8470-25de-48b5-8f10-3443f90d297d" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Region" PropertyId="SimpleEntityDefinitionProperty_Region" IsOptional="true" DataType="1f72c3aa-381a-4e97-9125-0beeda475ce0" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Content" PropertyId="SimpleEntityDefinitionProperty_Content" IsOptional="true" DataType="da7d8b9b-fb7b-4df7-a6c3-89970e5c006d" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Footer" PropertyId="SimpleEntityDefinitionProperty_Footer" IsOptional="true" DataType="f16f1e9a-fbc8-4a8c-a618-c920c8a40cc7" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsTransparent" PropertyId="SimpleEntityDefinitionProperty_IsTransparent" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Color" PropertyId="SimpleEntityDefinitionProperty_Color" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Page" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Common.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Cache.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Events.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Page.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Modals.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Icon.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">SpinKit.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <TranslationKeys>
+    <Key>BeginningOfContent508</Key>
+    <Key>EndOfContent508</Key>
+    <Key>OpensSimulatedDialog508</Key>
+    <Key>SystemError</Key>
+    <Key>PleaseSpeakToYourSystemAdministrator</Key>
+    <Key>ExceptionDetails</Key>
+    <Key>Details</Key>
+    <Key>Blank</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

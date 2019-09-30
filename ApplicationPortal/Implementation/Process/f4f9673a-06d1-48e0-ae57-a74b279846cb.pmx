@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="SetupEmploymentHistoryTab" OwnerId="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" ProcessId="f4f9673a-06d1-48e0-ae57-a74b279846cb" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="ApplicantInContext" DataType="292093ab-1097-44c3-b7b6-76352d824c8d" VariableType="Input" VariableId="5e7275d2-fcb0-4e12-b1b7-966f60373b61" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ApplicationInContext" DataType="a24c4fa7-5d01-486c-8e0e-b1b719bc2c64" VariableType="Input" VariableId="3e14a318-4334-47d5-b16e-47e304478266" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="View" DataType="6b401b6c-fd32-4685-aed5-0a2a6c86f68a" VariableType="InputOutput" VariableId="d2e48d38-91d6-4cb1-9db9-9e358f6addc6" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="beaef14a-1b49-45bb-b9b6-cfd65732f890" Bounds="640.6,165,170,55" ZOrder="1" Text="" />
+        <CreateFromNode Variable="HomeLoanDataInContext" FromExpression="ApplicationInContext.ApplicationData" CreateAsTypeId="81069f8f-4685-4a90-84ed-b37d1d3ea4d8" Description="Convert Application Data to Home Loan Data" ID="0796228d-4d13-4817-9b17-b3090366d5f8" Bounds="450.6,265,550,55" ZOrder="4" Text="Create From" />
+        <DecisionNode LeftExpression="HomeLoanDataInContext.CurrentJob" Operator="IsNotMissing" ID="0c25e803-1a20-4a33-a9ee-6d541ef04ee1" Bounds="470.6,365,510,125" ZOrder="1" Text="" />
+        <DecisionNode LeftExpression="HomeLoanDataInContext.PreviousJob" Operator="IsNotMissing" ID="52d5bf0a-27d1-4f0b-b35b-afffd3dc6ef8" Bounds="470.6,635,510,125" ZOrder="2" Text="" />
+        <AssignNode ID="324890b1-df50-4bc9-af95-41653cceb402" Bounds="50.6,535,550,55" ZOrder="1" Text="">
+          <Assignment Name="CurrentEmployerNameField.Value" Value="HomeLoanDataInContext.CurrentJob.EmployerName" />
+          <Assignment Name="CurrentEmployerPhoneField.Value" Value="HomeLoanDataInContext.CurrentJob.EmployerPhone" />
+          <Assignment Name="CurrentEmployerTitleField.Value" Value="HomeLoanDataInContext.CurrentJob.JobTitle" />
+          <Assignment Name="CurrentEmployerStartDateField.Value" Value="HomeLoanDataInContext.CurrentJob.StartDate" />
+          <Assignment Name="CurrentEmployerIncomeField.Value" Value="HomeLoanDataInContext.CurrentJob.AnnualIncome" />
+        </AssignNode>
+        <EndNode ID="b27ebc3e-42bb-41bb-b00d-21df2ff70ab4" Bounds="640.6,905,170,55" ZOrder="1" Text="" />
+        <AssignNode ID="7efb3bba-c3c8-4186-82b5-4994010d3666" Bounds="50.6,805,550,55" ZOrder="2" Text="">
+          <Assignment Name="PreviousEmployerNameField.Value" Value="HomeLoanDataInContext.PreviousJob.EmployerName" />
+          <Assignment Name="PreviousEmployerPhoneField.Value" Value="HomeLoanDataInContext.PreviousJob.EmployerPhone" />
+          <Assignment Name="PreviousEmployerTitleField.Value" Value="HomeLoanDataInContext.PreviousJob.JobTitle" />
+          <Assignment Name="PreviousEmployerStartDateField.Value" Value="HomeLoanDataInContext.PreviousJob.StartDate" />
+          <Assignment Name="PreviousEmployerIncomeField.Value" Value="HomeLoanDataInContext.PreviousJob.AnnualIncome" />
+          <Assignment Name="PreviousEmployerEndDateField.Value" Value="HomeLoanDataInContext.PreviousJob.EndDate" />
+        </AssignNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="2b7f724c-7e62-4b4f-91d4-c7ebef5cd835" From="beaef14a-1b49-45bb-b9b6-cfd65732f890" FromIndex="0" To="0796228d-4d13-4817-9b17-b3090366d5f8" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,220" />
+          <Segment EndPoint="725.6,265" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="dba79727-be95-4658-ae45-b170fdda76b2" From="0796228d-4d13-4817-9b17-b3090366d5f8" FromIndex="2" To="0c25e803-1a20-4a33-a9ee-6d541ef04ee1" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="725.6,320" />
+          <Segment EndPoint="725.6,365" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="56c8155b-d5d1-4f83-8cd6-75ab7b785a1c" From="0c25e803-1a20-4a33-a9ee-6d541ef04ee1" FromIndex="3" To="324890b1-df50-4bc9-af95-41653cceb402" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="470.6,427.5" />
+          <Segment EndPoint="325.6,427.5" />
+          <Segment EndPoint="325.6,535" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="0be86c4e-316c-43ca-b528-73f66fbed9a2" From="0c25e803-1a20-4a33-a9ee-6d541ef04ee1" FromIndex="2" To="52d5bf0a-27d1-4f0b-b35b-afffd3dc6ef8" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="725.6,490" />
+          <Segment EndPoint="725.6,635" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="b0cc3814-bbd9-447b-9392-e3bb0f6e628c" From="324890b1-df50-4bc9-af95-41653cceb402" FromIndex="1" To="52d5bf0a-27d1-4f0b-b35b-afffd3dc6ef8" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="600.6,562.5" />
+          <Segment EndPoint="725.6,562.5" />
+          <Segment EndPoint="725.6,635" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="f2d46b59-2f79-4b4a-b84e-c7103e13e852" From="52d5bf0a-27d1-4f0b-b35b-afffd3dc6ef8" FromIndex="3" To="7efb3bba-c3c8-4186-82b5-4994010d3666" ToIndex="0" LineType="ElbowArrow" Text="Yes">
+          <Segment EndPoint="470.6,697.5" />
+          <Segment EndPoint="325.6,697.5" />
+          <Segment EndPoint="325.6,805" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="ecacab7f-ff80-49e6-a256-13c855640b47" From="7efb3bba-c3c8-4186-82b5-4994010d3666" FromIndex="1" To="b27ebc3e-42bb-41bb-b00d-21df2ff70ab4" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="600.6,832.5" />
+          <Segment EndPoint="725.6,832.5" />
+          <Segment EndPoint="725.6,905" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="19603168-ea49-4889-a79c-31ddf42bd9f8" From="52d5bf0a-27d1-4f0b-b35b-afffd3dc6ef8" FromIndex="2" To="b27ebc3e-42bb-41bb-b00d-21df2ff70ab4" ToIndex="0" LineType="ElbowArrow" Text="No">
+          <Segment EndPoint="725.6,760" />
+          <Segment EndPoint="725.6,905" />
+        </BooleanDecisionProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

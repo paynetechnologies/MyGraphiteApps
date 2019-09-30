@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="ViewBehaviorDetail" EntityId="ce86e21f-7f28-479a-8de1-65426f336f1c" MergedFrom="eae41d9c-aa91-42d5-ba92-f39456b2c5cb" TargetChangeSetId="5a14bdb3-e04a-46bd-a28a-6a9ccdc795c1">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Security</Tag>
+  </Tags>
+</EntityDefinition>
