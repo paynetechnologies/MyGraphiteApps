@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="6aa04eba-587c-4b15-9194-1393b44bf0d9" Name="NETSystem">
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</ExternalReference>

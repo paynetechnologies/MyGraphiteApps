@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="ShowValidations" OwnerId="1e4d829f-cddd-4713-8a0d-7af7303d7480" ProcessId="d33ab5dc-b834-4f96-92ec-d6681626f071" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Get an event's validations">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" VariableType="Input" VariableId="0763cf83-d5fe-4803-882e-a7756bbb62d7" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ExistingEventDetail" DataType="6a5bae96-fba2-44ec-a309-26a38b75ecc9" VariableType="Input" VariableId="967de0fc-0bf3-4b8d-9bbc-0d2a8c92a9df" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="b9f711c7-e99c-4385-845b-99c1dc053110" Bounds="822.5,55,170,55" />
+        <CustomIlNode Description="Assign Validation Results" ID="865060b0-174a-4ebd-8977-7fa389c0b2ab" Bounds="632.5,155,550,55" ZOrder="1" Text="Custom IL">
+          <ReferencedModelDefinitions />
+          <IL><![CDATA[
+Outputs.Validations = Inputs.ExistingEventDetail.ValidationResults
+]]></IL>
+        </CustomIlNode>
+        <EndNode ID="ece9382c-2022-438b-8b14-5fc1a28d8f9b" Bounds="822.5,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="9deb49ce-14af-4c16-89e8-94f64196933a" From="b9f711c7-e99c-4385-845b-99c1dc053110" FromIndex="0" To="865060b0-174a-4ebd-8977-7fa389c0b2ab" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="f2983c24-5ca4-4dfd-b863-771ad90ef0c4" From="865060b0-174a-4ebd-8977-7fa389c0b2ab" FromIndex="2" To="ece9382c-2022-438b-8b14-5fc1a28d8f9b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

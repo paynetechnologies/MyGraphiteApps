@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Comparison" EntityId="2e149c83-e18c-44af-b4d3-f4b37c806def" EntityType="Enumeration" MergedFrom="dd2c6d11-99ea-4547-a3e3-02eb0aa993d3" TargetChangeSetId="ff69244d-5249-463b-8589-1bc0408de048">
+  <Description />
+  <DataEntries KeyProperty="Description" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

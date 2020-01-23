@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="fa221220-8e50-4b1e-8400-7c2abef318eb" Name="Push" ExternalReferenceId="efa1b433-b2e5-486b-91ef-3b4b52470c6b">
+  <Description>test</Description>
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>NET_Stack</ExternalClassName>
+  <ExternalMethodName>Push</ExternalMethodName>
+  <Inputs>
+    <Parameter Name="Element" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Inputs>
+  <Outputs>
+    <Parameter Name="Result" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Outputs>
+</ExternalProcessDefinition>

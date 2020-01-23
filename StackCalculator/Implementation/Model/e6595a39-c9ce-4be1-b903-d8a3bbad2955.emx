@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Element" EntityId="e6595a39-c9ce-4be1-b903-d8a3bbad2955" TargetChangeSetId="50d983d6-e228-414b-a345-12630b70995c">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="StringProperty" PropertyId="b2c44e42-025c-494f-89b1-2529ad5f0103" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Entities</Tag>
+  </Tags>
+</EntityDefinition>

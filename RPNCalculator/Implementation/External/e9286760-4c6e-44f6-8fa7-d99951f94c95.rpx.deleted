@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="e9286760-4c6e-44f6-8fa7-d99951f94c95" Name="Peek" ExternalReferenceId="aa7f96fd-c6aa-43e8-bb12-1d56a8380a62">
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>NET_Stack</ExternalClassName>
+  <ExternalMethodName>Peek</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Outputs>
+</ExternalProcessDefinition>

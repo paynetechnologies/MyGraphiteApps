@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Field" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" IsValueProvider="true">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Label" PropertyId="SimpleEntityDefinitionProperty_Label" IsOptional="true" DataType="256d733f-6966-47de-9854-217a5bd05f92" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsLocked" PropertyId="SimpleEntityDefinitionProperty_IsLocked" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsRequired" PropertyId="SimpleEntityDefinitionProperty_IsRequired" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsSerializable" PropertyId="SimpleEntityDefinitionProperty_IsSerializable" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnChange" PropertyId="SimpleEntityDefinitionProperty_OnChange" IsOptional="true" DataType="ea4becd3-7453-4b22-8969-4c61223531e3" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Icon" PropertyId="SimpleEntityDefinitionProperty_Icon" IsOptional="true" DataType="4c0a0a01-60c0-4ace-a4fd-d85180109d0e" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="IsSerializable" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Field.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="LabelTextString" EditorType="TranslationKeyChooser" Label="Label" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Lable of the Field]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="LabelTooltip" EditorType="TranslationKeyChooser" Label="Tooltip" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Tooltip of the Field]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IsLocked" EditorType="YesNoToggle" Label="Locked?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Read Only?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IsRequired" EditorType="YesNoToggle" Label="Required?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Required marker?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IsSerializable" EditorType="YesNoToggle" Label="Serialize?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Serialize this Field on Submit?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IconSymbol" EditorType="IconChooser" Label="Icon" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Icon on the Label]]></Description>
+      </Field>
+      <Field FieldName="OnChange" EditorType="ViewBehaviorChooser" Label="OnChange" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the field changes]]></Description>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit?" AffectsRender="false" IsLocalizable="false" SerializedFieldContainerProvider="true">
+        <Description><![CDATA[Form to submit to the OnChange Behavior]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="IsDisplayed" EditorType="Hidden" Label="IsDisplayed" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="LabelTextString" PropertyPath="Label.TextString" Value="{TranslationKey}" />
+      <Map FieldName="LabelTooltip" PropertyPath="Label.Tooltip" Value="{TranslationKey}" />
+      <Map FieldName="IsLocked" PropertyPath="IsLocked" Value="{Text}" />
+      <Map FieldName="IsRequired" PropertyPath="IsRequired" Value="{Text}" />
+      <Map FieldName="IsSerializable" PropertyPath="IsSerializable" Value="{Text}" />
+      <Map FieldName="IconSymbol" PropertyPath="Icon.Symbol" Value="{Text}" />
+      <Map FieldName="OnChange" PropertyPath="OnChange.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnChange" PropertyPath="OnChange.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="FormToSerialize" PropertyPath="OnChange.FormToSerialize" Value="{SelectedElementName}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

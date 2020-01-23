@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Option" ViewElementId="d755da0a-0e5c-4094-8ba7-791b6dd53e2c" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" PropertyId="cdaa421a-877b-4620-a4b1-288a70601ffe" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Value" PropertyId="3d748bd1-7ef1-495d-8aee-356a43658ccf" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

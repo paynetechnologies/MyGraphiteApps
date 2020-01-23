@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="f09b7f32-65f8-41f8-b28f-245eddece514" Name="ExternalStack" Reference="WrapStack.dll">
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</ExternalReference>

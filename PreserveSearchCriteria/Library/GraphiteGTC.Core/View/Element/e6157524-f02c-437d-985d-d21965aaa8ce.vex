@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TabButton" ViewElementId="e6157524-f02c-437d-985d-d21965aaa8ce" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Tab Button is a special button that is used within a Tab header.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Selected" PropertyId="SimpleEntityDefinitionProperty_Selected" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Status" PropertyId="SimpleEntityDefinitionProperty_Status" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TabName" PropertyId="SimpleEntityDefinitionProperty_TabName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsLocked" PropertyId="SimpleEntityDefinitionProperty_IsLocked" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="TabButton" />
+    <Property PropertyName="Selected" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">TabButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="IsDisplayed" EditorType="Hidden" Label="Show?" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Button]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Selected" EditorType="YesNoToggle" Label="Selected?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tab Selected?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="Status" EditorType="SelectBox" Label="Status" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tab Button Status]]></Description>
+        <DescriptionOptions><![CDATA[Complete. Error, Pending]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Complete" Value="Complete" />
+          <FieldOption DisplayName="Pending" Value="Pending" />
+          <FieldOption DisplayName="Error" Value="Error" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Pending" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TabName" EditorType="ViewElementChooser" Label="Tab" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Tab to display when Button is clicked]]></Description>
+        <DescriptionOptions><![CDATA[Any Tab in the Tab Group]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Tab" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="IsLocked" EditorType="YesNoToggle" Label="Locked?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tab Locked?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsDisplayed" PropertyPath="IsDisplayed" Value="{Text}" />
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="Selected" PropertyPath="Selected" Value="{Text}" />
+      <Map FieldName="Status" PropertyPath="Status" Value="{Text}" />
+      <Map FieldName="TabName" PropertyPath="TabName" Value="{SelectedElementName}" />
+      <Map FieldName="IsLocked" PropertyPath="IsLocked" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Tab</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABdSURBVEhL7ZFBCgAgCAStx/r/HxRGRsSGF/XkwNJhD8NaY+ZBgfT9tqAcQRi3QE71RkGdRPl2qQvgDTeokyjfLm0BuqFHlgDNc4sIkNktaX8QRglMSmBSApMSGBBNY85AYVU4l3YAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABRSURBVEhL7ZE5DgAgCATB//8ZL0gs1G1cK6bCmDgZVGsIkRDoPD7Hig801oLdqqLstMbb/XjzawGDfwU0usBHDvQC+h+kAJICSAogKYCQBSIVbhMhDwdvbD8AAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

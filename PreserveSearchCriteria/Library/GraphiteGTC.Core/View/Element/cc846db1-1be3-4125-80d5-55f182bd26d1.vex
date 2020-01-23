@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="TextStyle" ViewElementId="cc846db1-1be3-4125-80d5-55f182bd26d1" BasedOn="" IsSystem="true" IsBuiltIn="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Size" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Color" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Scale" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Weight" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="LineSpacing" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="LetterSpacing" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Scale" DefaultValue="px" />
+  </DefaultValues>
+  <ViewElementEditor />
+  <Tags />
+</ViewElementDefinition>

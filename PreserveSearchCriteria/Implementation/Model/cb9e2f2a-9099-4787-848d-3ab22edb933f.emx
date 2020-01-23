@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Person" EntityId="cb9e2f2a-9099-4787-848d-3ab22edb933f" MergedFrom="07c78d9c-ffea-4fda-b368-ba120f0584ed" TargetChangeSetId="8f505f24-93f0-4d25-85a2-8aba1ddf8bf0">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+  <DataEntries>
+    <DataEntry DataEntryId="b7996134-aae4-4741-8619-f78f339cf7e1">
+      <DataValue PropertyId="1ed512f5-8c4a-4e74-b95d-8d060b5d3aa8">Blaise</DataValue>
+      <DataValue PropertyId="02234ff2-2cde-4a4d-b824-4c60a2cb7e2d">Pascal</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="96481859-870a-468e-ae34-ad0f2c86c02b">
+      <DataValue PropertyId="1ed512f5-8c4a-4e74-b95d-8d060b5d3aa8">Edmond</DataValue>
+      <DataValue PropertyId="02234ff2-2cde-4a4d-b824-4c60a2cb7e2d">Halley</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="4477bdeb-cae2-4db2-904d-c07ce168990d">
+      <DataValue PropertyId="1ed512f5-8c4a-4e74-b95d-8d060b5d3aa8">Ingrid</DataValue>
+      <DataValue PropertyId="02234ff2-2cde-4a4d-b824-4c60a2cb7e2d">Daubechies</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="de817015-ace9-4f52-9445-c4324005b602">
+      <DataValue PropertyId="1ed512f5-8c4a-4e74-b95d-8d060b5d3aa8">Edwin</DataValue>
+      <DataValue PropertyId="02234ff2-2cde-4a4d-b824-4c60a2cb7e2d">Hubble</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="8ae9df4f-a80b-466c-9c03-e580a4aadd29">
+      <DataValue PropertyId="1ed512f5-8c4a-4e74-b95d-8d060b5d3aa8">Erwin</DataValue>
+      <DataValue PropertyId="02234ff2-2cde-4a4d-b824-4c60a2cb7e2d">Schroedinger</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="15837749-4da0-4420-a711-0692d1ab6215">
+      <DataValue PropertyId="1ed512f5-8c4a-4e74-b95d-8d060b5d3aa8">Maria</DataValue>
+      <DataValue PropertyId="02234ff2-2cde-4a4d-b824-4c60a2cb7e2d">Mitchell</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="aba8ca4e-80ac-4d59-9fed-af70326d1190">
+      <DataValue PropertyId="1ed512f5-8c4a-4e74-b95d-8d060b5d3aa8">Howard</DataValue>
+      <DataValue PropertyId="02234ff2-2cde-4a4d-b824-4c60a2cb7e2d">Payne</DataValue>
+    </DataEntry>
+  </DataEntries>
+</EntityDefinition>

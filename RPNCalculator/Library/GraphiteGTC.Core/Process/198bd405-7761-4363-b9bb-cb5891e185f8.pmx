@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildPDFData" OwnerId="cdb33597-dbd6-4491-8f37-e81c0c50ba39" ProcessId="198bd405-7761-4363-b9bb-cb5891e185f8" ProcessType="Normal" Classification="ViewElement" IsRemovable="true" Description="Converts base64 content RFC2397 PDF data">
+  <Variables>
+    <Variable Name="Base64Content" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="778b107d-d8ce-447e-a08d-583fb724c890" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PDFData" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="18da4c0d-58b0-4538-ba83-927b604400cd" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="d46863a4-6699-4022-8b5a-a6443a0a858d" Bounds="822.5,55,170,55" />
+        <AssignNode Description="PDFData = data:application/pdf;base64,&lt;data&gt; (RFC 2397)" ID="e3a175e8-09c7-4b6b-b14c-1d6adb1db59b" Bounds="632.5,155,550,55" ZOrder="2" Text="">
+          <Assignment Name="PDFData" Value="Text.Concatenate( &quot;data:application/pdf;base64,&quot;, Base64Content )" />
+        </AssignNode>
+        <EndNode ID="849233b7-74c2-4351-bb07-6effcaa38fb5" Bounds="822.5,255,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="dce92f66-158c-4649-81fe-eb5a3cbc7550" From="e3a175e8-09c7-4b6b-b14c-1d6adb1db59b" FromIndex="2" To="849233b7-74c2-4351-bb07-6effcaa38fb5" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="53343e4f-0842-4afd-82d9-afd5e11db6eb" From="d46863a4-6699-4022-8b5a-a6443a0a858d" FromIndex="0" To="e3a175e8-09c7-4b6b-b14c-1d6adb1db59b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

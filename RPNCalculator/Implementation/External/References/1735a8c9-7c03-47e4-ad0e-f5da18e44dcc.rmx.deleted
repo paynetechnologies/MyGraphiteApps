@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="1735a8c9-7c03-47e4-ad0e-f5da18e44dcc" Name="s" Reference="Wrapper_NET_Stack.exe">
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</ExternalReference>

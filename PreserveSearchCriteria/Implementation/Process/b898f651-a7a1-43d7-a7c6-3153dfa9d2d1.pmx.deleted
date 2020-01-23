@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="0d7f3241-a863-4410-9f93-64af5cd8689a" ProcessId="b898f651-a7a1-43d7-a7c6-3153dfa9d2d1" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="0d7f3241-a863-4410-9f93-64af5cd8689a" VariableType="Output" Classification="Pinned, Locked" VariableId="115b369b-53d3-4934-b1fc-72066d85e697" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="603f5747-29a6-4c5d-ab2f-9885c9ac1524" VariableType="Input" Classification="Pinned, Locked" VariableId="3f631f1d-e106-4f55-bca3-f2a9ad435fab" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="d2acddf6-f824-41e9-8391-d77ea7bde9f6" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="0d7f3241-a863-4410-9f93-64af5cd8689a" Description="Create the TestPage view" ID="02a64c9f-09c5-4835-bd12-7babd23d2a74" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="66a8687b-5a6e-4076-8222-fc86c92e360c" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="18327739-a31a-4aa1-be25-961c23ab4776" From="d2acddf6-f824-41e9-8391-d77ea7bde9f6" FromIndex="0" To="02a64c9f-09c5-4835-bd12-7babd23d2a74" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="358206d1-904f-4a7a-9d73-7bcde0230080" From="02a64c9f-09c5-4835-bd12-7babd23d2a74" FromIndex="2" To="66a8687b-5a6e-4076-8222-fc86c92e360c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

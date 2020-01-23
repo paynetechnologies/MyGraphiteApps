@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SignatureField" ViewElementId="50dfe854-3c75-4ecf-bc8e-e8657ddb6388" BasedOn="f755a6c5-48c1-465c-9615-4deb3a49b8de" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Signature Field is used for screen drawn signatures.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowClearButton" PropertyId="SimpleEntityDefinitionProperty_ShowClearButton" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ShowDisableButton" PropertyId="SimpleEntityDefinitionProperty_ShowDisableButton" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExportType" PropertyId="SimpleEntityDefinitionProperty_ExportType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SignatureField" />
+    <Property PropertyName="ShowClearButton" DefaultValue="Yes" />
+    <Property PropertyName="ShowDisableButton" DefaultValue="No" />
+    <Property PropertyName="ExportType" DefaultValue="JSON" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SignatureField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Signature.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="LabelTextString" EditorType="Hidden" Label="Label" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="LabelTooltip" EditorType="Hidden" Label="Tooltip" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="IconSymbol" EditorType="Hidden" Label="Icon" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="DimensionWidth" EditorType="Hidden" Label="Width" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="DimensionHeight" EditorType="DecimalTextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Hieight of the Field]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale for the Height and Width]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowClearButton" EditorType="YesNoToggle" Label="Show Clear Button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show a Clear Button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ShowDisableButton" EditorType="YesNoToggle" Label="Show Disable Button?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show a Disable Button?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ExportType" EditorType="Hidden" Label="ExportType" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="JSON" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="LabelTextString" PropertyPath="Label.TextString" Value="{Text}" />
+      <Map FieldName="LabelTooltip" PropertyPath="Label.Tooltip" Value="{Text}" />
+      <Map FieldName="IconSymbol" PropertyPath="Icon.Symbol" Value="{Text}" />
+      <Map FieldName="DimensionWidth" PropertyPath="Dimension.Width" Value="{Text}" />
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="ShowClearButton" PropertyPath="ShowClearButton" Value="{Text}" />
+      <Map FieldName="ShowDisableButton" PropertyPath="ShowDisableButton" Value="{Text}" />
+      <Map FieldName="ExportType" PropertyPath="ExportType" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Clear</Key>
+    <Key>Disable</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEZSURBVDhPrZO7ccJAEIYluwJaoAWlDk0IGYQOpRKgBFOCKAFKsFugBbXg1Jn8fze7mvMND72+mX92Ryft43aVt22bOVVV7c1t6rq+mB/QWSHzjq+zI7YPL2adq/QpnS1gQP5C5kvibBB5WZbmdhCETki2kn4kglM9Xe2k3rwWRVeo8y2tJQ6o/E36kBppI/1KvUmvyKkkKqc9usGncuwgSMCUXQ7XEw8Sn2dO/M1D3esAtmYhbM8Y4gS5WWDQzICquRYS+AoD7z5T4FYH8b0zC98aTzqINAEBfNcPEh2wVfhwltis3sQJ+LA2y1BPkuNDXkqDfjZ+NKYdfLNzEeKmV/RvxSaoI02QbsJYdcQJblUyRYG0g5nJsj9gAWnqeafQJQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVDhPvZSBEYIwEASDHVgLLdCCLdgCLWgJtqAl2IItaAm2gHchF38yIQRFd2bNm0BePw/NMAzO0IfxAS9jGGlhN4buGMZ5mMDYQdFCzW/hE5Ie2nuK5iYPkNwgN+bclRPgDNPri2YnITcnJ6iEd6iE1WYnIcujkhDGtmTV8sNiF1lrkda9mk046xy7MBJ1z3JCImJ/oT3oj7oHemIAtLD33951n2rdOT0xAIzt4TKRLtZ5LOkkTwwAb1R7skTpDbZ107WcHr4q9K5owrgWft80geJviXv99R/8hNKDtgLOvQCOCucjiTtx+AAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

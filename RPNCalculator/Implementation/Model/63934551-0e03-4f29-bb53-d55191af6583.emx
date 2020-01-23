@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="CalculatorUnitTest" EntityId="63934551-0e03-4f29-bb53-d55191af6583" NamespaceExtension="UnitTest.TestCase" TargetChangeSetId="595ecaa9-1b09-4cd9-8bdb-fe9ba0925b90">
+  <Description />
+  <Tags>
+    <Tag Type="Group">UnitTest</Tag>
+  </Tags>
+</EntityDefinition>

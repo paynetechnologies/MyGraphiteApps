@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="OptionDetail" ViewElementId="403b0e0b-e486-44e6-a3fb-0f1dc295918e" BasedOn="" IsSystem="true" IsBuiltIn="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Source" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsFirstBlank" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Display" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Value" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Options" IsOptional="true" DataType="$[List,d755da0a-0e5c-4094-8ba7-791b6dd53e2c]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="IsFirstBlank" DefaultValue="Yes" />
+    <Property PropertyName="Display" DefaultValue="Description" />
+    <Property PropertyName="Value" DefaultValue="Id" />
+  </DefaultValues>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

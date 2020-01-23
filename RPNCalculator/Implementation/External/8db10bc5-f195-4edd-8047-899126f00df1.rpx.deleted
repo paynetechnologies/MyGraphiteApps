@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="8db10bc5-f195-4edd-8047-899126f00df1" Name="Pop" ExternalReferenceId="b3bba96b-bb25-43eb-bff1-8230325f44a5">
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>NET_Stack</ExternalClassName>
+  <ExternalMethodName>Pop</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Outputs>
+</ExternalProcessDefinition>

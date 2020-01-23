@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickCloseButton" OwnerId="f8f9e2c2-b7b2-410a-95dc-4e9b7813cfe4" ProcessId="95c43bc4-207b-4cfc-9bcb-7eeb3718c35d" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="603f5747-29a6-4c5d-ab2f-9885c9ac1524" VariableType="Input" Classification="Pinned, Locked" VariableId="71a94d44-72c1-496a-bbfd-3c949972d3a3" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="7f854aca-8451-4d3c-8101-b55584ca7ed3" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="2c6c0e20-2c60-4cc3-9470-2f294a155a58" Bounds="822.5,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="81981b16-f69b-4e0b-aa2f-5f4ed5ce88e9" Bounds="632.5,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <PageInstructionNode Action="CloseView" Context="Current" PageInstructionViewElementId="f77eeacc-125b-496b-a9cb-5a9561dd73b6" Description="Close View" ID="ed5ed691-e5dd-4b6f-acbd-aeb9cf92d09b" Bounds="632.5,255,550,55" />
+        <EndNode ID="0b24a6dc-9205-4f1e-a3e9-26a9c33e0550" Bounds="822.5,355,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="9500038e-7398-4e95-86b5-4b3ca688ba5b" From="2c6c0e20-2c60-4cc3-9470-2f294a155a58" FromIndex="0" To="81981b16-f69b-4e0b-aa2f-5f4ed5ce88e9" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9e8f5387-6e7c-4e06-9d8d-3d336eceeb57" From="81981b16-f69b-4e0b-aa2f-5f4ed5ce88e9" FromIndex="2" To="ed5ed691-e5dd-4b6f-acbd-aeb9cf92d09b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a498e0f5-5c1c-47c9-b713-89c254a4b15d" From="ed5ed691-e5dd-4b6f-acbd-aeb9cf92d09b" FromIndex="2" To="0b24a6dc-9205-4f1e-a3e9-26a9c33e0550" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

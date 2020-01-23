@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Element" EntityId="eef20733-dcb1-4c2c-b357-e4744d88b671" TargetChangeSetId="595ecaa9-1b09-4cd9-8bdb-fe9ba0925b90">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="StringProperty" PropertyId="3b93ad94-51b2-4ba0-83a5-75aa39532d0c" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Financial</Tag>
+  </Tags>
+</EntityDefinition>

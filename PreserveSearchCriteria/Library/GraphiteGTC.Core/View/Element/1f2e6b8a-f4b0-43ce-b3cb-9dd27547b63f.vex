@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DisplayItem" ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Display Item is used to display information within a Display Detail.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Value" PropertyId="SimpleEntityDefinitionProperty_Value" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Label" PropertyId="SimpleEntityDefinitionProperty_Label" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Mask" PropertyId="SimpleEntityDefinitionProperty_Mask" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AppendLine" PropertyId="SimpleEntityDefinitionProperty_AppendLine" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SpanRow" PropertyId="SimpleEntityDefinitionProperty_SpanRow" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextColor" PropertyId="SimpleEntityDefinitionProperty_TextColor" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ItemSpan" PropertyId="SimpleEntityDefinitionProperty_ItemSpan" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="DisplayItem" />
+    <Property PropertyName="AppendLine" DefaultValue="No" />
+    <Property PropertyName="SpanRow" DefaultValue="No" />
+    <Property PropertyName="ItemSpan" DefaultValue="1" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">DisplayItem.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Mask.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Label" EditorType="TranslationKeyChooser" Label="Label" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Lable of the Item]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Mask" EditorType="MaskChooser" Label="Mask" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Mask for the Item value]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="AppendLine" EditorType="YesNoToggle" Label="Append a Line?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Append a Line after the Item?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SpanRow" EditorType="YesNoToggle" Label="Span Row?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Span Item across the entire row?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TextColor" EditorType="ColorChooser" Label="Text Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Color of the Item value]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="ItemSpan" EditorType="SelectBox" Label="Item Span" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Number of Items to Span]]></Description>
+        <DescriptionOptions><![CDATA[1 - 8]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="1" Value="1" />
+          <FieldOption DisplayName="2" Value="2" />
+          <FieldOption DisplayName="3" Value="3" />
+          <FieldOption DisplayName="4" Value="4" />
+          <FieldOption DisplayName="5" Value="5" />
+          <FieldOption DisplayName="6" Value="6" />
+          <FieldOption DisplayName="7" Value="7" />
+          <FieldOption DisplayName="8" Value="8" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="1" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="TranslateContent" EditorType="YesNoToggle" Label="Translate Value?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Translate Value?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Label" PropertyPath="Label" Value="{TranslationKey}" />
+      <Map FieldName="Mask" PropertyPath="Mask" Value="{Text}" />
+      <Map FieldName="AppendLine" PropertyPath="AppendLine" Value="{Text}" />
+      <Map FieldName="SpanRow" PropertyPath="SpanRow" Value="{Text}" />
+      <Map FieldName="TextColor" PropertyPath="TextColor" Value="{Text}" />
+      <Map FieldName="ItemSpan" PropertyPath="ItemSpan" Value="{Text}" />
+      <Map FieldName="TranslateContent" PropertyPath="TranslateContent" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAYAAAARZmTlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVDhP3ZAxCgAwCAO1j/X/P2gRWgglk5gOPQgOGcLpETFNzNhXCo44CVLucSTfdgcp93+ayMgRptmaHGGarXn2rgNTRco9jjBVpNz/aSLCbAH6TldPdOZe9wAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAYAAAARZmTlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA7SURBVDhPY/wPBAw0BkxQmqYA2SeMUBoZIPuSbHm6BNfw8QndIh7KpB0YXsEF88nQTl3Dxyd0iHgGBgAXtjbpLDbGOwAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

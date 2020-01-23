@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ToolbarPanel" ViewElementId="0943a9f9-a405-4e8d-b9cb-ebc3868e166b" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Toolbar Panel provides a title and a set of quick navigation links.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="QuickNavigationLinks" PropertyId="SimpleEntityDefinitionProperty_QuickNavigationLinks" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="SimpleEntityDefinitionProperty_Links" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SearchTool" PropertyId="SimpleEntityDefinitionProperty_SearchTool" IsOptional="true" DataType="095180c5-99b1-4c9a-b6c9-5d1c54c8fef3" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SlidePanel" PropertyId="SimpleEntityDefinitionProperty_SlidePanel" IsOptional="true" DataType="457dc588-0201-47aa-93e5-7b921628fd26" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ToolbarPanel" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ToolbarPanel.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="IsDisplayed" EditorType="Hidden" Label="Show?" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Toolbar]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SearchToolName" EditorType="TextBox" Label="Name" Grouping="Search" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Name of the Search Field]]></Description>
+      </Field>
+      <Field FieldName="SearchToolIsDisplayed" EditorType="YesNoToggle" Label="Show?" Grouping="Search" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show Search Field?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SearchToolIsLocked" EditorType="Hidden" Label="Locked?" Grouping="Search" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SearchToolIsRequired" EditorType="Hidden" Label="Required?" Grouping="Search" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SearchToolIsSerializable" EditorType="Hidden" Label="Serializable?" Grouping="Search" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SearchToolOnChange" EditorType="ViewBehaviorChooser" Label="OnChange" Grouping="Search" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the search field changes]]></Description>
+      </Field>
+      <Field FieldName="SearchToolValue" EditorType="Hidden" Label="Value" Grouping="Search" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="SearchToolPlaceholder" EditorType="TranslationKeyChooser" Label="Placeholder" Grouping="Search" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Placeholder text in the search field]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SearchToolAdvancedNavigationView" EditorType="ViewChooser" Label="Advanced Search View" Grouping="Search" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View to navigate when the Advanced icon is clicked]]></Description>
+      </Field>
+      <Field FieldName="SearchToolIsAdvancedDisplayed" EditorType="YesNoToggle" Label="Display Advanced?" Grouping="Search" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Advanced icon?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="SlidePanel" EditorType="PropertyNodeCreator" Label="Side Slide Panel" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Slide Panel attached to the Toolbar]]></Description>
+      </Field>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Quick Links Focus Index" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order for the Qucik Links]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="IsDisplayed" PropertyPath="IsDisplayed" Value="{Text}" />
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="SearchToolName" PropertyPath="SearchTool.Name" Value="{Text}" />
+      <Map FieldName="SearchToolIsDisplayed" PropertyPath="SearchTool.IsDisplayed" Value="{Text}" />
+      <Map FieldName="SearchToolIsLocked" PropertyPath="SearchTool.IsLocked" Value="{Text}" />
+      <Map FieldName="SearchToolIsRequired" PropertyPath="SearchTool.IsRequired" Value="{Text}" />
+      <Map FieldName="SearchToolIsSerializable" PropertyPath="SearchTool.IsSerializable" Value="{Text}" />
+      <Map FieldName="SearchToolOnChange" PropertyPath="SearchTool.OnChange.ActionName" Value="{ActionName}" />
+      <Map FieldName="SearchToolOnChange" PropertyPath="SearchTool.OnChange.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="SearchToolValue" PropertyPath="SearchTool.Value" Value="{Text}" />
+      <Map FieldName="SearchToolPlaceholder" PropertyPath="SearchTool.Placeholder" Value="{TranslationKey}" />
+      <Map FieldName="SearchToolAdvancedNavigationView" PropertyPath="SearchTool.AdvancedNavigation.View" Value="{Url}" />
+      <Map FieldName="SearchToolIsAdvancedDisplayed" PropertyPath="SearchTool.IsAdvancedDisplayed" Value="{Text}" />
+      <Map FieldName="SlidePanel" PropertyPath="SlidePanel" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Toolbar</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVEhL7ZVBCgAgCAStx/r/HxRBhoKxl+y0A0sXZVg81FR1SCF9v60oR7BYTW5B+Lmw4wUleEFW0YLwc2HHBFbrdf4euQQKIBRAKIBQAKEAYoLsN3oQkQlrCzlhL6uzVAAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVEhLY/wPBAw0BDALGCFcqoP/TFAGCIAswoUJAWR1KHqQLaAJoHkQDa9IpgkYtYAgGLWAIBi1gCAYtYAgGLWAIKBxjcbAAACLzyYIWvlMxAAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

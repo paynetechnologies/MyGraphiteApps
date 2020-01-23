@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ProgressStep" ViewElementId="bd8d6eb8-f169-460f-b96c-24d4e1f1ee4f" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Progress Step is a part of the Progress Poll process in which progress steps are activated at certain intervals.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Status" PropertyId="SimpleEntityDefinitionProperty_Status" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayItems" PropertyId="SimpleEntityDefinitionProperty_DisplayItems" IsOptional="true" DataType="$[List,1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ProgressStep" />
+    <Property PropertyName="Status" DefaultValue="Pending" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ProgressStep.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Progress Step]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAPCAYAAAD+pA/bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACoSURBVDhP7ZJLCsIwFEVbCy6jm8hEOncfgpB16EIcuI3SQTsRt6QO9B6agA1+YzLzwCGvKdw7eCmttcUTru4s3RnFzJ3Z+Be8JSzYSJbrFwz+m39f86hgO44TuEtSAGFJdDhUxhg3Tugl73+Q0eHwaskE/xQOFNSylSd5v9wQv+xPJIvMmoKdXMq5TAVZZO4pWHCTiYaC4zhn4UDBWnbyzE0iLlKZxeoG04Amhm5yak4AAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAPCAYAAAD+pA/bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACgSURBVDhP7ZRNDkAwEEaxdoa6jIP1XGysxH2salPfxzSRorTRnZe89I+ZmLZKa21xg1sopU2ikjYbf4JH/AQacnOPO+/GXIuHp8hTQx/OXT376OUkPCZJDk5D98CVJK00QijBJ3CTFeyggaFsXHsrYzGm4hf06LTQcfdr4IuxDEwwo1Pv440vEyws0bT3szDyKCmWCRpITkdNjGGBiGmbFQ9EG6jG2d6JAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

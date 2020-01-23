@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="GetListOfPeople" OwnerId="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessId="362c5bc5-1298-4abf-8373-26ef7dcf3eb5" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="inputFirstName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="5955d106-b364-4edc-909f-03effa1d6a69" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="inputLastName" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="a22045db-6f84-4251-aaf9-4a956fbc4821" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="People" DataType="$[List,cb9e2f2a-9099-4787-848d-3ab22edb933f]" VariableType="Output" VariableId="33a40934-5463-49eb-bc0a-94f69daf747b" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="8592f202-3c48-42dd-b8a6-23521c581c8e" Bounds="630.6,55,170,55" />
+        <DataLookupNode Source="cb9e2f2a-9099-4787-848d-3ab22edb933f" VariableId="People" ResultType="Array" Description="Get a List of People based on Criteria" ID="7a0380a2-e975-4cce-b8cb-980694f5c723" Bounds="440.6,155,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="FirstName" RightExpression="inputFirstName" Operator="StartsWith" />
+            <CriteriaExpression LeftExpression="LastName" RightExpression="inputLastName" Operator="StartsWith" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="FirstName" SortOrderType="Ascending" SortPriority="0" />
+            <SortCriteria PropertyName="LastName" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </DataLookupNode>
+        <EndNode ID="5c43049a-d537-4e35-b483-55b50270d102" Bounds="630.6,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="706baff9-12f5-4270-a9d2-6a8884de7555" From="8592f202-3c48-42dd-b8a6-23521c581c8e" FromIndex="0" To="7a0380a2-e975-4cce-b8cb-980694f5c723" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="591f1dd7-1629-4f7d-a2f5-d176ff879498" From="7a0380a2-e975-4cce-b8cb-980694f5c723" FromIndex="2" To="5c43049a-d537-4e35-b483-55b50270d102" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

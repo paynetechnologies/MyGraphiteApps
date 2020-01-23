@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="a518e8e9-8db5-4da3-97c9-f601ad2fb7bb" ProcessId="252d0dd9-732f-4fb0-8e18-20ad476fbf32" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="a518e8e9-8db5-4da3-97c9-f601ad2fb7bb" VariableType="Output" Classification="Pinned, Locked" VariableId="5d2871c6-9cf0-41e6-871d-2a073023ef72" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="6d758d90-930b-4481-8c55-689a647d7abf" VariableType="Input" Classification="Pinned, Locked" VariableId="4597797c-d8e3-4c4d-a194-8c34234b106c" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="8846ab9d-c83f-45fb-8fb1-9ad49d9f2069" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="a518e8e9-8db5-4da3-97c9-f601ad2fb7bb" Description="Create the CaculatorPage2 view" ID="af6ce3b6-ccc1-404e-bc33-05240b53bc41" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="b5b195a8-2cf6-44f6-9b06-2e1640b348ba" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="be394f1e-0815-47c5-8f9b-b6018d735fc1" From="8846ab9d-c83f-45fb-8fb1-9ad49d9f2069" FromIndex="0" To="af6ce3b6-ccc1-404e-bc33-05240b53bc41" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="9b843547-7129-4c45-ae0f-46bcfa0b2e4e" From="af6ce3b6-ccc1-404e-bc33-05240b53bc41" FromIndex="2" To="b5b195a8-2cf6-44f6-9b06-2e1640b348ba" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

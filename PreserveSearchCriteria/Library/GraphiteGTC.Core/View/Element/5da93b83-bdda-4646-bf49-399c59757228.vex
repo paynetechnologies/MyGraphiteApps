@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="FilteredTextField" ViewElementId="5da93b83-bdda-4646-bf49-399c59757228" BasedOn="c93d4718-fd82-4519-8b57-c3fbc4ff5253" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Filtered Text Field contains (or loads) a list of items and allows user to filter the list based on inputed characters.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OptionDetail" PropertyId="SimpleEntityDefinitionProperty_OptionDetail" IsOptional="true" DataType="403b0e0b-e486-44e6-a3fb-0f1dc295918e" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsFreeForm" PropertyId="SimpleEntityDefinitionProperty_IsFreeForm" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="MinimumCharacters" PropertyId="9f703619-4d08-4436-93ef-9749ca009da8" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnKeyUp" PropertyId="d5290e45-7717-4981-8655-58b403867399" IsOptional="true" DataType="ea4becd3-7453-4b22-8969-4c61223531e3" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="FilteredTextField" />
+    <Property PropertyName="IsFreeForm" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">FilteredTextField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Menu.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.FilteredTextField.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OptionDetail" EditorType="DataSource" Label="Options" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Enumeration or Entity for the Filter Choices]]></Description>
+      </Field>
+      <Field FieldName="IsFirstBlank" EditorType="Hidden" Label="IsFirstBlank" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsFreeForm" EditorType="YesNoToggle" Label="Is Free Form?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Allow free form text (if no match)]]></Description>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="MinimumCharacters" EditorType="IntegerTextBox" Label="Minimum Characters" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Minimum characters before filter match]]></Description>
+      </Field>
+      <Field FieldName="OnKeyUp" EditorType="ViewBehaviorChooser" Label="OnKeyUp" Grouping="OnKeyUp" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run on Key up]]></Description>
+      </Field>
+      <Field FieldName="FormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit?" Grouping="OnChange" AffectsRender="false" IsLocalizable="false" SerializedFieldContainerProvider="true">
+        <Description><![CDATA[Form to submit to the OnChange Behavior]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="KeyUpFormToSerialize" EditorType="ViewElementChooser" Label="Form to Submit?" Grouping="OnKeyUp" AffectsRender="false" IsLocalizable="false" SerializedFieldContainerProvider="true">
+        <Description><![CDATA[Form to submit to the OnKeyUp Behavior]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="OnChange" EditorType="ViewBehaviorChooser" Label="OnChange" Grouping="OnChange" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Field changes]]></Description>
+      </Field>
+      <Field FieldName="Mask" EditorType="Hidden" Label="Mask" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Source" Value="{Source}" />
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Display" Value="{DisplayPropertyId}" />
+      <Map FieldName="OptionDetail" PropertyPath="OptionDetail.Value" Value="{ValuePropertyId}" />
+      <Map FieldName="IsFirstBlank" PropertyPath="OptionDetail.IsFirstBlank" Value="{Text}" />
+      <Map FieldName="IsFreeForm" PropertyPath="IsFreeForm" Value="{Text}" />
+      <Map FieldName="MinimumCharacters" PropertyPath="MinimumCharacters" Value="{Text}" />
+      <Map FieldName="OnKeyUp" PropertyPath="OnKeyUp.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnKeyUp" PropertyPath="OnKeyUp.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="FormToSerialize" PropertyPath="OnChange.FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="KeyUpFormToSerialize" PropertyPath="OnKeyUp.FormToSerialize" Value="{SelectedElementName}" />
+      <Map FieldName="OnChange" PropertyPath="OnChange.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnChange" PropertyPath="OnChange.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAALCAYAAABlNU3NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVDhPY4yJifnPQEPABKVpBpAtYKQyBgNsPgAFGQxTDLBZALMd7gpKAF3jgCYAVxwg0xQBXHGAkhIoAcgWIKceamAwoHEcMDAAAOyFGymVijoUAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAALCAYAAABlNU3NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVDhPY/zz5/9/BhoCJihNM4DsA0YoTS0ANhebD0ASMEwxwGYBzCdU8RHN42BALICFPU3jAIYpBkM9ozEwAADJXhH2Q/jUrQAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

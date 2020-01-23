@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="f8076495-99b9-4691-977c-23527ca76df6" ProcessId="f5a2cda0-0be7-463c-9fdf-a9e3cc1181e5" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="f8076495-99b9-4691-977c-23527ca76df6" VariableType="Output" Classification="Pinned, Locked" VariableId="20773a20-3e9b-4383-9c06-2e2c521bdbda" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="603f5747-29a6-4c5d-ab2f-9885c9ac1524" VariableType="Input" Classification="Pinned, Locked" VariableId="7d2cabf0-14fb-4a9f-9dde-736148f2a245" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="902cf588-dfcd-4f14-ba4c-3770eaf9f22b" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="f8076495-99b9-4691-977c-23527ca76df6" Description="Create the Home view" ID="33d012db-41e9-469d-b4a2-72543de31382" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="6a645918-55c6-4ee3-be6b-c91502291c07" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="08f7ac4c-9005-4eca-8050-0c865a3dbc22" From="902cf588-dfcd-4f14-ba4c-3770eaf9f22b" FromIndex="0" To="33d012db-41e9-469d-b4a2-72543de31382" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="834164fe-8959-49e3-a1ae-e56d0c94f376" From="33d012db-41e9-469d-b4a2-72543de31382" FromIndex="2" To="6a645918-55c6-4ee3-be6b-c91502291c07" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

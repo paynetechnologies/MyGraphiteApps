@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="25d66141-ccb6-4360-acfe-506c20db286b" Name="Clear" ExternalReferenceId="663352da-e42d-4d45-a4ed-128cdd4afa06">
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>Element</ExternalClassName>
+  <ExternalMethodName>Clear</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Outputs>
+</ExternalProcessDefinition>

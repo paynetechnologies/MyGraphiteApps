@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="f8f9e2c2-b7b2-410a-95dc-4e9b7813cfe4" ProcessId="4cdb488a-c361-4ca5-843f-b801f5862d7d" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="f8f9e2c2-b7b2-410a-95dc-4e9b7813cfe4" VariableType="Output" Classification="Pinned, Locked" VariableId="5ecc05dd-24e1-461a-90c9-8ef4fe56ec93" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="603f5747-29a6-4c5d-ab2f-9885c9ac1524" VariableType="Input" Classification="Pinned, Locked" VariableId="79ab91fe-689d-4a50-911d-58e61e6f0322" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PersonInContext" DataType="cb9e2f2a-9099-4787-848d-3ab22edb933f" VariableType="Input" VariableId="80f79e8f-4339-4fac-9d16-242f076868be" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="7f7bb208-8da9-4f78-9108-54cedfe78379" Bounds="822.5,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="f8f9e2c2-b7b2-410a-95dc-4e9b7813cfe4" Description="Create the Details view" ID="77513635-137c-4b6f-91bc-4d90a1558b39" Bounds="632.5,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <AssignNode Description="Set Display Items" ID="ed0246c1-2c9c-45d3-819d-5c33e2943b86" Bounds="632.5,255,550,55">
+          <Assignment Name="FirstNameItem.Value" Value="PersonInContext.FirstName" />
+          <Assignment Name="LastNameItem.Value" Value="PersonInContext.LastName" />
+        </AssignNode>
+        <EndNode ID="2e343fd1-ef6a-411e-9052-e053407d0409" Bounds="822.5,355,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="cac45a9d-15d9-4b46-bba2-d8af3746f93d" From="7f7bb208-8da9-4f78-9108-54cedfe78379" FromIndex="0" To="77513635-137c-4b6f-91bc-4d90a1558b39" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b1bb4fe3-f4f0-4676-a7a7-e71855c014ab" From="77513635-137c-4b6f-91bc-4d90a1558b39" FromIndex="2" To="ed0246c1-2c9c-45d3-819d-5c33e2943b86" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="509e21cc-ff14-48e6-90df-51d95077e0d8" From="ed0246c1-2c9c-45d3-819d-5c33e2943b86" FromIndex="2" To="2e343fd1-ef6a-411e-9052-e053407d0409" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

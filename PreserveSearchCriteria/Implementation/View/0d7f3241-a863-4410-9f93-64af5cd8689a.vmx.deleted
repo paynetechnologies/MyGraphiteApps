@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="TestPage" GroupName="Page" NamespaceExtension="Page" ViewId="0d7f3241-a863-4410-9f93-64af5cd8689a" IsDefaultView="false" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Screens</Tag>
+  </Tags>
+</ViewDefinition>

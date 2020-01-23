@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="188776e9-8bd1-45c6-ad92-32d034d0b74f" Name="MyStack" Reference="Wrapper_NET_Stack.dll">
+  <Tags>
+    <Tag Type="Group">Financial</Tag>
+  </Tags>
+</ExternalReference>

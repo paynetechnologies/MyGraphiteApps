@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementPackDefinition ElementPackId="89718e95-fc93-4bcb-831f-22928d078dc6" ElementPackName="GuideHeaderPack">
+  <Properties />
+  <ViewDiagram>
+    <Diagram>
+      <Nodes>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Links" OwnerNode="efd56447-ce19-49ac-ba43-b64c72b0f3f7" ID="1b0654f3-bd36-425f-a85f-9c36533e291c" Bounds="90,105,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="UserProfileLinks" OwnerNode="efd56447-ce19-49ac-ba43-b64c72b0f3f7" ID="b4b57f42-17bc-4ed5-815e-c218284c6595" Bounds="90,215,290,35" Text="Link">
+          <FieldPropertyValues />
+        </ListViewElementDiagramNode>
+        <ViewElementDiagramNode Description="" ViewElementId="af37d61e-f6e8-45eb-a1b6-ba605a331200" ID="efd56447-ce19-49ac-ba43-b64c72b0f3f7" Bounds="50,50,290,35">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="HeaderAppBar" />
+            </Field>
+            <Field FieldName="BackgroundColor">
+              <PropertyValue Property="Text" Value="rgb(66, 165, 245)" />
+            </Field>
+          </FieldPropertyValues>
+        </ViewElementDiagramNode>
+        <PropertyViewElementDiagramNode Description="" ViewElementId="08eaad0c-ba37-4634-aa0a-6b1760d6fe2c" PropertyName="ImageLink" OwnerNode="efd56447-ce19-49ac-ba43-b64c72b0f3f7" ID="7e6059e2-9473-4aa7-a4ef-7196f540195a" Bounds="90,160,290,35" Text="ImageLink">
+          <FieldPropertyValues>
+            <Field FieldName="Name">
+              <PropertyValue Property="Text" Value="HeaderImageLink" />
+            </Field>
+            <Field FieldName="NavigationView">
+              <PropertyValue Property="ViewId" Value="f8076495-99b9-4691-977c-23527ca76df6" />
+            </Field>
+            <Field FieldName="ImageSource">
+              <PropertyValue Property="SelectedResourceName" Value="$[e38a7bc6-d085-4984-9c62-d0ada97476ad,common,Image,SampleAppsTitleWhite]" />
+            </Field>
+          </FieldPropertyValues>
+        </PropertyViewElementDiagramNode>
+      </Nodes>
+      <Connections>
+        <ViewDiagramNodeConnection ID="6a319c12-91fe-4576-acaf-b4de470f42de" From="efd56447-ce19-49ac-ba43-b64c72b0f3f7" FromIndex="0" To="1b0654f3-bd36-425f-a85f-9c36533e291c" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,122.5" />
+          <Segment EndPoint="90,122.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="5fb8c0b8-ba0e-4dd4-b8f4-e22fdabe39ea" From="efd56447-ce19-49ac-ba43-b64c72b0f3f7" FromIndex="0" To="b4b57f42-17bc-4ed5-815e-c218284c6595" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,232.5" />
+          <Segment EndPoint="90,232.5" />
+        </ViewDiagramNodeConnection>
+        <ViewDiagramNodeConnection ID="6ba0e1e0-65cb-45c3-9ee2-f9411ff9d704" From="efd56447-ce19-49ac-ba43-b64c72b0f3f7" FromIndex="0" To="7e6059e2-9473-4aa7-a4ef-7196f540195a" ToIndex="1" LineType="ElbowArrow">
+          <Segment EndPoint="70,85" />
+          <Segment EndPoint="70,177.5" />
+          <Segment EndPoint="90,177.5" />
+        </ViewDiagramNodeConnection>
+      </Connections>
+    </Diagram>
+  </ViewDiagram>
+  <Tags>
+    <Tag Type="Group">Screens</Tag>
+    <Tag Type="Default">Element Pack</Tag>
+  </Tags>
+</ViewElementPackDefinition>

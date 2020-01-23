@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="PrintButton" ViewElementId="d3fa778e-04f7-43dd-a5d1-bc90f9506031" BasedOn="b4878119-2641-4f3b-bba1-ec96aed3f170" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Print Button is a special button that allows the user to print a formatted version of the current page.</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="PrintButton" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">PrintButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAVCAYAAABYHP4bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACeSURBVEhL1ZMxDoAgDEXR1XhJDuDk5uzm5FndtSVIjHwrRirxJS8NCfG3IJW11hxYfc1F5aupfVXnHMQd5DTw6UR8L+oWu6NcDGTrq0MraCIXcnYrQiuoJxuycytCK2gkeSKujt//DBHnIPS63xgofnTwdT8wQpoIHUWKkLujQ91KXnIXhDqWvISDpI2o690UwrffTPQIKQhNkSLAmA2zWVNUMWkzXgAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAVCAYAAABYHP4bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACSSURBVEhLY/z//z8DEkDhUAEwQmkGJihNc4DuI5oBuvqILl6im49oZVE1EPNCaTCgVdCxA/EvIOYB4s8gAVr5qASIuYE4D8wDgtHEQDZADzp42UQlADd7wH1EaQLBMAefReQGI7Jeoi1CliMGwPSQbBE5AKdFUCYKgCnGKgkFuByCbBEcELKIHECyRZQANIsYGACI30bfQymzhwAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

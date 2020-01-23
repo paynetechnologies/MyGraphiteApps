@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ContainerElement" ViewElementId="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ViewElements" PropertyId="f65f1b06-704b-47ea-b469-2c4b7689d870" IsOptional="true" DataType="$[List,38107afd-fd3d-4472-b463-d8d0d5588a55]" />
+  </Properties>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ContainerElement.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

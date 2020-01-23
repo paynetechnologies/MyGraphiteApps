@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="SwitchField" ViewElementId="bc318f1c-9406-45b7-bc7b-055ef9743ee5" BasedOn="f755a6c5-48c1-465c-9615-4deb3a49b8de" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description>Switch Field is a field to switch between two states</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnText" PropertyId="5deea66f-885b-4103-8191-45cb314a4a4e" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OffText" PropertyId="8ea8cf43-05dc-43a2-af96-f339a90d8823" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="SwitchField" />
+    <Property PropertyName="OffText" DefaultValue="No" />
+    <Property PropertyName="OnText" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">SwitchField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Switchbox.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="OnText" EditorType="TranslationKeyChooser" Label="On Text" Grouping="Display Text" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Text for On other than "On"]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="OffText" EditorType="TranslationKeyChooser" Label="Off Text" Grouping="Display Text" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Text for Off other than "Off"]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="OnText" PropertyPath="OnText" Value="{TranslationKey}" />
+      <Map FieldName="OffText" PropertyPath="OffText" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Yes</Key>
+    <Key>No</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEzSURBVDhPldM7LgZRHIbxGYLGDlgCcYm4lBQkLlEpWMCQaKgpqUUjrECi9FFQUIoQcV2CFYgCEZ5nZk4iEzPGm/wy/zlz8p3Ld06cJEmUpxVLmEeXDeQR+9jFuw3/TVP+7MAltjGM9py1bX6zj1nGV4kXnGEaaRzAmR+h14aS+O0YbXA1T/gtTmoUDWzY4ACLqPrxkB64n59wC+MCJzqBZ5g1zDjAQvpaL1V9P3CKObhdZtUB+rO6VvryZ1Uu8JCV0UD4k+vGWdZJWEHsADdZXSse278ygu6sjK4cwHNeN1V9WzCOA4Sd2bLYw136Wp172LcZ7vHP8y8v4gk6YTbRcIA3TOEWZXECk7Cvxzrc9GJecY5ZrNsQluLZHcIKrmFHWds2iHC+d1C8A4EXbQyHIFH0DYtfQlYorFy/AAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD2SURBVDhPnZRBCsIwEEVTpdU7eAbd9wJdqQdR1Eu49xiCh+jWhaAWewRvUDciGP9POkWKTYIPnp1OhkyISZXWWkzgGh5hVcuYOY591wYrwQheYBccYw1rl0x0wEXlcAqbBlyda3LhCgewD0smPGyhabAyr2Gw1qzshzHM4B0KMw5wn0NhbXvitil8Q5JH+HkqpRIYAmuHNnRSwAmseuY1nFf99IHNN0RscLZxEGX9dJHCsQ3ViQ32Ng7CVRvDDB6g7MyOfwqPHo+gjwLKMb0x4aE5ptR30bgAuWgLJjp4QF60OTRzSwPKC7eBJ8hCypi5Pz8VWn0A5xa4UAQVLTkAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

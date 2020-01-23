@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ItemList" ViewElementId="37a88b7a-48ef-4ec6-9f59-63cfd6cd56c5" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Item List is used to display a list of Html Text items.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ListItems" PropertyId="SimpleEntityDefinitionProperty_ListItems" IsOptional="true" DataType="$[List,1cb7e804-208f-47a6-b757-f511ea4c2022]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Ordered" PropertyId="SimpleEntityDefinitionProperty_Ordered" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ItemListType" PropertyId="SimpleEntityDefinitionProperty_ItemListType" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ItemList" />
+    <Property PropertyName="Ordered" DefaultValue="No" />
+    <Property PropertyName="ItemListType" DefaultValue="Default" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ItemList.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the List]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Ordered" EditorType="YesNoToggle" Label="Ordered?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Items Ordered?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="No" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ItemListType" EditorType="SelectBox" Label="Type" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Type of the List]]></Description>
+        <DescriptionOptions><![CDATA[Default. Panel]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Default" Value="Default" />
+          <FieldOption DisplayName="Panel" Value="Panel" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Default" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="Ordered" PropertyPath="Ordered" Value="{Text}" />
+      <Map FieldName="ItemListType" PropertyPath="ItemListType" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAYAAADkgu3FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABXSURBVEhL7ZQxCgAgDAOrj+3/f6AGHGrGBpfSg0PIkiHU4e7LXsaRM5l53+/ULMImUcCZbG+UpmYRfoEo4Ey2N0qDIr5iwJlsb5SmZhFfMeBMtjdKYrYBizI1YZvW5oAAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAYAAADkgu3FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABGSURBVEhLY/wPBAyogBGI0cUoBkxQmuZg+FkEiiMok7ZgNI7IBsMz1Y2WDGQBusYRlElbMBpHZIPhmepGSwayAJ0sYmAAABoBFRqjHGVoAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

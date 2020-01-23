@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="99265598-c23c-4d5c-a3dd-44796f560815" ProcessId="cd6aacd1-6aec-4ae1-8545-e3531d3e8d51" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="99265598-c23c-4d5c-a3dd-44796f560815" VariableType="Output" Classification="Pinned, Locked" VariableId="24f832cd-2b0a-49a8-b579-0f2aa4adfc8e" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="6d758d90-930b-4481-8c55-689a647d7abf" VariableType="Input" Classification="Pinned, Locked" VariableId="42ea00df-2faf-4181-b4f7-15c6c403cb94" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="5d1d8f13-bdae-49f5-bd3b-057693324665" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="99265598-c23c-4d5c-a3dd-44796f560815" Description="Create the CalculatorPage view" ID="a9d08b77-86db-492b-ae42-65adfb5a2db5" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <AssignNode ID="69a86f51-bab5-4637-9e13-d47d3a822c65" Bounds="440.6,255,550,55">
+          <Assignment Name="ResultField.Value" Value="&quot;&quot;" />
+        </AssignNode>
+        <EndNode ID="11975cee-9bf7-4cc3-8a92-8bd386266a97" Bounds="630.6,355,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="b1a6ce96-3ff4-4ac3-8d48-7520143a2d0d" From="5d1d8f13-bdae-49f5-bd3b-057693324665" FromIndex="0" To="a9d08b77-86db-492b-ae42-65adfb5a2db5" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="681e1c00-386a-4490-9b5f-f4245434b4d9" From="a9d08b77-86db-492b-ae42-65adfb5a2db5" FromIndex="2" To="69a86f51-bab5-4637-9e13-d47d3a822c65" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9e966311-2072-44ae-895d-ba14f102f484" From="69a86f51-bab5-4637-9e13-d47d3a822c65" FromIndex="2" To="11975cee-9bf7-4cc3-8a92-8bd386266a97" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

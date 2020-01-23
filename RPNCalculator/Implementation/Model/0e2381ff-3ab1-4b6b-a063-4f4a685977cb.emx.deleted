@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Slist" EntityId="0e2381ff-3ab1-4b6b-a063-4f4a685977cb" TargetChangeSetId="595ecaa9-1b09-4cd9-8bdb-fe9ba0925b90">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="MailToLink" ViewElementId="8dc29c52-bce2-424b-8a3b-ba7209744d0c" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Mail To Link provides support for the mailto: feature.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Email" PropertyId="SimpleEntityDefinitionProperty_Email" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="MailToLink" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">MailToLink.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Email" EditorType="TextBox" Label="Email" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Email Address (Can be set via Behavior also)]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Email" PropertyPath="Email" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAASCAYAAABFGc6jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGJSURBVEhLvZU7LwRRGIZnSUg0KhGXUisicQmlUiGhVbgkxg/SoBAF0WkkdHQaColbQ+cPaBQS4Xl2ZyZnZ3fW7sp6kydnMnPO957vkkwpjuPv6B/UlawdV2j0kazXMAKlNhkGY6g0ZpXRLDzBPNwka6uag1vw7DMYs6zQ6AGm4RC81SXE0Ky24Ao8a4wpMGZZ+R6Z6kbCF+wl9EKRemAX9sEz6fmsbKpoGLyRaT+CWZmdN81rCMxiG9JSebZGRUbKtGfgDur1LexHTanyamSklmGi8hgNQtq3tB++U+uwVnmsr0ZGC3AAjuwxTMIL2DP78Zq885vagaXKY62KjMbhFGy0WWzCPVhKyyROqO/85p5uOIFspEPVMxqFc+gHA63AJ6hwKtOp8pt73NsHZzAGVcobGVwTzd5gEd7hN7nHvZ4ZgItkzRQaWSbLZdnCg80qvJgZmZkZlhUa2XgHICxFqwpLba/sWVmh0Sr4y0ib267S4TFWNoX5HjnKR+Cmv2AMY2XKG3VIUfQDHPtmVcadJIwAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABoAAAASCAYAAABFGc6jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVEhL3dW/SgNBEMfxi0qENKksjClTmjokpaWFLyCCjRYWvoxFtLJQW0EErSy1URBE4wOojZUWisJJ/P72dsPcQswf0MKBD3e3Mzubu9skhTTtdpM/iAl//PWwC7374wXmUBhTBeqhCD1zCzXQQQuX/jhqNHEFzb2Hemahd+TpvIRdf/2BdWh8GGvQHM1VD/XSuOvfO/GDwSreoPEdTMPmrSK2oVrN0Vyb/3EhmcctlDtHBXHNLJRTTQeaE9cMXEh0+9dQ/gkthFzTjylnH1XM9bffI+2YOJaxB+W+kGITmrOFKUxCsYF2dpqLrH9YEfEnWcAnlNtHHeFRyp0fU07XKZYQ93H1vRM/GKjBCzR+Br1wjYddaR+VcqpRrTZDA7ZX34WqePBjNygj5PpRjWo15xk1hJzrH/8ElXGCKh6xiFcMCtWoVnNmcOqPvbALFXGIOuzEYcN+sBqOUUIW4dYQXqo2gDZCuPVR2U105I+57a3Q+QoO3NX4Yb8WLv7b/1GSfAPNIurXyTYGuwAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

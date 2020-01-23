@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickButtonZero" OwnerId="99265598-c23c-4d5c-a3dd-44796f560815" ProcessId="ce45649d-7c58-4dec-a7c1-1719e6508a23" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="6d758d90-930b-4481-8c55-689a647d7abf" VariableType="Input" Classification="Pinned, Locked" VariableId="455c634a-6857-4ec8-9478-694ae79dca47" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="902ffc8b-60a7-4b43-a838-eb36ac66a345" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ResultField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="c03bdb7b-e195-4299-ae94-39f655f99f7d" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="08e2c86e-c617-482a-b7ca-8810897b037e" Bounds="630.6,835,170,55" ZOrder="8" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="a0554d87-70a2-43c9-b23e-9768199b06d2" Bounds="440.6,935,550,55" ZOrder="8" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode ViewDefinition="99265598-c23c-4d5c-a3dd-44796f560815" ProcessProperty="e81e1b6c-5900-40fb-b66f-5fdfa92a0b23" ExecuteProcessType="View" VariableId="CalculatorPageOnClickButtonResult" SuppressValidations="false" ID="e62460a1-11fc-4f87-b4a2-0c7bcded9e2a" Bounds="440.6,1035,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="inputToken" Value="&quot;0&quot;" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+            <InputVariable Name="ResultField" Value="ResultField" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="1624cffd-d3cd-4432-9eef-2294fa85c249" Bounds="630.6,1135,170,55" ZOrder="3" Text="" />
+        <ExecuteProcessNode ViewDefinition="99265598-c23c-4d5c-a3dd-44796f560815" ProcessProperty="e81e1b6c-5900-40fb-b66f-5fdfa92a0b23" ExecuteProcessType="View" VariableId="CalculatorPageOnClickButtonResult" SuppressValidations="false" ID="43a65aa4-05d6-4540-85b5-201a82da0e04" Bounds="415,4040,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="inputToken" Value="inputToken" />
+          </InputVariables>
+        </ExecuteProcessNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="ac742910-fa41-4652-823a-9e1ade6811f3" From="08e2c86e-c617-482a-b7ca-8810897b037e" FromIndex="0" To="a0554d87-70a2-43c9-b23e-9768199b06d2" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,890" />
+          <Segment EndPoint="715.6,935" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="bb22ed3c-f3f0-4171-a2bd-65507b1a1207" From="e62460a1-11fc-4f87-b4a2-0c7bcded9e2a" FromIndex="2" To="1624cffd-d3cd-4432-9eef-2294fa85c249" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,1090" />
+          <Segment EndPoint="715.6,1135" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="a74256f0-efba-4586-a980-5752201c3f78" From="a0554d87-70a2-43c9-b23e-9768199b06d2" FromIndex="2" To="e62460a1-11fc-4f87-b4a2-0c7bcded9e2a" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="715.6,990" />
+          <Segment EndPoint="715.6,1035" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

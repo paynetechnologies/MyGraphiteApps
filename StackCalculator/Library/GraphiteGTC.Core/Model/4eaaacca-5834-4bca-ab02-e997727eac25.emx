@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="PropertyChangeDetail" EntityId="4eaaacca-5834-4bca-ab02-e997727eac25" NamespaceExtension="Common">
+  <Description>A system entity that can used to get a value of a property before and after an Event</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExecutedByUser" PropertyId="cfa4f5ab-adee-4e37-a0b4-8eafb3e1270c" IsOptional="true" DataType="68ad8c56-1d3b-49d8-8727-5280d819dcfc" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExecutionEndTime" PropertyId="f6f9fc15-d449-4406-b637-205d1765c890" IsOptional="false" DataType="121b067f-e1c7-4136-9d4c-21a7bf23df53" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="OriginalVersion" PropertyId="57abe6af-c975-4c4e-9e5c-84e7a2fa38d3" IsOptional="false" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="NewVersion" PropertyId="de00a7d6-3928-4fca-b038-3ceff0e297aa" IsOptional="false" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="OriginalValue" PropertyId="c8920f07-470f-4849-8f83-0e0a5fbf3b0b" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="NewValue" PropertyId="c14fe0ba-cf58-4578-9c6b-55a3ecfb0264" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

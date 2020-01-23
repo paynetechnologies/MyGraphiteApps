@@ -1,0 +1,1314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="CalculatorPage" GroupName="" ViewId="99265598-c23c-4d5c-a3dd-44796f560815" IsDefaultView="true" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="9a00b8a9-c2bc-486f-a04d-9508a490c115" Bounds="50,55,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalculatorResultsDisplayArea" />
+                </Field>
+                <Field FieldName="BackgroundColor">
+                  <PropertyValue Property="Text" Value="D9D9D9" />
+                </Field>
+                <Field FieldName="BorderBorderType">
+                  <PropertyValue Property="Text" Value="Solid" />
+                </Field>
+                <Field FieldName="BorderColor">
+                  <PropertyValue Property="Text" Value="Green" />
+                </Field>
+                <Field FieldName="BorderThickness">
+                  <PropertyValue Property="Text" Value="5" />
+                </Field>
+                <Field FieldName="IsContentCentered">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="DimensionHeight">
+                  <PropertyValue Property="Text" Value="350" />
+                </Field>
+                <Field FieldName="DimensionWidth">
+                  <PropertyValue Property="Text" Value="300" />
+                </Field>
+                <Field FieldName="MarginLeft">
+                  <PropertyValue Property="Text" Value="-150" />
+                </Field>
+                <Field FieldName="MarginTop">
+                  <PropertyValue Property="Text" Value="-150" />
+                </Field>
+                <Field FieldName="PositionLeft">
+                  <PropertyValue Property="Text" Value="50" />
+                </Field>
+                <Field FieldName="PositionScale">
+                  <PropertyValue Property="Text" Value="%" />
+                </Field>
+                <Field FieldName="PositionSetting">
+                  <PropertyValue Property="Text" Value="fixed" />
+                </Field>
+                <Field FieldName="PositionTop">
+                  <PropertyValue Property="Text" Value="50" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="749ced69-1e34-4faf-9adf-2a69712b372c" Bounds="90,110,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalculatorForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="70b7b6d1-2da2-4870-bd23-eb4a0b4111e5" ID="8ffe7830-9f0b-4bb6-afce-9356dcccea7e" Bounds="130,165,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FieldSet1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="64138c35-5b58-4a55-850e-f1e990a10f73" PropertyName="Fields" OwnerNode="8ffe7830-9f0b-4bb6-afce-9356dcccea7e" ID="4b7216ef-d295-4f7c-8a79-ee3e7ebd005e" Bounds="170,220,290,35" Text="Field">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="c93d4718-fd82-4519-8b57-c3fbc4ff5253" ID="c033297f-9537-41fd-abf5-92fb9efe64e9" Bounds="210,275,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ResultField" />
+                </Field>
+                <Field FieldName="LabelTextString">
+                  <PropertyValue Property="TranslationKey" Value="Results" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="6c60461e-acf8-43ac-a081-d431babfa3bf" Bounds="130,220,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea25" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="ff918559-e9d7-490e-8a23-f25fec8e099f" ID="3ca2b4cc-5b5e-4c4c-ac80-0d506de629a4" Bounds="170,275,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalculatorTable" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+                <Field FieldName="Borders">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="EqualColumnWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="CanHideColumns">
+                  <PropertyValue Property="Text" Value="No" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="RPNCalculator" />
+                </Field>
+                <Field FieldName="CanFocus">
+                  <PropertyValue Property="Text" Value="No" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" PropertyName="Columns" OwnerNode="3ca2b4cc-5b5e-4c4c-ac80-0d506de629a4" ID="62eefa12-5f5d-46be-b11f-005de7c2f5c0" Bounds="210,330,290,35" Text="Column">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" ID="7e538f18-2b27-41da-9386-cc7cf632b6c1" Bounds="250,385,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Column1" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Left" />
+                </Field>
+                <Field FieldName="IsDisplayed">
+                  <PropertyValue Property="Text" Value="No" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="a" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" ID="ccd83690-876e-4038-b1d6-c383acda4d6a" Bounds="250,440,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Column2" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Left" />
+                </Field>
+                <Field FieldName="IsDisplayed">
+                  <PropertyValue Property="Text" Value="No" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="b" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" ID="800b465c-c605-4122-b0bc-199ef95a2da9" Bounds="250,495,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Column3" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Left" />
+                </Field>
+                <Field FieldName="IsDisplayed">
+                  <PropertyValue Property="Text" Value="No" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="c" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="be849f2e-e77d-44b4-919f-aea8eae2fd05" ID="a1bfbca1-e3ea-4bd5-95c0-e3e6bfa38443" Bounds="250,550,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Column4" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Left" />
+                </Field>
+                <Field FieldName="IsDisplayed">
+                  <PropertyValue Property="Text" Value="No" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="d" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" PropertyName="Rows" OwnerNode="3ca2b4cc-5b5e-4c4c-ac80-0d506de629a4" ID="12cb1879-f00e-4912-9783-ddb378d47b4d" Bounds="210,605,290,35" Text="Row">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" ID="b574bedc-e1dc-4731-9f5f-6a7b75d32403" Bounds="250,660,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalculatorTableRow1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" PropertyName="Cells" OwnerNode="b574bedc-e1dc-4731-9f5f-6a7b75d32403" ID="73be0c9c-0a1d-48d8-ac55-163f7ca93c67" Bounds="290,715,290,35" Text="Cell">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="c9ff0db4-7d50-4207-b5d0-de19597b124a" Bounds="330,770,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell8" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="c9ff0db4-7d50-4207-b5d0-de19597b124a" ID="75e94af8-666b-437f-a5a7-40c7e2d06320" Bounds="370,825,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea26" />
+                </Field>
+                <Field FieldName="IsContentCentered">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="VerticalAlignment">
+                  <PropertyValue Property="Text" Value="middle" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="db3d9a1b-7752-46a6-8f1a-38b242d63854" Bounds="410,880,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonSeven" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="seven" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="f7f09b86-f3e5-48aa-ae54-c4f351d63488" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="577bb082-cb9b-401b-8b29-50b6b4b68dc0" Bounds="330,935,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell9" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="577bb082-cb9b-401b-8b29-50b6b4b68dc0" ID="3b915d50-8f17-410e-8294-50f689541cb4" Bounds="370,655,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea27" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="7718aef5-7e9d-40e0-a21c-fc5ea79f5c07" Bounds="410,710,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonEight" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="eight" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="2d60aa9b-c87f-49a4-b2c2-22bea85078db" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="919593bd-8a97-423b-8e77-07af7953fdbf" Bounds="330,990,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell10" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="919593bd-8a97-423b-8e77-07af7953fdbf" ID="46448187-a083-4557-b8bd-af51e5fff2e2" Bounds="370,710,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea28" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="81b3ee7a-dcff-4228-8170-37a456dd3742" Bounds="410,765,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonNine" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="nine" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="ca494dbd-1f82-4208-80b8-3ef2d23d63f5" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="9d5c6c85-ea3d-44da-b757-0893e681bcf4" Bounds="330,1045,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell11" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="9d5c6c85-ea3d-44da-b757-0893e681bcf4" ID="f5371256-b9f4-4e85-b5d9-49cab30814a8" Bounds="370,765,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea29" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="03a85f42-909b-4e97-b2be-fbab3e73b561" Bounds="410,820,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonDivide" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="dividesign" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="da701edb-f54e-45b3-8dcb-4bfa597a03e1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" ID="958b5945-618d-41f0-b71e-273a503d7e7b" Bounds="250,1100,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalculatorTableRow2" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" PropertyName="Cells" OwnerNode="958b5945-618d-41f0-b71e-273a503d7e7b" ID="75c4a711-c719-402b-983e-31de5007d410" Bounds="290,930,290,35" Text="Cell">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="34bea307-ea48-4b2a-8946-fdce68b63fce" Bounds="330,985,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell12" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="34bea307-ea48-4b2a-8946-fdce68b63fce" ID="23b1ba52-b7dd-401c-9bb6-02c32b84321a" Bounds="370,710,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea30" />
+                </Field>
+                <Field FieldName="IsContentCentered">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="VerticalAlignment">
+                  <PropertyValue Property="Text" Value="middle" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="232b5b47-265b-4d94-84c1-dd47b89a80dc" Bounds="410,765,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonFour" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="four" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="a1be5853-0a31-49b9-b415-1697eebb42eb" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="f8ce50a0-a8a4-4535-b41a-18ef7eb3b5db" Bounds="330,1040,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell13" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="f8ce50a0-a8a4-4535-b41a-18ef7eb3b5db" ID="fcc23a69-0af2-45e6-98e1-b4f4433a3d1e" Bounds="370,875,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea31" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="22e87534-89a5-4aa8-9d25-10f4fb3e65b5" Bounds="410,930,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonFive" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="five" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="426db130-22c2-441b-91a6-e698df941764" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="e2987322-10f1-4179-b049-7897b96cfff3" Bounds="330,1095,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell14" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="e2987322-10f1-4179-b049-7897b96cfff3" ID="34d454b0-5aee-4b1c-b8ae-1212503ba12e" Bounds="370,1040,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea32" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="6353f552-4bfa-4d77-9975-a7b4ee0ad8b7" Bounds="410,1095,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonSix" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="six" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="026666f2-ea25-4f8d-b76c-565d636e8e56" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="52916c5a-acaf-4d44-8d09-e5b29ca2996b" Bounds="330,1150,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell15" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="52916c5a-acaf-4d44-8d09-e5b29ca2996b" ID="abbb7ce9-8d76-4ca5-b32b-18a256df7c39" Bounds="370,1205,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea33" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="93c75dfa-b434-475a-b745-1577312936c3" Bounds="410,1260,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonMultiply" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="multiplesign" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="00cddddc-c111-40ff-b520-e1df06fb530a" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" ID="4a4d5e2b-a3fe-4b66-987a-1d4c85f213df" Bounds="250,1155,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalculatorTableRow3" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" PropertyName="Cells" OwnerNode="4a4d5e2b-a3fe-4b66-987a-1d4c85f213df" ID="effa7d13-ce88-43e6-b707-fc2858fbb7b5" Bounds="290,600,290,35" Text="Cell">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="a10ef3b5-b2e3-4341-ac7d-e326f81b8123" Bounds="330,1425,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell16" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="a10ef3b5-b2e3-4341-ac7d-e326f81b8123" ID="f8266886-0aad-4bbd-8bee-25ef5def769e" Bounds="370,710,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea34" />
+                </Field>
+                <Field FieldName="IsContentCentered">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="VerticalAlignment">
+                  <PropertyValue Property="Text" Value="middle" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="feeaa1f0-b80c-4cb7-b7c4-6db1d9ee2fef" Bounds="410,765,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonOne" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="one" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="7ef47ba2-5b3c-4ba9-b5f2-524581b795bd" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="09158242-15cd-4baa-a51c-caf89d917468" Bounds="330,1480,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell17" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="09158242-15cd-4baa-a51c-caf89d917468" ID="91c79b66-f75b-4aac-bbf7-be9b4e4b5a3d" Bounds="370,875,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea35" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="ed68dba7-eba5-467b-af08-9341e86a6091" Bounds="410,930,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonTwo" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="two" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="19b2508b-9e25-41e2-b14f-4c4e450dff28" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="d7b1b416-a37b-43c9-b6f3-f7bf8d35d33d" Bounds="330,1535,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell18" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="d7b1b416-a37b-43c9-b6f3-f7bf8d35d33d" ID="a1219dd9-bef9-442d-89cb-0511a593160e" Bounds="370,1040,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea36" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="5e344d17-d646-4d35-b975-272f85f75b1e" Bounds="410,1095,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonThree" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="three" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="467c505d-96c7-440d-9abd-2c77e5b9d368" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="96bb0d57-1bf3-47dd-9715-7fc79bcd8f30" Bounds="330,1590,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell19" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="96bb0d57-1bf3-47dd-9715-7fc79bcd8f30" ID="3e53a226-d25d-43d4-9d94-7a084e7e3d9b" Bounds="370,1645,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea37" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="eab6d515-e0e2-496e-90cf-0eac1daa983c" Bounds="410,1700,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonSubtract" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="minussign" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="53a0d06c-a52a-4e16-bf91-2e49e263498c" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" ID="2fffb5cc-5210-4030-a00e-e1450285647b" Bounds="250,1210,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CalculatorTableRow4" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" PropertyName="Cells" OwnerNode="2fffb5cc-5210-4030-a00e-e1450285647b" ID="b9ccf429-fb10-4a04-8f4a-372743ee1cb0" Bounds="290,655,290,35" Text="Cell">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="abb27943-00ba-41a6-a22b-03f8c736500a" Bounds="330,1865,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell20" />
+                </Field>
+                <Field FieldName="Alignment">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="abb27943-00ba-41a6-a22b-03f8c736500a" ID="fd177ec3-6801-4bc2-81d6-6911160643c0" Bounds="370,1920,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea38" />
+                </Field>
+                <Field FieldName="BackgroundColor">
+                  <PropertyValue Property="Text" Value="Gray" />
+                </Field>
+                <Field FieldName="IsContentCentered">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="VerticalAlignment">
+                  <PropertyValue Property="Text" Value="middle" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="3c053bc9-28ca-42f6-a610-47066d92e613" Bounds="410,1975,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonZero" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="zero" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="ce45649d-7c58-4dec-a7c1-1719e6508a23" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="35a17a32-5037-42d1-a3e1-8d3e4e3f9957" Bounds="330,2030,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell21" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="35a17a32-5037-42d1-a3e1-8d3e4e3f9957" ID="6e24fb79-1b24-4dc1-a36e-6ec23a477ada" Bounds="370,2085,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea39" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="24ff8de5-eea7-400a-8a80-2928fdde8ddd" Bounds="410,2140,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonPeriod" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="periodsign" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="dabc556d-825c-4237-806f-c03f222cdfb2" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="b4080d78-3a22-4aad-b696-02d72dd62ef1" Bounds="330,2195,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell22" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="b4080d78-3a22-4aad-b696-02d72dd62ef1" ID="149099ec-9d81-4163-a697-ea18b48d7fa1" Bounds="370,2250,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea40" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="0c888c74-8890-43cd-8d76-a30410f2b340" Bounds="410,2305,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonEqual" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="equalsign" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="e3f4af06-04e1-4757-96e3-764ca513a23f" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="b5f5df4b-764d-43bc-92c5-a5f02bb2bf2d" Bounds="330,2360,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Cell23" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="b5f5df4b-764d-43bc-92c5-a5f02bb2bf2d" ID="8ea8edca-f46a-4b13-a0a9-a4cfe611afa5" Bounds="370,2415,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea41" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="55078dd1-5c2f-4794-b55a-2e59cb987c09" Bounds="410,2470,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonAdd" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="plussign" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="e11f5a05-4215-48d8-952b-fa6f741e2e1c" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" ID="1615a9ff-85f2-44f7-95b2-2bc50e82ab00" Bounds="250,1265,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="RowClear" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" PropertyName="Cells" OwnerNode="1615a9ff-85f2-44f7-95b2-2bc50e82ab00" ID="36e66870-a3dc-4f1a-a6bc-dc03027a2640" Bounds="290,710,290,35" Text="Cell">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b" ID="ebb47e63-570f-4a0a-b6d5-baaac8e65859" Bounds="330,765,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CellClear" />
+                </Field>
+                <Field FieldName="ColumnSpan">
+                  <PropertyValue Property="Text" Value="4" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <PropertyViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" PropertyName="CellElement" OwnerNode="ebb47e63-570f-4a0a-b6d5-baaac8e65859" ID="7a2d423d-38f6-44e6-934d-61a3ce8f4056" Bounds="370,820,290,35" Text="DisplayArea">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea42" />
+                </Field>
+              </FieldPropertyValues>
+            </PropertyViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="63754c08-7c59-49a4-80f8-0c04deff8144" Bounds="410,875,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonClear" />
+                </Field>
+                <Field FieldName="IsWide">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="clear" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="17549ed1-1584-4a7b-aecc-ca2b5049fe36" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="50b5c5d4-5576-43c1-b3f6-bf15bbb5fd94" Bounds="410,930,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonSpace" />
+                </Field>
+                <Field FieldName="IsWide">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClickFormToSerialize">
+                  <PropertyValue Property="SelectedElementName" Value="CalculatorForm" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="7fc88fe9-699d-4321-bb80-398be3c37b0e" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="Space" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="ffb1c0bf-08a0-4192-9799-d873d76468fd" Bounds="410,985,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonStackDump" />
+                </Field>
+                <Field FieldName="FullWidth">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="IsWide">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="e6715858-7e00-47bd-8737-4543d5100973" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="DumpStack" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="5757880e-f6a0-4c20-bc00-3b6bbcfca58e" From="9a00b8a9-c2bc-486f-a04d-9508a490c115" FromIndex="0" To="749ced69-1e34-4faf-9adf-2a69712b372c" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,90" />
+              <Segment EndPoint="70,127.5" />
+              <Segment EndPoint="90,127.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="52a80f96-f880-4019-96f7-37370fb14fb1" From="749ced69-1e34-4faf-9adf-2a69712b372c" FromIndex="0" To="8ffe7830-9f0b-4bb6-afce-9356dcccea7e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,145" />
+              <Segment EndPoint="110,182.5" />
+              <Segment EndPoint="130,182.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="3a840ac8-8ee1-46d6-a6e5-9f70851b2fed" From="749ced69-1e34-4faf-9adf-2a69712b372c" FromIndex="0" To="6c60461e-acf8-43ac-a081-d431babfa3bf" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,145" />
+              <Segment EndPoint="110,237.5" />
+              <Segment EndPoint="130,237.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="1a5e6efa-314d-4a83-8b46-6db371364acf" From="8ffe7830-9f0b-4bb6-afce-9356dcccea7e" FromIndex="0" To="4b7216ef-d295-4f7c-8a79-ee3e7ebd005e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,200" />
+              <Segment EndPoint="150,237.5" />
+              <Segment EndPoint="170,237.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="11450de0-2608-46d2-b902-43e3f63547db" From="4b7216ef-d295-4f7c-8a79-ee3e7ebd005e" FromIndex="0" To="c033297f-9537-41fd-abf5-92fb9efe64e9" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,255" />
+              <Segment EndPoint="190,292.5" />
+              <Segment EndPoint="210,292.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="2739f4cd-1150-45f7-a525-afd68b1ced38" From="6c60461e-acf8-43ac-a081-d431babfa3bf" FromIndex="0" To="3ca2b4cc-5b5e-4c4c-ac80-0d506de629a4" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,255" />
+              <Segment EndPoint="150,292.5" />
+              <Segment EndPoint="170,292.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="19265acf-8e8d-44e7-8311-44deffda9484" From="3ca2b4cc-5b5e-4c4c-ac80-0d506de629a4" FromIndex="0" To="62eefa12-5f5d-46be-b11f-005de7c2f5c0" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,310" />
+              <Segment EndPoint="190,347.5" />
+              <Segment EndPoint="210,347.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="dfb7a8c8-07fe-4271-b440-b499dcd0f8f3" From="3ca2b4cc-5b5e-4c4c-ac80-0d506de629a4" FromIndex="0" To="12cb1879-f00e-4912-9783-ddb378d47b4d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,310" />
+              <Segment EndPoint="190,622.5" />
+              <Segment EndPoint="210,622.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="54fe3292-b3b3-4acc-abd8-7344b7d9c51d" From="62eefa12-5f5d-46be-b11f-005de7c2f5c0" FromIndex="0" To="7e538f18-2b27-41da-9386-cc7cf632b6c1" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,365" />
+              <Segment EndPoint="230,402.5" />
+              <Segment EndPoint="250,402.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="6bdccfb5-46d0-42ad-8354-6679987ae250" From="62eefa12-5f5d-46be-b11f-005de7c2f5c0" FromIndex="0" To="ccd83690-876e-4038-b1d6-c383acda4d6a" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,365" />
+              <Segment EndPoint="230,457.5" />
+              <Segment EndPoint="250,457.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="498e78ec-f2b6-4d10-a364-4a0723203780" From="62eefa12-5f5d-46be-b11f-005de7c2f5c0" FromIndex="0" To="800b465c-c605-4122-b0bc-199ef95a2da9" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,365" />
+              <Segment EndPoint="230,512.5" />
+              <Segment EndPoint="250,512.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="ff3ad57d-e7bc-4c10-b3a3-11090ccffd86" From="62eefa12-5f5d-46be-b11f-005de7c2f5c0" FromIndex="0" To="a1bfbca1-e3ea-4bd5-95c0-e3e6bfa38443" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,365" />
+              <Segment EndPoint="230,567.5" />
+              <Segment EndPoint="250,567.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="fac779dc-fc4b-486b-898b-0935b37ed95d" From="12cb1879-f00e-4912-9783-ddb378d47b4d" FromIndex="0" To="2fffb5cc-5210-4030-a00e-e1450285647b" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,640" />
+              <Segment EndPoint="230,1227.5" />
+              <Segment EndPoint="250,1227.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="981895a1-dfb7-4d1a-9a0a-3c39d670d1da" From="12cb1879-f00e-4912-9783-ddb378d47b4d" FromIndex="0" To="b574bedc-e1dc-4731-9f5f-6a7b75d32403" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,640" />
+              <Segment EndPoint="230,677.5" />
+              <Segment EndPoint="250,677.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="dc0fbd41-6eeb-4883-9699-2d7ee52f3bd2" From="12cb1879-f00e-4912-9783-ddb378d47b4d" FromIndex="0" To="958b5945-618d-41f0-b71e-273a503d7e7b" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,640" />
+              <Segment EndPoint="230,1117.5" />
+              <Segment EndPoint="250,1117.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="d1c8bd74-6b00-437e-9a7b-f0417180865c" From="12cb1879-f00e-4912-9783-ddb378d47b4d" FromIndex="0" To="4a4d5e2b-a3fe-4b66-987a-1d4c85f213df" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,640" />
+              <Segment EndPoint="230,1172.5" />
+              <Segment EndPoint="250,1172.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="c7836639-f726-48fd-a727-b1ad0a92b65d" From="12cb1879-f00e-4912-9783-ddb378d47b4d" FromIndex="0" To="1615a9ff-85f2-44f7-95b2-2bc50e82ab00" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,640" />
+              <Segment EndPoint="230,1282.5" />
+              <Segment EndPoint="250,1282.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="7a85fbcc-d760-477e-bd2b-0f26653c7f55" From="b574bedc-e1dc-4731-9f5f-6a7b75d32403" FromIndex="0" To="73be0c9c-0a1d-48d8-ac55-163f7ca93c67" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,695" />
+              <Segment EndPoint="270,732.5" />
+              <Segment EndPoint="290,732.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="6ad7abab-6e5b-4963-bddd-ee9aa37d6556" From="73be0c9c-0a1d-48d8-ac55-163f7ca93c67" FromIndex="0" To="c9ff0db4-7d50-4207-b5d0-de19597b124a" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,750" />
+              <Segment EndPoint="310,787.5" />
+              <Segment EndPoint="330,787.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="9b32b3b9-1323-413c-bb8e-46ac1e64b59d" From="73be0c9c-0a1d-48d8-ac55-163f7ca93c67" FromIndex="0" To="577bb082-cb9b-401b-8b29-50b6b4b68dc0" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,750" />
+              <Segment EndPoint="310,952.5" />
+              <Segment EndPoint="330,952.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="01179975-1f1f-4fa4-a2d0-57143ee0740e" From="73be0c9c-0a1d-48d8-ac55-163f7ca93c67" FromIndex="0" To="919593bd-8a97-423b-8e77-07af7953fdbf" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,750" />
+              <Segment EndPoint="310,1007.5" />
+              <Segment EndPoint="330,1007.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="5e83ae7c-6461-473e-ad6a-434949e43fa2" From="73be0c9c-0a1d-48d8-ac55-163f7ca93c67" FromIndex="0" To="9d5c6c85-ea3d-44da-b757-0893e681bcf4" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,750" />
+              <Segment EndPoint="310,1062.5" />
+              <Segment EndPoint="330,1062.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="682238d0-ee5b-4561-94da-aea214c42761" From="c9ff0db4-7d50-4207-b5d0-de19597b124a" FromIndex="0" To="75e94af8-666b-437f-a5a7-40c7e2d06320" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,805" />
+              <Segment EndPoint="350,842.5" />
+              <Segment EndPoint="370,842.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="b782d896-7cdf-418e-b276-a592276f996e" From="75e94af8-666b-437f-a5a7-40c7e2d06320" FromIndex="0" To="db3d9a1b-7752-46a6-8f1a-38b242d63854" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,860" />
+              <Segment EndPoint="390,897.5" />
+              <Segment EndPoint="410,897.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="3d94eaeb-e065-4028-a351-76cd7b50f4f0" From="577bb082-cb9b-401b-8b29-50b6b4b68dc0" FromIndex="0" To="3b915d50-8f17-410e-8294-50f689541cb4" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,970" />
+              <Segment EndPoint="350,990" />
+              <Segment EndPoint="310,990" Movable="true" />
+              <Segment EndPoint="310,672.5" Movable="true" />
+              <Segment EndPoint="370,672.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="d1b259ac-2089-47f3-8776-10265206dca0" From="3b915d50-8f17-410e-8294-50f689541cb4" FromIndex="0" To="7718aef5-7e9d-40e0-a21c-fc5ea79f5c07" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,690" />
+              <Segment EndPoint="390,727.5" />
+              <Segment EndPoint="410,727.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="8c9ff6a1-ef49-4030-9096-1db2f8f8535b" From="919593bd-8a97-423b-8e77-07af7953fdbf" FromIndex="0" To="46448187-a083-4557-b8bd-af51e5fff2e2" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1025" />
+              <Segment EndPoint="350,1045" />
+              <Segment EndPoint="310,1045" Movable="true" />
+              <Segment EndPoint="310,727.5" Movable="true" />
+              <Segment EndPoint="370,727.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="aaddd93d-a167-436a-8f6c-e2305ab2f944" From="46448187-a083-4557-b8bd-af51e5fff2e2" FromIndex="0" To="81b3ee7a-dcff-4228-8170-37a456dd3742" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,745" />
+              <Segment EndPoint="390,782.5" />
+              <Segment EndPoint="410,782.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="a142cc47-d326-4bdb-aa92-2e6bb45363eb" From="9d5c6c85-ea3d-44da-b757-0893e681bcf4" FromIndex="0" To="f5371256-b9f4-4e85-b5d9-49cab30814a8" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1080" />
+              <Segment EndPoint="350,1100" />
+              <Segment EndPoint="310,1100" Movable="true" />
+              <Segment EndPoint="310,782.5" Movable="true" />
+              <Segment EndPoint="370,782.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="f2638909-d62e-43e2-92c4-70ef716c7ca2" From="f5371256-b9f4-4e85-b5d9-49cab30814a8" FromIndex="0" To="03a85f42-909b-4e97-b2be-fbab3e73b561" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,800" />
+              <Segment EndPoint="390,837.5" />
+              <Segment EndPoint="410,837.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="7edbe4fe-6fb2-432d-adfd-f5972e55c359" From="958b5945-618d-41f0-b71e-273a503d7e7b" FromIndex="0" To="75c4a711-c719-402b-983e-31de5007d410" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,1135" />
+              <Segment EndPoint="270,1155" />
+              <Segment EndPoint="230,1155" Movable="true" />
+              <Segment EndPoint="230,947.5" Movable="true" />
+              <Segment EndPoint="290,947.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="40b0fade-8e5c-413a-b9c5-2178370427f2" From="75c4a711-c719-402b-983e-31de5007d410" FromIndex="0" To="34bea307-ea48-4b2a-8946-fdce68b63fce" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,965" />
+              <Segment EndPoint="310,1002.5" />
+              <Segment EndPoint="330,1002.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="132aeea6-df9d-4c86-9f6a-3116465f817b" From="75c4a711-c719-402b-983e-31de5007d410" FromIndex="0" To="f8ce50a0-a8a4-4535-b41a-18ef7eb3b5db" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,965" />
+              <Segment EndPoint="310,1057.5" />
+              <Segment EndPoint="330,1057.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="2589a83a-6828-48ed-8b57-403090520574" From="75c4a711-c719-402b-983e-31de5007d410" FromIndex="0" To="e2987322-10f1-4179-b049-7897b96cfff3" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,965" />
+              <Segment EndPoint="310,1112.5" />
+              <Segment EndPoint="330,1112.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="dced9b2d-b709-4b40-a38a-260d750d8bc1" From="75c4a711-c719-402b-983e-31de5007d410" FromIndex="0" To="52916c5a-acaf-4d44-8d09-e5b29ca2996b" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,965" />
+              <Segment EndPoint="310,1167.5" />
+              <Segment EndPoint="330,1167.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="9afee55f-cf7a-4fc6-8941-3c8504eb54da" From="34bea307-ea48-4b2a-8946-fdce68b63fce" FromIndex="0" To="23b1ba52-b7dd-401c-9bb6-02c32b84321a" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1020" />
+              <Segment EndPoint="350,1040" />
+              <Segment EndPoint="310,1040" Movable="true" />
+              <Segment EndPoint="310,727.5" Movable="true" />
+              <Segment EndPoint="370,727.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="4365bff8-54fa-47ec-b51a-7a2752c69494" From="23b1ba52-b7dd-401c-9bb6-02c32b84321a" FromIndex="0" To="232b5b47-265b-4d94-84c1-dd47b89a80dc" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,745" />
+              <Segment EndPoint="390,782.5" />
+              <Segment EndPoint="410,782.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="cca295b3-846a-4fd1-8e2d-74072d653161" From="f8ce50a0-a8a4-4535-b41a-18ef7eb3b5db" FromIndex="0" To="fcc23a69-0af2-45e6-98e1-b4f4433a3d1e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1075" />
+              <Segment EndPoint="350,1095" />
+              <Segment EndPoint="310,1095" Movable="true" />
+              <Segment EndPoint="310,892.5" Movable="true" />
+              <Segment EndPoint="370,892.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="59b74e6b-da65-4186-bf3b-c1ff01c9f580" From="fcc23a69-0af2-45e6-98e1-b4f4433a3d1e" FromIndex="0" To="22e87534-89a5-4aa8-9d25-10f4fb3e65b5" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,910" />
+              <Segment EndPoint="390,947.5" />
+              <Segment EndPoint="410,947.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="61d7147d-188e-4058-96bf-6af9cc05ceca" From="e2987322-10f1-4179-b049-7897b96cfff3" FromIndex="0" To="34d454b0-5aee-4b1c-b8ae-1212503ba12e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1130" />
+              <Segment EndPoint="350,1150" />
+              <Segment EndPoint="310,1150" Movable="true" />
+              <Segment EndPoint="310,1057.5" Movable="true" />
+              <Segment EndPoint="370,1057.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="7c0949d7-c166-4188-8ef0-a0293d11b9f6" From="34d454b0-5aee-4b1c-b8ae-1212503ba12e" FromIndex="0" To="6353f552-4bfa-4d77-9975-a7b4ee0ad8b7" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,1075" />
+              <Segment EndPoint="390,1112.5" />
+              <Segment EndPoint="410,1112.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="c404226a-5a9c-454a-9f1e-a87f5c69c62a" From="52916c5a-acaf-4d44-8d09-e5b29ca2996b" FromIndex="0" To="abbb7ce9-8d76-4ca5-b32b-18a256df7c39" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1185" />
+              <Segment EndPoint="350,1222.5" />
+              <Segment EndPoint="370,1222.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="9d03c6f2-2e1f-4e24-b41b-ccea98614040" From="abbb7ce9-8d76-4ca5-b32b-18a256df7c39" FromIndex="0" To="93c75dfa-b434-475a-b745-1577312936c3" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,1240" />
+              <Segment EndPoint="390,1277.5" />
+              <Segment EndPoint="410,1277.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="80e671bd-36a2-43bc-9599-02b27a1fd29b" From="4a4d5e2b-a3fe-4b66-987a-1d4c85f213df" FromIndex="0" To="effa7d13-ce88-43e6-b707-fc2858fbb7b5" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,1190" />
+              <Segment EndPoint="270,1210" />
+              <Segment EndPoint="230,1210" Movable="true" />
+              <Segment EndPoint="230,617.5" Movable="true" />
+              <Segment EndPoint="290,617.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="6a7aa63e-059e-4748-ae42-6cff4163ef93" From="effa7d13-ce88-43e6-b707-fc2858fbb7b5" FromIndex="0" To="a10ef3b5-b2e3-4341-ac7d-e326f81b8123" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,635" />
+              <Segment EndPoint="310,1442.5" />
+              <Segment EndPoint="330,1442.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="5539654c-32f0-4a10-a174-0b6df3c7bc46" From="effa7d13-ce88-43e6-b707-fc2858fbb7b5" FromIndex="0" To="09158242-15cd-4baa-a51c-caf89d917468" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,635" />
+              <Segment EndPoint="310,1497.5" />
+              <Segment EndPoint="330,1497.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="de5b9ce0-3c48-42f7-9984-d98bd5541549" From="effa7d13-ce88-43e6-b707-fc2858fbb7b5" FromIndex="0" To="d7b1b416-a37b-43c9-b6f3-f7bf8d35d33d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,635" />
+              <Segment EndPoint="310,1552.5" />
+              <Segment EndPoint="330,1552.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="68a4886f-9cea-48a7-8be6-90cd0e54ba67" From="effa7d13-ce88-43e6-b707-fc2858fbb7b5" FromIndex="0" To="96bb0d57-1bf3-47dd-9715-7fc79bcd8f30" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,635" />
+              <Segment EndPoint="310,1607.5" />
+              <Segment EndPoint="330,1607.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="6633b2ef-2731-4fc8-8026-ff0d4ffeac14" From="a10ef3b5-b2e3-4341-ac7d-e326f81b8123" FromIndex="0" To="f8266886-0aad-4bbd-8bee-25ef5def769e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1460" />
+              <Segment EndPoint="350,1480" />
+              <Segment EndPoint="310,1480" Movable="true" />
+              <Segment EndPoint="310,727.5" Movable="true" />
+              <Segment EndPoint="370,727.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="986059fc-7e54-4179-bcb8-5c72d686ac73" From="f8266886-0aad-4bbd-8bee-25ef5def769e" FromIndex="0" To="feeaa1f0-b80c-4cb7-b7c4-6db1d9ee2fef" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,745" />
+              <Segment EndPoint="390,782.5" />
+              <Segment EndPoint="410,782.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="f0df15c7-547d-4de8-8b13-89af8ddd475d" From="09158242-15cd-4baa-a51c-caf89d917468" FromIndex="0" To="91c79b66-f75b-4aac-bbf7-be9b4e4b5a3d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1515" />
+              <Segment EndPoint="350,1535" />
+              <Segment EndPoint="310,1535" Movable="true" />
+              <Segment EndPoint="310,892.5" Movable="true" />
+              <Segment EndPoint="370,892.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="2ce907bc-89c3-45b6-9368-32e3dcc13980" From="91c79b66-f75b-4aac-bbf7-be9b4e4b5a3d" FromIndex="0" To="ed68dba7-eba5-467b-af08-9341e86a6091" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,910" />
+              <Segment EndPoint="390,947.5" />
+              <Segment EndPoint="410,947.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="58d2a84e-cd5c-405e-8a23-0ee2a908f998" From="d7b1b416-a37b-43c9-b6f3-f7bf8d35d33d" FromIndex="0" To="a1219dd9-bef9-442d-89cb-0511a593160e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1570" />
+              <Segment EndPoint="350,1590" />
+              <Segment EndPoint="310,1590" Movable="true" />
+              <Segment EndPoint="310,1057.5" Movable="true" />
+              <Segment EndPoint="370,1057.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="6affa202-0d68-4137-bf51-eeedd6259b7b" From="a1219dd9-bef9-442d-89cb-0511a593160e" FromIndex="0" To="5e344d17-d646-4d35-b975-272f85f75b1e" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,1075" />
+              <Segment EndPoint="390,1112.5" />
+              <Segment EndPoint="410,1112.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="86aa7eaa-1484-42f0-a439-88ee92471e19" From="96bb0d57-1bf3-47dd-9715-7fc79bcd8f30" FromIndex="0" To="3e53a226-d25d-43d4-9d94-7a084e7e3d9b" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1625" />
+              <Segment EndPoint="350,1662.5" />
+              <Segment EndPoint="370,1662.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="c9e1854d-8f16-4f55-bd1a-4f23b7a5b14f" From="3e53a226-d25d-43d4-9d94-7a084e7e3d9b" FromIndex="0" To="eab6d515-e0e2-496e-90cf-0eac1daa983c" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,1680" />
+              <Segment EndPoint="390,1717.5" />
+              <Segment EndPoint="410,1717.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="37c8114d-ddea-4fbe-a376-dddd5d8aa324" From="2fffb5cc-5210-4030-a00e-e1450285647b" FromIndex="0" To="b9ccf429-fb10-4a04-8f4a-372743ee1cb0" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,1245" />
+              <Segment EndPoint="270,1265" />
+              <Segment EndPoint="230,1265" Movable="true" />
+              <Segment EndPoint="230,672.5" Movable="true" />
+              <Segment EndPoint="290,672.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="e1f03e04-ad56-4d9f-ad84-e1886730d4d5" From="b9ccf429-fb10-4a04-8f4a-372743ee1cb0" FromIndex="0" To="abb27943-00ba-41a6-a22b-03f8c736500a" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,690" />
+              <Segment EndPoint="310,1882.5" />
+              <Segment EndPoint="330,1882.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="ff6be39c-738b-4b90-bb39-d6e2b83d12c8" From="b9ccf429-fb10-4a04-8f4a-372743ee1cb0" FromIndex="0" To="35a17a32-5037-42d1-a3e1-8d3e4e3f9957" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,690" />
+              <Segment EndPoint="310,2047.5" />
+              <Segment EndPoint="330,2047.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="e4b91a4c-907d-428b-a2cd-f42465c8454a" From="b9ccf429-fb10-4a04-8f4a-372743ee1cb0" FromIndex="0" To="b4080d78-3a22-4aad-b696-02d72dd62ef1" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,690" />
+              <Segment EndPoint="310,2212.5" />
+              <Segment EndPoint="330,2212.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="bdb9701b-39b2-4a5e-a2da-2ce9ddd88f3a" From="b9ccf429-fb10-4a04-8f4a-372743ee1cb0" FromIndex="0" To="b5f5df4b-764d-43bc-92c5-a5f02bb2bf2d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,690" />
+              <Segment EndPoint="310,2377.5" />
+              <Segment EndPoint="330,2377.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="57e57825-d8af-4d6a-bdf1-de5a678836f1" From="abb27943-00ba-41a6-a22b-03f8c736500a" FromIndex="0" To="fd177ec3-6801-4bc2-81d6-6911160643c0" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,1900" />
+              <Segment EndPoint="350,1937.5" />
+              <Segment EndPoint="370,1937.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="4a6b706a-93c3-456f-a1df-81e6450aefee" From="fd177ec3-6801-4bc2-81d6-6911160643c0" FromIndex="0" To="3c053bc9-28ca-42f6-a610-47066d92e613" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,1955" />
+              <Segment EndPoint="390,1992.5" />
+              <Segment EndPoint="410,1992.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="c4a2f2b8-d463-43d4-98ac-b4766d91b8fd" From="35a17a32-5037-42d1-a3e1-8d3e4e3f9957" FromIndex="0" To="6e24fb79-1b24-4dc1-a36e-6ec23a477ada" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,2065" />
+              <Segment EndPoint="350,2102.5" />
+              <Segment EndPoint="370,2102.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="0d9ff70f-ee17-4737-aca9-27c663f18582" From="6e24fb79-1b24-4dc1-a36e-6ec23a477ada" FromIndex="0" To="24ff8de5-eea7-400a-8a80-2928fdde8ddd" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,2120" />
+              <Segment EndPoint="390,2157.5" />
+              <Segment EndPoint="410,2157.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="37c69757-6f85-4cfc-9b4c-8c75a76ecd21" From="b4080d78-3a22-4aad-b696-02d72dd62ef1" FromIndex="0" To="149099ec-9d81-4163-a697-ea18b48d7fa1" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,2230" />
+              <Segment EndPoint="350,2267.5" />
+              <Segment EndPoint="370,2267.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="86e44d2b-4ade-496f-b517-e78164762068" From="149099ec-9d81-4163-a697-ea18b48d7fa1" FromIndex="0" To="0c888c74-8890-43cd-8d76-a30410f2b340" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,2285" />
+              <Segment EndPoint="390,2322.5" />
+              <Segment EndPoint="410,2322.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="cd7b40d3-cb14-4fa9-b620-1a498c68fba1" From="b5f5df4b-764d-43bc-92c5-a5f02bb2bf2d" FromIndex="0" To="8ea8edca-f46a-4b13-a0a9-a4cfe611afa5" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,2395" />
+              <Segment EndPoint="350,2432.5" />
+              <Segment EndPoint="370,2432.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="088cc73c-45a8-4cc7-86cb-20538e6154e1" From="8ea8edca-f46a-4b13-a0a9-a4cfe611afa5" FromIndex="0" To="55078dd1-5c2f-4794-b55a-2e59cb987c09" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,2450" />
+              <Segment EndPoint="390,2487.5" />
+              <Segment EndPoint="410,2487.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="ddeddcbb-4c3d-4b3c-b82f-fef9010a4f81" From="1615a9ff-85f2-44f7-95b2-2bc50e82ab00" FromIndex="0" To="36e66870-a3dc-4f1a-a6bc-dc03027a2640" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="270,1300" />
+              <Segment EndPoint="270,1320" />
+              <Segment EndPoint="230,1320" Movable="true" />
+              <Segment EndPoint="230,727.5" Movable="true" />
+              <Segment EndPoint="290,727.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="a39bf2f7-bd36-4445-a05c-2ca69ec02edc" From="36e66870-a3dc-4f1a-a6bc-dc03027a2640" FromIndex="0" To="ebb47e63-570f-4a0a-b6d5-baaac8e65859" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="310,745" />
+              <Segment EndPoint="310,782.5" />
+              <Segment EndPoint="330,782.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="a2c4cbb8-f4ef-4219-ba48-2733ef67b5bc" From="ebb47e63-570f-4a0a-b6d5-baaac8e65859" FromIndex="0" To="7a2d423d-38f6-44e6-934d-61a3ce8f4056" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="350,800" />
+              <Segment EndPoint="350,837.5" />
+              <Segment EndPoint="370,837.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="1c5bab97-55ce-44b4-bf54-e50cd349b300" From="7a2d423d-38f6-44e6-934d-61a3ce8f4056" FromIndex="0" To="63754c08-7c59-49a4-80f8-0c04deff8144" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,855" />
+              <Segment EndPoint="390,892.5" />
+              <Segment EndPoint="410,892.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="bbb8377f-497d-4af0-a536-89f415f4ad3b" From="7a2d423d-38f6-44e6-934d-61a3ce8f4056" FromIndex="0" To="50b5c5d4-5576-43c1-b3f6-bf15bbb5fd94" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,855" />
+              <Segment EndPoint="390,947.5" />
+              <Segment EndPoint="410,947.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="53bc312e-4f4f-445f-8d44-800adca8fcb0" From="7a2d423d-38f6-44e6-934d-61a3ce8f4056" FromIndex="0" To="ffb1c0bf-08a0-4192-9799-d873d76468fd" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="390,855" />
+              <Segment EndPoint="390,1002.5" />
+              <Segment EndPoint="410,1002.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</ViewDefinition>

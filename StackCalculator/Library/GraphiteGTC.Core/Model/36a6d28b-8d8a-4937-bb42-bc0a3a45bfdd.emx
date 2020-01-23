@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="Theme" EntityId="36a6d28b-8d8a-4937-bb42-bc0a3a45bfdd" NamespaceExtension="Common" EntityType="Enumeration">
+  <Description>An enumeration listing the themes available in a project</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Description" PropertyId="d75f1ead-086b-4716-9d7a-aaa5dfaf0f03" IsOptional="false" DataType="2a4fb4ec-1b34-4bd6-aecc-227a9b469ca4" />
+  <DataEntries KeyProperty="Description">
+    <DataEntry DataEntryId="422f327b-6abc-4086-a906-dcf89d4f9617">
+      <DataValue Property="Description">Adams</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="bfcd5a27-0bb2-43d2-a61d-dc68383b39c2">
+      <DataValue Property="Description">Fillmore</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="523bcec0-77eb-41a9-87bc-c009ad7e0a5a">
+      <DataValue Property="Description">Grant</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="93e1d78f-0a5b-4cc1-86e2-f78107addc77">
+      <DataValue Property="Description">Harrison</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="fd84edea-1e9b-4f77-bbd7-e8900cb4766c">
+      <DataValue Property="Description">Jackson</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="1984a33b-2d0a-4442-8895-593523f242ef">
+      <DataValue Property="Description">Jefferson</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="6b410726-98da-4577-9f02-5a4d0f849383">
+      <DataValue Property="Description">Madison</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="a6ab8e1e-042c-4c98-b942-9060a6e8f571">
+      <DataValue Property="Description">Monroe</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="7ccb4376-70b3-4d3a-a92a-002538427970">
+      <DataValue Property="Description">Tyler</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="ac0e3f53-27c6-4abc-864d-808a81412f30">
+      <DataValue Property="Description">VanBuren</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="bb4690a6-0cf5-4738-89cf-f7731980493c">
+      <DataValue Property="Description">Washington</DataValue>
+    </DataEntry>
+    <DataEntry DataEntryId="624ce018-44e8-43d8-ab2d-2457a254669d">
+      <DataValue Property="Description">Polk</DataValue>
+    </DataEntry>
+  </DataEntries>
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalReference Id="ba12c073-1fdb-42a9-a22b-99db07421f7d" Name="NETSystem" Reference="System.Collections.dll">
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</ExternalReference>

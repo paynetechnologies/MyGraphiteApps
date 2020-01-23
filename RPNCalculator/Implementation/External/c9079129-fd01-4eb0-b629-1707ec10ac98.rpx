@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="c9079129-fd01-4eb0-b629-1707ec10ac98" Name="Count" ExternalReferenceId="75888fe7-9dad-4a40-8080-39a5a39c7bfd">
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>Element</ExternalClassName>
+  <ExternalMethodName>Count</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Outputs>
+</ExternalProcessDefinition>

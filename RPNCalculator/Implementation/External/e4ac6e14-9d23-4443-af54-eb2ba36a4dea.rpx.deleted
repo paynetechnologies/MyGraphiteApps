@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="e4ac6e14-9d23-4443-af54-eb2ba36a4dea" Name="MyStack" ExternalReferenceId="bd4d1ffe-6085-424e-862a-850807dfe7d9">
+  <ExternalNamespace>System.Collections.Generic</ExternalNamespace>
+  <ExternalClassName>Stack`1</ExternalClassName>
+</ExternalProcessDefinition>

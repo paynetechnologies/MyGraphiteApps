@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="db5b532d-f966-4935-85f1-0b5cf368b0a7" Name="FFF" ExternalReferenceId="1f622b60-383e-4e30-b8fd-16c4ede50470">
+  <ExternalNamespace>Wrapper_NET_Generic_Stack</ExternalNamespace>
+  <ExternalClassName>NET_Generic_Stack`1</ExternalClassName>
+  <ExternalMethodName>Push</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Outputs>
+</ExternalProcessDefinition>

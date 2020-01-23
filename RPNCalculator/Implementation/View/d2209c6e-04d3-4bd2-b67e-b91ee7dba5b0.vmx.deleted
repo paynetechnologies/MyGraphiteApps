@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="CP2" GroupName="" ViewId="d2209c6e-04d3-4bd2-b67e-b91ee7dba5b0" IsDefaultView="false" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="26ca5eb1-a595-4d3e-bbba-c66ca94b2b6e" ID="8b8f52df-560b-4cc9-aca9-1db2737eefa7" Bounds="50,50,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Form1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="c8685d18-fdee-4544-9143-f231b4108611" Bounds="90,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea1" />
+                </Field>
+                <Field FieldName="BackgroundColor">
+                  <PropertyValue Property="Text" Value="Gray" />
+                </Field>
+                <Field FieldName="IsContentCentered">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="DimensionScale">
+                  <PropertyValue Property="Text" Value="%" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="fdbd4a42-f6c1-4407-97ef-c7d84e33d448" ID="8b3f8e11-fd30-4604-9239-b9f14ffe0120" Bounds="130,160,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="DisplayArea2" />
+                </Field>
+                <Field FieldName="BackgroundColor">
+                  <PropertyValue Property="Text" Value="Yellow" />
+                </Field>
+                <Field FieldName="IsContentCentered">
+                  <PropertyValue Property="Text" Value="Yes" />
+                </Field>
+                <Field FieldName="DimensionScale">
+                  <PropertyValue Property="Text" Value="%" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="55d79a97-defe-4275-8543-0c144589b2fe" ID="0a6b2a57-fc7e-4123-b6d8-2ae3446225e5" Bounds="210,270,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="55d79a97-defe-4275-8543-0c144589b2fe" Bounds="170,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="ButtonPanel1" />
+                </Field>
+                <Field FieldName="Side">
+                  <PropertyValue Property="Text" Value="Center" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="73731b5e-aa07-4b36-8069-075d6682a973" Bounds="250,325,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Button1" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="c10f53c4-e016-49cd-a03f-91c08ee1a332" Bounds="250,380,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Button2" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="bf0274c3-722a-428b-b4fb-0c972c6e499a" Bounds="250,435,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="Button3" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="d46438d8-f393-423e-818b-d53ab0e20c1b" From="8b8f52df-560b-4cc9-aca9-1db2737eefa7" FromIndex="0" To="c8685d18-fdee-4544-9143-f231b4108611" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,122.5" />
+              <Segment EndPoint="90,122.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="151d82a6-bb93-41b9-afea-e55e350f2571" From="c8685d18-fdee-4544-9143-f231b4108611" FromIndex="0" To="8b3f8e11-fd30-4604-9239-b9f14ffe0120" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,140" />
+              <Segment EndPoint="110,177.5" />
+              <Segment EndPoint="130,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="6ced53a3-57c2-4dca-b00e-37476f0f5285" From="55d79a97-defe-4275-8543-0c144589b2fe" FromIndex="0" To="0a6b2a57-fc7e-4123-b6d8-2ae3446225e5" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="190,250" />
+              <Segment EndPoint="190,287.5" />
+              <Segment EndPoint="210,287.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="c8ffb4ac-c100-46de-b09a-c986cd4251f5" From="8b3f8e11-fd30-4604-9239-b9f14ffe0120" FromIndex="0" To="55d79a97-defe-4275-8543-0c144589b2fe" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="150,195" />
+              <Segment EndPoint="150,232.5" />
+              <Segment EndPoint="170,232.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="566dbcae-9d4a-44b6-af42-28fd4ba1c0d8" From="0a6b2a57-fc7e-4123-b6d8-2ae3446225e5" FromIndex="0" To="73731b5e-aa07-4b36-8069-075d6682a973" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,305" />
+              <Segment EndPoint="230,342.5" />
+              <Segment EndPoint="250,342.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="d0533f41-d8dc-4ecb-ac0a-df59a4e50ba6" From="0a6b2a57-fc7e-4123-b6d8-2ae3446225e5" FromIndex="0" To="c10f53c4-e016-49cd-a03f-91c08ee1a332" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,305" />
+              <Segment EndPoint="230,397.5" />
+              <Segment EndPoint="250,397.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="7a909e20-780c-4d8d-a0f8-63589b347aae" From="0a6b2a57-fc7e-4123-b6d8-2ae3446225e5" FromIndex="0" To="bf0274c3-722a-428b-b4fb-0c972c6e499a" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="230,305" />
+              <Segment EndPoint="230,452.5" />
+              <Segment EndPoint="250,452.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Financial</Tag>
+  </Tags>
+</ViewDefinition>

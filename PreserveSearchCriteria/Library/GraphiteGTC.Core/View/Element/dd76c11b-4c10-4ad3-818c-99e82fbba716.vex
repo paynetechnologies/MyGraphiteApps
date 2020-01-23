@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="RearrangePanel" ViewElementId="dd76c11b-4c10-4ad3-818c-99e82fbba716" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Rearrange Panel holds a list of Drag and Drop Items which can be moved around within the panel to alter the order in which they appear.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DragDropItems" PropertyId="SimpleEntityDefinitionProperty_DragDropItems" IsOptional="true" DataType="$[List,7057516a-8a9f-4bf5-90d2-d37cdc103e9b]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnDrop" PropertyId="SimpleEntityDefinitionProperty_OnDrop" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnDragLast" PropertyId="SimpleEntityDefinitionProperty_OnDragLast" IsOptional="true" DataType="2fab2e52-9dcf-494e-aaee-62ab51b39dbb" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="VariableName" PropertyId="SimpleEntityDefinitionProperty_VariableName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EntityType" PropertyId="SimpleEntityDefinitionProperty_Entity" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="RearrangePanel" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">RearrangePanel.js</Script>
+      <Script Component="false" Group="dragula">dragula.min</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnDrop" EditorType="ViewBehaviorChooser" Label="OnDrop" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when an item is dropped]]></Description>
+        <BehaviorParameters>
+          <BehaviorParameter ParameterType="Input" IsOptional="false" SendUiParameters="false" ParameterNameProvider="SimpleEntityDefinitionProperty_VariableName" DataTypeProvider="SimpleEntityDefinitionProperty_Entity" IsList="false" />
+        </BehaviorParameters>
+      </Field>
+      <Field FieldName="OnDragLast" EditorType="ViewBehaviorChooser" Label="OnDragLast" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the last item is dragged and dropped]]></Description>
+      </Field>
+      <Field FieldName="VariableName" EditorType="TextBox" Label="Variable Name" Grouping="DragDrop Parameter" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Input Variable representing the item]]></Description>
+      </Field>
+      <Field FieldName="EntityType" EditorType="TypeChooser" Label="Type" Grouping="DragDrop Parameter" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[The Entity Type represented by the item]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="OnDrop" PropertyPath="OnDrop.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnDrop" PropertyPath="OnDrop.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="OnDragLast" PropertyPath="OnDragLast.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnDragLast" PropertyPath="OnDragLast.ControllerPath" Value="{ControllerPath}" />
+      <Map FieldName="VariableName" PropertyPath="VariableName" Value="{Text}" />
+      <Map FieldName="EntityType" PropertyPath="EntityType" Value="{TypeId}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">DragDrop</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAUCAYAAAB4d5a9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE/SURBVEhL7ZOxSgNBFEUnWigYrPwAC0GxMfkALQRrsbCyFFZQrMRACKKFWFjYWdjYi50/oN9gIzZiYSOCjWAl6Lkzu0syzuwmi2jjgcO8SXb37nvD1pIkMX0wgVu4gjP4iXd4haf4glGG0rWIVdQDD3AOR3AUm7iPD7iJ3Rymq6UsZAMvUJ3EqKO6OcNhPMYO5hSFzKNurtmdG80ijuMYamw7+IxCc7/FXbvrIhaicZyj3kzs4TJe4xu+4z2eYAM1MjGbrj3EQtZxypXmEntm7PGKT64MEwvZTtcPbLkyiEapjhfsLkIoZBonXWlu8NGVQY5wzZVxQiGatc5Eb7mkHwpoo64LmRMb14+iEH29GarL9hnZf6X6nfitfmu9CgoZ5CGVAv/kTMoY5NqcX+vk/0z6xu/EfjyutPj7ChjzBaISPZRvEzxoAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAUCAYAAAB4d5a9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEMSURBVEhL7dKxagJBEMbxVSFIIJ2BlHZ5Cos8hM8gxC51ICkEIW+Q3soudaq8QLARAsFesEyhoOTyH+Msw7Dq3cFZ+cGPY7zZ2ds7Q5ZlebTwhAlWWOITz7hGak2U/NHpYoF9+cE97JqBre2NlB5+kSevaOBlW5k5dqDXwQaaN9zhCpe4xQPm0Ex3V0mcZYdaTXxD84hUn7jBDD6xxzZbfWjGSPWoC3zAJ/bYZusLkjXaSPWIGkZIJfbZBUretfxNJe9I9agh9iX2yZOEqlPfXSuNnESOUvsvgx7rUO3vHY0/iQzQIRJfl4psUmRIqQ1P8k1kk9zvlhTpjTnZSc7fJHf8SWSIHeTrEgnhD9+yr8l1TQXXAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="EditableDisplayItem" ViewElementId="33aaa9ff-874d-41ce-93bd-ec4ae381e066" BasedOn="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Editable Display Item allows for the placement of certain Fields within a Display Detail.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EditableField" PropertyId="abf2b36e-a6c2-4cc0-9eaf-a724ef1f537e" IsOptional="true" DataType="64138c35-5b58-4a55-850e-f1e990a10f73" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="PropertyName" PropertyId="707e23e1-ba4d-4385-af96-93ffd1c5788d" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="EditableDisplayItem" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">EditableDisplayItem.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">SelectField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Selectbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">ValueField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">MaskField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Mask.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">PlaceholderField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Field.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Label.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">TextField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Textbox.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">DateField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">NumericField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">PercentField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">CurrencyField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Calculator.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Calculator.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="EditableField" EditorType="PropertyNodeCreator" Label="Editable Field" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[An Editable Field]]></Description>
+        <DescriptionOptions><![CDATA[Any of Currency, Date, Filtered Text, Numeric, Percent, Select, Text Field]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Mask" EditorType="Hidden" Label="Mask" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="TextColor" EditorType="Hidden" Label="TextColor" AffectsRender="false" IsLocalizable="false" />
+      <Field FieldName="PropertyName" EditorType="TextBox" Label="Editable Property" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Name of the Property in the Entity related to the Editable Items]]></Description>
+      </Field>
+      <Field FieldName="TranslateContent" EditorType="Hidden" Label="TranslateContent" AffectsRender="false" IsLocalizable="false" />
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="EditableField" PropertyPath="EditableField" />
+      <Map FieldName="PropertyName" PropertyPath="PropertyName" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Display</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAXCAYAAAD+4+QTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF1SURBVEhL3dS7LwRRHMXxWRIRCaFCrdWIQhQaiU4pCpHoJlQeCaVHo0DQUutEIyqJqPwFKvQ6GpXC43vu7h2/O2atnTGNk3yyrt25Z+8jW4njOPqD9GEWe26USkvttWiOsIt9N0qlaMkANrCAOyzjAEGKlAzjBptYxTjusYSgKG/JBK7R60bViRehogdo3gpc8pTM4AKdbvSVNegWjUKlH3BptmQFJ2hzo+95xROSAqXZkm4k22CiSXXo226Uikr0gXr0rXx0i9ahq2rzjnkcQis8RTBPo5W01l4V3SIVae81ofKGORyjHWeYQhBbom1I64KNL9LZqGgaOqMOnGMSij6n5130s6Il/RS7pT6aZKv6p/sium1jbpSRRitR/Grs/31BDy7hC3agq22fD0qSgzIUnYse0IRePwZxhRH46LxeYJ8PSupFN0w36Nl4xC2G0DAq8UsrjT3U0vxmuwrHlmQt1Sb3+7Yka6k2ud//nyspKVH0CWH1gUdAZkTYAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAXCAYAAAD+4+QTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFESURBVEhL3dQ9SgNBGMbxjUUIIlFJI1p6guAZvIClWNsr9mIjaBHxCmJnJXaWVh5BPYFNUOwC6vp/Rt747lfMrLqFD/xIZmZn3p3sbJI0TX/DEvZyfWOlnTVcQhmgMF7oiLSKfSzjDsoJMtdlGpHW8AhFC6vQfWjlCvlJMdbxAp8jrOABp2ghXJ+fPI1NjFCWA/QwLiAzSVx2cY52aBUzwhDc/ldiiyyg9fk1Ey26g8PQyoftTMoQtm2dIn0ew+cN29BYGxfI5Lsiz7AiihXS6VFesQX1dXCFQnwRW8x7d98tKqQHq0Ib0NgsrmGxmwnxk6tiJ8XHFpEublAZP9kmeco8ysZkEbew6F2Zg42H6C4zx60kPTxBJ8vSgfrP0FfHpExT5McJv/dfp5GdxL7xteJ3UvV3Yak93tiD/x87aeDBJ8kHn/vGeLPJPhwAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

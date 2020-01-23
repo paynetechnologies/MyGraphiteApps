@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ColorPickerField" ViewElementId="49a5e3d8-3694-4e7b-8fd3-a4f7db35bfc4" BasedOn="f755a6c5-48c1-465c-9615-4deb3a49b8de" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="62ff6d43-a027-42b1-af68-9508897115fa">
+  <Description />
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ColorPickerField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ColorPickerField.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIvSURBVEhLtVVNTsJQEG5rWOvSnXgCkIS15QTiCcQECDvlBMAJZA0klBNYTiDugcDOnXADWAoB/L7XafMQKE2EL4H5efNm3kznzTONEJRKpfhqtXowTdPebDZx0KQsTSBPIPdAu81mcyT6HewNII4rcJATVSgQhIFqrVarJ6oAOwGKxWIWxm04v4I4B8/T8fQ3ykAA/RSEWTCrS9E5y+Wy7DjOjDKxFaBQKOSwoS0indt++ljrYe2ePPSf0NuiT0LPk/tBRgiS8YNY/CN4cs25MtRrizVXWMIRatCGtiLSLhmLxT5E9AKw5jAKnBMw/FuSuLCE/7F96GsqCA78qnj+QeCJnsjrgFOm7mIDHagNGupYn4Ayc1UuHViboVS3Jk+/Xq+/RX9SIMizBedZkYlyo9EwocuAn3uqSJhzD/eCL3sqhayFKH56YxjUyUg/V8lHRNW/A+JjTB6lS1hSX6azIT0x4uyiBDl+efT0C/l8Ps/RUCEfBbTlHvLSPconMDehOMfJFRC4ywxUvc4Elx+ZvXxywC/HicOPvDMBT4AxLplqfwvQZ8x/wbtTWywWtj/sQkfFISD9KTKv43JtPTQH3wMZFzRWI/cYEOBOn7RhCN4DZMGavXtSOGQkRMKFUGMwGHylUimmrs+mvaDdcDiMlEHw4BBsK5BH/I4NujehR7EVgED6LjqLD0rH0+xF5EkblEhHv9+foWRuOp3usGPw+0HpfrB0LXIOJYpwQQ3jF7CoK5wC2MOpAAAAAElFTkSuQmCC]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVEhLtZaLVcIwFIZbJ2ADGYERYAK7gTgBsIEb6AZ0BJhAnACcAJwAnKD+Xx41gUKDp/3O+Uly87jNTXNLnt2gqqqhiidpLFEfSXBw2kjrPM93GJNhYWkppfIh8RDtaGAhHZklTtJGOphWDDb6GOPhoQZuqUvUOTXDLEz0IaGPxTyExqD6SAqdbKVLJzLy5CH1IqD23JoNU2c2qB06h63ryh74kYEDXFIPeHSlhzGeemeOsA/Y1dzVjYMStw1weDPpzbRisNHHmCY4x0GuH7zvravOeSFEha0bFnqnuRsT6cdY0mDsxM1dGIulIDwr9iOiy6J2eKht/MVbqL2z5mrPDvwBVa7skiHeQmZYVY4lf9lSYKy5ySrDnZ845D6e3LMmRF+23gsrHJAV++BTL1WJgygldARRsa+/joDU3BUkvVepTnbmgyNDqeKZeiLf0rsU3R2FpDkacsAuwpTbxnmya0eTztP1VdyU+9Hc8INzi+h7cBeazE7awnV0w/+HFuBMrn0joJu7o4VwRG4h4/oMycc+7R9ElmW/YyhAkoAj8sEAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

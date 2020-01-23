@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="DisplayAreaStyle" ViewElementId="0bbc57d4-7f68-454d-abef-6d37d009ec16" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Background" PropertyId="eebe685a-96dd-4ac1-ac71-bd546880d480" IsOptional="true" DataType="f0ef9671-86c2-490b-b187-5a1685db0a28" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="cdaac6d6-91e5-4cef-8108-f296e5754146" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplayType" PropertyId="173c3e0c-bcd4-4cb3-9de7-699c24a1bc7f" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Font" PropertyId="aba74957-f98b-47a2-938a-5cc37acd8c70" IsOptional="true" DataType="cc846db1-1be3-4125-80d5-55f182bd26d1" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Margin" PropertyId="6bf9ebcb-5194-4930-a747-3564fc60b98d" IsOptional="true" DataType="199d0fb8-59b5-4226-bae1-af2e1b46920c" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Maximum" PropertyId="f7a18e36-88f7-4684-8b59-5692c8c98f41" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Minimum" PropertyId="cf1ee862-9cd2-4471-ba63-e14e21a9dcab" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Overflow" PropertyId="f9d29dba-fd6c-478a-b1ec-662d660efd88" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Padding" PropertyId="76b952f3-52b5-42a5-87be-22c910c613c8" IsOptional="true" DataType="199d0fb8-59b5-4226-bae1-af2e1b46920c" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Position" PropertyId="4f2ebfa4-d6b9-4417-b950-8a7b8e22f756" IsOptional="true" DataType="199d0fb8-59b5-4226-bae1-af2e1b46920c" />
+  </Properties>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

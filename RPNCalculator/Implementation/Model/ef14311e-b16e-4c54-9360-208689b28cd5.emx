@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="StackElements" EntityId="ef14311e-b16e-4c54-9360-208689b28cd5" TargetChangeSetId="595ecaa9-1b09-4cd9-8bdb-fe9ba0925b90">
+  <Description />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Elements" PropertyId="06185c7e-2af9-4d28-ad3c-6dcdf7de3fad" IsOptional="true" DataType="$[List,7313bf86-f990-40e5-81f9-aef9371c36b6]" />
+  <Tags>
+    <Tag Type="Group">Financial</Tag>
+  </Tags>
+</EntityDefinition>

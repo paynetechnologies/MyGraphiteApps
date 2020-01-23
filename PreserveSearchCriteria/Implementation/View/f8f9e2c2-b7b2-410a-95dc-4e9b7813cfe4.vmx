@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewDefinition ViewName="Details" Title="PersonDetailsTitle" GroupName="Person" NamespaceExtension="Person" ViewId="f8f9e2c2-b7b2-410a-95dc-4e9b7813cfe4" IsDefaultView="false" IsSecurityDisabled="true" IsTransparent="false" IsPrintable="false" IsModal="false">
+  <Properties />
+  <Regions>
+    <Region Name="Header">
+      <FieldPropertyValues>
+        <Field FieldName="Sticky">
+          <PropertyValue Property="Text" Value="Yes" />
+        </Field>
+      </FieldPropertyValues>
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementPackDiagramNode Description="" ElementPackId="89718e95-fc93-4bcb-831f-22928d078dc6" Name="GuideHeader" ID="8d9e9ca0-2a33-4552-8857-42bf5eba08fc" Bounds="50,50,290,35" />
+          </Nodes>
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Region">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Content">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes>
+            <ViewElementDiagramNode Description="" ViewElementId="8859156a-dcff-4bea-be76-eda3c1ba7661" ID="8fd2fd4a-08c1-4d7b-960a-6626e4fd7b62" Bounds="50,50,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="PersonDetail" />
+                </Field>
+                <Field FieldName="DisplayItemsPerLine">
+                  <PropertyValue Property="Text" Value="2" />
+                </Field>
+                <Field FieldName="DisplayDetailType">
+                  <PropertyValue Property="Text" Value="Highlightable" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="Details" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" PropertyName="DisplayItems" OwnerNode="8fd2fd4a-08c1-4d7b-960a-6626e4fd7b62" ID="b76252d4-ad5c-41f1-a926-8516bf9c11bc" Bounds="85,145,290,35" Text="DisplayItem">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" ID="c703c16a-fe75-4811-a437-0f17b3a60b9d" Bounds="125,200,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="FirstNameItem" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="FirstName" />
+                </Field>
+                <Field FieldName="Mask">
+                  <PropertyValue Property="Text" Value="Name()" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="1f2e6b8a-f4b0-43ce-b3cb-9dd27547b63f" ID="83c25fa7-135e-48b0-b90d-27c9e847587a" Bounds="125,255,290,35" Text="">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="LastNameItem" />
+                </Field>
+                <Field FieldName="Label">
+                  <PropertyValue Property="TranslationKey" Value="LastName" />
+                </Field>
+                <Field FieldName="Mask">
+                  <PropertyValue Property="Text" Value="Name()" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Links" OwnerNode="8fd2fd4a-08c1-4d7b-960a-6626e4fd7b62" ID="b7b09b48-d4ab-4509-9bf7-d843e4f0d2ed" Bounds="85,310,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ListViewElementDiagramNode Description="" ViewElementId="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" PropertyName="Buttons" OwnerNode="ffb578a6-5e03-4b9d-99ff-2293b8b87822" ID="d81ffb2b-0047-417c-b1de-59f66e3c5b91" Bounds="90,160,290,35" Text="Link">
+              <FieldPropertyValues />
+            </ListViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="5b083129-ecb4-4825-b0cb-7f16ae92cccf" ID="ffb578a6-5e03-4b9d-99ff-2293b8b87822" Bounds="50,105,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseButtonPanel" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+            <ViewElementDiagramNode Description="" ViewElementId="b4878119-2641-4f3b-bba1-ec96aed3f170" ID="fa2c9b83-d4d6-4273-a162-3fa230095f04" Bounds="130,215,290,35">
+              <FieldPropertyValues>
+                <Field FieldName="Name">
+                  <PropertyValue Property="Text" Value="CloseButton" />
+                </Field>
+                <Field FieldName="Title">
+                  <PropertyValue Property="TranslationKey" Value="Close" />
+                </Field>
+                <Field FieldName="OnClick">
+                  <PropertyValue Property="ProcessId" Value="95c43bc4-207b-4cfc-9bcb-7eeb3718c35d" />
+                </Field>
+              </FieldPropertyValues>
+            </ViewElementDiagramNode>
+          </Nodes>
+          <Connections>
+            <ViewDiagramNodeConnection ID="19e4a7da-fe95-4684-9dd7-0adccf0a7eb2" From="8fd2fd4a-08c1-4d7b-960a-6626e4fd7b62" FromIndex="0" To="b76252d4-ad5c-41f1-a926-8516bf9c11bc" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,115" />
+              <Segment EndPoint="65,115" Movable="true" />
+              <Segment EndPoint="65,162.5" Movable="true" />
+              <Segment EndPoint="85,162.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="397e2c06-5aae-4368-927f-fbc2b5514232" From="8fd2fd4a-08c1-4d7b-960a-6626e4fd7b62" FromIndex="0" To="b7b09b48-d4ab-4509-9bf7-d843e4f0d2ed" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,85" />
+              <Segment EndPoint="70,197.5" />
+              <Segment EndPoint="65,197.5" Movable="true" />
+              <Segment EndPoint="65,327.5" Movable="true" />
+              <Segment EndPoint="85,327.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="ea8bad1a-7802-4ba9-a611-a573068a3232" From="b76252d4-ad5c-41f1-a926-8516bf9c11bc" FromIndex="0" To="c703c16a-fe75-4811-a437-0f17b3a60b9d" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="105,180" />
+              <Segment EndPoint="105,217.5" />
+              <Segment EndPoint="125,217.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="516051d1-d7b6-4b41-b401-0c4a37a11882" From="b76252d4-ad5c-41f1-a926-8516bf9c11bc" FromIndex="0" To="83c25fa7-135e-48b0-b90d-27c9e847587a" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="105,180" />
+              <Segment EndPoint="105,272.5" />
+              <Segment EndPoint="125,272.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="5ae4498f-a27e-4f6e-9c12-2b390c5c5413" From="ffb578a6-5e03-4b9d-99ff-2293b8b87822" FromIndex="0" To="d81ffb2b-0047-417c-b1de-59f66e3c5b91" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="70,140" />
+              <Segment EndPoint="70,177.5" />
+              <Segment EndPoint="90,177.5" />
+            </ViewDiagramNodeConnection>
+            <ViewDiagramNodeConnection ID="0629fbeb-f527-437d-9857-c25be12823ba" From="d81ffb2b-0047-417c-b1de-59f66e3c5b91" FromIndex="0" To="fa2c9b83-d4d6-4273-a162-3fa230095f04" ToIndex="1" LineType="ElbowArrow">
+              <Segment EndPoint="110,195" />
+              <Segment EndPoint="110,232.5" />
+              <Segment EndPoint="130,232.5" />
+            </ViewDiagramNodeConnection>
+          </Connections>
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+    <Region Name="Footer">
+      <FieldPropertyValues />
+      <ViewDiagram>
+        <Diagram>
+          <Nodes />
+          <Connections />
+        </Diagram>
+      </ViewDiagram>
+    </Region>
+  </Regions>
+  <Tags>
+    <Tag Type="Group">Screens</Tag>
+  </Tags>
+</ViewDefinition>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickButtonNine" OwnerId="99265598-c23c-4d5c-a3dd-44796f560815" ProcessId="ca494dbd-1f82-4208-80b8-3ef2d23d63f5" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="6d758d90-930b-4481-8c55-689a647d7abf" VariableType="Input" Classification="Pinned, Locked" VariableId="410ada84-771a-49c4-8113-2007fb4d52b5" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="9db10dec-4709-46b9-b397-f2920bdbd8ba" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="tempResult" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="6731b397-31ac-45f6-89c2-024ec1408060" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ResultField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="d0ad9e69-e471-4361-b7cb-ef58a99ef9cc" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="320ca9d4-281e-4daf-995b-47e89ab95664" Bounds="660,835,170,55" ZOrder="8" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="149cee35-e914-46f4-a437-596d59b5fb5a" Bounds="470,935,550,55" ZOrder="8" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode ViewDefinition="99265598-c23c-4d5c-a3dd-44796f560815" ProcessProperty="e81e1b6c-5900-40fb-b66f-5fdfa92a0b23" ExecuteProcessType="View" VariableId="CalculatorPageOnClickButtonResult" SuppressValidations="false" ID="ceced5e4-6895-4ecd-b387-8bf38f1893b5" Bounds="470,1035,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="inputToken" Value="&quot;9&quot;" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+            <InputVariable Name="ResultField" Value="ResultField" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="4574f4d5-f8d8-4d40-9297-b69faceac344" Bounds="660,1135,170,55" ZOrder="3" Text="" />
+        <ExecuteProcessNode ViewDefinition="99265598-c23c-4d5c-a3dd-44796f560815" ProcessProperty="e81e1b6c-5900-40fb-b66f-5fdfa92a0b23" ExecuteProcessType="View" VariableId="CalculatorPageOnClickButtonResult" SuppressValidations="false" ID="b755d2f6-110b-4e79-a8ba-c6da3900e35a" Bounds="444.4,4040,550,55" ZOrder="3" Text="">
+          <InputVariables>
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="inputToken" Value="inputToken" />
+          </InputVariables>
+        </ExecuteProcessNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="efd1d0a5-9093-4f7b-8020-c9a8055b9924" From="320ca9d4-281e-4daf-995b-47e89ab95664" FromIndex="0" To="149cee35-e914-46f4-a437-596d59b5fb5a" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="745,890" />
+          <Segment EndPoint="745,935" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b9075878-64f8-471b-b19e-03aea5173560" From="ceced5e4-6895-4ecd-b387-8bf38f1893b5" FromIndex="2" To="4574f4d5-f8d8-4d40-9297-b69faceac344" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="745,1090" />
+          <Segment EndPoint="745,1135" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="b22f19e3-41d3-4d78-8c1a-dcfda48ea4f4" From="149cee35-e914-46f4-a437-596d59b5fb5a" FromIndex="2" To="ceced5e4-6895-4ecd-b387-8bf38f1893b5" ToIndex="0" LineType="ElbowArrow">
+          <Segment EndPoint="745,990" />
+          <Segment EndPoint="745,1035" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

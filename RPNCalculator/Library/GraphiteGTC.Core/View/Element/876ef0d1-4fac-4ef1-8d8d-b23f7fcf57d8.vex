@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="ModalLink" ViewElementId="876ef0d1-4fac-4ef1-8d8d-b23f7fcf57d8" BasedOn="0687e25d-08ec-4eb9-ad44-eadf7a7aca2a" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Modal Link is a hyperlink that opens Dialog View (i.e., Modal View).</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ModalName" PropertyId="SimpleEntityDefinitionProperty_ModalName" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Status" PropertyId="SimpleEntityDefinitionProperty_Status" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="ModalLink" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">ModalLink.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="ModalName" EditorType="TextBox" Label="Modal" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Modal Name]]></Description>
+      </Field>
+      <Field FieldName="Status" EditorType="SelectBox" Label="Status" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Color of the Modal Link]]></Description>
+        <DescriptionOptions><![CDATA[Errored, Sucess, Warning]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Success" Value="Complete" />
+          <FieldOption DisplayName="Errored" Value="Incomplete" />
+          <FieldOption DisplayName="Warning" Value="Validations" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="Target" EditorType="Hidden" Label="Opens In?" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="_self" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="ModalName" PropertyPath="ModalName" Value="{Text}" />
+      <Map FieldName="Status" PropertyPath="Status" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVEhLY0xLS/vPQBxghNIwQJQ+JihNMzBqAUEwagFBMDwsAOVQYjA6wKYGA4/GAUEAsgBUKhKD0QE2NRh4NA4IglELCIJRCwgABgYAqtsXYRqlaZUAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABCSURBVEhLY/zz5/9/BuIAI5SGAaL0MUFpmoFRCwiCUQsIgqFvASgnQ5m0AaNxQBCMlqYEwagFBMGoBQQBjS1gYAAA8KQNEW42pNMAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

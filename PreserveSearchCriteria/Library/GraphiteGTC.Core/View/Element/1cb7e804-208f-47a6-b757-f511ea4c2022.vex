@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="HtmlText" ViewElementId="1cb7e804-208f-47a6-b757-f511ea4c2022" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Html Text is used to display plain text.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextString" PropertyId="SimpleEntityDefinitionProperty_TextString" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Mask" PropertyId="SimpleEntityDefinitionProperty_Mask" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TextColor" PropertyId="30381fae-ebb9-4b74-a6a1-14f3fa3adb92" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Tooltip" PropertyId="a9642666-8999-467b-afdd-5f7eab2f1ed1" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="HtmlText" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">HtmlText.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Mask.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">MaskField.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="TextString" EditorType="TranslationKeyChooser" Label="Text" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Text content]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Mask" EditorType="MaskChooser" Label="Mask" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Mask for the Text]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="TextColor" EditorType="ColorChooser" Label="Text Color" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Color of the Text]]></Description>
+        <DescriptionOptions><![CDATA[HEX Value (#RRGGBB) or Color via Picker]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="Tooltip" EditorType="TranslationKeyChooser" Label="Tooltip" AffectsRender="false" IsLocalizable="true">
+        <Description><![CDATA[Tooltip of the Text]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="TextString" PropertyPath="TextString" Value="{TranslationKey}" />
+      <Map FieldName="Mask" PropertyPath="Mask" Value="{Text}" />
+      <Map FieldName="TextColor" PropertyPath="TextColor" Value="{Text}" />
+      <Map FieldName="Tooltip" PropertyPath="Tooltip" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABXSURBVDhPY0xLS/vPgB8wQmmCgAlKUwWADAPZDMMwgE2MIKC6y7ABGyAGhSVJGJdhR4AY2atE4aHjTZiTB4c3sTqZHAwyDKuTycGj3iQdjHqTKIwEGBgAtHdmU+pdDHEAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABJSURBVDhPY/wPBAz4ASOUJgiYoDRVAMhlUCYYwDhEuwYZUNVluAyzAWKQK0nCI9SbFAGqpzOqOW3Um6SDUW+SDij1JlLpwsAAAJXSQlivqLLVAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

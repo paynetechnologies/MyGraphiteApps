@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnClickButtonFour" OwnerId="4dea0dca-6d7e-4320-ac52-dd823e5d2826" ProcessId="537cbdf8-6717-4e9b-9ec8-4a221892371b" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="7593bf8d-7b0f-4c09-83d2-2409d348a050" VariableType="Input" Classification="Pinned, Locked" VariableId="b72c5c20-064f-4950-8afb-5c3c431e40af" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="0af79780-c466-4e1e-8c7a-cac41beb3366" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="ResultField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" Classification="SerializedViewElement" VariableId="37517824-6928-4f09-adba-490622389c16" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="9a626e1f-d9a2-4793-b89f-7840aa9f5a59" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="1430e387-0b49-416c-9934-8d8abfe56482" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <ExecuteProcessNode ViewDefinition="4dea0dca-6d7e-4320-ac52-dd823e5d2826" ProcessProperty="1b372afa-1299-4169-b119-6af8a4248a2a" ExecuteProcessType="View" VariableId="CalculatorOnClickButtonResult" SuppressValidations="false" ID="ef3b5f93-cdd2-412f-8c52-1d2b332afdc0" Bounds="440.6,255,550,55" ZOrder="2" Text="">
+          <InputVariables>
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="inputToken" Value="&quot;4&quot;" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+            <InputVariable Name="ResultField" Value="ResultField" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="2aa6914b-0f18-4de8-9cb8-7dcdfb2d1f0b" Bounds="630.6,355,170,55" ZOrder="1" Text="" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="8d74d45e-af6d-4042-b25e-95c35645579d" From="9a626e1f-d9a2-4793-b89f-7840aa9f5a59" FromIndex="0" To="1430e387-0b49-416c-9934-8d8abfe56482" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d0fafd49-2ff0-4209-8861-eafd612e8558" From="1430e387-0b49-416c-9934-8d8abfe56482" FromIndex="2" To="ef3b5f93-cdd2-412f-8c52-1d2b332afdc0" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="7d1020f6-18d5-4621-ac39-7b174257b475" From="ef3b5f93-cdd2-412f-8c52-1d2b332afdc0" FromIndex="2" To="2aa6914b-0f18-4de8-9cb8-7dcdfb2d1f0b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

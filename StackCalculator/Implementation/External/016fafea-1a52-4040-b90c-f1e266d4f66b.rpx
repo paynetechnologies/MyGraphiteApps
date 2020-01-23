@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="016fafea-1a52-4040-b90c-f1e266d4f66b" Name="GetStackElements" ExternalReferenceId="663352da-e42d-4d45-a4ed-128cdd4afa06">
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>Element</ExternalClassName>
+  <ExternalMethodName>GetStackElements</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="$[List,e6595a39-c9ce-4be1-b903-d8a3bbad2955]" />
+  </Outputs>
+</ExternalProcessDefinition>

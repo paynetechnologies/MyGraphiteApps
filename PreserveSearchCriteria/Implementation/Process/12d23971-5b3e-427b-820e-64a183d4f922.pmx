@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildPersonDetail" OwnerId="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessId="12d23971-5b3e-427b-820e-64a183d4f922" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="PersonInContext" DataType="cb9e2f2a-9099-4787-848d-3ab22edb933f" VariableType="Input" VariableId="ca5c3c55-3f40-4572-9cb4-35b622d7ff91" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PersonDetail" DataType="$[9925a317-03ed-4b93-ba15-8e5aaff57a07,5802350c-2fda-4489-bca0-e753287c3fd6]" VariableType="Output" VariableId="76b108c5-abed-45a4-9015-197b82740407" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="31293523-6c61-407c-9b1f-dc39163401af" Bounds="822.5,55,170,55" />
+        <CreateNode Variable="PersonDetail" DataType="$[9925a317-03ed-4b93-ba15-8e5aaff57a07,5802350c-2fda-4489-bca0-e753287c3fd6]" ID="63f55ec4-081f-4491-b60a-ce0839eeaa58" Bounds="632.5,155,550,55">
+          <Properties>
+            <Property Name="Id">PersonInContext</Property>
+          </Properties>
+        </CreateNode>
+        <AssignNode Description="Set Display Items" ID="7847b15e-446a-4eb6-8590-5f69a32e1790" Bounds="632.5,255,550,55">
+          <Assignment Name="PersonDetail.PersonDetailDisplayItems.FirstNameItem.Value" Value="PersonInContext.FirstName" />
+          <Assignment Name="PersonDetail.PersonDetailDisplayItems.LastNameItem.Value" Value="PersonInContext.LastName" />
+        </AssignNode>
+        <CreateUiParametersNode Variable="PersonDetail.PersonDetailLinks.ViewLink.Navigation.UiParameters" ViewDefinition="f8f9e2c2-b7b2-410a-95dc-4e9b7813cfe4" ProcessProperty="4cdb488a-c361-4ca5-843f-b801f5862d7d" Description="Set ViewLink Load Parameters" ID="54b9701f-d802-41df-8b73-8d3289c16fbc" Bounds="632.5,355,550,55">
+          <Parameters>
+            <Parameter Name="PersonInContext" Value="PersonInContext" />
+          </Parameters>
+        </CreateUiParametersNode>
+        <EndNode ID="07b7a465-1e97-4706-9439-4781e43006e0" Bounds="822.5,455,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="4c52d28e-f099-43bf-8000-86c383bf9df5" From="31293523-6c61-407c-9b1f-dc39163401af" FromIndex="0" To="63f55ec4-081f-4491-b60a-ce0839eeaa58" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="acc4ad1f-7fac-4ee8-a551-517456905ae6" From="63f55ec4-081f-4491-b60a-ce0839eeaa58" FromIndex="2" To="7847b15e-446a-4eb6-8590-5f69a32e1790" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,210" />
+          <Segment EndPoint="907.5,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="d4f47bbe-698f-4dcb-808a-d9d85a939914" From="7847b15e-446a-4eb6-8590-5f69a32e1790" FromIndex="2" To="54b9701f-d802-41df-8b73-8d3289c16fbc" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,310" />
+          <Segment EndPoint="907.5,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="600a0573-3241-41ea-b0df-c264a338e88b" From="54b9701f-d802-41df-8b73-8d3289c16fbc" FromIndex="2" To="07b7a465-1e97-4706-9439-4781e43006e0" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,410" />
+          <Segment EndPoint="907.5,455" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

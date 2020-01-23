@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="Language" EntityId="8a9f44ff-fedb-4766-a287-a8dbbea60819" EntityType="Enumeration" MergedFrom="7a35c7c1-9ba2-43da-a393-08be54430af5" TargetChangeSetId="ff69244d-5249-463b-8589-1bc0408de048">
+  <Description />
+  <DataEntries KeyProperty="Name" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

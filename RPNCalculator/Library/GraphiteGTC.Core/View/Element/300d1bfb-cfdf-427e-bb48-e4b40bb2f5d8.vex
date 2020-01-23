@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="UiEventDetail" ViewElementId="300d1bfb-cfdf-427e-bb48-e4b40bb2f5d8" BasedOn="" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AddedByUser" PropertyId="ab37541d-ecc7-4589-9b78-1fd65ffcdd65" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ContainsErrors" PropertyId="6c08af89-532b-4224-9e91-c84184f14d3a" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DateProcessed" PropertyId="900c9623-7b51-4913-a282-44e886d4a7b1" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EffectiveDate" PropertyId="c884787b-ba1d-49ab-828d-d5d3c32e76f8" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExecutedByUser" PropertyId="57db050b-485c-47bd-8f09-62765ff0dc83" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExecutedByUserId" PropertyId="335b6b47-9f46-40a1-8552-f6d60f421bfe" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Id" PropertyId="cc462d55-2c4c-4462-bd61-3493ab70e734" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsComplete" PropertyId="b6e7ac5c-579e-46b2-ace5-b6693e0c9ea4" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsReversed" PropertyId="5baff352-943f-4732-b600-9cb19c164ffa" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsScheduledByEvent" PropertyId="0e734f03-eb3a-4032-8ec1-c173c9ad8d88" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SchedulingEventName" PropertyId="84311b69-96bf-4cd0-9606-6bd8e2284432" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="TransactionName" PropertyId="b27327ad-7dce-4b1f-99cd-e7c7b00508d7" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ValidationExists" PropertyId="c258a322-f9f8-4bd9-95aa-cb7de02525b6" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsScheduledByUser" PropertyId="b1578d72-20d2-45a7-9d0b-df6cd8261a27" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="EditView" PropertyId="c570181f-f568-49f1-ae4d-02c16968df79" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="ResultView" PropertyId="b3380f15-4dc2-4335-adf5-80c745db7365" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags />
+</ViewElementDefinition>

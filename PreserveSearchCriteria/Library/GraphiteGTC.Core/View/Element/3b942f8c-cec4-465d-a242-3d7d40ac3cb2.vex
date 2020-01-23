@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="CoupledFieldSet" ViewElementId="3b942f8c-cec4-465d-a242-3d7d40ac3cb2" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Coupled Field Set allows a one label and two field combination.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="SubTitle" PropertyId="SimpleEntityDefinitionProperty_SubTitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="LeftTitle" PropertyId="SimpleEntityDefinitionProperty_LeftTitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="RightTitle" PropertyId="SimpleEntityDefinitionProperty_RightTitle" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsRightDisplayed" PropertyId="SimpleEntityDefinitionProperty_IsRightDisplayed" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="LeftFields" PropertyId="SimpleEntityDefinitionProperty_LeftFields" IsOptional="true" DataType="$[List,64138c35-5b58-4a55-850e-f1e990a10f73]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="RightFields" PropertyId="SimpleEntityDefinitionProperty_RightFields" IsOptional="true" DataType="$[List,64138c35-5b58-4a55-850e-f1e990a10f73]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="LongFields" PropertyId="SimpleEntityDefinitionProperty_LongFields" IsOptional="true" DataType="$[List,64138c35-5b58-4a55-850e-f1e990a10f73]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="CoupledFieldSet" />
+    <Property PropertyName="IsRightDisplayed" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">CoupledFieldSet.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title for the Field Set]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="SubTitle" EditorType="TranslationKeyChooser" Label="Subtitle" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Subtitle for the Field Set]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="LeftTitle" EditorType="TranslationKeyChooser" Label="1st Column Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the first column of answers]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="RightTitle" EditorType="TranslationKeyChooser" Label="2nd Column Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the second column of answers]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="IsRightDisplayed" EditorType="YesNoToggle" Label="Display 2nd Column?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Display Second column?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{TranslationKey}" />
+      <Map FieldName="SubTitle" PropertyPath="SubTitle" Value="{TranslationKey}" />
+      <Map FieldName="LeftTitle" PropertyPath="LeftTitle" Value="{TranslationKey}" />
+      <Map FieldName="RightTitle" PropertyPath="RightTitle" Value="{TranslationKey}" />
+      <Map FieldName="IsRightDisplayed" PropertyPath="IsRightDisplayed" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA7SURBVDhPY0xLS/vPQGPABKVpCoixhBEPhgFsciAMBoPGJxSDUUtIAsRYAspHuDAMYJMDYTCgg08YGADv/w9FPVmC4gAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAvSURBVDhPY/zz5/9/BhoDJihNU0CMJYx4MAxgkwNhMBg0PqEYjFpCEhgu+YSBAQD+RAgMF6NU6AAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

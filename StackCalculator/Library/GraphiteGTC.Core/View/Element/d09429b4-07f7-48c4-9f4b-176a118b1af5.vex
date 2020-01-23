@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="PlaceholderField" ViewElementId="d09429b4-07f7-48c4-9f4b-176a118b1af5" BasedOn="f755a6c5-48c1-465c-9615-4deb3a49b8de" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Placeholder" PropertyId="a387c12a-876b-4ac5-8691-6fdf10604fb5" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">PlaceholderField.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Placeholder" EditorType="TranslationKeyChooser" Label="Placeholder" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Placeholder for the Field's Text]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Placeholder" PropertyPath="Placeholder" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

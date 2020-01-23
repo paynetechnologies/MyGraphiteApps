@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="CloseButton" ViewElementId="645722db-310f-46dc-99c1-def0a47b359d" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Close Button is a special version of a regular Button that comes pre-built for "Close" action.  This element is primiarily used in Modal Views.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="AttachedKey" PropertyId="SimpleEntityDefinitionProperty_AttachedKey" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FormToCheck" PropertyId="SimpleEntityDefinitionProperty_FormToCheck" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Confirmation" PropertyId="SimpleEntityDefinitionProperty_Confirmation" IsOptional="true" DataType="1a38ab49-9cbf-476c-a528-a444969d2e53" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Size" PropertyId="ee7bf184-db43-483d-9260-017cc92dcd2d" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="FullWidth" PropertyId="58698e2f-a557-4365-8ca1-2f38da758c06" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="OnClose" PropertyId="e52cac1e-0978-4985-a5ac-fb776119e9d2" IsOptional="true" DataType="720be6f8-868d-401a-934c-42393464a576" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="CloseButton" />
+    <Property PropertyName="Size" DefaultValue="default" />
+    <Property PropertyName="FullWidth" DefaultValue="No" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">CloseButton.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="FocusIndex" EditorType="IntegerTextBox" Label="Focus Index" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Tabbing Order]]></Description>
+      </Field>
+      <Field FieldName="AttachedKey" EditorType="SelectBox" Label="Key" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Key to invoke the Close Button]]></Description>
+        <DescriptionOptions><![CDATA[(none), Backspace, Delete, Down, ...]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="Backspace" Value="Keyboard.Backspace" />
+          <FieldOption DisplayName="Delete" Value="Keyboard.Delete" />
+          <FieldOption DisplayName="Down" Value="Keyboard.Down" />
+          <FieldOption DisplayName="End" Value="Keyboard.End" />
+          <FieldOption DisplayName="Enter" Value="Keyboard.Enter" />
+          <FieldOption DisplayName="Equal" Value="Keyboard.Equal" />
+          <FieldOption DisplayName="Escape" Value="Keyboard.Escape" />
+          <FieldOption DisplayName="Home" Value="Keyboard.Home" />
+          <FieldOption DisplayName="Hyphen" Value="Keyboard.Hyphen" />
+          <FieldOption DisplayName="Left" Value="Keyboard.Left" />
+          <FieldOption DisplayName="PageDown" Value="Keyboard.PageDown" />
+          <FieldOption DisplayName="PageUp" Value="Keyboard.PageUp" />
+          <FieldOption DisplayName="Period" Value="Keyboard.Period" />
+          <FieldOption DisplayName="Right" Value="Keyboard.Right" />
+          <FieldOption DisplayName="Shift" Value="Keyboard.Shift" />
+          <FieldOption DisplayName="Space" Value="Keyboard.Space" />
+          <FieldOption DisplayName="Tab" Value="Keyboard.Tab" />
+          <FieldOption DisplayName="Up" Value="Keyboard.Up" />
+        </FieldOptions>
+      </Field>
+      <Field FieldName="FormToCheck" EditorType="ViewElementChooser" Label="Form to Check" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Form to check for changes when Close Button is clicked]]></Description>
+        <DescriptionOptions><![CDATA[Any Form on the View]]></DescriptionOptions>
+        <EditorParameters>
+          <EditorParameter Key="ViewElementType" Value="Form" />
+        </EditorParameters>
+      </Field>
+      <Field FieldName="ConfirmationType" EditorType="Hidden" Label="ConfirmationType" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="0" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="ConfirmationTitle" EditorType="TranslationKeyChooser" Label="Title" Grouping="Warning" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Warning Dialog]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="ConfirmationBody" EditorType="TranslationKeyChooser" Label="Message" Grouping="Warning" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Message in the Warning Dialog]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="OnClose" EditorType="ViewBehaviorChooser" Label="OnClose" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[View Behavior to run when the Close Button is clicked]]></Description>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="FocusIndex" PropertyPath="FocusIndex" Value="{Text}" />
+      <Map FieldName="AttachedKey" PropertyPath="AttachedKey" Value="{Text}" />
+      <Map FieldName="FormToCheck" PropertyPath="FormToCheck" Value="{SelectedElementName}" />
+      <Map FieldName="ConfirmationType" PropertyPath="Confirmation.Type" Value="{Text}" />
+      <Map FieldName="ConfirmationTitle" PropertyPath="Confirmation.Title" Value="{TranslationKey}" />
+      <Map FieldName="ConfirmationBody" PropertyPath="Confirmation.Body" Value="{TranslationKey}" />
+      <Map FieldName="OnClose" PropertyPath="OnClose.ActionName" Value="{ActionName}" />
+      <Map FieldName="OnClose" PropertyPath="OnClose.ControllerPath" Value="{ControllerPath}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIBSURBVEhLlZY/L0NRGMZbBgYGiZqEGCRCP4QuhEFi8S9WXcVg8AnEIGK3ErVIjAb1IWoTqmGqxEAiIsHzO7eXt8e57e2T/Nr75z3P0/uek3ObLRaLmRYaEWuiICZFTnyKR/EgrkVJ3IuguhrfvjA+EXdiV8yIYdEj+sSEmBXcuxXUMuafQgELoiJWRTcX2ggPam8a303yAzbFueh3Z52JJzsWW+6sIRuwLA5EUtvSKCv2BV5OsRn9OxIUxHoVz9FhS1HzFh064YGXm5M4gMniEWMxYF5MizoXEsQ9auaEDcFrjwMCRsUKJ0bv4kUwcSzRUAjXuEcNtYyxWhKjBGDu9531fiWmRCjEmlNDLWOsnDcfFIY0JEIhIXNqQyoQkI+Og2JgWdiQtOYoT8BgdJwoHt2GpDVHOb/3ncgu6UQR0G6t+z237bITH1KdAIqT5JvTKn9OWoVUCKCXIYXMmQ9/TlqFlAlgP/9yp39KMo+VJgTPEgFVccYVo14xIELmsWwItYyxwrMav9HYmPgldj9is/sQ7ZYxi4QXkd3i2ZcIrvEEqCY2xLc7i8SAduaIGmuOB154Nu1Bp4KXhT8fnQjzbYGXkw1Ah2JR0J5ORVvWBS+cX/kB6EKwP/Er0jwNNdTSc17+TQoFIPrHC3xM7IhL8ST4ywIcc41744Ja1/NmZTI/eE6Cpj6QvsYAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFrSURBVEhLtZZNTsMwEIVT7gDLtmt6BTZcgC3QSyDEoicCBCcoK7gE2yKkbCg72ID4Cd9zmshxbNdpypM+1Y7Hb5pJMsmgKIosoiFM4RD2YRe+IIdneIAbeAK/lMDDEK7gG9bpBxSrPS2v1gE4gjfoqnc4hYZfYwJnoH+0qX7hHGpP2/wYFNBX8pBXI4Hqp1O0pTK9lsOoFOPu1dxckyrBJdhSwAFMYKkDAWlNMYp1k1yDSTACt+7VRq2HkqyLkedIizMzbesFQgauuWJ9milgXo698iVJNZfmCsrLcVCuYaq5lCvwoxxHZSdJNZc+d1YdYxMNVr9xkaVPibQWkynRXTn2yjXX3HcsJHORQ7dpzCg1iblNx/BfD9pYi0KPtS31oa6twm3xdasQfZuda95qduIEttWu5WV87QRiGy+cC6g9bfOKPq/MKTT8GhML1U8XKeVsFKNYU3OXLp8tE9gDaQmPcA+3sACPsuwPEllY0gqasLwAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

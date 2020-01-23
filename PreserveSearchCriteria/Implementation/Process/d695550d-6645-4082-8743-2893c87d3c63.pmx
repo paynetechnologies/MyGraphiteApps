@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Build" OwnerId="89718e95-fc93-4bcb-831f-22928d078dc6" ProcessId="d695550d-6645-4082-8743-2893c87d3c63" ProcessType="Normal" Classification="ViewElementPack, Initialization" IsRemovable="true">
+  <Variables>
+    <Variable Name="CurrentUser" DataType="603f5747-29a6-4c5d-ab2f-9885c9ac1524" VariableType="Input" Classification="Pinned, Locked" VariableId="fff1b3d9-eb2d-478b-abc4-be7aebc79041" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="HeaderPack" DataType="89718e95-fc93-4bcb-831f-22928d078dc6" VariableType="InputOutput" VariableId="d259faba-f03c-4cb3-bb96-41489b806aa9" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="9871f37c-9221-4d6f-9b3f-ef4aa54a2420" Bounds="822.5,55,170,55" Text="Start" />
+        <EndNode ID="30f09c30-8aa5-48f9-b845-04f774eef03a" Bounds="822.5,155,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="5c2c2b8e-293e-4962-b95d-cecc7e9d1459" From="9871f37c-9221-4d6f-9b3f-ef4aa54a2420" FromIndex="0" To="30f09c30-8aa5-48f9-b845-04f774eef03a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

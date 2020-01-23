@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="4dea0dca-6d7e-4320-ac52-dd823e5d2826" ProcessId="fa5b10f3-7f4d-4684-b72b-9222540d5c3a" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="4dea0dca-6d7e-4320-ac52-dd823e5d2826" VariableType="Output" Classification="Pinned, Locked" VariableId="d661c76c-c38f-4475-af3e-00e74859ce0a" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="7593bf8d-7b0f-4c09-83d2-2409d348a050" VariableType="Input" Classification="Pinned, Locked" VariableId="1098aa23-6aa6-48ea-89e2-a30cf74b0fcb" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="fbc38e8c-6fc7-401d-b562-4035ff48054d" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="4dea0dca-6d7e-4320-ac52-dd823e5d2826" Description="Create the Calculator view" ID="66ac9c55-bb5a-405b-9a59-6f85f58d7dbf" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="a281e031-febc-447d-898f-aafca52af97d" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="5d8f9179-5b52-4c14-9f61-054dabb1926d" From="fbc38e8c-6fc7-401d-b562-4035ff48054d" FromIndex="0" To="66ac9c55-bb5a-405b-9a59-6f85f58d7dbf" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="efe9c265-186f-4f85-9358-5c43240d354b" From="66ac9c55-bb5a-405b-9a59-6f85f58d7dbf" FromIndex="2" To="a281e031-febc-447d-898f-aafca52af97d" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

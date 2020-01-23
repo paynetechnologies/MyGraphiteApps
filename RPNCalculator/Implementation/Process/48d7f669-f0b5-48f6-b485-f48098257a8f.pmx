@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="52951e3d-30b1-4315-bcae-6588fb0d49f0" ProcessId="48d7f669-f0b5-48f6-b485-f48098257a8f" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="52951e3d-30b1-4315-bcae-6588fb0d49f0" VariableType="Output" Classification="Pinned, Locked" VariableId="d197bd70-5c24-4ecd-9a69-a0d5866c9143" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="6d758d90-930b-4481-8c55-689a647d7abf" VariableType="Input" Classification="Pinned, Locked" VariableId="49cdede1-4c63-4345-bbae-b2deef8df9c8" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CalculatorDisplay" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="InputOutput" VariableId="8c6e10c9-ac38-48a6-af06-e2e9b0ac8526" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="d70e12cc-8603-430f-b5d4-ce0eda49c152" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="52951e3d-30b1-4315-bcae-6588fb0d49f0" Description="Create the CalculatorPage2 view" ID="90c016e7-a41b-4055-8e2a-74c7ae99088f" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="1347bb78-cd34-4dca-9389-bde9b326fc39" Bounds="630.6,255,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="365972bc-aea9-4c27-aee3-aaa121980e1b" From="d70e12cc-8603-430f-b5d4-ce0eda49c152" FromIndex="0" To="90c016e7-a41b-4055-8e2a-74c7ae99088f" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="0fd4abc4-586d-463f-8161-578e3063c6f2" From="90c016e7-a41b-4055-8e2a-74c7ae99088f" FromIndex="2" To="1347bb78-cd34-4dca-9389-bde9b326fc39" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

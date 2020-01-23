@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Row" ViewElementId="f6f00d51-dc4a-4432-be90-fe576de0174e" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Row is used to setup a row in a Table.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Values" PropertyId="SimpleEntityDefinitionProperty_Values" IsOptional="true" DataType="$[List,62ff6d43-a027-42b1-af68-9508897115fa]" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Cells" PropertyId="SimpleEntityDefinitionProperty_Cells" IsOptional="true" DataType="$[List,bdd0f96d-26c8-4ae6-bd20-4a71939c4f3b]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Row" />
+  </DefaultValues>
+  <ExternalResources />
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Other</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAHCAYAAAAS9422AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVChTY0xLS/vPQEPABKVpBpAtYKQyBgO6+oAmANkCUGRTE4MBjX3AwAAANooWPydqgNAAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAHCAYAAAAS9422AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAoSURBVChTY/wPBAw0BExQmmYA2QeMUJpaAGwuzX1A1yCiCaCxDxgYAKIRDQAD2lydAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

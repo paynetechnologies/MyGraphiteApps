@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="BuildPersonDetails" OwnerId="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessId="a0744474-b4d7-4751-ab6c-056a95fb0fb7" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables>
+    <Variable Name="People" DataType="$[List,cb9e2f2a-9099-4787-848d-3ab22edb933f]" VariableType="Input" VariableId="d775241a-eeb4-4b5a-8f02-ee5f7835ed85" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="PersonDetails" DataType="$[List,$[9925a317-03ed-4b93-ba15-8e5aaff57a07,5802350c-2fda-4489-bca0-e753287c3fd6]]" VariableType="Output" VariableId="4a97c273-c48c-4ebb-9457-1d24c0711b19" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="832ae3dd-3b97-412b-bc32-0e3db0604f76" Bounds="825,55,170,55" />
+        <CreateNode Variable="PersonDetails" DataType="$[List,$[9925a317-03ed-4b93-ba15-8e5aaff57a07,5802350c-2fda-4489-bca0-e753287c3fd6]]" ID="227e35cd-419d-4ecb-9245-97f76abe7aa5" Bounds="635,155,550,55">
+          <Properties />
+        </CreateNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="People" IterationVar="PersonInContext" ID="5bd0eacc-e69e-4693-9ab0-e6b6c0b93b38" Bounds="560,255,700,305" />
+        <ExecuteProcessNode ViewDefinition="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessProperty="12d23971-5b3e-427b-820e-64a183d4f922" ExecuteProcessType="View" VariableId="HomeBuildPersonDetailResult" SuppressValidations="false" Parent="5bd0eacc-e69e-4693-9ab0-e6b6c0b93b38" ID="7192eccb-5282-46e2-b09b-f6ad6ddec475" Bounds="75,75,550,55" ZOrder="10">
+          <InputVariables>
+            <InputVariable Name="PersonInContext" Value="PersonInContext" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="Add" ListItem="HomeBuildPersonDetailResult.Outputs.PersonDetail" SourceList="PersonDetails" Description="Add to Details" Parent="5bd0eacc-e69e-4693-9ab0-e6b6c0b93b38" ID="e048f539-db8f-4da6-88fe-39f7cf35d1ad" Bounds="75,175,550,55" ZOrder="10" />
+        <EndNode ID="fdd64c8a-0597-46e1-b3f8-f757bd54ae96" Bounds="825,605,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="50e46d71-2baf-4dd4-8e1e-c6237e2d9bc3" From="832ae3dd-3b97-412b-bc32-0e3db0604f76" FromIndex="0" To="227e35cd-419d-4ecb-9245-97f76abe7aa5" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="910,110" />
+          <Segment EndPoint="910,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="90b0061c-90e9-4c8a-a735-bdfed8ffa98f" From="227e35cd-419d-4ecb-9245-97f76abe7aa5" FromIndex="2" To="5bd0eacc-e69e-4693-9ab0-e6b6c0b93b38" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="910,210" />
+          <Segment EndPoint="910,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="9a6e8d47-bcb9-4fc6-8300-2d5bd55a5979" From="7192eccb-5282-46e2-b09b-f6ad6ddec475" FromIndex="2" To="e048f539-db8f-4da6-88fe-39f7cf35d1ad" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="910,385" />
+          <Segment EndPoint="910,430" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="182c3a6a-6a20-4ba1-88c8-f3aaa70710d8" From="5bd0eacc-e69e-4693-9ab0-e6b6c0b93b38" FromIndex="2" To="fdd64c8a-0597-46e1-b3f8-f757bd54ae96" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="910,560" />
+          <Segment EndPoint="910,605" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

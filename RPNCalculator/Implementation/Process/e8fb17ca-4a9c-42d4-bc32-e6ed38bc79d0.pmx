@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="d2209c6e-04d3-4bd2-b67e-b91ee7dba5b0" ProcessId="e8fb17ca-4a9c-42d4-bc32-e6ed38bc79d0" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="d2209c6e-04d3-4bd2-b67e-b91ee7dba5b0" VariableType="Output" Classification="Pinned, Locked" VariableId="892e0e28-8fbb-4b2f-8945-1e1574eb8e3d" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="6d758d90-930b-4481-8c55-689a647d7abf" VariableType="Input" Classification="Pinned, Locked" VariableId="07172061-413e-463d-a116-ca56c03a5f7a" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="38f33ef2-a470-4e74-aa5a-1fc255509dea" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="d2209c6e-04d3-4bd2-b67e-b91ee7dba5b0" Description="Create the CP2 view" ID="b22e233c-e739-477b-8b4d-8da08c8b6801" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="26c9aaba-9477-4f3a-ae3b-eb4c4d20b0ae" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="ceb17938-84ac-49ca-92bc-3111114dd03d" From="38f33ef2-a470-4e74-aa5a-1fc255509dea" FromIndex="0" To="b22e233c-e739-477b-8b4d-8da08c8b6801" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="3be86ebf-d3dd-42ab-9f36-6495a2a55edb" From="b22e233c-e739-477b-8b4d-8da08c8b6801" FromIndex="2" To="26c9aaba-9477-4f3a-ae3b-eb4c4d20b0ae" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

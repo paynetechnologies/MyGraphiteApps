@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Slider" ViewElementId="e1d3a60d-0b55-403f-b39c-45ed8a7a27f1" BasedOn="38107afd-fd3d-4472-b463-d8d0d5588a55" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Slider is used to contain slides.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Title" PropertyId="SimpleEntityDefinitionProperty_Title" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="CanSwipe" PropertyId="SimpleEntityDefinitionProperty_CanSwipe" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Slides" PropertyId="SimpleEntityDefinitionProperty_Slides" IsOptional="true" DataType="$[List,a5f71c78-d4e1-4b8d-90c3-3d63f4fbd9f6]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Slider" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Slider.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Slider.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Title" EditorType="TranslationKeyChooser" Label="Title" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Title of the Slider]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="CanSwipe" EditorType="YesNoToggle" Label="Swipe?" AffectsRender="false" IsLocalizable="false">
+        <Description><![CDATA[Allow Swiping?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Title" PropertyPath="Title" Value="{Text}" />
+      <Map FieldName="CanSwipe" PropertyPath="CanSwipe" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>Previous</Key>
+    <Key>Next</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Page</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACiSURBVDhPtZJBDoIwFAWLK66B1/Ee3ckWjqBbOQvXwWu4kzcfPmlESVQ6yZCWkvfSliLGGGZOspdPm/1HIT0vHHiIUt6mocFHv+p0ktylpJHHabgblSTXSpi0TDJAbkUJx2TbegP3k5qyteaQ21GSnmMWKDnLh83WfLpU2FpzyK0pucsrbzJA7kAJXCRle0IeucsvzLY4Nuf1Ur/RqaVyQxgBkcorRzIj/ZEAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABkAAAAKCAYAAABBq/VWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACeSURBVDhPvZNBDoIwEEVH2XANXeJR5D6cgfMYr+JOvIYbUv+jTK0bF03hJy9/StP5aTNYCMG5rl5DeT/zgFY81xr59xIQPgn62tGiBnGOZTWdBH3toCQWD9GyFrrf4qXy8/hbdITcVPQC/YTM81InNc03/M9eHoLuPFc6uJX2eK4LN3mJUWwh+k4+dowaI5ePYCkITyOcb9b+GfvowT5xM3d6o0LBXwAAAABJRU5ErkJggg==]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

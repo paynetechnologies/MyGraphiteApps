@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="ButtonClass" EntityId="88437d32-68bb-4de1-a609-411abb613213" TargetChangeSetId="595ecaa9-1b09-4cd9-8bdb-fe9ba0925b90">
+  <Description />
+  <Tags>
+    <Tag Type="Group">Financial</Tag>
+  </Tags>
+</EntityDefinition>

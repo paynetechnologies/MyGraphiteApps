@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="2c915a42-92a4-406b-a977-ba6dd8d9d5db" Name="ResizeImageContent" ExternalReferenceId="18d88d53-20fb-46bd-8634-74fd9565d1d5">
+  <Description>Resizes an Image</Description>
+  <ExternalNamespace>GTC.Imaging</ExternalNamespace>
+  <ExternalClassName>ImageResizeUtility</ExternalClassName>
+  <ExternalMethodName>ResizeImageContent</ExternalMethodName>
+  <Inputs>
+    <Parameter Name="Base64Image" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Parameter Name="ImageWidth" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+    <Parameter Name="ImageHeight" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Inputs>
+  <Outputs>
+    <Parameter Name="Result" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Outputs>
+</ExternalProcessDefinition>

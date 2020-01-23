@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataTransferDefinition Name="sl" DataTransferId="c0fbae6c-3827-4e41-bc55-082d9736c0a3" OriginatorId="b06d1b34-e2c0-4747-834d-3376e27e6910" OriginatorModelType="ExternalReference">
+  <Properties>
+    <Property Type="DataTransferEntityDefinitionProperty" PropertyName="SL" PropertyId="2c30a438-5722-4d11-8815-db20bf668e10" DataType="$[List,62ff6d43-a027-42b1-af68-9508897115fa]" IsOptional="true" />
+  </Properties>
+  <Tags>
+    <Tag Type="Group">Views</Tag>
+  </Tags>
+</DataTransferDefinition>

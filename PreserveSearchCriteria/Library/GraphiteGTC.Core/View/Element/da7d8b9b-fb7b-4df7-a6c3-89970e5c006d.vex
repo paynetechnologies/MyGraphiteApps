@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="Content" ViewElementId="da7d8b9b-fb7b-4df7-a6c3-89970e5c006d" BasedOn="4dc8c98f-53a7-4047-ad8a-690b94fdcdff" IsSystem="true" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Content of the View</Description>
+  <Properties />
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="Content" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">Content.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">BackToTop.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Name" EditorType="Hidden" Label="Name" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="PageContent" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Name" PropertyPath="Name" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>SkipToMainContent</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group"></Tag>
+  </Tags>
+</ViewElementDefinition>

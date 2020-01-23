@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="AddStorageItem" OwnerId="ae5a89a1-32a3-4cbb-84a2-26986dc4f176" ProcessId="d941b9ad-650b-4783-bace-eb8c37dd8d87" ProcessType="Normal" Classification="ViewElement" IsRemovable="true">
+  <Variables>
+    <Variable Name="Name" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="71325cff-287a-4baf-a4d4-1513e5155514" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="Value" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="31823141-4733-4355-b127-2dd7c2f76e12" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="View" DataType="ae5a89a1-32a3-4cbb-84a2-26986dc4f176" VariableType="Input" VariableId="77533ff6-2359-45ef-952e-5ac512ac8c96" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="6d56fc55-1d75-467c-ba9b-399302c27de8" Bounds="822.5,55,170,55" />
+        <DecisionNode LeftExpression="View.StorageItems" Operator="IsMissing" ID="98661819-3c42-4aef-ad0a-2c3783fb3685" Bounds="652.5,155,510,125" />
+        <ListLookupNode Source="View.StorageItems" VariableId="StorageItemInContext" ResultType="Single" ID="c525418e-faad-4032-b933-20d6c63e4646" Bounds="632.5,425,550,55" Text="List Lookup">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="Name" RightExpression="Name" Operator="IsEqualTo" />
+          </CriteriaExpressions>
+        </ListLookupNode>
+        <CreateNode Variable="View.StorageItems" DataType="$[List,6cb081f6-a92f-4d04-8349-179df418b1d7]" ID="e4ecd851-f866-4dd2-989d-205c3254565f" Bounds="232.5,325,550,55">
+          <Properties />
+        </CreateNode>
+        <DecisionNode LeftExpression="StorageItemInContext" Operator="IsMissing" ID="c07590fc-80ea-4523-adad-3e8896c81486" Bounds="652.5,525,510,125" />
+        <AssignNode ID="7c2fad4d-6371-4345-ad07-ff50b3b0940b" Bounds="1032.5,695,550,55" Text="Assign">
+          <Assignment Name="StorageItemInContext.Value" Value="Value" />
+        </AssignNode>
+        <CreateNode Variable="StorageItemInContext" DataType="6cb081f6-a92f-4d04-8349-179df418b1d7" ID="08682b01-139e-433e-a443-6fa9700bb152" Bounds="232.5,695,550,55" Text="Create">
+          <Properties>
+            <Property Name="Name">Name</Property>
+            <Property Name="Value">Value</Property>
+          </Properties>
+        </CreateNode>
+        <EndNode ID="20bd144b-575e-4183-bd54-ee54711e98d7" Bounds="822.5,895,170,55" />
+        <ListManagementNode ListActionType="Add" ListItem="StorageItemInContext" SourceList="View.StorageItems" ID="0c5529d0-fb13-4ba6-bec2-dc8a0eb6e43a" Bounds="232.5,795,550,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="74187d3e-f333-42b4-8bcf-814faad024a2" From="6d56fc55-1d75-467c-ba9b-399302c27de8" FromIndex="0" To="98661819-3c42-4aef-ad0a-2c3783fb3685" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,110" />
+          <Segment EndPoint="907.5,155" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="cb77e78a-40b1-40a1-a674-156a656a067e" From="98661819-3c42-4aef-ad0a-2c3783fb3685" FromIndex="3" To="e4ecd851-f866-4dd2-989d-205c3254565f" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,217.5" />
+          <Segment EndPoint="507.5,217.5" />
+          <Segment EndPoint="507.5,325" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="632e2148-f951-4e37-b0d0-23b8f64f2ade" From="08682b01-139e-433e-a443-6fa9700bb152" FromIndex="2" To="0c5529d0-fb13-4ba6-bec2-dc8a0eb6e43a" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,750" />
+          <Segment EndPoint="507.5,795" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="ca6bd398-1839-4552-be8e-1d136f0c09e7" From="0c5529d0-fb13-4ba6-bec2-dc8a0eb6e43a" FromIndex="2" To="20bd144b-575e-4183-bd54-ee54711e98d7" ToIndex="3" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="507.5,850" />
+          <Segment EndPoint="507.5,922.5" />
+          <Segment EndPoint="822.5,922.5" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="3a286ed9-7dec-4a65-8f35-32bb516aa392" From="e4ecd851-f866-4dd2-989d-205c3254565f" FromIndex="1" To="c525418e-faad-4032-b933-20d6c63e4646" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="782.5,352.5" />
+          <Segment EndPoint="907.5,352.5" />
+          <Segment EndPoint="907.5,425" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="ad06bd44-52b9-44d0-8138-ba55fcce24f9" From="98661819-3c42-4aef-ad0a-2c3783fb3685" FromIndex="2" To="c525418e-faad-4032-b933-20d6c63e4646" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="907.5,280" />
+          <Segment EndPoint="907.5,425" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="bf02ca28-b11e-4835-98df-c0e305e1aaa6" From="c525418e-faad-4032-b933-20d6c63e4646" FromIndex="2" To="c07590fc-80ea-4523-adad-3e8896c81486" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="907.5,480" />
+          <Segment EndPoint="907.5,525" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="6009d12b-e137-437e-9cef-0029751d9374" From="c07590fc-80ea-4523-adad-3e8896c81486" FromIndex="3" To="08682b01-139e-433e-a443-6fa9700bb152" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="652.5,587.5" />
+          <Segment EndPoint="507.5,587.5" />
+          <Segment EndPoint="507.5,695" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="9216bafb-002d-4273-8f72-bbcf54a3566a" From="c07590fc-80ea-4523-adad-3e8896c81486" FromIndex="1" To="7c2fad4d-6371-4345-ad07-ff50b3b0940b" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="1162.5,587.5" />
+          <Segment EndPoint="1307.5,587.5" />
+          <Segment EndPoint="1307.5,695" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="90cffc6e-6e3d-4b9b-9d60-3f474230f217" From="7c2fad4d-6371-4345-ad07-ff50b3b0940b" FromIndex="2" To="20bd144b-575e-4183-bd54-ee54711e98d7" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1307.5,750" />
+          <Segment EndPoint="1307.5,922.5" />
+          <Segment EndPoint="992.5,922.5" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

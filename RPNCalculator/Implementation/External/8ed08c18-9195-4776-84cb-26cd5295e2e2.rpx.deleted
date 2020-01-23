@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="8ed08c18-9195-4776-84cb-26cd5295e2e2" Name="gsa" ExternalReferenceId="b06d1b34-e2c0-4747-834d-3376e27e6910">
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>NET_Stack</ExternalClassName>
+  <ExternalMethodName>GetAllStackElementsList</ExternalMethodName>
+  <Outputs>
+    <Parameter Name="Result" DataType="$[List,ef14311e-b16e-4c54-9360-208689b28cd5]" />
+  </Outputs>
+</ExternalProcessDefinition>

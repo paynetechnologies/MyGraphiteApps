@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition LastKnownName="YesNoQuestion" EntityId="c2c8d771-a1fe-4dd0-ac36-dcecc9633ce0" EntityType="Enumeration" MergedFrom="0e977471-ddab-4761-a910-61b22a47b8ea" TargetChangeSetId="ff69244d-5249-463b-8589-1bc0408de048">
+  <Description />
+  <DataEntries KeyProperty="Description" />
+  <Tags>
+    <Tag Type="Group">Common</Tag>
+  </Tags>
+</EntityDefinition>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="MultiSelectPanel" ViewElementId="237b0d3c-68f8-4116-828f-42167fa100de" BasedOn="197b9758-cf65-4c6b-b1f3-3ecf5546a3b0" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description>Multi Select Panel contains one or more Multi Select Details.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Dimension" PropertyId="SimpleEntityDefinitionProperty_Dimension" IsOptional="true" DataType="07c61b7a-946e-4eb5-b742-3a0beee88206" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="DisplaySelectAll" PropertyId="SimpleEntityDefinitionProperty_DisplaySelectAll" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="IsLocked" PropertyId="8f06bbf5-7f92-40c7-842e-ab3378751dc0" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="LockedMessage" PropertyId="fed37769-e31e-4ca7-a97d-a6031dfdb6a3" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="MultiSelectPanel" />
+    <Property PropertyName="DisplaySelectAll" DefaultValue="Yes" />
+    <Property PropertyName="StackDisplayDetails" DefaultValue="Yes" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">MultiSelectPanel.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.MultiSelect.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Selectable.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">StyleHelper.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="DimensionHeight" EditorType="TextBox" Label="Height" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Height of the Panel]]></Description>
+      </Field>
+      <Field FieldName="DimensionScale" EditorType="SelectBox" Label="Scale" Grouping="Dimension" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Scale type for the Height of the Panel]]></Description>
+        <DescriptionOptions><![CDATA[%, em, pt, px]]></DescriptionOptions>
+        <FieldOptions>
+          <FieldOption DisplayName="em" Value="em" />
+          <FieldOption DisplayName="pt" Value="pt" />
+          <FieldOption DisplayName="px" Value="px" />
+          <FieldOption DisplayName="%" Value="%" />
+        </FieldOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="px" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="DisplaySelectAll" EditorType="YesNoToggle" Label="Show Select All?" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Show "Select All"?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="StackDisplayDetails" EditorType="Hidden" Label="StackDisplayDetails" AffectsRender="false" IsLocalizable="false">
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Yes" IsExplicit="false" />
+        </DefaultPropertyValues>
+      </Field>
+      <Field FieldName="IsLocked" EditorType="YesNoToggle" Label="Locked?" Grouping="Locked" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Lock Panel?]]></Description>
+        <DescriptionOptions><![CDATA[Yes / No]]></DescriptionOptions>
+      </Field>
+      <Field FieldName="LockedMessage" EditorType="TranslationKeyChooser" Label="Message" Grouping="Locked" AffectsRender="true" IsLocalizable="true">
+        <Description><![CDATA[Message to show when Panel is Locked]]></Description>
+        <DescriptionOptions><![CDATA[Translation Key]]></DescriptionOptions>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="DimensionHeight" PropertyPath="Dimension.Height" Value="{Text}" />
+      <Map FieldName="DimensionScale" PropertyPath="Dimension.Scale" Value="{Text}" />
+      <Map FieldName="DisplaySelectAll" PropertyPath="DisplaySelectAll" Value="{Text}" />
+      <Map FieldName="StackDisplayDetails" PropertyPath="StackDisplayDetails" Value="{Text}" />
+      <Map FieldName="IsLocked" PropertyPath="IsLocked" Value="{Text}" />
+      <Map FieldName="LockedMessage" PropertyPath="LockedMessage" Value="{TranslationKey}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <TranslationKeys>
+    <Key>SelectAll</Key>
+    <Key>UnselectAll</Key>
+  </TranslationKeys>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABcAAAAZCAYAAADaILXQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEiSURBVEhL1dKxSgNBEIDhPUXb9IdYW/kKNiKYRoiVViJyz2AjahPxDYKPYGGTKm8QsdNWbAxYio2ChfrPcgthbu7cDV7AHz6STTHcziUrisJFtowhXnAgP0h5npffqi3g+xdnWMQ1trCCqGS4lDU4xxV2cI9dRBWGN3WBQzxiE2+ISnYuV5cnlORzCZ/+5NwxZPgEG3hCdPrJb3CHDo7Qxyu6CIP1O6mlh8t5HWMM8IFtPCA0/T4a6eF7uMUavtArz9Jp+RmdHv6OfTzjBCOE5C8pmStQfHq4JLtdxaU/VTNXoPis4X9WGG5dTUtOhlvXqpNU62uxVlAnqfDk1gq05FpfS2vNMtx6F5pvluHW+9B8/3ItXltr8eayFvNaSmLO/QC6429t/0ODLQAAAABJRU5ErkJggg==]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABcAAAAZCAYAAADaILXQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEDSURBVEhL1dQxSgNBFMbxXYUUNl7Ayj51LiBaWniBELxD0iVbeQePYCPiJWy1sUllCjvBIk0Imfy/IU+GBHbfCArzwW929+1mGN4MqUMIlTM9POMTQxWUpml2d4c5gmZvM8MxHnCJM7iiyZW6hZZ2j2u84Qau2ORtucMIc1zgG77Qc0VX0R70kucJlAXOYXUXDYoVHvGKU9xigy/0Yd+4sz/5U3wK4R1rLDGAvc+iQbHCCV5UICtcwd5Nk3sXDUpaVG8/ME5qoti1K/E32kCdZR25rni/+4nnKP46tnJvslae89+SnbLbUuZp+Zee57TFs0dxvnJ7/ldtiSm/Ld5krLyqtgmqxnwHxAxQAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="CurrencyField" ViewElementId="08ee413d-b757-4c1e-a4ec-5d8118f22794" BasedOn="6c4194eb-b4de-4bdd-9ac8-1992477afd34" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false" BehaviorParameterDataType="5a2a204e-9712-4be7-9ef0-79c83427658f">
+  <Description>Currency Field is used for editing currency values.</Description>
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Code" PropertyId="SimpleEntityDefinitionProperty_Code" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Symbol" PropertyId="SimpleEntityDefinitionProperty_Symbol" IsOptional="true" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="NumberOfDecimalPlaces" PropertyId="SimpleEntityDefinitionProperty_NumberOfDecimalPlaces" IsOptional="true" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="CurrencyField" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">CurrencyField.js</Script>
+      <Script Component="true" RelativePath="View/Scripts">Widget.Calculator.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor>
+    <DisplayFields>
+      <Field FieldName="Mask" EditorType="MaskChooser" Label="Mask" AffectsRender="true" IsLocalizable="false">
+        <Description><![CDATA[Mask for the Field Value]]></Description>
+        <DescriptionOptions><![CDATA[Manual entry or Mask via Picker]]></DescriptionOptions>
+        <DefaultPropertyValues>
+          <PropertyValue Property="Text" Value="Numeric($,[#{*-*}].[##])" IsExplicit="true" />
+        </DefaultPropertyValues>
+      </Field>
+    </DisplayFields>
+    <DataMapping>
+      <Map FieldName="Mask" PropertyPath="Mask" Value="{Text}" />
+    </DataMapping>
+  </ViewElementEditor>
+  <Tags>
+    <Tag Type="Group">Form</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEvSURBVDhP1dNBK0RhFMbxdzQyCM1mGpFPYGVDEUmJmg2mma2FbrNS9rJSNopYIZ/Awha72dAsbJTYWyllxULE/5l7znSb1d3MwlO/e9653Tr3nvedTBRFv6GD6bLasXiDjPEkf39hEyPIYhg1fELxZ6WIVTyimTRfsItj5LGDb5zgAO15xSUm8aAbaRo8Wc1hHKc4xzyS0V6+YBEf2EaqBhpHL+6xhjIuoFF5+q2O4ixehrou7Q30+ZLMAp6hUU1Bb3qFKjzaG4+fyh9dvMGg1Vtcx8swYFVvXYHGc4d9KGrq6baqEUXxMkzr4g1mrc6hFC/DjNUhNLCBLWj+ypJV5Q06RWO4QR/20GpwhGVoI3ugDdTJUXRa1qExHOIdekufdTIFrEBfOqEb//2fHMIf4ikz7t0jlNoAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEjSURBVDhP1dOxSkJRHMfxoyiakS4SSm+QrUHg5CIGLiU11yJN0QPkEDT2BEEPIjTX1NAgOkQUvUBLDTbo93fu/w9ndHHoBx/P+Z977r36v9fcgoQ1Jm/j2uI3yBlPWs9xiR0U0MQFfqH4XmngGBNkUYvUJeNJ6xE0b+EGdatvofje1CZesVilRVMby9jDPR7QQRo9yy908YNrrPQLHrEBX8ujh3coWtM39nxCa1UVfhE/+c947dFJaskB9Obp2D4UzWvZNOYDWos39RZVbXzCOJuGLRsHOIXa84w7KDMblaKNatEwm4Z2/NRdSB+apw6hnEO1Hu4Vdq0+gZKe4yp4QSwU9VMXLKOEDt6gfOMMDWh/E0NoXUkvvI0jxDdI+e//5BCWIYewir05t9UAAAAASUVORK5CYII=]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

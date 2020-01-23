@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalProcessDefinition ExternalProcessId="09555d34-6609-4985-88bd-760ef939f0d8" Name="GetStackElement" ExternalReferenceId="663352da-e42d-4d45-a4ed-128cdd4afa06">
+  <ExternalNamespace>Wrapper_NET_Stack</ExternalNamespace>
+  <ExternalClassName>Element</ExternalClassName>
+  <ExternalMethodName>GetStackElement</ExternalMethodName>
+  <Inputs>
+    <Parameter Name="ElementNbr" DataType="ca9b1a7c-74c9-4aeb-8870-74ba24407035" />
+  </Inputs>
+  <Outputs>
+    <Parameter Name="Result" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  </Outputs>
+</ExternalProcessDefinition>

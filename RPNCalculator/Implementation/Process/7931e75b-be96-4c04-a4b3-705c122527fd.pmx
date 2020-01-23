@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="6e0b61a8-a220-4d55-bbc9-6d29090562a9" ProcessId="7931e75b-be96-4c04-a4b3-705c122527fd" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="6e0b61a8-a220-4d55-bbc9-6d29090562a9" VariableType="Output" Classification="Pinned, Locked" VariableId="7a75d4a3-af7b-4a2b-9662-96eba1663510" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="6d758d90-930b-4481-8c55-689a647d7abf" VariableType="Input" Classification="Pinned, Locked" VariableId="3bad2607-a9ff-4b65-bae5-e29d521f409f" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="37cad46c-4e8a-44e3-bdad-c2889c721baf" Bounds="0,0,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="6e0b61a8-a220-4d55-bbc9-6d29090562a9" Description="Create the SessionStuff view" ID="43ab0522-0a51-46b7-961c-9e1aae8f7f20" Bounds="-190,100,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <EndNode ID="8a711e1b-1492-4b5c-9216-81b01351934c" Bounds="0,200,170,55" Text="End" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="59fc237f-800a-448e-9e78-b0234d577454" From="37cad46c-4e8a-44e3-bdad-c2889c721baf" FromIndex="0" To="43ab0522-0a51-46b7-961c-9e1aae8f7f20" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+        <ProcessNodeConnection ID="173b654a-2947-41ae-ba61-4cef073a0355" From="43ab0522-0a51-46b7-961c-9e1aae8f7f20" FromIndex="2" To="8a711e1b-1492-4b5c-9216-81b01351934c" ToIndex="0" LineType="ElbowArrow" ZOrder="100" />
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

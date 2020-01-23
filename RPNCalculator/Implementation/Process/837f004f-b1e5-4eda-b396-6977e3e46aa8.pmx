@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="Infix" OwnerId="7d5220d9-aa81-4e6e-81d1-31de43af34c1" ProcessId="837f004f-b1e5-4eda-b396-6977e3e46aa8" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables />
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="ae554d5c-365f-4ee7-81ef-eb70249528a9" Bounds="630.6,55,170,55" />
+      </Nodes>
+      <Connections />
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

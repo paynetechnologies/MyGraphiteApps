@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="OnLoadView" OwnerId="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessId="600caf44-182c-458a-94ac-fa0ec2f7a6ed" ProcessType="Normal" Classification="View, Initialization" IsRemovable="false">
+  <Variables>
+    <Variable Name="View" DataType="5802350c-2fda-4489-bca0-e753287c3fd6" VariableType="Output" Classification="Pinned, Locked" VariableId="46d9f493-3396-441c-ad51-1c518f9f79f0" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="CurrentUser" DataType="603f5747-29a6-4c5d-ab2f-9885c9ac1524" VariableType="Input" Classification="Pinned, Locked" VariableId="86ec0e52-2c80-4e39-bb83-c02c4e914723" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="FirstNameInContext" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="5153be2c-cf52-4de4-a9c1-d13b7483c28f" IsOptional="true" SendUiParameters="false" />
+    <Variable Name="LastNameInContext" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="10a0298f-7ea0-4447-b272-81c54c9287a1" IsOptional="true" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode ID="5fddbbd9-8217-47c5-8060-dc1d0d59071a" Bounds="630.6,55,170,55" Text="Start" />
+        <CreateNode Variable="View" DataType="5802350c-2fda-4489-bca0-e753287c3fd6" Description="Create the Home view" ID="48e3c207-f17f-417e-bfea-84d8a5b74248" Bounds="440.6,155,550,55" Text="Create">
+          <Properties />
+        </CreateNode>
+        <AssignNode Description="Set Fields" ID="443e6883-ed8c-458c-a185-fb9530846d7b" Bounds="440.6,255,550,55">
+          <Assignment Name="FirstNameField.Value" Value="FirstNameInContext" />
+          <Assignment Name="LastNameField.Value" Value="LastNameInContext" />
+        </AssignNode>
+        <ExecuteProcessNode ViewDefinition="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessProperty="362c5bc5-1298-4abf-8373-26ef7dcf3eb5" ExecuteProcessType="View" VariableId="HomeGetListOfPeopleResult" SuppressValidations="false" ID="153de482-49c6-40e7-ac6d-365ccf2a8ba5" Bounds="440.6,355,550,55">
+          <InputVariables>
+            <InputVariable Name="inputFirstName" Value="FirstNameInContext" />
+            <InputVariable Name="inputLastName" Value="LastNameInContext" />
+          </InputVariables>
+          <OutputVariables>
+            <OutputVariable Name="People" Value="People" />
+          </OutputVariables>
+        </ExecuteProcessNode>
+        <ExecuteProcessNode ViewDefinition="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessProperty="a0744474-b4d7-4751-ab6c-056a95fb0fb7" ExecuteProcessType="View" VariableId="HomeBuildPersonDetailsResult" SuppressValidations="false" ID="a25beb02-8166-4cd4-8455-5e94bfeb43a1" Bounds="440.6,455,550,55">
+          <InputVariables>
+            <InputVariable Name="People" Value="People" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <ListManagementNode ListActionType="AddRange" ListItem="HomeBuildPersonDetailsResult.Outputs.PersonDetails" SourceList="PersonPanel.DisplayDetails" Description="Add to Panel" ID="cb038aa9-f36b-4cfe-9af5-77ca9b9916d1" Bounds="440.6,555,550,55" />
+        <EndNode ID="61b51149-f77d-4c60-a23b-5c52cd5b28ac" Bounds="630.6,655,170,55" Text="End" />
+        <CommentNode Todo="false" ID="eadb59d6-736f-48e1-a222-66a9c1a7de8e" Bounds="1040,105,300,110" Text="Comment"><![CDATA[OnLoadView will perform a search since the OnLoadView Parameters could have been setup for this View]]></CommentNode>
+        <CommentNode Todo="false" ID="1b498855-c814-4a56-991a-d5ec3b5be07a" Bounds="1015,535,300,110" ZOrder="1" Text="Comment"><![CDATA[Only the OnLoadView Behavior has direct access to the View; Other Behaviors  require a Page Instruction to update the View;]]></CommentNode>
+        <PageInstructionNode Action="Replace" Instruction="Content" Context="Current" ContainerElementId="9925a317-03ed-4b93-ba15-8e5aaff57a07" ViewElementsExpression="HomeBuildPersonDetailsResult.Outputs.PersonDetails" PageInstructionViewElementId="9c2a999a-fa50-4a60-8b68-957e6d7c2ee5" Description="Example Page Instructions to Replace PersonPanel" ID="5f159a88-45f4-418d-9115-bf8dafd94295" Bounds="1015,655,550,55" ZOrder="1" Text="" />
+        <AssignNode Description="Test Hard Coded First Name and Last Name" ID="757be3bf-4462-44d9-88d7-d306351de688" Bounds="1035,255,550,55" ZOrder="1" Text="">
+          <Assignment Name="FirstNameInContext" Value="&quot;Howard&quot;" />
+          <Assignment Name="LastNameInContext" Value="&quot;Payne&quot;" />
+        </AssignNode>
+        <DataLookupNode Source="cb9e2f2a-9099-4787-848d-3ab22edb933f" VariableId="People" ResultType="Array" ID="766e5572-d274-494e-a3f2-7defce1ac43d" Bounds="1035,355,550,55">
+          <CriteriaExpressions>
+            <CriteriaExpression LeftExpression="FirstName" RightExpression="FirstNameInContext" Operator="StartsWith" />
+            <CriteriaExpression LeftExpression="LastName" RightExpression="LastNameInContext" Operator="StartsWith" />
+          </CriteriaExpressions>
+          <Sort IsDynamic="false">
+            <SortCriteria PropertyName="FirstName" SortOrderType="Ascending" SortPriority="0" />
+            <SortCriteria PropertyName="LastName" SortOrderType="Ascending" SortPriority="0" />
+          </Sort>
+        </DataLookupNode>
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="e0cbe13a-47b8-4fd0-b22e-a09cc6335001" From="5fddbbd9-8217-47c5-8060-dc1d0d59071a" FromIndex="0" To="48e3c207-f17f-417e-bfea-84d8a5b74248" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,110" />
+          <Segment EndPoint="715.6,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="bf60a3cd-c30e-4c95-89db-532e607d00d4" From="153de482-49c6-40e7-ac6d-365ccf2a8ba5" FromIndex="2" To="a25beb02-8166-4cd4-8455-5e94bfeb43a1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,410" />
+          <Segment EndPoint="715.6,455" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="fc372d5c-4cab-4eb3-9049-ddec0ee10eb0" From="443e6883-ed8c-458c-a185-fb9530846d7b" FromIndex="2" To="153de482-49c6-40e7-ac6d-365ccf2a8ba5" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,310" />
+          <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="2551c51c-0f1e-4454-a0da-c4e3d019e86f" From="48e3c207-f17f-417e-bfea-84d8a5b74248" FromIndex="2" To="443e6883-ed8c-458c-a185-fb9530846d7b" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,210" />
+          <Segment EndPoint="715.6,255" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="20e7ea97-5a0d-4789-bb7e-4e34749425f0" From="a25beb02-8166-4cd4-8455-5e94bfeb43a1" FromIndex="2" To="cb038aa9-f36b-4cfe-9af5-77ca9b9916d1" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,510" />
+          <Segment EndPoint="715.6,555" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4b1b42e0-0bc9-4ca7-a710-26b9d56a103f" From="cb038aa9-f36b-4cfe-9af5-77ca9b9916d1" FromIndex="2" To="61b51149-f77d-4c60-a23b-5c52cd5b28ac" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,610" />
+          <Segment EndPoint="715.6,655" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

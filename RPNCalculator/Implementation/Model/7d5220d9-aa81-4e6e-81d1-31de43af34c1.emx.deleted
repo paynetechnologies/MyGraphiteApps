@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDefinition EntityName="RPNCalculatorEntity" EntityId="7d5220d9-aa81-4e6e-81d1-31de43af34c1" NamespaceExtension="UnitTest.TestCase" TargetChangeSetId="595ecaa9-1b09-4cd9-8bdb-fe9ba0925b90">
+  <Description>Reverse Polish Notation Entity</Description>
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Expression" PropertyId="7de37b53-b3c7-4597-93f2-d2d089c59bf8" IsOptional="false" DataType="62ff6d43-a027-42b1-af68-9508897115fa" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="ExpressionType" PropertyId="5db8b3d5-fc75-42f7-b565-1bcf332341b2" IsOptional="false" DataType="e9b4801b-7b80-4a35-98ca-c08ad8a714fb" />
+  <Property Type="SimpleEntityDefinitionProperty" PropertyName="Result" PropertyId="9f5f10c4-ea81-4382-9ae7-f52d4f24547f" IsOptional="false" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" />
+  <Tags>
+    <Tag Type="Group">Financial</Tag>
+  </Tags>
+</EntityDefinition>

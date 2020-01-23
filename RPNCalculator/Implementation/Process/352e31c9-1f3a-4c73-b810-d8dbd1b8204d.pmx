@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="PostFix" OwnerId="7d5220d9-aa81-4e6e-81d1-31de43af34c1" ProcessId="352e31c9-1f3a-4c73-b810-d8dbd1b8204d" ProcessType="Normal" Classification="Entity" IsRemovable="true">
+  <Variables>
+    <Variable Name="expression" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Input" VariableId="693018ca-623e-4c0c-acd1-809a02996ea9" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="expressionType" DataType="e9b4801b-7b80-4a35-98ca-c08ad8a714fb" VariableType="Input" VariableId="d3746a67-9ed8-4378-9bbc-6aeea8913249" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="result" DataType="d9e1311d-0fbb-4ccc-a5ae-8c648554f89d" VariableType="Output" VariableId="b074f5b7-0132-4f57-be11-10e88ec6e52f" IsOptional="false" SendUiParameters="false" />
+  </Variables>
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="3f81ab31-5e6a-4226-949b-f34230d346ac" Bounds="630,55,170,55" />
+        <ValidationNode ID="6b9b0927-0278-4803-9b1a-d4a0d7c1bd58" Bounds="440,155,550,55" Text="Validation">
+          <Validations>
+            <Validation Name="expressionIsMissing" Type="Error" Severity="High" Suppress="false" IsOverridable="false" AutoOverride="false">
+              <ErrorMessage><![CDATA[expression]]></ErrorMessage>
+              <Fix><![CDATA[]]></Fix>
+              <Expressions>
+                <Expression LeftExpression="expression" Operator="IsMissing" />
+              </Expressions>
+            </Validation>
+          </Validations>
+        </ValidationNode>
+        <EndNode ID="b68e57dc-4cfc-4fb6-8205-92f4fb9c8f6c" Bounds="630,255,170,55" />
+      </Nodes>
+      <Connections>
+        <ProcessNodeConnection ID="2cad519a-5813-425e-a651-59e5905ef7db" From="3f81ab31-5e6a-4226-949b-f34230d346ac" FromIndex="0" To="6b9b0927-0278-4803-9b1a-d4a0d7c1bd58" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,110" />
+          <Segment EndPoint="715,155" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="4de2ef31-db0f-4350-91e5-6b214fd1abff" From="6b9b0927-0278-4803-9b1a-d4a0d7c1bd58" FromIndex="2" To="b68e57dc-4cfc-4fb6-8205-92f4fb9c8f6c" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715,210" />
+          <Segment EndPoint="715,255" />
+        </ProcessNodeConnection>
+      </Connections>
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>

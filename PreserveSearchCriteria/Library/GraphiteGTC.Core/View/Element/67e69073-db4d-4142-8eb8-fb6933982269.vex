@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewElementDefinition ViewElementName="MenuItem" ViewElementId="67e69073-db4d-4142-8eb8-fb6933982269" BasedOn="62bbfd71-4c92-49bb-92f7-bfe02d8438b6" IsSystem="false" IsBuiltIn="false" IsIgnoredOnPreview="false" IsAutoReferenced="false">
+  <Description />
+  <Properties>
+    <Property Type="SimpleEntityDefinitionProperty" PropertyName="Links" PropertyId="7300d253-9570-474b-a2f6-236f28b5dab0" IsOptional="true" DataType="$[List,62bbfd71-4c92-49bb-92f7-bfe02d8438b6]" />
+  </Properties>
+  <DefaultValues>
+    <Property PropertyName="Type" DefaultValue="MenuItem" />
+  </DefaultValues>
+  <ExternalResources>
+    <Scripts>
+      <Script Component="true" RelativePath="View/Scripts">MenuItem.js</Script>
+    </Scripts>
+  </ExternalResources>
+  <ViewElementEditor />
+  <Tags>
+    <Tag Type="Group">Action</Tag>
+  </Tags>
+  <Icons>
+    <DefaultIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABvSURBVEhL7ZNBCoAwDARTH5t31Jerm6o0NiebBAQHlpYesoShhZk3CmQ5zzD6guIcIXWDN9QjcNgHbzceBWu7Cri7FoCrZBgOvBxg8DAcpEp+ypqNkLKB9UnckuogBBRYgmai+KRkxS/ZiiJ4A6IdXMBIX6EK0UgAAAAASUVORK5CYII=]]></DefaultIcon>
+    <HoverIcon><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVEhLY/wPBAw0BExQmmYA2QeMUJpaAGwuzX1AqQUNQAxyKTIGiSEAKIigAMQmBzcAMQyA2DBxMKBWHMBcjex6sLlDP5KHR0aDMmkDBn1GIwhoEckoyX00kgmC0UgmABgYAGEsea4LXU0tAAAAAElFTkSuQmCC]]></HoverIcon>
+  </Icons>
+</ViewElementDefinition>

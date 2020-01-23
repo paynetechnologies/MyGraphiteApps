@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProcessDefinition ProcessName="test" OwnerId="5802350c-2fda-4489-bca0-e753287c3fd6" ProcessId="d8c42aca-52b3-4e49-aa87-37887ce60775" ProcessType="Normal" Classification="View" IsRemovable="true">
+  <Variables />
+  <ProcessDiagram>
+    <Diagram>
+      <Nodes>
+        <StartNode Description="Start" ID="4aba4223-6b01-4be6-85bc-980b2dcaa967" Bounds="630.6,55,170,55" />
+      </Nodes>
+      <Connections />
+    </Diagram>
+  </ProcessDiagram>
+</ProcessDefinition>
