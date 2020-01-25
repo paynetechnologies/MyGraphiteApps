@@ -9,13 +9,20 @@
   <ProcessDiagram>
     <Diagram>
       <Nodes>
-        <StartNode ID="2e91e831-cb3b-42d2-b881-7560ad36e433" Bounds="630,825,170,55" ZOrder="7" Text="Start" />
-        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="8fbe47a6-e319-410a-b319-7ae0f90a3340" Bounds="440.6,925,550,55" ZOrder="7" Text="Create">
+        <StartNode ID="2e91e831-cb3b-42d2-b881-7560ad36e433" Bounds="630.6,825,170,55" ZOrder="7" Text="Start" />
+        <CreateNode Variable="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" Description="Create List of Page Instructions" ID="8fbe47a6-e319-410a-b319-7ae0f90a3340" Bounds="441.2,925,550,55" ZOrder="7" Text="Create">
           <Properties />
         </CreateNode>
-        <ExecuteProcessNode ExecuteProcessType="ServiceProcess" SuppressValidations="false" ID="1c23d5cf-b8b3-4218-b733-3e80136f6d92" Bounds="440.6,1025,550,55" />
-        <EndNode ID="94edb986-e6f7-449d-945b-a10a0145aaa6" Bounds="630.6,1125,170,55" ZOrder="2" Text="" />
-        <ExecuteProcessNode ViewDefinition="99265598-c23c-4d5c-a3dd-44796f560815" ProcessProperty="e81e1b6c-5900-40fb-b66f-5fdfa92a0b23" ExecuteProcessType="View" VariableId="CalculatorPageOnClickButtonResult" SuppressValidations="false" ID="d990246c-9aa9-45ea-88d0-0b81f72837fe" Bounds="415,4030,550,55" ZOrder="2" Text="">
+        <ExecuteProcessNode ViewDefinition="99265598-c23c-4d5c-a3dd-44796f560815" ProcessProperty="e81e1b6c-5900-40fb-b66f-5fdfa92a0b23" ExecuteProcessType="View" VariableId="CalculatorPageOnClickButtonResult" SuppressValidations="false" ID="1c23d5cf-b8b3-4218-b733-3e80136f6d92" Bounds="441.2,1025,550,55">
+          <InputVariables>
+            <InputVariable Name="CurrentUser" Value="CurrentUser" />
+            <InputVariable Name="inputToken" Value="&quot;8&quot;" />
+            <InputVariable Name="PageInstructions" Value="PageInstructions" />
+            <InputVariable Name="ResultField" Value="ResultField" />
+          </InputVariables>
+        </ExecuteProcessNode>
+        <EndNode ID="94edb986-e6f7-449d-945b-a10a0145aaa6" Bounds="631.2,1125,170,55" ZOrder="2" Text="" />
+        <ExecuteProcessNode ViewDefinition="99265598-c23c-4d5c-a3dd-44796f560815" ProcessProperty="e81e1b6c-5900-40fb-b66f-5fdfa92a0b23" ExecuteProcessType="View" VariableId="CalculatorPageOnClickButtonResult" SuppressValidations="false" ID="d990246c-9aa9-45ea-88d0-0b81f72837fe" Bounds="415.6,4030,550,55" ZOrder="2" Text="">
           <InputVariables>
             <InputVariable Name="CurrentUser" Value="CurrentUser" />
             <InputVariable Name="inputToken" Value="inputToken" />
@@ -24,18 +31,18 @@
       </Nodes>
       <Connections>
         <ProcessNodeConnection ID="3f6bc070-2f29-40e8-8c78-2bf48bca3a94" From="2e91e831-cb3b-42d2-b881-7560ad36e433" FromIndex="0" To="8fbe47a6-e319-410a-b319-7ae0f90a3340" ToIndex="0" LineType="ElbowArrow">
-          <Segment EndPoint="715,880" />
-          <Segment EndPoint="715,902.5" />
-          <Segment EndPoint="715.6,902.5" Movable="true" />
-          <Segment EndPoint="715.6,925" />
+          <Segment EndPoint="715.6,880" />
+          <Segment EndPoint="715.6,902.5" />
+          <Segment EndPoint="716.2,902.5" Movable="true" />
+          <Segment EndPoint="716.2,925" />
         </ProcessNodeConnection>
         <ProcessNodeConnection ID="435e58dc-45be-4f2c-82d1-49ef0db496c7" From="8fbe47a6-e319-410a-b319-7ae0f90a3340" FromIndex="2" To="1c23d5cf-b8b3-4218-b733-3e80136f6d92" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
-          <Segment EndPoint="715.6,980" />
-          <Segment EndPoint="715.6,1025" />
+          <Segment EndPoint="716.2,980" />
+          <Segment EndPoint="716.2,1025" />
         </ProcessNodeConnection>
         <ProcessNodeConnection ID="46a79f77-219f-450e-b4db-b887d51c1f18" From="1c23d5cf-b8b3-4218-b733-3e80136f6d92" FromIndex="2" To="94edb986-e6f7-449d-945b-a10a0145aaa6" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
-          <Segment EndPoint="715.6,1080" />
-          <Segment EndPoint="715.6,1125" />
+          <Segment EndPoint="716.2,1080" />
+          <Segment EndPoint="716.2,1125" />
         </ProcessNodeConnection>
       </Connections>
     </Diagram>
