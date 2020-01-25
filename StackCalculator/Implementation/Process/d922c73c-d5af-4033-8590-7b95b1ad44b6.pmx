@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ProcessDefinition ProcessName="OnClickButtonStackDump" OwnerId="4dea0dca-6d7e-4320-ac52-dd823e5d2826" ProcessId="d922c73c-d5af-4033-8590-7b95b1ad44b6" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
+<ProcessDefinition ProcessName="OnClickButtonDumpStack" OwnerId="4dea0dca-6d7e-4320-ac52-dd823e5d2826" ProcessId="d922c73c-d5af-4033-8590-7b95b1ad44b6" ProcessType="Normal" Classification="View, EventHandler" IsRemovable="true">
   <Variables>
     <Variable Name="CurrentUser" DataType="7593bf8d-7b0f-4c09-83d2-2409d348a050" VariableType="Input" Classification="Pinned, Locked" VariableId="85f8f0fe-21a5-4502-be03-4861e0bed6e3" IsOptional="false" SendUiParameters="false" />
     <Variable Name="PageInstructions" DataType="$[List,cd79934a-0312-42e4-a1bc-e1a9cb077d7f]" VariableType="Output" Classification="Pinned, Locked" VariableId="1eda5913-da19-4c00-b403-d832ecede0e1" IsOptional="false" SendUiParameters="false" />
+    <Variable Name="StackField" DataType="62ff6d43-a027-42b1-af68-9508897115fa" VariableType="Output" VariableId="204f4a6b-ff2e-4a31-a95b-108fe091230c" IsOptional="false" SendUiParameters="false" />
   </Variables>
   <ProcessDiagram>
     <Diagram>
@@ -12,7 +13,16 @@
           <Properties />
         </CreateNode>
         <RunExternalProcessNode ExternalProcessId="016fafea-1a52-4040-b90c-f1e266d4f66b" VariableId="GetStackElementsResult" ID="584881fa-3ddc-4501-bdd5-84702fb20427" Bounds="440.6,255,550,55" />
-        <EndNode ID="fb1c68ef-7d25-450e-9284-dc60a3a3d3a2" Bounds="630.6,355,170,55" />
+        <DecisionNode LeftExpression="GetStackElementsResult.Count" RightExpression="0" Operator="IsEqualTo" ID="1c539382-3648-4cab-8b03-dd534a251c3d" Bounds="460.6,355,510,125" />
+        <AssignNode ID="cfad9da1-eae7-4f03-86f5-9572ad93caa6" Bounds="1240.6,525,550,55" Text="Assign">
+          <Assignment Name="StackField" Value="&quot;&quot;" />
+        </AssignNode>
+        <RepeatNode LoopType="ForEach" EnumerationSource="GetStackElementsResult" IterationVar="StackItem" ID="e24f6d54-2250-4487-b817-1a898a1fd6a7" Bounds="365.6,525,700,205" />
+        <PageInstructionNode Action="UpdateElement" Instruction="Value" Context="Current" TargetElementId="1b71e500-14cd-400b-b2cc-329be9261174" ValueExpression="StackField" PageInstructionViewElementId="181b09f4-5dfd-4ab2-b297-22069b657b8f" ID="6a2fc520-d059-49e4-a403-c5de8553b8a3" Bounds="440.6,775,550,55" />
+        <AssignNode Parent="e24f6d54-2250-4487-b817-1a898a1fd6a7" ID="fdc4c645-a201-4cf9-89d7-05538c0aa257" Bounds="75,75,550,55" ZOrder="10">
+          <Assignment Name="StackField" Value="Text.Concatenate( StackField, StackItem.StringProperty )" />
+        </AssignNode>
+        <EndNode ID="fb1c68ef-7d25-450e-9284-dc60a3a3d3a2" Bounds="1030.6,875,170,55" />
       </Nodes>
       <Connections>
         <ProcessNodeConnection ID="a9b471c9-34e0-4250-98c9-54cefc20c36e" From="9dc81463-86fe-4bc3-b67b-db7df5695166" FromIndex="0" To="cf026ccf-e738-40cc-82db-e268938b1787" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
@@ -23,9 +33,33 @@
           <Segment EndPoint="715.6,210" />
           <Segment EndPoint="715.6,255" />
         </ProcessNodeConnection>
-        <ProcessNodeConnection ID="2a198d46-a801-4daa-aa95-773083145151" From="584881fa-3ddc-4501-bdd5-84702fb20427" FromIndex="2" To="fb1c68ef-7d25-450e-9284-dc60a3a3d3a2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+        <ProcessNodeConnection ID="df9a805e-5e9d-4bc4-9590-0de7d325d714" From="e24f6d54-2250-4487-b817-1a898a1fd6a7" FromIndex="2" To="6a2fc520-d059-49e4-a403-c5de8553b8a3" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,730" />
+          <Segment EndPoint="715.6,775" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="e873440d-ad23-4f8e-b3f1-04202315430f" From="6a2fc520-d059-49e4-a403-c5de8553b8a3" FromIndex="2" To="fb1c68ef-7d25-450e-9284-dc60a3a3d3a2" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="715.6,830" />
+          <Segment EndPoint="715.6,852.5" />
+          <Segment EndPoint="1115.6,852.5" Movable="true" />
+          <Segment EndPoint="1115.6,875" />
+        </ProcessNodeConnection>
+        <ProcessNodeConnection ID="31514c29-76fe-4c74-91f5-6437dc858b1b" From="584881fa-3ddc-4501-bdd5-84702fb20427" FromIndex="2" To="1c539382-3648-4cab-8b03-dd534a251c3d" ToIndex="0" LineType="ElbowArrow" ZOrder="100">
           <Segment EndPoint="715.6,310" />
           <Segment EndPoint="715.6,355" />
+        </ProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="IfBranch" ID="5d7f4ba3-aa35-43cb-a71d-36dfbe473043" From="1c539382-3648-4cab-8b03-dd534a251c3d" FromIndex="1" To="cfad9da1-eae7-4f03-86f5-9572ad93caa6" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="Yes">
+          <Segment EndPoint="970.6,417.5" />
+          <Segment EndPoint="1515.6,417.5" />
+          <Segment EndPoint="1515.6,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <BooleanDecisionProcessNodeConnection BranchType="ElseBranch" ID="2a6b7deb-11e7-4524-82a8-8f51c08d1740" From="1c539382-3648-4cab-8b03-dd534a251c3d" FromIndex="2" To="e24f6d54-2250-4487-b817-1a898a1fd6a7" ToIndex="0" LineType="ElbowArrow" ZOrder="100" Text="No">
+          <Segment EndPoint="715.6,480" />
+          <Segment EndPoint="715.6,525" />
+        </BooleanDecisionProcessNodeConnection>
+        <ProcessNodeConnection ID="348dab8b-76e6-4027-a04a-699ffa3333c4" From="cfad9da1-eae7-4f03-86f5-9572ad93caa6" FromIndex="2" To="6a2fc520-d059-49e4-a403-c5de8553b8a3" ToIndex="1" LineType="ElbowArrow" ZOrder="100">
+          <Segment EndPoint="1515.6,580" />
+          <Segment EndPoint="1515.6,802.5" />
+          <Segment EndPoint="990.6,802.5" />
         </ProcessNodeConnection>
       </Connections>
     </Diagram>
